@@ -212,7 +212,7 @@ jobs:
 
       - name: Set up Terraform
         if: steps.check.outputs.needs_validation == 'true'
-        uses: hashicorp/setup-terraform@v3
+        uses: hashicorp/setup-terraform@v4
         with:
           terraform_wrapper: false
 
@@ -422,7 +422,7 @@ jobs:
 
       - name: Setup Terraform
         if: steps.check.outputs.needs_validation == 'true'
-        uses: hashicorp/setup-terraform@v3
+        uses: hashicorp/setup-terraform@v4
         with:
           terraform_wrapper: false
 
