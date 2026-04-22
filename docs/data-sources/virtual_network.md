@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_virtual_network Data Source - terraform-provider-f5xc"
+title: "f5xc_virtual_network Data Source - terraform-provider-f5xc"
 subcategory: "Networking"
 description: |-
   Manages virtual network in given namespace. in F5 Distributed Cloud.

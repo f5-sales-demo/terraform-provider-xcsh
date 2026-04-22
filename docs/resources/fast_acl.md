@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_fast_acl Resource - terraform-provider-f5xc"
+title: "f5xc_fast_acl Resource - terraform-provider-f5xc"
 subcategory: "Security"
 description: |-
   Manages new Fast ACL rule, has specification to match source IP, source port and action to apply. in F5 Distributed Cloud.

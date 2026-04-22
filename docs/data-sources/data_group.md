@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_data_group Data Source - terraform-provider-f5xc"
+title: "f5xc_data_group Data Source - terraform-provider-f5xc"
 subcategory: "BIG-IP Integration"
 description: |-
   Manages data group in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud.

@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_forwarding_class Resource - terraform-provider-f5xc"
+title: "f5xc_forwarding_class Resource - terraform-provider-f5xc"
 subcategory: "Networking"
 description: |-
   Manages a Forwarding Class resource in F5 Distributed Cloud for forwarding class is created by users in system namespace. configuration.

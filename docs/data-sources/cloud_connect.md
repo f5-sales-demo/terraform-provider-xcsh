@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_cloud_connect Data Source - terraform-provider-f5xc"
+title: "f5xc_cloud_connect Data Source - terraform-provider-f5xc"
 subcategory: "Networking"
 description: |-
   Manages a Cloud Connect resource in F5 Distributed Cloud for establishing connectivity to cloud provider networks.

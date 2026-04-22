@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_voltstack_site Resource - terraform-provider-f5xc"
+title: "f5xc_voltstack_site Resource - terraform-provider-f5xc"
 subcategory: "Sites"
 description: |-
   Manages a Voltstack Site resource in F5 Distributed Cloud for deploying Volterra stack sites for edge computing.

@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_virtual_host Resource - terraform-provider-f5xc"
+title: "f5xc_virtual_host Resource - terraform-provider-f5xc"
 subcategory: "Load Balancing"
 description: |-
   Manages virtual host in a given namespace. in F5 Distributed Cloud.

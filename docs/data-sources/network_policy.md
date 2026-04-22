@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_network_policy Data Source - terraform-provider-f5xc"
+title: "f5xc_network_policy Data Source - terraform-provider-f5xc"
 subcategory: "Security"
 description: |-
   Manages new network policy with configured parameters in specified namespace. in F5 Distributed Cloud.

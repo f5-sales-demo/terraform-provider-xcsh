@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_virtual_site Data Source - terraform-provider-f5xc"
+title: "f5xc_virtual_site Data Source - terraform-provider-f5xc"
 subcategory: "Sites"
 description: |-
   Manages virtual site object in given namespace. in F5 Distributed Cloud.

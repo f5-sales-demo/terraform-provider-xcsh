@@ -1,5 +1,5 @@
 ---
-page_title: "Guide: Authentication Methods"
+title: "Guide: Authentication Methods"
 subcategory: "Guides"
 description: |-
   Comprehensive guide to authenticating the F5 Distributed Cloud Terraform

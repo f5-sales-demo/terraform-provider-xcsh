@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_site Data Source - terraform-provider-f5xc"
+title: "f5xc_site Data Source - terraform-provider-f5xc"
 subcategory: "Uncategorized"
 description: |-
   Manages a Site resource in F5 Distributed Cloud for app stack site specification. configuration.

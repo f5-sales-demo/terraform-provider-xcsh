@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_securemesh_site Resource - terraform-provider-f5xc"
+title: "f5xc_securemesh_site Resource - terraform-provider-f5xc"
 subcategory: "Sites"
 description: |-
   Manages a Securemesh Site resource in F5 Distributed Cloud for deploying secure mesh edge sites with distributed security capabilities.

@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_data_type Resource - terraform-provider-f5xc"
+title: "f5xc_data_type Resource - terraform-provider-f5xc"
 subcategory: "Security"
 description: |-
   Manages data_type creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.

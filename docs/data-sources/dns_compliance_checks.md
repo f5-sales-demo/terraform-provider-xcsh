@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_dns_compliance_checks Data Source - terraform-provider-f5xc"
+title: "f5xc_dns_compliance_checks Data Source - terraform-provider-f5xc"
 subcategory: "DNS"
 description: |-
   Manages DNS Compliance Checks Specification in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud.

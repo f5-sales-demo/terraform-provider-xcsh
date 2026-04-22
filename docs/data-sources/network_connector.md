@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_network_connector Data Source - terraform-provider-f5xc"
+title: "f5xc_network_connector Data Source - terraform-provider-f5xc"
 subcategory: "Networking"
 description: |-
   Manages a Network Connector resource in F5 Distributed Cloud for network connector is created by users in system namespace. configuration.

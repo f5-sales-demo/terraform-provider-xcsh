@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_app_firewall Resource - terraform-provider-f5xc"
+title: "f5xc_app_firewall Resource - terraform-provider-f5xc"
 subcategory: "Security"
 description: |-
   Manages Application Firewall. in F5 Distributed Cloud.

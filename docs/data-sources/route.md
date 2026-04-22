@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_route Data Source - terraform-provider-f5xc"
+title: "f5xc_route Data Source - terraform-provider-f5xc"
 subcategory: "Load Balancing"
 description: |-
   Manages route object in a given namespace. Route object is list of route rules. Each rule has match condition to match incoming requests and actions to take on matching requests. in F5 Distributed Cloud.

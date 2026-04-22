@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_cdn_loadbalancer Resource - terraform-provider-f5xc"
+title: "f5xc_cdn_loadbalancer Resource - terraform-provider-f5xc"
 subcategory: "Load Balancing"
 description: |-
   Manages a CDN Load Balancer resource in F5 Distributed Cloud for content delivery and edge caching with load balancing.

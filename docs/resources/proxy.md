@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_proxy Resource - terraform-provider-f5xc"
+title: "f5xc_proxy Resource - terraform-provider-f5xc"
 subcategory: "Networking"
 description: |-
   Manages a Proxy resource in F5 Distributed Cloud for tcp loadbalancer create specification. configuration.

@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_namespace Resource - terraform-provider-f5xc"
+title: "f5xc_namespace Resource - terraform-provider-f5xc"
 subcategory: "Organization"
 description: |-
   Manages new namespace. Name of the object is name of the name space. in F5 Distributed Cloud.

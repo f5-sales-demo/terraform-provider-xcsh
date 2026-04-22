@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_app_setting Data Source - terraform-provider-f5xc"
+title: "f5xc_app_setting Data Source - terraform-provider-f5xc"
 subcategory: "Applications"
 description: |-
   Manages App setting configuration in namespace metadata.namespace. in F5 Distributed Cloud.

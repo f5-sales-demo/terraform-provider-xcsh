@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_address_allocator Data Source - terraform-provider-f5xc"
+title: "f5xc_address_allocator Data Source - terraform-provider-f5xc"
 subcategory: "Cloud Resources"
 description: |-
   Manages Address Allocator will create an address allocator object in 'system' namespace of the user. in F5 Distributed Cloud.

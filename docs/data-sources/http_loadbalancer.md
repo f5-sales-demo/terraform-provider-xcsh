@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_http_loadbalancer Data Source - terraform-provider-f5xc"
+title: "f5xc_http_loadbalancer Data Source - terraform-provider-f5xc"
 subcategory: "Load Balancing"
 description: |-
   Manages a HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with advanced routing and security.

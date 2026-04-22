@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_workload Resource - terraform-provider-f5xc"
+title: "f5xc_workload Resource - terraform-provider-f5xc"
 subcategory: "Kubernetes"
 description: |-
   Manages workload_flavor. in F5 Distributed Cloud.

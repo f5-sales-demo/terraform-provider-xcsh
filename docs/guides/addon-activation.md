@@ -1,5 +1,5 @@
 ---
-page_title: "Guide: Addon Service Activation"
+title: "Guide: Addon Service Activation"
 subcategory: "Guides"
 description: |-
   Learn how to activate F5XC addon services using Terraform.

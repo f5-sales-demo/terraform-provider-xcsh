@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_waf_exclusion_policy Resource - terraform-provider-f5xc"
+title: "f5xc_waf_exclusion_policy Resource - terraform-provider-f5xc"
 subcategory: "Security"
 description: |-
   Manages WAF exclusion policy. in F5 Distributed Cloud.

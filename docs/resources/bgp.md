@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_bgp Resource - terraform-provider-f5xc"
+title: "f5xc_bgp Resource - terraform-provider-f5xc"
 subcategory: "Networking"
 description: |-
   Manages a BGP resource in F5 Distributed Cloud for bgp routing policy is a list of rules containing match criteria and action to be applied. these rules help contol routes which are imported or exported to bgp peers. configuration.

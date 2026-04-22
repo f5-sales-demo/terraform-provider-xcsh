@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_code_base_integration Data Source - terraform-provider-f5xc"
+title: "f5xc_code_base_integration Data Source - terraform-provider-f5xc"
 subcategory: "Integrations"
 description: |-
   Manages integration details. in F5 Distributed Cloud.

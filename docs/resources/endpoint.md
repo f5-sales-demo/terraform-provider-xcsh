@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_endpoint Resource - terraform-provider-f5xc"
+title: "f5xc_endpoint Resource - terraform-provider-f5xc"
 subcategory: "Load Balancing"
 description: |-
   Manages endpoint will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.

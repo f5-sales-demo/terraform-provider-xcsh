@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_tunnel Resource - terraform-provider-f5xc"
+title: "f5xc_tunnel Resource - terraform-provider-f5xc"
 subcategory: "Networking"
 description: |-
   Manages tunnel in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud.

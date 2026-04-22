@@ -1,3 +1,6 @@
+---
+title: "Guides"
+---
 # Guides
 
 Step-by-step tutorials for common F5 Distributed Cloud scenarios.

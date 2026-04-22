@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_service_policy_rule Resource - terraform-provider-f5xc"
+title: "f5xc_service_policy_rule Resource - terraform-provider-f5xc"
 subcategory: "Security"
 description: |-
   Manages service_policy_rule creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.

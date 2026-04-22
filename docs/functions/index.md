@@ -1,3 +1,6 @@
+---
+title: "Functions"
+---
 # Functions
 
 Provider-defined functions for F5 Distributed Cloud operations.

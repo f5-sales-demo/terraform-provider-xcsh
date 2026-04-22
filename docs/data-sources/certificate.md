@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_certificate Data Source - terraform-provider-f5xc"
+title: "f5xc_certificate Data Source - terraform-provider-f5xc"
 subcategory: "Certificates"
 description: |-
   Manages a Certificate resource in F5 Distributed Cloud for TLS/SSL certificate management.

@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_azure_vnet_site Data Source - terraform-provider-f5xc"
+title: "f5xc_azure_vnet_site Data Source - terraform-provider-f5xc"
 subcategory: "Sites"
 description: |-
   Manages a Azure VNET Site resource in F5 Distributed Cloud for deploying F5 sites within Azure Virtual Network environments.

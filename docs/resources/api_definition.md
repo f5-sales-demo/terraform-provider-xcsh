@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_api_definition Resource - terraform-provider-f5xc"
+title: "f5xc_api_definition Resource - terraform-provider-f5xc"
 subcategory: "API Security"
 description: |-
   Manages API Definition. in F5 Distributed Cloud.

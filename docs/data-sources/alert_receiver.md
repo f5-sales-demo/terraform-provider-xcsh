@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_alert_receiver Data Source - terraform-provider-f5xc"
+title: "f5xc_alert_receiver Data Source - terraform-provider-f5xc"
 subcategory: "Monitoring"
 description: |-
   Manages new Alert Receiver object. in F5 Distributed Cloud.

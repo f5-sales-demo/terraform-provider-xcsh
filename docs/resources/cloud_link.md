@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_cloud_link Resource - terraform-provider-f5xc"
+title: "f5xc_cloud_link Resource - terraform-provider-f5xc"
 subcategory: "Networking"
 description: |-
   Manages new CloudLink with configured parameters. in F5 Distributed Cloud.

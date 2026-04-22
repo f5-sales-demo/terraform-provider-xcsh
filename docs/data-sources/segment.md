@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_segment Data Source - terraform-provider-f5xc"
+title: "f5xc_segment Data Source - terraform-provider-f5xc"
 subcategory: "Networking"
 description: |-
   Manages a Segment resource in F5 Distributed Cloud for segment. configuration.

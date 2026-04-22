@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_origin_pool Resource - terraform-provider-f5xc"
+title: "f5xc_origin_pool Resource - terraform-provider-f5xc"
 subcategory: "Load Balancing"
 description: |-
   Manages a Origin Pool resource in F5 Distributed Cloud for defining backend server pools for load balancer targets.

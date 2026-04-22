@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_nat_policy Data Source - terraform-provider-f5xc"
+title: "f5xc_nat_policy Data Source - terraform-provider-f5xc"
 subcategory: "Security"
 description: |-
   Manages a NAT Policy resource in F5 Distributed Cloud for nat policy create specification configures nat policy with multiple rules,. configuration.

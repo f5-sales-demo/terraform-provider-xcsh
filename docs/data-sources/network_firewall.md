@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_network_firewall Data Source - terraform-provider-f5xc"
+title: "f5xc_network_firewall Data Source - terraform-provider-f5xc"
 subcategory: "Security"
 description: |-
   Manages a Network Firewall resource in F5 Distributed Cloud for network firewall is created by users in system namespace. configuration.

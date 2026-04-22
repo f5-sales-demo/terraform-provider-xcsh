@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_udp_loadbalancer Resource - terraform-provider-f5xc"
+title: "f5xc_udp_loadbalancer Resource - terraform-provider-f5xc"
 subcategory: "Load Balancing"
 description: |-
   Manages a UDP Load Balancer resource in F5 Distributed Cloud for load balancing UDP traffic across origin pools.

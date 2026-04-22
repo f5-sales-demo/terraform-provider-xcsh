@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_external_connector Resource - terraform-provider-f5xc"
+title: "f5xc_external_connector Resource - terraform-provider-f5xc"
 subcategory: "Networking"
 description: |-
   Manages a External Connector resource in F5 Distributed Cloud for external_connector configuration specification. configuration.

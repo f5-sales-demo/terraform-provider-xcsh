@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_rate_limiter_policy Resource - terraform-provider-f5xc"
+title: "f5xc_rate_limiter_policy Resource - terraform-provider-f5xc"
 subcategory: "Security"
 description: |-
   Manages a Rate Limiter Policy resource in F5 Distributed Cloud for rate limiter policy create specification. configuration.

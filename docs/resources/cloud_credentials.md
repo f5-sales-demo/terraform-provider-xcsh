@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_cloud_credentials Resource - terraform-provider-f5xc"
+title: "f5xc_cloud_credentials Resource - terraform-provider-f5xc"
 subcategory: "Authentication"
 description: |-
   Manages a Cloud Credentials resource in F5 Distributed Cloud for api to create cloud_credentials object. configuration.

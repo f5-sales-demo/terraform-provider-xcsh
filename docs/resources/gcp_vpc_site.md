@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_gcp_vpc_site Resource - terraform-provider-f5xc"
+title: "f5xc_gcp_vpc_site Resource - terraform-provider-f5xc"
 subcategory: "Sites"
 description: |-
   Manages a GCP VPC Site resource in F5 Distributed Cloud for deploying F5 sites within Google Cloud VPC environments.

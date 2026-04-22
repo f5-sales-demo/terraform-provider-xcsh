@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_trusted_ca_list Data Source - terraform-provider-f5xc"
+title: "f5xc_trusted_ca_list Data Source - terraform-provider-f5xc"
 subcategory: "Certificates"
 description: |-
   Manages a Trusted CA List resource in F5 Distributed Cloud for trusted certificate authority list management.

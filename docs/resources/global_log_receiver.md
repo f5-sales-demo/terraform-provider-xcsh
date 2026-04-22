@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_global_log_receiver Resource - terraform-provider-f5xc"
+title: "f5xc_global_log_receiver Resource - terraform-provider-f5xc"
 subcategory: "Monitoring"
 description: |-
   Manages new Global Log Receiver object. in F5 Distributed Cloud.

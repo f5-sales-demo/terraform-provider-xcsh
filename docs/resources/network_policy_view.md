@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_network_policy_view Resource - terraform-provider-f5xc"
+title: "f5xc_network_policy_view Resource - terraform-provider-f5xc"
 subcategory: "Security"
 description: |-
   Manages a Network Policy View resource in F5 Distributed Cloud for network policy view specification. configuration.

@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_alert_policy Data Source - terraform-provider-f5xc"
+title: "f5xc_alert_policy Data Source - terraform-provider-f5xc"
 subcategory: "Security"
 description: |-
   Manages new Alert Policy Object. in F5 Distributed Cloud.

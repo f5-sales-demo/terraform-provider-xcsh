@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_cminstance Resource - terraform-provider-f5xc"
+title: "f5xc_cminstance Resource - terraform-provider-f5xc"
 subcategory: "Subscriptions"
 description: |-
   Manages App type will create the configuration in namespace metadata.namespace. in F5 Distributed Cloud.

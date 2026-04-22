@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_fleet Resource - terraform-provider-f5xc"
+title: "f5xc_fleet Resource - terraform-provider-f5xc"
 subcategory: "Sites"
 description: |-
   Manages fleet will create a fleet object in 'system' namespace of the user. in F5 Distributed Cloud.

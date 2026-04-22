@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_apm Data Source - terraform-provider-f5xc"
+title: "f5xc_apm Data Source - terraform-provider-f5xc"
 subcategory: "Monitoring"
 description: |-
   Manages new APM as a service with configured parameters. in F5 Distributed Cloud.

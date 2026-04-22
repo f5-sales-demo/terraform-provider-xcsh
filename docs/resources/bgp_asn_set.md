@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_bgp_asn_set Resource - terraform-provider-f5xc"
+title: "f5xc_bgp_asn_set Resource - terraform-provider-f5xc"
 subcategory: "Networking"
 description: |-
   Manages bgp_asn_set creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.

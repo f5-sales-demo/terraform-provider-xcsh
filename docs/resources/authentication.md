@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_authentication Resource - terraform-provider-f5xc"
+title: "f5xc_authentication Resource - terraform-provider-f5xc"
 subcategory: "Authentication"
 description: |-
   Manages a Authentication resource in F5 Distributed Cloud.

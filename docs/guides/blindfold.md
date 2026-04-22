@@ -1,5 +1,5 @@
 ---
-page_title: "Guide: Blindfold Secret Management Functions"
+title: "Guide: Blindfold Secret Management Functions"
 subcategory: "Guides"
 description: |-
   Learn how to securely encrypt secrets using F5XC Blindfold functions.

@@ -1,3 +1,6 @@
+---
+title: "Resources"
+---
 # Resources
 
 Terraform resources for managing F5 Distributed Cloud infrastructure.

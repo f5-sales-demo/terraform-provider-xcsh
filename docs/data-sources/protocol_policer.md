@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_protocol_policer Data Source - terraform-provider-f5xc"
+title: "f5xc_protocol_policer Data Source - terraform-provider-f5xc"
 subcategory: "Security"
 description: |-
   Manages protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits. in F5 Distributed Cloud.

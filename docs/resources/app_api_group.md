@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_app_api_group Resource - terraform-provider-f5xc"
+title: "f5xc_app_api_group Resource - terraform-provider-f5xc"
 subcategory: "API Security"
 description: |-
   Manages app_api_group creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.

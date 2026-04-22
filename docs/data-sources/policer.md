@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_policer Data Source - terraform-provider-f5xc"
+title: "f5xc_policer Data Source - terraform-provider-f5xc"
 subcategory: "Service Mesh"
 description: |-
   Manages new policer with traffic rate limits. in F5 Distributed Cloud.

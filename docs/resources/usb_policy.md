@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_usb_policy Resource - terraform-provider-f5xc"
+title: "f5xc_usb_policy Resource - terraform-provider-f5xc"
 subcategory: "Security"
 description: |-
   Manages new USB policy object. in F5 Distributed Cloud.

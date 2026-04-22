@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_discovery Data Source - terraform-provider-f5xc"
+title: "f5xc_discovery Data Source - terraform-provider-f5xc"
 subcategory: "Applications"
 description: |-
   Manages API discovery creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.

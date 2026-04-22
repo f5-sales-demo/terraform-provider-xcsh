@@ -1,5 +1,5 @@
 ---
-page_title: "Guide: Advanced HTTP Load Balancer Security"
+title: "Guide: Advanced HTTP Load Balancer Security"
 subcategory: "Guides"
 description: |-
   Advanced guide to deploying a fully-secured HTTP Load Balancer with all security

@@ -1,5 +1,5 @@
 ---
-page_title: "Guide: Migrating to Provider v3.0.0"
+title: "Guide: Migrating to Provider v3.0.0"
 subcategory: "Guides"
 description: |-
   Migration guide for upgrading from F5XC Terraform provider v2.x to v3.0.0,

@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_healthcheck Data Source - terraform-provider-f5xc"
+title: "f5xc_healthcheck Data Source - terraform-provider-f5xc"
 subcategory: "Load Balancing"
 description: |-
   Manages a Healthcheck resource in F5 Distributed Cloud for healthcheck object defines method to determine if the given endpoint is healthy. single healthcheck object can be referred to by one or many cluster objects. configuration.

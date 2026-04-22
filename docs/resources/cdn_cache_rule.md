@@ -1,5 +1,5 @@
 ---
-page_title: "f5xc_cdn_cache_rule Resource - terraform-provider-f5xc"
+title: "f5xc_cdn_cache_rule Resource - terraform-provider-f5xc"
 subcategory: "Load Balancing"
 description: |-
   Manages a CDN Cache Rule resource in F5 Distributed Cloud for cdn loadbalancer specification. configuration.

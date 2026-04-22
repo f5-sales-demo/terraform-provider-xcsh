@@ -1,5 +1,5 @@
 ---
-page_title: "Guide: HTTP Load Balancer with Security Features"
+title: "Guide: HTTP Load Balancer with Security Features"
 subcategory: "Guides"
 description: |-
   Step-by-step guide to deploy a production-ready HTTP Load Balancer with WAF,
