@@ -108,10 +108,10 @@ jobs:
         id: check
         run: |
           if [ -n "$(git status --porcelain docs/ examples/)" ]; then
-            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "changed=true" >> "$GITHUB_OUTPUT"
             echo "Documentation changes detected:"
             git status --porcelain docs/ examples/
           else
-            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "No documentation changes"
           fi

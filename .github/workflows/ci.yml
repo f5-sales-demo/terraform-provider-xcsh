@@ -198,9 +198,9 @@ jobs:
 
           # Check if any files that affect doc generation changed
           if echo "$CHANGED_FILES" | grep -qE "^internal/|^tools/|^templates/"; then
-            echo "needs_validation=true" >> $GITHUB_OUTPUT
+            echo "needs_validation=true" >> "$GITHUB_OUTPUT"
           else
-            echo "needs_validation=false" >> $GITHUB_OUTPUT
+            echo "needs_validation=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Set up Go
@@ -296,9 +296,9 @@ jobs:
           CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD 2>/dev/null || echo "")
 
           if echo "$CHANGED_FILES" | grep -qE "^tools/api-defaults\.json$|^tools/generate-mock-fixtures\.go$|^internal/mocks/generated_defaults"; then
-            echo "needs_validation=true" >> $GITHUB_OUTPUT
+            echo "needs_validation=true" >> "$GITHUB_OUTPUT"
           else
-            echo "needs_validation=false" >> $GITHUB_OUTPUT
+            echo "needs_validation=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Set up Go
@@ -373,10 +373,10 @@ jobs:
 
           # Check if any shell scripts changed
           if echo "$CHANGED_FILES" | grep -qE "\.sh$"; then
-            echo "needs_validation=true" >> $GITHUB_OUTPUT
+            echo "needs_validation=true" >> "$GITHUB_OUTPUT"
             echo "Shell scripts changed - validation needed"
           else
-            echo "needs_validation=false" >> $GITHUB_OUTPUT
+            echo "needs_validation=false" >> "$GITHUB_OUTPUT"
             echo "No shell script changes - skipping validation"
           fi
 
@@ -413,10 +413,10 @@ jobs:
 
           # Check if any Terraform files in examples/ changed
           if echo "$CHANGED_FILES" | grep -qE "^examples/.*\.tf$"; then
-            echo "needs_validation=true" >> $GITHUB_OUTPUT
+            echo "needs_validation=true" >> "$GITHUB_OUTPUT"
             echo "Terraform example files changed - validation needed"
           else
-            echo "needs_validation=false" >> $GITHUB_OUTPUT
+            echo "needs_validation=false" >> "$GITHUB_OUTPUT"
             echo "No Terraform example changes - skipping validation"
           fi
 
