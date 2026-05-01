@@ -61,7 +61,7 @@ jobs:
             echo "::error::Failed to install tfplugindocs after $max_attempts attempts"
             exit 1
           fi
-          echo "$HOME/go/bin" >> $GITHUB_PATH
+          echo "$HOME/go/bin" >> "$GITHUB_PATH"
 
       - name: Calculate Terraform version requirements
         run: |

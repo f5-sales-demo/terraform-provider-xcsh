@@ -332,7 +332,7 @@ jobs:
             echo "::error::Failed to install tfplugindocs after $max_attempts attempts"
             exit 1
           fi
-          echo "$HOME/go/bin" >> $GITHUB_PATH
+          echo "$HOME/go/bin" >> "$GITHUB_PATH"
 
       - name: Regenerate provider (if needed)
         if: needs.regenerate-provider.outputs.changed == 'true'
@@ -547,30 +547,30 @@ jobs:
     steps:
       - name: Print summary
         run: |
-          echo "## On-Merge Workflow Summary" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "| Step | Result |" >> $GITHUB_STEP_SUMMARY
-          echo "|------|--------|" >> $GITHUB_STEP_SUMMARY
-          echo "| Should Process | ${{ needs.detect-changes.outputs.should-process }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Is Bot Commit | ${{ needs.detect-changes.outputs.is-bot-commit }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Needs Regeneration | ${{ needs.detect-changes.outputs.needs-regeneration }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Specs Changed | ${{ needs.detect-changes.outputs.specs-changed }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Code Changed | ${{ needs.detect-changes.outputs.code-changed }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Tools Changed | ${{ needs.detect-changes.outputs.tools-changed }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Functions Changed | ${{ needs.detect-changes.outputs.functions-changed }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Docs Changed | ${{ needs.detect-changes.outputs.docs-changed }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Build/Test | ${{ needs.build-test.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Provider Regenerated | ${{ needs.regenerate-provider.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Docs Regenerated | ${{ needs.regenerate-docs.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Regeneration PR Created | ${{ needs.create-regeneration-pr.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Tagged/Released | ${{ needs.tag-release.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Notify MCP Repo | ${{ needs.notify-mcp-repo.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### Delayed Tagging Logic" >> $GITHUB_STEP_SUMMARY
-          echo "- Bot commits -> Tag immediately (regeneration complete)" >> $GITHUB_STEP_SUMMARY
-          echo "- Human commits without regeneration -> Tag immediately" >> $GITHUB_STEP_SUMMARY
-          echo "- Human commits with regeneration PR -> Wait for PR merge to tag" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### MCP Server (Standalone Repo)" >> $GITHUB_STEP_SUMMARY
-          echo "MCP server has been extracted to f5xc-salesdemos/terraform-provider-mcp." >> $GITHUB_STEP_SUMMARY
-          echo "The notify-mcp-repo job dispatches to the standalone repo on release." >> $GITHUB_STEP_SUMMARY
+          echo "## On-Merge Workflow Summary" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Step | Result |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|------|--------|" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Should Process | ${{ needs.detect-changes.outputs.should-process }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Is Bot Commit | ${{ needs.detect-changes.outputs.is-bot-commit }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Needs Regeneration | ${{ needs.detect-changes.outputs.needs-regeneration }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Specs Changed | ${{ needs.detect-changes.outputs.specs-changed }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Code Changed | ${{ needs.detect-changes.outputs.code-changed }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Tools Changed | ${{ needs.detect-changes.outputs.tools-changed }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Functions Changed | ${{ needs.detect-changes.outputs.functions-changed }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Docs Changed | ${{ needs.detect-changes.outputs.docs-changed }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Build/Test | ${{ needs.build-test.result }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Provider Regenerated | ${{ needs.regenerate-provider.result }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Docs Regenerated | ${{ needs.regenerate-docs.result }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Regeneration PR Created | ${{ needs.create-regeneration-pr.result }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Tagged/Released | ${{ needs.tag-release.result }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Notify MCP Repo | ${{ needs.notify-mcp-repo.result }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "### Delayed Tagging Logic" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Bot commits -> Tag immediately (regeneration complete)" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Human commits without regeneration -> Tag immediately" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Human commits with regeneration PR -> Wait for PR merge to tag" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "### MCP Server (Standalone Repo)" >> "$GITHUB_STEP_SUMMARY"
+          echo "MCP server has been extracted to f5xc-salesdemos/terraform-provider-mcp." >> "$GITHUB_STEP_SUMMARY"
+          echo "The notify-mcp-repo job dispatches to the standalone repo on release." >> "$GITHUB_STEP_SUMMARY"
