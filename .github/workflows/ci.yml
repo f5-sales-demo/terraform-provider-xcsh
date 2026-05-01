@@ -222,7 +222,7 @@ jobs:
           # Retry logic for go install (network-dependent)
           max_attempts=3
           attempt=1
-          while [ $attempt -le $max_attempts ]; do
+          while [ "$attempt" -le "$max_attempts" ]; do
             echo "::group::Install tfplugindocs - Attempt $attempt of $max_attempts"
             if go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.24.0; then
               echo "::endgroup::"
@@ -230,13 +230,13 @@ jobs:
             fi
             echo "::endgroup::"
             attempt=$((attempt + 1))
-            if [ $attempt -le $max_attempts ]; then
+            if [ "$attempt" -le "$max_attempts" ]; then
               sleep_time=$((2 ** attempt * 5))
               echo "::warning::go install failed, retrying in ${sleep_time}s..."
-              sleep $sleep_time
+              sleep "$sleep_time"
             fi
           done
-          if [ $attempt -gt $max_attempts ]; then
+          if [ "$attempt" -gt "$max_attempts" ]; then
             echo "::error::Failed to install tfplugindocs after $max_attempts attempts"
             exit 1
           fi
@@ -253,7 +253,7 @@ jobs:
           # Generate docs with retry logic
           max_attempts=3
           attempt=1
-          while [ $attempt -le $max_attempts ]; do
+          while [ "$attempt" -le "$max_attempts" ]; do
             echo "::group::tfplugindocs generate - Attempt $attempt of $max_attempts"
             if tfplugindocs generate; then
               echo "::endgroup::"
@@ -261,13 +261,13 @@ jobs:
             fi
             echo "::endgroup::"
             attempt=$((attempt + 1))
-            if [ $attempt -le $max_attempts ]; then
+            if [ "$attempt" -le "$max_attempts" ]; then
               sleep_time=$((2 ** attempt * 5))
               echo "::warning::tfplugindocs failed, retrying in ${sleep_time}s..."
-              sleep $sleep_time
+              sleep "$sleep_time"
             fi
           done
-          if [ $attempt -gt $max_attempts ]; then
+          if [ "$attempt" -gt "$max_attempts" ]; then
             echo "::error::tfplugindocs failed after $max_attempts attempts"
             exit 1
           fi
