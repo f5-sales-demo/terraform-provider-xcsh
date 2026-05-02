@@ -45,7 +45,7 @@ jobs:
           attempt=1
           while [ $attempt -le $max_attempts ]; do
             echo "::group::Install tfplugindocs - Attempt $attempt of $max_attempts"
-            if go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@latest; then
+            if go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.24.0; then
               echo "::endgroup::"
               break
             fi
@@ -61,7 +61,7 @@ jobs:
             echo "::error::Failed to install tfplugindocs after $max_attempts attempts"
             exit 1
           fi
-          echo "$HOME/go/bin" >> $GITHUB_PATH
+          echo "$HOME/go/bin" >> "$GITHUB_PATH"
 
       - name: Calculate Terraform version requirements
         run: |
@@ -108,10 +108,10 @@ jobs:
         id: check
         run: |
           if [ -n "$(git status --porcelain docs/ examples/)" ]; then
-            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "changed=true" >> "$GITHUB_OUTPUT"
             echo "Documentation changes detected:"
             git status --porcelain docs/ examples/
           else
-            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "No documentation changes"
           fi
