@@ -80,7 +80,7 @@ jobs:
           SPEC_VERSION="${{ env.SPEC_VERSION }}"
 
           echo "Spec source: $SPEC_SOURCE"
-          echo "spec_source=$SPEC_SOURCE" >> $GITHUB_OUTPUT
+          echo "spec_source=$SPEC_SOURCE" >> "$GITHUB_OUTPUT"
 
           if [ "$SPEC_SOURCE" = "v2" ]; then
             # Determine v2 version
