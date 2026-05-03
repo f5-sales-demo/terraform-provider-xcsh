@@ -831,6 +831,16 @@ func extractResourceSchema(spec *OpenAPI3Spec, resourceName string) (*ResourceTe
 
 	attributes = sortedAttrs
 
+	// Apply x-f5xc-minimum-configuration to improve Required field accuracy
+	minConfigFields := parseMinConfigRequiredFields(createSpec.XF5XCMinimumConfiguration)
+	if len(minConfigFields) > 0 {
+		minFieldSet := make(map[string]bool, len(minConfigFields))
+		for _, f := range minConfigFields {
+			minFieldSet[f] = true
+		}
+		promoteMinConfigRequired(attributes, minFieldSet)
+	}
+
 	// Get best description with enrichment extension priority:
 	// 1. x-f5xc-description-medium (preferred - detailed but concise)
 	// 2. x-f5xc-description-short (fallback - ultra-short)
@@ -1515,6 +1525,38 @@ func filterOptional(attrs []TerraformAttribute) []TerraformAttribute {
 		}
 	}
 	return result
+}
+
+// parseMinConfigRequiredFields extracts the required_fields list from x-f5xc-minimum-configuration.
+// The structure is: {"required_fields": ["field_name", "spec.field_name", ...], "example_yaml": "..."}
+// Strips "spec." prefix which commonly appears in minimum config field names.
+func parseMinConfigRequiredFields(raw interface{}) []string {
+	m, ok := raw.(map[string]interface{})
+	if !ok {
+		return nil
+	}
+	fieldsRaw, ok := m["required_fields"].([]interface{})
+	if !ok {
+		return nil
+	}
+	var result []string
+	for _, f := range fieldsRaw {
+		if s, ok := f.(string); ok && s != "" {
+			result = append(result, strings.TrimPrefix(s, "spec."))
+		}
+	}
+	return result
+}
+
+// promoteMinConfigRequired marks attributes as Required if their tfsdk tag appears in the minimum config.
+// This promotes Optional fields that are needed for a minimum viable configuration.
+func promoteMinConfigRequired(attrs []TerraformAttribute, minFields map[string]bool) {
+	for i := range attrs {
+		if minFields[attrs[i].TfsdkTag] && attrs[i].Optional && !attrs[i].Required {
+			attrs[i].Required = true
+			attrs[i].Optional = false
+		}
+	}
 }
 
 // extractDefaultFromDescription attempts to extract a default value from description text.
