@@ -150,6 +150,7 @@ type TerraformAttribute struct {
 	ConflictsWith      []string // From x-f5xc-conflicts-with
 	MaxLength          int      // From x-original-maxLength
 	Immutable          bool     // From x-field-mutability == "immutable" or "create-only"
+	EnumValues         []string // String-only enum values for OneOf validator
 }
 
 type ResourceTemplate struct {
@@ -173,6 +174,7 @@ type ResourceTemplate struct {
 	UsesStringPlanModifier bool   // True if any string attribute uses a plan modifier
 	HasBlocks              bool   // True if the resource has any nested blocks
 	HasMaxLengthValidators bool   // True if any attribute has MaxLength > 0
+	HasEnumValidators      bool   // True if any attribute has EnumValues
 }
 
 type GenerationResult struct {
@@ -868,6 +870,7 @@ func extractResourceSchema(spec *OpenAPI3Spec, resourceName string) (*ResourceTe
 		UsesStringPlanModifier: usesString,
 		HasBlocks:              hasBlocks,
 		HasMaxLengthValidators: hasMaxLengthValidators,
+		HasEnumValidators:      hasEnumValidatorsAny(attributes),
 	}, nil
 }
 
@@ -899,6 +902,20 @@ func hasMaxLengthValidatorsAny(attributes []TerraformAttribute) bool {
 			if hasMaxLengthValidatorsAny(attr.NestedAttributes) {
 				return true
 			}
+		}
+	}
+	return false
+}
+
+// hasEnumValidatorsAny recursively checks if any attribute (top-level or nested)
+// has EnumValues. This determines whether stringvalidator must be imported for OneOf.
+func hasEnumValidatorsAny(attributes []TerraformAttribute) bool {
+	for _, attr := range attributes {
+		if len(attr.EnumValues) > 0 {
+			return true
+		}
+		if hasEnumValidatorsAny(attr.NestedAttributes) {
+			return true
 		}
 	}
 	return false
@@ -1122,6 +1139,15 @@ func convertToTerraformAttributeWithDepth(name string, schema SchemaDefinition, 
 	// Format enum values per HashiCorp standards: "Possible values are `value1`, `value2`"
 	if len(schema.Enum) > 0 {
 		attr.Description = formatEnumDescription(attr.Description, schema.Enum)
+	}
+
+	// Populate EnumValues for string-type enum fields (for OneOf validator generation)
+	if schema.Type == "string" && len(schema.Enum) > 0 {
+		for _, v := range schema.Enum {
+			if str, ok := v.(string); ok && str != "" && len(str) <= 50 {
+				attr.EnumValues = append(attr.EnumValues, str)
+			}
+		}
 	}
 
 	// Format default values per HashiCorp standards: "Defaults to `value`."
@@ -3547,6 +3573,13 @@ func generateResourceFile(resource *ResourceTemplate) error {
 		"renderUpdateComputedFieldsCode":  renderUpdateComputedFieldsCode,
 		"renderFetchedComputedFieldsCode": renderFetchedComputedFieldsCode,
 		"filterSpecFields":                filterSpecFields,
+		"enumValuesLiteral": func(values []string) string {
+			quoted := make([]string, len(values))
+			for i, v := range values {
+				quoted[i] = fmt.Sprintf("%q", v)
+			}
+			return strings.Join(quoted, ", ")
+		},
 	}
 
 	tmpl, err := template.New("resource").Funcs(funcMap).Parse(resourceTemplate)
@@ -3652,11 +3685,26 @@ func renderNestedAttributes(attrs []TerraformAttribute, indent string) string {
 			sb.WriteString(fmt.Sprintf("%s\t\tElementType: %s,\n", indent, elementTfType))
 		}
 
-		// Add MaxLength validator for string attributes with a non-zero limit
-		if attr.MaxLength > 0 && attr.Type == "string" {
-			sb.WriteString(fmt.Sprintf("%s\t\tValidators: []validator.String{\n", indent))
-			sb.WriteString(fmt.Sprintf("%s\t\t\tstringvalidator.LengthAtMost(%d),\n", indent, attr.MaxLength))
-			sb.WriteString(fmt.Sprintf("%s\t\t},\n", indent))
+		// Add string validators (MaxLength and/or OneOf enum)
+		if attr.Type == "string" {
+			var stringValidators []string
+			if attr.MaxLength > 0 {
+				stringValidators = append(stringValidators, fmt.Sprintf("stringvalidator.LengthAtMost(%d)", attr.MaxLength))
+			}
+			if len(attr.EnumValues) > 0 {
+				quoted := make([]string, len(attr.EnumValues))
+				for i, v := range attr.EnumValues {
+					quoted[i] = fmt.Sprintf("%q", v)
+				}
+				stringValidators = append(stringValidators, fmt.Sprintf("stringvalidator.OneOf(%s)", strings.Join(quoted, ", ")))
+			}
+			if len(stringValidators) > 0 {
+				sb.WriteString(fmt.Sprintf("%s\t\tValidators: []validator.String{\n", indent))
+				for _, sv := range stringValidators {
+					sb.WriteString(fmt.Sprintf("%s\t\t\t%s,\n", indent, sv))
+				}
+				sb.WriteString(fmt.Sprintf("%s\t\t},\n", indent))
+			}
 		}
 
 		sb.WriteString(fmt.Sprintf("%s\t},\n", indent))
@@ -4370,7 +4418,7 @@ import (
 {{- if .HasBlocks}}
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 {{- end}}
-{{- if .HasMaxLengthValidators}}
+{{- if or .HasMaxLengthValidators .HasEnumValidators}}
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 {{- end}}
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -4462,6 +4510,10 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 {{- else if and (gt .MaxLength 0) (eq .Type "string")}}
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost({{.MaxLength}}),
+				},
+{{- else if and (gt (len .EnumValues) 0) (eq .Type "string")}}
+				Validators: []validator.String{
+					stringvalidator.OneOf({{enumValuesLiteral .EnumValues}}),
 				},
 {{- end}}
 			},
