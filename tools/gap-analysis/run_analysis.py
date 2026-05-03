@@ -43,8 +43,8 @@ def main() -> None:
         ops = audit_operation_extensions(spec_file)
         for key in op_data:
             op_data[key] += ops.get(key, 0)
-        ops["domain_file"] = spec_file.name
-        op_data_list.append(ops)
+        op_entry: dict[str, int | str] = {**ops, "domain_file": spec_file.name}
+        op_data_list.append(op_entry)
         domain_count += 1
     print(f"  Audited {domain_count} domain specs")  # noqa: T201
 

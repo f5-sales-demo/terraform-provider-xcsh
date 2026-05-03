@@ -517,5 +517,5 @@ if __name__ == "__main__":
     }
 
     items = create_gap_items(sample_ext_map, sample_coverage)
-    report = generate_markdown_report(sample_ext_map, sample_coverage, items, sample_op)
-    print(report)  # noqa: T201
+    output = generate_markdown_report(sample_ext_map, sample_coverage, items, sample_op)
+    print(output)  # noqa: T201
