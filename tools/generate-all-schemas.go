@@ -32,6 +32,7 @@ import (
 	"strings"
 	"text/template"
 
+	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/constraints"
 	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/namespace"
 	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/naming"
 	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/openapi"
@@ -151,6 +152,10 @@ type TerraformAttribute struct {
 	MaxLength          int      // From x-original-maxLength
 	Immutable          bool     // From x-field-mutability == "immutable" or "create-only"
 	EnumValues         []string // String-only enum values for OneOf validator
+	MinLength          int      // From x-f5xc-constraints.minLength
+	Pattern            string   // From x-f5xc-constraints.pattern
+	MinItems           int      // From x-f5xc-constraints.minItems
+	MaxItems           int      // From x-f5xc-constraints.maxItems
 }
 
 type ResourceTemplate struct {
@@ -175,6 +180,8 @@ type ResourceTemplate struct {
 	HasBlocks              bool   // True if the resource has any nested blocks
 	HasMaxLengthValidators bool   // True if any attribute has MaxLength > 0
 	HasEnumValidators      bool   // True if any attribute has EnumValues
+	HasPatternValidators   bool   // True if any attribute has a Pattern regex
+	HasListSizeValidators  bool   // True if any list/set attribute has MinItems or MaxItems
 }
 
 type GenerationResult struct {
@@ -871,6 +878,8 @@ func extractResourceSchema(spec *OpenAPI3Spec, resourceName string) (*ResourceTe
 		HasBlocks:              hasBlocks,
 		HasMaxLengthValidators: hasMaxLengthValidators,
 		HasEnumValidators:      hasEnumValidatorsAny(attributes),
+		HasPatternValidators:   hasPatternValidatorsAny(attributes),
+		HasListSizeValidators:  hasListSizeValidatorsAny(attributes),
 	}, nil
 }
 
@@ -915,6 +924,36 @@ func hasEnumValidatorsAny(attributes []TerraformAttribute) bool {
 			return true
 		}
 		if hasEnumValidatorsAny(attr.NestedAttributes) {
+			return true
+		}
+	}
+	return false
+}
+
+// hasPatternValidatorsAny recursively checks if any attribute (top-level or nested)
+// has a Pattern regex. This determines whether regexp must be imported.
+func hasPatternValidatorsAny(attributes []TerraformAttribute) bool {
+	for _, attr := range attributes {
+		if attr.Pattern != "" {
+			return true
+		}
+		if hasPatternValidatorsAny(attr.NestedAttributes) {
+			return true
+		}
+	}
+	return false
+}
+
+// hasListSizeValidatorsAny recursively checks if any non-block list/set attribute (top-level or nested)
+// has MinItems or MaxItems constraints. This determines whether listvalidator must be imported.
+// Only non-block attributes are checked because blocks use schema.ListNestedBlock which
+// does not support the same validator interface.
+func hasListSizeValidatorsAny(attributes []TerraformAttribute) bool {
+	for _, attr := range attributes {
+		if !attr.IsBlock && (attr.MinItems > 0 || attr.MaxItems > 0) && (attr.Type == "list" || attr.Type == "set") {
+			return true
+		}
+		if hasListSizeValidatorsAny(attr.NestedAttributes) {
 			return true
 		}
 	}
@@ -1094,6 +1133,25 @@ func convertToTerraformAttributeWithDepth(name string, schema SchemaDefinition, 
 		ConflictsWith:         schema.XF5XCConflictsWith,
 		MaxLength:             schema.XOriginalMaxLength,
 		Immutable:             schema.XFieldMutability == "immutable" || schema.XFieldMutability == "create-only",
+	}
+
+	// Apply x-f5xc-constraints when confidence/determinism thresholds are met
+	if c := constraints.Parse(schema.XF5XCConstraints); c != nil {
+		if c.MinLength > 0 {
+			attr.MinLength = c.MinLength
+		}
+		if c.MaxLength > 0 && attr.MaxLength == 0 {
+			attr.MaxLength = c.MaxLength
+		}
+		if c.Pattern != "" {
+			attr.Pattern = c.Pattern
+		}
+		if c.MinItems > 0 {
+			attr.MinItems = c.MinItems
+		}
+		if c.MaxItems > 0 {
+			attr.MaxItems = c.MaxItems
+		}
 	}
 
 	// Prefer x-validation-rules over x-ves-validation-rules when both present
@@ -3580,6 +3638,7 @@ func generateResourceFile(resource *ResourceTemplate) error {
 			}
 			return strings.Join(quoted, ", ")
 		},
+		"regexLiteral": regexLiteral,
 	}
 
 	tmpl, err := template.New("resource").Funcs(funcMap).Parse(resourceTemplate)
@@ -3685,11 +3744,18 @@ func renderNestedAttributes(attrs []TerraformAttribute, indent string) string {
 			sb.WriteString(fmt.Sprintf("%s\t\tElementType: %s,\n", indent, elementTfType))
 		}
 
-		// Add string validators (MaxLength and/or OneOf enum)
+		// Add string validators (LengthBetween/LengthAtMost/LengthAtLeast, RegexMatches, OneOf)
 		if attr.Type == "string" {
 			var stringValidators []string
-			if attr.MaxLength > 0 {
+			if attr.MinLength > 0 && attr.MaxLength > 0 {
+				stringValidators = append(stringValidators, fmt.Sprintf("stringvalidator.LengthBetween(%d, %d)", attr.MinLength, attr.MaxLength))
+			} else if attr.MaxLength > 0 {
 				stringValidators = append(stringValidators, fmt.Sprintf("stringvalidator.LengthAtMost(%d)", attr.MaxLength))
+			} else if attr.MinLength > 0 {
+				stringValidators = append(stringValidators, fmt.Sprintf("stringvalidator.LengthAtLeast(%d)", attr.MinLength))
+			}
+			if attr.Pattern != "" {
+				stringValidators = append(stringValidators, fmt.Sprintf("stringvalidator.RegexMatches(regexp.MustCompile(%s), \"\")", regexLiteral(attr.Pattern)))
 			}
 			if len(attr.EnumValues) > 0 {
 				quoted := make([]string, len(attr.EnumValues))
@@ -3707,6 +3773,19 @@ func renderNestedAttributes(attrs []TerraformAttribute, indent string) string {
 			}
 		}
 
+		// List/set size validators
+		if (attr.Type == "list" || attr.Type == "set") && (attr.MinItems > 0 || attr.MaxItems > 0) {
+			sb.WriteString(fmt.Sprintf("%s\t\tValidators: []validator.List{\n", indent))
+			if attr.MinItems > 0 && attr.MaxItems > 0 {
+				sb.WriteString(fmt.Sprintf("%s\t\t\tlistvalidator.SizeBetween(%d, %d),\n", indent, attr.MinItems, attr.MaxItems))
+			} else if attr.MaxItems > 0 {
+				sb.WriteString(fmt.Sprintf("%s\t\t\tlistvalidator.SizeAtMost(%d),\n", indent, attr.MaxItems))
+			} else {
+				sb.WriteString(fmt.Sprintf("%s\t\t\tlistvalidator.SizeAtLeast(%d),\n", indent, attr.MinItems))
+			}
+			sb.WriteString(fmt.Sprintf("%s\t\t},\n", indent))
+		}
+
 		sb.WriteString(fmt.Sprintf("%s\t},\n", indent))
 	}
 
@@ -3720,6 +3799,19 @@ func escapeGoString(s string) string {
 	s = strings.ReplaceAll(s, `\`, `\\`)
 	s = strings.ReplaceAll(s, `"`, `\"`)
 	return s
+}
+
+// regexLiteral returns a Go literal representation of a regex pattern.
+// Uses a raw string literal (backticks) unless the pattern contains backticks,
+// in which case it falls back to a quoted string with proper escaping.
+func regexLiteral(pattern string) string {
+	if !strings.Contains(pattern, "`") {
+		return "`" + pattern + "`"
+	}
+	// Fall back to quoted string - need to escape backslashes and quotes
+	escaped := strings.ReplaceAll(pattern, `\`, `\\`)
+	escaped = strings.ReplaceAll(escaped, `"`, `\"`)
+	return `"` + escaped + `"`
 }
 
 // NestedModelInfo holds information needed to generate a nested model type
@@ -4418,8 +4510,14 @@ import (
 {{- if .HasBlocks}}
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 {{- end}}
-{{- if or .HasMaxLengthValidators .HasEnumValidators}}
+{{- if or .HasMaxLengthValidators .HasEnumValidators .HasPatternValidators}}
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
+{{- end}}
+{{- if .HasListSizeValidators}}
+	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
+{{- end}}
+{{- if .HasPatternValidators}}
+	"regexp"
 {{- end}}
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -4507,13 +4605,31 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
 				},
-{{- else if and (gt .MaxLength 0) (eq .Type "string")}}
+{{- else if and (eq .Type "string") (or (gt .MinLength 0) (gt .MaxLength 0) (ne .Pattern "") (gt (len .EnumValues) 0))}}
 				Validators: []validator.String{
+{{- if and (gt .MinLength 0) (gt .MaxLength 0)}}
+					stringvalidator.LengthBetween({{.MinLength}}, {{.MaxLength}}),
+{{- else if gt .MaxLength 0}}
 					stringvalidator.LengthAtMost({{.MaxLength}}),
-				},
-{{- else if and (gt (len .EnumValues) 0) (eq .Type "string")}}
-				Validators: []validator.String{
+{{- else if gt .MinLength 0}}
+					stringvalidator.LengthAtLeast({{.MinLength}}),
+{{- end}}
+{{- if ne .Pattern ""}}
+					stringvalidator.RegexMatches(regexp.MustCompile({{regexLiteral .Pattern}}), ""),
+{{- end}}
+{{- if gt (len .EnumValues) 0}}
 					stringvalidator.OneOf({{enumValuesLiteral .EnumValues}}),
+{{- end}}
+				},
+{{- else if and (or (eq .Type "list") (eq .Type "set")) (or (gt .MinItems 0) (gt .MaxItems 0))}}
+				Validators: []validator.List{
+{{- if and (gt .MinItems 0) (gt .MaxItems 0)}}
+					listvalidator.SizeBetween({{.MinItems}}, {{.MaxItems}}),
+{{- else if gt .MaxItems 0}}
+					listvalidator.SizeAtMost({{.MaxItems}}),
+{{- else}}
+					listvalidator.SizeAtLeast({{.MinItems}}),
+{{- end}}
 				},
 {{- end}}
 			},
