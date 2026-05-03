@@ -214,14 +214,6 @@ var resourceVerifierRegistry = map[string]ResourceVerifier{
 		_, err := c.GetDNSComplianceChecks(ctx, ns, name)
 		return err
 	},
-	"f5xc_dns_lb_health_check": func(ctx context.Context, c *client.Client, ns, name string) error {
-		_, err := c.GetDNSLBHealthCheck(ctx, ns, name)
-		return err
-	},
-	"f5xc_dns_lb_pool": func(ctx context.Context, c *client.Client, ns, name string) error {
-		_, err := c.GetDNSLBPool(ctx, ns, name)
-		return err
-	},
 
 	// ============================================================================
 	// Firewall & ACL Resources
@@ -240,14 +232,6 @@ var resourceVerifierRegistry = map[string]ResourceVerifier{
 	},
 	"f5xc_filter_set": func(ctx context.Context, c *client.Client, ns, name string) error {
 		_, err := c.GetFilterSet(ctx, ns, name)
-		return err
-	},
-	"f5xc_infraprotect_deny_list_rule": func(ctx context.Context, c *client.Client, ns, name string) error {
-		_, err := c.GetInfraprotectDenyListRule(ctx, ns, name)
-		return err
-	},
-	"f5xc_infraprotect_firewall_rule": func(ctx context.Context, c *client.Client, ns, name string) error {
-		_, err := c.GetInfraprotectFirewallRule(ctx, ns, name)
 		return err
 	},
 
@@ -276,38 +260,10 @@ var resourceVerifierRegistry = map[string]ResourceVerifier{
 	},
 
 	// ============================================================================
-	// Geo Location Resources
-	// ============================================================================
-	"f5xc_geo_location_set": func(ctx context.Context, c *client.Client, ns, name string) error {
-		_, err := c.GetGeoLocationSet(ctx, ns, name)
-		return err
-	},
-
-	// ============================================================================
 	// Health Check Resources
 	// ============================================================================
 	"f5xc_healthcheck": func(ctx context.Context, c *client.Client, ns, name string) error {
 		_, err := c.GetHealthcheck(ctx, ns, name)
-		return err
-	},
-
-	// ============================================================================
-	// IKE/VPN Resources
-	// ============================================================================
-	"f5xc_ike1": func(ctx context.Context, c *client.Client, ns, name string) error {
-		_, err := c.GetIke1(ctx, ns, name)
-		return err
-	},
-	"f5xc_ike2": func(ctx context.Context, c *client.Client, ns, name string) error {
-		_, err := c.GetIke2(ctx, ns, name)
-		return err
-	},
-	"f5xc_ike_phase1_profile": func(ctx context.Context, c *client.Client, ns, name string) error {
-		_, err := c.GetIKEPhase1Profile(ctx, ns, name)
-		return err
-	},
-	"f5xc_ike_phase2_profile": func(ctx context.Context, c *client.Client, ns, name string) error {
-		_, err := c.GetIKEPhase2Profile(ctx, ns, name)
 		return err
 	},
 
@@ -328,22 +284,6 @@ var resourceVerifierRegistry = map[string]ResourceVerifier{
 	},
 
 	// ============================================================================
-	// Kubernetes Resources
-	// ============================================================================
-	"f5xc_k8s_cluster": func(ctx context.Context, c *client.Client, ns, name string) error {
-		_, err := c.GetK8SCluster(ctx, ns, name)
-		return err
-	},
-	"f5xc_k8s_cluster_role": func(ctx context.Context, c *client.Client, ns, name string) error {
-		_, err := c.GetK8SClusterRole(ctx, ns, name)
-		return err
-	},
-	"f5xc_k8s_cluster_role_binding": func(ctx context.Context, c *client.Client, ns, name string) error {
-		_, err := c.GetK8SClusterRoleBinding(ctx, ns, name)
-		return err
-	},
-
-	// ============================================================================
 	// Load Balancer Resources
 	// ============================================================================
 	"f5xc_http_loadbalancer": func(ctx context.Context, c *client.Client, ns, name string) error {
@@ -356,10 +296,6 @@ var resourceVerifierRegistry = map[string]ResourceVerifier{
 	},
 	"f5xc_udp_loadbalancer": func(ctx context.Context, c *client.Client, ns, name string) error {
 		_, err := c.GetUDPLoadBalancer(ctx, ns, name)
-		return err
-	},
-	"f5xc_dns_load_balancer": func(ctx context.Context, c *client.Client, ns, name string) error {
-		_, err := c.GetDNSLoadBalancer(ctx, ns, name)
 		return err
 	},
 
@@ -404,26 +340,14 @@ var resourceVerifierRegistry = map[string]ResourceVerifier{
 	},
 
 	// ============================================================================
-	// Secret & Policy Resources
+	// Service Policy Resources
 	// ============================================================================
-	"f5xc_secret_policy": func(ctx context.Context, c *client.Client, ns, name string) error {
-		_, err := c.GetSecretPolicy(ctx, ns, name)
-		return err
-	},
-	"f5xc_secret_policy_rule": func(ctx context.Context, c *client.Client, ns, name string) error {
-		_, err := c.GetSecretPolicyRule(ctx, ns, name)
-		return err
-	},
 	"f5xc_service_policy": func(ctx context.Context, c *client.Client, ns, name string) error {
 		_, err := c.GetServicePolicy(ctx, ns, name)
 		return err
 	},
 	"f5xc_service_policy_rule": func(ctx context.Context, c *client.Client, ns, name string) error {
 		_, err := c.GetServicePolicyRule(ctx, ns, name)
-		return err
-	},
-	"f5xc_voltshare_admin_policy": func(ctx context.Context, c *client.Client, ns, name string) error {
-		_, err := c.GetVoltshareAdminPolicy(ctx, ns, name)
 		return err
 	},
 
@@ -452,30 +376,6 @@ var resourceVerifierRegistry = map[string]ResourceVerifier{
 	},
 
 	// ============================================================================
-	// Tenant Resources
-	// ============================================================================
-	"f5xc_allowed_tenant": func(ctx context.Context, c *client.Client, ns, name string) error {
-		_, err := c.GetAllowedTenant(ctx, ns, name)
-		return err
-	},
-
-	// ============================================================================
-	// Token Resources
-	// ============================================================================
-	"f5xc_token": func(ctx context.Context, c *client.Client, ns, name string) error {
-		_, err := c.GetToken(ctx, ns, name)
-		return err
-	},
-
-	// ============================================================================
-	// TPM Resources
-	// ============================================================================
-	"f5xc_tpm_manager": func(ctx context.Context, c *client.Client, ns, name string) error {
-		_, err := c.GetTpmManager(ctx, ns, name)
-		return err
-	},
-
-	// ============================================================================
 	// User Identification Resources
 	// ============================================================================
 	"f5xc_user_identification": func(ctx context.Context, c *client.Client, ns, name string) error {
@@ -496,10 +396,6 @@ var resourceVerifierRegistry = map[string]ResourceVerifier{
 	// ============================================================================
 	"f5xc_cloud_connect": func(ctx context.Context, c *client.Client, ns, name string) error {
 		_, err := c.GetCloudConnect(ctx, ns, name)
-		return err
-	},
-	"f5xc_infraprotect_asn": func(ctx context.Context, c *client.Client, ns, name string) error {
-		_, err := c.GetInfraprotectAsn(ctx, ns, name)
 		return err
 	},
 	"f5xc_nfv_service": func(ctx context.Context, c *client.Client, ns, name string) error {
@@ -657,9 +553,6 @@ var resourceDeleterRegistry = map[string]ResourceDeleter{
 	"f5xc_cloud_credentials": func(ctx context.Context, c *client.Client, ns, name string) error {
 		return c.DeleteCloudCredentials(ctx, ns, name)
 	},
-	"f5xc_dns_zone": func(ctx context.Context, c *client.Client, ns, name string) error {
-		return c.DeleteDNSZone(ctx, ns, name)
-	},
 	"f5xc_dns_domain": func(ctx context.Context, c *client.Client, ns, name string) error {
 		return c.DeleteDNSDomain(ctx, ns, name)
 	},
@@ -691,13 +584,6 @@ var resourceDeleterRegistry = map[string]ResourceDeleter{
 	},
 	"f5xc_rate_limiter": func(ctx context.Context, c *client.Client, ns, name string) error {
 		return c.DeleteRateLimiter(ctx, ns, name)
-	},
-
-	// ============================================================================
-	// Geographic Resources
-	// ============================================================================
-	"f5xc_geo_location_set": func(ctx context.Context, c *client.Client, ns, name string) error {
-		return c.DeleteGeoLocationSet(ctx, ns, name)
 	},
 
 	// ============================================================================
@@ -785,9 +671,6 @@ var resourceDeleterRegistry = map[string]ResourceDeleter{
 	// ============================================================================
 	"f5xc_tenant_configuration": func(ctx context.Context, c *client.Client, ns, name string) error {
 		return c.DeleteTenantConfiguration(ctx, ns, name)
-	},
-	"f5xc_voltshare_admin_policy": func(ctx context.Context, c *client.Client, ns, name string) error {
-		return c.DeleteVoltshareAdminPolicy(ctx, ns, name)
 	},
 	"f5xc_workload_flavor": func(ctx context.Context, c *client.Client, ns, name string) error {
 		return c.DeleteWorkloadFlavor(ctx, ns, name)

@@ -279,6 +279,21 @@ func main() {
 		generateProviderRegistration(results)
 	}
 
+	// Clean up orphan generated files that no longer have matching resources
+	if !dryRun {
+		generatedNames := make(map[string]bool)
+		for _, r := range results {
+			if r.Success {
+				generatedNames[r.ResourceName] = true
+			}
+		}
+		// Also include core resources that are always registered
+		for _, core := range coreResources {
+			generatedNames[core] = true
+		}
+		cleanOrphanGeneratedFiles(outputDir, clientDir, generatedNames)
+	}
+
 	fmt.Println("\n🎉 Batch generation complete!")
 }
 
@@ -4291,6 +4306,82 @@ func generateDataSource(resource *ResourceTemplate) error {
 
 func generateCombinedClientTypes(results []GenerationResult) {
 	// This is handled by individual client type files
+}
+
+// cleanOrphanGeneratedFiles removes generated files that no longer have matching resources.
+// Only removes files with the "DO NOT EDIT" header to avoid deleting manually maintained files.
+func cleanOrphanGeneratedFiles(outDir, clntDir string, generatedNames map[string]bool) {
+	suffixes := []struct {
+		dir    string
+		suffix string
+	}{
+		{outDir, "_resource.go"},
+		{outDir, "_data_source.go"},
+		{clntDir, "_types.go"},
+	}
+
+	removedCount := 0
+	for _, s := range suffixes {
+		matches, err := filepath.Glob(filepath.Join(s.dir, "*"+s.suffix))
+		if err != nil {
+			continue
+		}
+		for _, file := range matches {
+			baseName := strings.TrimSuffix(filepath.Base(file), s.suffix)
+			if generatedNames[baseName] {
+				continue
+			}
+			// Check if file has "DO NOT EDIT" header (generated file)
+			content, err := os.ReadFile(file)
+			if err != nil {
+				continue
+			}
+			headerLen := 500
+			if len(content) < headerLen {
+				headerLen = len(content)
+			}
+			if !strings.Contains(string(content[:headerLen]), "DO NOT EDIT") {
+				continue
+			}
+			fmt.Printf("🗑️  Removing orphan: %s\n", filepath.Base(file))
+			os.Remove(file)
+			removedCount++
+		}
+	}
+
+	// Also clean up orphan test files whose resource implementation no longer exists.
+	// Test files don't have the "DO NOT EDIT" header, but if the corresponding
+	// _resource.go file does not exist, the test file is dead code.
+	testMatches, err := filepath.Glob(filepath.Join(outDir, "*_resource_test.go"))
+	if err == nil {
+		for _, testFile := range testMatches {
+			baseName := strings.TrimSuffix(filepath.Base(testFile), "_resource_test.go")
+			resourceFile := filepath.Join(outDir, baseName+"_resource.go")
+			if _, err := os.Stat(resourceFile); os.IsNotExist(err) {
+				fmt.Printf("🗑️  Removing orphan test: %s\n", filepath.Base(testFile))
+				os.Remove(testFile)
+				removedCount++
+			}
+		}
+	}
+
+	// Clean up orphan data source test files
+	dsTestMatches, err := filepath.Glob(filepath.Join(outDir, "*_data_source_test.go"))
+	if err == nil {
+		for _, testFile := range dsTestMatches {
+			baseName := strings.TrimSuffix(filepath.Base(testFile), "_data_source_test.go")
+			dataSourceFile := filepath.Join(outDir, baseName+"_data_source.go")
+			if _, err := os.Stat(dataSourceFile); os.IsNotExist(err) {
+				fmt.Printf("🗑️  Removing orphan test: %s\n", filepath.Base(testFile))
+				os.Remove(testFile)
+				removedCount++
+			}
+		}
+	}
+
+	if removedCount > 0 {
+		fmt.Printf("🧹 Cleaned up %d orphan generated files\n", removedCount)
+	}
 }
 
 // coreResources are resources that must always be registered in the provider,
