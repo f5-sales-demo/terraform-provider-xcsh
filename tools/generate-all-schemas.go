@@ -32,6 +32,7 @@ import (
 	"strings"
 	"text/template"
 
+	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/conflicts"
 	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/constraints"
 	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/namespace"
 	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/naming"
@@ -182,6 +183,8 @@ type ResourceTemplate struct {
 	HasEnumValidators      bool   // True if any attribute has EnumValues
 	HasPatternValidators   bool   // True if any attribute has a Pattern regex
 	HasListSizeValidators  bool   // True if any list/set attribute has MinItems or MaxItems
+	HasConflicts           bool   // True if any attribute has ConflictsWith
+	ConflictCheckCode      string // Pre-rendered Go code for ValidateConfig conflict checks
 }
 
 type GenerationResult struct {
@@ -860,6 +863,10 @@ func extractResourceSchema(spec *OpenAPI3Spec, resourceName string) (*ResourceTe
 	// Check for max length validators (including nested attributes)
 	hasMaxLengthValidators := hasMaxLengthValidatorsAny(attributes)
 
+	// Collect conflict attributes and generate ValidateConfig checks
+	conflictAttrs, goNameLookup := collectConflictAttrs(attributes)
+	conflictCode := conflicts.GenerateChecks(conflictAttrs, goNameLookup)
+
 	return &ResourceTemplate{
 		Name:                   resourceName,
 		TitleCase:              toTitleCase(resourceName),
@@ -880,6 +887,8 @@ func extractResourceSchema(spec *OpenAPI3Spec, resourceName string) (*ResourceTe
 		HasEnumValidators:      hasEnumValidatorsAny(attributes),
 		HasPatternValidators:   hasPatternValidatorsAny(attributes),
 		HasListSizeValidators:  hasListSizeValidatorsAny(attributes),
+		HasConflicts:           conflictCode != "",
+		ConflictCheckCode:      conflictCode,
 	}, nil
 }
 
@@ -958,6 +967,36 @@ func hasListSizeValidatorsAny(attributes []TerraformAttribute) bool {
 		}
 	}
 	return false
+}
+
+// collectConflictAttrs collects top-level non-block attributes that have ConflictsWith relationships.
+// Block attributes are excluded because their Go types are pointers to nested models (not framework
+// value types) and do not have the IsNull() method needed for conflict checking.
+func collectConflictAttrs(attributes []TerraformAttribute) ([]conflicts.Attr, map[string]string) {
+	// Build a lookup map from tfsdk tag to Go field name for non-block attributes only.
+	// This is used to resolve conflict target names and to filter out block targets.
+	goNameLookup := make(map[string]string)
+	for _, attr := range attributes {
+		if attr.IsBlock {
+			continue
+		}
+		goNameLookup[attr.TfsdkTag] = attr.GoName
+	}
+
+	var result []conflicts.Attr
+	for _, attr := range attributes {
+		if attr.IsBlock {
+			continue
+		}
+		if len(attr.ConflictsWith) > 0 {
+			result = append(result, conflicts.Attr{
+				TfsdkTag:      attr.TfsdkTag,
+				GoName:        attr.GoName,
+				ConflictsWith: attr.ConflictsWith,
+			})
+		}
+	}
+	return result, goNameLookup
 }
 
 // scanPlanModifierUsage recursively scans attributes to determine which plan modifier imports are needed
@@ -4687,6 +4726,9 @@ func (r *{{.TitleCase}}Resource) ValidateConfig(ctx context.Context, req resourc
 	if resp.Diagnostics.HasError() {
 		return
 	}
+{{- if .HasConflicts}}
+{{.ConflictCheckCode}}
+{{- end}}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
