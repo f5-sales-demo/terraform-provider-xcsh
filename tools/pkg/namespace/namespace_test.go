@@ -200,3 +200,115 @@ func TestGetSharedResources(t *testing.T) {
 		}
 	}
 }
+
+// --- Spec scope override tests ---
+
+func TestSpecScopeOverrideSystem(t *testing.T) {
+	defer ClearSpecScopes()
+
+	SetSpecScope("test_resource", "system")
+	nsType, nsString := ForResource("test_resource")
+	if nsType != System {
+		t.Errorf("expected System, got %v", nsType)
+	}
+	if nsString != "system" {
+		t.Errorf("expected %q, got %q", "system", nsString)
+	}
+}
+
+func TestSpecScopeOverrideShared(t *testing.T) {
+	defer ClearSpecScopes()
+
+	SetSpecScope("test_resource", "shared")
+	nsType, nsString := ForResource("test_resource")
+	if nsType != Shared {
+		t.Errorf("expected Shared, got %v", nsType)
+	}
+	if nsString != "shared" {
+		t.Errorf("expected %q, got %q", "shared", nsString)
+	}
+}
+
+func TestSpecScopeOverrideAny(t *testing.T) {
+	defer ClearSpecScopes()
+
+	SetSpecScope("test_resource", "any")
+	nsType, nsString := ForResource("test_resource")
+	if nsType != Application {
+		t.Errorf("expected Application, got %v", nsType)
+	}
+	if nsString != "staging" {
+		t.Errorf("expected %q, got %q", "staging", nsString)
+	}
+}
+
+func TestSpecScopeOverrideApplication(t *testing.T) {
+	defer ClearSpecScopes()
+
+	SetSpecScope("test_resource", "application")
+	nsType, nsString := ForResource("test_resource")
+	if nsType != Application {
+		t.Errorf("expected Application, got %v", nsType)
+	}
+	if nsString != "staging" {
+		t.Errorf("expected %q, got %q", "staging", nsString)
+	}
+}
+
+func TestUnknownResourceDefaultsToApplication(t *testing.T) {
+	defer ClearSpecScopes()
+
+	nsType, nsString := ForResource("completely_unknown_resource")
+	if nsType != Application {
+		t.Errorf("expected Application, got %v", nsType)
+	}
+	if nsString != "staging" {
+		t.Errorf("expected %q, got %q", "staging", nsString)
+	}
+}
+
+func TestHardcodedSystemWithoutOverride(t *testing.T) {
+	defer ClearSpecScopes()
+
+	nsType, nsString := ForResource("aws_vpc_site")
+	if nsType != System {
+		t.Errorf("expected System, got %v", nsType)
+	}
+	if nsString != "system" {
+		t.Errorf("expected %q, got %q", "system", nsString)
+	}
+}
+
+func TestClearSpecScopes(t *testing.T) {
+	SetSpecScope("test_resource", "system")
+
+	// Verify override is active
+	nsType, _ := ForResource("test_resource")
+	if nsType != System {
+		t.Fatalf("expected System before clear, got %v", nsType)
+	}
+
+	// Clear and verify default behavior is restored
+	ClearSpecScopes()
+	nsType, nsString := ForResource("test_resource")
+	if nsType != Application {
+		t.Errorf("after ClearSpecScopes, expected Application, got %v", nsType)
+	}
+	if nsString != "staging" {
+		t.Errorf("after ClearSpecScopes, expected %q, got %q", "staging", nsString)
+	}
+}
+
+func TestSpecOverridePrecedenceOverHardcoded(t *testing.T) {
+	defer ClearSpecScopes()
+
+	// aws_vpc_site is hardcoded as system; override it to shared
+	SetSpecScope("aws_vpc_site", "shared")
+	nsType, nsString := ForResource("aws_vpc_site")
+	if nsType != Shared {
+		t.Errorf("spec override should take precedence: expected Shared, got %v", nsType)
+	}
+	if nsString != "shared" {
+		t.Errorf("spec override should take precedence: expected %q, got %q", "shared", nsString)
+	}
+}

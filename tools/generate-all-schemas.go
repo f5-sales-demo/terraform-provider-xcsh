@@ -32,6 +32,8 @@ import (
 	"strings"
 	"text/template"
 
+	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/conflicts"
+	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/constraints"
 	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/namespace"
 	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/naming"
 	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/openapi"
@@ -87,7 +89,8 @@ type SchemaDefinition struct {
 	XF5XCUseCases         []string `json:"x-f5xc-use-cases"`
 	XF5XCRelatedDomains   []string `json:"x-f5xc-related-domains"`
 	XF5XCIsPreview        bool     `json:"x-f5xc-is-preview"`
-	XF5XCServerDefault    bool     `json:"x-f5xc-server-default"` // True if server applies default when omitted
+	XF5XCNamespaceScope   string   `json:"x-f5xc-namespace-scope"` // Valid: "system", "shared", "any", "application"
+	XF5XCServerDefault    bool     `json:"x-f5xc-server-default"`  // True if server applies default when omitted
 	XF5XCRequiredFor      struct {
 		MinimumConfig bool `json:"minimum_config"`
 		Create        bool `json:"create"`
@@ -150,6 +153,11 @@ type TerraformAttribute struct {
 	ConflictsWith      []string // From x-f5xc-conflicts-with
 	MaxLength          int      // From x-original-maxLength
 	Immutable          bool     // From x-field-mutability == "immutable" or "create-only"
+	EnumValues         []string // String-only enum values for OneOf validator
+	MinLength          int      // From x-f5xc-constraints.minLength
+	Pattern            string   // From x-f5xc-constraints.pattern
+	MinItems           int      // From x-f5xc-constraints.minItems
+	MaxItems           int      // From x-f5xc-constraints.maxItems
 }
 
 type ResourceTemplate struct {
@@ -173,6 +181,11 @@ type ResourceTemplate struct {
 	UsesStringPlanModifier bool   // True if any string attribute uses a plan modifier
 	HasBlocks              bool   // True if the resource has any nested blocks
 	HasMaxLengthValidators bool   // True if any attribute has MaxLength > 0
+	HasEnumValidators      bool   // True if any attribute has EnumValues
+	HasPatternValidators   bool   // True if any attribute has a Pattern regex
+	HasListSizeValidators  bool   // True if any list/set attribute has MinItems or MaxItems
+	HasConflicts           bool   // True if any attribute has ConflictsWith
+	ConflictCheckCode      string // Pre-rendered Go code for ValidateConfig conflict checks
 }
 
 type GenerationResult struct {
@@ -264,6 +277,21 @@ func main() {
 	// Generate provider registration
 	if !dryRun {
 		generateProviderRegistration(results)
+	}
+
+	// Clean up orphan generated files that no longer have matching resources
+	if !dryRun {
+		generatedNames := make(map[string]bool)
+		for _, r := range results {
+			if r.Success {
+				generatedNames[r.ResourceName] = true
+			}
+		}
+		// Also include core resources that are always registered
+		for _, core := range coreResources {
+			generatedNames[core] = true
+		}
+		cleanOrphanGeneratedFiles(outputDir, clientDir, generatedNames)
 	}
 
 	fmt.Println("\n🎉 Batch generation complete!")
@@ -384,9 +412,22 @@ func processV2Resource(domainFile string, resource openapi.ExtractedResource, do
 			resource.Name, resource.Category, resource.RequiresTier)
 	}
 
-	// For now, we'll use the same processSpecFile logic but with the domain file
-	// This creates compatibility - the spec contains all schemas we need
-	// We just need to focus on extracting the right schema for this resource
+	// If the spec declares x-f5xc-namespace-scope, record it so namespace.ForResource
+	// returns the spec-derived value instead of the hardcoded default.
+	if domainInfo.Spec != nil {
+		// Check domain-level scope first
+		scope := domainInfo.Spec.XF5XCNamespaceScope
+		// Check info-level scope (overrides domain-level)
+		if domainInfo.Spec.Info.XF5XCNamespaceScope != "" {
+			scope = domainInfo.Spec.Info.XF5XCNamespaceScope
+		}
+		if scope != "" {
+			namespace.SetSpecScope(resource.Name, scope)
+			if verbose {
+				fmt.Printf("      Namespace scope override: %s -> %s\n", resource.Name, scope)
+			}
+		}
+	}
 
 	// Use the existing processing with the domain file
 	// The schema extraction will find the right Object schema based on resource name
@@ -819,6 +860,16 @@ func extractResourceSchema(spec *OpenAPI3Spec, resourceName string) (*ResourceTe
 
 	attributes = sortedAttrs
 
+	// Apply x-f5xc-minimum-configuration to improve Required field accuracy
+	minConfigFields := parseMinConfigRequiredFields(createSpec.XF5XCMinimumConfiguration)
+	if len(minConfigFields) > 0 {
+		minFieldSet := make(map[string]bool, len(minConfigFields))
+		for _, f := range minConfigFields {
+			minFieldSet[f] = true
+		}
+		promoteMinConfigRequired(attributes, minFieldSet)
+	}
+
 	// Get best description with enrichment extension priority:
 	// 1. x-f5xc-description-medium (preferred - detailed but concise)
 	// 2. x-f5xc-description-short (fallback - ultra-short)
@@ -851,6 +902,10 @@ func extractResourceSchema(spec *OpenAPI3Spec, resourceName string) (*ResourceTe
 	// Check for max length validators (including nested attributes)
 	hasMaxLengthValidators := hasMaxLengthValidatorsAny(attributes)
 
+	// Collect conflict attributes and generate ValidateConfig checks
+	conflictAttrs, goNameLookup := collectConflictAttrs(attributes)
+	conflictCode := conflicts.GenerateChecks(conflictAttrs, goNameLookup)
+
 	return &ResourceTemplate{
 		Name:                   resourceName,
 		TitleCase:              toTitleCase(resourceName),
@@ -868,6 +923,11 @@ func extractResourceSchema(spec *OpenAPI3Spec, resourceName string) (*ResourceTe
 		UsesStringPlanModifier: usesString,
 		HasBlocks:              hasBlocks,
 		HasMaxLengthValidators: hasMaxLengthValidators,
+		HasEnumValidators:      hasEnumValidatorsAny(attributes),
+		HasPatternValidators:   hasPatternValidatorsAny(attributes),
+		HasListSizeValidators:  hasListSizeValidatorsAny(attributes),
+		HasConflicts:           conflictCode != "",
+		ConflictCheckCode:      conflictCode,
 	}, nil
 }
 
@@ -902,6 +962,80 @@ func hasMaxLengthValidatorsAny(attributes []TerraformAttribute) bool {
 		}
 	}
 	return false
+}
+
+// hasEnumValidatorsAny recursively checks if any attribute (top-level or nested)
+// has EnumValues. This determines whether stringvalidator must be imported for OneOf.
+func hasEnumValidatorsAny(attributes []TerraformAttribute) bool {
+	for _, attr := range attributes {
+		if len(attr.EnumValues) > 0 {
+			return true
+		}
+		if hasEnumValidatorsAny(attr.NestedAttributes) {
+			return true
+		}
+	}
+	return false
+}
+
+// hasPatternValidatorsAny recursively checks if any attribute (top-level or nested)
+// has a Pattern regex. This determines whether regexp must be imported.
+func hasPatternValidatorsAny(attributes []TerraformAttribute) bool {
+	for _, attr := range attributes {
+		if attr.Pattern != "" {
+			return true
+		}
+		if hasPatternValidatorsAny(attr.NestedAttributes) {
+			return true
+		}
+	}
+	return false
+}
+
+// hasListSizeValidatorsAny recursively checks if any non-block list/set attribute (top-level or nested)
+// has MinItems or MaxItems constraints. This determines whether listvalidator must be imported.
+// Only non-block attributes are checked because blocks use schema.ListNestedBlock which
+// does not support the same validator interface.
+func hasListSizeValidatorsAny(attributes []TerraformAttribute) bool {
+	for _, attr := range attributes {
+		if !attr.IsBlock && (attr.MinItems > 0 || attr.MaxItems > 0) && (attr.Type == "list" || attr.Type == "set") {
+			return true
+		}
+		if hasListSizeValidatorsAny(attr.NestedAttributes) {
+			return true
+		}
+	}
+	return false
+}
+
+// collectConflictAttrs collects top-level non-block attributes that have ConflictsWith relationships.
+// Block attributes are excluded because their Go types are pointers to nested models (not framework
+// value types) and do not have the IsNull() method needed for conflict checking.
+func collectConflictAttrs(attributes []TerraformAttribute) ([]conflicts.Attr, map[string]string) {
+	// Build a lookup map from tfsdk tag to Go field name for non-block attributes only.
+	// This is used to resolve conflict target names and to filter out block targets.
+	goNameLookup := make(map[string]string)
+	for _, attr := range attributes {
+		if attr.IsBlock {
+			continue
+		}
+		goNameLookup[attr.TfsdkTag] = attr.GoName
+	}
+
+	var result []conflicts.Attr
+	for _, attr := range attributes {
+		if attr.IsBlock {
+			continue
+		}
+		if len(attr.ConflictsWith) > 0 {
+			result = append(result, conflicts.Attr{
+				TfsdkTag:      attr.TfsdkTag,
+				GoName:        attr.GoName,
+				ConflictsWith: attr.ConflictsWith,
+			})
+		}
+	}
+	return result, goNameLookup
 }
 
 // scanPlanModifierUsage recursively scans attributes to determine which plan modifier imports are needed
@@ -1079,6 +1213,25 @@ func convertToTerraformAttributeWithDepth(name string, schema SchemaDefinition, 
 		Immutable:             schema.XFieldMutability == "immutable" || schema.XFieldMutability == "create-only",
 	}
 
+	// Apply x-f5xc-constraints when confidence/determinism thresholds are met
+	if c := constraints.Parse(schema.XF5XCConstraints); c != nil {
+		if c.MinLength > 0 {
+			attr.MinLength = c.MinLength
+		}
+		if c.MaxLength > 0 && attr.MaxLength == 0 {
+			attr.MaxLength = c.MaxLength
+		}
+		if c.Pattern != "" {
+			attr.Pattern = c.Pattern
+		}
+		if c.MinItems > 0 {
+			attr.MinItems = c.MinItems
+		}
+		if c.MaxItems > 0 {
+			attr.MaxItems = c.MaxItems
+		}
+	}
+
 	// Prefer x-validation-rules over x-ves-validation-rules when both present
 	if len(schema.XValidationRules) > 0 {
 		attr.ValidationRules = schema.XValidationRules
@@ -1122,6 +1275,15 @@ func convertToTerraformAttributeWithDepth(name string, schema SchemaDefinition, 
 	// Format enum values per HashiCorp standards: "Possible values are `value1`, `value2`"
 	if len(schema.Enum) > 0 {
 		attr.Description = formatEnumDescription(attr.Description, schema.Enum)
+	}
+
+	// Populate EnumValues for string-type enum fields (for OneOf validator generation)
+	if schema.Type == "string" && len(schema.Enum) > 0 {
+		for _, v := range schema.Enum {
+			if str, ok := v.(string); ok && str != "" && len(str) <= 50 {
+				attr.EnumValues = append(attr.EnumValues, str)
+			}
+		}
 	}
 
 	// Format default values per HashiCorp standards: "Defaults to `value`."
@@ -1392,6 +1554,38 @@ func filterOptional(attrs []TerraformAttribute) []TerraformAttribute {
 		}
 	}
 	return result
+}
+
+// parseMinConfigRequiredFields extracts the required_fields list from x-f5xc-minimum-configuration.
+// The structure is: {"required_fields": ["field_name", "spec.field_name", ...], "example_yaml": "..."}
+// Strips "spec." prefix which commonly appears in minimum config field names.
+func parseMinConfigRequiredFields(raw interface{}) []string {
+	m, ok := raw.(map[string]interface{})
+	if !ok {
+		return nil
+	}
+	fieldsRaw, ok := m["required_fields"].([]interface{})
+	if !ok {
+		return nil
+	}
+	var result []string
+	for _, f := range fieldsRaw {
+		if s, ok := f.(string); ok && s != "" {
+			result = append(result, strings.TrimPrefix(s, "spec."))
+		}
+	}
+	return result
+}
+
+// promoteMinConfigRequired marks attributes as Required if their tfsdk tag appears in the minimum config.
+// This promotes Optional fields that are needed for a minimum viable configuration.
+func promoteMinConfigRequired(attrs []TerraformAttribute, minFields map[string]bool) {
+	for i := range attrs {
+		if minFields[attrs[i].TfsdkTag] && attrs[i].Optional && !attrs[i].Required {
+			attrs[i].Required = true
+			attrs[i].Optional = false
+		}
+	}
 }
 
 // extractDefaultFromDescription attempts to extract a default value from description text.
@@ -3547,6 +3741,14 @@ func generateResourceFile(resource *ResourceTemplate) error {
 		"renderUpdateComputedFieldsCode":  renderUpdateComputedFieldsCode,
 		"renderFetchedComputedFieldsCode": renderFetchedComputedFieldsCode,
 		"filterSpecFields":                filterSpecFields,
+		"enumValuesLiteral": func(values []string) string {
+			quoted := make([]string, len(values))
+			for i, v := range values {
+				quoted[i] = fmt.Sprintf("%q", v)
+			}
+			return strings.Join(quoted, ", ")
+		},
+		"regexLiteral": regexLiteral,
 	}
 
 	tmpl, err := template.New("resource").Funcs(funcMap).Parse(resourceTemplate)
@@ -3652,10 +3854,45 @@ func renderNestedAttributes(attrs []TerraformAttribute, indent string) string {
 			sb.WriteString(fmt.Sprintf("%s\t\tElementType: %s,\n", indent, elementTfType))
 		}
 
-		// Add MaxLength validator for string attributes with a non-zero limit
-		if attr.MaxLength > 0 && attr.Type == "string" {
-			sb.WriteString(fmt.Sprintf("%s\t\tValidators: []validator.String{\n", indent))
-			sb.WriteString(fmt.Sprintf("%s\t\t\tstringvalidator.LengthAtMost(%d),\n", indent, attr.MaxLength))
+		// Add string validators (LengthBetween/LengthAtMost/LengthAtLeast, RegexMatches, OneOf)
+		if attr.Type == "string" {
+			var stringValidators []string
+			if attr.MinLength > 0 && attr.MaxLength > 0 {
+				stringValidators = append(stringValidators, fmt.Sprintf("stringvalidator.LengthBetween(%d, %d)", attr.MinLength, attr.MaxLength))
+			} else if attr.MaxLength > 0 {
+				stringValidators = append(stringValidators, fmt.Sprintf("stringvalidator.LengthAtMost(%d)", attr.MaxLength))
+			} else if attr.MinLength > 0 {
+				stringValidators = append(stringValidators, fmt.Sprintf("stringvalidator.LengthAtLeast(%d)", attr.MinLength))
+			}
+			if attr.Pattern != "" {
+				stringValidators = append(stringValidators, fmt.Sprintf("stringvalidator.RegexMatches(regexp.MustCompile(%s), \"\")", regexLiteral(attr.Pattern)))
+			}
+			if len(attr.EnumValues) > 0 {
+				quoted := make([]string, len(attr.EnumValues))
+				for i, v := range attr.EnumValues {
+					quoted[i] = fmt.Sprintf("%q", v)
+				}
+				stringValidators = append(stringValidators, fmt.Sprintf("stringvalidator.OneOf(%s)", strings.Join(quoted, ", ")))
+			}
+			if len(stringValidators) > 0 {
+				sb.WriteString(fmt.Sprintf("%s\t\tValidators: []validator.String{\n", indent))
+				for _, sv := range stringValidators {
+					sb.WriteString(fmt.Sprintf("%s\t\t\t%s,\n", indent, sv))
+				}
+				sb.WriteString(fmt.Sprintf("%s\t\t},\n", indent))
+			}
+		}
+
+		// List/set size validators
+		if (attr.Type == "list" || attr.Type == "set") && (attr.MinItems > 0 || attr.MaxItems > 0) {
+			sb.WriteString(fmt.Sprintf("%s\t\tValidators: []validator.List{\n", indent))
+			if attr.MinItems > 0 && attr.MaxItems > 0 {
+				sb.WriteString(fmt.Sprintf("%s\t\t\tlistvalidator.SizeBetween(%d, %d),\n", indent, attr.MinItems, attr.MaxItems))
+			} else if attr.MaxItems > 0 {
+				sb.WriteString(fmt.Sprintf("%s\t\t\tlistvalidator.SizeAtMost(%d),\n", indent, attr.MaxItems))
+			} else {
+				sb.WriteString(fmt.Sprintf("%s\t\t\tlistvalidator.SizeAtLeast(%d),\n", indent, attr.MinItems))
+			}
 			sb.WriteString(fmt.Sprintf("%s\t\t},\n", indent))
 		}
 
@@ -3672,6 +3909,19 @@ func escapeGoString(s string) string {
 	s = strings.ReplaceAll(s, `\`, `\\`)
 	s = strings.ReplaceAll(s, `"`, `\"`)
 	return s
+}
+
+// regexLiteral returns a Go literal representation of a regex pattern.
+// Uses a raw string literal (backticks) unless the pattern contains backticks,
+// in which case it falls back to a quoted string with proper escaping.
+func regexLiteral(pattern string) string {
+	if !strings.Contains(pattern, "`") {
+		return "`" + pattern + "`"
+	}
+	// Fall back to quoted string - need to escape backslashes and quotes
+	escaped := strings.ReplaceAll(pattern, `\`, `\\`)
+	escaped = strings.ReplaceAll(escaped, `"`, `\"`)
+	return `"` + escaped + `"`
 }
 
 // NestedModelInfo holds information needed to generate a nested model type
@@ -4058,6 +4308,82 @@ func generateCombinedClientTypes(results []GenerationResult) {
 	// This is handled by individual client type files
 }
 
+// cleanOrphanGeneratedFiles removes generated files that no longer have matching resources.
+// Only removes files with the "DO NOT EDIT" header to avoid deleting manually maintained files.
+func cleanOrphanGeneratedFiles(outDir, clntDir string, generatedNames map[string]bool) {
+	suffixes := []struct {
+		dir    string
+		suffix string
+	}{
+		{outDir, "_resource.go"},
+		{outDir, "_data_source.go"},
+		{clntDir, "_types.go"},
+	}
+
+	removedCount := 0
+	for _, s := range suffixes {
+		matches, err := filepath.Glob(filepath.Join(s.dir, "*"+s.suffix))
+		if err != nil {
+			continue
+		}
+		for _, file := range matches {
+			baseName := strings.TrimSuffix(filepath.Base(file), s.suffix)
+			if generatedNames[baseName] {
+				continue
+			}
+			// Check if file has "DO NOT EDIT" header (generated file)
+			content, err := os.ReadFile(file)
+			if err != nil {
+				continue
+			}
+			headerLen := 500
+			if len(content) < headerLen {
+				headerLen = len(content)
+			}
+			if !strings.Contains(string(content[:headerLen]), "DO NOT EDIT") {
+				continue
+			}
+			fmt.Printf("🗑️  Removing orphan: %s\n", filepath.Base(file))
+			os.Remove(file)
+			removedCount++
+		}
+	}
+
+	// Also clean up orphan test files whose resource implementation no longer exists.
+	// Test files don't have the "DO NOT EDIT" header, but if the corresponding
+	// _resource.go file does not exist, the test file is dead code.
+	testMatches, err := filepath.Glob(filepath.Join(outDir, "*_resource_test.go"))
+	if err == nil {
+		for _, testFile := range testMatches {
+			baseName := strings.TrimSuffix(filepath.Base(testFile), "_resource_test.go")
+			resourceFile := filepath.Join(outDir, baseName+"_resource.go")
+			if _, err := os.Stat(resourceFile); os.IsNotExist(err) {
+				fmt.Printf("🗑️  Removing orphan test: %s\n", filepath.Base(testFile))
+				os.Remove(testFile)
+				removedCount++
+			}
+		}
+	}
+
+	// Clean up orphan data source test files
+	dsTestMatches, err := filepath.Glob(filepath.Join(outDir, "*_data_source_test.go"))
+	if err == nil {
+		for _, testFile := range dsTestMatches {
+			baseName := strings.TrimSuffix(filepath.Base(testFile), "_data_source_test.go")
+			dataSourceFile := filepath.Join(outDir, baseName+"_data_source.go")
+			if _, err := os.Stat(dataSourceFile); os.IsNotExist(err) {
+				fmt.Printf("🗑️  Removing orphan test: %s\n", filepath.Base(testFile))
+				os.Remove(testFile)
+				removedCount++
+			}
+		}
+	}
+
+	if removedCount > 0 {
+		fmt.Printf("🧹 Cleaned up %d orphan generated files\n", removedCount)
+	}
+}
+
 // coreResources are resources that must always be registered in the provider,
 // even if they're not present in the current OpenAPI specifications.
 // These resources have working implementations that were generated previously
@@ -4370,8 +4696,14 @@ import (
 {{- if .HasBlocks}}
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 {{- end}}
-{{- if .HasMaxLengthValidators}}
+{{- if or .HasMaxLengthValidators .HasEnumValidators .HasPatternValidators}}
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
+{{- end}}
+{{- if .HasListSizeValidators}}
+	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
+{{- end}}
+{{- if .HasPatternValidators}}
+	"regexp"
 {{- end}}
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -4459,9 +4791,31 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
 				},
-{{- else if and (gt .MaxLength 0) (eq .Type "string")}}
+{{- else if and (eq .Type "string") (or (gt .MinLength 0) (gt .MaxLength 0) (ne .Pattern "") (gt (len .EnumValues) 0))}}
 				Validators: []validator.String{
+{{- if and (gt .MinLength 0) (gt .MaxLength 0)}}
+					stringvalidator.LengthBetween({{.MinLength}}, {{.MaxLength}}),
+{{- else if gt .MaxLength 0}}
 					stringvalidator.LengthAtMost({{.MaxLength}}),
+{{- else if gt .MinLength 0}}
+					stringvalidator.LengthAtLeast({{.MinLength}}),
+{{- end}}
+{{- if ne .Pattern ""}}
+					stringvalidator.RegexMatches(regexp.MustCompile({{regexLiteral .Pattern}}), ""),
+{{- end}}
+{{- if gt (len .EnumValues) 0}}
+					stringvalidator.OneOf({{enumValuesLiteral .EnumValues}}),
+{{- end}}
+				},
+{{- else if and (or (eq .Type "list") (eq .Type "set")) (or (gt .MinItems 0) (gt .MaxItems 0))}}
+				Validators: []validator.List{
+{{- if and (gt .MinItems 0) (gt .MaxItems 0)}}
+					listvalidator.SizeBetween({{.MinItems}}, {{.MaxItems}}),
+{{- else if gt .MaxItems 0}}
+					listvalidator.SizeAtMost({{.MaxItems}}),
+{{- else}}
+					listvalidator.SizeAtLeast({{.MinItems}}),
+{{- end}}
 				},
 {{- end}}
 			},
@@ -4519,6 +4873,9 @@ func (r *{{.TitleCase}}Resource) ValidateConfig(ctx context.Context, req resourc
 	if resp.Diagnostics.HasError() {
 		return
 	}
+{{- if .HasConflicts}}
+{{.ConflictCheckCode}}
+{{- end}}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

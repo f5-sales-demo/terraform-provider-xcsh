@@ -5,6 +5,8 @@
 // should use, following F5XC best practices.
 package namespace
 
+import "sync"
+
 // Type represents the type of namespace a resource should use.
 type Type int
 
@@ -89,11 +91,51 @@ var sharedResources = map[string]bool{
 	"forwarding_class": true, "log_receiver": true,
 }
 
+var (
+	specScopeMu sync.RWMutex
+	specScopes  = map[string]string{}
+)
+
+// SetSpecScope records a namespace scope from the enriched spec.
+// Valid scopes: "system", "shared", "any" (or "application").
+func SetSpecScope(resourceName, scope string) {
+	specScopeMu.Lock()
+	defer specScopeMu.Unlock()
+	specScopes[resourceName] = scope
+}
+
+// ClearSpecScopes removes all spec-derived overrides (for testing).
+func ClearSpecScopes() {
+	specScopeMu.Lock()
+	defer specScopeMu.Unlock()
+	specScopes = map[string]string{}
+}
+
 // ForResource returns the appropriate namespace type and string based on F5XC best practices:
 // - system: Infrastructure objects (sites, networks, fleet, cluster, cloud credentials)
 // - shared: Cross-app security policies (app_firewall, certificates, rate_limiters)
 // - staging: App-specific workloads (load balancers, origin pools, healthchecks)
+//
+// If a spec-derived scope has been set via SetSpecScope, it takes precedence over
+// the hardcoded maps. Valid scope values: "system", "shared", "any", "application".
 func ForResource(resourceName string) (Type, string) {
+	// Check spec-derived overrides first (thread-safe read)
+	specScopeMu.RLock()
+	scope, hasScope := specScopes[resourceName]
+	specScopeMu.RUnlock()
+
+	if hasScope {
+		switch scope {
+		case "system":
+			return System, "system"
+		case "shared":
+			return Shared, "shared"
+		case "any", "application":
+			return Application, "staging"
+		}
+	}
+
+	// Fall back to hardcoded maps
 	if systemResources[resourceName] {
 		return System, "system"
 	}
