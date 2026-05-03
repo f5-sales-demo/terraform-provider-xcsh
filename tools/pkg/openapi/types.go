@@ -47,6 +47,7 @@ type Schema struct {
 	XF5XCUseCases         []string `json:"x-f5xc-use-cases"`
 	XF5XCRelatedDomains   []string `json:"x-f5xc-related-domains"`
 	XF5XCIsPreview        bool     `json:"x-f5xc-is-preview"`
+	XF5XCNamespaceScope   string   `json:"x-f5xc-namespace-scope"` // Valid: "system", "shared", "any", "application"
 	XF5XCIcon             string   `json:"x-f5xc-icon"`
 	XF5XCCLIDomain        string   `json:"x-f5xc-cli-domain"`
 
@@ -240,6 +241,7 @@ type DomainSpec struct {
 	XF5XCIsPreview      bool     `json:"x-f5xc-is-preview"`
 	XF5XCRelatedDomains []string `json:"x-f5xc-related-domains"`
 	XF5XCUseCases       []string `json:"x-f5xc-use-cases"`
+	XF5XCNamespaceScope string   `json:"x-f5xc-namespace-scope"` // Valid: "system", "shared", "any", "application"
 }
 
 // DomainInfo represents the info section of a domain spec.
@@ -256,6 +258,7 @@ type DomainInfo struct {
 	XF5XCDescriptionLong   string         `json:"x-f5xc-description-long"`
 	XF5XCSummary           string         `json:"x-f5xc-summary"`
 	XF5XCBestPractices     *BestPractices `json:"x-f5xc-best-practices"`
+	XF5XCNamespaceScope    string         `json:"x-f5xc-namespace-scope"` // Valid: "system", "shared", "any", "application"
 }
 
 // BestPractices contains operational guidance from the enriched spec.

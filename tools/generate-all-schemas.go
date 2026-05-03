@@ -89,7 +89,8 @@ type SchemaDefinition struct {
 	XF5XCUseCases         []string `json:"x-f5xc-use-cases"`
 	XF5XCRelatedDomains   []string `json:"x-f5xc-related-domains"`
 	XF5XCIsPreview        bool     `json:"x-f5xc-is-preview"`
-	XF5XCServerDefault    bool     `json:"x-f5xc-server-default"` // True if server applies default when omitted
+	XF5XCNamespaceScope   string   `json:"x-f5xc-namespace-scope"` // Valid: "system", "shared", "any", "application"
+	XF5XCServerDefault    bool     `json:"x-f5xc-server-default"`  // True if server applies default when omitted
 	XF5XCRequiredFor      struct {
 		MinimumConfig bool `json:"minimum_config"`
 		Create        bool `json:"create"`
@@ -396,9 +397,22 @@ func processV2Resource(domainFile string, resource openapi.ExtractedResource, do
 			resource.Name, resource.Category, resource.RequiresTier)
 	}
 
-	// For now, we'll use the same processSpecFile logic but with the domain file
-	// This creates compatibility - the spec contains all schemas we need
-	// We just need to focus on extracting the right schema for this resource
+	// If the spec declares x-f5xc-namespace-scope, record it so namespace.ForResource
+	// returns the spec-derived value instead of the hardcoded default.
+	if domainInfo.Spec != nil {
+		// Check domain-level scope first
+		scope := domainInfo.Spec.XF5XCNamespaceScope
+		// Check info-level scope (overrides domain-level)
+		if domainInfo.Spec.Info.XF5XCNamespaceScope != "" {
+			scope = domainInfo.Spec.Info.XF5XCNamespaceScope
+		}
+		if scope != "" {
+			namespace.SetSpecScope(resource.Name, scope)
+			if verbose {
+				fmt.Printf("      Namespace scope override: %s -> %s\n", resource.Name, scope)
+			}
+		}
+	}
 
 	// Use the existing processing with the domain file
 	// The schema extraction will find the right Object schema based on resource name
