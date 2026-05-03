@@ -59,8 +59,8 @@ jobs:
         run: |
           echo "Checking PR for generated files..."
 
-          # Get list of changed files in this PR
-          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+          # Get list of added/modified files (deletions are fine — orphan cleanup)
+          CHANGED_FILES=$(git diff --name-only --diff-filter=AM origin/${{ github.base_ref }}...HEAD)
 
           # Check if generator tools are modified - this allows docs/examples changes
           GENERATOR_TOOLS_MODIFIED=false
