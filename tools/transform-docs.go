@@ -60,12 +60,17 @@ var subscriptionMetadata *SubscriptionMetadata
 
 // V2ResourceMetadata holds metadata from v2 spec x-f5xc-* extensions.
 type V2ResourceMetadata struct {
-	RequiresTier     string // x-f5xc-requires-tier: Standard, Advanced
-	Complexity       string // x-f5xc-complexity: simple, moderate, advanced
-	IsPreview        bool   // x-f5xc-is-preview
-	DescriptionShort string // x-f5xc-description-short
-	DescriptionMed   string // x-f5xc-description-medium
-	Category         string // x-f5xc-category
+	RequiresTier         string   // x-f5xc-requires-tier: Standard, Advanced
+	Complexity           string   // x-f5xc-complexity: simple, moderate, advanced
+	IsPreview            bool     // x-f5xc-is-preview
+	DescriptionShort     string   // x-f5xc-description-short
+	DescriptionMed       string   // x-f5xc-description-medium
+	Category             string   // x-f5xc-category
+	DangerLevel          string   // x-f5xc-danger-level: low, medium, high, critical
+	SideEffects          []string // x-f5xc-side-effects: array of effect descriptions
+	ConfirmationRequired bool     // x-f5xc-confirmation-required
+	BestPractices        string   // x-f5xc-best-practices summary
+	RequiredDependencies []string // dependencies from index.json primary-resources
 }
 
 // v2MetadataCache stores metadata from v2 spec x-f5xc-* extensions.
@@ -90,6 +95,25 @@ func loadV2SpecMetadata() {
 
 	if count > 0 {
 		fmt.Printf("Loaded V2 metadata for %d resources\n", count)
+	}
+
+	// Load dependencies from index.json primary-resources
+	index, err := openapi.ParseIndexFromDir(specDir)
+	if err == nil {
+		for _, domSpec := range index.Specifications {
+			for _, pr := range domSpec.PrimaryResources {
+				if pr.Name == "" {
+					continue
+				}
+				meta := v2MetadataCache[pr.Name]
+				for _, dep := range pr.Dependencies.Required {
+					meta.RequiredDependencies = appendUnique(meta.RequiredDependencies, dep)
+				}
+				if len(meta.RequiredDependencies) > 0 {
+					v2MetadataCache[pr.Name] = meta
+				}
+			}
+		}
 	}
 }
 
@@ -196,6 +220,63 @@ func extractV2MetadataFromDomainSpec(spec map[string]interface{}, domainName str
 						count++
 					}
 				}
+			}
+		}
+	}
+
+	// Extract operation-level metadata from Paths
+	if paths, ok := spec["paths"].(map[string]interface{}); ok {
+		for pathStr, pathVal := range paths {
+			pathObj, ok := pathVal.(map[string]interface{})
+			if !ok {
+				continue
+			}
+			// Get resource name from path (last non-parameter segment)
+			parts := strings.Split(pathStr, "/")
+			if len(parts) < 2 {
+				continue
+			}
+			lastPart := parts[len(parts)-1]
+			if strings.HasPrefix(lastPart, "{") && len(parts) >= 3 {
+				lastPart = parts[len(parts)-2]
+			}
+			resourceName := strings.TrimSuffix(lastPart, "s")
+
+			for _, method := range []string{"get", "post", "put", "delete"} {
+				op, ok := pathObj[method].(map[string]interface{})
+				if !ok {
+					continue
+				}
+				meta, exists := v2MetadataCache[resourceName]
+				if !exists {
+					meta = domainMeta
+				}
+				if dl, ok := op["x-f5xc-danger-level"].(string); ok && dl != "" {
+					if dangerRank(dl) > dangerRank(meta.DangerLevel) {
+						meta.DangerLevel = dl
+					}
+				}
+				if se, ok := op["x-f5xc-side-effects"].([]interface{}); ok {
+					for _, s := range se {
+						if str, ok := s.(string); ok {
+							meta.SideEffects = appendUnique(meta.SideEffects, str)
+						}
+					}
+				}
+				if cr, ok := op["x-f5xc-confirmation-required"].(bool); ok && cr {
+					meta.ConfirmationRequired = true
+				}
+				v2MetadataCache[resourceName] = meta
+			}
+		}
+	}
+
+	// Extract best-practices from domain info
+	if info, ok := spec["info"].(map[string]interface{}); ok {
+		if bp, ok := info["x-f5xc-best-practices"].(map[string]interface{}); ok {
+			if commonErrors, ok := bp["common_errors"].([]interface{}); ok && len(commonErrors) > 0 {
+				domainMeta.BestPractices = fmt.Sprintf("%d common error patterns documented", len(commonErrors))
+				v2MetadataCache[domainName] = domainMeta
 			}
 		}
 	}
@@ -416,6 +497,32 @@ func formatDangerLevelIndicator(dangerLevel string) string {
 		return indicator
 	}
 	return ""
+}
+
+// dangerRank returns a numeric rank for danger level comparison.
+func dangerRank(level string) int {
+	switch level {
+	case "critical":
+		return 4
+	case "high":
+		return 3
+	case "medium":
+		return 2
+	case "low":
+		return 1
+	default:
+		return 0
+	}
+}
+
+// appendUnique appends a string to a slice only if it is not already present.
+func appendUnique(slice []string, s string) []string {
+	for _, existing := range slice {
+		if existing == s {
+			return slice
+		}
+	}
+	return append(slice, s)
 }
 
 // formatServerDefaultNote transforms the server default marker in descriptions into a visual indicator.
@@ -1418,6 +1525,25 @@ func transformDoc(filePath string) error {
 
 	// Process the Schema section
 	output.WriteString("## Argument Reference\n\n")
+
+	// Inject operation-level warnings from v2 metadata
+	if meta, ok := getV2ResourceMetadata(resourceName); ok {
+		if meta.DangerLevel == "high" || meta.DangerLevel == "critical" {
+			indicator := formatDangerLevelIndicator(meta.DangerLevel)
+			capitalizedLevel := strings.ToUpper(meta.DangerLevel[:1]) + meta.DangerLevel[1:]
+			output.WriteString(fmt.Sprintf("%s **%s Risk Operations** — Some operations on this resource have %s danger level.", indicator, capitalizedLevel, meta.DangerLevel))
+			if meta.ConfirmationRequired {
+				output.WriteString(" Destructive operations may require confirmation.")
+			}
+			output.WriteString("\n\n")
+		}
+		if len(meta.SideEffects) > 0 {
+			output.WriteString("~> **Side Effects** — Operations on this resource may cause: " + strings.Join(meta.SideEffects, ", ") + ".\n\n")
+		}
+		if len(meta.RequiredDependencies) > 0 {
+			output.WriteString("~> **Dependencies** — This resource requires: `" + strings.Join(meta.RequiredDependencies, "`, `") + "`.\n\n")
+		}
+	}
 
 	// Determine end of main schema (either first nested anchor or import)
 	mainSchemaEnd := len(lines)
