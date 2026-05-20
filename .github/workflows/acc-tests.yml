@@ -164,8 +164,8 @@ jobs:
           PASSED=$(jq -r '.total_passed // 0' test-reports/mock-tests.json)
           FAILED=$(jq -r '.total_failed // 0' test-reports/mock-tests.json)
 
-          echo "passed=$PASSED" >> $GITHUB_OUTPUT
-          echo "failed=$FAILED" >> $GITHUB_OUTPUT
+          echo "passed=$PASSED" >> "$GITHUB_OUTPUT"
+          echo "failed=$FAILED" >> "$GITHUB_OUTPUT"
 
       - name: Upload mock test reports
         uses: actions/upload-artifact@v7
@@ -210,7 +210,6 @@ jobs:
       - name: Check runner availability
         run: |
           echo "Running on self-hosted runner: ${{ runner.name }}"
-          echo "Runner labels: ${{ join(runner.labels, ', ') }}"
           echo ""
           echo "Verifying F5 XC API connectivity..."
 
@@ -242,10 +241,10 @@ jobs:
           # Check which auth method is configured
           if [ -n "$F5XC_API_TOKEN" ]; then
             echo "✓ Using API Token authentication (recommended)"
-            echo "auth_method=token" >> $GITHUB_OUTPUT
+            echo "auth_method=token" >> "$GITHUB_OUTPUT"
           elif [ -n "$F5XC_P12_BASE64" ] && [ -n "$F5XC_P12_PASSWORD" ]; then
             echo "✓ Using P12 certificate authentication"
-            echo "auth_method=p12" >> $GITHUB_OUTPUT
+            echo "auth_method=p12" >> "$GITHUB_OUTPUT"
           else
             echo "::error::No authentication configured!"
             echo "Configure either:"
@@ -274,8 +273,8 @@ jobs:
           fi
 
           echo "✓ P12 certificate decoded to temporary file"
-          echo "p12_file=$P12_FILE" >> $GITHUB_OUTPUT
-          echo "p12_dir=$P12_DIR" >> $GITHUB_OUTPUT
+          echo "p12_file=$P12_FILE" >> "$GITHUB_OUTPUT"
+          echo "p12_dir=$P12_DIR" >> "$GITHUB_OUTPUT"
 
       - name: Run real API tests
         id: run-tests
@@ -319,9 +318,11 @@ jobs:
           FAILED=$(jq -r '.total_failed // 0' test-reports/real-tests.json)
           TRANSIENT=$(jq -r '[.transient_errors[]?.count // 0] | add // 0' test-reports/real-tests.json)
 
-          echo "passed=$PASSED" >> $GITHUB_OUTPUT
-          echo "failed=$FAILED" >> $GITHUB_OUTPUT
-          echo "transient=$TRANSIENT" >> $GITHUB_OUTPUT
+          {
+            echo "passed=$PASSED"
+            echo "failed=$FAILED"
+            echo "transient=$TRANSIENT"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Cleanup P12 certificate
         if: always() && steps.verify-creds.outputs.auth_method == 'p12'
@@ -381,13 +382,13 @@ jobs:
           # Determine which authentication method is configured
           if [ -n "$F5XC_API_TOKEN" ]; then
             echo "✓ Using API Token authentication"
-            echo "auth_method=token" >> $GITHUB_OUTPUT
+            echo "auth_method=token" >> "$GITHUB_OUTPUT"
           elif [ -n "$F5XC_P12_BASE64" ] && [ -n "$F5XC_P12_PASSWORD" ]; then
             echo "✓ Using P12 certificate authentication"
-            echo "auth_method=p12" >> $GITHUB_OUTPUT
+            echo "auth_method=p12" >> "$GITHUB_OUTPUT"
           else
             echo "::warning::No authentication configured for cleanup"
-            echo "auth_method=none" >> $GITHUB_OUTPUT
+            echo "auth_method=none" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Setup P12 certificate (if using P12 auth)
@@ -410,8 +411,8 @@ jobs:
           fi
 
           echo "✓ P12 certificate decoded to temporary file"
-          echo "p12_file=$P12_FILE" >> $GITHUB_OUTPUT
-          echo "p12_dir=$P12_DIR" >> $GITHUB_OUTPUT
+          echo "p12_file=$P12_FILE" >> "$GITHUB_OUTPUT"
+          echo "p12_dir=$P12_DIR" >> "$GITHUB_OUTPUT"
 
       - name: Run sweepers
         id: sweep
@@ -431,7 +432,7 @@ jobs:
 
           # Count swept resources (for summary)
           NAMESPACE_COUNT=$(grep -c "Successfully deleted namespace" sweep-output.txt || echo "0")
-          echo "swept_namespaces=$NAMESPACE_COUNT" >> $GITHUB_OUTPUT
+          echo "swept_namespaces=$NAMESPACE_COUNT" >> "$GITHUB_OUTPUT"
 
           # Report results
           echo ""
@@ -454,11 +455,13 @@ jobs:
 
       - name: Post cleanup summary
         run: |
-          echo "## Resource Cleanup" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Sweepers ran to clean up test resources left behind by acceptance tests." >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "- Namespaces cleaned: ${{ steps.sweep.outputs.swept_namespaces || '0' }}" >> $GITHUB_STEP_SUMMARY
+          {
+            echo "## Resource Cleanup"
+            echo ""
+            echo "Sweepers ran to clean up test resources left behind by acceptance tests."
+            echo ""
+            echo "- Namespaces cleaned: ${{ steps.sweep.outputs.swept_namespaces || '0' }}"
+          } >> "$GITHUB_STEP_SUMMARY"
 
   # ═══════════════════════════════════════════════════════════════════════════
   # Mock vs Real Comparison - Ensures mock server behavioral consistency
@@ -508,17 +511,17 @@ jobs:
           # Check if both JSON reports exist
           if [[ ! -f "mock-reports/mock-tests.json" ]]; then
             echo "::warning::Mock test JSON report not found"
-            echo "available=false" >> $GITHUB_OUTPUT
+            echo "available=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
           if [[ ! -f "real-reports/real-tests.json" ]]; then
             echo "::warning::Real API test JSON report not found"
-            echo "available=false" >> $GITHUB_OUTPUT
+            echo "available=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
-          echo "available=true" >> $GITHUB_OUTPUT
+          echo "available=true" >> "$GITHUB_OUTPUT"
 
           # Run the comparison tool
           go run tools/compare-test-results/main.go \
@@ -538,11 +541,15 @@ jobs:
           if [[ -f "comparison-reports/comparison.json" ]]; then
             CONSISTENT=$(jq -r '.summary.consistent // 0' comparison-reports/comparison.json)
             NEEDS_FIX=$(jq -r '.summary.mock_needs_fix // 0' comparison-reports/comparison.json)
-            echo "consistent=$CONSISTENT" >> $GITHUB_OUTPUT
-            echo "needs_fix=$NEEDS_FIX" >> $GITHUB_OUTPUT
+            {
+              echo "consistent=$CONSISTENT"
+              echo "needs_fix=$NEEDS_FIX"
+            } >> "$GITHUB_OUTPUT"
           else
-            echo "consistent=0" >> $GITHUB_OUTPUT
-            echo "needs_fix=0" >> $GITHUB_OUTPUT
+            {
+              echo "consistent=0"
+              echo "needs_fix=0"
+            } >> "$GITHUB_OUTPUT"
           fi
 
           # Comparison tool exits non-zero if mock needs fixing
@@ -561,13 +568,15 @@ jobs:
       - name: Post comparison to step summary
         if: steps.compare.outputs.available == 'true'
         run: |
-          echo "## Mock vs Real API Comparison" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
+          {
+            echo "## Mock vs Real API Comparison"
+            echo ""
+          } >> "$GITHUB_STEP_SUMMARY"
 
           if [[ -f "comparison-reports/comparison.md" ]]; then
-            cat "comparison-reports/comparison.md" >> $GITHUB_STEP_SUMMARY
+            cat "comparison-reports/comparison.md" >> "$GITHUB_STEP_SUMMARY"
           else
-            echo "⚠️ Comparison report not generated" >> $GITHUB_STEP_SUMMARY
+            echo "⚠️ Comparison report not generated" >> "$GITHUB_STEP_SUMMARY"
           fi
 
   # ═══════════════════════════════════════════════════════════════════════════
@@ -587,91 +596,110 @@ jobs:
         continue-on-error: true
 
       - name: Generate summary
+        env:
+          MOCK_TESTS_RESULT: ${{ needs.mock-tests.result }}
+          MOCK_PASSED: ${{ needs.mock-tests.outputs.mock_passed || 'N/A' }}
+          MOCK_FAILED: ${{ needs.mock-tests.outputs.mock_failed || 'N/A' }}
+          REAL_TESTS_RESULT: ${{ needs.real-api-tests.result }}
+          REAL_PASSED: ${{ needs.real-api-tests.outputs.real_passed || 'N/A' }}
+          REAL_FAILED: ${{ needs.real-api-tests.outputs.real_failed || 'N/A' }}
+          REAL_TRANSIENT: ${{ needs.real-api-tests.outputs.transient_errors || '0' }}
+          COMPARE_RESULT: ${{ needs.compare-results.result }}
+          COMPARE_AVAILABLE: ${{ needs.compare-results.outputs.comparison_available }}
+          COMPARE_CONSISTENT: ${{ needs.compare-results.outputs.mock_consistent || 0 }}
+          COMPARE_NEEDS_FIX: ${{ needs.compare-results.outputs.mock_needs_fix || 0 }}
+          CLEANUP_RESULT: ${{ needs.cleanup.result }}
+          RUN_NUMBER: ${{ github.run_number }}
+          SERVER_URL: ${{ github.server_url }}
+          REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+          EVENT_NAME: ${{ github.event_name }}
+          TEST_MODE: ${{ github.event.inputs.mode || 'pr-subset' }}
         run: |
-          echo "## Acceptance Test Results" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Workflow Run:** [#${{ github.run_number }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> $GITHUB_STEP_SUMMARY
-          echo "**Triggered by:** ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
-          echo "**Mode:** ${{ github.event.inputs.mode || 'pr-subset' }}" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
+          {
+            echo "## Acceptance Test Results"
+            echo ""
+            echo "**Workflow Run:** [#${RUN_NUMBER}](${SERVER_URL}/${REPO}/actions/runs/${RUN_ID})"
+            echo "**Triggered by:** ${EVENT_NAME}"
+            echo "**Mode:** ${TEST_MODE}"
+            echo ""
 
-          # Mock test results
-          echo "### Mock Tests (Parallel)" >> $GITHUB_STEP_SUMMARY
-          if [[ "${{ needs.mock-tests.result }}" == "success" ]]; then
-            echo "- Status: ✅ Completed" >> $GITHUB_STEP_SUMMARY
-            echo "- Passed: ${{ needs.mock-tests.outputs.mock_passed || 'N/A' }}" >> $GITHUB_STEP_SUMMARY
-            echo "- Failed: ${{ needs.mock-tests.outputs.mock_failed || 'N/A' }}" >> $GITHUB_STEP_SUMMARY
-          elif [[ "${{ needs.mock-tests.result }}" == "skipped" ]]; then
-            echo "- Status: ⏭️ Skipped" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "- Status: ❌ Failed" >> $GITHUB_STEP_SUMMARY
-          fi
-          echo "" >> $GITHUB_STEP_SUMMARY
-
-          # Real API test results
-          echo "### Real API Tests (Sequential)" >> $GITHUB_STEP_SUMMARY
-          if [[ "${{ needs.real-api-tests.result }}" == "success" ]]; then
-            echo "- Status: ✅ Completed" >> $GITHUB_STEP_SUMMARY
-            echo "- Passed: ${{ needs.real-api-tests.outputs.real_passed || 'N/A' }}" >> $GITHUB_STEP_SUMMARY
-            echo "- Failed: ${{ needs.real-api-tests.outputs.real_failed || 'N/A' }}" >> $GITHUB_STEP_SUMMARY
-            echo "- Transient Errors: ${{ needs.real-api-tests.outputs.transient_errors || '0' }}" >> $GITHUB_STEP_SUMMARY
-          elif [[ "${{ needs.real-api-tests.result }}" == "skipped" ]]; then
-            echo "- Status: ⏭️ Skipped (PR mode or mock-only)" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "- Status: ❌ Failed or runner unavailable" >> $GITHUB_STEP_SUMMARY
-          fi
-          echo "" >> $GITHUB_STEP_SUMMARY
-
-          # Mock vs Real comparison results
-          echo "### Mock vs Real Comparison" >> $GITHUB_STEP_SUMMARY
-          if [[ "${{ needs.compare-results.result }}" == "success" ]]; then
-            if [[ "${{ needs.compare-results.outputs.comparison_available }}" == "true" ]]; then
-              CONSISTENT="${{ needs.compare-results.outputs.mock_consistent || 0 }}"
-              NEEDS_FIX="${{ needs.compare-results.outputs.mock_needs_fix || 0 }}"
-              echo "- Status: ✅ Comparison completed" >> $GITHUB_STEP_SUMMARY
-              echo "- Mock Consistent: $CONSISTENT tests" >> $GITHUB_STEP_SUMMARY
-              if [[ "$NEEDS_FIX" -gt 0 ]]; then
-                echo "- ⚠️ Mock Needs Fix: $NEEDS_FIX tests" >> $GITHUB_STEP_SUMMARY
-              else
-                echo "- Mock Needs Fix: 0 tests ✅" >> $GITHUB_STEP_SUMMARY
-              fi
+            # Mock test results
+            echo "### Mock Tests (Parallel)"
+            if [[ "$MOCK_TESTS_RESULT" == "success" ]]; then
+              echo "- Status: ✅ Completed"
+              echo "- Passed: ${MOCK_PASSED}"
+              echo "- Failed: ${MOCK_FAILED}"
+            elif [[ "$MOCK_TESTS_RESULT" == "skipped" ]]; then
+              echo "- Status: ⏭️ Skipped"
             else
-              echo "- Status: ⚠️ Reports not available for comparison" >> $GITHUB_STEP_SUMMARY
+              echo "- Status: ❌ Failed"
             fi
-          elif [[ "${{ needs.compare-results.result }}" == "skipped" ]]; then
-            echo "- Status: ⏭️ Skipped (requires both mock and real tests)" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "- Status: ❌ Comparison failed" >> $GITHUB_STEP_SUMMARY
-          fi
-          echo "" >> $GITHUB_STEP_SUMMARY
+            echo ""
 
-          # Resource cleanup results
-          echo "### Resource Cleanup" >> $GITHUB_STEP_SUMMARY
-          if [[ "${{ needs.cleanup.result }}" == "success" ]]; then
-            echo "- Status: ✅ Cleanup completed" >> $GITHUB_STEP_SUMMARY
-            echo "- Sweepers ran after tests to clean up leftover resources" >> $GITHUB_STEP_SUMMARY
-          elif [[ "${{ needs.cleanup.result }}" == "skipped" ]]; then
-            echo "- Status: ⏭️ Skipped (real API tests did not run)" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "- Status: ⚠️ Cleanup had issues (check logs)" >> $GITHUB_STEP_SUMMARY
-          fi
-          echo "" >> $GITHUB_STEP_SUMMARY
+            # Real API test results
+            echo "### Real API Tests (Sequential)"
+            if [[ "$REAL_TESTS_RESULT" == "success" ]]; then
+              echo "- Status: ✅ Completed"
+              echo "- Passed: ${REAL_PASSED}"
+              echo "- Failed: ${REAL_FAILED}"
+              echo "- Transient Errors: ${REAL_TRANSIENT}"
+            elif [[ "$REAL_TESTS_RESULT" == "skipped" ]]; then
+              echo "- Status: ⏭️ Skipped (PR mode or mock-only)"
+            else
+              echo "- Status: ❌ Failed or runner unavailable"
+            fi
+            echo ""
 
-          # Include markdown report if available
-          if [[ -f "all-reports/mock-test-reports/mock-tests.md" ]]; then
-            echo "### Detailed Mock Test Report" >> $GITHUB_STEP_SUMMARY
-            cat "all-reports/mock-test-reports/mock-tests.md" >> $GITHUB_STEP_SUMMARY
-          fi
+            # Mock vs Real comparison results
+            echo "### Mock vs Real Comparison"
+            if [[ "$COMPARE_RESULT" == "success" ]]; then
+              if [[ "$COMPARE_AVAILABLE" == "true" ]]; then
+                echo "- Status: ✅ Comparison completed"
+                echo "- Mock Consistent: ${COMPARE_CONSISTENT} tests"
+                if [[ "$COMPARE_NEEDS_FIX" -gt 0 ]]; then
+                  echo "- ⚠️ Mock Needs Fix: ${COMPARE_NEEDS_FIX} tests"
+                else
+                  echo "- Mock Needs Fix: 0 tests ✅"
+                fi
+              else
+                echo "- Status: ⚠️ Reports not available for comparison"
+              fi
+            elif [[ "$COMPARE_RESULT" == "skipped" ]]; then
+              echo "- Status: ⏭️ Skipped (requires both mock and real tests)"
+            else
+              echo "- Status: ❌ Comparison failed"
+            fi
+            echo ""
 
-          if [[ -f "all-reports/real-api-test-reports/real-tests.md" ]]; then
-            echo "### Detailed Real API Test Report" >> $GITHUB_STEP_SUMMARY
-            cat "all-reports/real-api-test-reports/real-tests.md" >> $GITHUB_STEP_SUMMARY
-          fi
+            # Resource cleanup results
+            echo "### Resource Cleanup"
+            if [[ "$CLEANUP_RESULT" == "success" ]]; then
+              echo "- Status: ✅ Cleanup completed"
+              echo "- Sweepers ran after tests to clean up leftover resources"
+            elif [[ "$CLEANUP_RESULT" == "skipped" ]]; then
+              echo "- Status: ⏭️ Skipped (real API tests did not run)"
+            else
+              echo "- Status: ⚠️ Cleanup had issues (check logs)"
+            fi
+            echo ""
 
-          if [[ -f "all-reports/comparison-reports/comparison.md" ]]; then
-            echo "### Detailed Mock vs Real Comparison Report" >> $GITHUB_STEP_SUMMARY
-            cat "all-reports/comparison-reports/comparison.md" >> $GITHUB_STEP_SUMMARY
-          fi
+            # Include markdown report if available
+            if [[ -f "all-reports/mock-test-reports/mock-tests.md" ]]; then
+              echo "### Detailed Mock Test Report"
+              cat "all-reports/mock-test-reports/mock-tests.md"
+            fi
+
+            if [[ -f "all-reports/real-api-test-reports/real-tests.md" ]]; then
+              echo "### Detailed Real API Test Report"
+              cat "all-reports/real-api-test-reports/real-tests.md"
+            fi
+
+            if [[ -f "all-reports/comparison-reports/comparison.md" ]]; then
+              echo "### Detailed Mock vs Real Comparison Report"
+              cat "all-reports/comparison-reports/comparison.md"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Check overall status
         run: |

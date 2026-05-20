@@ -77,7 +77,6 @@ jobs:
       - name: Check runner availability
         run: |
           echo "Running on self-hosted runner: ${{ runner.name }}"
-          echo "Runner labels: ${{ join(runner.labels, ', ') }}"
           echo ""
           echo "Verifying VPN connectivity..."
           # The self-hosted runner should have VPN configured
@@ -149,8 +148,8 @@ jobs:
           DISCOVERED=$(grep -o 'Discovered: [0-9]*' discovery.log | grep -o '[0-9]*' || echo "0")
           FAILED=$(grep -o 'Failed: [0-9]*' discovery.log | grep -o '[0-9]*' || echo "0")
 
-          echo "resources_discovered=$DISCOVERED" >> $GITHUB_OUTPUT
-          echo "resources_failed=$FAILED" >> $GITHUB_OUTPUT
+          echo "resources_discovered=$DISCOVERED" >> "$GITHUB_OUTPUT"
+          echo "resources_failed=$FAILED" >> "$GITHUB_OUTPUT"
 
           echo "Discovery complete: $DISCOVERED resources discovered, $FAILED failed"
 
@@ -167,11 +166,11 @@ jobs:
         run: |
           if git diff --quiet tools/api-defaults.json internal/mocks/generated_defaults.go; then
             echo "No changes detected"
-            echo "changes_detected=false" >> $GITHUB_OUTPUT
+            echo "changes_detected=false" >> "$GITHUB_OUTPUT"
           else
             echo "Changes detected in:"
             git diff --name-only tools/api-defaults.json internal/mocks/generated_defaults.go
-            echo "changes_detected=true" >> $GITHUB_OUTPUT
+            echo "changes_detected=true" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Run tests
