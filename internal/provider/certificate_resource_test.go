@@ -13,6 +13,7 @@ import (
 )
 
 func TestAccCertificateResource_basic(t *testing.T) {
+	t.Skip("Skipping: upstream spec gap — missing private_key/disable_ocsp_stapling. See api-specs-enriched#430")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
