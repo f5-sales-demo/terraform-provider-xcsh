@@ -119,9 +119,9 @@ jobs:
         if: always()
         run: |
           if [ "${{ job.status }}" == "success" ]; then
-            echo "success=true" >> $GITHUB_OUTPUT
+            echo "success=true" >> "$GITHUB_OUTPUT"
           else
-            echo "success=false" >> $GITHUB_OUTPUT
+            echo "success=false" >> "$GITHUB_OUTPUT"
           fi
 
   lint:
@@ -143,8 +143,8 @@ jobs:
       - name: Install golangci-lint
         run: |
           # Install golangci-lint binary directly (no Node.js dependencies)
-          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/HEAD/install.sh | sh -s -- -b $(go env GOPATH)/bin
-          echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
+          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/HEAD/install.sh | sh -s -- -b "$(go env GOPATH)/bin"
+          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
 
       - name: Run golangci-lint
         run: golangci-lint run --timeout=5m ./internal/... .

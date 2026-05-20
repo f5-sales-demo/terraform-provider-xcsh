@@ -34,13 +34,13 @@ jobs:
       - name: Verify specs exist
         id: verify
         run: |
-          SPEC_COUNT=$(find ${{ inputs.spec-dir }} -name "*.json" -type f 2>/dev/null | wc -l)
+          SPEC_COUNT=$(find "${{ inputs.spec-dir }}" -name "*.json" -type f 2>/dev/null | wc -l)
           echo "Found ${SPEC_COUNT} OpenAPI spec files in ${{ inputs.spec-dir }}"
           if [ "$SPEC_COUNT" -eq "0" ]; then
             echo "No spec files found - skipping generation"
-            echo "has_specs=false" >> $GITHUB_OUTPUT
+            echo "has_specs=false" >> "$GITHUB_OUTPUT"
           else
-            echo "has_specs=true" >> $GITHUB_OUTPUT
+            echo "has_specs=true" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Set up Go
@@ -136,10 +136,10 @@ jobs:
         run: |
           git add -A
           if git diff --cached --quiet; then
-            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "No provider code changes"
           else
-            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "changed=true" >> "$GITHUB_OUTPUT"
             echo "Provider code changes detected:"
             git diff --cached --stat
             git reset HEAD

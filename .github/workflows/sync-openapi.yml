@@ -64,10 +64,10 @@ jobs:
         run: |
           PR_COUNT=$(gh pr list --search "in:title \"${{ env.PR_TITLE }}\"" --state open --json number --jq length)
           if [ "$PR_COUNT" -gt "0" ]; then
-            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "exists=true" >> "$GITHUB_OUTPUT"
             echo "Found existing open PR - skipping"
           else
-            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "exists=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Determine spec source and version
@@ -80,7 +80,7 @@ jobs:
           SPEC_VERSION="${{ env.SPEC_VERSION }}"
 
           echo "Spec source: $SPEC_SOURCE"
-          echo "spec_source=$SPEC_SOURCE" >> $GITHUB_OUTPUT
+          echo "spec_source=$SPEC_SOURCE" >> "$GITHUB_OUTPUT"
 
           if [ "$SPEC_SOURCE" = "v2" ]; then
             # Determine v2 version
@@ -90,19 +90,19 @@ jobs:
               if [ -z "$LATEST" ]; then
                 echo "::warning::Could not determine latest v2 release, falling back to v1"
                 SPEC_SOURCE="v1"
-                echo "spec_source=v1" >> $GITHUB_OUTPUT
+                echo "spec_source=v1" >> "$GITHUB_OUTPUT"
               else
                 SPEC_VERSION="$LATEST"
                 echo "Using latest v2 release: $SPEC_VERSION"
               fi
             fi
-            echo "spec_version=$SPEC_VERSION" >> $GITHUB_OUTPUT
+            echo "spec_version=$SPEC_VERSION" >> "$GITHUB_OUTPUT"
 
             # Build v2 download URL
             if [ "$SPEC_SOURCE" = "v2" ]; then
               DOWNLOAD_URL="https://github.com/${{ env.ENRICHED_REPO }}/releases/download/${SPEC_VERSION}/f5xc-api-specs-${SPEC_VERSION}.zip"
               echo "V2 download URL: $DOWNLOAD_URL"
-              echo "download_url=$DOWNLOAD_URL" >> $GITHUB_OUTPUT
+              echo "download_url=$DOWNLOAD_URL" >> "$GITHUB_OUTPUT"
             fi
           fi
 
@@ -110,8 +110,8 @@ jobs:
             # V1 legacy URL
             DOWNLOAD_URL="https://docs.cloud.f5.com/docs-v2/downloads/f5-distributed-cloud-open-api.zip"
             echo "V1 download URL: $DOWNLOAD_URL"
-            echo "download_url=$DOWNLOAD_URL" >> $GITHUB_OUTPUT
-            echo "spec_version=v1" >> $GITHUB_OUTPUT
+            echo "download_url=$DOWNLOAD_URL" >> "$GITHUB_OUTPUT"
+            echo "spec_version=v1" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Download OpenAPI specs
@@ -163,11 +163,11 @@ jobs:
               echo "::error::V2 spec structure invalid: domains/ directory not found"
               exit 1
             fi
-            DOMAIN_COUNT=$(ls -1 ${{ env.SPEC_DIR }}/domains/*.json 2>/dev/null | wc -l)
+            DOMAIN_COUNT=$(find "${{ env.SPEC_DIR }}/domains" -maxdepth 1 -name '*.json' 2>/dev/null | wc -l)
             echo "V2 structure verified: index.json + $DOMAIN_COUNT domain files"
           else
             echo "Verifying v1 spec structure..."
-            SPEC_COUNT=$(ls -1 ${{ env.SPEC_DIR }}/docs-cloud-f5-com.*.ves-swagger.json 2>/dev/null | wc -l)
+            SPEC_COUNT=$(find "${{ env.SPEC_DIR }}" -maxdepth 1 -name 'docs-cloud-f5-com.*.ves-swagger.json' 2>/dev/null | wc -l)
             if [ "$SPEC_COUNT" -eq "0" ]; then
               echo "::error::V1 spec structure invalid: no *.ves-swagger.json files found"
               exit 1
@@ -181,10 +181,10 @@ jobs:
         run: |
           git add -A
           if git diff --cached --quiet; then
-            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "No changes detected in OpenAPI specs"
           else
-            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "changed=true" >> "$GITHUB_OUTPUT"
             echo "Changes detected in OpenAPI specs"
             git reset HEAD
           fi
@@ -234,7 +234,7 @@ jobs:
             echo "Using swagger-cli for v1 spec validation..."
             npm install -g @apidevtools/swagger-cli
             VALID=true
-            for file in $(find ${{ env.SPEC_DIR }} -type f \( -name "*.yaml" -o -name "*.yml" -o -name "*.json" \)); do
+            find "${{ env.SPEC_DIR }}" -type f \( -name "*.yaml" -o -name "*.yml" -o -name "*.json" \) | while IFS= read -r file; do
               if grep -q -E "(openapi|swagger).*['\"]?[0-9]+\.[0-9]+" "$file" 2>/dev/null; then
                 echo "Validating: $file"
                 if swagger-cli validate "$file"; then
@@ -255,7 +255,7 @@ jobs:
       - name: Get current date
         if: steps.changes.outputs.changed == 'true'
         id: date
-        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+        run: echo "date=$(date +'%Y-%m-%d')" >> "$GITHUB_OUTPUT"
 
       - name: Create branch and commit
         if: steps.changes.outputs.changed == 'true'
@@ -410,7 +410,7 @@ jobs:
             --label "$LABELS")
 
           PR_NUM=$(echo "$PR_URL" | grep -oE '[0-9]+$')
-          echo "number=$PR_NUM" >> $GITHUB_OUTPUT
+          echo "number=$PR_NUM" >> "$GITHUB_OUTPUT"
           echo "Created PR #$PR_NUM"
 
       - name: Enable auto-merge
