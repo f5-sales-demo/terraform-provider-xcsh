@@ -13,6 +13,7 @@ import (
 )
 
 func TestAccFastACLResource_basic(t *testing.T) {
+	t.Skip("Skipping: upstream spec gap — missing site_choice (re_acl/site_acl). See api-specs-enriched#429")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
