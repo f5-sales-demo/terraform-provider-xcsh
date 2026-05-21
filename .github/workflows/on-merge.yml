@@ -254,6 +254,7 @@ jobs:
       needs.tag-release.result == 'success' &&
       needs.tag-release.outputs.tag-created == 'true'
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - name: Dispatch to terraform-provider-mcp
         env:
