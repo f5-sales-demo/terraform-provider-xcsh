@@ -155,5 +155,26 @@
       "spec.site_selector"
     ],
     "example_yaml": "metadata:\n  name: my-virtual-site\n  namespace: default\nspec:\n  site_type: REGIONAL_EDGE\n  site_selector:\n    expressions:\n      - \"ves.io/siteName=any\""
+  },
+  "k8s_cluster": {
+    "required_fields": [
+      "metadata.name",
+      "metadata.namespace"
+    ],
+    "example_yaml": "metadata:\n  name: my-k8s-cluster\n  namespace: system\nspec: {}"
+  },
+  "network_firewall": {
+    "required_fields": [
+      "metadata.name",
+      "metadata.namespace"
+    ],
+    "example_yaml": "metadata:\n  name: my-network-firewall\n  namespace: system\nspec: {}"
+  },
+  "enhanced_firewall_policy": {
+    "required_fields": [
+      "metadata.name",
+      "metadata.namespace"
+    ],
+    "example_yaml": "metadata:\n  name: my-efp\n  namespace: default\nspec: {}"
   }
 }
