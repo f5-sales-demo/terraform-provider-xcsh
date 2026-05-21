@@ -444,6 +444,12 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 		}
 	}
 
+	// Final invariant: Terraform rejects Required+Computed. If both are set, clear Computed.
+	if attr.Required && attr.Computed {
+		attr.Computed = false
+		attr.PlanModifier = ""
+	}
+
 	return attr
 }
 
