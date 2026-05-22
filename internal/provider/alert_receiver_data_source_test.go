@@ -2,7 +2,6 @@
 
 package provider_test
 
-
 import (
 	"fmt"
 	"testing"
@@ -39,7 +38,6 @@ func TestAccAlertReceiverDataSource_basic(t *testing.T) {
 		},
 	})
 }
-
 
 func testAccAlertReceiverDataSourceConfig_basic(nsName, name string) string {
 	return acctest.ConfigCompose(

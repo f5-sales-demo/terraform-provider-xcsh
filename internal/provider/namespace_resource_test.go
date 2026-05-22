@@ -474,7 +474,7 @@ func TestAccNamespaceResource_invalidName(t *testing.T) {
 		Steps: []resource.TestStep{
 			{
 				// Name with invalid characters (uppercase)
-				Config: testAccNamespaceResourceConfig_basic("Invalid-NAME-Test"),
+				Config:      testAccNamespaceResourceConfig_basic("Invalid-NAME-Test"),
 				ExpectError: regexp.MustCompile(`(?i)(invalid|name|must)`),
 			},
 		},

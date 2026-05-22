@@ -2,7 +2,6 @@
 
 package provider_test
 
-
 import (
 	"fmt"
 	"testing"
@@ -40,7 +39,6 @@ func TestAccCloudLinkDataSource_basic(t *testing.T) {
 		},
 	})
 }
-
 
 func testAccCloudLinkDataSourceConfig_basic(nsName, name string) string {
 	return acctest.ConfigCompose(

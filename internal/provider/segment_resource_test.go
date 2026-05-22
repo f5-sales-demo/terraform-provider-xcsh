@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/acctest"
 )
 
 func TestAccSegmentResource_basic(t *testing.T) {
