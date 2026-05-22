@@ -2,7 +2,6 @@
 
 package provider_test
 
-
 import (
 	"fmt"
 	"testing"
@@ -43,7 +42,6 @@ func TestAccDiscoveryDataSource_basic(t *testing.T) {
 		},
 	})
 }
-
 
 func testAccDiscoveryDataSourceConfig_basic(nsName, name string) string {
 	return acctest.ConfigCompose(

@@ -23,7 +23,7 @@ func TestAccForwardProxyPolicyResource_basic(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy: acctest.CheckResourceDestroyed("f5xc_forward_proxy_policy"),
+		CheckDestroy:             acctest.CheckResourceDestroyed("f5xc_forward_proxy_policy"),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccForwardProxyPolicyConfig_basic(nsName, rName),

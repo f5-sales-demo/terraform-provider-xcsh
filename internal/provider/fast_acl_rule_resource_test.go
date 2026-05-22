@@ -23,7 +23,7 @@ func TestAccFastACLRuleResource_basic(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy: acctest.CheckResourceDestroyed("f5xc_fast_acl_rule"),
+		CheckDestroy:             acctest.CheckResourceDestroyed("f5xc_fast_acl_rule"),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccFastACLRuleConfig_basic(nsName, rName),

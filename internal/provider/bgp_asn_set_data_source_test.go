@@ -2,7 +2,6 @@
 
 package provider_test
 
-
 import (
 	"fmt"
 	"testing"
@@ -35,7 +34,6 @@ func TestAccBgpAsnSetDataSource_basic(t *testing.T) {
 		},
 	})
 }
-
 
 func testAccBgpAsnSetDataSourceConfig_basic(name string) string {
 	return acctest.ConfigCompose(

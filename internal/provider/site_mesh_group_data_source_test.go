@@ -2,7 +2,6 @@
 
 package provider_test
 
-
 import (
 	"testing"
 )

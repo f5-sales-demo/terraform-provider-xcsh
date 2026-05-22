@@ -2,7 +2,6 @@
 
 package provider_test
 
-
 import (
 	"fmt"
 	"testing"
@@ -34,7 +33,6 @@ func TestAccNamespaceDataSource_basic(t *testing.T) {
 		},
 	})
 }
-
 
 func testAccNamespaceDataSourceConfig_basic(name string) string {
 	return acctest.ConfigCompose(

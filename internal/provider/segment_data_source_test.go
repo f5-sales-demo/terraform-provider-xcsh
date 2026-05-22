@@ -2,7 +2,6 @@
 
 package provider_test
 
-
 import (
 	"fmt"
 	"testing"
@@ -35,7 +34,6 @@ func TestAccSegmentDataSource_basic(t *testing.T) {
 		},
 	})
 }
-
 
 func testAccSegmentDataSourceConfig_basic(name string) string {
 	// Segment must be in system namespace
