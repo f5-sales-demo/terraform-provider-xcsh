@@ -4,15 +4,12 @@
 package blindfold
 
 import (
-	"crypto/tls"
-	"crypto/x509"
-	"encoding/pem"
 	"fmt"
 	"net/http"
 	"os"
 	"time"
 
-	"golang.org/x/crypto/pkcs12"
+	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
 )
 
 // AuthConfig holds configuration for F5XC API authentication.
@@ -149,71 +146,14 @@ func CreateAuthenticatedClient(config *AuthConfig) (*AuthResult, error) {
 	)
 }
 
-// createHTTPClientFromP12 creates an HTTP client configured with P12 certificate authentication.
-// This implementation handles P12 files with certificate chains (multiple certificates).
 func createHTTPClientFromP12(p12File, password string) (*http.Client, error) {
-	p12Data, err := os.ReadFile(p12File)
+	tlsConfig, err := client.LoadP12Certificate(p12File, password)
 	if err != nil {
-		return nil, fmt.Errorf("failed to read P12 file %q: %w", p12File, err)
+		return nil, fmt.Errorf("P12 authentication failed: %w", err)
 	}
-
-	// Use ToPEM to handle P12 files with certificate chains
-	blocks, err := pkcs12.ToPEM(p12Data, password)
-	if err != nil {
-		return nil, fmt.Errorf("failed to decode P12 file: %w", err)
-	}
-
-	var pemKey, pemCert []byte
-	var caCerts []*x509.Certificate
-
-	for _, block := range blocks {
-		switch block.Type {
-		case "PRIVATE KEY":
-			pemKey = append(pemKey, pem.EncodeToMemory(block)...)
-		case "CERTIFICATE":
-			cert, err := x509.ParseCertificate(block.Bytes)
-			if err != nil {
-				return nil, fmt.Errorf("failed to parse certificate: %w", err)
-			}
-			// Distinguish between CA certificates and client certificate
-			if cert.IsCA {
-				caCerts = append(caCerts, cert)
-			} else {
-				pemCert = append(pemCert, pem.EncodeToMemory(block)...)
-			}
-		}
-	}
-
-	if len(pemKey) == 0 || len(pemCert) == 0 {
-		return nil, fmt.Errorf("P12 file missing required key or certificate")
-	}
-
-	tlsCert, err := tls.X509KeyPair(pemCert, pemKey)
-	if err != nil {
-		return nil, fmt.Errorf("failed to create X509 key pair: %w", err)
-	}
-
-	// Create CA pool starting with system CAs, then add P12 CAs
-	caCertPool, err := x509.SystemCertPool()
-	if err != nil {
-		// Fall back to empty pool if system certs unavailable
-		caCertPool = x509.NewCertPool()
-	}
-	for _, caCert := range caCerts {
-		caCertPool.AddCert(caCert)
-	}
-
-	transport := &http.Transport{
-		TLSClientConfig: &tls.Config{
-			Certificates: []tls.Certificate{tlsCert},
-			RootCAs:      caCertPool,
-			MinVersion:   tls.VersionTLS12,
-		},
-	}
-
 	return &http.Client{
 		Timeout:   DefaultTimeout,
-		Transport: transport,
+		Transport: &http.Transport{TLSClientConfig: tlsConfig},
 	}, nil
 }
 
