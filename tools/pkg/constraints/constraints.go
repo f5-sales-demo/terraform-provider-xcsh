@@ -56,8 +56,18 @@ func Parse(raw map[string]interface{}) *Parsed {
 		p.MaxLength = int(v)
 	}
 	if v, ok := raw["pattern"].(string); ok {
-		if _, err := regexp.Compile(v); err == nil {
-			p.Pattern = v
+		// Skip discovery-inferred patterns (e.g., format:uri → ^(https?|ftp)://)
+		// which may reject vendor-specific schemes like string:///
+		source := ""
+		if meta, ok := raw["metadata"].(map[string]interface{}); ok {
+			if s, ok := meta["source"].(string); ok {
+				source = s
+			}
+		}
+		if source != "discovery" {
+			if _, err := regexp.Compile(v); err == nil {
+				p.Pattern = v
+			}
 		}
 	}
 

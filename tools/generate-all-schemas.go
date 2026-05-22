@@ -329,10 +329,14 @@ func processSpecFileForResource(specFile string, resourceName string, category s
 func extractResourceSchemaByName(spec *OpenAPI3Spec, resourceName string) (*SchemaDefinition, string) {
 	// V2 schema naming patterns (e.g., app_firewallCreateSpecType)
 	// The resource name is used as a prefix with CreateSpecType or GetSpecType suffix
+	// Some specs use a "schema" prefix (e.g., schemafast_aclCreateSpecType)
 	v2Patterns := []string{
 		fmt.Sprintf("%sCreateSpecType", resourceName),
+		fmt.Sprintf("schema%sCreateSpecType", resourceName),
 		fmt.Sprintf("%sGetSpecType", resourceName),
+		fmt.Sprintf("schema%sGetSpecType", resourceName),
 		fmt.Sprintf("%sReplaceSpecType", resourceName),
+		fmt.Sprintf("schema%sReplaceSpecType", resourceName),
 	}
 
 	// Legacy schema naming patterns (ves.io.schema format still used in some v2 specs)
