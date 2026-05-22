@@ -77,6 +77,41 @@ func TestExtractResourceSchema_NoCreateSpecType(t *testing.T) {
 	}
 }
 
+func TestExtractResourceSchema_SchemaPrefixMatch(t *testing.T) {
+	// Specs like fast_acl use "schemafast_aclCreateSpecType" (with "schema" prefix).
+	// The generator must match this before a shorter name like "fast_acl_ruleCreateSpecType".
+	spec := &openapi.Spec{
+		Components: openapi.Components{
+			Schemas: map[string]openapi.Schema{
+				"fast_acl_ruleCreateSpecType": {
+					Type:       "object",
+					Properties: map[string]openapi.Schema{"action": {Type: "string"}},
+				},
+				"schemafast_aclCreateSpecType": {
+					Type:       "object",
+					Properties: map[string]openapi.Schema{"re_acl": {Type: "object"}, "site_acl": {Type: "object"}},
+				},
+			},
+		},
+	}
+	extractAPIPath := func(spec *openapi.Spec, resourceName string) (string, string, bool) {
+		return "/api/config/namespaces/%s/fast_acls", "/api/config/namespaces/%s/fast_acls/%s", true
+	}
+	result, err := ExtractResourceSchema(spec, "fast_acl", extractAPIPath)
+	if err != nil {
+		t.Fatalf("Unexpected error: %v", err)
+	}
+	foundReAcl := false
+	for _, attr := range result.Attributes {
+		if attr.Name == "re_acl" {
+			foundReAcl = true
+		}
+	}
+	if !foundReAcl {
+		t.Error("Expected 're_acl' attribute (from schemafast_aclCreateSpecType), got fast_acl_rule schema instead")
+	}
+}
+
 func TestExtractResourceSchema_Basic(t *testing.T) {
 	spec := &openapi.Spec{
 		Components: openapi.Components{

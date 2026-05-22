@@ -30,22 +30,37 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 	var found bool
 	var createSpecKey string
 
-	// Sort schema keys for deterministic iteration (map order is random in Go)
-	schemaKeys := make([]string, 0, len(spec.Components.Schemas))
-	for key := range spec.Components.Schemas {
-		schemaKeys = append(schemaKeys, key)
+	// Try exact match first (most specs), then schema-prefixed variant
+	exactPatterns := []string{
+		resourceName + "CreateSpecType",
+		"schema" + resourceName + "CreateSpecType",
 	}
-	sort.Strings(schemaKeys)
-
-	for _, key := range schemaKeys {
-		schema := spec.Components.Schemas[key]
-		keyLower := strings.ToLower(key)
-		if strings.Contains(keyLower, strings.ToLower(resourceName)) &&
-			strings.Contains(keyLower, "createspectype") {
+	for _, pattern := range exactPatterns {
+		if schema, ok := spec.Components.Schemas[pattern]; ok {
 			createSpec = schema
-			createSpecKey = key
+			createSpecKey = pattern
 			found = true
 			break
+		}
+	}
+
+	if !found {
+		// Sort schema keys for deterministic fallback (map order is random in Go)
+		schemaKeys := make([]string, 0, len(spec.Components.Schemas))
+		for key := range spec.Components.Schemas {
+			schemaKeys = append(schemaKeys, key)
+		}
+		sort.Strings(schemaKeys)
+
+		for _, key := range schemaKeys {
+			keyLower := strings.ToLower(key)
+			if strings.Contains(keyLower, strings.ToLower(resourceName)) &&
+				strings.Contains(keyLower, "createspectype") {
+				createSpec = spec.Components.Schemas[key]
+				createSpecKey = key
+				found = true
+				break
+			}
 		}
 	}
 

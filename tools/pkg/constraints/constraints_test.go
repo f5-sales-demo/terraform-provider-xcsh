@@ -204,6 +204,54 @@ func TestParse_NumericConstraints(t *testing.T) {
 	}
 }
 
+func TestParse_DiscoverySourcePatternSkipped(t *testing.T) {
+	// discovery-inferred URL patterns (e.g., format:uri → ^(https?|ftp)://)
+	// must be skipped because they reject F5 XC-specific schemes like string:///
+	input := map[string]interface{}{
+		"constraintType": "string",
+		"category":       "discovery",
+		"format":         "uri",
+		"pattern":        `^(https?|ftp)://[^\s/$.?#].[^\s]*$`,
+		"maxLength":      float64(131072),
+		"deterministic":  true,
+		"metadata": map[string]interface{}{
+			"source":     "discovery",
+			"confidence": float64(0.99),
+		},
+	}
+	result := Parse(input)
+	if result == nil {
+		t.Fatal("Parse() returned nil, want non-nil Parsed with no pattern")
+	}
+	if result.Pattern != "" {
+		t.Errorf("Pattern = %q, want empty string (discovery patterns should be skipped)", result.Pattern)
+	}
+	if result.MaxLength != 131072 {
+		t.Errorf("MaxLength = %d, want 131072", result.MaxLength)
+	}
+}
+
+func TestParse_NonDiscoveryPatternKept(t *testing.T) {
+	// non-discovery patterns (naming, network, etc.) should still be applied
+	input := map[string]interface{}{
+		"constraintType": "string",
+		"category":       "naming",
+		"pattern":        `^[a-z]([-a-z0-9]*[a-z0-9])?$`,
+		"deterministic":  true,
+		"metadata": map[string]interface{}{
+			"source":     "api-probed",
+			"confidence": float64(0.99),
+		},
+	}
+	result := Parse(input)
+	if result == nil {
+		t.Fatal("Parse() returned nil for naming pattern")
+	}
+	if result.Pattern != `^[a-z]([-a-z0-9]*[a-z0-9])?$` {
+		t.Errorf("Pattern = %q, want naming regex", result.Pattern)
+	}
+}
+
 func TestParse_ConfidenceInMetadata_NoDeterministic(t *testing.T) {
 	input := map[string]interface{}{
 		"constraintType": "string",
