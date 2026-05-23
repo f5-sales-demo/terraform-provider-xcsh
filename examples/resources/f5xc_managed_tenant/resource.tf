@@ -20,7 +20,7 @@ resource "f5xc_managed_tenant" "example" {
   groups {
     # Configure groups settings
   }
-  # Object reference. This type establishes a direct referenc...
+  # Object reference. This type establishes a direct reference...
   group {
     # Configure group settings
   }
