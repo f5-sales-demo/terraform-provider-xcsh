@@ -295,6 +295,112 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 	}, nil
 }
 
+// ExtractReadOnlyResourceSchema extracts a data-source-only schema from a GetSpecType.
+// All spec properties become Computed attributes. No plan modifiers or conflict checks.
+func ExtractReadOnlyResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPath func(spec *openapi.Spec, resourceName string) (string, string, bool)) (*openapi.ResourceTemplate, error) {
+	// Find GetSpecType schema with all prefix variants
+	getPatterns := []string{
+		resourceName + "GetSpecType",
+		"schema" + resourceName + "GetSpecType",
+		"views" + resourceName + "GetSpecType",
+	}
+	var getSpec openapi.Schema
+	var found bool
+	for _, pattern := range getPatterns {
+		if schema, ok := spec.Components.Schemas[pattern]; ok {
+			getSpec = schema
+			found = true
+			break
+		}
+	}
+	if !found {
+		// Fallback: case-insensitive
+		lowerName := strings.ToLower(resourceName)
+		schemaKeys := make([]string, 0, len(spec.Components.Schemas))
+		for key := range spec.Components.Schemas {
+			schemaKeys = append(schemaKeys, key)
+		}
+		sort.Strings(schemaKeys)
+		for _, key := range schemaKeys {
+			if strings.Contains(strings.ToLower(key), lowerName) && strings.Contains(strings.ToLower(key), "getspectype") {
+				getSpec = spec.Components.Schemas[key]
+				found = true
+				break
+			}
+		}
+	}
+	if !found {
+		return nil, fmt.Errorf("no GetSpecType found for %s", resourceName)
+	}
+
+	// Convert spec properties to Computed-only attributes
+	var attributes []openapi.TerraformAttribute
+	for propName, propSchema := range getSpec.Properties {
+		if IsMetadataField(propName) {
+			continue
+		}
+		attr := ConvertToTerraformAttribute(propName, propSchema, false, "", spec)
+		attr.Required = false
+		attr.Optional = false
+		attr.Computed = true
+		attr.PlanModifier = ""
+		attributes = append(attributes, attr)
+	}
+	sort.Slice(attributes, func(i, j int) bool {
+		return attributes[i].Name < attributes[j].Name
+	})
+
+	apiPath, apiPathItem, hasNamespace := extractAPIPath(spec, resourceName)
+
+	// Standard metadata attributes for data sources
+	metaAttrs := []openapi.TerraformAttribute{
+		{Name: "name", GoName: "Name", TfsdkTag: "name", Type: "string",
+			Description: fmt.Sprintf("Name of the %s to look up.", naming.ToHumanReadableName(resourceName)),
+			Required:    true},
+	}
+	if hasNamespace {
+		metaAttrs = append(metaAttrs, openapi.TerraformAttribute{
+			Name: "namespace", GoName: "Namespace", TfsdkTag: "namespace", Type: "string",
+			Description: fmt.Sprintf("Namespace of the %s.", naming.ToHumanReadableName(resourceName)),
+			Required:    true})
+	} else {
+		metaAttrs = append(metaAttrs, openapi.TerraformAttribute{
+			Name: "namespace", GoName: "Namespace", TfsdkTag: "namespace", Type: "string",
+			Description: "Namespace.", Optional: true, Computed: true})
+	}
+
+	computedMeta := []openapi.TerraformAttribute{
+		{Name: "id", GoName: "ID", TfsdkTag: "id", Type: "string",
+			Description: "Unique identifier.", Computed: true},
+		{Name: "description", GoName: "Description", TfsdkTag: "description", Type: "string",
+			Description: "Description of the resource.", Computed: true},
+		{Name: "labels", GoName: "Labels", TfsdkTag: "labels", Type: "map", ElementType: "string",
+			Description: "User-defined labels.", Computed: true},
+		{Name: "annotations", GoName: "Annotations", TfsdkTag: "annotations", Type: "map", ElementType: "string",
+			Description: "Annotations.", Computed: true},
+	}
+
+	var allAttrs []openapi.TerraformAttribute
+	allAttrs = append(allAttrs, metaAttrs...)
+	allAttrs = append(allAttrs, computedMeta...)
+	allAttrs = append(allAttrs, attributes...)
+
+	bestDescription := getSpec.Description
+	resourceDescription := description.TransformResourceDescription(resourceName, bestDescription)
+
+	return &openapi.ResourceTemplate{
+		Name:               resourceName,
+		TitleCase:          naming.ToResourceTypeName(resourceName),
+		APIPath:            apiPath,
+		APIPathPlural:      resourceName + "s",
+		APIPathItem:        apiPathItem,
+		HasNamespaceInPath: hasNamespace,
+		Description:        resourceDescription,
+		Attributes:         allAttrs,
+		IsReadOnly:         true,
+	}, nil
+}
+
 // ExtractOneOfGroups extracts x-ves-oneof-field annotations from the raw schema JSON.
 func ExtractOneOfGroups(spec *openapi.Spec, schemaKey string) map[string][]string {
 	oneOfGroups := make(map[string][]string)

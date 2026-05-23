@@ -131,7 +131,9 @@ func GenerateProviderRegistration(results []openapi.GenerationResult, outputDir 
 	for _, r := range results {
 		if r.Success && !added[r.ResourceName] {
 			titleCase := naming.ToResourceTypeName(r.ResourceName)
-			resources = append(resources, fmt.Sprintf("\t\tNew%sResource,", titleCase))
+			if !r.IsReadOnly {
+				resources = append(resources, fmt.Sprintf("\t\tNew%sResource,", titleCase))
+			}
 			dataSources = append(dataSources, fmt.Sprintf("\t\tNew%sDataSource,", titleCase))
 		}
 	}

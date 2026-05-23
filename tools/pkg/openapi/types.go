@@ -184,6 +184,7 @@ type ResourceTemplate struct {
 	HasInt64RangeValidators bool
 	HasConflicts           bool   // True if any attribute has ConflictsWith
 	ConflictCheckCode      string // Generated Go code for conflict checks
+	IsReadOnly             bool   // True if resource has GetSpecType only (data source, no resource)
 }
 
 // GenerationResult tracks the result of generating a resource.
@@ -194,8 +195,9 @@ type GenerationResult struct {
 	FilePath     string
 
 	// ---- SP-1 additions: generation metrics ----
-	AttrCount  int // Number of attributes generated
-	BlockCount int // Number of nested blocks generated
+	AttrCount  int  // Number of attributes generated
+	BlockCount int  // Number of nested blocks generated
+	IsReadOnly bool // True if only GetSpecType found (data source only, no resource)
 }
 
 // IsRef returns true if the schema is a reference to another schema.
