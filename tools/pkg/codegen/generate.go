@@ -104,6 +104,52 @@ func GenerateClientTypes(resource *openapi.ResourceTemplate, clientDir string) e
 	return os.WriteFile(outputPath, formatted, 0644)
 }
 
+// GenerateReadOnlyDataSource generates a data-source-only file for a read-only resource.
+func GenerateReadOnlyDataSource(resource *openapi.ResourceTemplate, outputDir string) error {
+	outputPath := filepath.Join(outputDir, resource.Name+"_data_source.go")
+
+	tmpl, err := template.New("readonly_ds").Parse(ReadOnlyDataSourceTemplate)
+	if err != nil {
+		return fmt.Errorf("template parse error: %w", err)
+	}
+
+	var buf bytes.Buffer
+	if err := tmpl.Execute(&buf, resource); err != nil {
+		return fmt.Errorf("template execute error: %w", err)
+	}
+
+	formatted, err := imports.Process(outputPath, buf.Bytes(), nil)
+	if err != nil {
+		fmt.Printf("Warning: gofmt failed for %s: %v (writing unformatted)\n", outputPath, err)
+		formatted = buf.Bytes()
+	}
+
+	return os.WriteFile(outputPath, formatted, 0644)
+}
+
+// GenerateReadOnlyClientTypes generates a Get-only client type file for a read-only resource.
+func GenerateReadOnlyClientTypes(resource *openapi.ResourceTemplate, clientDir string) error {
+	outputPath := filepath.Join(clientDir, resource.Name+"_types.go")
+
+	tmpl, err := template.New("readonly_client").Parse(ReadOnlyClientTemplate)
+	if err != nil {
+		return fmt.Errorf("template parse error: %w", err)
+	}
+
+	var buf bytes.Buffer
+	if err := tmpl.Execute(&buf, resource); err != nil {
+		return fmt.Errorf("template execute error: %w", err)
+	}
+
+	formatted, err := imports.Process(outputPath, buf.Bytes(), nil)
+	if err != nil {
+		fmt.Printf("Warning: gofmt failed for %s: %v (writing unformatted)\n", outputPath, err)
+		formatted = buf.Bytes()
+	}
+
+	return os.WriteFile(outputPath, formatted, 0644)
+}
+
 // GenerateDataSource generates the Terraform data source Go file for a single resource.
 // outputDir is the directory where the file will be written (e.g. "internal/provider").
 func GenerateDataSource(resource *openapi.ResourceTemplate, outputDir string) error {

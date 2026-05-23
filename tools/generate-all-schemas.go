@@ -120,7 +120,13 @@ func main() {
 	fmt.Println(strings.Repeat("=", 60))
 	fmt.Println("📊 Generation Summary")
 	fmt.Println(strings.Repeat("=", 60))
-	fmt.Printf("✅ Successfully generated: %d resources\n", successCount)
+	readOnlyCount := 0
+	for _, r := range results {
+		if r.Success && r.IsReadOnly {
+			readOnlyCount++
+		}
+	}
+	fmt.Printf("✅ Successfully generated: %d resources + %d read-only data sources\n", successCount-readOnlyCount, readOnlyCount)
 	fmt.Printf("⏭️  Skipped (no schema): %d\n", len(results)-successCount-failCount)
 	fmt.Printf("❌ Failed: %d\n", failCount)
 
@@ -310,7 +316,7 @@ func processSpecFileForResource(specFile string, resourceName string, category s
 	}
 
 	// Try to extract the resource schema
-	schema, schemaName := extractResourceSchemaByName(spec, resourceName)
+	schema, schemaName, isReadOnly := extractResourceSchemaByName(spec, resourceName)
 	if schema == nil {
 		return GenerationResult{ResourceName: resourceName, Success: false, Error: ""}
 	}
@@ -321,70 +327,86 @@ func processSpecFileForResource(specFile string, resourceName string, category s
 		apiPath = fmt.Sprintf("/api/config/namespaces/{namespace}/%ss", resourceName)
 	}
 
-	// Generate the resource file using existing logic
+	if isReadOnly {
+		return generateReadOnlyDataSource(resourceName, schemaName, schema, apiPath, specFile, category, requiresTier)
+	}
 	return generateResourceFromSchema(resourceName, schemaName, schema, apiPath, specFile, category, requiresTier)
 }
 
-// extractResourceSchemaByName extracts a specific resource schema by name from a spec
-func extractResourceSchemaByName(spec *OpenAPI3Spec, resourceName string) (*SchemaDefinition, string) {
-	// V2 schema naming patterns (e.g., app_firewallCreateSpecType)
-	// The resource name is used as a prefix with CreateSpecType or GetSpecType suffix
-	// Some specs use a "schema" prefix (e.g., schemafast_aclCreateSpecType)
-	v2Patterns := []string{
+// extractResourceSchemaByName extracts a specific resource schema by name from a spec.
+// Returns (schema, schemaName, isReadOnly). isReadOnly is true when only GetSpecType was found.
+func extractResourceSchemaByName(spec *OpenAPI3Spec, resourceName string) (*SchemaDefinition, string, bool) {
+	// Try CreateSpecType first (CRUD resources)
+	createPatterns := []string{
 		fmt.Sprintf("%sCreateSpecType", resourceName),
 		fmt.Sprintf("schema%sCreateSpecType", resourceName),
-		fmt.Sprintf("%sGetSpecType", resourceName),
-		fmt.Sprintf("schema%sGetSpecType", resourceName),
 		fmt.Sprintf("%sReplaceSpecType", resourceName),
 		fmt.Sprintf("schema%sReplaceSpecType", resourceName),
 	}
+	for _, pattern := range createPatterns {
+		if schema, ok := spec.Components.Schemas[pattern]; ok {
+			return &schema, pattern, false
+		}
+	}
 
-	// Legacy schema naming patterns (ves.io.schema format still used in some v2 specs)
+	// Legacy patterns (ves.io.schema format)
 	legacyPatterns := []string{
 		fmt.Sprintf("ves.io.schema.%s.Object", resourceName),
 		fmt.Sprintf("%sType", naming.ToResourceTypeName(resourceName)),
 		resourceName,
 	}
-
-	// Try v2 patterns first (CreateSpecType naming)
-	for _, pattern := range v2Patterns {
-		if schema, ok := spec.Components.Schemas[pattern]; ok {
-			return &schema, pattern
-		}
-	}
-
-	// Then try legacy patterns (ves.io.schema naming still present in some specs)
 	for _, pattern := range legacyPatterns {
 		if schema, ok := spec.Components.Schemas[pattern]; ok {
-			return &schema, pattern
+			return &schema, pattern, false
 		}
 	}
 
-	// Sort schema names for deterministic fallback matching (map order is random in Go)
+	// Sort schema names for deterministic fallback matching
 	sortedNames := make([]string, 0, len(spec.Components.Schemas))
 	for name := range spec.Components.Schemas {
 		sortedNames = append(sortedNames, name)
 	}
 	sort.Strings(sortedNames)
 
-	// Try case-insensitive match for legacy .Object suffix
 	lowerName := strings.ToLower(resourceName)
+
+	// Fallback: case-insensitive match for legacy .Object suffix
 	for _, name := range sortedNames {
 		if strings.Contains(strings.ToLower(name), lowerName) && strings.HasSuffix(name, ".Object") {
 			schema := spec.Components.Schemas[name]
-			return &schema, name
+			return &schema, name, false
 		}
 	}
 
-	// Try case-insensitive match for v2 CreateSpecType suffix
+	// Fallback: case-insensitive match for CreateSpecType
 	for _, name := range sortedNames {
 		if strings.Contains(strings.ToLower(name), lowerName) && strings.HasSuffix(name, "CreateSpecType") {
 			schema := spec.Components.Schemas[name]
-			return &schema, name
+			return &schema, name, false
 		}
 	}
 
-	return nil, ""
+	// No CreateSpecType found — try GetSpecType (read-only resources)
+	getPatterns := []string{
+		fmt.Sprintf("%sGetSpecType", resourceName),
+		fmt.Sprintf("schema%sGetSpecType", resourceName),
+		fmt.Sprintf("views%sGetSpecType", resourceName),
+	}
+	for _, pattern := range getPatterns {
+		if schema, ok := spec.Components.Schemas[pattern]; ok {
+			return &schema, pattern, true
+		}
+	}
+
+	// Fallback: case-insensitive match for GetSpecType
+	for _, name := range sortedNames {
+		if strings.Contains(strings.ToLower(name), lowerName) && strings.HasSuffix(name, "GetSpecType") {
+			schema := spec.Components.Schemas[name]
+			return &schema, name, true
+		}
+	}
+
+	return nil, "", false
 }
 
 // extractAPIPathForResource extracts the API path for a specific resource from a spec
@@ -408,6 +430,42 @@ func extractAPIPathForResource(spec *OpenAPI3Spec, resourceName string) string {
 		}
 	}
 	return ""
+}
+
+// generateReadOnlyDataSource generates only a data source for a read-only resource (GetSpecType only).
+func generateReadOnlyDataSource(resourceName string, schemaName string, schemaDef *SchemaDefinition, apiPath string, specFile string, category string, requiresTier string) GenerationResult {
+	if verbose {
+		fmt.Printf("      Generating read-only data source: %s (schema: %s)\n", resourceName, schemaName)
+	}
+
+	spec, err := parseOpenAPISpec(specFile)
+	if err != nil {
+		return GenerationResult{ResourceName: resourceName, Success: false, Error: err.Error()}
+	}
+
+	tmpl, err := schema.ExtractReadOnlyResourceSchema(spec, resourceName, extractAPIPath)
+	if err != nil {
+		if verbose {
+			fmt.Printf("  ⏭️  Skipping read-only %s: %v\n", resourceName, err)
+		}
+		return GenerationResult{ResourceName: resourceName, Success: false}
+	}
+
+	if !dryRun {
+		if err := codegen.GenerateReadOnlyDataSource(tmpl, outputDir); err != nil {
+			return GenerationResult{ResourceName: resourceName, Success: false, Error: err.Error()}
+		}
+		if err := codegen.GenerateReadOnlyClientTypes(tmpl, clientDir); err != nil {
+			return GenerationResult{ResourceName: resourceName, Success: false, Error: err.Error()}
+		}
+	}
+
+	return GenerationResult{
+		ResourceName: resourceName,
+		Success:      true,
+		IsReadOnly:   true,
+		AttrCount:    len(tmpl.Attributes),
+	}
 }
 
 // generateResourceFromSchema generates a resource file from an extracted schema
