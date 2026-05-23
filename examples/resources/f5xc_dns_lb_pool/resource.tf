@@ -24,7 +24,7 @@ resource "f5xc_dns_lb_pool" "example" {
   disable_health_check {
     # Configure disable_health_check settings
   }
-  # Object reference. This type establishes a direct referenc...
+  # Object reference. This type establishes a direct reference...
   health_check {
     # Configure health_check settings
   }

@@ -16,7 +16,7 @@ resource "f5xc_child_tenant" "example" {
   }
 
   # Resource-specific configuration
-  # Object reference. This type establishes a direct referenc...
+  # Object reference. This type establishes a direct reference...
   child_tenant_manager {
     # Configure child_tenant_manager settings
   }

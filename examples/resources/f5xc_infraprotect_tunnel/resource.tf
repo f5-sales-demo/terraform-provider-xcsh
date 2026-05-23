@@ -24,7 +24,7 @@ resource "f5xc_infraprotect_tunnel" "example" {
   bgp_information {
     # Configure bgp_information settings
   }
-  # Object reference. This type establishes a direct referenc...
+  # Object reference. This type establishes a direct reference...
   asn {
     # Configure asn settings
   }

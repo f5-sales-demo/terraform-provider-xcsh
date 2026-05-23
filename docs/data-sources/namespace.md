@@ -2,12 +2,12 @@
 page_title: "f5xc_namespace Data Source - terraform-provider-f5xc"
 subcategory: "Organization"
 description: |-
-  Manages new namespace. Name of the object is name of the name space. in F5 Distributed Cloud.
+  Manages new namespace. Name of the object is name of the namespace. in F5 Distributed Cloud.
 ---
 
 # f5xc_namespace (Data Source)
 
-Manages new namespace. Name of the object is name of the name space. in F5 Distributed Cloud.
+Manages new namespace. Name of the object is name of the namespace. in F5 Distributed Cloud.
 
 ~> **Note** For more information about this data source, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
 
