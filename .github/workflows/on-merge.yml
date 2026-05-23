@@ -448,7 +448,8 @@ jobs:
 
           Co-Authored-By: Claude <noreply@anthropic.com>"
 
-          # Push the branch
+          # Push the branch (use token-authenticated URL so push triggers CI)
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
           git push origin "$BRANCH_NAME"
 
           # Create a tracking issue (required by "Check linked issues" CI check)
