@@ -16,7 +16,7 @@ resource "f5xc_infraprotect_asn_prefix" "example" {
   }
 
   # Resource-specific configuration
-  # Object reference. This type establishes a direct referenc...
+  # Object reference. This type establishes a direct reference...
   asn {
     # Configure asn settings
   }

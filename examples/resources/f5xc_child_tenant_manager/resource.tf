@@ -20,11 +20,11 @@ resource "f5xc_child_tenant_manager" "example" {
   group_assignments {
     # Configure group_assignments settings
   }
-  # Object reference. This type establishes a direct referenc...
+  # Object reference. This type establishes a direct reference...
   group {
     # Configure group settings
   }
-  # Object reference. This type establishes a direct referenc...
+  # Object reference. This type establishes a direct reference...
   tenant_owner_group {
     # Configure tenant_owner_group settings
   }

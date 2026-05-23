@@ -16,11 +16,11 @@ resource "f5xc_k8s_cluster_role_binding" "example" {
   }
 
   # Resource-specific configuration
-  # Object reference. This type establishes a direct referenc...
+  # Object reference. This type establishes a direct reference...
   k8s_cluster_role {
     # Configure k8s_cluster_role settings
   }
-  # Subjects. List of subjects (user, group or service accoun...
+  # Subjects. List of subjects (user, group or service account...
   subjects {
     # Configure subjects settings
   }

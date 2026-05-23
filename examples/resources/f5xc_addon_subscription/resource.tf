@@ -16,7 +16,7 @@ resource "f5xc_addon_subscription" "example" {
   }
 
   # Resource-specific configuration
-  # Object reference. This type establishes a direct referenc...
+  # Object reference. This type establishes a direct reference...
   addon_service {
     # Configure addon_service settings
   }
