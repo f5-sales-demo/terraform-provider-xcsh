@@ -4,9 +4,11 @@ package provider_test
 
 import (
 	"fmt"
+	"regexp"
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
+	"github.com/hashicorp/terraform-plugin-testing/plancheck"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
 
 	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/acctest"
@@ -54,6 +56,129 @@ func testAccAPIDiscoveryImportStateIdFunc(resourceName string) resource.ImportSt
 		name := rs.Primary.Attributes["name"]
 		return fmt.Sprintf("%s/%s", namespace, name), nil
 	}
+}
+
+func TestAccAPIDiscoveryResource_withLabels(t *testing.T) {
+	acctest.SkipIfNotAccTest(t)
+	acctest.PreCheck(t)
+
+	resourceName := "f5xc_api_discovery.test"
+	rName := acctest.RandomName("tf-test-disc")
+
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:                 func() { acctest.PreCheck(t) },
+		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
+		CheckDestroy:             acctest.CheckResourceDestroyed("f5xc_api_discovery"),
+		Steps: []resource.TestStep{
+			{
+				Config: testAccAPIDiscoveryConfig_withLabels(rName),
+				Check: resource.ComposeAggregateTestCheckFunc(
+					acctest.CheckResourceExists(resourceName),
+					resource.TestCheckResourceAttr(resourceName, "labels.environment", "test"),
+				),
+			},
+		},
+	})
+}
+
+func TestAccAPIDiscoveryResource_emptyPlan(t *testing.T) {
+	acctest.SkipIfNotAccTest(t)
+	acctest.PreCheck(t)
+
+	rName := acctest.RandomName("tf-test-disc")
+
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:                 func() { acctest.PreCheck(t) },
+		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
+		CheckDestroy:             acctest.CheckResourceDestroyed("f5xc_api_discovery"),
+		Steps: []resource.TestStep{
+			{Config: testAccAPIDiscoveryConfig_basic(rName)},
+			{Config: testAccAPIDiscoveryConfig_basic(rName), PlanOnly: true, ExpectNonEmptyPlan: false},
+		},
+	})
+}
+
+func TestAccAPIDiscoveryResource_planChecks(t *testing.T) {
+	acctest.SkipIfNotAccTest(t)
+	acctest.PreCheck(t)
+
+	resourceName := "f5xc_api_discovery.test"
+	rName := acctest.RandomName("tf-test-disc")
+
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:                 func() { acctest.PreCheck(t) },
+		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
+		CheckDestroy:             acctest.CheckResourceDestroyed("f5xc_api_discovery"),
+		Steps: []resource.TestStep{
+			{
+				Config: testAccAPIDiscoveryConfig_basic(rName),
+				ConfigPlanChecks: resource.ConfigPlanChecks{
+					PreApply: []plancheck.PlanCheck{plancheck.ExpectResourceAction(resourceName, plancheck.ResourceActionCreate)},
+				},
+			},
+			{
+				Config: testAccAPIDiscoveryConfig_withLabels(rName),
+				ConfigPlanChecks: resource.ConfigPlanChecks{
+					PreApply: []plancheck.PlanCheck{plancheck.ExpectResourceAction(resourceName, plancheck.ResourceActionUpdate)},
+				},
+			},
+			{
+				Config: testAccAPIDiscoveryConfig_withLabels(rName),
+				ConfigPlanChecks: resource.ConfigPlanChecks{
+					PreApply: []plancheck.PlanCheck{plancheck.ExpectResourceAction(resourceName, plancheck.ResourceActionNoop)},
+				},
+			},
+		},
+	})
+}
+
+func TestAccAPIDiscoveryResource_invalidName(t *testing.T) {
+	acctest.SkipIfNotAccTest(t)
+	acctest.PreCheck(t)
+
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:                 func() { acctest.PreCheck(t) },
+		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
+		Steps: []resource.TestStep{
+			{Config: testAccAPIDiscoveryConfig_basic("Invalid-NAME"), ExpectError: regexp.MustCompile(`(?i)(invalid|name|must)`)},
+		},
+	})
+}
+
+func TestAccAPIDiscoveryResource_requiresReplace(t *testing.T) {
+	acctest.SkipIfNotAccTest(t)
+	acctest.PreCheck(t)
+
+	resourceName := "f5xc_api_discovery.test"
+	rName1 := acctest.RandomName("tf-test-disc")
+	rName2 := acctest.RandomName("tf-test-disc")
+
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:                 func() { acctest.PreCheck(t) },
+		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
+		CheckDestroy:             acctest.CheckResourceDestroyed("f5xc_api_discovery"),
+		Steps: []resource.TestStep{
+			{Config: testAccAPIDiscoveryConfig_basic(rName1), Check: acctest.CheckResourceExists(resourceName)},
+			{
+				Config: testAccAPIDiscoveryConfig_basic(rName2),
+				ConfigPlanChecks: resource.ConfigPlanChecks{
+					PreApply: []plancheck.PlanCheck{plancheck.ExpectResourceAction(resourceName, plancheck.ResourceActionDestroyBeforeCreate)},
+				},
+			},
+		},
+	})
+}
+
+func testAccAPIDiscoveryConfig_withLabels(name string) string {
+	return fmt.Sprintf(`
+resource "f5xc_api_discovery" "test" {
+  name      = %[1]q
+  namespace = "system"
+  labels = {
+    environment = "test"
+  }
+}
+`, name)
 }
 
 func testAccAPIDiscoveryConfig_basic(name string) string {
