@@ -1025,7 +1025,11 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"port": schema.Int64Attribute{
 				MarkdownDescription: "Exclusive with [automatic_port lb_port] Endpoint service is available on this port. Recommended: `443`.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Int64{
+					int64planmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.Int64{
 					int64validator.Between(1, 65535),
 				},
@@ -1913,7 +1917,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						MarkdownDescription: "Configuration parameter for no request limit per connection.",
 					},
 					"outlier_detection": schema.SingleNestedBlock{
-						MarkdownDescription: "Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checkingggggggg. Algorithm 1.",
+						MarkdownDescription: "Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checkingg. Algorithm 1.",
 						Attributes: map[string]schema.Attribute{
 							"base_ejection_time": schema.Int64Attribute{
 								MarkdownDescription: "The base time that a host is ejected for. The real time is equal to the base time multiplied by the number of times the host has been ejected. This causes hosts to GET ejected for longer periods if they continue to fail.",
@@ -5092,6 +5096,13 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 	} else if data.LoadBalancerAlgorithm.IsUnknown() {
 		// API didn't return value and plan was unknown - set to null
 		data.LoadBalancerAlgorithm = types.StringNull()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["port"].(float64); ok {
+		data.Port = types.Int64Value(int64(v))
+	} else if data.Port.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.Port = types.Int64Null()
 	}
 	// If plan had a value, preserve it
 

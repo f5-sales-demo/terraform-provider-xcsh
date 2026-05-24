@@ -17,6 +17,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -1772,11 +1773,19 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"nodes_per_az": schema.Int64Attribute{
 				MarkdownDescription: "Exclusive with [no_worker_nodes total_nodes] Desired Worker Nodes Per AZ. Max limit is up to 21.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Int64{
+					int64planmodifier.UseStateForUnknown(),
+				},
 			},
 			"total_nodes": schema.Int64Attribute{
 				MarkdownDescription: "Exclusive with [no_worker_nodes nodes_per_az] Total number of worker nodes to be deployed across all AZ's used in the Site.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Int64{
+					int64planmodifier.UseStateForUnknown(),
+				},
 			},
 		},
 		Blocks: map[string]schema.Block{
@@ -7985,6 +7994,20 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	}
 
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["nodes_per_az"].(float64); ok {
+		data.NodesPerAz = types.Int64Value(int64(v))
+	} else if data.NodesPerAz.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.NodesPerAz = types.Int64Null()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["total_nodes"].(float64); ok {
+		data.TotalNodes = types.Int64Value(int64(v))
+	} else if data.TotalNodes.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.TotalNodes = types.Int64Null()
+	}
+	// If plan had a value, preserve it
 
 	// Unmarshal spec fields from fetched resource to Terraform state
 	apiResource = fetched // Use GET response which includes all computed fields

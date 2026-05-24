@@ -14,6 +14,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -160,7 +161,11 @@ func (r *ForwardingClassResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"tos_value": schema.Int64Attribute{
 				MarkdownDescription: "Exclusive with [dscp no_marking] Decimal value of raw 8 bit TOS. In above example DSCP 10 = Precedence Class 1 and drop precedence low.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Int64{
+					int64planmodifier.UseStateForUnknown(),
+				},
 			},
 		},
 		Blocks: map[string]schema.Block{
@@ -725,6 +730,13 @@ func (r *ForwardingClassResource) Update(ctx context.Context, req resource.Updat
 	}
 
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["tos_value"].(float64); ok {
+		data.TosValue = types.Int64Value(int64(v))
+	} else if data.TosValue.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.TosValue = types.Int64Null()
+	}
+	// If plan had a value, preserve it
 
 	// Unmarshal spec fields from fetched resource to Terraform state
 	apiResource = fetched // Use GET response which includes all computed fields

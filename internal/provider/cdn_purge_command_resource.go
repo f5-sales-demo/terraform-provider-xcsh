@@ -133,21 +133,33 @@ func (r *CDNPurgeCommandResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"hostname": schema.StringAttribute{
 				MarkdownDescription: "[OneOf: hostname, pattern, purge_all, url_path] Exclusive with [pattern purge_all url_path] Purge cached content by Hostname.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.LengthBetween(1, 1024),
 				},
 			},
 			"pattern": schema.StringAttribute{
 				MarkdownDescription: "Exclusive with [hostname purge_all url_path] Purge cached content using PCRE 1 compliant regular expression.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.LengthBetween(1, 256),
 				},
 			},
 			"url_path": schema.StringAttribute{
 				MarkdownDescription: "Exclusive with [hostname pattern purge_all] Purge cache by using a URL path.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 			},
 		},
 		Blocks: map[string]schema.Block{
@@ -663,6 +675,27 @@ func (r *CDNPurgeCommandResource) Update(ctx context.Context, req resource.Updat
 	}
 
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["hostname"].(string); ok && v != "" {
+		data.Hostname = types.StringValue(v)
+	} else if data.Hostname.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.Hostname = types.StringNull()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["pattern"].(string); ok && v != "" {
+		data.Pattern = types.StringValue(v)
+	} else if data.Pattern.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.Pattern = types.StringNull()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["url_path"].(string); ok && v != "" {
+		data.URLPath = types.StringValue(v)
+	} else if data.URLPath.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.URLPath = types.StringNull()
+	}
+	// If plan had a value, preserve it
 
 	// Unmarshal spec fields from fetched resource to Terraform state
 	apiResource = fetched // Use GET response which includes all computed fields

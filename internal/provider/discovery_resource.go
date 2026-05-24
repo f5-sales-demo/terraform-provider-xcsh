@@ -577,7 +577,11 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 			},
 			"cluster_id": schema.StringAttribute{
 				MarkdownDescription: "[OneOf: cluster_id, no_cluster_id; Default: no_cluster_id] Exclusive with [no_cluster_id] Specify identifier for discovery cluster. This identifier can be specified in endpoint object to discover only from this discovery object.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(256),
 				},
@@ -1627,6 +1631,13 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 	}
 
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["cluster_id"].(string); ok && v != "" {
+		data.ClusterID = types.StringValue(v)
+	} else if data.ClusterID.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.ClusterID = types.StringNull()
+	}
+	// If plan had a value, preserve it
 
 	// Unmarshal spec fields from fetched resource to Terraform state
 	apiResource = fetched // Use GET response which includes all computed fields

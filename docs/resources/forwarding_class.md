@@ -99,7 +99,7 @@ Choose any of the available interfaces Choose all interfaces with label group1 C
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
-<a id="tos-value"></a>&#x2022; [`tos_value`](#tos-value) - Required Number<br>Decimal value of raw 8 bit TOS. In above example DSCP 10 = Precedence Class 1 and drop precedence low
+<a id="tos-value"></a>&#x2022; [`tos_value`](#tos-value) - Optional Number<br>Decimal value of raw 8 bit TOS. In above example DSCP 10 = Precedence Class 1 and drop precedence low
 
 ### Attributes Reference
 

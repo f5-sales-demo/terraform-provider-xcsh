@@ -15,6 +15,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -450,7 +451,7 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				Required:            true,
 			},
 			"enable_per_packet_load_balancing": schema.BoolAttribute{
-				MarkdownDescription: "Per packet load balancing: If disabled (default): First packet identified by source IP/port and local IP/port is sent to an upstream server as the load balancing algorithm dictates, and subsequent packets with the same identity are forwarded to the same upstream server without recheckingggggggg the..",
+				MarkdownDescription: "Per packet load balancing: If disabled (default): First packet identified by source IP/port and local IP/port is sent to an upstream server as the load balancing algorithm dictates, and subsequent packets with the same identity are forwarded to the same upstream server without recheckingg the..",
 				Required:            true,
 			},
 			"idle_timeout": schema.Int64Attribute{
@@ -459,11 +460,19 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"listen_port": schema.Int64Attribute{
 				MarkdownDescription: "[OneOf: listen_port, port_ranges] Exclusive with [port_ranges] Listen Port for this load balancer.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Int64{
+					int64planmodifier.UseStateForUnknown(),
+				},
 			},
 			"port_ranges": schema.StringAttribute{
 				MarkdownDescription: "Exclusive with [listen_port] A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.LengthBetween(1, 512),
 				},
@@ -2411,6 +2420,20 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	}
 
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["listen_port"].(float64); ok {
+		data.ListenPort = types.Int64Value(int64(v))
+	} else if data.ListenPort.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.ListenPort = types.Int64Null()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["port_ranges"].(string); ok && v != "" {
+		data.PortRanges = types.StringValue(v)
+	} else if data.PortRanges.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.PortRanges = types.StringNull()
+	}
+	// If plan had a value, preserve it
 
 	// Unmarshal spec fields from fetched resource to Terraform state
 	apiResource = fetched // Use GET response which includes all computed fields

@@ -84,10 +84,10 @@ resource "f5xc_cdn_purge_command" "example" {
 <br><br>&#x2022; <a id="soft-purge"></a>[`soft_purge`](#soft-purge) - Optional Block<br>Enable this option
 
 -> **One of the following:**
-&#x2022; <a id="hostname"></a>[`hostname`](#hostname) - Required String<br>Purge cached content by Hostname
-<br><br>&#x2022; <a id="pattern"></a>[`pattern`](#pattern) - Required String<br>Purge cached content using PCRE 1 compliant regular expression
+&#x2022; <a id="hostname"></a>[`hostname`](#hostname) - Optional String<br>Purge cached content by Hostname
+<br><br>&#x2022; <a id="pattern"></a>[`pattern`](#pattern) - Optional String<br>Purge cached content using PCRE 1 compliant regular expression
 <br><br>&#x2022; <a id="purge-all"></a>[`purge_all`](#purge-all) - Optional Block<br>Enable this option
-<br><br>&#x2022; <a id="url-path"></a>[`url_path`](#url-path) - Required String<br>Purge cache by using a URL path
+<br><br>&#x2022; <a id="url-path"></a>[`url_path`](#url-path) - Optional String<br>Purge cache by using a URL path
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 

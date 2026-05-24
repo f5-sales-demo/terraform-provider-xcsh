@@ -158,7 +158,7 @@ spec:
 <a id="idle-timeout"></a>&#x2022; [`idle_timeout`](#idle-timeout) - Optional Number<br>The amount of time that a stream can exist without upstream or downstream activity, in milliseconds. Server applies default when omitted
 
 -> **One of the following:**
-&#x2022; <a id="listen-port"></a>[`listen_port`](#listen-port) - Required Number<br>Listen Port for this load balancer
+&#x2022; <a id="listen-port"></a>[`listen_port`](#listen-port) - Optional Number<br>Listen Port for this load balancer
 <br><br>&#x2022; <a id="port-ranges"></a>[`port_ranges`](#port-ranges) - Optional String<br>A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'
 
 <a id="origin-pools-weights"></a>&#x2022; [`origin_pools_weights`](#origin-pools-weights) - Optional Block<br>Origin pools and weights used for this load balancer<br>See [Origin Pools Weights](#origin-pools-weights) below for details.

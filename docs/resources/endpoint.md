@@ -80,9 +80,9 @@ resource "f5xc_endpoint" "example" {
 ### Spec Argument Reference
 
 -> **One of the following:**
-&#x2022; <a id="dns-name"></a>[`dns_name`](#dns-name) - Required String<br>Endpoint's IP address is discovered using DNS name resolution. The name given here is fully qualified domain name
+&#x2022; <a id="dns-name"></a>[`dns_name`](#dns-name) - Optional String<br>Endpoint's IP address is discovered using DNS name resolution. The name given here is fully qualified domain name
 <br><br>&#x2022; <a id="dns-name-advanced"></a>[`dns_name_advanced`](#dns-name-advanced) - Optional Block<br>Specifies name and TTL used for DNS resolution<br>See [DNS Name Advanced](#dns-name-advanced) below for details.
-<br><br>&#x2022; <a id="ip"></a>[`ip`](#ip) - Required String<br>Endpoint is reachable at the given IPv4/IPv6 address
+<br><br>&#x2022; <a id="ip"></a>[`ip`](#ip) - Optional String<br>Endpoint is reachable at the given IPv4/IPv6 address
 <br><br>&#x2022; <a id="service-info"></a>[`service_info`](#service-info) - Optional Block<br>Specifies whether endpoint service is discovered by name or labels<br>See [Service Info](#service-info) below for details.
 
 <a id="health-check-port"></a>&#x2022; [`health_check_port`](#health-check-port) - Required Number<br>By default the health check port of an endpoint is the same as the endpoint’s port. This option provides an alternative health check port. Setting this with a non-zero value allows an endpoint to have different health check port

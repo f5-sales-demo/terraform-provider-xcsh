@@ -18,6 +18,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -407,14 +408,22 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"port": schema.Int64Attribute{
 				MarkdownDescription: "[OneOf: port, port_ranges] Exclusive with [port_ranges] Port to advertise.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Int64{
+					int64planmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.Int64{
 					int64validator.Between(1, 65535),
 				},
 			},
 			"port_ranges": schema.StringAttribute{
 				MarkdownDescription: "Exclusive with [port] A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.LengthBetween(1, 512),
 				},
@@ -1710,6 +1719,20 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 	}
 
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["port"].(float64); ok {
+		data.Port = types.Int64Value(int64(v))
+	} else if data.Port.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.Port = types.Int64Null()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["port_ranges"].(string); ok && v != "" {
+		data.PortRanges = types.StringValue(v)
+	} else if data.PortRanges.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.PortRanges = types.StringNull()
+	}
+	// If plan had a value, preserve it
 
 	// Unmarshal spec fields from fetched resource to Terraform state
 	apiResource = fetched // Use GET response which includes all computed fields
