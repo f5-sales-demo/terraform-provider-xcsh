@@ -1,6 +1,17 @@
 # Site Resource Example
 # Manages a Site resource in F5 Distributed Cloud for app stack site specification. configuration.
 
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 # Basic Site configuration
 resource "f5xc_site" "example" {
   name      = "example-site"
@@ -25,7 +36,7 @@ resource "f5xc_site" "example" {
     # Configure blocked_services settings
   }
   # Disable Node Local Services. Blocking or denial configura...
-  blocked_sevice {
-    # Configure blocked_sevice settings
+  blocked_service {
+    # Configure blocked_service settings
   }
 }

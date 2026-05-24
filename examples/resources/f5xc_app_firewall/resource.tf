@@ -1,6 +1,17 @@
 # App Firewall Resource Example
 # Manages Application Firewall. in F5 Distributed Cloud.
 
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 # Basic App Firewall configuration
 resource "f5xc_app_firewall" "example" {
   name      = "example-app-firewall"

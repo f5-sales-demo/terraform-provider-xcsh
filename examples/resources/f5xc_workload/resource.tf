@@ -1,6 +1,17 @@
 # Workload Resource Example
 # Manages workload_flavor. in F5 Distributed Cloud.
 
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 # Basic Workload configuration
 resource "f5xc_workload" "example" {
   name      = "example-workload"

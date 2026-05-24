@@ -100,24 +100,24 @@ var AzureVNETSiteAzureCredModelAttrTypes = map[string]attr.Type{
 
 // AzureVNETSiteBlockedServicesModel represents blocked_services block
 type AzureVNETSiteBlockedServicesModel struct {
-	BlockedSevice []AzureVNETSiteBlockedServicesBlockedSeviceModel `tfsdk:"blocked_sevice"`
+	BlockedService []AzureVNETSiteBlockedServicesBlockedServiceModel `tfsdk:"blocked_service"`
 }
 
 // AzureVNETSiteBlockedServicesModelAttrTypes defines the attribute types for AzureVNETSiteBlockedServicesModel
 var AzureVNETSiteBlockedServicesModelAttrTypes = map[string]attr.Type{
-	"blocked_sevice": types.ListType{ElemType: types.ObjectType{AttrTypes: AzureVNETSiteBlockedServicesBlockedSeviceModelAttrTypes}},
+	"blocked_service": types.ListType{ElemType: types.ObjectType{AttrTypes: AzureVNETSiteBlockedServicesBlockedServiceModelAttrTypes}},
 }
 
-// AzureVNETSiteBlockedServicesBlockedSeviceModel represents blocked_sevice block
-type AzureVNETSiteBlockedServicesBlockedSeviceModel struct {
+// AzureVNETSiteBlockedServicesBlockedServiceModel represents blocked_service block
+type AzureVNETSiteBlockedServicesBlockedServiceModel struct {
 	NetworkType      types.String             `tfsdk:"network_type"`
 	DNS              *AzureVNETSiteEmptyModel `tfsdk:"dns"`
 	SSH              *AzureVNETSiteEmptyModel `tfsdk:"ssh"`
 	WebUserInterface *AzureVNETSiteEmptyModel `tfsdk:"web_user_interface"`
 }
 
-// AzureVNETSiteBlockedServicesBlockedSeviceModelAttrTypes defines the attribute types for AzureVNETSiteBlockedServicesBlockedSeviceModel
-var AzureVNETSiteBlockedServicesBlockedSeviceModelAttrTypes = map[string]attr.Type{
+// AzureVNETSiteBlockedServicesBlockedServiceModelAttrTypes defines the attribute types for AzureVNETSiteBlockedServicesBlockedServiceModel
+var AzureVNETSiteBlockedServicesBlockedServiceModelAttrTypes = map[string]attr.Type{
 	"network_type":       types.StringType,
 	"dns":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ssh":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -3327,7 +3327,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				MarkdownDescription: "Disable node local services on this site.",
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
-					"blocked_sevice": schema.ListNestedBlock{
+					"blocked_service": schema.ListNestedBlock{
 						MarkdownDescription: "Disable Node Local Services. Blocking or denial configuration",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
@@ -3875,10 +3875,10 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 									},
 									"site_registration_over_express_route": schema.SingleNestedBlock{
-										MarkdownDescription: "CloudLink ADN Network Config.",
+										MarkdownDescription: "CloudLink AND Network Config.",
 										Attributes: map[string]schema.Attribute{
 											"cloudlink_network_name": schema.StringAttribute{
-												MarkdownDescription: "Establish private connectivity with the F5 Distributed Cloud Global Network using a Private ADN network. To provision a Private ADN network, please contact F5 Distributed Cloud support.",
+												MarkdownDescription: "Establish private connectivity with the F5 Distributed Cloud Global Network using a Private AND network. To provision a Private AND network, please contact F5 Distributed Cloud support.",
 												Optional:            true,
 											},
 										},
@@ -4698,10 +4698,10 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 									},
 									"site_registration_over_express_route": schema.SingleNestedBlock{
-										MarkdownDescription: "CloudLink ADN Network Config.",
+										MarkdownDescription: "CloudLink AND Network Config.",
 										Attributes: map[string]schema.Attribute{
 											"cloudlink_network_name": schema.StringAttribute{
-												MarkdownDescription: "Establish private connectivity with the F5 Distributed Cloud Global Network using a Private ADN network. To provision a Private ADN network, please contact F5 Distributed Cloud support.",
+												MarkdownDescription: "Establish private connectivity with the F5 Distributed Cloud Global Network using a Private AND network. To provision a Private AND network, please contact F5 Distributed Cloud support.",
 												Optional:            true,
 											},
 										},
@@ -6665,9 +6665,9 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 	}
 	if data.BlockedServices != nil {
 		blocked_servicesMap := make(map[string]interface{})
-		if len(data.BlockedServices.BlockedSevice) > 0 {
-			var blocked_seviceList []map[string]interface{}
-			for _, listItem := range data.BlockedServices.BlockedSevice {
+		if len(data.BlockedServices.BlockedService) > 0 {
+			var blocked_serviceList []map[string]interface{}
+			for _, listItem := range data.BlockedServices.BlockedService {
 				listItemMap := make(map[string]interface{})
 				if listItem.DNS != nil {
 					listItemMap["dns"] = map[string]interface{}{}
@@ -6681,9 +6681,9 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				if listItem.WebUserInterface != nil {
 					listItemMap["web_user_interface"] = map[string]interface{}{}
 				}
-				blocked_seviceList = append(blocked_seviceList, listItemMap)
+				blocked_serviceList = append(blocked_serviceList, listItemMap)
 			}
-			blocked_servicesMap["blocked_sevice"] = blocked_seviceList
+			blocked_servicesMap["blocked_service"] = blocked_serviceList
 		}
 		createReq.Spec["blocked_services"] = blocked_servicesMap
 	}
@@ -7379,12 +7379,12 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &AzureVNETSiteBlockedServicesModel{
-			BlockedSevice: func() []AzureVNETSiteBlockedServicesBlockedSeviceModel {
-				if listData, ok := blockData["blocked_sevice"].([]interface{}); ok && len(listData) > 0 {
-					var result []AzureVNETSiteBlockedServicesBlockedSeviceModel
+			BlockedService: func() []AzureVNETSiteBlockedServicesBlockedServiceModel {
+				if listData, ok := blockData["blocked_service"].([]interface{}); ok && len(listData) > 0 {
+					var result []AzureVNETSiteBlockedServicesBlockedServiceModel
 					for _, item := range listData {
 						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, AzureVNETSiteBlockedServicesBlockedSeviceModel{
+							result = append(result, AzureVNETSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *AzureVNETSiteEmptyModel {
 									if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 										return &AzureVNETSiteEmptyModel{}
@@ -9077,12 +9077,12 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &AzureVNETSiteBlockedServicesModel{
-			BlockedSevice: func() []AzureVNETSiteBlockedServicesBlockedSeviceModel {
-				if listData, ok := blockData["blocked_sevice"].([]interface{}); ok && len(listData) > 0 {
-					var result []AzureVNETSiteBlockedServicesBlockedSeviceModel
+			BlockedService: func() []AzureVNETSiteBlockedServicesBlockedServiceModel {
+				if listData, ok := blockData["blocked_service"].([]interface{}); ok && len(listData) > 0 {
+					var result []AzureVNETSiteBlockedServicesBlockedServiceModel
 					for _, item := range listData {
 						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, AzureVNETSiteBlockedServicesBlockedSeviceModel{
+							result = append(result, AzureVNETSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *AzureVNETSiteEmptyModel {
 									if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 										return &AzureVNETSiteEmptyModel{}
@@ -10758,9 +10758,9 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 	}
 	if data.BlockedServices != nil {
 		blocked_servicesMap := make(map[string]interface{})
-		if len(data.BlockedServices.BlockedSevice) > 0 {
-			var blocked_seviceList []map[string]interface{}
-			for _, listItem := range data.BlockedServices.BlockedSevice {
+		if len(data.BlockedServices.BlockedService) > 0 {
+			var blocked_serviceList []map[string]interface{}
+			for _, listItem := range data.BlockedServices.BlockedService {
 				listItemMap := make(map[string]interface{})
 				if listItem.DNS != nil {
 					listItemMap["dns"] = map[string]interface{}{}
@@ -10774,9 +10774,9 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				if listItem.WebUserInterface != nil {
 					listItemMap["web_user_interface"] = map[string]interface{}{}
 				}
-				blocked_seviceList = append(blocked_seviceList, listItemMap)
+				blocked_serviceList = append(blocked_serviceList, listItemMap)
 			}
-			blocked_servicesMap["blocked_sevice"] = blocked_seviceList
+			blocked_servicesMap["blocked_service"] = blocked_serviceList
 		}
 		apiResource.Spec["blocked_services"] = blocked_servicesMap
 	}
@@ -11546,12 +11546,12 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &AzureVNETSiteBlockedServicesModel{
-			BlockedSevice: func() []AzureVNETSiteBlockedServicesBlockedSeviceModel {
-				if listData, ok := blockData["blocked_sevice"].([]interface{}); ok && len(listData) > 0 {
-					var result []AzureVNETSiteBlockedServicesBlockedSeviceModel
+			BlockedService: func() []AzureVNETSiteBlockedServicesBlockedServiceModel {
+				if listData, ok := blockData["blocked_service"].([]interface{}); ok && len(listData) > 0 {
+					var result []AzureVNETSiteBlockedServicesBlockedServiceModel
 					for _, item := range listData {
 						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, AzureVNETSiteBlockedServicesBlockedSeviceModel{
+							result = append(result, AzureVNETSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *AzureVNETSiteEmptyModel {
 									if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 										return &AzureVNETSiteEmptyModel{}

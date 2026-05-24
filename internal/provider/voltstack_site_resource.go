@@ -47,24 +47,24 @@ type VoltstackSiteEmptyModel struct {
 
 // VoltstackSiteBlockedServicesModel represents blocked_services block
 type VoltstackSiteBlockedServicesModel struct {
-	BlockedSevice []VoltstackSiteBlockedServicesBlockedSeviceModel `tfsdk:"blocked_sevice"`
+	BlockedService []VoltstackSiteBlockedServicesBlockedServiceModel `tfsdk:"blocked_service"`
 }
 
 // VoltstackSiteBlockedServicesModelAttrTypes defines the attribute types for VoltstackSiteBlockedServicesModel
 var VoltstackSiteBlockedServicesModelAttrTypes = map[string]attr.Type{
-	"blocked_sevice": types.ListType{ElemType: types.ObjectType{AttrTypes: VoltstackSiteBlockedServicesBlockedSeviceModelAttrTypes}},
+	"blocked_service": types.ListType{ElemType: types.ObjectType{AttrTypes: VoltstackSiteBlockedServicesBlockedServiceModelAttrTypes}},
 }
 
-// VoltstackSiteBlockedServicesBlockedSeviceModel represents blocked_sevice block
-type VoltstackSiteBlockedServicesBlockedSeviceModel struct {
+// VoltstackSiteBlockedServicesBlockedServiceModel represents blocked_service block
+type VoltstackSiteBlockedServicesBlockedServiceModel struct {
 	NetworkType      types.String             `tfsdk:"network_type"`
 	DNS              *VoltstackSiteEmptyModel `tfsdk:"dns"`
 	SSH              *VoltstackSiteEmptyModel `tfsdk:"ssh"`
 	WebUserInterface *VoltstackSiteEmptyModel `tfsdk:"web_user_interface"`
 }
 
-// VoltstackSiteBlockedServicesBlockedSeviceModelAttrTypes defines the attribute types for VoltstackSiteBlockedServicesBlockedSeviceModel
-var VoltstackSiteBlockedServicesBlockedSeviceModelAttrTypes = map[string]attr.Type{
+// VoltstackSiteBlockedServicesBlockedServiceModelAttrTypes defines the attribute types for VoltstackSiteBlockedServicesBlockedServiceModel
+var VoltstackSiteBlockedServicesBlockedServiceModelAttrTypes = map[string]attr.Type{
 	"network_type":       types.StringType,
 	"dns":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ssh":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -2983,7 +2983,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				MarkdownDescription: "[OneOf: blocked_services, default_blocked_services; Default: default_blocked_services] Disable node local services on this site.",
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
-					"blocked_sevice": schema.ListNestedBlock{
+					"blocked_service": schema.ListNestedBlock{
 						MarkdownDescription: "Disable Node Local Services. Blocking or denial configuration",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
@@ -3492,7 +3492,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															MarkdownDescription: "IPV6AutoConfigRouterType.",
 															Attributes: map[string]schema.Attribute{
 																"network_prefix": schema.StringAttribute{
-																	MarkdownDescription: "Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																	MarkdownDescription: "Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																	Optional:            true,
 																},
 															},
@@ -5572,7 +5572,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															MarkdownDescription: "IPV6AutoConfigRouterType.",
 															Attributes: map[string]schema.Attribute{
 																"network_prefix": schema.StringAttribute{
-																	MarkdownDescription: "Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																	MarkdownDescription: "Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																	Optional:            true,
 																},
 															},
@@ -6406,9 +6406,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 	}
 	if data.BlockedServices != nil {
 		blocked_servicesMap := make(map[string]interface{})
-		if len(data.BlockedServices.BlockedSevice) > 0 {
-			var blocked_seviceList []map[string]interface{}
-			for _, listItem := range data.BlockedServices.BlockedSevice {
+		if len(data.BlockedServices.BlockedService) > 0 {
+			var blocked_serviceList []map[string]interface{}
+			for _, listItem := range data.BlockedServices.BlockedService {
 				listItemMap := make(map[string]interface{})
 				if listItem.DNS != nil {
 					listItemMap["dns"] = map[string]interface{}{}
@@ -6422,9 +6422,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				if listItem.WebUserInterface != nil {
 					listItemMap["web_user_interface"] = map[string]interface{}{}
 				}
-				blocked_seviceList = append(blocked_seviceList, listItemMap)
+				blocked_serviceList = append(blocked_serviceList, listItemMap)
 			}
-			blocked_servicesMap["blocked_sevice"] = blocked_seviceList
+			blocked_servicesMap["blocked_service"] = blocked_serviceList
 		}
 		createReq.Spec["blocked_services"] = blocked_servicesMap
 	}
@@ -6832,12 +6832,12 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &VoltstackSiteBlockedServicesModel{
-			BlockedSevice: func() []VoltstackSiteBlockedServicesBlockedSeviceModel {
-				if listData, ok := blockData["blocked_sevice"].([]interface{}); ok && len(listData) > 0 {
-					var result []VoltstackSiteBlockedServicesBlockedSeviceModel
+			BlockedService: func() []VoltstackSiteBlockedServicesBlockedServiceModel {
+				if listData, ok := blockData["blocked_service"].([]interface{}); ok && len(listData) > 0 {
+					var result []VoltstackSiteBlockedServicesBlockedServiceModel
 					for _, item := range listData {
 						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, VoltstackSiteBlockedServicesBlockedSeviceModel{
+							result = append(result, VoltstackSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *VoltstackSiteEmptyModel {
 									if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
@@ -7626,12 +7626,12 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &VoltstackSiteBlockedServicesModel{
-			BlockedSevice: func() []VoltstackSiteBlockedServicesBlockedSeviceModel {
-				if listData, ok := blockData["blocked_sevice"].([]interface{}); ok && len(listData) > 0 {
-					var result []VoltstackSiteBlockedServicesBlockedSeviceModel
+			BlockedService: func() []VoltstackSiteBlockedServicesBlockedServiceModel {
+				if listData, ok := blockData["blocked_service"].([]interface{}); ok && len(listData) > 0 {
+					var result []VoltstackSiteBlockedServicesBlockedServiceModel
 					for _, item := range listData {
 						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, VoltstackSiteBlockedServicesBlockedSeviceModel{
+							result = append(result, VoltstackSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *VoltstackSiteEmptyModel {
 									if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
@@ -8390,9 +8390,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 	}
 	if data.BlockedServices != nil {
 		blocked_servicesMap := make(map[string]interface{})
-		if len(data.BlockedServices.BlockedSevice) > 0 {
-			var blocked_seviceList []map[string]interface{}
-			for _, listItem := range data.BlockedServices.BlockedSevice {
+		if len(data.BlockedServices.BlockedService) > 0 {
+			var blocked_serviceList []map[string]interface{}
+			for _, listItem := range data.BlockedServices.BlockedService {
 				listItemMap := make(map[string]interface{})
 				if listItem.DNS != nil {
 					listItemMap["dns"] = map[string]interface{}{}
@@ -8406,9 +8406,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				if listItem.WebUserInterface != nil {
 					listItemMap["web_user_interface"] = map[string]interface{}{}
 				}
-				blocked_seviceList = append(blocked_seviceList, listItemMap)
+				blocked_serviceList = append(blocked_serviceList, listItemMap)
 			}
-			blocked_servicesMap["blocked_sevice"] = blocked_seviceList
+			blocked_servicesMap["blocked_service"] = blocked_serviceList
 		}
 		apiResource.Spec["blocked_services"] = blocked_servicesMap
 	}
@@ -8841,12 +8841,12 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &VoltstackSiteBlockedServicesModel{
-			BlockedSevice: func() []VoltstackSiteBlockedServicesBlockedSeviceModel {
-				if listData, ok := blockData["blocked_sevice"].([]interface{}); ok && len(listData) > 0 {
-					var result []VoltstackSiteBlockedServicesBlockedSeviceModel
+			BlockedService: func() []VoltstackSiteBlockedServicesBlockedServiceModel {
+				if listData, ok := blockData["blocked_service"].([]interface{}); ok && len(listData) > 0 {
+					var result []VoltstackSiteBlockedServicesBlockedServiceModel
 					for _, item := range listData {
 						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, VoltstackSiteBlockedServicesBlockedSeviceModel{
+							result = append(result, VoltstackSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *VoltstackSiteEmptyModel {
 									if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}

@@ -755,7 +755,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 								MarkdownDescription: "IPV6AutoConfigRouterType.",
 								Attributes: map[string]schema.Attribute{
 									"network_prefix": schema.StringAttribute{
-										MarkdownDescription: "Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+										MarkdownDescription: "Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 										Optional:            true,
 									},
 								},

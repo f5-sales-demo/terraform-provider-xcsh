@@ -1,6 +1,17 @@
 # HTTP Loadbalancer Resource Example
 # Manages a HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with advanced routing and security.
 
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 # Basic HTTP Loadbalancer configuration
 resource "f5xc_http_loadbalancer" "example" {
   name      = "example-http-loadbalancer"

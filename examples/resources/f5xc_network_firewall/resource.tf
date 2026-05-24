@@ -1,6 +1,17 @@
 # Network Firewall Resource Example
 # Manages a Network Firewall resource in F5 Distributed Cloud for network firewall is created by users in system namespace. configuration.
 
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 # Basic Network Firewall configuration
 resource "f5xc_network_firewall" "example" {
   name      = "example-network-firewall"

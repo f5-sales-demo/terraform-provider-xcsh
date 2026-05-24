@@ -305,24 +305,24 @@ var AWSTGWSiteAWSParametersTGWCIDRModelAttrTypes = map[string]attr.Type{
 
 // AWSTGWSiteBlockedServicesModel represents blocked_services block
 type AWSTGWSiteBlockedServicesModel struct {
-	BlockedSevice []AWSTGWSiteBlockedServicesBlockedSeviceModel `tfsdk:"blocked_sevice"`
+	BlockedService []AWSTGWSiteBlockedServicesBlockedServiceModel `tfsdk:"blocked_service"`
 }
 
 // AWSTGWSiteBlockedServicesModelAttrTypes defines the attribute types for AWSTGWSiteBlockedServicesModel
 var AWSTGWSiteBlockedServicesModelAttrTypes = map[string]attr.Type{
-	"blocked_sevice": types.ListType{ElemType: types.ObjectType{AttrTypes: AWSTGWSiteBlockedServicesBlockedSeviceModelAttrTypes}},
+	"blocked_service": types.ListType{ElemType: types.ObjectType{AttrTypes: AWSTGWSiteBlockedServicesBlockedServiceModelAttrTypes}},
 }
 
-// AWSTGWSiteBlockedServicesBlockedSeviceModel represents blocked_sevice block
-type AWSTGWSiteBlockedServicesBlockedSeviceModel struct {
+// AWSTGWSiteBlockedServicesBlockedServiceModel represents blocked_service block
+type AWSTGWSiteBlockedServicesBlockedServiceModel struct {
 	NetworkType      types.String          `tfsdk:"network_type"`
 	DNS              *AWSTGWSiteEmptyModel `tfsdk:"dns"`
 	SSH              *AWSTGWSiteEmptyModel `tfsdk:"ssh"`
 	WebUserInterface *AWSTGWSiteEmptyModel `tfsdk:"web_user_interface"`
 }
 
-// AWSTGWSiteBlockedServicesBlockedSeviceModelAttrTypes defines the attribute types for AWSTGWSiteBlockedServicesBlockedSeviceModel
-var AWSTGWSiteBlockedServicesBlockedSeviceModelAttrTypes = map[string]attr.Type{
+// AWSTGWSiteBlockedServicesBlockedServiceModelAttrTypes defines the attribute types for AWSTGWSiteBlockedServicesBlockedServiceModel
+var AWSTGWSiteBlockedServicesBlockedServiceModelAttrTypes = map[string]attr.Type{
 	"network_type":       types.StringType,
 	"dns":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ssh":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -1510,7 +1510,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "Disable node local services on this site.",
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
-					"blocked_sevice": schema.ListNestedBlock{
+					"blocked_service": schema.ListNestedBlock{
 						MarkdownDescription: "Disable Node Local Services. Blocking or denial configuration",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
@@ -1583,10 +1583,10 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"site_registration_over_direct_connect": schema.SingleNestedBlock{
-								MarkdownDescription: "CloudLink ADN Network Config.",
+								MarkdownDescription: "CloudLink AND Network Config.",
 								Attributes: map[string]schema.Attribute{
 									"cloudlink_network_name": schema.StringAttribute{
-										MarkdownDescription: "Establish private connectivity with the F5 Distributed Cloud Global Network using a Private ADN network. To provision a Private ADN network, please contact F5 Distributed Cloud support.",
+										MarkdownDescription: "Establish private connectivity with the F5 Distributed Cloud Global Network using a Private AND network. To provision a Private AND network, please contact F5 Distributed Cloud support.",
 										Optional:            true,
 									},
 								},
@@ -2699,9 +2699,9 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	}
 	if data.BlockedServices != nil {
 		blocked_servicesMap := make(map[string]interface{})
-		if len(data.BlockedServices.BlockedSevice) > 0 {
-			var blocked_seviceList []map[string]interface{}
-			for _, listItem := range data.BlockedServices.BlockedSevice {
+		if len(data.BlockedServices.BlockedService) > 0 {
+			var blocked_serviceList []map[string]interface{}
+			for _, listItem := range data.BlockedServices.BlockedService {
 				listItemMap := make(map[string]interface{})
 				if listItem.DNS != nil {
 					listItemMap["dns"] = map[string]interface{}{}
@@ -2715,9 +2715,9 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if listItem.WebUserInterface != nil {
 					listItemMap["web_user_interface"] = map[string]interface{}{}
 				}
-				blocked_seviceList = append(blocked_seviceList, listItemMap)
+				blocked_serviceList = append(blocked_serviceList, listItemMap)
 			}
-			blocked_servicesMap["blocked_sevice"] = blocked_seviceList
+			blocked_servicesMap["blocked_service"] = blocked_serviceList
 		}
 		createReq.Spec["blocked_services"] = blocked_servicesMap
 	}
@@ -3357,12 +3357,12 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &AWSTGWSiteBlockedServicesModel{
-			BlockedSevice: func() []AWSTGWSiteBlockedServicesBlockedSeviceModel {
-				if listData, ok := blockData["blocked_sevice"].([]interface{}); ok && len(listData) > 0 {
-					var result []AWSTGWSiteBlockedServicesBlockedSeviceModel
+			BlockedService: func() []AWSTGWSiteBlockedServicesBlockedServiceModel {
+				if listData, ok := blockData["blocked_service"].([]interface{}); ok && len(listData) > 0 {
+					var result []AWSTGWSiteBlockedServicesBlockedServiceModel
 					for _, item := range listData {
 						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, AWSTGWSiteBlockedServicesBlockedSeviceModel{
+							result = append(result, AWSTGWSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *AWSTGWSiteEmptyModel {
 									if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 										return &AWSTGWSiteEmptyModel{}
@@ -4083,12 +4083,12 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &AWSTGWSiteBlockedServicesModel{
-			BlockedSevice: func() []AWSTGWSiteBlockedServicesBlockedSeviceModel {
-				if listData, ok := blockData["blocked_sevice"].([]interface{}); ok && len(listData) > 0 {
-					var result []AWSTGWSiteBlockedServicesBlockedSeviceModel
+			BlockedService: func() []AWSTGWSiteBlockedServicesBlockedServiceModel {
+				if listData, ok := blockData["blocked_service"].([]interface{}); ok && len(listData) > 0 {
+					var result []AWSTGWSiteBlockedServicesBlockedServiceModel
 					for _, item := range listData {
 						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, AWSTGWSiteBlockedServicesBlockedSeviceModel{
+							result = append(result, AWSTGWSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *AWSTGWSiteEmptyModel {
 									if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 										return &AWSTGWSiteEmptyModel{}
@@ -4567,9 +4567,9 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	}
 	if data.BlockedServices != nil {
 		blocked_servicesMap := make(map[string]interface{})
-		if len(data.BlockedServices.BlockedSevice) > 0 {
-			var blocked_seviceList []map[string]interface{}
-			for _, listItem := range data.BlockedServices.BlockedSevice {
+		if len(data.BlockedServices.BlockedService) > 0 {
+			var blocked_serviceList []map[string]interface{}
+			for _, listItem := range data.BlockedServices.BlockedService {
 				listItemMap := make(map[string]interface{})
 				if listItem.DNS != nil {
 					listItemMap["dns"] = map[string]interface{}{}
@@ -4583,9 +4583,9 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if listItem.WebUserInterface != nil {
 					listItemMap["web_user_interface"] = map[string]interface{}{}
 				}
-				blocked_seviceList = append(blocked_seviceList, listItemMap)
+				blocked_serviceList = append(blocked_serviceList, listItemMap)
 			}
-			blocked_servicesMap["blocked_sevice"] = blocked_seviceList
+			blocked_servicesMap["blocked_service"] = blocked_serviceList
 		}
 		apiResource.Spec["blocked_services"] = blocked_servicesMap
 	}
@@ -5236,12 +5236,12 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &AWSTGWSiteBlockedServicesModel{
-			BlockedSevice: func() []AWSTGWSiteBlockedServicesBlockedSeviceModel {
-				if listData, ok := blockData["blocked_sevice"].([]interface{}); ok && len(listData) > 0 {
-					var result []AWSTGWSiteBlockedServicesBlockedSeviceModel
+			BlockedService: func() []AWSTGWSiteBlockedServicesBlockedServiceModel {
+				if listData, ok := blockData["blocked_service"].([]interface{}); ok && len(listData) > 0 {
+					var result []AWSTGWSiteBlockedServicesBlockedServiceModel
 					for _, item := range listData {
 						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, AWSTGWSiteBlockedServicesBlockedSeviceModel{
+							result = append(result, AWSTGWSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *AWSTGWSiteEmptyModel {
 									if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 										return &AWSTGWSiteEmptyModel{}

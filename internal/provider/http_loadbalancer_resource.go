@@ -3320,12 +3320,12 @@ var HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFinancialServi
 
 // HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel represents flight block
 type HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel struct {
-	Checkin *HTTPLoadBalancerEmptyModel `tfsdk:"checkin"`
+	Checking *HTTPLoadBalancerEmptyModel `tfsdk:"checking"`
 }
 
 // HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel
 var HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModelAttrTypes = map[string]attr.Type{
-	"checkin": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"checking": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelProfileManagementModel represents profile_management block
@@ -9863,7 +9863,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"client_selector": schema.SingleNestedBlock{
-											MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expresssions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+											MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
 											Attributes: map[string]schema.Attribute{
 												"expressions": schema.ListAttribute{
 													MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
@@ -9951,7 +9951,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"tls_fingerprint_matcher": schema.SingleNestedBlock{
-											MarkdownDescription: "TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positve match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied..",
+											MarkdownDescription: "TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positive match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied..",
 											Attributes: map[string]schema.Attribute{
 												"classes": schema.ListAttribute{
 													MarkdownDescription: "[Enum: TLS_FINGERPRINT_NONE|ANY_MALICIOUS_FINGERPRINT|ADWARE|ADWIND|DRIDEX|GOOTKIT|GOZI|JBIFROST|QUAKBOT|RANSOMWARE|TROLDESH|TOFSEE|TORRENTLOCKER|TRICKBOT] List of known classes of TLS fingerprints to match the input TLS JA3 fingerprint against. Possible values are `TLS_FINGERPRINT_NONE`, `ANY_MALICIOUS_FINGERPRINT`, `ADWARE`, `ADWIND`, `DRIDEX`, `GOOTKIT`, `GOZI`, `JBIFROST`, `QUAKBOT`, `RANSOMWARE`, `TROLDESH`, `TOFSEE`, `TORRENTLOCKER`, `TRICKBOT`. Defaults to `TLS_FINGERPRINT_NONE`.",
@@ -10269,7 +10269,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"client_selector": schema.SingleNestedBlock{
-											MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expresssions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+											MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
 											Attributes: map[string]schema.Attribute{
 												"expressions": schema.ListAttribute{
 													MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
@@ -10357,7 +10357,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"tls_fingerprint_matcher": schema.SingleNestedBlock{
-											MarkdownDescription: "TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positve match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied..",
+											MarkdownDescription: "TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positive match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied..",
 											Attributes: map[string]schema.Attribute{
 												"classes": schema.ListAttribute{
 													MarkdownDescription: "[Enum: TLS_FINGERPRINT_NONE|ANY_MALICIOUS_FINGERPRINT|ADWARE|ADWIND|DRIDEX|GOOTKIT|GOZI|JBIFROST|QUAKBOT|RANSOMWARE|TROLDESH|TOFSEE|TORRENTLOCKER|TRICKBOT] List of known classes of TLS fingerprints to match the input TLS JA3 fingerprint against. Possible values are `TLS_FINGERPRINT_NONE`, `ANY_MALICIOUS_FINGERPRINT`, `ADWARE`, `ADWIND`, `DRIDEX`, `GOOTKIT`, `GOZI`, `JBIFROST`, `QUAKBOT`, `RANSOMWARE`, `TROLDESH`, `TOFSEE`, `TORRENTLOCKER`, `TRICKBOT`. Defaults to `TLS_FINGERPRINT_NONE`.",
@@ -10679,7 +10679,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"client_selector": schema.SingleNestedBlock{
-											MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expresssions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+											MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
 											Attributes: map[string]schema.Attribute{
 												"expressions": schema.ListAttribute{
 													MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
@@ -10767,7 +10767,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"tls_fingerprint_matcher": schema.SingleNestedBlock{
-											MarkdownDescription: "TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positve match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied..",
+											MarkdownDescription: "TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positive match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied..",
 											Attributes: map[string]schema.Attribute{
 												"classes": schema.ListAttribute{
 													MarkdownDescription: "[Enum: TLS_FINGERPRINT_NONE|ANY_MALICIOUS_FINGERPRINT|ADWARE|ADWIND|DRIDEX|GOOTKIT|GOZI|JBIFROST|QUAKBOT|RANSOMWARE|TROLDESH|TOFSEE|TORRENTLOCKER|TRICKBOT] List of known classes of TLS fingerprints to match the input TLS JA3 fingerprint against. Possible values are `TLS_FINGERPRINT_NONE`, `ANY_MALICIOUS_FINGERPRINT`, `ADWARE`, `ADWIND`, `DRIDEX`, `GOOTKIT`, `GOZI`, `JBIFROST`, `QUAKBOT`, `RANSOMWARE`, `TROLDESH`, `TOFSEE`, `TORRENTLOCKER`, `TRICKBOT`. Defaults to `TLS_FINGERPRINT_NONE`.",
@@ -11155,7 +11155,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 													},
 												},
 												"client_selector": schema.SingleNestedBlock{
-													MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expresssions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+													MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
 													Attributes: map[string]schema.Attribute{
 														"expressions": schema.ListAttribute{
 															MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
@@ -11243,7 +11243,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 													},
 												},
 												"tls_fingerprint_matcher": schema.SingleNestedBlock{
-													MarkdownDescription: "TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positve match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied..",
+													MarkdownDescription: "TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positive match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied..",
 													Attributes: map[string]schema.Attribute{
 														"classes": schema.ListAttribute{
 															MarkdownDescription: "[Enum: TLS_FINGERPRINT_NONE|ANY_MALICIOUS_FINGERPRINT|ADWARE|ADWIND|DRIDEX|GOOTKIT|GOZI|JBIFROST|QUAKBOT|RANSOMWARE|TROLDESH|TOFSEE|TORRENTLOCKER|TRICKBOT] List of known classes of TLS fingerprints to match the input TLS JA3 fingerprint against. Possible values are `TLS_FINGERPRINT_NONE`, `ANY_MALICIOUS_FINGERPRINT`, `ADWARE`, `ADWIND`, `DRIDEX`, `GOOTKIT`, `GOZI`, `JBIFROST`, `QUAKBOT`, `RANSOMWARE`, `TROLDESH`, `TOFSEE`, `TORRENTLOCKER`, `TRICKBOT`. Defaults to `TLS_FINGERPRINT_NONE`.",
@@ -11584,7 +11584,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"client_selector": schema.SingleNestedBlock{
-											MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expresssions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+											MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
 											Attributes: map[string]schema.Attribute{
 												"expressions": schema.ListAttribute{
 													MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
@@ -11672,7 +11672,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"tls_fingerprint_matcher": schema.SingleNestedBlock{
-											MarkdownDescription: "TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positve match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied..",
+											MarkdownDescription: "TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positive match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied..",
 											Attributes: map[string]schema.Attribute{
 												"classes": schema.ListAttribute{
 													MarkdownDescription: "[Enum: TLS_FINGERPRINT_NONE|ANY_MALICIOUS_FINGERPRINT|ADWARE|ADWIND|DRIDEX|GOOTKIT|GOZI|JBIFROST|QUAKBOT|RANSOMWARE|TROLDESH|TOFSEE|TORRENTLOCKER|TRICKBOT] List of known classes of TLS fingerprints to match the input TLS JA3 fingerprint against. Possible values are `TLS_FINGERPRINT_NONE`, `ANY_MALICIOUS_FINGERPRINT`, `ADWARE`, `ADWIND`, `DRIDEX`, `GOOTKIT`, `GOZI`, `JBIFROST`, `QUAKBOT`, `RANSOMWARE`, `TROLDESH`, `TOFSEE`, `TORRENTLOCKER`, `TRICKBOT`. Defaults to `TLS_FINGERPRINT_NONE`.",
@@ -13137,7 +13137,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 													MarkdownDescription: "Bot Defense Flow Label Flight Category. Bot Defense Flow Label Flight Category.",
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
-														"checkin": schema.SingleNestedBlock{
+														"checking": schema.SingleNestedBlock{
 															MarkdownDescription: "Enable this option",
 														},
 													},
@@ -13776,7 +13776,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								Optional:            true,
 							},
 							"cache_ttl_override": schema.StringAttribute{
-								MarkdownDescription: "Always override the Cahce TTL provided by Origin.",
+								MarkdownDescription: "Always override the Cache TTL provided by Origin.",
 								Optional:            true,
 							},
 						},
@@ -14088,7 +14088,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"csrf_policy": schema.SingleNestedBlock{
-				MarkdownDescription: "To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its detination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent to..",
+				MarkdownDescription: "To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent to..",
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"all_load_balancer_domains": schema.SingleNestedBlock{
@@ -14209,7 +14209,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 									},
 								},
 								"tls_fingerprint_matcher": schema.SingleNestedBlock{
-									MarkdownDescription: "TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positve match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied..",
+									MarkdownDescription: "TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positive match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied..",
 									Attributes: map[string]schema.Attribute{
 										"classes": schema.ListAttribute{
 											MarkdownDescription: "[Enum: TLS_FINGERPRINT_NONE|ANY_MALICIOUS_FINGERPRINT|ADWARE|ADWIND|DRIDEX|GOOTKIT|GOZI|JBIFROST|QUAKBOT|RANSOMWARE|TROLDESH|TOFSEE|TORRENTLOCKER|TRICKBOT] List of known classes of TLS fingerprints to match the input TLS JA3 fingerprint against. Possible values are `TLS_FINGERPRINT_NONE`, `ANY_MALICIOUS_FINGERPRINT`, `ADWARE`, `ADWIND`, `DRIDEX`, `GOOTKIT`, `GOZI`, `JBIFROST`, `QUAKBOT`, `RANSOMWARE`, `TROLDESH`, `TOFSEE`, `TORRENTLOCKER`, `TRICKBOT`. Defaults to `TLS_FINGERPRINT_NONE`.",
@@ -14364,7 +14364,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 										},
 									},
 									"endpoint_subsets": schema.ListNestedBlock{
-										MarkdownDescription: "List of subset class. Subsets class is defined using list of keys. Every unique combination of values of these keys form a subset withing the class.",
+										MarkdownDescription: "List of subset class. Subsets class is defined using list of keys. Every unique combination of values of these keys form a subset within the class.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"keys": schema.ListAttribute{
@@ -14417,7 +14417,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
 							},
 							"outlier_detection": schema.SingleNestedBlock{
-								MarkdownDescription: "Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checking. Algorithm 1.",
+								MarkdownDescription: "Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checkingg. Algorithm 1.",
 								Attributes: map[string]schema.Attribute{
 									"base_ejection_time": schema.Int64Attribute{
 										MarkdownDescription: "The base time that a host is ejected for. The real time is equal to the base time multiplied by the number of times the host has been ejected. This causes hosts to GET ejected for longer periods if they continue to fail.",
@@ -17335,7 +17335,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 									},
 								},
 								"client_selector": schema.SingleNestedBlock{
-									MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expresssions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+									MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
 									Attributes: map[string]schema.Attribute{
 										"expressions": schema.ListAttribute{
 											MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
@@ -17679,7 +17679,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 													},
 												},
 												"client_selector": schema.SingleNestedBlock{
-													MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expresssions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+													MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
 													Attributes: map[string]schema.Attribute{
 														"expressions": schema.ListAttribute{
 															MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
@@ -17958,7 +17958,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 													},
 												},
 												"tls_fingerprint_matcher": schema.SingleNestedBlock{
-													MarkdownDescription: "TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positve match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied..",
+													MarkdownDescription: "TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positive match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied..",
 													Attributes: map[string]schema.Attribute{
 														"classes": schema.ListAttribute{
 															MarkdownDescription: "[Enum: TLS_FINGERPRINT_NONE|ANY_MALICIOUS_FINGERPRINT|ADWARE|ADWIND|DRIDEX|GOOTKIT|GOZI|JBIFROST|QUAKBOT|RANSOMWARE|TROLDESH|TOFSEE|TORRENTLOCKER|TRICKBOT] List of known classes of TLS fingerprints to match the input TLS JA3 fingerprint against. Possible values are `TLS_FINGERPRINT_NONE`, `ANY_MALICIOUS_FINGERPRINT`, `ADWARE`, `ADWIND`, `DRIDEX`, `GOOTKIT`, `GOZI`, `JBIFROST`, `QUAKBOT`, `RANSOMWARE`, `TROLDESH`, `TOFSEE`, `TORRENTLOCKER`, `TRICKBOT`. Defaults to `TLS_FINGERPRINT_NONE`.",
@@ -18683,7 +18683,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"csrf_policy": schema.SingleNestedBlock{
-											MarkdownDescription: "To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its detination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent to..",
+											MarkdownDescription: "To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent to..",
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"all_load_balancer_domains": schema.SingleNestedBlock{

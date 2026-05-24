@@ -185,7 +185,7 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 				},
 			},
 			"unhealthy_threshold": schema.Int64Attribute{
-				MarkdownDescription: "Number of failed responses before declaring unhealthy. In other words, this is the number of unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health checking if a host responds with 503 this threshold is ignored and the host is considered unhealthy immediately.",
+				MarkdownDescription: "Number of failed responses before declaring unhealthy. In other words, this is the number of unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health checkingg if a host responds with 503 this threshold is ignored and the host is considered unhealthy immediately.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.Int64{
@@ -213,7 +213,7 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 						Optional:            true,
 					},
 					"path": schema.StringAttribute{
-						MarkdownDescription: "Specifies the HTTP path that will be requested during health checking.",
+						MarkdownDescription: "Specifies the HTTP path that will be requested during health checkingg.",
 						Optional:            true,
 					},
 					"request_headers_to_remove": schema.ListAttribute{

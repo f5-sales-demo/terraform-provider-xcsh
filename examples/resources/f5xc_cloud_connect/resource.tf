@@ -1,6 +1,17 @@
 # Cloud Connect Resource Example
 # Manages a Cloud Connect resource in F5 Distributed Cloud for establishing connectivity to cloud provider networks.
 
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 # Basic Cloud Connect configuration
 resource "f5xc_cloud_connect" "example" {
   name      = "example-cloud-connect"

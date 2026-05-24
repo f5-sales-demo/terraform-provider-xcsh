@@ -1,6 +1,17 @@
 # External Connector Resource Example
 # Manages a External Connector resource in F5 Distributed Cloud for external_connector configuration specification. configuration.
 
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 # Basic External Connector configuration
 resource "f5xc_external_connector" "example" {
   name      = "example-external-connector"

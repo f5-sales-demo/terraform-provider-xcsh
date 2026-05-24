@@ -474,10 +474,10 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 				MarkdownDescription: "[OneOf: disabled, enabled] Enable this option",
 			},
 			"enabled": schema.SingleNestedBlock{
-				MarkdownDescription: "CloudLink ADN Network Config.",
+				MarkdownDescription: "CloudLink AND Network Config.",
 				Attributes: map[string]schema.Attribute{
 					"cloudlink_network_name": schema.StringAttribute{
-						MarkdownDescription: "Establish private connectivity with the F5 Distributed Cloud Global Network using a Private ADN network. To provision a Private ADN network, please contact F5 Distributed Cloud support.",
+						MarkdownDescription: "Establish private connectivity with the F5 Distributed Cloud Global Network using a Private AND network. To provision a Private AND network, please contact F5 Distributed Cloud support.",
 						Optional:            true,
 					},
 				},
