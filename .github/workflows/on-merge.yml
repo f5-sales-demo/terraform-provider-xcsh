@@ -245,35 +245,6 @@ jobs:
     uses: ./.github/workflows/_generate-docs.yml
 
   # ===========================================================================
-  # STEP 5b: Notify terraform-provider-mcp of new release
-  # ===========================================================================
-  notify-mcp-repo:
-    name: Notify MCP Repo
-    needs: [tag-release]
-    if: |
-      always() &&
-      needs.tag-release.result == 'success' &&
-      needs.tag-release.outputs.tag-created == 'true'
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    steps:
-      - name: Dispatch to terraform-provider-mcp
-        env:
-          GH_TOKEN: ${{ secrets.AUTO_MERGE_TOKEN }}
-        run: |
-          VERSION="${{ needs.tag-release.outputs.new-tag }}"
-          echo "Dispatching provider-release event to terraform-provider-mcp..."
-          echo "Version: $VERSION"
-
-          gh api repos/f5xc-salesdemos/terraform-provider-mcp/dispatches \
-            --method POST \
-            -f event_type=provider-release \
-            -f "client_payload[version]=$VERSION" \
-            -f "client_payload[repository]=${{ github.repository }}"
-
-          echo "Dispatched provider-release event to terraform-provider-mcp"
-
-  # ===========================================================================
   # STEP 6: Create PR for regenerated content (human commits only)
   # ===========================================================================
   # NOTE: We create a PR instead of pushing directly to respect branch protection.
@@ -598,7 +569,7 @@ jobs:
   # ===========================================================================
   summary:
     name: Workflow Summary
-    needs: [detect-changes, build-test, regenerate-provider, regenerate-docs, create-regeneration-pr, tag-release, notify-mcp-repo]
+    needs: [detect-changes, build-test, regenerate-provider, regenerate-docs, create-regeneration-pr, tag-release]
     if: always()
     runs-on: ubuntu-latest
     steps:
@@ -622,14 +593,9 @@ jobs:
             echo "| Docs Regenerated | ${{ needs.regenerate-docs.result }} |"
             echo "| Regeneration PR Created | ${{ needs.create-regeneration-pr.result }} |"
             echo "| Tagged/Released | ${{ needs.tag-release.result }} |"
-            echo "| Notify MCP Repo | ${{ needs.notify-mcp-repo.result }} |"
             echo ""
             echo "### Delayed Tagging Logic"
             echo "- Bot commits -> Tag immediately (regeneration complete)"
             echo "- Human commits without regeneration -> Tag immediately"
             echo "- Human commits with regeneration PR -> Wait for PR merge to tag"
-            echo ""
-            echo "### MCP Server (Standalone Repo)"
-            echo "MCP server has been extracted to f5xc-salesdemos/terraform-provider-mcp."
-            echo "The notify-mcp-repo job dispatches to the standalone repo on release."
           } >> "$GITHUB_STEP_SUMMARY"
