@@ -2,6 +2,18 @@
 # Retrieves information about an existing Rate Limiter
 
 # Look up an existing Rate Limiter by name
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+
 data "f5xc_rate_limiter" "example" {
   name      = "example-rate-limiter"
   namespace = "system"

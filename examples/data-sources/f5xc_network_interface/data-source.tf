@@ -2,6 +2,18 @@
 # Retrieves information about an existing Network Interface
 
 # Look up an existing Network Interface by name
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+
 data "f5xc_network_interface" "example" {
   name      = "example-network-interface"
   namespace = "system"

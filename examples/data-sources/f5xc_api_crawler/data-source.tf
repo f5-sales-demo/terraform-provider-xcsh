@@ -2,6 +2,18 @@
 # Retrieves information about an existing API Crawler
 
 # Look up an existing API Crawler by name
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+
 data "f5xc_api_crawler" "example" {
   name      = "example-api-crawler"
   namespace = "system"

@@ -2,6 +2,18 @@
 # Retrieves information about an existing HTTP Loadbalancer
 
 # Look up an existing HTTP Loadbalancer by name
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+
 data "f5xc_http_loadbalancer" "example" {
   name      = "example-http-loadbalancer"
   namespace = "system"

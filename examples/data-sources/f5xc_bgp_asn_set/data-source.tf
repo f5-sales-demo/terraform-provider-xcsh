@@ -2,6 +2,18 @@
 # Retrieves information about an existing BGP Asn Set
 
 # Look up an existing BGP Asn Set by name
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+
 data "f5xc_bgp_asn_set" "example" {
   name      = "example-bgp-asn-set"
   namespace = "system"

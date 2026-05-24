@@ -2,6 +2,18 @@
 # Retrieves information about an existing Healthcheck
 
 # Look up an existing Healthcheck by name
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+
 data "f5xc_healthcheck" "example" {
   name      = "example-healthcheck"
   namespace = "system"

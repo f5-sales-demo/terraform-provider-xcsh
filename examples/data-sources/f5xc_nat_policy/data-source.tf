@@ -2,6 +2,18 @@
 # Retrieves information about an existing Nat Policy
 
 # Look up an existing Nat Policy by name
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+
 data "f5xc_nat_policy" "example" {
   name      = "example-nat-policy"
   namespace = "system"

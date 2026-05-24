@@ -2,6 +2,18 @@
 # Retrieves information about an existing App Firewall
 
 # Look up an existing App Firewall by name
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+
 data "f5xc_app_firewall" "example" {
   name      = "example-app-firewall"
   namespace = "system"

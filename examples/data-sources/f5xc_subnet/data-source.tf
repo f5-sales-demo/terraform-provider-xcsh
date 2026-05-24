@@ -2,6 +2,18 @@
 # Retrieves information about an existing Subnet
 
 # Look up an existing Subnet by name
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+
 data "f5xc_subnet" "example" {
   name      = "example-subnet"
   namespace = "system"
