@@ -17,7 +17,8 @@ import (
 // INTEGRATION: Certificate with blindfold-encrypted private key
 //
 // Verifies the full encryption chain:
-//   blindfold function encrypts key → certificate resource accepts sealed secret
+//
+//	blindfold function encrypts key → certificate resource accepts sealed secret
 //
 // Uses the built-in "ves-io-allow-volterra" policy in "shared" namespace
 // which exists on every F5 XC tenant.
@@ -95,10 +96,11 @@ func TestAccCertificateBlindfold_emptyPlan(t *testing.T) {
 // INTEGRATION: Full TLS chain — trusted CA + certificate + origin pool
 //
 // Verifies:
-//   1. Trusted CA list created with root CA cert
-//   2. Certificate created with blindfold-encrypted private key
-//   3. Origin pool created with TLS config
-//   4. All resources reference each other correctly
+//  1. Trusted CA list created with root CA cert
+//  2. Certificate created with blindfold-encrypted private key
+//  3. Origin pool created with TLS config
+//  4. All resources reference each other correctly
+//
 // =============================================================================
 func TestAccTLSChain_blindfoldCertWithOriginPool(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
