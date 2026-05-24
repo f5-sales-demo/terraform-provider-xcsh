@@ -16,7 +16,8 @@ terraform {
 
   required_providers {
     f5xc = {
-      source = "robinmordasiewicz/f5xc"
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
     }
     time = {
       source  = "hashicorp/time"
@@ -36,7 +37,7 @@ terraform {
 # Or for P12 certificate:
 #   export F5XC_API_URL="https://your-tenant.console.ves.volterra.io"
 #   export F5XC_P12_FILE="/path/to/credentials.p12"
-#   export F5XC_P12_PASSWORD="your-p12-password"  # pragma: allowlist secret
+#   export F5XC_P12_PASSWORD="your-p12-password"  # gitleaks:allow
 
 provider "f5xc" {
   # Authentication via environment variables

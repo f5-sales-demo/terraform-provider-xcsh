@@ -1,3 +1,14 @@
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 # Configure the F5XC Provider with API Token Authentication
 provider "f5xc" {
   api_url   = "https://your-tenant.console.ves.volterra.io"
@@ -24,4 +35,4 @@ variable "f5xc_api_token" {
 # Environment variables for P12 authentication:
 # export F5XC_API_URL="https://your-tenant.console.ves.volterra.io"
 # export F5XC_P12_FILE="/path/to/certificate.p12"
-# export F5XC_P12_PASSWORD="your-p12-password"
+# export F5XC_P12_PASSWORD="your-p12-password"  # gitleaks:allow
