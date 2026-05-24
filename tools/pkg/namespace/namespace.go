@@ -1,20 +1,22 @@
 // Copyright (c) 2026 Robin Mordasiewicz. MIT License.
 
 // Package namespace provides consistent namespace classification for F5XC resources.
-// This package centralizes the logic for determining which namespace type a resource
-// should use, following F5XC best practices.
+// Resources are classified via Profile structs set at code-generation time from enriched
+// API specs. No hardcoded resource maps — all classification is data-driven.
 package namespace
 
-import "sync"
+import (
+	"sync"
+)
 
-// Type represents the type of namespace a resource should use.
+// Type represents the namespace type enum.
 type Type int
 
 const (
-	// System is for infrastructure objects (sites, networks, fleet, cluster, cloud credentials).
-	System Type = iota
-	// Shared is for cross-app security policies (app_firewall, certificates, rate_limiters).
-	Shared
+	// SystemType is for infrastructure objects (sites, networks, fleet, cluster, cloud credentials).
+	SystemType Type = iota
+	// SharedType is for cross-app security policies (app_firewall, certificates, rate_limiters).
+	SharedType
 	// Application is for app-specific workloads (load balancers, origin pools, healthchecks).
 	Application
 )
@@ -22,166 +24,123 @@ const (
 // String returns the string representation of the namespace type.
 func (t Type) String() string {
 	switch t {
-	case System:
+	case SystemType:
 		return "system"
-	case Shared:
+	case SharedType:
 		return "shared"
-	case Application:
-		return "staging"
 	default:
 		return "staging"
 	}
 }
 
-// systemResources lists resources that belong in the "system" namespace.
-// These are infrastructure-level objects.
-var systemResources = map[string]bool{
-	// Site resources
-	"aws_vpc_site": true, "azure_vnet_site": true, "gcp_vpc_site": true,
-	"securemesh_site": true, "securemesh_site_v2": true, "voltstack_site": true,
-	"aws_tgw_site": true,
-	// Network infrastructure
-	"virtual_network": true, "network_interface": true, "network_connector": true,
-	"subnet": true, "tunnel": true, "network_firewall": true,
-	// Fleet and cluster management
-	"fleet": true, "cluster": true, "dc_cluster_group": true, "site_mesh_group": true,
-	// Cloud infrastructure
-	"cloud_credentials": true, "cloud_connect": true, "cloud_link": true, "cloud_elastic_ip": true,
-	// BGP and routing
-	"bgp": true, "bgp_asn_set": true, "bgp_routing_policy": true, "route": true,
-	// Core system resources
-	"namespace": true, "virtual_site": true, "global_log_receiver": true,
-	"tenant_configuration": true, "tenant_profile": true, "role": true,
-	"k8s_cluster": true, "k8s_cluster_role": true, "k8s_cluster_role_binding": true,
-	// Additional system resources
-	"token": true, "api_credential": true, "user": true, "service_credential": true,
-	"known_label": true, "known_label_key": true,
-	"fast_acl": true, "fast_acl_rule": true,
-	"network_policy_rule": true, "network_policy_view": true,
-	"view_internal_ref": true,
+// NamespaceType is a string-typed namespace classifier used in Profile definitions.
+type NamespaceType string
+
+const (
+	// System namespace — infrastructure-level objects.
+	System NamespaceType = "system"
+	// Shared namespace — cross-app reusable policies.
+	Shared NamespaceType = "shared"
+	// Default namespace — the tenant's default namespace.
+	Default NamespaceType = "default"
+	// Custom namespace — user-created application namespaces.
+	Custom NamespaceType = "custom"
+)
+
+// Profile describes the namespace behaviour for a single resource type.
+type Profile struct {
+	Allowed            []NamespaceType
+	Enforced           bool
+	Recommended        NamespaceType
+	Category           string
+	MultiTenantPattern string
 }
 
-// sharedResources lists resources that belong in the "shared" namespace.
-// These are cross-team/application reusable resources.
-var sharedResources = map[string]bool{
-	// Security policies
-	"app_firewall": true, "waf_exclusion_policy": true,
-	"service_policy": true, "service_policy_rule": true,
-	"sensitive_data_policy": true, "secret_policy": true, "secret_policy_rule": true,
-	// Certificates and trust
-	"certificate": true, "certificate_chain": true, "trusted_ca_list": true, "crl": true,
-	// Rate limiting
-	"rate_limiter": true, "rate_limiter_policy": true,
-	// User identification and mitigation
-	"user_identification": true, "malicious_user_mitigation": true,
-	// Bot defense
-	"bot_defense_app_infrastructure": true,
-	// API definitions (shared across apps)
-	"api_definition": true, "data_type": true,
-	// Network policy sets
-	"ip_prefix_set": true, "geo_location_set": true,
-	// Protocol inspection
-	"protocol_inspection": true, "protocol_policer": true, "policer": true,
-	// Forward proxy
-	"forward_proxy_policy": true,
-	// Alert configuration
-	"alert_policy": true, "alert_receiver": true,
-	// Additional shared resources
-	"data_group": true, "filter_set": true,
-	"forwarding_class": true, "log_receiver": true,
+// IsAllowed returns true if the given NamespaceType is in the Allowed list.
+func (p Profile) IsAllowed(nsType NamespaceType) bool {
+	for _, a := range p.Allowed {
+		if a == nsType {
+			return true
+		}
+	}
+	return false
 }
 
 var (
-	specScopeMu sync.RWMutex
-	specScopes  = map[string]string{}
+	profiles   = make(map[string]Profile)
+	profilesMu sync.RWMutex
 )
 
-// SetSpecScope records a namespace scope from the enriched spec.
-// Valid scopes: "system", "shared", "any" (or "application").
-func SetSpecScope(resourceName, scope string) {
-	specScopeMu.Lock()
-	defer specScopeMu.Unlock()
-	specScopes[resourceName] = scope
+// SetProfile registers a namespace profile for the named resource.
+func SetProfile(resourceName string, profile Profile) {
+	profilesMu.Lock()
+	defer profilesMu.Unlock()
+	profiles[resourceName] = profile
 }
 
-// ClearSpecScopes removes all spec-derived overrides (for testing).
-func ClearSpecScopes() {
-	specScopeMu.Lock()
-	defer specScopeMu.Unlock()
-	specScopes = map[string]string{}
+// GetProfile retrieves the profile for a resource. The bool is false when no
+// profile has been registered.
+func GetProfile(resourceName string) (Profile, bool) {
+	profilesMu.RLock()
+	defer profilesMu.RUnlock()
+	p, ok := profiles[resourceName]
+	return p, ok
 }
 
-// ForResource returns the appropriate namespace type and string based on F5XC best practices:
-// - system: Infrastructure objects (sites, networks, fleet, cluster, cloud credentials)
-// - shared: Cross-app security policies (app_firewall, certificates, rate_limiters)
-// - staging: App-specific workloads (load balancers, origin pools, healthchecks)
-//
-// If a spec-derived scope has been set via SetSpecScope, it takes precedence over
-// the hardcoded maps. Valid scope values: "system", "shared", "any", "application".
-func ForResource(resourceName string) (Type, string) {
-	// Check spec-derived overrides first (thread-safe read)
-	specScopeMu.RLock()
-	scope, hasScope := specScopes[resourceName]
-	specScopeMu.RUnlock()
+// ClearProfiles removes all registered profiles (useful in tests).
+func ClearProfiles() {
+	profilesMu.Lock()
+	defer profilesMu.Unlock()
+	profiles = make(map[string]Profile)
+}
 
-	if hasScope {
-		switch scope {
-		case "system":
-			return System, "system"
-		case "shared":
-			return Shared, "shared"
-		case "any", "application":
-			return Application, "staging"
+// ForResource returns the Type and namespace string for a resource.
+// It consults the profiles map first. If a profile exists with exactly one
+// Allowed namespace of System or Shared, the corresponding type is returned.
+// Everything else (multi-namespace, custom, default, or no profile) defaults
+// to Application / "staging".
+func ForResource(name string) (Type, string) {
+	profilesMu.RLock()
+	p, ok := profiles[name]
+	profilesMu.RUnlock()
+
+	if ok {
+		if len(p.Allowed) == 1 {
+			switch p.Allowed[0] {
+			case System:
+				return SystemType, "system"
+			case Shared:
+				return SharedType, "shared"
+			}
 		}
+		return Application, "staging"
 	}
 
-	// Fall back to hardcoded maps
-	if systemResources[resourceName] {
-		return System, "system"
-	}
-	if sharedResources[resourceName] {
-		return Shared, "shared"
-	}
-	// Default to application namespace for workload resources
 	return Application, "staging"
 }
 
-// ForReference returns the appropriate namespace for a resource reference
-// based on what type of resource is being referenced.
+// ForReference returns the namespace string for a referenced resource.
+// Callers pass the resource type name (e.g. "app_firewall") and get back
+// the namespace string ("system", "shared", or "staging").
 func ForReference(referencedResourceType string) string {
 	_, ns := ForResource(referencedResourceType)
 	return ns
 }
 
 // IsSystem returns true if the resource belongs in the system namespace.
-func IsSystem(resourceName string) bool {
-	return systemResources[resourceName]
+func IsSystem(name string) bool {
+	t, _ := ForResource(name)
+	return t == SystemType
 }
 
 // IsShared returns true if the resource belongs in the shared namespace.
-func IsShared(resourceName string) bool {
-	return sharedResources[resourceName]
+func IsShared(name string) bool {
+	t, _ := ForResource(name)
+	return t == SharedType
 }
 
 // IsApplication returns true if the resource belongs in an application namespace.
-func IsApplication(resourceName string) bool {
-	return !systemResources[resourceName] && !sharedResources[resourceName]
+func IsApplication(name string) bool {
+	return !IsSystem(name) && !IsShared(name)
 }
 
-// GetSystemResources returns a copy of the system resources map.
-func GetSystemResources() map[string]bool {
-	result := make(map[string]bool, len(systemResources))
-	for k, v := range systemResources {
-		result[k] = v
-	}
-	return result
-}
-
-// GetSharedResources returns a copy of the shared resources map.
-func GetSharedResources() map[string]bool {
-	result := make(map[string]bool, len(sharedResources))
-	for k, v := range sharedResources {
-		result[k] = v
-	}
-	return result
-}

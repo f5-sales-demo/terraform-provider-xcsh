@@ -56,10 +56,10 @@ type Schema struct {
 	XF5XCDescriptionMed   string   `json:"x-f5xc-description-medium"`
 	XF5XCUseCases         []string `json:"x-f5xc-use-cases"`
 	XF5XCRelatedDomains   []string `json:"x-f5xc-related-domains"`
-	XF5XCIsPreview        bool     `json:"x-f5xc-is-preview"`
-	XF5XCNamespaceScope   string   `json:"x-f5xc-namespace-scope"` // Valid: "system", "shared", "any", "application"
-	XF5XCIcon             string   `json:"x-f5xc-icon"`
-	XF5XCCLIDomain        string   `json:"x-f5xc-cli-domain"`
+	XF5XCIsPreview          bool                  `json:"x-f5xc-is-preview"`
+	XF5XCNamespaceProfile   *NamespaceProfileSpec `json:"x-f5xc-namespace-profile"`
+	XF5XCIcon               string                `json:"x-f5xc-icon"`
+	XF5XCCLIDomain          string                `json:"x-f5xc-cli-domain"`
 
 	// Additional upstream extensions
 	XVesDeprecated   string            `json:"x-ves-deprecated"`
@@ -320,7 +320,7 @@ type DomainSpec struct {
 	XF5XCIsPreview      bool     `json:"x-f5xc-is-preview"`
 	XF5XCRelatedDomains []string `json:"x-f5xc-related-domains"`
 	XF5XCUseCases       []string `json:"x-f5xc-use-cases"`
-	XF5XCNamespaceScope string   `json:"x-f5xc-namespace-scope"` // Valid: "system", "shared", "any", "application"
+	XF5XCNamespaceProfile *NamespaceProfileSpec `json:"x-f5xc-namespace-profile"`
 
 	// ---- SP-1 additions: domain-level spec metadata ----
 	XF5XCDocSection        string                    `json:"x-f5xc-doc-section"`
@@ -343,14 +343,40 @@ type DomainInfo struct {
 	XF5XCLogoSVG           string         `json:"x-f5xc-logo-svg"`
 	XF5XCDescriptionLong   string         `json:"x-f5xc-description-long"`
 	XF5XCSummary           string         `json:"x-f5xc-summary"`
-	XF5XCBestPractices     *BestPractices `json:"x-f5xc-best-practices"`
-	XF5XCNamespaceScope    string         `json:"x-f5xc-namespace-scope"` // Valid: "system", "shared", "any", "application"
+	XF5XCBestPractices     *BestPractices        `json:"x-f5xc-best-practices"`
+	XF5XCNamespaceProfile  *NamespaceProfileSpec `json:"x-f5xc-namespace-profile"`
 
 	// ---- SP-1 additions: spec-level domain metadata ----
 	XF5XCCLIMetadata     map[string]interface{} `json:"x-f5xc-cli-metadata"`
 	XF5XCGlossary        map[string]interface{} `json:"x-f5xc-glossary"`
 	XF5XCGuidedWorkflows []interface{}          `json:"x-f5xc-guided-workflows"`
 	XF5XCAcronyms        map[string]interface{} `json:"x-f5xc-acronyms"`
+}
+
+// NamespaceProfileSpec represents the x-f5xc-namespace-profile extension object
+// in an enriched OpenAPI spec. It captures namespace constraints, recommendations,
+// and classification metadata for a resource.
+type NamespaceProfileSpec struct {
+	Constraint     *NamespaceConstraint     `json:"constraint,omitempty"`
+	Recommendation *NamespaceRecommendation `json:"recommendation,omitempty"`
+	Classification *NamespaceClassification `json:"classification,omitempty"`
+}
+
+// NamespaceConstraint defines which namespaces a resource is allowed in.
+type NamespaceConstraint struct {
+	Allowed  []string `json:"allowed"`
+	Enforced bool     `json:"enforced"`
+}
+
+// NamespaceRecommendation defines the recommended namespace for a resource.
+type NamespaceRecommendation struct {
+	Primary string `json:"primary"`
+}
+
+// NamespaceClassification provides categorization metadata for a resource.
+type NamespaceClassification struct {
+	Category           string `json:"category"`
+	MultiTenantPattern string `json:"multi_tenant_pattern"`
 }
 
 // BestPractices contains operational guidance from the enriched spec.
