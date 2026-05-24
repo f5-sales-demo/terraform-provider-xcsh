@@ -882,7 +882,11 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"listen_port": schema.Int64Attribute{
 				MarkdownDescription: "[OneOf: listen_port, port_ranges] Exclusive with [port_ranges] Listen Port for this load balancer.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Int64{
+					int64planmodifier.UseStateForUnknown(),
+				},
 			},
 			"port_ranges": schema.StringAttribute{
 				MarkdownDescription: "Exclusive with [listen_port] A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'.",
@@ -3631,6 +3635,13 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	} else if data.IdleTimeout.IsUnknown() {
 		// API didn't return value and plan was unknown - set to null
 		data.IdleTimeout = types.Int64Null()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["listen_port"].(float64); ok {
+		data.ListenPort = types.Int64Value(int64(v))
+	} else if data.ListenPort.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.ListenPort = types.Int64Null()
 	}
 	// If plan had a value, preserve it
 	if v, ok := fetched.Spec["port_ranges"].(string); ok && v != "" {

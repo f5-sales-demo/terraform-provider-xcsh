@@ -101,7 +101,7 @@ resource "f5xc_udp_loadbalancer" "example" {
 <a id="domains"></a>&#x2022; [`domains`](#domains) - Required List<br>List of domains (host/authority header) that will be matched to this load balancer
 
 <a id="enable-per-packet-load-balancing"></a>&#x2022; [`enable_per_packet_load_balancing`](#enable-per-packet-load-balancing) - Required Bool<br>Per packet load balancing: If disabled (default): First packet identified by source IP/port and local IP/port is sent to an upstream server as the load balancing algorithm dictates, and subsequent packets with the same identity are forwarded to the same
-upstream server without recheckingggggggg the
+upstream server without recheckingg the
 
 -> **One of the following:**
 &#x2022; <a id="hash-policy-choice-random"></a>[`hash_policy_choice_random`](#hash-policy-choice-random) - Optional Block<br>Configuration parameter for hash policy choice random
@@ -111,8 +111,8 @@ upstream server without recheckingggggggg the
 <a id="idle-timeout"></a>&#x2022; [`idle_timeout`](#idle-timeout) - Required Number<br>The amount of time that a session can exist without upstream or downstream activity, in milliseconds
 
 -> **One of the following:**
-&#x2022; <a id="listen-port"></a>[`listen_port`](#listen-port) - Required Number<br>Listen Port for this load balancer
-<br><br>&#x2022; <a id="port-ranges"></a>[`port_ranges`](#port-ranges) - Required String<br>A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'
+&#x2022; <a id="listen-port"></a>[`listen_port`](#listen-port) - Optional Number<br>Listen Port for this load balancer
+<br><br>&#x2022; <a id="port-ranges"></a>[`port_ranges`](#port-ranges) - Optional String<br>A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'
 
 <a id="origin-pools-weights"></a>&#x2022; [`origin_pools_weights`](#origin-pools-weights) - Optional Block<br>Origin pools with weights and priorities used for this load balancer<br>See [Origin Pools Weights](#origin-pools-weights) below for details.
 

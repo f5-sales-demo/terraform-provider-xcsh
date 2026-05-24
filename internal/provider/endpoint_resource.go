@@ -293,7 +293,11 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 			},
 			"dns_name": schema.StringAttribute{
 				MarkdownDescription: "[OneOf: dns_name, dns_name_advanced, ip, service_info] Exclusive with [dns_name_advanced IP service_info] Endpoint's IP address is discovered using DNS name resolution. The name given here is fully qualified domain name.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.LengthBetween(1, 256),
 				},
@@ -304,7 +308,11 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 			},
 			"ip": schema.StringAttribute{
 				MarkdownDescription: "Exclusive with [dns_name dns_name_advanced service_info] Endpoint is reachable at the given IPv4/IPv6 address.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(1024),
 				},
@@ -1230,6 +1238,20 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 	}
 
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["dns_name"].(string); ok && v != "" {
+		data.DNSName = types.StringValue(v)
+	} else if data.DNSName.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.DNSName = types.StringNull()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["ip"].(string); ok && v != "" {
+		data.IP = types.StringValue(v)
+	} else if data.IP.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.IP = types.StringNull()
+	}
+	// If plan had a value, preserve it
 
 	// Unmarshal spec fields from fetched resource to Terraform state
 	apiResource = fetched // Use GET response which includes all computed fields

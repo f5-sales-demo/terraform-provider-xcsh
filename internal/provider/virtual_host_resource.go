@@ -1209,7 +1209,11 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"append_server_name": schema.StringAttribute{
 				MarkdownDescription: "[OneOf: append_server_name, default_header, pass_through, server_name; Default: default_header] Exclusive with [default_header pass_through server_name] Specifies the value to be used for Server header if it is not already present. If Server Header is already present it is not overwritten. It is just passed.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(8096),
 				},
@@ -1251,7 +1255,11 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"server_name": schema.StringAttribute{
 				MarkdownDescription: "Exclusive with [append_server_name default_header pass_through] Specifies the value to be used for Server header inserted in responses. This will overwrite existing values if any for Server Header.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(8096),
 				},
@@ -8057,11 +8065,25 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	}
 
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["append_server_name"].(string); ok && v != "" {
+		data.AppendServerName = types.StringValue(v)
+	} else if data.AppendServerName.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.AppendServerName = types.StringNull()
+	}
+	// If plan had a value, preserve it
 	if v, ok := fetched.Spec["max_requests_per_connection"].(float64); ok {
 		data.MaxRequestsPerConnection = types.Int64Value(int64(v))
 	} else if data.MaxRequestsPerConnection.IsUnknown() {
 		// API didn't return value and plan was unknown - set to null
 		data.MaxRequestsPerConnection = types.Int64Null()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["server_name"].(string); ok && v != "" {
+		data.ServerName = types.StringValue(v)
+	} else if data.ServerName.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.ServerName = types.StringNull()
 	}
 	// If plan had a value, preserve it
 

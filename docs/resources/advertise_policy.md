@@ -82,8 +82,8 @@ resource "f5xc_advertise_policy" "example" {
 <a id="address"></a>&#x2022; [`address`](#address) - Required String<br>Optional. VIP to advertise. This VIP can be either V4/V6 address You can not specify this if where contains a site or virtual site of type REGIONAL_EDGE or public network If not specified and 'where' is specified with site or virtual site option, inside_vip or outside_vip specified in the site
 
 -> **One of the following:**
-&#x2022; <a id="port"></a>[`port`](#port) - Required Number<br>Port to advertise
-<br><br>&#x2022; <a id="port-ranges"></a>[`port_ranges`](#port-ranges) - Required String<br>A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'
+&#x2022; <a id="port"></a>[`port`](#port) - Optional Number<br>Port to advertise
+<br><br>&#x2022; <a id="port-ranges"></a>[`port_ranges`](#port-ranges) - Optional String<br>A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'
 
 <a id="protocol"></a>&#x2022; [`protocol`](#protocol) - Required String<br>Protocol. Protocol to advertise
 

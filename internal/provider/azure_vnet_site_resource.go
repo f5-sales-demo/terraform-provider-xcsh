@@ -3392,7 +3392,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"azure_region": schema.StringAttribute{
 				MarkdownDescription: "Exclusive with [alternate_region] Name of the Azure region which supports availability zones.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(64),
 				},
@@ -12907,6 +12911,13 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 	} else if data.AlternateRegion.IsUnknown() {
 		// API didn't return value and plan was unknown - set to null
 		data.AlternateRegion = types.StringNull()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["azure_region"].(string); ok && v != "" {
+		data.AzureRegion = types.StringValue(v)
+	} else if data.AzureRegion.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.AzureRegion = types.StringNull()
 	}
 	// If plan had a value, preserve it
 	if v, ok := fetched.Spec["disk_size"].(float64); ok {

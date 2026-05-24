@@ -85,7 +85,7 @@ resource "f5xc_virtual_host" "example" {
 [Advertise Policies](#advertise-policies) below for details.
 
 -> **One of the following:**
-&#x2022; <a id="append-server-name"></a>[`append_server_name`](#append-server-name) - Required String<br>Specifies the value to be used for Server header if it is not already present. If Server Header is already present it is not overwritten. It is just passed
+&#x2022; <a id="append-server-name"></a>[`append_server_name`](#append-server-name) - Optional String<br>Specifies the value to be used for Server header if it is not already present. If Server Header is already present it is not overwritten. It is just passed
 <br><br>&#x2022; <a id="default-header"></a>[`default_header`](#default-header) - Optional Block<br>Configuration parameter for default header
 <br><br>&#x2022; <a id="pass-through"></a>[`pass_through`](#pass-through) - Optional Block<br>Configuration parameter for pass through
 
@@ -177,7 +177,7 @@ below for details.
 
 <a id="sensitive-data-policy"></a>&#x2022; [`sensitive_data_policy`](#sensitive-data-policy) - Optional Block<br>Policy configuration for this feature
 
-<a id="server-name"></a>&#x2022; [`server_name`](#server-name) - Required String<br>Specifies the value to be used for Server header inserted in responses. This will overwrite existing values if any for Server Header
+<a id="server-name"></a>&#x2022; [`server_name`](#server-name) - Optional String<br>Specifies the value to be used for Server header inserted in responses. This will overwrite existing values if any for Server Header
 
 <a id="slow-ddos-mitigation"></a>&#x2022; [`slow_ddos_mitigation`](#slow-ddos-mitigation) - Optional Block<br>'Slow and low' attacks tie up server resources, leaving none available for servicing requests from actual users
 

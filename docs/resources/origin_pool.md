@@ -173,7 +173,7 @@ spec:
 -> **One of the following:**
 &#x2022; <a id="automatic-port"></a>[`automatic_port`](#automatic-port) - Optional Block<br>Enable this option
 <br><br>&#x2022; <a id="lb-port"></a>[`lb_port`](#lb-port) - Optional Block<br>Enable this option
-<br><br>&#x2022; <a id="port"></a>[`port`](#port) - Required Number<br>Endpoint service is available on this port. Recommended: `443`
+<br><br>&#x2022; <a id="port"></a>[`port`](#port) - Optional Number<br>Endpoint service is available on this port. Recommended: `443`
 
 <a id="endpoint-selection"></a>&#x2022; [`endpoint_selection`](#endpoint-selection) - Optional String  Defaults to `DISTRIBUTED`<br>Possible values are `DISTRIBUTED`, `LOCAL_ONLY`, `LOCAL_PREFERRED`<br>[Enum: DISTRIBUTED|LOCAL_ONLY|LOCAL_PREFERRED] Policy for selection of endpoints from local site/remote site/both Consider both remote and local endpoints for load balancing LOCAL_ONLY: Consider
 only local endpoints for load balancing Enable this policy to load balance ONLY among locally discovered endpoints Prefer the local endpoints for..   Server applies default when omitted
@@ -246,7 +246,7 @@ Breaker](#advanced-options-circuit-breaker) below.
 <a id="connection-9ed841"></a>&#x2022; [`no_request_limit_per_connection`](#connection-9ed841) - Optional Block<br>Configuration parameter for no request limit per connection
 
 <a id="advanced-options-outlier-detection"></a>&#x2022; [`outlier_detection`](#advanced-options-outlier-detection) - Optional Block<br>Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health
-checkingggggggg. Algorithm 1<br>See [Outlier Detection](#advanced-options-outlier-detection) below.
+checkingg. Algorithm 1<br>See [Outlier Detection](#advanced-options-outlier-detection) below.
 
 <a id="advanced-options-panic-threshold"></a>&#x2022; [`panic_threshold`](#advanced-options-panic-threshold) - Optional Number<br>Configure a threshold (percentage of unhealthy endpoints) below which all endpoints will be considered for load balancing ignoring its health status
 
