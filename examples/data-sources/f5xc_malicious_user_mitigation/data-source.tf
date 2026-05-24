@@ -2,6 +2,18 @@
 # Retrieves information about an existing Malicious User Mitigation
 
 # Look up an existing Malicious User Mitigation by name
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+
 data "f5xc_malicious_user_mitigation" "example" {
   name      = "example-malicious-user-mitigation"
   namespace = "system"

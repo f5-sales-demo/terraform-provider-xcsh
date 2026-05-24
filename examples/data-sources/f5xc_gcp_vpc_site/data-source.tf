@@ -2,6 +2,18 @@
 # Retrieves information about an existing GCP VPC Site
 
 # Look up an existing GCP VPC Site by name
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+
 data "f5xc_gcp_vpc_site" "example" {
   name      = "example-gcp-vpc-site"
   namespace = "system"

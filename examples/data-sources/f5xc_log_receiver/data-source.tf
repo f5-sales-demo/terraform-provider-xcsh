@@ -2,6 +2,18 @@
 # Retrieves information about an existing Log Receiver
 
 # Look up an existing Log Receiver by name
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+
 data "f5xc_log_receiver" "example" {
   name      = "example-log-receiver"
   namespace = "system"

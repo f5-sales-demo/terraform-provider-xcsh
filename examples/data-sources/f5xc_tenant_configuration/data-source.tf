@@ -2,6 +2,18 @@
 # Retrieves information about an existing Tenant Configuration
 
 # Look up an existing Tenant Configuration by name
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+
 data "f5xc_tenant_configuration" "example" {
   name      = "example-tenant-configuration"
   namespace = "system"

@@ -2,6 +2,18 @@
 # Retrieves information about an existing Forwarding Class
 
 # Look up an existing Forwarding Class by name
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+
 data "f5xc_forwarding_class" "example" {
   name      = "example-forwarding-class"
   namespace = "system"

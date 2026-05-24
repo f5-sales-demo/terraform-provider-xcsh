@@ -2,6 +2,18 @@
 # Retrieves information about an existing AWS TGW Site
 
 # Look up an existing AWS TGW Site by name
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+
 data "f5xc_aws_tgw_site" "example" {
   name      = "example-aws-tgw-site"
   namespace = "system"

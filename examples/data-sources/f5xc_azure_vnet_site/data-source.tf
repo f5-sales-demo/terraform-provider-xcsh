@@ -2,6 +2,18 @@
 # Retrieves information about an existing Azure VNET Site
 
 # Look up an existing Azure VNET Site by name
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+
 data "f5xc_azure_vnet_site" "example" {
   name      = "example-azure-vnet-site"
   namespace = "system"
