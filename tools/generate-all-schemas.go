@@ -277,19 +277,32 @@ func processV2Resource(domainFile string, resource openapi.ExtractedResource, do
 			resource.Name, resource.Category, resource.RequiresTier)
 	}
 
-	// If the spec declares x-f5xc-namespace-scope, record it so namespace.ForResource
-	// returns the spec-derived value instead of the hardcoded default.
+	// Read namespace profile from enriched spec.
+	// Priority: per-schema profile > info-level profile > domain-level profile
 	if domainInfo.Spec != nil {
-		// Check domain-level scope first
-		scope := domainInfo.Spec.XF5XCNamespaceScope
-		// Check info-level scope (overrides domain-level)
-		if domainInfo.Spec.Info.XF5XCNamespaceScope != "" {
-			scope = domainInfo.Spec.Info.XF5XCNamespaceScope
+		var profileSpec *openapi.NamespaceProfileSpec
+
+		// 1. Check per-schema profile (components.schemas.<Resource>.x-f5xc-namespace-profile)
+		if schema, ok := domainInfo.Spec.Components.Schemas[resource.Name]; ok && schema.XF5XCNamespaceProfile != nil {
+			profileSpec = schema.XF5XCNamespaceProfile
 		}
-		if scope != "" {
-			namespace.SetSpecScope(resource.Name, scope)
+
+		// 2. Fall back to info-level profile
+		if profileSpec == nil && domainInfo.Spec.Info.XF5XCNamespaceProfile != nil {
+			profileSpec = domainInfo.Spec.Info.XF5XCNamespaceProfile
+		}
+
+		// 3. Fall back to domain-level profile
+		if profileSpec == nil && domainInfo.Spec.XF5XCNamespaceProfile != nil {
+			profileSpec = domainInfo.Spec.XF5XCNamespaceProfile
+		}
+
+		if profileSpec != nil {
+			profile := convertNamespaceProfile(profileSpec)
+			namespace.SetProfile(resource.Name, profile)
 			if verbose {
-				fmt.Printf("      Namespace scope override: %s -> %s\n", resource.Name, scope)
+				fmt.Printf("      Namespace profile: %s -> allowed=%v recommended=%s\n",
+					resource.Name, profile.Allowed, profile.Recommended)
 			}
 		}
 	}
@@ -299,6 +312,30 @@ func processV2Resource(domainFile string, resource openapi.ExtractedResource, do
 	result := processSpecFileForResource(domainFile, resource.Name, resource.Category, resource.RequiresTier)
 
 	return result
+}
+
+// convertNamespaceProfile converts an openapi.NamespaceProfileSpec into a
+// namespace.Profile suitable for registration via namespace.SetProfile.
+func convertNamespaceProfile(spec *openapi.NamespaceProfileSpec) namespace.Profile {
+	p := namespace.Profile{}
+
+	if spec.Constraint != nil {
+		for _, a := range spec.Constraint.Allowed {
+			p.Allowed = append(p.Allowed, namespace.NamespaceType(a))
+		}
+		p.Enforced = spec.Constraint.Enforced
+	}
+
+	if spec.Recommendation != nil {
+		p.Recommended = namespace.NamespaceType(spec.Recommendation.Primary)
+	}
+
+	if spec.Classification != nil {
+		p.Category = spec.Classification.Category
+		p.MultiTenantPattern = spec.Classification.MultiTenantPattern
+	}
+
+	return p
 }
 
 // processSpecFileForResource processes a spec file targeting a specific resource

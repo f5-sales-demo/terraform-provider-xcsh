@@ -433,7 +433,12 @@ func TestSchema_AllExtensions(t *testing.T) {
 	assertLen(t, "XF5XCUseCases", len(schema.XF5XCUseCases), 2)
 	assertLen(t, "XF5XCRelatedDomains", len(schema.XF5XCRelatedDomains), 2)
 	assertTrue(t, "XF5XCIsPreview", schema.XF5XCIsPreview)
-	assertEqual(t, "XF5XCNamespaceScope", schema.XF5XCNamespaceScope, "system")
+	assertNotNil(t, "XF5XCNamespaceProfile", schema.XF5XCNamespaceProfile)
+	assertEqual(t, "XF5XCNamespaceProfile.Constraint.Allowed[0]", schema.XF5XCNamespaceProfile.Constraint.Allowed[0], "system")
+	assertTrue(t, "XF5XCNamespaceProfile.Constraint.Enforced", schema.XF5XCNamespaceProfile.Constraint.Enforced)
+	assertEqual(t, "XF5XCNamespaceProfile.Recommendation.Primary", schema.XF5XCNamespaceProfile.Recommendation.Primary, "system")
+	assertEqual(t, "XF5XCNamespaceProfile.Classification.Category", schema.XF5XCNamespaceProfile.Classification.Category, "infrastructure")
+	assertEqual(t, "XF5XCNamespaceProfile.Classification.MultiTenantPattern", schema.XF5XCNamespaceProfile.Classification.MultiTenantPattern, "none")
 	assertEqual(t, "XF5XCIcon", schema.XF5XCIcon, "shield-icon")
 	assertEqual(t, "XF5XCCLIDomain", schema.XF5XCCLIDomain, "security")
 
@@ -648,7 +653,11 @@ func TestDomainInfo_SpecLevelExtensions(t *testing.T) {
 			"x-f5xc-logo-svg": "<svg>logo</svg>",
 			"x-f5xc-description-long": "A comprehensive security domain",
 			"x-f5xc-summary": "Security summary",
-			"x-f5xc-namespace-scope": "system",
+			"x-f5xc-namespace-profile": {
+				"constraint": {"allowed": ["system"], "enforced": true},
+				"recommendation": {"primary": "system"},
+				"classification": {"category": "infrastructure", "multi_tenant_pattern": "none"}
+			},
 			"x-f5xc-cli-metadata": {"command_prefix": "security"},
 			"x-f5xc-glossary": {"WAF": "Web Application Firewall"},
 			"x-f5xc-guided-workflows": [{"name": "deploy_waf", "steps": []}],
@@ -688,7 +697,8 @@ func TestDomainInfo_SpecLevelExtensions(t *testing.T) {
 	assertEqual(t, "Info.XF5XCDescriptionShort", spec.Info.XF5XCDescriptionShort, "Security")
 	assertEqual(t, "Info.XF5XCIcon", spec.Info.XF5XCIcon, "shield")
 	assertEqual(t, "Info.XF5XCLogoSVG", spec.Info.XF5XCLogoSVG, "<svg>logo</svg>")
-	assertEqual(t, "Info.XF5XCNamespaceScope", spec.Info.XF5XCNamespaceScope, "system")
+	assertNotNil(t, "Info.XF5XCNamespaceProfile", spec.Info.XF5XCNamespaceProfile)
+	assertEqual(t, "Info.XF5XCNamespaceProfile.Recommendation.Primary", spec.Info.XF5XCNamespaceProfile.Recommendation.Primary, "system")
 
 	// DomainInfo SP-1 additions
 	assertNotNil(t, "Info.XF5XCCLIMetadata", spec.Info.XF5XCCLIMetadata)

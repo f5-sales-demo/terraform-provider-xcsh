@@ -6,309 +6,122 @@ import (
 	"testing"
 )
 
-func TestForResource(t *testing.T) {
-	tests := []struct {
-		resourceName   string
-		expectedType   Type
-		expectedString string
-	}{
-		// System resources
-		{"aws_vpc_site", System, "system"},
-		{"azure_vnet_site", System, "system"},
-		{"gcp_vpc_site", System, "system"},
-		{"namespace", System, "system"},
-		{"virtual_network", System, "system"},
-		{"cloud_credentials", System, "system"},
-		{"k8s_cluster", System, "system"},
-		{"bgp", System, "system"},
-		{"bgp_asn_set", System, "system"},
-
-		// Shared resources
-		{"app_firewall", Shared, "shared"},
-		{"service_policy", Shared, "shared"},
-		{"certificate", Shared, "shared"},
-		{"rate_limiter", Shared, "shared"},
-		{"user_identification", Shared, "shared"},
-		{"ip_prefix_set", Shared, "shared"},
-		{"alert_policy", Shared, "shared"},
-		{"api_definition", Shared, "shared"},
-		{"policer", Shared, "shared"},
-
-		// Application resources (default)
-		{"http_loadbalancer", Application, "staging"},
-		{"tcp_loadbalancer", Application, "staging"},
-		{"origin_pool", Application, "staging"},
-		{"healthcheck", Application, "staging"},
-		{"route_table", Application, "staging"},
+func TestProfileDefaults(t *testing.T) {
+	ClearProfiles()
+	typ, ns := ForResource("unknown_resource")
+	if typ != Application {
+		t.Errorf("expected Application, got %v", typ)
 	}
+	if ns != "staging" {
+		t.Errorf("expected staging, got %s", ns)
+	}
+}
 
-	for _, tt := range tests {
-		t.Run(tt.resourceName, func(t *testing.T) {
-			nsType, nsString := ForResource(tt.resourceName)
-			if nsType != tt.expectedType {
-				t.Errorf("ForResource(%q) type = %v, want %v", tt.resourceName, nsType, tt.expectedType)
-			}
-			if nsString != tt.expectedString {
-				t.Errorf("ForResource(%q) string = %q, want %q", tt.resourceName, nsString, tt.expectedString)
-			}
-		})
+func TestSetProfileSystem(t *testing.T) {
+	ClearProfiles()
+	SetProfile("aws_vpc_site", Profile{
+		Allowed:     []NamespaceType{System},
+		Enforced:    true,
+		Recommended: System,
+	})
+	typ, ns := ForResource("aws_vpc_site")
+	if typ != SystemType {
+		t.Errorf("expected SystemType, got %v", typ)
+	}
+	if ns != "system" {
+		t.Errorf("expected system, got %s", ns)
+	}
+}
+
+func TestSetProfileShared(t *testing.T) {
+	ClearProfiles()
+	SetProfile("namespace_role_binding", Profile{
+		Allowed:     []NamespaceType{Shared},
+		Enforced:    true,
+		Recommended: Shared,
+	})
+	typ, ns := ForResource("namespace_role_binding")
+	if typ != SharedType {
+		t.Errorf("expected SharedType, got %v", typ)
+	}
+	if ns != "shared" {
+		t.Errorf("expected shared, got %s", ns)
+	}
+}
+
+func TestSetProfileTenant(t *testing.T) {
+	ClearProfiles()
+	SetProfile("http_loadbalancer", Profile{
+		Allowed:     []NamespaceType{Custom, Default, Shared},
+		Enforced:    true,
+		Recommended: Custom,
+	})
+	typ, ns := ForResource("http_loadbalancer")
+	if typ != Application {
+		t.Errorf("expected Application, got %v", typ)
+	}
+	if ns != "staging" {
+		t.Errorf("expected staging, got %s", ns)
+	}
+}
+
+func TestGetProfile(t *testing.T) {
+	ClearProfiles()
+	p := Profile{
+		Allowed:            []NamespaceType{Shared, Custom},
+		Enforced:           true,
+		Recommended:        Shared,
+		Category:           "security",
+		MultiTenantPattern: "shared-ref",
+	}
+	SetProfile("app_firewall", p)
+	got, ok := GetProfile("app_firewall")
+	if !ok {
+		t.Fatal("expected profile to exist")
+	}
+	if got.Recommended != Shared {
+		t.Errorf("expected Shared, got %v", got.Recommended)
+	}
+	if got.Category != "security" {
+		t.Errorf("expected security, got %s", got.Category)
+	}
+}
+
+func TestIsAllowed(t *testing.T) {
+	ClearProfiles()
+	SetProfile("aws_vpc_site", Profile{
+		Allowed: []NamespaceType{System},
+	})
+	p, _ := GetProfile("aws_vpc_site")
+	if !p.IsAllowed(System) {
+		t.Error("expected system to be allowed")
+	}
+	if p.IsAllowed(Custom) {
+		t.Error("expected custom to not be allowed")
+	}
+}
+
+func TestClearProfiles(t *testing.T) {
+	SetProfile("test_resource", Profile{Allowed: []NamespaceType{System}})
+	ClearProfiles()
+	_, ok := GetProfile("test_resource")
+	if ok {
+		t.Error("expected profile to be cleared")
 	}
 }
 
 func TestTypeString(t *testing.T) {
 	tests := []struct {
-		nsType   Type
-		expected string
+		t    Type
+		want string
 	}{
-		{System, "system"},
-		{Shared, "shared"},
+		{SystemType, "system"},
+		{SharedType, "shared"},
 		{Application, "staging"},
-		{Type(99), "staging"}, // Unknown defaults to staging
 	}
-
 	for _, tt := range tests {
-		t.Run(tt.expected, func(t *testing.T) {
-			result := tt.nsType.String()
-			if result != tt.expected {
-				t.Errorf("Type(%d).String() = %q, want %q", tt.nsType, result, tt.expected)
-			}
-		})
-	}
-}
-
-func TestForReference(t *testing.T) {
-	tests := []struct {
-		resourceType string
-		expected     string
-	}{
-		{"aws_vpc_site", "system"},
-		{"app_firewall", "shared"},
-		{"http_loadbalancer", "staging"},
-		{"origin_pool", "staging"},
-		{"certificate", "shared"},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.resourceType, func(t *testing.T) {
-			result := ForReference(tt.resourceType)
-			if result != tt.expected {
-				t.Errorf("ForReference(%q) = %q, want %q", tt.resourceType, result, tt.expected)
-			}
-		})
-	}
-}
-
-func TestIsSystem(t *testing.T) {
-	tests := []struct {
-		resourceName string
-		expected     bool
-	}{
-		{"aws_vpc_site", true},
-		{"namespace", true},
-		{"app_firewall", false},
-		{"http_loadbalancer", false},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.resourceName, func(t *testing.T) {
-			result := IsSystem(tt.resourceName)
-			if result != tt.expected {
-				t.Errorf("IsSystem(%q) = %v, want %v", tt.resourceName, result, tt.expected)
-			}
-		})
-	}
-}
-
-func TestIsShared(t *testing.T) {
-	tests := []struct {
-		resourceName string
-		expected     bool
-	}{
-		{"app_firewall", true},
-		{"certificate", true},
-		{"aws_vpc_site", false},
-		{"http_loadbalancer", false},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.resourceName, func(t *testing.T) {
-			result := IsShared(tt.resourceName)
-			if result != tt.expected {
-				t.Errorf("IsShared(%q) = %v, want %v", tt.resourceName, result, tt.expected)
-			}
-		})
-	}
-}
-
-func TestIsApplication(t *testing.T) {
-	tests := []struct {
-		resourceName string
-		expected     bool
-	}{
-		{"http_loadbalancer", true},
-		{"origin_pool", true},
-		{"aws_vpc_site", false},
-		{"app_firewall", false},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.resourceName, func(t *testing.T) {
-			result := IsApplication(tt.resourceName)
-			if result != tt.expected {
-				t.Errorf("IsApplication(%q) = %v, want %v", tt.resourceName, result, tt.expected)
-			}
-		})
-	}
-}
-
-func TestGetSystemResources(t *testing.T) {
-	resources := GetSystemResources()
-
-	// Verify it's a copy (modifying it shouldn't affect the original)
-	resources["test_resource"] = true
-
-	// The original should not have the test resource
-	if IsSystem("test_resource") {
-		t.Error("GetSystemResources() should return a copy, not the original map")
-	}
-
-	// Verify some expected entries exist
-	expectedResources := []string{"aws_vpc_site", "namespace", "k8s_cluster"}
-	for _, name := range expectedResources {
-		if !resources[name] {
-			t.Errorf("GetSystemResources() missing expected resource %q", name)
+		if got := tt.t.String(); got != tt.want {
+			t.Errorf("Type(%d).String() = %s, want %s", tt.t, got, tt.want)
 		}
-	}
-}
-
-func TestGetSharedResources(t *testing.T) {
-	resources := GetSharedResources()
-
-	// Verify it's a copy (modifying it shouldn't affect the original)
-	resources["test_resource"] = true
-
-	// The original should not have the test resource
-	if IsShared("test_resource") {
-		t.Error("GetSharedResources() should return a copy, not the original map")
-	}
-
-	// Verify some expected entries exist
-	expectedResources := []string{"app_firewall", "certificate", "rate_limiter"}
-	for _, name := range expectedResources {
-		if !resources[name] {
-			t.Errorf("GetSharedResources() missing expected resource %q", name)
-		}
-	}
-}
-
-// --- Spec scope override tests ---
-
-func TestSpecScopeOverrideSystem(t *testing.T) {
-	defer ClearSpecScopes()
-
-	SetSpecScope("test_resource", "system")
-	nsType, nsString := ForResource("test_resource")
-	if nsType != System {
-		t.Errorf("expected System, got %v", nsType)
-	}
-	if nsString != "system" {
-		t.Errorf("expected %q, got %q", "system", nsString)
-	}
-}
-
-func TestSpecScopeOverrideShared(t *testing.T) {
-	defer ClearSpecScopes()
-
-	SetSpecScope("test_resource", "shared")
-	nsType, nsString := ForResource("test_resource")
-	if nsType != Shared {
-		t.Errorf("expected Shared, got %v", nsType)
-	}
-	if nsString != "shared" {
-		t.Errorf("expected %q, got %q", "shared", nsString)
-	}
-}
-
-func TestSpecScopeOverrideAny(t *testing.T) {
-	defer ClearSpecScopes()
-
-	SetSpecScope("test_resource", "any")
-	nsType, nsString := ForResource("test_resource")
-	if nsType != Application {
-		t.Errorf("expected Application, got %v", nsType)
-	}
-	if nsString != "staging" {
-		t.Errorf("expected %q, got %q", "staging", nsString)
-	}
-}
-
-func TestSpecScopeOverrideApplication(t *testing.T) {
-	defer ClearSpecScopes()
-
-	SetSpecScope("test_resource", "application")
-	nsType, nsString := ForResource("test_resource")
-	if nsType != Application {
-		t.Errorf("expected Application, got %v", nsType)
-	}
-	if nsString != "staging" {
-		t.Errorf("expected %q, got %q", "staging", nsString)
-	}
-}
-
-func TestUnknownResourceDefaultsToApplication(t *testing.T) {
-	defer ClearSpecScopes()
-
-	nsType, nsString := ForResource("completely_unknown_resource")
-	if nsType != Application {
-		t.Errorf("expected Application, got %v", nsType)
-	}
-	if nsString != "staging" {
-		t.Errorf("expected %q, got %q", "staging", nsString)
-	}
-}
-
-func TestHardcodedSystemWithoutOverride(t *testing.T) {
-	defer ClearSpecScopes()
-
-	nsType, nsString := ForResource("aws_vpc_site")
-	if nsType != System {
-		t.Errorf("expected System, got %v", nsType)
-	}
-	if nsString != "system" {
-		t.Errorf("expected %q, got %q", "system", nsString)
-	}
-}
-
-func TestClearSpecScopes(t *testing.T) {
-	SetSpecScope("test_resource", "system")
-
-	// Verify override is active
-	nsType, _ := ForResource("test_resource")
-	if nsType != System {
-		t.Fatalf("expected System before clear, got %v", nsType)
-	}
-
-	// Clear and verify default behavior is restored
-	ClearSpecScopes()
-	nsType, nsString := ForResource("test_resource")
-	if nsType != Application {
-		t.Errorf("after ClearSpecScopes, expected Application, got %v", nsType)
-	}
-	if nsString != "staging" {
-		t.Errorf("after ClearSpecScopes, expected %q, got %q", "staging", nsString)
-	}
-}
-
-func TestSpecOverridePrecedenceOverHardcoded(t *testing.T) {
-	defer ClearSpecScopes()
-
-	// aws_vpc_site is hardcoded as system; override it to shared
-	SetSpecScope("aws_vpc_site", "shared")
-	nsType, nsString := ForResource("aws_vpc_site")
-	if nsType != Shared {
-		t.Errorf("spec override should take precedence: expected Shared, got %v", nsType)
-	}
-	if nsString != "shared" {
-		t.Errorf("spec override should take precedence: expected %q, got %q", "shared", nsString)
 	}
 }

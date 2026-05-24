@@ -44,7 +44,11 @@
         "x-f5xc-use-cases": ["use-case-1", "use-case-2"],
         "x-f5xc-related-domains": ["domain-a", "domain-b"],
         "x-f5xc-is-preview": true,
-        "x-f5xc-namespace-scope": "system",
+        "x-f5xc-namespace-profile": {
+          "constraint": {"allowed": ["system"], "enforced": true},
+          "recommendation": {"primary": "system"},
+          "classification": {"category": "infrastructure", "multi_tenant_pattern": "none"}
+        },
         "x-f5xc-icon": "shield-icon",
         "x-f5xc-cli-domain": "security",
         "x-ves-deprecated": "Use v2 endpoint instead",
