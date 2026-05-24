@@ -16,7 +16,8 @@ terraform {
 
   required_providers {
     f5xc = {
-      source = "robinmordasiewicz/f5xc"
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
     }
   }
 }
@@ -81,8 +82,8 @@ provider "f5xc" {
 #
 # provider "f5xc" {
 #   api_url  = var.f5xc_api_url
-#   api_cert = var.f5xc_api_cert
-#   api_key  = var.f5xc_api_key
+#   api_cert = var.f5xc_api_cert  # gitleaks:allow
+#   api_key  = var.f5xc_api_key  # gitleaks:allow
 # }
 
 # =============================================================================

@@ -1,3 +1,14 @@
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 # Configure the F5XC Provider with API Token Authentication
 provider "f5xc" {
   api_url   = "https://your-tenant.console.ves.volterra.io"
