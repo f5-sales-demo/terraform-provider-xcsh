@@ -1,6 +1,17 @@
 # Policy Based Routing Resource Example
 # Manages a Policy Based Routing resource in F5 Distributed Cloud for network policy based routing create specification. configuration.
 
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 # Basic Policy Based Routing configuration
 resource "f5xc_policy_based_routing" "example" {
   name      = "example-policy-based-routing"

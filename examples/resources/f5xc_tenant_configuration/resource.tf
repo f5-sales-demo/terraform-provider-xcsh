@@ -1,6 +1,17 @@
 # Tenant Configuration Resource Example
 # Manages a Tenant Configuration resource in F5 Distributed Cloud for tenant configuration specification. configuration.
 
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 # Basic Tenant Configuration configuration
 resource "f5xc_tenant_configuration" "example" {
   name      = "example-tenant-configuration"

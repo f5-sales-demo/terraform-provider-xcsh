@@ -1,6 +1,17 @@
 # Forwarding Class Resource Example
 # Manages a Forwarding Class resource in F5 Distributed Cloud for forwarding class is created by users in system namespace. configuration.
 
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 # Basic Forwarding Class configuration
 resource "f5xc_forwarding_class" "example" {
   name      = "example-forwarding-class"

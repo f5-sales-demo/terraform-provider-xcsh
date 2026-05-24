@@ -1,6 +1,17 @@
 # Fast ACL Resource Example
 # Manages new Fast ACL rule, has specification to match source IP, source port and action to apply. in F5 Distributed Cloud.
 
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 # Basic Fast ACL configuration
 resource "f5xc_fast_acl" "example" {
   name      = "example-fast-acl"

@@ -1,6 +1,17 @@
 # TCP Loadbalancer Resource Example
 # Manages a TCP Load Balancer resource in F5 Distributed Cloud for load balancing TCP traffic across origin pools.
 
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 # Basic TCP Loadbalancer configuration
 resource "f5xc_tcp_loadbalancer" "example" {
   name      = "example-tcp-loadbalancer"

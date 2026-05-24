@@ -1,6 +1,17 @@
 # Code Base Integration Resource Example
 # Manages integration details. in F5 Distributed Cloud.
 
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 # Basic Code Base Integration configuration
 resource "f5xc_code_base_integration" "example" {
   name      = "example-code-base-integration"

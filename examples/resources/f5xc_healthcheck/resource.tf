@@ -1,6 +1,17 @@
 # Healthcheck Resource Example
 # Manages a Healthcheck resource in F5 Distributed Cloud for healthcheck object defines method to determine if the given endpoint is healthy. single healthcheck object can be referred to by one or many cluster objects. configuration.
 
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 # Basic Healthcheck configuration
 resource "f5xc_healthcheck" "example" {
   name      = "example-healthcheck"

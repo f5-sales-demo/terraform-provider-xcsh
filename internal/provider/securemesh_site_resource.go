@@ -1076,24 +1076,24 @@ var SecuremeshSiteBaremetalNotManagedNodeListInterfaceListVLANInterfaceModelAttr
 
 // SecuremeshSiteBlockedServicesModel represents blocked_services block
 type SecuremeshSiteBlockedServicesModel struct {
-	BlockedSevice []SecuremeshSiteBlockedServicesBlockedSeviceModel `tfsdk:"blocked_sevice"`
+	BlockedService []SecuremeshSiteBlockedServicesBlockedServiceModel `tfsdk:"blocked_service"`
 }
 
 // SecuremeshSiteBlockedServicesModelAttrTypes defines the attribute types for SecuremeshSiteBlockedServicesModel
 var SecuremeshSiteBlockedServicesModelAttrTypes = map[string]attr.Type{
-	"blocked_sevice": types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedSeviceModelAttrTypes}},
+	"blocked_service": types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes}},
 }
 
-// SecuremeshSiteBlockedServicesBlockedSeviceModel represents blocked_sevice block
-type SecuremeshSiteBlockedServicesBlockedSeviceModel struct {
+// SecuremeshSiteBlockedServicesBlockedServiceModel represents blocked_service block
+type SecuremeshSiteBlockedServicesBlockedServiceModel struct {
 	NetworkType      types.String              `tfsdk:"network_type"`
 	DNS              *SecuremeshSiteEmptyModel `tfsdk:"dns"`
 	SSH              *SecuremeshSiteEmptyModel `tfsdk:"ssh"`
 	WebUserInterface *SecuremeshSiteEmptyModel `tfsdk:"web_user_interface"`
 }
 
-// SecuremeshSiteBlockedServicesBlockedSeviceModelAttrTypes defines the attribute types for SecuremeshSiteBlockedServicesBlockedSeviceModel
-var SecuremeshSiteBlockedServicesBlockedSeviceModelAttrTypes = map[string]attr.Type{
+// SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes defines the attribute types for SecuremeshSiteBlockedServicesBlockedServiceModel
+var SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes = map[string]attr.Type{
 	"network_type":       types.StringType,
 	"dns":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ssh":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -4035,7 +4035,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 				},
 			},
 			"tunnel_type": schema.StringAttribute{
-				MarkdownDescription: "[Enum: SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL|SITE_TO_SITE_TUNNEL_IPSEC|SITE_TO_SITE_TUNNEL_SSL] Tunnel encapsulation to be used between sites Tunnel can operate in both IPsec and SSL, with IPsec being prefered over SSL. Tunnel is of type IPsec Tunnel is of type SSL. Possible values are `SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL`, `SITE_TO_SITE_TUNNEL_IPSEC`, `SITE_TO_SITE_TUNNEL_SSL`. Defaults to `SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL`.",
+				MarkdownDescription: "[Enum: SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL|SITE_TO_SITE_TUNNEL_IPSEC|SITE_TO_SITE_TUNNEL_SSL] Tunnel encapsulation to be used between sites Tunnel can operate in both IPsec and SSL, with IPsec being preferred over SSL. Tunnel is of type IPsec Tunnel is of type SSL. Possible values are `SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL`, `SITE_TO_SITE_TUNNEL_IPSEC`, `SITE_TO_SITE_TUNNEL_SSL`. Defaults to `SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -4274,7 +4274,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																		MarkdownDescription: "Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																		Optional:            true,
 																	},
 																},
@@ -4580,7 +4580,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																		MarkdownDescription: "Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																		Optional:            true,
 																	},
 																},
@@ -4886,7 +4886,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																		MarkdownDescription: "Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																		Optional:            true,
 																	},
 																},
@@ -5088,7 +5088,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 				MarkdownDescription: "Disable node local services on this site.",
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
-					"blocked_sevice": schema.ListNestedBlock{
+					"blocked_service": schema.ListNestedBlock{
 						MarkdownDescription: "Disable Node Local Services. Blocking or denial configuration",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
@@ -5388,7 +5388,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																		MarkdownDescription: "Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																		Optional:            true,
 																	},
 																},
@@ -5697,7 +5697,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																		MarkdownDescription: "Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																		Optional:            true,
 																	},
 																},
@@ -6003,7 +6003,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																		MarkdownDescription: "Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																		Optional:            true,
 																	},
 																},
@@ -6797,7 +6797,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																		MarkdownDescription: "Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																		Optional:            true,
 																	},
 																},
@@ -7103,7 +7103,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																		MarkdownDescription: "Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																		Optional:            true,
 																	},
 																},
@@ -7421,7 +7421,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																		MarkdownDescription: "Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																		Optional:            true,
 																	},
 																},
@@ -7876,7 +7876,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																		MarkdownDescription: "Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																		Optional:            true,
 																	},
 																},
@@ -8260,9 +8260,9 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 	}
 	if data.BlockedServices != nil {
 		blocked_servicesMap := make(map[string]interface{})
-		if len(data.BlockedServices.BlockedSevice) > 0 {
-			var blocked_seviceList []map[string]interface{}
-			for _, listItem := range data.BlockedServices.BlockedSevice {
+		if len(data.BlockedServices.BlockedService) > 0 {
+			var blocked_serviceList []map[string]interface{}
+			for _, listItem := range data.BlockedServices.BlockedService {
 				listItemMap := make(map[string]interface{})
 				if listItem.DNS != nil {
 					listItemMap["dns"] = map[string]interface{}{}
@@ -8276,9 +8276,9 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 				if listItem.WebUserInterface != nil {
 					listItemMap["web_user_interface"] = map[string]interface{}{}
 				}
-				blocked_seviceList = append(blocked_seviceList, listItemMap)
+				blocked_serviceList = append(blocked_serviceList, listItemMap)
 			}
-			blocked_servicesMap["blocked_sevice"] = blocked_seviceList
+			blocked_servicesMap["blocked_service"] = blocked_serviceList
 		}
 		createReq.Spec["blocked_services"] = blocked_servicesMap
 	}
@@ -8729,12 +8729,12 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &SecuremeshSiteBlockedServicesModel{
-			BlockedSevice: func() []SecuremeshSiteBlockedServicesBlockedSeviceModel {
-				if listData, ok := blockData["blocked_sevice"].([]interface{}); ok && len(listData) > 0 {
-					var result []SecuremeshSiteBlockedServicesBlockedSeviceModel
+			BlockedService: func() []SecuremeshSiteBlockedServicesBlockedServiceModel {
+				if listData, ok := blockData["blocked_service"].([]interface{}); ok && len(listData) > 0 {
+					var result []SecuremeshSiteBlockedServicesBlockedServiceModel
 					for _, item := range listData {
 						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, SecuremeshSiteBlockedServicesBlockedSeviceModel{
+							result = append(result, SecuremeshSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *SecuremeshSiteEmptyModel {
 									if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
@@ -9261,12 +9261,12 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &SecuremeshSiteBlockedServicesModel{
-			BlockedSevice: func() []SecuremeshSiteBlockedServicesBlockedSeviceModel {
-				if listData, ok := blockData["blocked_sevice"].([]interface{}); ok && len(listData) > 0 {
-					var result []SecuremeshSiteBlockedServicesBlockedSeviceModel
+			BlockedService: func() []SecuremeshSiteBlockedServicesBlockedServiceModel {
+				if listData, ok := blockData["blocked_service"].([]interface{}); ok && len(listData) > 0 {
+					var result []SecuremeshSiteBlockedServicesBlockedServiceModel
 					for _, item := range listData {
 						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, SecuremeshSiteBlockedServicesBlockedSeviceModel{
+							result = append(result, SecuremeshSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *SecuremeshSiteEmptyModel {
 									if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
@@ -9734,9 +9734,9 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 	}
 	if data.BlockedServices != nil {
 		blocked_servicesMap := make(map[string]interface{})
-		if len(data.BlockedServices.BlockedSevice) > 0 {
-			var blocked_seviceList []map[string]interface{}
-			for _, listItem := range data.BlockedServices.BlockedSevice {
+		if len(data.BlockedServices.BlockedService) > 0 {
+			var blocked_serviceList []map[string]interface{}
+			for _, listItem := range data.BlockedServices.BlockedService {
 				listItemMap := make(map[string]interface{})
 				if listItem.DNS != nil {
 					listItemMap["dns"] = map[string]interface{}{}
@@ -9750,9 +9750,9 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 				if listItem.WebUserInterface != nil {
 					listItemMap["web_user_interface"] = map[string]interface{}{}
 				}
-				blocked_seviceList = append(blocked_seviceList, listItemMap)
+				blocked_serviceList = append(blocked_serviceList, listItemMap)
 			}
-			blocked_servicesMap["blocked_sevice"] = blocked_seviceList
+			blocked_servicesMap["blocked_service"] = blocked_serviceList
 		}
 		apiResource.Spec["blocked_services"] = blocked_servicesMap
 	}
@@ -10228,12 +10228,12 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &SecuremeshSiteBlockedServicesModel{
-			BlockedSevice: func() []SecuremeshSiteBlockedServicesBlockedSeviceModel {
-				if listData, ok := blockData["blocked_sevice"].([]interface{}); ok && len(listData) > 0 {
-					var result []SecuremeshSiteBlockedServicesBlockedSeviceModel
+			BlockedService: func() []SecuremeshSiteBlockedServicesBlockedServiceModel {
+				if listData, ok := blockData["blocked_service"].([]interface{}); ok && len(listData) > 0 {
+					var result []SecuremeshSiteBlockedServicesBlockedServiceModel
 					for _, item := range listData {
 						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, SecuremeshSiteBlockedServicesBlockedSeviceModel{
+							result = append(result, SecuremeshSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *SecuremeshSiteEmptyModel {
 									if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}

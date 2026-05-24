@@ -237,7 +237,7 @@ func (r *ProtocolPolicerResource) Schema(ctx context.Context, req resource.Schem
 							Attributes:          map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"dns": schema.SingleNestedBlock{
-									MarkdownDescription: "Match all DNS packets inclusing UDP and TCP.",
+									MarkdownDescription: "Match all DNS packets including UDP and TCP.",
 								},
 								"icmp": schema.SingleNestedBlock{
 									MarkdownDescription: "ICMP Packet Type. ICMP message type to match in packet.",

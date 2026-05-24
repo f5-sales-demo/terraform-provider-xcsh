@@ -1,6 +1,17 @@
 # API Definition Resource Example
 # Manages API Definition. in F5 Distributed Cloud.
 
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    f5xc = {
+      source  = "f5xc-salesdemos/f5xc"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 # Basic API Definition configuration
 resource "f5xc_api_definition" "example" {
   name      = "example-api-definition"
