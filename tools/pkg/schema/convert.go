@@ -119,9 +119,11 @@ func ParseMinConfigRequiredFields(raw interface{}) []string {
 func PromoteMinConfigRequired(attrs []openapi.TerraformAttribute, minFields map[string]bool) {
 	for i := range attrs {
 		if minFields[attrs[i].TfsdkTag] && attrs[i].Optional && !attrs[i].Required {
+			if len(attrs[i].ConflictsWith) > 0 {
+				continue
+			}
 			attrs[i].Required = true
 			attrs[i].Optional = false
-			// Clear Computed — Terraform rejects Required+Computed
 			if attrs[i].Computed {
 				attrs[i].Computed = false
 				attrs[i].PlanModifier = ""
@@ -284,6 +286,10 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 	if depth == 0 && (schema.XRequired || schema.XVesRequired == "true" || schema.XF5XCRequiredFor.Create) {
 		attr.Required = true
 		attr.Optional = false
+	}
+	if attr.Required && len(attr.ConflictsWith) > 0 {
+		attr.Required = false
+		attr.Optional = true
 	}
 	// Set PlanModifier for immutable fields (reuses existing template infrastructure)
 	if attr.Immutable && attr.PlanModifier == "" {
