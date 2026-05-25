@@ -395,7 +395,7 @@ Field descriptions:
 - `key_version`: Public key version used for encryption
 - `policy_id`: Reference to the SecretPolicy (namespace/name format)
 - `tenant`: Your F5XC tenant identifier
-- `data`: Base64-encoded RSA-OAEP ciphertext
+- `data`: base64-encoded RSA-OAEP ciphertext
 
 ### Function Behavior
 
@@ -469,7 +469,7 @@ export F5XC_API_TOKEN="your-api-token"
 
 2. Verify the file exists and is readable
 
-### Invalid Base64
+### Invalid base64
 
 **Symptom:** Error about invalid base64 encoding.
 

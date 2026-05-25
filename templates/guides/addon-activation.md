@@ -11,7 +11,7 @@ description: |-
 This guide walks you through activating F5 Distributed Cloud addon services using Terraform. By the end, you'll understand how to:
 
 - **Check activation eligibility** - Determine if an addon can be activated
-- **Activate self-service addons** - Bot Defense, Client Side Defense, etc.
+- **Activate self-service addons** - Bot Defense, client-side Defense, etc.
 - **Handle managed activation** - Services requiring sales contact
 - **Monitor activation status** - Track subscription state changes
 
@@ -388,7 +388,7 @@ resource "f5xc_http_loadbalancer" "with_bot_defense" {
 }
 ```
 
-### Client Side Defense
+### Client-Side Defense
 
 ```hcl
 resource "f5xc_http_loadbalancer" "with_csd" {
