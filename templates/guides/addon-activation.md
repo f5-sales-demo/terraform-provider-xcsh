@@ -100,7 +100,7 @@ export F5XC_P12_PASSWORD="your-p12-password"  # pragma: allowlist secret
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/robinmordasiewicz/terraform-provider-f5xc.git
+git clone https://github.com/f5xc-salesdemos/terraform-provider-f5xc.git
 cd terraform-provider-f5xc/examples/guides/addon-activation
 ```
 
@@ -449,7 +449,7 @@ output "debug_addon_status" {
 
 ## Complete Example
 
-See the [addon-activation example](https://github.com/robinmordasiewicz/terraform-provider-f5xc/tree/main/examples/guides/addon-activation) for a complete, working Terraform configuration.
+See the [addon-activation example](https://github.com/f5xc-salesdemos/terraform-provider-f5xc/tree/main/examples/guides/addon-activation) for a complete, working Terraform configuration.
 
 ## Related Resources
 
