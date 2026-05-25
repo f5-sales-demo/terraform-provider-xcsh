@@ -77,7 +77,7 @@ func main() {
 			}
 
 			if strings.Contains(cleaned, "time_sleep") {
-				cleaned = "terraform {\n  required_providers {\n    time = {\n      source = \"hashicorp/time\"\n    }\n  }\n}\n\n" + cleaned
+				cleaned = "terraform {\n  required_providers {\n    time = {\n      source  = \"hashicorp/time\"\n      version = \">= 0.9.0\"\n    }\n  }\n}\n\n" + cleaned
 			}
 
 			if err := os.WriteFile(outPath, []byte(header+cleaned), 0644); err != nil {
