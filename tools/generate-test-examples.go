@@ -11,6 +11,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"regexp"
 	"strings"
@@ -86,6 +87,13 @@ func main() {
 	}
 
 	fmt.Printf("\nGenerated %d verified example files\n", totalWritten)
+
+	cmd := exec.Command("terraform", "fmt", "-recursive", outputDir)
+	if out, err := cmd.CombinedOutput(); err != nil {
+		fmt.Fprintf(os.Stderr, "Warning: terraform fmt failed: %v\n%s\n", err, out)
+	} else {
+		fmt.Println("Formatted all generated examples with terraform fmt")
+	}
 }
 
 func extractExamples(resource, content string) []testExample {
