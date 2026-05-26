@@ -979,25 +979,13 @@ func addResourceSpecificConfig(sb *strings.Builder, resourceName string, schema 
 		sb.WriteString("  }\n")
 
 	case "voltstack_site":
-		sb.WriteString("\n  # Voltstack Site configuration\n")
-		sb.WriteString("  # Kubernetes configuration\n")
+		sb.WriteString("\n  volterra_certified_hw = \"kvm-voltstack-combo\"\n")
+		sb.WriteString("  worker_nodes          = []\n")
+		sb.WriteString("  address               = \"123 Main St, Example City, EX 12345\"\n\n")
 		sb.WriteString("  k8s_cluster {\n")
 		sb.WriteString("    name      = \"example-k8s-cluster\"\n")
 		sb.WriteString(fmt.Sprintf("    namespace = \"%s\"\n", getNamespaceForReference("k8s_cluster")))
-		sb.WriteString("  }\n\n")
-		sb.WriteString("  # Master nodes configuration\n")
-		sb.WriteString("  master_nodes = [\"master1.example.com\"]\n\n")
-		sb.WriteString("  # Default fleet configuration\n")
-		sb.WriteString("  default_fleet_config {\n")
-		sb.WriteString("    no_bond_devices {}\n")
-		sb.WriteString("    no_dc_cluster_group {}\n")
-		sb.WriteString("    default_storage_config {}\n")
-		sb.WriteString("    no_gpu {}\n")
-		sb.WriteString("  }\n\n")
-		sb.WriteString("  # Disable HA by default\n")
-		sb.WriteString("  disable_ha {}\n\n")
-		sb.WriteString("  # No worker nodes\n")
-		sb.WriteString("  no_worker_nodes {}\n")
+		sb.WriteString("  }\n")
 
 	case "k8s_cluster":
 		sb.WriteString("\n  # Kubernetes Cluster configuration\n")
@@ -1080,6 +1068,14 @@ func addResourceSpecificConfig(sb *strings.Builder, resourceName string, schema 
 		sb.WriteString("\n  vcpus             = 1\n")
 		sb.WriteString("  memory            = \"1024\"\n")
 		sb.WriteString("  ephemeral_storage = \"1024\"\n")
+
+	case "waf_exclusion_policy":
+		sb.WriteString("\n  waf_exclusion_rules {\n")
+		sb.WriteString("    // One of the arguments from this list \"any_domain exact_value suffix_value\" must be set\n\n")
+		sb.WriteString("    any_domain {}\n\n")
+		sb.WriteString("    // One of the arguments from this list \"any_path path_prefix path_regex\" must be set\n\n")
+		sb.WriteString("    any_path {}\n")
+		sb.WriteString("  }\n")
 
 	case "udp_loadbalancer":
 		sb.WriteString("\n  # UDP Load Balancer configuration\n")
