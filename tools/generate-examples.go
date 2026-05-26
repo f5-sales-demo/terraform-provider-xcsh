@@ -1070,22 +1070,12 @@ func addResourceSpecificConfig(sb *strings.Builder, resourceName string, schema 
 		sb.WriteString("  }\n")
 
 	case "udp_loadbalancer":
-		sb.WriteString("\n  # UDP Load Balancer configuration\n")
-		sb.WriteString("  listen_port = 53\n\n")
-		sb.WriteString("  # Advertise on public internet\n")
-		sb.WriteString("  advertise_on_internet {\n")
-		sb.WriteString("    default_vip {}\n")
-		sb.WriteString("  }\n\n")
-		sb.WriteString("  # Origin pools\n")
-		sb.WriteString("  origin_pools_weights {\n")
-		sb.WriteString("    pool {\n")
-		sb.WriteString("      name      = \"dns-pool\"\n")
-		sb.WriteString(fmt.Sprintf("      namespace = \"%s\"\n", getNamespaceForReference("origin_pool")))
-		sb.WriteString("    }\n")
-		sb.WriteString("    weight = 1\n")
-		sb.WriteString("  }\n\n")
-		sb.WriteString("  # DNS for UDP load balancer\n")
-		sb.WriteString("  dns_volterra_managed = true\n")
+		sb.WriteString("\n  domains                           = [\"dns.example.com\"]\n")
+		sb.WriteString("  listen_port                       = 53\n")
+		sb.WriteString("  idle_timeout                      = 30000\n")
+		sb.WriteString("  enable_per_packet_load_balancing = true\n\n")
+		sb.WriteString("  dns_volterra_managed = true\n\n")
+		sb.WriteString("  advertise_on_public_default_vip {}\n")
 
 	case "dns_zone":
 		sb.WriteString("\n  # DNS Zone configuration\n")
@@ -1134,10 +1124,8 @@ func addResourceSpecificConfig(sb *strings.Builder, resourceName string, schema 
 		sb.WriteString("  }\n")
 
 	case "user_identification":
-		sb.WriteString("\n  # User Identification configuration\n")
-		sb.WriteString("  rules {\n")
-		sb.WriteString("    identifier_type = \"CLIENT_IP\"\n")
-		sb.WriteString("    any_client {}\n")
+		sb.WriteString("\n  rules {\n")
+		sb.WriteString("    client_ip {}\n")
 		sb.WriteString("  }\n")
 
 	case "ip_prefix_set":
@@ -1168,21 +1156,7 @@ func addResourceSpecificConfig(sb *strings.Builder, resourceName string, schema 
 		sb.WriteString("  }\n")
 
 	case "tunnel":
-		sb.WriteString("\n  # Tunnel configuration\n")
-		sb.WriteString("  remote_ip_address = \"203.0.113.1\"\n")
-		sb.WriteString("  local_ip_address  = \"203.0.113.2\"\n\n")
-		sb.WriteString("  # IPsec tunnel\n")
-		sb.WriteString("  ipsec {\n")
-		sb.WriteString("    psk = \"pre-shared-key-here\"\n")
-		sb.WriteString("    ike_params {\n")
-		sb.WriteString("      ike_version = \"IKE_V2\"\n")
-		sb.WriteString("    }\n")
-		sb.WriteString("  }\n\n")
-		sb.WriteString("  # Site reference\n")
-		sb.WriteString("  site {\n")
-		sb.WriteString("    name      = \"example-site\"\n")
-		sb.WriteString(fmt.Sprintf("    namespace = \"%s\"\n", getNamespaceForReference("securemesh_site")))
-		sb.WriteString("  }\n")
+		sb.WriteString("\n  tunnel_type = \"IPSEC_PSK\"\n")
 
 	case "securemesh_site":
 		sb.WriteString("\n  # Secure Mesh Site configuration\n")
