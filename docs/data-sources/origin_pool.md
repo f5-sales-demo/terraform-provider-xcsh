@@ -9,7 +9,7 @@ description: |-
 
 Retrieves information about an Origin Pool resource in F5 Distributed Cloud for defining backend server pools for load balancer targets. This is a read-only data source.
 
-~> **Note** For more information about this data source, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
+~> **Note** Please refer to [Origin Pool API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/virtual/) to learn more.
 
 ## Example Usage
 
