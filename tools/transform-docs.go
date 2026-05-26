@@ -107,6 +107,7 @@ func loadV2SpecMetadata() {
 				if pr.Name == "" {
 					continue
 				}
+				resourceAPIPathMap[pr.Name] = domSpec.Name
 				meta := v2MetadataCache[pr.Name]
 				for _, dep := range pr.Dependencies.Required {
 					meta.RequiredDependencies = appendUnique(meta.RequiredDependencies, dep)
@@ -665,7 +666,7 @@ func buildResourceAPIPathMap() {
 // Returns empty string if no mapping exists
 func getResourceAPIDocURL(resourceName string) string {
 	if urlPath, ok := resourceAPIPathMap[resourceName]; ok {
-		return fmt.Sprintf("https://docs.cloud.f5.com/docs-v2/api/%s", urlPath)
+		return fmt.Sprintf("https://f5xc-salesdemos.github.io/api-specs-enriched/api-reference/%s/", urlPath)
 	}
 	return ""
 }
@@ -1147,9 +1148,8 @@ func transformAnchorsOnly(filePath string, content string) error {
 	for i := 0; i < len(lines); i++ {
 		line := lines[i]
 
-		// Replace generic API documentation link with resource-specific link
-		if strings.Contains(line, "F5 XC API Documentation") && apiDocURL != "" {
-			// Format the resource name for display using toTitleCase for proper acronym handling
+		// Replace API documentation link (generic or previously generated) with current resource-specific link
+		if apiDocURL != "" && (strings.Contains(line, "F5 XC API Documentation") || strings.Contains(line, "API docs]")) {
 			displayName := toTitleCase(resourceName)
 			line = fmt.Sprintf("~> **Note** Please refer to [%s API docs](%s) to learn more.", displayName, apiDocURL)
 		}
@@ -1562,9 +1562,8 @@ func transformDoc(filePath string) error {
 		if strings.HasPrefix(line, "subcategory:") && subcategory != "" {
 			line = fmt.Sprintf("subcategory: \"%s\"", subcategory)
 		}
-		// Replace generic API documentation link with resource-specific link
-		if strings.Contains(line, "F5 XC API Documentation") && apiDocURL != "" {
-			// Format the resource name for display using toTitleCase for proper acronym handling
+		// Replace API documentation link (generic or previously generated) with current resource-specific link
+		if apiDocURL != "" && (strings.Contains(line, "F5 XC API Documentation") || strings.Contains(line, "API docs]")) {
 			displayName := toTitleCase(resourceName)
 			line = fmt.Sprintf("~> **Note** Please refer to [%s API docs](%s) to learn more.", displayName, apiDocURL)
 		}
@@ -3370,6 +3369,16 @@ func wrapLongLines(content string, maxLen int) string {
 // fixUpstreamTerminology corrects upstream API terminology to pass textlint rules.
 // Spelling corrections are handled by codespell --write-changes in the CI workflow.
 func fixUpstreamTerminology(content string) string {
+	// Protect markdown link URLs from terminology corrections.
+	// Store URLs with placeholders, apply corrections, then restore.
+	urlRegex := regexp.MustCompile(`\]\((https?://[^)]+)\)`)
+	var savedURLs []string
+	content = urlRegex.ReplaceAllStringFunc(content, func(match string) string {
+		idx := len(savedURLs)
+		savedURLs = append(savedURLs, match)
+		return fmt.Sprintf("](##URL_%d##)", idx)
+	})
+	defer func() {}() // no-op; restoration happens at end of function
 	content = strings.NewReplacer(
 		"User Name", "username",
 		"Host Name", "hostname",
@@ -3424,6 +3433,11 @@ func fixUpstreamTerminology(content string) string {
 
 	base64Regex := regexp.MustCompile(`Base64`)
 	content = base64Regex.ReplaceAllString(content, "base64")
+
+	// Restore protected URLs
+	for i, url := range savedURLs {
+		content = strings.Replace(content, fmt.Sprintf("](##URL_%d##)", i), url, 1)
+	}
 
 	return content
 }
