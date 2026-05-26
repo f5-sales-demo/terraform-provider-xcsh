@@ -9,7 +9,7 @@ description: |-
 
 Manages Site Mesh Group in system namespace of user. in F5 Distributed Cloud. This is a read-only data source.
 
-~> **Note** For more information about this data source, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
+~> **Note** Please refer to [Site Mesh Group API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/sites/) to learn more.
 
 ## Example Usage
 

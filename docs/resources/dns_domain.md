@@ -9,7 +9,7 @@ description: |-
 
 Manages DNS Domain in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud.
 
-~> **Note** For more information about this resource, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
+~> **Note** Please refer to [DNS Domain API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/dns/) to learn more.
 
 ## Example Usage
 

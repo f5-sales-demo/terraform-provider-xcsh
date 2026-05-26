@@ -9,7 +9,7 @@ description: |-
 
 Retrieves information about a Forward Proxy Policy resource in F5 Distributed Cloud for forward proxy policy specification. configuration. This is a read-only data source.
 
-~> **Note** For more information about this data source, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
+~> **Note** Please refer to [Forward Proxy Policy API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/network_security/) to learn more.
 
 ## Example Usage
 
