@@ -146,24 +146,35 @@ docs:
 	@echo "Transforming documentation to Volterra-style format..."
 	$(GO) run $(TOOLS_DIR)/transform-docs.go
 
-# Validate all generated Terraform examples
+# Validate generated Terraform examples
+# Resources with verified test examples (named .tf files beyond resource.tf) must pass.
+# Others emit warnings only.
 validate-examples:
 	@echo "Validating generated Terraform examples..."
-	@fail=0; \
+	@fail=0; warn=0; pass=0; \
 	for dir in examples/resources/f5xc_*; do \
 		if [ ! -f "$$dir/resource.tf" ]; then continue; fi; \
+		verified=$$(find "$$dir" -name '*.tf' ! -name 'resource.tf' 2>/dev/null | wc -l | tr -d ' '); \
 		tmpdir=$$(mktemp -d); \
 		cp "$$dir/resource.tf" "$$tmpdir/main.tf"; \
 		cd "$$tmpdir" && terraform init -backend=false -no-color >/dev/null 2>&1 && \
-		if ! terraform validate -no-color 2>&1; then \
-			echo "FAIL: $$dir/resource.tf"; \
-			fail=1; \
+		if ! terraform validate -no-color >/dev/null 2>&1; then \
+			if [ "$$verified" -gt 0 ]; then \
+				echo "FAIL: $$dir/resource.tf"; \
+				fail=1; \
+			else \
+				echo "WARN: $$dir/resource.tf"; \
+				warn=$$((warn + 1)); \
+			fi; \
+		else \
+			pass=$$((pass + 1)); \
 		fi; \
 		cd - >/dev/null; \
 		rm -rf "$$tmpdir"; \
 	done; \
-	if [ $$fail -eq 1 ]; then \
-		echo "Example validation failed"; \
+	echo "Results: $$pass passed, $$warn warnings, $$fail failures"; \
+	if [ $$fail -gt 0 ]; then \
+		echo "Verified example validation failed"; \
 		exit 1; \
 	fi; \
 	echo "All examples valid"

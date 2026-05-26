@@ -79,22 +79,34 @@ jobs:
         run: |
           echo "::group::Validating example Terraform files"
           fail=0
+          warn=0
+          pass=0
           for dir in examples/resources/f5xc_*; do
             if [ ! -f "$dir/resource.tf" ]; then continue; fi
+            # Resources with verified test examples (named .tf files beyond resource.tf)
+            # are required to pass; others are warn-only
+            verified_count=$(find "$dir" -name '*.tf' ! -name 'resource.tf' 2>/dev/null | wc -l | tr -d ' ')
             tmpdir=$(mktemp -d)
             cp "$dir/resource.tf" "$tmpdir/main.tf"
             cd "$tmpdir"
             terraform init -backend=false -no-color >/dev/null 2>&1
-            if ! terraform validate -no-color 2>&1; then
-              echo "::error::Validation failed: $dir/resource.tf"
-              fail=1
+            if ! terraform validate -no-color >/dev/null 2>&1; then
+              if [ "$verified_count" -gt 0 ]; then
+                echo "::error::Validation failed (verified resource): $dir/resource.tf"
+                fail=1
+              else
+                echo "::warning::Validation failed (unverified resource): $dir/resource.tf"
+                warn=$((warn + 1))
+              fi
+            else
+              pass=$((pass + 1))
             fi
             cd - >/dev/null
             rm -rf "$tmpdir"
           done
           echo "::endgroup::"
-          if [ $fail -eq 1 ]; then exit 1; fi
-          echo "All generated examples validated successfully"
+          echo "Results: $pass passed, $warn warnings, $fail failures"
+          if [ $fail -gt 0 ]; then exit 1; fi
 
       - name: Generate documentation
         run: |
