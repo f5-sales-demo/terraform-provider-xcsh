@@ -1,0 +1,54 @@
+# f5xc_waf_exclusion_policy
+
+Category: Security
+WAF exclusion policy
+
+## Required
+
+- name
+- namespace
+- waf_exclusion_rules
+
+## OneOf Groups
+
+Within waf_exclusion_rules, pick exactly one:
+  any_domain = "..."
+  exact_value = "..."
+  suffix_value = "..."
+
+Within waf_exclusion_rules, pick exactly one:
+  any_path = "..."
+  path_prefix = "..."
+  path_regex = "..."
+
+## Minimal Valid Config
+
+```terraform
+resource "f5xc_waf_exclusion_policy" "example" {
+  name      = "example-waf-exclusion-policy"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  waf_exclusion_rules {
+    // One of the arguments from this list "any_domain exact_value suffix_value" must be set
+
+    any_domain {}
+
+    // One of the arguments from this list "any_path path_prefix path_regex" must be set
+
+    any_path {}
+  }
+}
+```
+
+## Dependencies
+
+Requires: none

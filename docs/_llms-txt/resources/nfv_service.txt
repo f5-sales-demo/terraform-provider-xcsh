@@ -1,0 +1,38 @@
+# f5xc_nfv_service
+
+Category: Networking
+New NFV service with configured parameters
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "f5xc_nfv_service" "example" {
+  name      = "example-nfv-service"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  disable_https_management {
+  }
+  disable_ssh_access {
+  }
+  enabled_ssh_access {
+  }
+}
+```
+
+## Dependencies
+
+Requires: none

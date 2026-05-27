@@ -1,0 +1,44 @@
+# f5xc_rate_limiter_policy
+
+Category: Security
+Rate limiter policy create specification. configuration
+
+## Required
+
+- name
+- namespace
+- burst_size
+- committed_information_rate
+
+## Server Defaults (safe to omit)
+
+- rules
+
+## Minimal Valid Config
+
+```terraform
+resource "f5xc_rate_limiter_policy" "example" {
+  name      = "example-rate-limiter-policy"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  any_server {
+  }
+  server_name_matcher {
+  }
+  server_selector {
+  }
+}
+```
+
+## Dependencies
+
+Requires: none

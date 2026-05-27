@@ -1,0 +1,9 @@
+# BIG-IP Integration
+
+BIG-IP proxy, data groups, and iRules integration
+
+## Resources
+
+- [bigip_http_proxy](_llms-txt/resources/bigip_http_proxy.txt) : BIG-IP HTTP Proxy in a given namespace. If one already exists, it will give...
+- [data_group](_llms-txt/resources/data_group.txt) : Data group in a given namespace. If one already exists it will give an error
+- [irule](_llms-txt/resources/irule.txt) : IRule in a given namespace. If one already exists it will give an error

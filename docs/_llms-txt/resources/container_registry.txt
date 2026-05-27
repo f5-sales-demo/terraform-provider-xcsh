@@ -1,0 +1,41 @@
+# f5xc_container_registry
+
+Category: Kubernetes
+Container image registry configuration
+
+## Required
+
+- name
+- namespace
+- email
+- registry
+- user_name
+
+## Minimal Valid Config
+
+```terraform
+resource "f5xc_container_registry" "example" {
+  name      = "example-container-registry"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  password {
+  }
+  blindfold_secret_info {
+  }
+  clear_secret_info {
+  }
+}
+```
+
+## Dependencies
+
+Requires: none

@@ -1,0 +1,33 @@
+# f5xc_namespace
+
+Category: Organization
+New namespace. Name of the object is name of the namespace
+
+## Required
+
+- name
+
+## Minimal Valid Config
+
+```terraform
+resource "f5xc_namespace" "example" {
+  name      = "example-namespace"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  description = "Example namespace for application workloads"
+}
+```
+
+## Dependencies
+
+Requires: none
+Used by: api_definition, app_firewall, certificate, healthcheck, http_loadbalancer, origin_pool, rate_limiter, route, service_policy, tcp_loadbalancer, udp_loadbalancer
