@@ -34,10 +34,6 @@ resource "f5xc_origin_pool" "example" {
       dns_name         = "origin.example.com"
       refresh_interval = 60
     }
-
-    labels = {
-      "app" = "backend"
-    }
   }
 
   origin_servers {

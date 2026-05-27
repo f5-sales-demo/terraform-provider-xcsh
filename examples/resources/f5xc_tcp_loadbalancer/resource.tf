@@ -29,10 +29,9 @@ resource "f5xc_tcp_loadbalancer" "example" {
   # TCP Load Balancer specific configuration
   listen_port = 8443
 
-  # Advertise on public internet
-  advertise_on_internet {
-    default_vip {}
-  }
+  // One of the arguments from this list "advertise_custom advertise_on_public advertise_on_public_default_vip do_not_advertise" must be set
+
+  advertise_on_public_default_vip {}
 
   # Origin pools
   origin_pools_weights {

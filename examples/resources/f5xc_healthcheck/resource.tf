@@ -39,9 +39,7 @@ resource "f5xc_healthcheck" "example" {
 
     // One of the arguments from this list "headers request_headers_to_remove" must be set
 
-    headers = {
-      "x-health-check" = "true"
-    }
+    headers {}
   }
 
   healthy_threshold   = 3
