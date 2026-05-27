@@ -1,0 +1,7 @@
+# Subscriptions
+
+Cloud subscription management and metering
+
+## Resources
+
+- [cminstance](_llms-txt/resources/cminstance.txt) : App type will create the configuration in namespace metadata.namespace

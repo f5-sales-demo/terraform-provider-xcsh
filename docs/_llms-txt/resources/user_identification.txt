@@ -1,0 +1,36 @@
+# f5xc_user_identification
+
+Category: Security
+User_identification creates a new object in the storage backend for metadata.namespace
+
+## Required
+
+- name
+- namespace
+- rules
+
+## Minimal Valid Config
+
+```terraform
+resource "f5xc_user_identification" "example" {
+  name      = "example-user-identification"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  rules {
+    client_ip {}
+  }
+}
+```
+
+## Dependencies
+
+Requires: none

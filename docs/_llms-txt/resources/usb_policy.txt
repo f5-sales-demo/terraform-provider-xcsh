@@ -1,0 +1,34 @@
+# f5xc_usb_policy
+
+Category: Security
+New USB policy object
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "f5xc_usb_policy" "example" {
+  name      = "example-usb-policy"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  allowed_devices {
+  }
+}
+```
+
+## Dependencies
+
+Requires: none

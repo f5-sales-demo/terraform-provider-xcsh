@@ -1,0 +1,42 @@
+# f5xc_sensitive_data_policy
+
+Category: Security
+Sensitive_data_policy creates a new object in the storage backend for metadata.namespace
+
+## Required
+
+- name
+- namespace
+
+## Server Defaults (safe to omit)
+
+- compliances
+- disabled_predefined_data_types
+- custom_data_types
+
+## Minimal Valid Config
+
+```terraform
+resource "f5xc_sensitive_data_policy" "example" {
+  name      = "example-sensitive-data-policy"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  custom_data_types {
+  }
+  custom_data_type_ref {
+  }
+}
+```
+
+## Dependencies
+
+Requires: none
