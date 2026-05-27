@@ -1,0 +1,8 @@
+# Uncategorized
+
+Resources pending categorization
+
+## Resources
+
+- [application_profiles](_llms-txt/resources/application_profiles.txt) : Application Profiles in a given namespace. If one already exists it will...
+- [authorization_server](_llms-txt/resources/authorization_server.txt) : Authorization_server creates a new object in the storage backend for...

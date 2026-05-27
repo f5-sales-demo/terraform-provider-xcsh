@@ -1,0 +1,9 @@
+# DNS
+
+DNS domains, zones, compliance checks, and DNS proxy configuration
+
+## Resources
+
+- [dns_compliance_checks](_llms-txt/resources/dns_compliance_checks.txt) : DNS Compliance Checks Specification in a given namespace. If one already...
+- [dns_domain](_llms-txt/resources/dns_domain.txt) : DNS Domain in a given namespace. If one already exist it will give a error
+- [dns_proxy](_llms-txt/resources/dns_proxy.txt) : DNS Proxy in a given namespace. If one already exists it will give an error

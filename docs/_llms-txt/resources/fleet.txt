@@ -1,0 +1,49 @@
+# f5xc_fleet
+
+Category: Sites
+Fleet will create a fleet object in 'system' namespace of the user
+
+## Required
+
+- name
+- namespace
+- enable_default_fleet_config_download
+- fleet_label
+- operating_system_version
+- volterra_software_version
+
+## Minimal Valid Config
+
+```terraform
+resource "f5xc_fleet" "example" {
+  name      = "example-fleet"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  fleet_label = "env=production"
+
+  inside_virtual_network {
+    name      = "inside-network"
+    namespace = "staging"
+  }
+
+  outside_virtual_network {
+    name      = "outside-network"
+    namespace = "staging"
+  }
+
+  default_config {}
+}
+```
+
+## Dependencies
+
+Requires: none

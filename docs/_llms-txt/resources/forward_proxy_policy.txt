@@ -1,0 +1,52 @@
+# f5xc_forward_proxy_policy
+
+Category: Security
+Forward proxy policy specification. configuration
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "f5xc_forward_proxy_policy" "example" {
+  name      = "example-forward-proxy-policy"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  proxy_label_selector {
+    expressions = ["app in (web, api)"]
+  }
+
+  drp_http_connect {
+    any_proxy {}
+    rule_list {
+      rules {
+        metadata {
+          name = "allow-external"
+        }
+        spec {
+          action = "ALLOW"
+          dst_list {
+            any_dst {}
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+## Dependencies
+
+Requires: none

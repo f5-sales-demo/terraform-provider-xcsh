@@ -1,0 +1,48 @@
+# f5xc_route
+
+Category: Load Balancing
+Route object in a given namespace. Route object is list of route rules. Each rule has match condition to match incoming requests and actions to take on matching requests
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "f5xc_route" "example" {
+  name      = "example-route"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  routes {
+    match {
+      path {
+        prefix = "/api/"
+      }
+    }
+    route_destination {
+      destinations {
+        cluster {
+          name      = "api-cluster"
+          namespace = "staging"
+        }
+        weight = 100
+      }
+    }
+  }
+}
+```
+
+## Dependencies
+
+Requires: namespace, http_loadbalancer

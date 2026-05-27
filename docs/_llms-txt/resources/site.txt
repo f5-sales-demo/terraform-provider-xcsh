@@ -1,0 +1,35 @@
+# f5xc_site
+
+Category: Sites
+Virtual site object in given namespace
+
+## Required
+
+- name
+- namespace
+- site_type
+
+## Minimal Valid Config
+
+```terraform
+resource "f5xc_site" "example" {
+  name      = "example-site"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  site_selector {
+  }
+}
+```
+
+## Dependencies
+
+Requires: none
