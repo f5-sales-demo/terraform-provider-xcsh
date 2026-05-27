@@ -1,0 +1,47 @@
+# f5xc_securemesh_site
+
+Category: Sites
+Deploying secure mesh edge sites with distributed security capabilities
+
+## Required
+
+- name
+- namespace
+- address
+- volterra_certified_hw
+
+## Minimal Valid Config
+
+resource "f5xc_securemesh_site" "example" {
+  name      = "example-securemesh-site"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  generic {
+    not_managed {
+      node_list {
+        hostname  = "node1.example.com"
+        public_ip = "203.0.113.10"
+        type      = "Control"
+      }
+    }
+  }
+
+  master_nodes_count = 1
+
+  default_fleet_config {}
+
+  disable_ha {}
+}
+
+## Dependencies
+
+Requires: none

@@ -1,0 +1,37 @@
+# f5xc_policer
+
+Category: Service Mesh
+New policer with traffic rate limits
+
+## Required
+
+- name
+- namespace
+- burst_size
+- committed_information_rate
+
+## Server Defaults (safe to omit)
+
+- policer_mode
+- policer_type
+
+## Minimal Valid Config
+
+resource "f5xc_policer" "example" {
+  name      = "example-policer"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+}
+
+## Dependencies
+
+Requires: none

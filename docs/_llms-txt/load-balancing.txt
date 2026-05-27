@@ -1,0 +1,24 @@
+# Load Balancing
+
+HTTP/TCP/UDP/CDN load balancers, origin pools, health checks, and routing
+
+## Resources
+
+- [healthcheck](_llms-txt/resources/healthcheck.txt) : Healthcheck object defines method to determine if the given endpoint is healt...
+- [http_loadbalancer](_llms-txt/resources/http_loadbalancer.txt) : Load balancing HTTP/HTTPS traffic with advanced routing and security
+- [origin_pool](_llms-txt/resources/origin_pool.txt) : Defining backend server pools for load balancer targets
+- [advertise_policy](_llms-txt/resources/advertise_policy.txt) : Advertise_policy object controls how and where a service represented by a giv...
+- [cdn_cache_rule](_llms-txt/resources/cdn_cache_rule.txt) : CDN loadbalancer specification. configuration
+- [cdn_loadbalancer](_llms-txt/resources/cdn_loadbalancer.txt) : Content delivery and edge caching with load balancing
+- [cdn_purge_command](_llms-txt/resources/cdn_purge_command.txt) : CDN purge command specification. configuration
+- [cluster](_llms-txt/resources/cluster.txt) : Cluster will create the object in the storage backend for namespace metadata....
+- [endpoint](_llms-txt/resources/endpoint.txt) : Endpoint will create the object in the storage backend for namespace metadata...
+- [route](_llms-txt/resources/route.txt) : Route object in a given namespace. Route object is list of route rules. Each ...
+- [tcp_loadbalancer](_llms-txt/resources/tcp_loadbalancer.txt) : Load balancing TCP traffic across origin pools
+- [udp_loadbalancer](_llms-txt/resources/udp_loadbalancer.txt) : Load balancing UDP traffic across origin pools
+- [virtual_host](_llms-txt/resources/virtual_host.txt) : Virtual host in a given namespace
+
+## Dependency Chain
+
+namespace → healthcheck → origin_pool → http_loadbalancer
+namespace → origin_pool → tcp_loadbalancer

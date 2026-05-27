@@ -1,0 +1,40 @@
+# f5xc_voltstack_site
+
+Category: Sites
+Deploying Volterra stack sites for edge computing
+
+## Required
+
+- name
+- namespace
+- address
+- volterra_certified_hw
+
+## Minimal Valid Config
+
+resource "f5xc_voltstack_site" "example" {
+  name      = "example-voltstack-site"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  volterra_certified_hw = "kvm-voltstack-combo"
+  worker_nodes          = []
+  address               = "123 Main St, Example City, EX 12345"
+
+  k8s_cluster {
+    name      = "example-k8s-cluster"
+    namespace = "staging"
+  }
+}
+
+## Dependencies
+
+Requires: none

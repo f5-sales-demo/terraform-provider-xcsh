@@ -1,0 +1,37 @@
+# f5xc_dns_proxy
+
+Category: DNS
+DNS Proxy in a given namespace. If one already exists it will give an error
+
+## Required
+
+- name
+- namespace
+- transport_type
+
+## Minimal Valid Config
+
+resource "f5xc_dns_proxy" "example" {
+  name      = "example-dns-proxy"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  cache_profile {
+  }
+  disable_cache_profile {
+  }
+  ddos_profile {
+  }
+}
+
+## Dependencies
+
+Requires: none

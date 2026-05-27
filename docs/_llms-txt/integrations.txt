@@ -1,0 +1,10 @@
+# Integrations
+
+External integrations including code base and ticket tracking
+
+## Resources
+
+- [code_base_integration](_llms-txt/resources/code_base_integration.txt) : Integration details
+
+## Dependency Chain
+

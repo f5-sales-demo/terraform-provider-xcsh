@@ -1,0 +1,33 @@
+# f5xc_dns_domain
+
+Category: DNS
+DNS Domain in a given namespace. If one already exist it will give a error
+
+## Required
+
+- name
+- namespace
+- dnssec_mode
+
+## Minimal Valid Config
+
+resource "f5xc_dns_domain" "example" {
+  name      = "example-dns-domain"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  volterra_managed {
+  }
+}
+
+## Dependencies
+
+Requires: none

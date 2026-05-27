@@ -1,0 +1,13 @@
+# Monitoring
+
+Log receivers, alert policies, APM, and global logging configuration
+
+## Resources
+
+- [alert_receiver](_llms-txt/resources/alert_receiver.txt) : New Alert Receiver object
+- [apm](_llms-txt/resources/apm.txt) : New APM as a service with configured parameters
+- [global_log_receiver](_llms-txt/resources/global_log_receiver.txt) : New Global Log Receiver object
+- [log_receiver](_llms-txt/resources/log_receiver.txt) : New Log Receiver object
+
+## Dependency Chain
+

@@ -1,0 +1,27 @@
+# Networking
+
+Virtual networks, BGP, cloud connectivity, tunnels, and network interfaces
+
+## Resources
+
+- [bgp](_llms-txt/resources/bgp.txt) : Bgp object is the configuration for peering with external bgp servers. it is ...
+- [bgp_asn_set](_llms-txt/resources/bgp_asn_set.txt) : Bgp_asn_set creates a new object in the storage backend for metadata.namespace
+- [cloud_connect](_llms-txt/resources/cloud_connect.txt) : Establishing connectivity to cloud provider networks
+- [cloud_link](_llms-txt/resources/cloud_link.txt) : New CloudLink with configured parameters
+- [dc_cluster_group](_llms-txt/resources/dc_cluster_group.txt) : DC Cluster group in given namespace
+- [external_connector](_llms-txt/resources/external_connector.txt) : External_connector configuration specification. configuration
+- [forwarding_class](_llms-txt/resources/forwarding_class.txt) : Forwarding class is created by users in system namespace. configuration
+- [ip_prefix_set](_llms-txt/resources/ip_prefix_set.txt) : Ip_prefix_set creates a new object in the storage backend for metadata.namespace
+- [network_connector](_llms-txt/resources/network_connector.txt) : Network connector is created by users in system namespace. configuration
+- [network_interface](_llms-txt/resources/network_interface.txt) : Network interface represents configuration of a network device. it is created...
+- [nfv_service](_llms-txt/resources/nfv_service.txt) : New NFV service with configured parameters
+- [nginx_service_discovery](_llms-txt/resources/nginx_service_discovery.txt) : Api to create nginx service discovery object for a site or virtual site in sy...
+- [policy_based_routing](_llms-txt/resources/policy_based_routing.txt) : Network policy based routing create specification. configuration
+- [proxy](_llms-txt/resources/proxy.txt) : Tcp loadbalancer create specification. configuration
+- [segment](_llms-txt/resources/segment.txt) : Segment. configuration
+- [subnet](_llms-txt/resources/subnet.txt) : Subnet object contains configuration for an interface of a vm/pod. it is crea...
+- [tunnel](_llms-txt/resources/tunnel.txt) : Tunnel in a given namespace. If one already exist it will give a error
+- [virtual_network](_llms-txt/resources/virtual_network.txt) : Virtual network in given namespace
+
+## Dependency Chain
+

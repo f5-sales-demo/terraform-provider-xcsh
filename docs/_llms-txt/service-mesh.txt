@@ -1,0 +1,10 @@
+# Service Mesh
+
+Service mesh policies and traffic management
+
+## Resources
+
+- [policer](_llms-txt/resources/policer.txt) : New policer with traffic rate limits
+
+## Dependency Chain
+

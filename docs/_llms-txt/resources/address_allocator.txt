@@ -1,0 +1,33 @@
+# f5xc_address_allocator
+
+Category: Cloud Resources
+Address Allocator will create an address allocator object in 'system' namespace of the user
+
+## Required
+
+- name
+- namespace
+- mode
+
+## Minimal Valid Config
+
+resource "f5xc_address_allocator" "example" {
+  name      = "example-address-allocator"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  address_allocation_scheme {
+  }
+}
+
+## Dependencies
+
+Requires: none

@@ -1,0 +1,32 @@
+# f5xc_virtual_network
+
+Category: Networking
+Virtual network in given namespace
+
+## Required
+
+- name
+- namespace
+- legacy_type
+
+## Minimal Valid Config
+
+resource "f5xc_virtual_network" "example" {
+  name      = "example-virtual-network"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  legacy_type = "VIRTUAL_NETWORK_SITE_LOCAL"
+}
+
+## Dependencies
+
+Requires: none

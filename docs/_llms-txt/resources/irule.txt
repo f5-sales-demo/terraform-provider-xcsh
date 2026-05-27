@@ -1,0 +1,32 @@
+# f5xc_irule
+
+Category: BIG-IP Integration
+IRule in a given namespace. If one already exists it will give an error
+
+## Required
+
+- name
+- namespace
+- description
+- description_spec
+- irule
+
+## Minimal Valid Config
+
+resource "f5xc_irule" "example" {
+  name      = "example-irule"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+}
+
+## Dependencies
+
+Requires: none

@@ -1,0 +1,38 @@
+# f5xc_forwarding_class
+
+Category: Networking
+Forwarding class is created by users in system namespace. configuration
+
+## Required
+
+- name
+- namespace
+- queue_id_to_use
+- interface_group
+
+## Minimal Valid Config
+
+resource "f5xc_forwarding_class" "example" {
+  name      = "example-forwarding-class"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  dscp {
+  }
+  dscp_based_queue {
+  }
+  no_marking {
+  }
+}
+
+## Dependencies
+
+Requires: none

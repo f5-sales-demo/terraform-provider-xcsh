@@ -1,0 +1,11 @@
+# Organization
+
+Namespaces, tenant configuration, and organizational settings
+
+## Resources
+
+- [namespace](_llms-txt/resources/namespace.txt) : New namespace. Name of the object is name of the namespace
+- [tenant_configuration](_llms-txt/resources/tenant_configuration.txt) : Tenant configuration specification. configuration
+
+## Dependency Chain
+

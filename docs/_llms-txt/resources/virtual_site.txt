@@ -1,0 +1,37 @@
+# f5xc_virtual_site
+
+Category: Sites
+Virtual site object in given namespace
+
+## Required
+
+- name
+- namespace
+- site_type
+- site_selector
+
+## Minimal Valid Config
+
+resource "f5xc_virtual_site" "example" {
+  name      = "example-virtual-site"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  site_type = "CUSTOMER_EDGE"
+
+  site_selector {
+    expressions = ["region in (us-west-2, us-east-1)"]
+  }
+}
+
+## Dependencies
+
+Requires: none

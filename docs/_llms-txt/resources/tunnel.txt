@@ -1,0 +1,32 @@
+# f5xc_tunnel
+
+Category: Networking
+Tunnel in a given namespace. If one already exist it will give a error
+
+## Required
+
+- name
+- namespace
+- tunnel_type
+
+## Minimal Valid Config
+
+resource "f5xc_tunnel" "example" {
+  name      = "example-tunnel"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  tunnel_type = "IPSEC_PSK"
+}
+
+## Dependencies
+
+Requires: none

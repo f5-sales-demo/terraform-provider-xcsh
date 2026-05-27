@@ -1,0 +1,12 @@
+# Kubernetes
+
+Container registries, workloads, and Kubernetes integrations
+
+## Resources
+
+- [container_registry](_llms-txt/resources/container_registry.txt) : Container image registry configuration
+- [workload](_llms-txt/resources/workload.txt) : Workload. configuration
+- [workload_flavor](_llms-txt/resources/workload_flavor.txt) : Workload_flavor
+
+## Dependency Chain
+

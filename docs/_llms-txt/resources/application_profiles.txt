@@ -1,0 +1,36 @@
+# f5xc_application_profiles
+
+Category: Uncategorized
+Application Profiles in a given namespace. If one already exists it will give an error
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+resource "f5xc_application_profiles" "example" {
+  name      = "example-application-profiles"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  advanced_tcp_profile {
+  }
+  disable_tcp_advanced_profile {
+  }
+  enable_tcp_advanced_profile {
+  }
+}
+
+## Dependencies
+
+Requires: none

@@ -1,0 +1,12 @@
+# Authentication
+
+Authentication methods, cloud credentials, and secret management
+
+## Resources
+
+- [authentication](_llms-txt/resources/authentication.txt) : Authentication resource
+- [cloud_credentials](_llms-txt/resources/cloud_credentials.txt) : Api to create cloud_credentials object. configuration
+- [secret_management_access](_llms-txt/resources/secret_management_access.txt) : Secret_management_access creates a new object in storage backend for metadata...
+
+## Dependency Chain
+

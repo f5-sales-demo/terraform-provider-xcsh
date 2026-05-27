@@ -1,0 +1,32 @@
+# f5xc_trusted_ca_list
+
+Category: Certificates
+Trusted certificate authority list management
+
+## Required
+
+- name
+- namespace
+- trusted_ca_url
+
+## Minimal Valid Config
+
+resource "f5xc_trusted_ca_list" "example" {
+  name      = "example-trusted-ca-list"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  trusted_ca_url = "string:///LS0tLS1CRUdJTi..."
+}
+
+## Dependencies
+
+Requires: none

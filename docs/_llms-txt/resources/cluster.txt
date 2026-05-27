@@ -1,0 +1,41 @@
+# f5xc_cluster
+
+Category: Load Balancing
+Cluster will create the object in the storage backend for namespace metadata.namespace
+
+## Required
+
+- name
+- namespace
+- connection_timeout
+- endpoint_selection
+- fallback_policy
+- http_idle_timeout
+- loadbalancer_algorithm
+
+## Minimal Valid Config
+
+resource "f5xc_cluster" "example" {
+  name      = "example-cluster"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  auto_http_config {
+  }
+  circuit_breaker {
+  }
+  default_subset {
+  }
+}
+
+## Dependencies
+
+Requires: none

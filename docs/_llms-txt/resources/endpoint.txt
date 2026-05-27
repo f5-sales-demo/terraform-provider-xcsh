@@ -1,0 +1,39 @@
+# f5xc_endpoint
+
+Category: Load Balancing
+Endpoint will create the object in the storage backend for namespace metadata.namespace
+
+## Required
+
+- name
+- namespace
+- health_check_port
+- port
+- protocol
+
+## Minimal Valid Config
+
+resource "f5xc_endpoint" "example" {
+  name      = "example-endpoint"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  dns_name_advanced {
+  }
+  service_info {
+  }
+  service_selector {
+  }
+}
+
+## Dependencies
+
+Requires: none

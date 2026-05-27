@@ -1,0 +1,40 @@
+# f5xc_service_policy_rule
+
+Category: Security
+Service_policy_rule creates a new object in the storage backend for metadata.namespace
+
+## Required
+
+- name
+- namespace
+
+## Server Defaults (safe to omit)
+
+- port_matcher
+
+## Minimal Valid Config
+
+resource "f5xc_service_policy_rule" "example" {
+  name      = "example-service-policy-rule"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  any_asn {
+  }
+  any_client {
+  }
+  any_ip {
+  }
+}
+
+## Dependencies
+
+Requires: none

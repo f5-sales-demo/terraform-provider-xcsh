@@ -1,0 +1,36 @@
+# f5xc_fast_acl_rule
+
+Category: Security
+New Fast ACL rule, has specification to match source IP, source port and action to apply
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+resource "f5xc_fast_acl_rule" "example" {
+  name      = "example-fast-acl-rule"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  port {
+  }
+  all {
+  }
+  dns {
+  }
+}
+
+## Dependencies
+
+Requires: none

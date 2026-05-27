@@ -1,0 +1,39 @@
+# f5xc_advertise_policy
+
+Category: Load Balancing
+Advertise_policy object controls how and where a service represented by a given virtual_host object is advertised to consumers. configuration
+
+## Required
+
+- name
+- namespace
+- address
+- protocol
+- skip_xff_append
+
+## Minimal Valid Config
+
+resource "f5xc_advertise_policy" "example" {
+  name      = "example-advertise-policy"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  public_ip {
+  }
+  tls_parameters {
+  }
+  client_certificate_optional {
+  }
+}
+
+## Dependencies
+
+Requires: none

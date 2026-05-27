@@ -1,0 +1,14 @@
+# API Security
+
+API definition, discovery, testing, and security controls for web APIs
+
+## Resources
+
+- [api_crawler](_llms-txt/resources/api_crawler.txt) : API Crawler resource
+- [api_definition](_llms-txt/resources/api_definition.txt) : API Definition
+- [api_discovery](_llms-txt/resources/api_discovery.txt) : API discovery creates a new object in the storage backend for metadata.namespace
+- [api_testing](_llms-txt/resources/api_testing.txt) : API Testing resource
+- [app_api_group](_llms-txt/resources/app_api_group.txt) : App_api_group creates a new object in the storage backend for metadata.namespace
+
+## Dependency Chain
+

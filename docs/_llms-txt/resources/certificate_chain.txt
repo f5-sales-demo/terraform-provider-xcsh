@@ -1,0 +1,30 @@
+# f5xc_certificate_chain
+
+Category: Certificates
+Certificate chain configuration for TLS
+
+## Required
+
+- name
+- namespace
+- certificate_url
+
+## Minimal Valid Config
+
+resource "f5xc_certificate_chain" "example" {
+  name      = "example-certificate-chain"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+}
+
+## Dependencies
+
+Requires: none
