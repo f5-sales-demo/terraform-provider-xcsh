@@ -1,0 +1,40 @@
+# f5xc_data_type
+
+Category: Security
+Data_type creates a new object in the storage backend for metadata.namespace
+
+## Required
+
+- name
+- namespace
+- is_pii
+- is_sensitive_data
+
+## Minimal Valid Config
+
+```terraform
+resource "f5xc_data_type" "example" {
+  name      = "example-data-type"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  rules {
+  }
+  key_pattern {
+  }
+  exact_values {
+  }
+}
+```
+
+## Dependencies
+
+Requires: none

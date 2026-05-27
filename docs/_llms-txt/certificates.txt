@@ -1,0 +1,10 @@
+# Certificates
+
+TLS certificates, certificate chains, CRLs, and trusted CA lists
+
+## Resources
+
+- [certificate](_llms-txt/resources/certificate.txt) : Certificate. configuration
+- [certificate_chain](_llms-txt/resources/certificate_chain.txt) : Certificate chain configuration for TLS
+- [crl](_llms-txt/resources/crl.txt) : Api to create crl object. configuration
+- [trusted_ca_list](_llms-txt/resources/trusted_ca_list.txt) : Trusted certificate authority list management

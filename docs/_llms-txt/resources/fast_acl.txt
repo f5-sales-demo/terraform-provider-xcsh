@@ -1,0 +1,38 @@
+# f5xc_fast_acl
+
+Category: Security
+Object, object contains rules to protect site from denial of service It has destination{destination IP, destination port) and references to
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "f5xc_fast_acl" "example" {
+  name      = "example-fast-acl"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  protocol_policer {
+  }
+  re_acl {
+  }
+  all_public_vips {
+  }
+}
+```
+
+## Dependencies
+
+Requires: none

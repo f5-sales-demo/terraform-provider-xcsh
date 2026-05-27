@@ -1,0 +1,51 @@
+# f5xc_cdn_loadbalancer
+
+Category: Load Balancing
+Content delivery and edge caching with load balancing
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "f5xc_cdn_loadbalancer" "example" {
+  name      = "example-CDN-loadbalancer"
+  namespace = "staging"
+
+  labels = {
+    environment = "production"
+    managed_by  = "terraform"
+  }
+
+  annotations = {
+    "owner" = "platform-team"
+  }
+
+  domains = ["CDN.example.com"]
+
+  origin_pool {
+    public_name {
+      dns_name = "origin.example.com"
+    }
+    follow_origin_redirect = true
+    no_tls {}
+  }
+
+  cache_ttl_options {
+    cache_ttl_default = "1h"
+  }
+
+  https_auto_cert {
+    http_redirect = true
+  }
+
+  add_location = true
+}
+```
+
+## Dependencies
+
+Requires: none

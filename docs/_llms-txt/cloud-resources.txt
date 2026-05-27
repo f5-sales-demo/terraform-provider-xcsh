@@ -1,0 +1,8 @@
+# Cloud Resources
+
+Cloud elastic IPs, address allocators, and geo-location resources
+
+## Resources
+
+- [address_allocator](_llms-txt/resources/address_allocator.txt) : Address Allocator will create an address allocator object in 'system' namespa...
+- [cloud_elastic_ip](_llms-txt/resources/cloud_elastic_ip.txt) : Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site

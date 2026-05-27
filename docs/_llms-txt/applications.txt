@@ -1,0 +1,10 @@
+# Applications
+
+Application settings, types, discovery, and filtering
+
+## Resources
+
+- [app_setting](_llms-txt/resources/app_setting.txt) : App setting configuration in namespace metadata.namespace
+- [app_type](_llms-txt/resources/app_type.txt) : App type will create the configuration in namespace metadata.namespace
+- [discovery](_llms-txt/resources/discovery.txt) : Api to create discovery object for a site or virtual site in system namespace...
+- [filter_set](_llms-txt/resources/filter_set.txt) : Specification
