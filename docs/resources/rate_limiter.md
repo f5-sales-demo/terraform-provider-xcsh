@@ -43,9 +43,11 @@ resource "f5xc_rate_limiter" "example" {
   }
 
   # Rate Limiter configuration
-  total_number     = 100
-  unit             = "MINUTE"
-  burst_multiplier = 10
+  limits {
+    total_number     = 100
+    unit             = "MINUTE"
+    burst_multiplier = 10
+  }
 }
 
 # The following optional fields have server-applied defaults and can be omitted:

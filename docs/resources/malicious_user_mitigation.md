@@ -43,13 +43,13 @@ resource "f5xc_malicious_user_mitigation" "example" {
   }
 
   # Malicious User Mitigation configuration
-  # Detection rules
-  rules {
-    threat_level = "HIGH"
-    mitigation_action {
-      block {
-        body   = "Access denied"
-        status = "403"
+  mitigation_type {
+    rules {
+      threat_level {
+        high {}
+      }
+      mitigation_action {
+        block_temporarily {}
       }
     }
   }

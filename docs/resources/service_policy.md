@@ -43,20 +43,27 @@ resource "f5xc_service_policy" "example" {
   }
 
   # Service Policy configuration
-  algo = "FIRST_MATCH"
+  // One of the arguments from this list "allow_list deny_list rule_list" must be set
 
-  # Allow specific paths
-  rules {
-    metadata {
-      name = "allow-api"
-    }
-    spec {
-      action = "ALLOW"
-      path {
-        prefix = "/api/"
+  rule_list {
+    rules {
+      metadata {
+        name = "allow-api"
+      }
+      spec {
+        action = "ALLOW"
+        any_client {}
+        any_ip {}
+        path {
+          prefix_values = ["/api/"]
+        }
       }
     }
   }
+
+  // One of the arguments from this list "any_server server_name server_name_matcher server_selector" must be set
+
+  any_server {}
 }
 
 # The following optional fields have server-applied defaults and can be omitted:
