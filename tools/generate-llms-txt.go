@@ -3,6 +3,9 @@
 //go:build ignore
 // +build ignore
 
+// Also outputs docs/terraform-llms-index.json — machine-readable resource index
+// with required fields, oneof_groups, server_defaults and minimal configs.
+//
 // This tool generates a three-level llms.txt hierarchy for AI consumption:
 //   - L0: docs/llms.txt — Provider entry point with category index
 //   - L1: docs/_llms-txt/<subcategory>.txt — Category indexes with resource lists
