@@ -527,7 +527,7 @@ func addResourceSpecificConfig(sb *strings.Builder, resourceName string, schema 
 
 	case "service_policy":
 		sb.WriteString("\n  # Service Policy configuration\n")
-		sb.WriteString("  // One of the arguments from this list \"allow_list deny_list rule_list\" must be set\n\n")
+		sb.WriteString("  // One of the arguments from this list \"allow_all_requests allow_list deny_all_requests deny_list rule_list\" must be set\n\n")
 		sb.WriteString("  rule_list {\n")
 		sb.WriteString("    rules {\n")
 		sb.WriteString("      metadata {\n")
