@@ -466,6 +466,10 @@ jobs:
                       open(ds_file, 'w').write(content.rstrip() + '\n' + output_block)
           "
 
+      - name: Format generated JSON with Biome
+        run: |
+          npx --yes @biomejs/biome format --write docs/terraform-llms-index.json || true
+
       - name: Check for changes
         id: check
         run: |
