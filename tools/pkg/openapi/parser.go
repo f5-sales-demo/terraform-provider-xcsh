@@ -318,10 +318,11 @@ func extractResourcePathsFromPaths(paths map[string]interface{}) []resourcePath 
 	seen := make(map[string]bool)
 
 	// Primary pattern: /api/config/namespaces/{namespace}/{resource_plural}
-	configPathRegex := regexp.MustCompile(`^/api/config/namespaces/\{namespace\}/([a-z_]+s)$`)
+	// Include digits (e.g., securemesh_site_v2s has a digit in the name)
+	configPathRegex := regexp.MustCompile(`^/api/config/namespaces/\{namespace\}/([a-z_0-9]+s)$`)
 
 	// Secondary pattern: /api/web/{resource_plural} (for system-level resources like namespace)
-	webPathRegex := regexp.MustCompile(`^/api/web/([a-z_]+s)$`)
+	webPathRegex := regexp.MustCompile(`^/api/web/([a-z_0-9]+s)$`)
 
 	for path := range paths {
 		var resourcePlural string
