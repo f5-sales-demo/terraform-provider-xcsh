@@ -154,24 +154,24 @@ var AWSVPCSiteAWSCredModelAttrTypes = map[string]attr.Type{
 
 // AWSVPCSiteBlockedServicesModel represents blocked_services block
 type AWSVPCSiteBlockedServicesModel struct {
-	BlockedService []AWSVPCSiteBlockedServicesBlockedServiceModel `tfsdk:"blocked_service"`
+	BlockedSevice []AWSVPCSiteBlockedServicesBlockedSeviceModel `tfsdk:"blocked_sevice"`
 }
 
 // AWSVPCSiteBlockedServicesModelAttrTypes defines the attribute types for AWSVPCSiteBlockedServicesModel
 var AWSVPCSiteBlockedServicesModelAttrTypes = map[string]attr.Type{
-	"blocked_service": types.ListType{ElemType: types.ObjectType{AttrTypes: AWSVPCSiteBlockedServicesBlockedServiceModelAttrTypes}},
+	"blocked_sevice": types.ListType{ElemType: types.ObjectType{AttrTypes: AWSVPCSiteBlockedServicesBlockedSeviceModelAttrTypes}},
 }
 
-// AWSVPCSiteBlockedServicesBlockedServiceModel represents blocked_service block
-type AWSVPCSiteBlockedServicesBlockedServiceModel struct {
+// AWSVPCSiteBlockedServicesBlockedSeviceModel represents blocked_sevice block
+type AWSVPCSiteBlockedServicesBlockedSeviceModel struct {
 	NetworkType      types.String          `tfsdk:"network_type"`
 	DNS              *AWSVPCSiteEmptyModel `tfsdk:"dns"`
 	SSH              *AWSVPCSiteEmptyModel `tfsdk:"ssh"`
 	WebUserInterface *AWSVPCSiteEmptyModel `tfsdk:"web_user_interface"`
 }
 
-// AWSVPCSiteBlockedServicesBlockedServiceModelAttrTypes defines the attribute types for AWSVPCSiteBlockedServicesBlockedServiceModel
-var AWSVPCSiteBlockedServicesBlockedServiceModelAttrTypes = map[string]attr.Type{
+// AWSVPCSiteBlockedServicesBlockedSeviceModelAttrTypes defines the attribute types for AWSVPCSiteBlockedServicesBlockedSeviceModel
+var AWSVPCSiteBlockedServicesBlockedSeviceModelAttrTypes = map[string]attr.Type{
 	"network_type":       types.StringType,
 	"dns":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ssh":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -1947,7 +1947,7 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "Disable node local services on this site.",
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
-					"blocked_service": schema.ListNestedBlock{
+					"blocked_sevice": schema.ListNestedBlock{
 						MarkdownDescription: "Disable Node Local Services. Blocking or denial configuration",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
@@ -2048,10 +2048,10 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"site_registration_over_direct_connect": schema.SingleNestedBlock{
-								MarkdownDescription: "CloudLink AND Network Config.",
+								MarkdownDescription: "CloudLink ADN Network Config.",
 								Attributes: map[string]schema.Attribute{
 									"cloudlink_network_name": schema.StringAttribute{
-										MarkdownDescription: "Establish private connectivity with the F5 Distributed Cloud Global Network using a Private AND network. To provision a Private AND network, please contact F5 Distributed Cloud support.",
+										MarkdownDescription: "Establish private connectivity with the F5 Distributed Cloud Global Network using a Private ADN network. To provision a Private ADN network, please contact F5 Distributed Cloud support.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(64),
@@ -4092,9 +4092,9 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	}
 	if data.BlockedServices != nil {
 		blocked_servicesMap := make(map[string]interface{})
-		if len(data.BlockedServices.BlockedService) > 0 {
-			var blocked_serviceList []map[string]interface{}
-			for _, listItem := range data.BlockedServices.BlockedService {
+		if len(data.BlockedServices.BlockedSevice) > 0 {
+			var blocked_seviceList []map[string]interface{}
+			for _, listItem := range data.BlockedServices.BlockedSevice {
 				listItemMap := make(map[string]interface{})
 				if listItem.DNS != nil {
 					listItemMap["dns"] = map[string]interface{}{}
@@ -4108,9 +4108,9 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if listItem.WebUserInterface != nil {
 					listItemMap["web_user_interface"] = map[string]interface{}{}
 				}
-				blocked_serviceList = append(blocked_serviceList, listItemMap)
+				blocked_seviceList = append(blocked_seviceList, listItemMap)
 			}
-			blocked_servicesMap["blocked_service"] = blocked_serviceList
+			blocked_servicesMap["blocked_sevice"] = blocked_seviceList
 		}
 		createReq.Spec["blocked_services"] = blocked_servicesMap
 	}
@@ -4829,12 +4829,12 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &AWSVPCSiteBlockedServicesModel{
-			BlockedService: func() []AWSVPCSiteBlockedServicesBlockedServiceModel {
-				if listData, ok := blockData["blocked_service"].([]interface{}); ok && len(listData) > 0 {
-					var result []AWSVPCSiteBlockedServicesBlockedServiceModel
+			BlockedSevice: func() []AWSVPCSiteBlockedServicesBlockedSeviceModel {
+				if listData, ok := blockData["blocked_sevice"].([]interface{}); ok && len(listData) > 0 {
+					var result []AWSVPCSiteBlockedServicesBlockedSeviceModel
 					for _, item := range listData {
 						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, AWSVPCSiteBlockedServicesBlockedServiceModel{
+							result = append(result, AWSVPCSiteBlockedServicesBlockedSeviceModel{
 								DNS: func() *AWSVPCSiteEmptyModel {
 									if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 										return &AWSVPCSiteEmptyModel{}
@@ -6204,12 +6204,12 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &AWSVPCSiteBlockedServicesModel{
-			BlockedService: func() []AWSVPCSiteBlockedServicesBlockedServiceModel {
-				if listData, ok := blockData["blocked_service"].([]interface{}); ok && len(listData) > 0 {
-					var result []AWSVPCSiteBlockedServicesBlockedServiceModel
+			BlockedSevice: func() []AWSVPCSiteBlockedServicesBlockedSeviceModel {
+				if listData, ok := blockData["blocked_sevice"].([]interface{}); ok && len(listData) > 0 {
+					var result []AWSVPCSiteBlockedServicesBlockedSeviceModel
 					for _, item := range listData {
 						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, AWSVPCSiteBlockedServicesBlockedServiceModel{
+							result = append(result, AWSVPCSiteBlockedServicesBlockedSeviceModel{
 								DNS: func() *AWSVPCSiteEmptyModel {
 									if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 										return &AWSVPCSiteEmptyModel{}
@@ -7449,9 +7449,9 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	}
 	if data.BlockedServices != nil {
 		blocked_servicesMap := make(map[string]interface{})
-		if len(data.BlockedServices.BlockedService) > 0 {
-			var blocked_serviceList []map[string]interface{}
-			for _, listItem := range data.BlockedServices.BlockedService {
+		if len(data.BlockedServices.BlockedSevice) > 0 {
+			var blocked_seviceList []map[string]interface{}
+			for _, listItem := range data.BlockedServices.BlockedSevice {
 				listItemMap := make(map[string]interface{})
 				if listItem.DNS != nil {
 					listItemMap["dns"] = map[string]interface{}{}
@@ -7465,9 +7465,9 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if listItem.WebUserInterface != nil {
 					listItemMap["web_user_interface"] = map[string]interface{}{}
 				}
-				blocked_serviceList = append(blocked_serviceList, listItemMap)
+				blocked_seviceList = append(blocked_seviceList, listItemMap)
 			}
-			blocked_servicesMap["blocked_service"] = blocked_serviceList
+			blocked_servicesMap["blocked_sevice"] = blocked_seviceList
 		}
 		apiResource.Spec["blocked_services"] = blocked_servicesMap
 	}
@@ -8211,12 +8211,12 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &AWSVPCSiteBlockedServicesModel{
-			BlockedService: func() []AWSVPCSiteBlockedServicesBlockedServiceModel {
-				if listData, ok := blockData["blocked_service"].([]interface{}); ok && len(listData) > 0 {
-					var result []AWSVPCSiteBlockedServicesBlockedServiceModel
+			BlockedSevice: func() []AWSVPCSiteBlockedServicesBlockedSeviceModel {
+				if listData, ok := blockData["blocked_sevice"].([]interface{}); ok && len(listData) > 0 {
+					var result []AWSVPCSiteBlockedServicesBlockedSeviceModel
 					for _, item := range listData {
 						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, AWSVPCSiteBlockedServicesBlockedServiceModel{
+							result = append(result, AWSVPCSiteBlockedServicesBlockedSeviceModel{
 								DNS: func() *AWSVPCSiteEmptyModel {
 									if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 										return &AWSVPCSiteEmptyModel{}

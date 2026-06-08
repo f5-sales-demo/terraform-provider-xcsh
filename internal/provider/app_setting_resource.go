@@ -400,7 +400,7 @@ func (r *AppSettingResource) Schema(ctx context.Context, req resource.SchemaRequ
 									MarkdownDescription: "Various factors about user activity are monitored and analysed to determine malicious users. These settings allow tuning those factors used by the system to detect malicious users.",
 									Attributes: map[string]schema.Attribute{
 										"cooling_off_period": schema.Int64Attribute{
-											MarkdownDescription: "Exclusive with [] Malicious user detection assigns a threat level to each user based on their activity. Once a threat level is assigned, the system continues tracking activity from this user and if no further malicious activity is seen, it gradually reduces the threat assessment to lower levels..",
+											MarkdownDescription: "Exclusive with [] Malicious user detection assigns a threat level to each user based on their activity. Once a threat level is assigned, the system continues tracking activity from this user and if no further malicious activity is seen, it gradually reduces the threat assesment to lower levels..",
 											Optional:            true,
 										},
 									},

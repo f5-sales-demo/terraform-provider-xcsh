@@ -87,24 +87,24 @@ var SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = m
 
 // SecuremeshSiteBlockedServicesModel represents blocked_services block
 type SecuremeshSiteBlockedServicesModel struct {
-	BlockedService []SecuremeshSiteBlockedServicesBlockedServiceModel `tfsdk:"blocked_service"`
+	BlockedSevice []SecuremeshSiteBlockedServicesBlockedSeviceModel `tfsdk:"blocked_sevice"`
 }
 
 // SecuremeshSiteBlockedServicesModelAttrTypes defines the attribute types for SecuremeshSiteBlockedServicesModel
 var SecuremeshSiteBlockedServicesModelAttrTypes = map[string]attr.Type{
-	"blocked_service": types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes}},
+	"blocked_sevice": types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedSeviceModelAttrTypes}},
 }
 
-// SecuremeshSiteBlockedServicesBlockedServiceModel represents blocked_service block
-type SecuremeshSiteBlockedServicesBlockedServiceModel struct {
+// SecuremeshSiteBlockedServicesBlockedSeviceModel represents blocked_sevice block
+type SecuremeshSiteBlockedServicesBlockedSeviceModel struct {
 	NetworkType      types.String              `tfsdk:"network_type"`
 	DNS              *SecuremeshSiteEmptyModel `tfsdk:"dns"`
 	SSH              *SecuremeshSiteEmptyModel `tfsdk:"ssh"`
 	WebUserInterface *SecuremeshSiteEmptyModel `tfsdk:"web_user_interface"`
 }
 
-// SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes defines the attribute types for SecuremeshSiteBlockedServicesBlockedServiceModel
-var SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes = map[string]attr.Type{
+// SecuremeshSiteBlockedServicesBlockedSeviceModelAttrTypes defines the attribute types for SecuremeshSiteBlockedServicesBlockedSeviceModel
+var SecuremeshSiteBlockedServicesBlockedSeviceModelAttrTypes = map[string]attr.Type{
 	"network_type":       types.StringType,
 	"dns":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ssh":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -1326,7 +1326,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 				MarkdownDescription: "[OneOf: blocked_services, default_blocked_services; Default: default_blocked_services] Disable node local services on this site.",
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
-					"blocked_service": schema.ListNestedBlock{
+					"blocked_sevice": schema.ListNestedBlock{
 						MarkdownDescription: "Disable Node Local Services. Blocking or denial configuration",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
@@ -1933,7 +1933,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 															MarkdownDescription: "IPV6AutoConfigRouterType.",
 															Attributes: map[string]schema.Attribute{
 																"network_prefix": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																	MarkdownDescription: "Exclusive with [stateful] Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(1024),
@@ -3012,9 +3012,9 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 	}
 	if data.BlockedServices != nil {
 		blocked_servicesMap := make(map[string]interface{})
-		if len(data.BlockedServices.BlockedService) > 0 {
-			var blocked_serviceList []map[string]interface{}
-			for _, listItem := range data.BlockedServices.BlockedService {
+		if len(data.BlockedServices.BlockedSevice) > 0 {
+			var blocked_seviceList []map[string]interface{}
+			for _, listItem := range data.BlockedServices.BlockedSevice {
 				listItemMap := make(map[string]interface{})
 				if listItem.DNS != nil {
 					listItemMap["dns"] = map[string]interface{}{}
@@ -3028,9 +3028,9 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 				if listItem.WebUserInterface != nil {
 					listItemMap["web_user_interface"] = map[string]interface{}{}
 				}
-				blocked_serviceList = append(blocked_serviceList, listItemMap)
+				blocked_seviceList = append(blocked_seviceList, listItemMap)
 			}
-			blocked_servicesMap["blocked_service"] = blocked_serviceList
+			blocked_servicesMap["blocked_sevice"] = blocked_seviceList
 		}
 		createReq.Spec["blocked_services"] = blocked_servicesMap
 	}
@@ -3297,12 +3297,12 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &SecuremeshSiteBlockedServicesModel{
-			BlockedService: func() []SecuremeshSiteBlockedServicesBlockedServiceModel {
-				if listData, ok := blockData["blocked_service"].([]interface{}); ok && len(listData) > 0 {
-					var result []SecuremeshSiteBlockedServicesBlockedServiceModel
+			BlockedSevice: func() []SecuremeshSiteBlockedServicesBlockedSeviceModel {
+				if listData, ok := blockData["blocked_sevice"].([]interface{}); ok && len(listData) > 0 {
+					var result []SecuremeshSiteBlockedServicesBlockedSeviceModel
 					for _, item := range listData {
 						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, SecuremeshSiteBlockedServicesBlockedServiceModel{
+							result = append(result, SecuremeshSiteBlockedServicesBlockedSeviceModel{
 								DNS: func() *SecuremeshSiteEmptyModel {
 									if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
@@ -3905,12 +3905,12 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &SecuremeshSiteBlockedServicesModel{
-			BlockedService: func() []SecuremeshSiteBlockedServicesBlockedServiceModel {
-				if listData, ok := blockData["blocked_service"].([]interface{}); ok && len(listData) > 0 {
-					var result []SecuremeshSiteBlockedServicesBlockedServiceModel
+			BlockedSevice: func() []SecuremeshSiteBlockedServicesBlockedSeviceModel {
+				if listData, ok := blockData["blocked_sevice"].([]interface{}); ok && len(listData) > 0 {
+					var result []SecuremeshSiteBlockedServicesBlockedSeviceModel
 					for _, item := range listData {
 						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, SecuremeshSiteBlockedServicesBlockedServiceModel{
+							result = append(result, SecuremeshSiteBlockedServicesBlockedSeviceModel{
 								DNS: func() *SecuremeshSiteEmptyModel {
 									if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
@@ -4473,9 +4473,9 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 	}
 	if data.BlockedServices != nil {
 		blocked_servicesMap := make(map[string]interface{})
-		if len(data.BlockedServices.BlockedService) > 0 {
-			var blocked_serviceList []map[string]interface{}
-			for _, listItem := range data.BlockedServices.BlockedService {
+		if len(data.BlockedServices.BlockedSevice) > 0 {
+			var blocked_seviceList []map[string]interface{}
+			for _, listItem := range data.BlockedServices.BlockedSevice {
 				listItemMap := make(map[string]interface{})
 				if listItem.DNS != nil {
 					listItemMap["dns"] = map[string]interface{}{}
@@ -4489,9 +4489,9 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 				if listItem.WebUserInterface != nil {
 					listItemMap["web_user_interface"] = map[string]interface{}{}
 				}
-				blocked_serviceList = append(blocked_serviceList, listItemMap)
+				blocked_seviceList = append(blocked_seviceList, listItemMap)
 			}
-			blocked_servicesMap["blocked_service"] = blocked_serviceList
+			blocked_servicesMap["blocked_sevice"] = blocked_seviceList
 		}
 		apiResource.Spec["blocked_services"] = blocked_servicesMap
 	}
@@ -4769,12 +4769,12 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &SecuremeshSiteBlockedServicesModel{
-			BlockedService: func() []SecuremeshSiteBlockedServicesBlockedServiceModel {
-				if listData, ok := blockData["blocked_service"].([]interface{}); ok && len(listData) > 0 {
-					var result []SecuremeshSiteBlockedServicesBlockedServiceModel
+			BlockedSevice: func() []SecuremeshSiteBlockedServicesBlockedSeviceModel {
+				if listData, ok := blockData["blocked_sevice"].([]interface{}); ok && len(listData) > 0 {
+					var result []SecuremeshSiteBlockedServicesBlockedSeviceModel
 					for _, item := range listData {
 						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, SecuremeshSiteBlockedServicesBlockedServiceModel{
+							result = append(result, SecuremeshSiteBlockedServicesBlockedSeviceModel{
 								DNS: func() *SecuremeshSiteEmptyModel {
 									if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}

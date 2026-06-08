@@ -139,24 +139,24 @@ var GCPVPCSiteAdminPasswordWingmanSecretInfoModelAttrTypes = map[string]attr.Typ
 
 // GCPVPCSiteBlockedServicesModel represents blocked_services block
 type GCPVPCSiteBlockedServicesModel struct {
-	BlockedService []GCPVPCSiteBlockedServicesBlockedServiceModel `tfsdk:"blocked_service"`
+	BlockedSevice []GCPVPCSiteBlockedServicesBlockedSeviceModel `tfsdk:"blocked_sevice"`
 }
 
 // GCPVPCSiteBlockedServicesModelAttrTypes defines the attribute types for GCPVPCSiteBlockedServicesModel
 var GCPVPCSiteBlockedServicesModelAttrTypes = map[string]attr.Type{
-	"blocked_service": types.ListType{ElemType: types.ObjectType{AttrTypes: GCPVPCSiteBlockedServicesBlockedServiceModelAttrTypes}},
+	"blocked_sevice": types.ListType{ElemType: types.ObjectType{AttrTypes: GCPVPCSiteBlockedServicesBlockedSeviceModelAttrTypes}},
 }
 
-// GCPVPCSiteBlockedServicesBlockedServiceModel represents blocked_service block
-type GCPVPCSiteBlockedServicesBlockedServiceModel struct {
+// GCPVPCSiteBlockedServicesBlockedSeviceModel represents blocked_sevice block
+type GCPVPCSiteBlockedServicesBlockedSeviceModel struct {
 	NetworkType      types.String          `tfsdk:"network_type"`
 	DNS              *GCPVPCSiteEmptyModel `tfsdk:"dns"`
 	SSH              *GCPVPCSiteEmptyModel `tfsdk:"ssh"`
 	WebUserInterface *GCPVPCSiteEmptyModel `tfsdk:"web_user_interface"`
 }
 
-// GCPVPCSiteBlockedServicesBlockedServiceModelAttrTypes defines the attribute types for GCPVPCSiteBlockedServicesBlockedServiceModel
-var GCPVPCSiteBlockedServicesBlockedServiceModelAttrTypes = map[string]attr.Type{
+// GCPVPCSiteBlockedServicesBlockedSeviceModelAttrTypes defines the attribute types for GCPVPCSiteBlockedServicesBlockedSeviceModel
+var GCPVPCSiteBlockedServicesBlockedSeviceModelAttrTypes = map[string]attr.Type{
 	"network_type":       types.StringType,
 	"dns":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ssh":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -1795,7 +1795,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "Disable node local services on this site.",
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
-					"blocked_service": schema.ListNestedBlock{
+					"blocked_sevice": schema.ListNestedBlock{
 						MarkdownDescription: "Disable Node Local Services. Blocking or denial configuration",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
@@ -3820,9 +3820,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	}
 	if data.BlockedServices != nil {
 		blocked_servicesMap := make(map[string]interface{})
-		if len(data.BlockedServices.BlockedService) > 0 {
-			var blocked_serviceList []map[string]interface{}
-			for _, listItem := range data.BlockedServices.BlockedService {
+		if len(data.BlockedServices.BlockedSevice) > 0 {
+			var blocked_seviceList []map[string]interface{}
+			for _, listItem := range data.BlockedServices.BlockedSevice {
 				listItemMap := make(map[string]interface{})
 				if listItem.DNS != nil {
 					listItemMap["dns"] = map[string]interface{}{}
@@ -3836,9 +3836,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if listItem.WebUserInterface != nil {
 					listItemMap["web_user_interface"] = map[string]interface{}{}
 				}
-				blocked_serviceList = append(blocked_serviceList, listItemMap)
+				blocked_seviceList = append(blocked_seviceList, listItemMap)
 			}
-			blocked_servicesMap["blocked_service"] = blocked_serviceList
+			blocked_servicesMap["blocked_sevice"] = blocked_seviceList
 		}
 		createReq.Spec["blocked_services"] = blocked_servicesMap
 	}
@@ -4431,12 +4431,12 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &GCPVPCSiteBlockedServicesModel{
-			BlockedService: func() []GCPVPCSiteBlockedServicesBlockedServiceModel {
-				if listData, ok := blockData["blocked_service"].([]interface{}); ok && len(listData) > 0 {
-					var result []GCPVPCSiteBlockedServicesBlockedServiceModel
+			BlockedSevice: func() []GCPVPCSiteBlockedServicesBlockedSeviceModel {
+				if listData, ok := blockData["blocked_sevice"].([]interface{}); ok && len(listData) > 0 {
+					var result []GCPVPCSiteBlockedServicesBlockedSeviceModel
 					for _, item := range listData {
 						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, GCPVPCSiteBlockedServicesBlockedServiceModel{
+							result = append(result, GCPVPCSiteBlockedServicesBlockedSeviceModel{
 								DNS: func() *GCPVPCSiteEmptyModel {
 									if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 										return &GCPVPCSiteEmptyModel{}
@@ -5639,12 +5639,12 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &GCPVPCSiteBlockedServicesModel{
-			BlockedService: func() []GCPVPCSiteBlockedServicesBlockedServiceModel {
-				if listData, ok := blockData["blocked_service"].([]interface{}); ok && len(listData) > 0 {
-					var result []GCPVPCSiteBlockedServicesBlockedServiceModel
+			BlockedSevice: func() []GCPVPCSiteBlockedServicesBlockedSeviceModel {
+				if listData, ok := blockData["blocked_sevice"].([]interface{}); ok && len(listData) > 0 {
+					var result []GCPVPCSiteBlockedServicesBlockedSeviceModel
 					for _, item := range listData {
 						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, GCPVPCSiteBlockedServicesBlockedServiceModel{
+							result = append(result, GCPVPCSiteBlockedServicesBlockedSeviceModel{
 								DNS: func() *GCPVPCSiteEmptyModel {
 									if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 										return &GCPVPCSiteEmptyModel{}
@@ -6726,9 +6726,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	}
 	if data.BlockedServices != nil {
 		blocked_servicesMap := make(map[string]interface{})
-		if len(data.BlockedServices.BlockedService) > 0 {
-			var blocked_serviceList []map[string]interface{}
-			for _, listItem := range data.BlockedServices.BlockedService {
+		if len(data.BlockedServices.BlockedSevice) > 0 {
+			var blocked_seviceList []map[string]interface{}
+			for _, listItem := range data.BlockedServices.BlockedSevice {
 				listItemMap := make(map[string]interface{})
 				if listItem.DNS != nil {
 					listItemMap["dns"] = map[string]interface{}{}
@@ -6742,9 +6742,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if listItem.WebUserInterface != nil {
 					listItemMap["web_user_interface"] = map[string]interface{}{}
 				}
-				blocked_serviceList = append(blocked_serviceList, listItemMap)
+				blocked_seviceList = append(blocked_seviceList, listItemMap)
 			}
-			blocked_servicesMap["blocked_service"] = blocked_serviceList
+			blocked_servicesMap["blocked_sevice"] = blocked_seviceList
 		}
 		apiResource.Spec["blocked_services"] = blocked_servicesMap
 	}
@@ -7348,12 +7348,12 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &GCPVPCSiteBlockedServicesModel{
-			BlockedService: func() []GCPVPCSiteBlockedServicesBlockedServiceModel {
-				if listData, ok := blockData["blocked_service"].([]interface{}); ok && len(listData) > 0 {
-					var result []GCPVPCSiteBlockedServicesBlockedServiceModel
+			BlockedSevice: func() []GCPVPCSiteBlockedServicesBlockedSeviceModel {
+				if listData, ok := blockData["blocked_sevice"].([]interface{}); ok && len(listData) > 0 {
+					var result []GCPVPCSiteBlockedServicesBlockedSeviceModel
 					for _, item := range listData {
 						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, GCPVPCSiteBlockedServicesBlockedServiceModel{
+							result = append(result, GCPVPCSiteBlockedServicesBlockedSeviceModel{
 								DNS: func() *GCPVPCSiteEmptyModel {
 									if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 										return &GCPVPCSiteEmptyModel{}

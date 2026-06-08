@@ -1,0 +1,26 @@
+# f5xc_k8s_cluster
+
+Category: Kubernetes
+K8s_cluster will create the object in the storage backend for namespace metadata.namespace
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "f5xc_k8s_cluster" "example" {
+  name      = "example"
+  namespace = "system"
+
+  labels = {
+    "env" = "production"
+  }
+}
+```
+
+## Dependencies
+
+Requires: none

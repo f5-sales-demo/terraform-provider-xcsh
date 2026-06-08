@@ -1,0 +1,26 @@
+# f5xc_ike2
+
+Category: VPN
+Ike phase2 profile specification. configuration
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "f5xc_ike2" "example" {
+  name      = "example"
+  namespace = "system"
+
+  labels = {
+    "env" = "production"
+  }
+}
+```
+
+## Dependencies
+
+Requires: none
