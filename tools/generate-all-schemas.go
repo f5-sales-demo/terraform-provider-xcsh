@@ -5,6 +5,7 @@
 
 // generate-all-schemas.go - Batch generator for all F5 XC Terraform resources
 // This tool processes all OpenAPI spec files and generates comprehensive Terraform schemas.
+// Last synced: api-specs-enriched v2.1.129 (lables→labels property rename in fleetFlashBladeEndpoint)
 //
 // CI/CD Integration:
 //   Changes to this file trigger the generate.yml workflow which regenerates all
