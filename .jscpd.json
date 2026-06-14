@@ -10,11 +10,11 @@
     "**/release/**",
     "**/.git/**",
     "**/vendor/**",
-    "**/internal/client/**",
-    "**/internal/provider/**",
+    "**/internal/**",
+    "**/tools/**",
+    "**/examples/**",
     "**/templates/**",
-    "**/docs/resources/**",
-    "**/docs/data-sources/**",
-    "**/docs/functions/**"
+    "**/scripts/**",
+    "**/docs/**"
   ]
 }
