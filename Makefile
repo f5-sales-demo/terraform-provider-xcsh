@@ -118,6 +118,15 @@ download-specs:
 		'[.[0].assets[] | select(.name=="api-catalog.json")] | .[0].id'); \
 	gh api repos/$(ENRICHED_REPO)/releases/assets/$$AID \
 		-H "Accept: application/octet-stream" > $(SPEC_DIR)/api-catalog.json; \
+	MID=$$(gh api repos/$(ENRICHED_REPO)/releases --jq \
+		'[.[0].assets[] | select(.name=="minimal-export-defaults.json")] | .[0].id'); \
+	if [ -n "$$MID" ]; then \
+		gh api repos/$(ENRICHED_REPO)/releases/assets/$$MID \
+			-H "Accept: application/octet-stream" > $(SPEC_DIR)/minimal-export-defaults.json; \
+		echo "Downloaded minimal-export-defaults.json"; \
+	else \
+		echo "Note: minimal-export-defaults.json absent from latest release; server_defaults fall back to docs markers"; \
+	fi; \
 	echo "Specs downloaded to $(SPEC_DIR)"
 
 # Generate resources from OpenAPI specs

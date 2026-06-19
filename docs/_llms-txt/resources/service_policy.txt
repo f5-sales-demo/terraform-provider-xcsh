@@ -26,7 +26,6 @@ Pick exactly one:
 ## Server Defaults (safe to omit)
 
 - port_matcher
-- any_server
 
 ## Minimal Valid Config
 

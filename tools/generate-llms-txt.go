@@ -55,16 +55,16 @@ type LLMsConfig struct {
 
 // ResourceInfo holds parsed information about a resource.
 type ResourceInfo struct {
-	Name            string
-	FullName        string // f5xc_<name>
-	Category        string
-	Description     string
-	RequiredFields  []string
-	OneOfGroups     []OneOfGroup
-	ServerDefaults  []string
-	MinimalConfig   string
-	Dependencies    []string
-	IsPromoted      bool
+	Name           string
+	FullName       string // f5xc_<name>
+	Category       string
+	Description    string
+	RequiredFields []string
+	OneOfGroups    []OneOfGroup
+	ServerDefaults []string
+	MinimalConfig  string
+	Dependencies   []string
+	IsPromoted     bool
 }
 
 // OneOfGroup represents a mutually exclusive group of fields.
@@ -154,12 +154,12 @@ var categoryDescriptions = map[string]string{
 
 // Regex patterns
 var (
-	oneOfCommentRE     = regexp.MustCompile(`//\s*One of the arguments from this list "([^"]+)" must be set`)
-	codeBlockRE        = regexp.MustCompile("(?s)```(?:terraform|hcl)\n(.*?)```")
+	oneOfCommentRE      = regexp.MustCompile(`//\s*One of the arguments from this list "([^"]+)" must be set`)
+	codeBlockRE         = regexp.MustCompile("(?s)```(?:terraform|hcl)\n(.*?)```")
 	serverDefaultLineRE = regexp.MustCompile(`^#\s+-\s+(\S+)\s*$`)
-	requiredFieldRE    = regexp.MustCompile(`<a[^>]*>.*?</a>.*?\[(` + "`" + `[^` + "`" + `]+` + "`" + `)\].*?-\s*Required\s+(String|Number|Bool|Block)`)
-	serverDefaultTagRE = regexp.MustCompile(`Server Default|⚙️\s*\*\*Server Default\*\*`)
-	resourceBlockRE    = regexp.MustCompile(`(?s)resource\s+"f5xc_\w+"\s+"[^"]+"\s+\{[^}]*\}`)
+	requiredFieldRE     = regexp.MustCompile(`<a[^>]*>.*?</a>.*?\[(` + "`" + `[^` + "`" + `]+` + "`" + `)\].*?-\s*Required\s+(String|Number|Bool|Block)`)
+	serverDefaultTagRE  = regexp.MustCompile(`Server Default|⚙️\s*\*\*Server Default\*\*`)
+	resourceBlockRE     = regexp.MustCompile(`(?s)resource\s+"f5xc_\w+"\s+"[^"]+"\s+\{[^}]*\}`)
 )
 
 func main() {
@@ -169,8 +169,12 @@ func main() {
 		os.Exit(1)
 	}
 
+	// Load per-kind server defaults directly from the api-specs-enriched
+	// single source of truth (falls back to docs markers when unavailable).
+	artifactServerDefaults := loadArtifactServerDefaults()
+
 	// Parse all resources
-	resources, err := parseAllResources(config)
+	resources, err := parseAllResources(config, artifactServerDefaults)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error parsing resources: %v\n", err)
 		os.Exit(1)
@@ -236,7 +240,55 @@ func loadConfig(path string) (*LLMsConfig, error) {
 	return &config, nil
 }
 
-func parseAllResources(config *LLMsConfig) ([]ResourceInfo, error) {
+// minimalDefaultsArtifact mirrors the minimal-export-defaults.json published by
+// api-specs-enriched — the single source of truth for per-kind server defaults
+// that JSON/YAML/HCL export also consume.
+type minimalDefaultsArtifact struct {
+	Resources map[string]struct {
+		ServerDefaultFields []string `json:"serverDefaultFields"`
+	} `json:"resources"`
+}
+
+// loadArtifactServerDefaults reads the published minimal-export-defaults.json and
+// returns a kind -> sorted, spec.-stripped server-default field list. This is the
+// primary, direct-from-source signal for the index's server_defaults (preferred
+// over re-deriving from rendered docs markers). Returns nil when the artifact is
+// unavailable, so callers fall back to the docs-markdown extraction.
+func loadArtifactServerDefaults() map[string][]string {
+	specDir := os.Getenv("F5XC_SPEC_DIR")
+	if specDir == "" {
+		specDir = "docs/specifications/api"
+	}
+	path := filepath.Join(specDir, "minimal-export-defaults.json")
+	data, err := os.ReadFile(path)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Note: %s not found; server_defaults fall back to docs markers\n", path)
+		return nil
+	}
+	var art minimalDefaultsArtifact
+	if err := json.Unmarshal(data, &art); err != nil {
+		fmt.Fprintf(os.Stderr, "Warning: could not parse %s: %v; falling back to docs markers\n", path, err)
+		return nil
+	}
+	result := make(map[string][]string, len(art.Resources))
+	for kind, r := range art.Resources {
+		seen := make(map[string]bool)
+		fields := make([]string, 0, len(r.ServerDefaultFields))
+		for _, p := range r.ServerDefaultFields {
+			f := strings.TrimPrefix(p, "spec.")
+			if f == "" || seen[f] {
+				continue
+			}
+			seen[f] = true
+			fields = append(fields, f)
+		}
+		sort.Strings(fields)
+		result[kind] = fields
+	}
+	return result
+}
+
+func parseAllResources(config *LLMsConfig, artifactServerDefaults map[string][]string) ([]ResourceInfo, error) {
 	files, err := filepath.Glob("docs/resources/*.md")
 	if err != nil {
 		return nil, err
@@ -250,7 +302,7 @@ func parseAllResources(config *LLMsConfig) ([]ResourceInfo, error) {
 			continue
 		}
 
-		res, err := parseResource(f, name, config)
+		res, err := parseResource(f, name, config, artifactServerDefaults)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Warning: could not parse %s: %v\n", name, err)
 			continue
@@ -261,7 +313,7 @@ func parseAllResources(config *LLMsConfig) ([]ResourceInfo, error) {
 	return resources, nil
 }
 
-func parseResource(path, name string, config *LLMsConfig) (ResourceInfo, error) {
+func parseResource(path, name string, config *LLMsConfig, artifactServerDefaults map[string][]string) (ResourceInfo, error) {
 	data, err := os.ReadFile(path)
 	if err != nil {
 		return ResourceInfo{}, err
@@ -290,8 +342,14 @@ func parseResource(path, name string, config *LLMsConfig) (ResourceInfo, error) 
 	// Extract OneOf groups with context
 	res.OneOfGroups = extractOneOfGroupsWithContext(content)
 
-	// Extract server defaults
-	res.ServerDefaults = extractServerDefaults(content)
+	// Server defaults: prefer the api-specs-enriched single source of truth
+	// (minimal-export-defaults.json); fall back to docs markers when the
+	// artifact lacks this kind so coverage never regresses.
+	if sd, ok := artifactServerDefaults[name]; ok {
+		res.ServerDefaults = sd
+	} else {
+		res.ServerDefaults = extractServerDefaults(content)
+	}
 
 	// Extract minimal config
 	res.MinimalConfig = extractMinimalConfig(content, name)
@@ -622,47 +680,47 @@ func findBlockFields(codeBlock string) map[string]bool {
 func isEmptyBlockField(name string) bool {
 	// Known attribute fields (string values, not blocks)
 	knownAttributes := map[string]bool{
-		"host_header":               true, // string value: "example.com"
-		"server_name":               true, // string value
-		"api_specification":         true, // reference
-		"api_testing":               true, // reference when not empty
-		"captcha_challenge":         true, // config string
-		"js_challenge":              true, // config string
-		"policy_based_challenge":    true, // reference
-		"cookie_stickiness":         true, // config
-		"least_active":              true, // config
-		"random":                    true, // config
-		"ring_hash":                 true, // config
-		"round_robin":               true, // selector (but empty block form)
-		"source_ip_stickiness":      true, // config
-		"http":                      true, // has nested config
-		"https":                     true, // has nested config
-		"https_auto_cert":           true, // has nested config
-		"malware_protection_settings": true,
-		"api_rate_limit":            true,
-		"rate_limit":                true,
-		"active_service_policies":   true,
+		"host_header":                     true, // string value: "example.com"
+		"server_name":                     true, // string value
+		"api_specification":               true, // reference
+		"api_testing":                     true, // reference when not empty
+		"captcha_challenge":               true, // config string
+		"js_challenge":                    true, // config string
+		"policy_based_challenge":          true, // reference
+		"cookie_stickiness":               true, // config
+		"least_active":                    true, // config
+		"random":                          true, // config
+		"ring_hash":                       true, // config
+		"round_robin":                     true, // selector (but empty block form)
+		"source_ip_stickiness":            true, // config
+		"http":                            true, // has nested config
+		"https":                           true, // has nested config
+		"https_auto_cert":                 true, // has nested config
+		"malware_protection_settings":     true,
+		"api_rate_limit":                  true,
+		"rate_limit":                      true,
+		"active_service_policies":         true,
 		"service_policies_from_namespace": true, // but often empty
-		"user_id_client_ip":         true,
-		"user_identification":       true,
-		"app_firewall":              true, // reference block with name/namespace
-		"bot_defense":               true,
-		"bot_defense_advanced":      true,
-		"headers":                   true, // map
-		"request_headers_to_remove": true, // list
+		"user_id_client_ip":               true,
+		"user_identification":             true,
+		"app_firewall":                    true, // reference block with name/namespace
+		"bot_defense":                     true,
+		"bot_defense_advanced":            true,
+		"headers":                         true, // map
+		"request_headers_to_remove":       true, // list
 	}
 
 	if knownAttributes[name] {
 		// Check if it's one of the selector variants
 		// These are actually blocks when used as selectors:
 		selectorsAsBlocks := map[string]bool{
-			"round_robin":               true,
-			"least_active":              true,
-			"random":                    true,
-			"cookie_stickiness":         true,
-			"source_ip_stickiness":      true,
+			"round_robin":                     true,
+			"least_active":                    true,
+			"random":                          true,
+			"cookie_stickiness":               true,
+			"source_ip_stickiness":            true,
 			"service_policies_from_namespace": true,
-			"user_id_client_ip":         true,
+			"user_id_client_ip":               true,
 		}
 		if selectorsAsBlocks[name] {
 			return true
