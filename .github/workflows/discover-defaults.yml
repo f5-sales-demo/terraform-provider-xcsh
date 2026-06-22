@@ -83,7 +83,7 @@ jobs:
           # This step validates we can reach the staging environment
 
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           token: ${{ secrets.AUTO_MERGE_TOKEN }}
