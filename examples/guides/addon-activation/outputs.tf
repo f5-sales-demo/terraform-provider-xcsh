@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5xc-salesdemos/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 # F5 Distributed Cloud Provider - Addon Activation Outputs
 # =========================================================
 

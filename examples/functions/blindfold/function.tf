@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5xc-salesdemos/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 # Encrypt a secret string using F5XC blindfold
 #
 # The blindfold function encrypts base64-encoded plaintext using F5 Distributed

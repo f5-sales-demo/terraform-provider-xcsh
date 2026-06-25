@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5xc-salesdemos/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 # Encrypt a file using F5XC blindfold
 #
 # The blindfold_file function reads a file and encrypts its contents using F5

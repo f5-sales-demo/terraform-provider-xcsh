@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5xc-salesdemos/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 # Blindfold Secret Management Guide - Outputs
 # These outputs provide useful information and next steps after deployment.
 
