@@ -9,20 +9,20 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/acctest"
+	"github.com/f5xc-salesdemos/terraform-provider-xcsh/internal/acctest"
 )
 
 func TestAccAddressAllocatorResource_basic(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	resourceName := "f5xc_address_allocator.test"
+	resourceName := "xcsh_address_allocator.test"
 	rName := acctest.RandomName("tf-test-addr")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy:             acctest.CheckResourceDestroyed("f5xc_address_allocator"),
+		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_address_allocator"),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAddressAllocatorConfig_basic(rName),
@@ -61,7 +61,7 @@ func testAccAddressAllocatorConfig_basic(name string) string {
 	// Valid mode values are "LOCAL" or "GLOBAL_PER_SITE_NODE"
 	// Must explicitly set all nested block attributes to avoid state drift from API defaults
 	return fmt.Sprintf(`
-resource "f5xc_address_allocator" "test" {
+resource "xcsh_address_allocator" "test" {
   name      = %[1]q
   namespace = "system"
 

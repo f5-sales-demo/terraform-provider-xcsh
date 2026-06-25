@@ -14,7 +14,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
+	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-xcsh/internal/timeouts"
 )
 
 // ResourceType categorizes resources for timeout configuration
@@ -31,7 +31,7 @@ const (
 
 // BaseResourceConfig holds configuration for base resource behavior
 type BaseResourceConfig struct {
-	// ResourceTypeName is the Terraform resource type name (e.g., "f5xc_namespace")
+	// ResourceTypeName is the Terraform resource type name (e.g., "xcsh_namespace")
 	ResourceTypeName string
 
 	// ResourceType categorizes the resource for timeout configuration

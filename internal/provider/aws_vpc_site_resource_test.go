@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/acctest"
+	"github.com/f5xc-salesdemos/terraform-provider-xcsh/internal/acctest"
 )
 
 // TestAccAWSVPCSiteResource_basic validates basic AWS VPC Site resource operations
@@ -24,7 +24,7 @@ func TestAccAWSVPCSiteResource_basic(t *testing.T) {
 
 	rName := acctest.RandomName("tf-acc-test-vpc")
 	nsName := acctest.RandomName("tf-acc-test-ns")
-	resourceName := "f5xc_aws_vpc_site.test"
+	resourceName := "xcsh_aws_vpc_site.test"
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -34,7 +34,7 @@ func TestAccAWSVPCSiteResource_basic(t *testing.T) {
 				Source: "hashicorp/time",
 			},
 		},
-		CheckDestroy: acctest.CheckResourceDestroyed("f5xc_aws_vpc_site"),
+		CheckDestroy: acctest.CheckResourceDestroyed("xcsh_aws_vpc_site"),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSVPCSiteConfig_basic(nsName, rName),
@@ -72,12 +72,12 @@ func testAccAWSVPCSiteConfig_basic(nsName, name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "f5xc_namespace" "test" {
+resource "xcsh_namespace" "test" {
   name = %[1]q
 }
 
 resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [f5xc_namespace.test]
+  depends_on      = [xcsh_namespace.test]
   create_duration = "5s"
 }
 
@@ -89,11 +89,11 @@ resource "time_sleep" "wait_for_namespace" {
 # - Subnet configurations
 # - ingress_egress_gw or ingress_gw configuration with az_nodes
 # - Multiple required nested blocks
-resource "f5xc_aws_vpc_site" "test" {
+resource "xcsh_aws_vpc_site" "test" {
   depends_on = [time_sleep.wait_for_namespace]
 
   name      = %[2]q
-  namespace = f5xc_namespace.test.name
+  namespace = xcsh_namespace.test.name
 
   # Minimal configuration - would need extensive configuration blocks for real deployment
 }

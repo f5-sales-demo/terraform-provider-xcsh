@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5xc-salesdemos/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 # HTTP Load Balancer Guide - Outputs
 # ===================================
 
@@ -8,12 +17,12 @@ output "namespace" {
 
 output "origin_pool_name" {
   description = "Name of the created origin pool"
-  value       = f5xc_origin_pool.this.name
+  value       = xcsh_origin_pool.this.name
 }
 
 output "loadbalancer_name" {
   description = "Name of the created HTTP load balancer"
-  value       = f5xc_http_loadbalancer.this.name
+  value       = xcsh_http_loadbalancer.this.name
 }
 
 output "loadbalancer_domain" {
@@ -47,7 +56,7 @@ output "next_steps" {
 
     1. Configure DNS:
        Create a CNAME record pointing your domain to:
-       ${f5xc_http_loadbalancer.this.name}.${local.namespace}.tenant.vh.ves.io
+       ${xcsh_http_loadbalancer.this.name}.${local.namespace}.tenant.vh.ves.io
 
     2. Wait for certificate provisioning:
        Auto-cert may take a few minutes to provision.

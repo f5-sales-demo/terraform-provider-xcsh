@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/acctest"
+	"github.com/f5xc-salesdemos/terraform-provider-xcsh/internal/acctest"
 )
 
 func TestAccAppTypeResource_basic(t *testing.T) {
@@ -18,12 +18,12 @@ func TestAccAppTypeResource_basic(t *testing.T) {
 
 	rName := acctest.RandomName("tf-acc-test-apptype")
 	nsName := acctest.RandomName("tf-acc-test-ns")
-	resourceName := "f5xc_app_type.test"
+	resourceName := "xcsh_app_type.test"
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy:             acctest.CheckResourceDestroyed("f5xc_app_type"),
+		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_app_type"),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppTypeConfig_basic(nsName, rName),
@@ -61,7 +61,7 @@ func testAccAppTypeConfig_basic(nsName, name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "f5xc_app_type" "test" {
+resource "xcsh_app_type" "test" {
   name      = %[2]q
   namespace = "shared"
 }

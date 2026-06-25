@@ -17,7 +17,7 @@
 //	func TestAccMyResource(t *testing.T) {
 //	    tracker := acctest.GetTracker()
 //	    resourceName := acctest.RandomName("myresource")
-//	    tracker.TrackResource("f5xc_my_resource", resourceName, namespace)
+//	    tracker.TrackResource("xcsh_my_resource", resourceName, namespace)
 //	    defer acctest.CleanupTracked()  // Only deletes resources WE created
 //	    // ... test logic ...
 //	}
@@ -51,7 +51,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
+	"github.com/f5xc-salesdemos/terraform-provider-xcsh/internal/client"
 )
 
 const (
@@ -77,9 +77,9 @@ func GetSharedClient() (*client.Client, error) {
 		return sharedClient, nil
 	}
 
-	apiURL := os.Getenv(EnvF5XCURL)
+	apiURL := os.Getenv(EnvXCSHURL)
 	if apiURL == "" {
-		return nil, fmt.Errorf("%s must be set for sweepers", EnvF5XCURL)
+		return nil, fmt.Errorf("%s must be set for sweepers", EnvXCSHURL)
 	}
 
 	// Normalize URL
@@ -92,8 +92,8 @@ func GetSharedClient() (*client.Client, error) {
 	case AuthMethodP12:
 		c, err := client.NewClientWithP12(
 			apiURL,
-			os.Getenv(EnvF5XCP12File),
-			os.Getenv(EnvF5XCP12Password),
+			os.Getenv(EnvXCSHP12File),
+			os.Getenv(EnvXCSHP12Password),
 		)
 		if err != nil {
 			return nil, fmt.Errorf("failed to create P12 client: %w", err)
@@ -102,8 +102,8 @@ func GetSharedClient() (*client.Client, error) {
 	case AuthMethodPEM:
 		c, err := client.NewClientWithCert(
 			apiURL,
-			os.Getenv(EnvF5XCCert),
-			os.Getenv(EnvF5XCKey),
+			os.Getenv(EnvXCSHCert),
+			os.Getenv(EnvXCSHKey),
 			"",
 		)
 		if err != nil {
@@ -111,7 +111,7 @@ func GetSharedClient() (*client.Client, error) {
 		}
 		sharedClient = c
 	case AuthMethodToken:
-		sharedClient = client.NewClient(apiURL, os.Getenv(EnvF5XCToken))
+		sharedClient = client.NewClient(apiURL, os.Getenv(EnvXCSHToken))
 	default:
 		return nil, fmt.Errorf("no authentication configured for sweepers")
 	}
@@ -132,68 +132,68 @@ func init() {
 	// Namespace sweeper runs last since it can cascade delete child resources
 
 	// Leaf resources (no dependencies on other test resources)
-	resource.AddTestSweepers("f5xc_healthcheck", &resource.Sweeper{
-		Name: "f5xc_healthcheck",
+	resource.AddTestSweepers("xcsh_healthcheck", &resource.Sweeper{
+		Name: "xcsh_healthcheck",
 		F:    sweepHealthchecks,
 	})
 
-	resource.AddTestSweepers("f5xc_ip_prefix_set", &resource.Sweeper{
-		Name: "f5xc_ip_prefix_set",
+	resource.AddTestSweepers("xcsh_ip_prefix_set", &resource.Sweeper{
+		Name: "xcsh_ip_prefix_set",
 		F:    sweepIPPrefixSets,
 	})
 
-	resource.AddTestSweepers("f5xc_rate_limiter", &resource.Sweeper{
-		Name: "f5xc_rate_limiter",
+	resource.AddTestSweepers("xcsh_rate_limiter", &resource.Sweeper{
+		Name: "xcsh_rate_limiter",
 		F:    sweepRateLimiters,
 	})
 
-	resource.AddTestSweepers("f5xc_user_identification", &resource.Sweeper{
-		Name: "f5xc_user_identification",
+	resource.AddTestSweepers("xcsh_user_identification", &resource.Sweeper{
+		Name: "xcsh_user_identification",
 		F:    sweepUserIdentifications,
 	})
 
-	resource.AddTestSweepers("f5xc_malicious_user_mitigation", &resource.Sweeper{
-		Name: "f5xc_malicious_user_mitigation",
+	resource.AddTestSweepers("xcsh_malicious_user_mitigation", &resource.Sweeper{
+		Name: "xcsh_malicious_user_mitigation",
 		F:    sweepMaliciousUserMitigations,
 	})
 
-	resource.AddTestSweepers("f5xc_app_firewall", &resource.Sweeper{
-		Name: "f5xc_app_firewall",
+	resource.AddTestSweepers("xcsh_app_firewall", &resource.Sweeper{
+		Name: "xcsh_app_firewall",
 		F:    sweepAppFirewalls,
 	})
 
 	// Resources with dependencies
-	resource.AddTestSweepers("f5xc_origin_pool", &resource.Sweeper{
-		Name:         "f5xc_origin_pool",
+	resource.AddTestSweepers("xcsh_origin_pool", &resource.Sweeper{
+		Name:         "xcsh_origin_pool",
 		F:            sweepOriginPools,
-		Dependencies: []string{"f5xc_http_loadbalancer"},
+		Dependencies: []string{"xcsh_http_loadbalancer"},
 	})
 
-	resource.AddTestSweepers("f5xc_http_loadbalancer", &resource.Sweeper{
-		Name: "f5xc_http_loadbalancer",
+	resource.AddTestSweepers("xcsh_http_loadbalancer", &resource.Sweeper{
+		Name: "xcsh_http_loadbalancer",
 		F:    sweepHTTPLoadbalancers,
 	})
 
-	resource.AddTestSweepers("f5xc_service_policy", &resource.Sweeper{
-		Name: "f5xc_service_policy",
+	resource.AddTestSweepers("xcsh_service_policy", &resource.Sweeper{
+		Name: "xcsh_service_policy",
 		F:    sweepServicePolicies,
 	})
 
 	// Namespace sweeper runs last - depends on all other sweepers
 	// Deleting a namespace can cascade delete child resources
-	resource.AddTestSweepers("f5xc_namespace", &resource.Sweeper{
-		Name: "f5xc_namespace",
+	resource.AddTestSweepers("xcsh_namespace", &resource.Sweeper{
+		Name: "xcsh_namespace",
 		F:    sweepNamespaces,
 		Dependencies: []string{
-			"f5xc_http_loadbalancer",
-			"f5xc_origin_pool",
-			"f5xc_healthcheck",
-			"f5xc_app_firewall",
-			"f5xc_service_policy",
-			"f5xc_ip_prefix_set",
-			"f5xc_rate_limiter",
-			"f5xc_user_identification",
-			"f5xc_malicious_user_mitigation",
+			"xcsh_http_loadbalancer",
+			"xcsh_origin_pool",
+			"xcsh_healthcheck",
+			"xcsh_app_firewall",
+			"xcsh_service_policy",
+			"xcsh_ip_prefix_set",
+			"xcsh_rate_limiter",
+			"xcsh_user_identification",
+			"xcsh_malicious_user_mitigation",
 		},
 	})
 }

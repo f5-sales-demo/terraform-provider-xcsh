@@ -8,7 +8,7 @@ Run the GitHub Actions runner in a Docker container with all dependencies pre-in
 - Go 1.23.3
 - Terraform 1.9.8
 - GitHub CLI (gh)
-- curl, jq, git
+- cURL, jq, git
 
 ## Quick Start
 
@@ -22,8 +22,8 @@ cp .env.example .env
 Edit `.env` with your values:
 - `GITHUB_REPOSITORY` - Your repo (e.g., `owner/repo`)
 - `GITHUB_TOKEN` - Personal Access Token with `repo` scope
-- `F5XC_API_URL` - F5 XC API URL
-- `F5XC_API_TOKEN` - F5 XC API Token
+- `XCSH_API_URL` - F5 XC API URL
+- `XCSH_API_TOKEN` - F5 XC API Token
 
 ### 2. Build and Start
 
