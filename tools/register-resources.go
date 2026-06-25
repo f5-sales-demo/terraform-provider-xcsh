@@ -68,7 +68,7 @@ func main() {
 	for _, line := range lines {
 		trimmed := strings.TrimSpace(line)
 
-		if strings.Contains(line, "func (p *XCShProvider) Resources(") {
+		if strings.Contains(line, "func (p *XCSHProvider) Resources(") {
 			inResourcesFunc = true
 			newLines = append(newLines, line)
 			continue

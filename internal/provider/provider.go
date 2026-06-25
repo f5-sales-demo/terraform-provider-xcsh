@@ -18,19 +18,19 @@ import (
 	"github.com/f5xc-salesdemos/terraform-provider-xcsh/internal/client"
 )
 
-// Ensure XCShProvider satisfies various provider interfaces.
-var _ provider.Provider = &XCShProvider{}
+// Ensure XCSHProvider satisfies various provider interfaces.
+var _ provider.Provider = &XCSHProvider{}
 
-// XCShProvider defines the provider implementation.
-type XCShProvider struct {
+// XCSHProvider defines the provider implementation.
+type XCSHProvider struct {
 	// version is set to the provider version on release, "dev" when the
 	// provider is built and ran locally, and "test" when running acceptance
 	// testing.
 	version string
 }
 
-// XCShProviderModel describes the provider data model.
-type XCShProviderModel struct {
+// XCSHProviderModel describes the provider data model.
+type XCSHProviderModel struct {
 	APIToken    types.String `tfsdk:"api_token"`
 	APIURL      types.String `tfsdk:"api_url"`
 	APIP12File  types.String `tfsdk:"api_p12_file"`
@@ -40,12 +40,12 @@ type XCShProviderModel struct {
 	APICACert   types.String `tfsdk:"api_ca_cert"`
 }
 
-func (p *XCShProvider) Metadata(ctx context.Context, req provider.MetadataRequest, resp *provider.MetadataResponse) {
+func (p *XCSHProvider) Metadata(ctx context.Context, req provider.MetadataRequest, resp *provider.MetadataResponse) {
 	resp.TypeName = "xcsh"
 	resp.Version = p.version
 }
 
-func (p *XCShProvider) Schema(ctx context.Context, req provider.SchemaRequest, resp *provider.SchemaResponse) {
+func (p *XCSHProvider) Schema(ctx context.Context, req provider.SchemaRequest, resp *provider.SchemaResponse) {
 	resp.Schema = schema.Schema{
 		MarkdownDescription: "Terraform provider for F5 Distributed Cloud (xcsh) enabling infrastructure as code " +
 			"for load balancers, security policies, sites, and networking. Community-maintained provider " +
@@ -99,10 +99,10 @@ func (p *XCShProvider) Schema(ctx context.Context, req provider.SchemaRequest, r
 	}
 }
 
-func (p *XCShProvider) Configure(ctx context.Context, req provider.ConfigureRequest, resp *provider.ConfigureResponse) {
+func (p *XCSHProvider) Configure(ctx context.Context, req provider.ConfigureRequest, resp *provider.ConfigureResponse) {
 	tflog.Info(ctx, "Configuring xcsh client")
 
-	var config XCShProviderModel
+	var config XCSHProviderModel
 
 	resp.Diagnostics.Append(req.Config.Get(ctx, &config)...)
 
@@ -209,7 +209,7 @@ func (p *XCShProvider) Configure(ctx context.Context, req provider.ConfigureRequ
 	resp.ResourceData = c
 }
 
-func (p *XCShProvider) Resources(ctx context.Context) []func() resource.Resource {
+func (p *XCSHProvider) Resources(ctx context.Context) []func() resource.Resource {
 	return []func() resource.Resource{
 		NewAPICrawlerResource,
 		NewAPIDefinitionResource,
@@ -330,7 +330,7 @@ func (p *XCShProvider) Resources(ctx context.Context) []func() resource.Resource
 	}
 }
 
-func (p *XCShProvider) DataSources(ctx context.Context) []func() datasource.DataSource {
+func (p *XCSHProvider) DataSources(ctx context.Context) []func() datasource.DataSource {
 	return []func() datasource.DataSource{
 		NewAPICrawlerDataSource,
 		NewAPIDefinitionDataSource,
@@ -464,7 +464,7 @@ func (p *XCShProvider) DataSources(ctx context.Context) []func() datasource.Data
 
 func New(version string) func() provider.Provider {
 	return func() provider.Provider {
-		return &XCShProvider{
+		return &XCSHProvider{
 			version: version,
 		}
 	}

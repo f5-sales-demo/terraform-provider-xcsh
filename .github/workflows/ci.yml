@@ -254,8 +254,8 @@ jobs:
           max_attempts=3
           attempt=1
           while [ "$attempt" -le "$max_attempts" ]; do
-            echo "::group::tfplugindocs generate - Attempt $attempt of $max_attempts"
-            if tfplugindocs generate; then
+            echo "::group::tfplugindocs generate --provider-name xcsh - Attempt $attempt of $max_attempts"
+            if tfplugindocs generate --provider-name xcsh; then
               echo "::endgroup::"
               break
             fi

@@ -116,7 +116,7 @@ jobs:
           attempt=1
           while [ $attempt -le $max_attempts ]; do
             echo "::group::Attempt $attempt of $max_attempts"
-            if tfplugindocs generate; then
+            if tfplugindocs generate --provider-name xcsh; then
               echo "Documentation generated successfully"
               echo "::endgroup::"
               break

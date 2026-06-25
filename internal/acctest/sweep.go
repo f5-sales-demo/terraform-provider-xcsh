@@ -77,9 +77,9 @@ func GetSharedClient() (*client.Client, error) {
 		return sharedClient, nil
 	}
 
-	apiURL := os.Getenv(EnvXCShURL)
+	apiURL := os.Getenv(EnvXCSHURL)
 	if apiURL == "" {
-		return nil, fmt.Errorf("%s must be set for sweepers", EnvXCShURL)
+		return nil, fmt.Errorf("%s must be set for sweepers", EnvXCSHURL)
 	}
 
 	// Normalize URL
@@ -92,8 +92,8 @@ func GetSharedClient() (*client.Client, error) {
 	case AuthMethodP12:
 		c, err := client.NewClientWithP12(
 			apiURL,
-			os.Getenv(EnvXCShP12File),
-			os.Getenv(EnvXCShP12Password),
+			os.Getenv(EnvXCSHP12File),
+			os.Getenv(EnvXCSHP12Password),
 		)
 		if err != nil {
 			return nil, fmt.Errorf("failed to create P12 client: %w", err)
@@ -102,8 +102,8 @@ func GetSharedClient() (*client.Client, error) {
 	case AuthMethodPEM:
 		c, err := client.NewClientWithCert(
 			apiURL,
-			os.Getenv(EnvXCShCert),
-			os.Getenv(EnvXCShKey),
+			os.Getenv(EnvXCSHCert),
+			os.Getenv(EnvXCSHKey),
 			"",
 		)
 		if err != nil {
@@ -111,7 +111,7 @@ func GetSharedClient() (*client.Client, error) {
 		}
 		sharedClient = c
 	case AuthMethodToken:
-		sharedClient = client.NewClient(apiURL, os.Getenv(EnvXCShToken))
+		sharedClient = client.NewClient(apiURL, os.Getenv(EnvXCSHToken))
 	default:
 		return nil, fmt.Errorf("no authentication configured for sweepers")
 	}

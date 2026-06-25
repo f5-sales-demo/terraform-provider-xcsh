@@ -236,7 +236,7 @@ func RunWithMockOrReal(t *testing.T, testCase resource.TestCase, mockSetup func(
 	// Check if we can run real acceptance tests
 	if os.Getenv(EnvTFAccTest) != "" {
 		authMethod := DetectAuthMethod()
-		if authMethod != AuthMethodNone && os.Getenv(EnvXCShURL) != "" {
+		if authMethod != AuthMethodNone && os.Getenv(EnvXCSHURL) != "" {
 			// Run with real API
 			testCase.ProtoV6ProviderFactories = ProtoV6ProviderFactories
 			resource.Test(t, testCase)

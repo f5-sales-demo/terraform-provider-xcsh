@@ -16,8 +16,8 @@ import (
 	"github.com/f5xc-salesdemos/terraform-provider-xcsh/internal/functions"
 )
 
-// Ensure XCShProvider satisfies the provider.ProviderWithFunctions interface.
-var _ provider.ProviderWithFunctions = &XCShProvider{}
+// Ensure XCSHProvider satisfies the provider.ProviderWithFunctions interface.
+var _ provider.ProviderWithFunctions = &XCSHProvider{}
 
 // Functions returns utility functions provided by this provider.
 // These include blindfold encryption functions for XCSH Secret Management.
@@ -30,7 +30,7 @@ var _ provider.ProviderWithFunctions = &XCShProvider{}
 //
 //	provider::xcsh::blindfold(plaintext, policy_name, namespace)
 //	provider::xcsh::blindfold_file(path, policy_name, namespace)
-func (p *XCShProvider) Functions(ctx context.Context) []func() function.Function {
+func (p *XCSHProvider) Functions(ctx context.Context) []func() function.Function {
 	return []func() function.Function{
 		functions.NewBlindfoldFunction,
 		functions.NewBlindfoldFileFunction,

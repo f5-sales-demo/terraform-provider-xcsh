@@ -16,10 +16,10 @@ const StagingTestRegex = "^TestAcc(Namespace|Healthcheck|OriginPool|AppFirewall|
 func StagingPreCheck(t *testing.T) {
 	t.Helper()
 
-	if os.Getenv(EnvXCShURL) == "" {
+	if os.Getenv(EnvXCSHURL) == "" {
 		t.Skip("XCSH_API_URL must be set for staging tests")
 	}
-	if os.Getenv(EnvXCShToken) == "" {
+	if os.Getenv(EnvXCSHToken) == "" {
 		t.Skip("XCSH_API_TOKEN must be set for staging tests")
 	}
 }

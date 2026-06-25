@@ -146,11 +146,11 @@ generate-schemas:
 docs:
 	@echo "Generating Terraform documentation..."
 	@if command -v tfplugindocs >/dev/null 2>&1; then \
-		tfplugindocs generate; \
+		tfplugindocs generate --provider-name xcsh; \
 	else \
 		echo "tfplugindocs not installed. Installing..."; \
 		$(GO) install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@latest; \
-		tfplugindocs generate; \
+		tfplugindocs generate --provider-name xcsh; \
 	fi
 	@echo "Transforming documentation to Volterra-style format..."
 	$(GO) run $(TOOLS_DIR)/transform-docs.go

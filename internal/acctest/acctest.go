@@ -33,26 +33,26 @@ var (
 // Environment variable names for acceptance tests
 // Using XCSH_* prefix for xcsh provider branding.
 const (
-	// EnvXCShURL is the environment variable for the API URL
-	EnvXCShURL = "XCSH_API_URL"
+	// EnvXCSHURL is the environment variable for the API URL
+	EnvXCSHURL = "XCSH_API_URL"
 
-	// EnvXCShToken is the environment variable for the API token
-	EnvXCShToken = "XCSH_API_TOKEN"
+	// EnvXCSHToken is the environment variable for the API token
+	EnvXCSHToken = "XCSH_API_TOKEN"
 
-	// EnvXCShP12File is the environment variable for the P12 certificate file path
-	EnvXCShP12File = "XCSH_P12_FILE"
+	// EnvXCSHP12File is the environment variable for the P12 certificate file path
+	EnvXCSHP12File = "XCSH_P12_FILE"
 
-	// EnvXCShP12Password is the environment variable for the P12 certificate password
-	EnvXCShP12Password = "XCSH_P12_PASSWORD" // pragma: allowlist secret
+	// EnvXCSHP12Password is the environment variable for the P12 certificate password
+	EnvXCSHP12Password = "XCSH_P12_PASSWORD" // pragma: allowlist secret
 
-	// EnvXCShCert is the environment variable for the PEM certificate file path
-	EnvXCShCert = "XCSH_CERT"
+	// EnvXCSHCert is the environment variable for the PEM certificate file path
+	EnvXCSHCert = "XCSH_CERT"
 
-	// EnvXCShKey is the environment variable for the PEM key file path
-	EnvXCShKey = "XCSH_KEY"
+	// EnvXCSHKey is the environment variable for the PEM key file path
+	EnvXCSHKey = "XCSH_KEY"
 
-	// EnvXCShTenantName is the environment variable for the tenant name
-	EnvXCShTenantName = "XCSH_TENANT_NAME"
+	// EnvXCSHTenantName is the environment variable for the tenant name
+	EnvXCSHTenantName = "XCSH_TENANT_NAME"
 
 	// EnvTFAccTest enables acceptance tests
 	EnvTFAccTest = "TF_ACC"
@@ -88,17 +88,17 @@ const (
 // DetectAuthMethod determines which authentication method is configured
 func DetectAuthMethod() AuthMethod {
 	// Check P12 authentication (preferred for testing)
-	if os.Getenv(EnvXCShP12File) != "" && os.Getenv(EnvXCShP12Password) != "" {
+	if os.Getenv(EnvXCSHP12File) != "" && os.Getenv(EnvXCSHP12Password) != "" {
 		return AuthMethodP12
 	}
 
 	// Check PEM certificate authentication
-	if os.Getenv(EnvXCShCert) != "" && os.Getenv(EnvXCShKey) != "" {
+	if os.Getenv(EnvXCSHCert) != "" && os.Getenv(EnvXCSHKey) != "" {
 		return AuthMethodPEM
 	}
 
 	// Check token authentication
-	if os.Getenv(EnvXCShToken) != "" {
+	if os.Getenv(EnvXCSHToken) != "" {
 		return AuthMethodToken
 	}
 
@@ -127,8 +127,8 @@ func PreCheck(t *testing.T) {
 	LogTestCategory(t, TestCategoryReal)
 
 	// API URL is always required
-	if os.Getenv(EnvXCShURL) == "" {
-		t.Fatalf("Required environment variable not set: %s", EnvXCShURL)
+	if os.Getenv(EnvXCSHURL) == "" {
+		t.Fatalf("Required environment variable not set: %s", EnvXCSHURL)
 	}
 
 	// Check for at least one valid authentication method
@@ -136,10 +136,10 @@ func PreCheck(t *testing.T) {
 
 	switch authMethod {
 	case AuthMethodP12:
-		t.Logf("Using P12 certificate authentication (file: %s)", os.Getenv(EnvXCShP12File))
+		t.Logf("Using P12 certificate authentication (file: %s)", os.Getenv(EnvXCSHP12File))
 	case AuthMethodPEM:
 		t.Logf("Using PEM certificate authentication (cert: %s, key: %s)",
-			os.Getenv(EnvXCShCert), os.Getenv(EnvXCShKey))
+			os.Getenv(EnvXCSHCert), os.Getenv(EnvXCSHKey))
 	case AuthMethodToken:
 		t.Logf("Using API token authentication")
 	case AuthMethodNone:
@@ -147,9 +147,9 @@ func PreCheck(t *testing.T) {
 			"  - P12: %s and %s\n"+
 			"  - PEM: %s and %s\n"+
 			"  - Token: %s",
-			EnvXCShP12File, EnvXCShP12Password,
-			EnvXCShCert, EnvXCShKey,
-			EnvXCShToken)
+			EnvXCSHP12File, EnvXCSHP12Password,
+			EnvXCSHCert, EnvXCSHKey,
+			EnvXCSHToken)
 	}
 }
 
@@ -324,7 +324,7 @@ func TestCheckFuncCompose(funcs ...resource.TestCheckFunc) resource.TestCheckFun
 // The client is created once and reused across all tests.
 func GetTestClient() (*client.Client, error) {
 	testClientOnce.Do(func() {
-		apiURL := os.Getenv(EnvXCShURL)
+		apiURL := os.Getenv(EnvXCSHURL)
 		if apiURL == "" {
 			apiURL = "https://console.ves.volterra.io"
 		}
@@ -340,18 +340,18 @@ func GetTestClient() (*client.Client, error) {
 		case AuthMethodP12:
 			testClient, testClientErr = client.NewClientWithP12(
 				apiURL,
-				os.Getenv(EnvXCShP12File),
-				os.Getenv(EnvXCShP12Password),
+				os.Getenv(EnvXCSHP12File),
+				os.Getenv(EnvXCSHP12Password),
 			)
 		case AuthMethodPEM:
 			testClient, testClientErr = client.NewClientWithCert(
 				apiURL,
-				os.Getenv(EnvXCShCert),
-				os.Getenv(EnvXCShKey),
+				os.Getenv(EnvXCSHCert),
+				os.Getenv(EnvXCSHKey),
 				"", // CA cert optional
 			)
 		case AuthMethodToken:
-			testClient = client.NewClient(apiURL, os.Getenv(EnvXCShToken))
+			testClient = client.NewClient(apiURL, os.Getenv(EnvXCSHToken))
 		default:
 			testClientErr = fmt.Errorf("no authentication method configured")
 		}
