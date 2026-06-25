@@ -26,7 +26,7 @@ variable "xcsh_api_url" {
   default     = ""
 
   validation {
-    condition     = var.xcsh_api_url == "" || can(regex("^https://.*\.console\.ves\.volterra\.io(/api)?$", var.xcsh_api_url))
+    condition     = var.xcsh_api_url == "" || can(regex("^https://.*[.]console[.]ves[.]volterra[.]io(/api)?$", var.xcsh_api_url))
     error_message = "API URL must be in format: https://your-tenant.console.ves.volterra.io"
   }
 }
@@ -52,7 +52,7 @@ variable "xcsh_p12_file" {
   default     = ""
 
   validation {
-    condition     = var.xcsh_p12_file == "" || can(regex(".*\.p12$", var.xcsh_p12_file))
+    condition     = var.xcsh_p12_file == "" || can(regex(".*[.]p12$", var.xcsh_p12_file))
     error_message = "P12 file path must end with .p12 extension."
   }
 }
@@ -74,7 +74,7 @@ variable "xcsh_cert" {
   default     = ""
 
   validation {
-    condition     = var.xcsh_cert == "" || can(regex(".*\.(pem|cert|crt)$", var.xcsh_cert))
+    condition     = var.xcsh_cert == "" || can(regex(".*[.](pem|cert|crt)$", var.xcsh_cert))
     error_message = "Certificate file path must end with .pem, .cert, or .crt extension."
   }
 }
