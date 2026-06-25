@@ -1,4 +1,5 @@
 terraform {
+  required_version = ">= 1.8"
   required_providers {
     xcsh = {
       source  = "f5xc-salesdemos/xcsh"
@@ -15,7 +16,7 @@ terraform {
 
 # Example: Encrypt a password for use in origin pool authentication
 locals {
-  encrypted_password = provider::f5xc::blindfold(
+  encrypted_password = provider::xcsh::blindfold(
     base64encode("example-secret-password"),
     "production-secrets-policy",
     "shared"
@@ -24,7 +25,7 @@ locals {
 
 # Example: Encrypt a TLS private key from a file
 locals {
-  encrypted_key = provider::f5xc::blindfold(
+  encrypted_key = provider::xcsh::blindfold(
     base64encode(file("${path.module}/certs/private.key")),
     "tls-secrets-policy",
     "shared"
@@ -43,7 +44,7 @@ resource "xcsh_http_loadbalancer" "example" {
       custom_security {
         private_key {
           blindfold_secret_info {
-            location = provider::f5xc::blindfold(
+            location = provider::xcsh::blindfold(
               base64encode(file("${path.module}/certs/server.key")),
               "tls-secrets-policy",
               "shared"

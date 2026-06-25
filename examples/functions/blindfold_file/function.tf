@@ -1,4 +1,5 @@
 terraform {
+  required_version = ">= 1.8"
   required_providers {
     xcsh = {
       source  = "f5xc-salesdemos/xcsh"
@@ -11,7 +12,7 @@ terraform {
 #
 # The blindfold_file function reads a file and encrypts its contents using F5
 # Distributed Cloud Secret Management. This is a convenience function equivalent
-# to: provider::f5xc::blindfold(base64encode(file(path)), policy_name, namespace)
+# to: provider::xcsh::blindfold(base64encode(file(path)), policy_name, namespace)
 #
 # The encryption happens locally - file contents are never transmitted to F5XC.
 
@@ -27,7 +28,7 @@ resource "xcsh_http_loadbalancer" "secure" {
       custom_security {
         private_key {
           blindfold_secret_info {
-            location = provider::f5xc::blindfold_file(
+            location = provider::xcsh::blindfold_file(
               "${path.module}/certs/server.key",
               "tls-secrets-policy",
               "shared"
@@ -58,7 +59,7 @@ resource "xcsh_certificate" "certs" {
 
   private_key {
     blindfold_secret_info {
-      location = provider::f5xc::blindfold_file(
+      location = provider::xcsh::blindfold_file(
         each.value,
         "cert-secrets-policy",
         "shared"

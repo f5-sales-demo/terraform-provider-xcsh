@@ -93,7 +93,7 @@ resource "xcsh_cloud_credentials" "aws" {
 
     secret_key {
       blindfold_secret_info {
-        location = provider::f5xc::blindfold(
+        location = provider::xcsh::blindfold(
           base64encode(var.aws_secret_access_key),
           local.policy_name,
           local.policy_ns
@@ -123,7 +123,7 @@ resource "xcsh_cloud_credentials" "azure" {
 
     client_secret {
       blindfold_secret_info {
-        location = provider::f5xc::blindfold(
+        location = provider::xcsh::blindfold(
           base64encode(var.azure_client_secret),
           local.policy_name,
           local.policy_ns
@@ -152,7 +152,7 @@ resource "xcsh_cloud_credentials" "gcp" {
   gcp_cred_file {
     credential_file {
       blindfold_secret_info {
-        location = provider::f5xc::blindfold_file(
+        location = provider::xcsh::blindfold_file(
           var.gcp_credentials_file,
           local.policy_name,
           local.policy_ns
@@ -179,7 +179,7 @@ resource "xcsh_container_registry" "example" {
 
   password {
     blindfold_secret_info {
-      location = provider::f5xc::blindfold(
+      location = provider::xcsh::blindfold(
         base64encode(var.container_registry_password),
         local.policy_name,
         local.policy_ns
