@@ -162,11 +162,11 @@ jobs:
                     continue
                   fi
                 fi
-                # Module rename: allow generated .go files only if their diff shows
-                # the old import path being replaced with the new one
+                # Module rename: allow generated .go files only if their diff
+                # contains the old→new import path substitution
                 if [ "$MODULE_RENAMED" = true ] && echo "$file" | grep -qE "\.go$"; then
-                  FILE_DIFF=$(git diff "origin/${{ github.base_ref }}" -- "$file" 2>/dev/null)
-                  if echo "$FILE_DIFF" | grep -q "\"$OLD_MODULE" && echo "$FILE_DIFF" | grep -q "\"$NEW_MODULE"; then
+                  CHANGED_LINES=$(git diff "origin/${{ github.base_ref }}" -- "$file" 2>/dev/null | grep -E '^[+-]' | grep -v '^[+-][+-][+-]')
+                  if echo "$CHANGED_LINES" | grep -qF "\"$OLD_MODULE" && echo "$CHANGED_LINES" | grep -qF "\"$NEW_MODULE"; then
                     continue
                   fi
                 fi
