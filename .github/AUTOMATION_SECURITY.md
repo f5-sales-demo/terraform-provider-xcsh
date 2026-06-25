@@ -59,7 +59,7 @@ Owner: @robinmordasiewicz
 
 ```bash
 # Rotation procedure:
-1. Generate new fine-grained PAT at https://github.com/settings/tokens?type=beta
+1. Generate new fine-grained PAT at <https://github.com/settings/tokens>?type=beta
 2. Configure scopes: repo, workflow
 3. Set repository access: robinmordasiewicz/terraform-provider-xcsh only
 4. Update repository secret:
@@ -103,7 +103,7 @@ Monitor for:
 
 ### Step 1: Generate New Token
 
-1. Visit: https://github.com/settings/tokens?type=beta
+1. Visit: <https://github.com/settings/tokens>?type=beta
 2. Click "Generate new token"
 3. Configure token:
    - **Name**: `terraform-provider-xcsh-automation`
@@ -149,7 +149,7 @@ gh pr view <PR_NUMBER> --json autoMergeRequest
 
 ### Step 4: Revoke Old Token
 
-1. Visit: https://github.com/settings/tokens
+1. Visit: <https://github.com/settings/tokens>
 2. Find the old token
 3. Click "Revoke"
 4. Confirm revocation
@@ -162,7 +162,7 @@ If the token is accidentally exposed:
 
 ```bash
 # 1. Immediately revoke the token
-# Visit: https://github.com/settings/tokens → Revoke
+# Visit: <https://github.com/settings/tokens> → Revoke
 
 # 2. Generate new token (see Step 1 above)
 
@@ -206,7 +206,7 @@ After rotating the token, verify:
 - [ ] PR created with auto-merge enabled
 - [ ] Status checks triggered on bot-created PR
 - [ ] PR auto-merged after checks passed
-- [ ] Old token revoked at https://github.com/settings/tokens
+- [ ] Old token revoked at <https://github.com/settings/tokens>
 
 ## Alternative Approaches Considered
 

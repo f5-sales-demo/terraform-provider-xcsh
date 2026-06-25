@@ -8,7 +8,7 @@ Run the GitHub Actions runner in a Docker container with all dependencies pre-in
 - Go 1.23.3
 - Terraform 1.9.8
 - GitHub CLI (gh)
-- curl, jq, git
+- cURL, jq, git
 
 ## Quick Start
 

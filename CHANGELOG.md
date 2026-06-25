@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Breaking Changes - v3.0.0 Clean Break Release
 
-This is a clean-break pre-release that requires recreating all Terraform-managed resources. This version uses F5 Distributed Cloud API v2 specifications and removes all backwards compatibility with earlier versions.
+This is a clean-break prerelease that requires recreating all Terraform-managed resources. This version uses F5 Distributed Cloud API v2 specifications and removes all backwards compatibility with earlier versions.
 
 #### What Changed
 
@@ -23,7 +23,7 @@ This is a clean-break pre-release that requires recreating all Terraform-managed
 
 #### Migration Required
 
-Since this is a pre-release project, users must:
+Since this is a prerelease project, users must:
 
 1. **Destroy all existing resources**: Run `terraform destroy` with the previous provider version
 2. **Upgrade provider**: Update to v3.0.0 in your Terraform configuration

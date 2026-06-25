@@ -44,119 +44,119 @@ NC='\033[0m' # No Color
 
 check_mode=false
 if [[ "${1:-}" == "--check" ]]; then
-    check_mode=true
+  check_mode=true
 fi
 
 # Check if credentials are available
 has_credentials() {
-    if [[ -n "${XCSH_API_TOKEN:-}" && -n "${XCSH_API_URL:-}" ]]; then
-        return 0
-    elif [[ -n "${XCSH_P12_FILE:-}" && -n "${XCSH_P12_PASSWORD:-}" && -n "${XCSH_API_URL:-}" ]]; then
-        return 0
-    fi
-    return 1
+  if [[ -n "${XCSH_API_TOKEN:-}" && -n "${XCSH_API_URL:-}" ]]; then
+    return 0
+  elif [[ -n "${XCSH_P12_FILE:-}" && -n "${XCSH_P12_PASSWORD:-}" && -n "${XCSH_API_URL:-}" ]]; then
+    return 0
+  fi
+  return 1
 }
 
 # Main logic
 main() {
-    echo "=== Subscription Tier Metadata Update ==="
+  echo "=== Subscription Tier Metadata Update ==="
 
-    # Check for credentials
-    if ! has_credentials; then
-        echo -e "${YELLOW}SKIP: F5XC credentials not configured${NC}"
-        echo "Set XCSH_API_URL and either XCSH_API_TOKEN or XCSH_P12_FILE+XCSH_P12_PASSWORD"
-        echo "to enable subscription tier metadata generation."
-        exit 0
-    fi
+  # Check for credentials
+  if ! has_credentials; then
+    echo -e "${YELLOW}SKIP: F5XC credentials not configured${NC}"
+    echo "Set XCSH_API_URL and either XCSH_API_TOKEN or XCSH_P12_FILE+XCSH_P12_PASSWORD"
+    echo "to enable subscription tier metadata generation."
+    exit 0
+  fi
 
-    # Check if generator exists
-    if [[ ! -f "${GENERATOR}" ]]; then
-        echo -e "${RED}ERROR: Generator not found: ${GENERATOR}${NC}"
-        exit 1
-    fi
+  # Check if generator exists
+  if [[ ! -f "${GENERATOR}" ]]; then
+    echo -e "${RED}ERROR: Generator not found: ${GENERATOR}${NC}"
+    exit 1
+  fi
 
-    # Store current file hash (if exists)
-    old_hash=""
-    if [[ -f "${METADATA_FILE}" ]]; then
-        old_hash=$(md5sum "${METADATA_FILE}" 2>/dev/null | cut -d' ' -f1 || echo "")
-    fi
+  # Store current file hash (if exists)
+  old_hash=""
+  if [[ -f "${METADATA_FILE}" ]]; then
+    old_hash=$(md5sum "${METADATA_FILE}" 2>/dev/null | cut -d' ' -f1 || echo "")
+  fi
 
-    # Run the generator with timeout (advisory hook - should not block commits)
-    echo "Running subscription metadata generator..."
-    cd "${REPO_ROOT}"
+  # Run the generator with timeout (advisory hook - should not block commits)
+  echo "Running subscription metadata generator..."
+  cd "${REPO_ROOT}"
 
-    # Use timeout to prevent blocking on network issues (30 second limit)
-    # On timeout or network errors, skip gracefully since this is advisory
-    TIMEOUT_CMD=""
-    if command -v timeout &> /dev/null; then
-        TIMEOUT_CMD="timeout 30"
-    elif command -v gtimeout &> /dev/null; then
-        TIMEOUT_CMD="gtimeout 30"  # macOS with coreutils
-    fi
+  # Use timeout to prevent blocking on network issues (30 second limit)
+  # On timeout or network errors, skip gracefully since this is advisory
+  TIMEOUT_CMD=""
+  if command -v timeout &>/dev/null; then
+    TIMEOUT_CMD="timeout 30"
+  elif command -v gtimeout &>/dev/null; then
+    TIMEOUT_CMD="gtimeout 30" # macOS with coreutils
+  fi
 
-    if [[ -n "${TIMEOUT_CMD}" ]]; then
-        if ! ${TIMEOUT_CMD} go run "${GENERATOR}" 2>&1; then
-            exit_code=$?
-            if [[ ${exit_code} -eq 124 ]]; then
-                echo -e "${YELLOW}SKIP: Generator timed out (network issues)${NC}"
-                echo "This is an advisory hook - continuing without update."
-                exit 0
-            fi
-            # Check for common network error patterns
-            echo -e "${YELLOW}SKIP: Generator failed (likely network issues)${NC}"
-            echo "This is an advisory hook - continuing without update."
-            exit 0
-        fi
-    else
-        if ! go run "${GENERATOR}" 2>&1; then
-            echo -e "${YELLOW}SKIP: Generator failed${NC}"
-            echo "This is an advisory hook - continuing without update."
-            exit 0
-        fi
-    fi
-
-    # Check if file was created/updated
-    if [[ ! -f "${METADATA_FILE}" ]]; then
-        echo -e "${YELLOW}SKIP: Generator did not create ${METADATA_FILE}${NC}"
+  if [[ -n "${TIMEOUT_CMD}" ]]; then
+    if ! ${TIMEOUT_CMD} go run "${GENERATOR}" 2>&1; then
+      exit_code=$?
+      if [[ ${exit_code} -eq 124 ]]; then
+        echo -e "${YELLOW}SKIP: Generator timed out (network issues)${NC}"
         echo "This is an advisory hook - continuing without update."
         exit 0
+      fi
+      # Check for common network error patterns
+      echo -e "${YELLOW}SKIP: Generator failed (likely network issues)${NC}"
+      echo "This is an advisory hook - continuing without update."
+      exit 0
     fi
+  else
+    if ! go run "${GENERATOR}" 2>&1; then
+      echo -e "${YELLOW}SKIP: Generator failed${NC}"
+      echo "This is an advisory hook - continuing without update."
+      exit 0
+    fi
+  fi
 
-    # Compare hashes
-    new_hash=$(md5sum "${METADATA_FILE}" 2>/dev/null | cut -d' ' -f1 || echo "")
+  # Check if file was created/updated
+  if [[ ! -f "${METADATA_FILE}" ]]; then
+    echo -e "${YELLOW}SKIP: Generator did not create ${METADATA_FILE}${NC}"
+    echo "This is an advisory hook - continuing without update."
+    exit 0
+  fi
 
-    if [[ "${old_hash}" == "${new_hash}" ]]; then
-        echo -e "${GREEN}No changes detected in subscription tier metadata${NC}"
-        exit 0
+  # Compare hashes
+  new_hash=$(md5sum "${METADATA_FILE}" 2>/dev/null | cut -d' ' -f1 || echo "")
+
+  if [[ "${old_hash}" == "${new_hash}" ]]; then
+    echo -e "${GREEN}No changes detected in subscription tier metadata${NC}"
+    exit 0
+  else
+    if [[ "${check_mode}" == "true" ]]; then
+      echo -e "${YELLOW}Changes detected in subscription tier metadata!${NC}"
+      echo "Run: ./scripts/update-subscription-metadata.sh"
+      echo "Then commit the updated tools/subscription-tiers.json"
+      exit 1
     else
-        if [[ "${check_mode}" == "true" ]]; then
-            echo -e "${YELLOW}Changes detected in subscription tier metadata!${NC}"
-            echo "Run: ./scripts/update-subscription-metadata.sh"
-            echo "Then commit the updated tools/subscription-tiers.json"
-            exit 1
-        else
-            echo -e "${GREEN}Updated subscription tier metadata${NC}"
+      echo -e "${GREEN}Updated subscription tier metadata${NC}"
 
-            # Show summary of changes
-            if command -v jq &> /dev/null; then
-                echo ""
-                echo "Summary:"
-                services=$(jq '.services | length' "${METADATA_FILE}" 2>/dev/null || echo "?")
-                resources=$(jq '.resources | length' "${METADATA_FILE}" 2>/dev/null || echo "?")
-                advanced=$(jq '[.resources | to_entries[] | select(.value.minimum_tier == "ADVANCED")] | length' "${METADATA_FILE}" 2>/dev/null || echo "?")
-                echo "  Services: ${services}"
-                echo "  Resources: ${resources}"
-                echo "  Advanced tier resources: ${advanced}"
-            fi
+      # Show summary of changes
+      if command -v jq &>/dev/null; then
+        echo ""
+        echo "Summary:"
+        services=$(jq '.services | length' "${METADATA_FILE}" 2>/dev/null || echo "?")
+        resources=$(jq '.resources | length' "${METADATA_FILE}" 2>/dev/null || echo "?")
+        advanced=$(jq '[.resources | to_entries[] | select(.value.minimum_tier == "ADVANCED")] | length' "${METADATA_FILE}" 2>/dev/null || echo "?")
+        echo "  Services: ${services}"
+        echo "  Resources: ${resources}"
+        echo "  Advanced tier resources: ${advanced}"
+      fi
 
-            # Auto-add to current commit (for pre-commit hook integration)
-            if git rev-parse --git-dir > /dev/null 2>&1; then
-                git add "${METADATA_FILE}"
-                echo -e "${GREEN}Added ${METADATA_FILE} to commit${NC}"
-            fi
-            exit 0
-        fi
+      # Auto-add to current commit (for pre-commit hook integration)
+      if git rev-parse --git-dir >/dev/null 2>&1; then
+        git add "${METADATA_FILE}"
+        echo -e "${GREEN}Added ${METADATA_FILE} to commit${NC}"
+      fi
+      exit 0
     fi
+  fi
 }
 
 main "$@"
