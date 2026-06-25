@@ -241,7 +241,8 @@ save_generated_files() {
   fi
 }
 
-# Function to restore generated files
+# Function to restore generated files (invoked via trap on EXIT)
+# shellcheck disable=SC2329
 restore_generated_files() {
   if [ "$RESTORE_NEEDED" = true ]; then
     echo ""
