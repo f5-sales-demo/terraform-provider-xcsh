@@ -13,7 +13,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-framework/function"
 
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/internal/blindfold"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/blindfold"
 )
 
 var _ function.Function = &BlindfoldFileFunction{}

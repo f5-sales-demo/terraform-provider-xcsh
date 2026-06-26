@@ -5,7 +5,7 @@ package schema
 import (
 	"testing"
 
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/openapi"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 )
 
 func TestExtractOneOfGroups_Empty(t *testing.T) {

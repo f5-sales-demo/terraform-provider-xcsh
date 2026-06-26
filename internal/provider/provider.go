@@ -15,7 +15,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/internal/client"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 )
 
 // Ensure XCSHProvider satisfies various provider interfaces.

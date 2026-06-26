@@ -8,8 +8,8 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/internal/acctest"
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/internal/mocks"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/acctest"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/mocks"
 )
 
 // =============================================================================

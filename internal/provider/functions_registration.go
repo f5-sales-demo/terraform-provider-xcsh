@@ -13,7 +13,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/function"
 	"github.com/hashicorp/terraform-plugin-framework/provider"
 
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/internal/functions"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/functions"
 )
 
 // Ensure XCSHProvider satisfies the provider.ProviderWithFunctions interface.

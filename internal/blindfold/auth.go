@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/internal/client"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 )
 
 // AuthConfig holds configuration for XCSH API authentication.
