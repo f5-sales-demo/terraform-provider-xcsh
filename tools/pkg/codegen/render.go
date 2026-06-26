@@ -9,9 +9,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/naming"
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/openapi"
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/schema"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/schema"
 )
 
 // NestedModelInfo holds information needed to generate a nested model type

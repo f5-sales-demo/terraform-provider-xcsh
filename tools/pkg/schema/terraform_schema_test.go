@@ -21,7 +21,7 @@ func TestParseTerraformSchema_DistinguishesBlocksFromAttributes(t *testing.T) {
 	input := `{
 		"format_version": "1.0",
 		"provider_schemas": {
-			"registry.terraform.io/f5xc-salesdemos/f5xc": {
+			"registry.terraform.io/f5-sales-demo/f5xc": {
 				"resource_schemas": {
 					"xcsh_http_loadbalancer": {
 						"version": 0,

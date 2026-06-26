@@ -32,8 +32,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/internal/client"
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/resource"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/resource"
 )
 
 // ============================================================================

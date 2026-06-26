@@ -25,7 +25,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/resource"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/resource"
 )
 
 // LLMsConfig represents the llms-config.json structure.
@@ -958,7 +958,7 @@ func generateL0(config *LLMsConfig, categories []CategoryInfo) error {
 	sb.WriteString("    terraform {\n")
 	sb.WriteString("      required_providers {\n")
 	sb.WriteString("        xcsh = {\n")
-	sb.WriteString("          source = \"f5xc-salesdemos/xcsh\"\n")
+	sb.WriteString("          source = \"f5-sales-demo/xcsh\"\n")
 	sb.WriteString("        }\n")
 	sb.WriteString("      }\n")
 	sb.WriteString("    }\n\n")
@@ -1165,7 +1165,7 @@ func generateJSONIndex(config *LLMsConfig, categories []CategoryInfo, reverseDep
 			RequiredBlock: `terraform {
   required_providers {
     xcsh = {
-      source = "f5xc-salesdemos/xcsh"
+      source = "f5-sales-demo/xcsh"
     }
   }
 }`,

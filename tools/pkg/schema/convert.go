@@ -10,10 +10,10 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/constraints"
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/description"
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/naming"
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/openapi"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/constraints"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/description"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 )
 
 // MaxNestedDepth is the maximum recursion depth for nested schemas to prevent infinite loops.

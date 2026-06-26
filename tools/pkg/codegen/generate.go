@@ -15,8 +15,8 @@ import (
 
 	"golang.org/x/tools/imports"
 
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/openapi"
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/schema"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/schema"
 )
 
 // GenerateResourceFile generates the Terraform resource Go file for a single resource.

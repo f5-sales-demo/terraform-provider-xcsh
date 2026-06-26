@@ -20,10 +20,10 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/defaults"
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/naming"
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/openapi"
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/resource"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/defaults"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/resource"
 )
 
 // Global defaults store for API-discovered default values
@@ -666,7 +666,7 @@ func buildResourceAPIPathMap() {
 // Returns empty string if no mapping exists
 func getResourceAPIDocURL(resourceName string) string {
 	if urlPath, ok := resourceAPIPathMap[resourceName]; ok {
-		return fmt.Sprintf("https://f5xc-salesdemos.github.io/api-specs-enriched/api-reference/%s/", urlPath)
+		return fmt.Sprintf("https://f5-sales-demo.github.io/api-specs-enriched/api-reference/%s/", urlPath)
 	}
 	return ""
 }

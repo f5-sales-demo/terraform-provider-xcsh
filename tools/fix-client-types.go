@@ -13,7 +13,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/naming"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
 )
 
 func main() {

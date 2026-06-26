@@ -29,12 +29,12 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/codegen"
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/namespace"
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/naming"
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/openapi"
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/registration"
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/schema"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/codegen"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/namespace"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/registration"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/schema"
 )
 
 // Configuration

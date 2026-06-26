@@ -19,8 +19,8 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
 
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/internal/client"
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/internal/provider"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/provider"
 )
 
 var (

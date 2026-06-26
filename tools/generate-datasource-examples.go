@@ -12,8 +12,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/naming"
-	"github.com/f5xc-salesdemos/terraform-provider-xcsh/tools/pkg/namespace"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/namespace"
 )
 
 func main() {
@@ -63,7 +63,7 @@ func generateDataSourceExample(dataSourceName string) string {
 	sb.WriteString("  required_version = \">= 1.0\"\n\n")
 	sb.WriteString("  required_providers {\n")
 	sb.WriteString("    xcsh = {\n")
-	sb.WriteString("      source  = \"f5xc-salesdemos/f5xc\"\n")
+	sb.WriteString("      source  = \"f5-sales-demo/f5xc\"\n")
 	sb.WriteString("      version = \">= 0.1.0\"\n")
 	sb.WriteString("    }\n")
 	sb.WriteString("  }\n")
