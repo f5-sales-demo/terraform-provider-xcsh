@@ -14,6 +14,9 @@ node_modules/
 dist/
 *.tgz
 
+# Chrome extension signing key (never commit)
+key.pem
+
 # Environment
 .env
 .env.*
@@ -93,6 +96,7 @@ projects/
 .claude/todos/
 .claude/worktrees/
 .claude/scheduled_tasks.lock
+.remember/
 .playwright-mcp/
 .serena/
 .auto-claude/
@@ -178,6 +182,7 @@ packages/ai/test/.temp-images/
 docs/superpowers/
 !.xcsh/
 .xcsh/plugins/
+.xcsh/contexts/
 .pi_config/
 .opencode/
 .worktree-test-baseline.txt

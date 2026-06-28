@@ -2,6 +2,9 @@
   "threshold": 10,
   "reporters": ["console"],
   "ignore": [
+    "**/*.yaml",
+    "**/*.yml",
+    "**/snapshots/**",
     "**/.github/workflows/**",
     "**/workflows/**",
     "**/node_modules/**",
@@ -10,11 +13,11 @@
     "**/release/**",
     "**/.git/**",
     "**/vendor/**",
-    "**/internal/**",
-    "**/tools/**",
-    "**/examples/**",
+    "**/internal/client/**",
+    "**/internal/provider/**",
     "**/templates/**",
-    "**/scripts/**",
-    "**/docs/**"
+    "**/docs/resources/**",
+    "**/docs/data-sources/**",
+    "**/docs/functions/**"
   ]
 }
