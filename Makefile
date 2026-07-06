@@ -141,6 +141,14 @@ generate-schemas:
 		echo "No v2 OpenAPI specs found in $(SPEC_DIR). Skipping generation."; \
 		echo "Run 'make download-specs' first, or set SPEC_DIR to a directory with index.json + domains/"; \
 	fi
+	@# Examples are generated (schema-driven) by generate-all-schemas.go alongside the
+	@# resources, guaranteeing they never drift from the schema. Format them so the HCL
+	@# matches the terraform fmt gate.
+	@if command -v terraform >/dev/null 2>&1; then \
+		terraform fmt -recursive examples >/dev/null && echo "Formatted examples with terraform fmt"; \
+	else \
+		echo "WARNING: terraform not found — run 'terraform fmt -recursive examples' before committing"; \
+	fi
 
 # Generate Terraform documentation
 docs:
@@ -155,35 +163,30 @@ docs:
 	@echo "Transforming documentation to Volterra-style format..."
 	$(GO) run $(TOOLS_DIR)/transform-docs.go
 
-# Validate generated Terraform examples
-# Resources with verified test examples (named .tf files beyond resource.tf) must pass.
-# Others emit warnings only.
+# Validate generated Terraform examples.
+# Examples are schema-driven (generated from the TerraformAttribute tree), so EVERY example
+# must terraform-validate. Any invalid example fails the build — no warnings-only escape hatch.
 validate-examples:
 	@echo "Validating generated Terraform examples..."
-	@fail=0; warn=0; pass=0; \
-	for dir in examples/resources/f5xc_*; do \
-		if [ ! -f "$$dir/resource.tf" ]; then continue; fi; \
-		verified=$$(find "$$dir" -name '*.tf' ! -name 'resource.tf' 2>/dev/null | wc -l | tr -d ' '); \
+	@fail=0; pass=0; \
+	for dir in examples/resources/xcsh_* examples/data-sources/xcsh_*; do \
+		main=$$(find "$$dir" -maxdepth 1 -name 'resource.tf' -o -maxdepth 1 -name 'data-source.tf' 2>/dev/null | head -1); \
+		if [ -z "$$main" ]; then continue; fi; \
 		tmpdir=$$(mktemp -d); \
-		cp "$$dir/resource.tf" "$$tmpdir/main.tf"; \
-		cd "$$tmpdir" && terraform init -backend=false -no-color >/dev/null 2>&1 && \
+		cp "$$main" "$$tmpdir/main.tf"; \
+		cd "$$tmpdir" && terraform init -backend=false -no-color >/dev/null 2>&1; \
 		if ! terraform validate -no-color >/dev/null 2>&1; then \
-			if [ "$$verified" -gt 0 ]; then \
-				echo "FAIL: $$dir/resource.tf"; \
-				fail=1; \
-			else \
-				echo "WARN: $$dir/resource.tf"; \
-				warn=$$((warn + 1)); \
-			fi; \
+			echo "FAIL: $$main"; \
+			fail=$$((fail + 1)); \
 		else \
 			pass=$$((pass + 1)); \
 		fi; \
 		cd - >/dev/null; \
 		rm -rf "$$tmpdir"; \
 	done; \
-	echo "Results: $$pass passed, $$warn warnings, $$fail failures"; \
+	echo "Results: $$pass passed, $$fail failures"; \
 	if [ $$fail -gt 0 ]; then \
-		echo "Verified example validation failed"; \
+		echo "Example validation failed — all generated examples must terraform-validate"; \
 		exit 1; \
 	fi; \
 	echo "All examples valid"

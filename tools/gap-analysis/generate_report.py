@@ -24,7 +24,7 @@ GAP_DEFINITIONS: dict[str, dict] = {
             "extension would auto-generate validators for min/max, pattern, "
             "and custom constraints."
         ),
-        "repo": "terraform-provider-f5xc",
+        "repo": "terraform-provider-xcsh",
         "user_impact": 3,
         "downstream_reach": 3,
         "effort": 2,
@@ -36,7 +36,7 @@ GAP_DEFINITIONS: dict[str, dict] = {
             "Generating ConflictsWith validators would prevent users from "
             "setting mutually exclusive fields."
         ),
-        "repo": "terraform-provider-f5xc",
+        "repo": "terraform-provider-xcsh",
         "user_impact": 3,
         "downstream_reach": 2,
         "effort": 2,
@@ -48,7 +48,7 @@ GAP_DEFINITIONS: dict[str, dict] = {
             "set of fields needed for a valid resource. Consuming it would "
             "improve Required field accuracy in the Terraform schema."
         ),
-        "repo": "terraform-provider-f5xc",
+        "repo": "terraform-provider-xcsh",
         "user_impact": 2,
         "downstream_reach": 2,
         "effort": 2,
@@ -72,7 +72,7 @@ GAP_DEFINITIONS: dict[str, dict] = {
             "stringvalidator.OneOf validators from these would catch invalid "
             "values at plan time instead of apply time."
         ),
-        "repo": "terraform-provider-f5xc",
+        "repo": "terraform-provider-xcsh",
         "user_impact": 3,
         "downstream_reach": 1,
         "effort": 2,
@@ -84,7 +84,7 @@ GAP_DEFINITIONS: dict[str, dict] = {
             "cause service disruption. Consuming it would add destruction "
             "warnings and confirmation prompts to dangerous operations."
         ),
-        "repo": "terraform-provider-f5xc",
+        "repo": "terraform-provider-xcsh",
         "user_impact": 2,
         "downstream_reach": 2,
         "effort": 3,
@@ -96,7 +96,7 @@ GAP_DEFINITIONS: dict[str, dict] = {
             "Rendering it would document which fields are required for "
             "specific operations (create, update, etc.)."
         ),
-        "repo": "terraform-provider-f5xc",
+        "repo": "terraform-provider-xcsh",
         "user_impact": 2,
         "downstream_reach": 2,
         "effort": 2,
@@ -109,7 +109,7 @@ GAP_DEFINITIONS: dict[str, dict] = {
             "embedding best practices in generated documentation would guide "
             "users toward optimal configurations."
         ),
-        "repo": "terraform-provider-f5xc",
+        "repo": "terraform-provider-xcsh",
         "user_impact": 1,
         "downstream_reach": 3,
         "effort": 2,
@@ -121,7 +121,7 @@ GAP_DEFINITIONS: dict[str, dict] = {
             "connected to any primary resource in index.json. These should "
             "be audited and either connected or removed."
         ),
-        "repo": "terraform-provider-f5xc",
+        "repo": "terraform-provider-xcsh",
         "user_impact": 1,
         "downstream_reach": 1,
         "effort": 1,
@@ -133,7 +133,7 @@ GAP_DEFINITIONS: dict[str, dict] = {
             "never wired into the provider. It should either be connected "
             "to resource ordering logic or removed as dead code."
         ),
-        "repo": "terraform-provider-f5xc",
+        "repo": "terraform-provider-xcsh",
         "user_impact": 1,
         "downstream_reach": 1,
         "effort": 2,
@@ -448,12 +448,12 @@ def _section_downstream_impact() -> str:
 
     lines.append("| Consumer | Impact Area | Dependency |")
     lines.append("|----------|------------|------------|")
-    lines.append("| terraform-provider-f5xc | Schema generation | api-specs-enriched |")
+    lines.append("| terraform-provider-xcsh | Schema generation | api-specs-enriched |")
     lines.append(
-        "| terraform-provider-f5xc | Validator generation | x-f5xc-constraints, enum |"
+        "| terraform-provider-xcsh | Validator generation | x-f5xc-constraints, enum |"
     )
     lines.append(
-        "| terraform-provider-f5xc | Documentation | "
+        "| terraform-provider-xcsh | Documentation | "
         "x-f5xc-description-*, x-f5xc-best-practices |"
     )
     lines.append("| api-specs-enriched | Extension emission | extension_constants.py |")

@@ -158,9 +158,28 @@ func main() {
 			generatedNames[core] = true
 		}
 		registration.CleanOrphanGeneratedFiles(outputDir, clientDir, generatedNames)
+		cleanOrphanExampleDirs("examples", generatedNames)
 	}
 
 	fmt.Println("\n🎉 Batch generation complete!")
+}
+
+// cleanOrphanExampleDirs removes xcsh_-prefixed example directories whose resource is no longer
+// generated, keeping generated examples in lockstep with the schema. Manually maintained example
+// dirs (without the xcsh_ prefix) are never touched.
+func cleanOrphanExampleDirs(root string, keep map[string]bool) {
+	for _, sub := range []string{"resources", "data-sources"} {
+		matches, _ := filepath.Glob(filepath.Join(root, sub, "xcsh_*"))
+		for _, dir := range matches {
+			name := strings.TrimPrefix(filepath.Base(dir), "xcsh_")
+			if keep[name] {
+				continue
+			}
+			if err := os.RemoveAll(dir); err == nil {
+				fmt.Printf("🧹 Removed orphan example: %s\n", dir)
+			}
+		}
+	}
 }
 
 // processV2Specs processes v2 format specs (domain-organized files from api-specs-enriched)
@@ -496,6 +515,11 @@ func generateReadOnlyDataSource(resourceName string, schemaName string, schemaDe
 		if err := codegen.GenerateReadOnlyClientTypes(tmpl, clientDir); err != nil {
 			return GenerationResult{ResourceName: resourceName, Success: false, Error: err.Error()}
 		}
+		// Read-only resources expose only a data source; generate its lookup example.
+		_, exampleNS := namespace.ForResource(resourceName)
+		if err := codegen.WriteDataSourceExample(resourceName, "examples", exampleNS); err != nil {
+			return GenerationResult{ResourceName: resourceName, Success: false, Error: err.Error()}
+		}
 	}
 
 	return GenerationResult{
@@ -569,6 +593,17 @@ func generateResourceFromSchema(resourceName string, schemaName string, schemaDe
 			return GenerationResult{ResourceName: resourceName, Success: false, Error: err.Error()}
 		}
 
+		// Generate schema-driven examples (resource + data source) directly from the
+		// TerraformAttribute tree so committed examples can never drift from the schema.
+		// This is the single source of truth for examples; the standalone example tools
+		// delegate here.
+		_, exampleNS := namespace.ForResource(resourceName)
+		if err := codegen.WriteResourceExample(resource, resourceName, "examples", exampleNS); err != nil {
+			return GenerationResult{ResourceName: resourceName, Success: false, Error: err.Error()}
+		}
+		if err := codegen.WriteDataSourceExample(resourceName, "examples", exampleNS); err != nil {
+			return GenerationResult{ResourceName: resourceName, Success: false, Error: err.Error()}
+		}
 	}
 
 	fmt.Printf("✅ %s: %d attrs, %d blocks\n", resourceName, attrCount, blockCount)
@@ -669,7 +704,6 @@ func extractAPIPath(spec *OpenAPI3Spec, resourceName string) (basePath string, i
 		true
 }
 
-
 // extractResourceSchema, hasNestedModelsWithAttrTypes, hasMaxLengthValidatorsAny,
 // hasEnumValidatorsAny, hasPatternValidatorsAny, hasListSizeValidatorsAny,
 // collectConflictAttrs, scanPlanModifierUsage, generateExampleUsage,
@@ -683,7 +717,6 @@ func extractAPIPath(spec *OpenAPI3Spec, resourceName string) (basePath string, i
 // renderComputedFieldsCode, renderSpecUnmarshalCode, renderNestedAttributes, renderNestedBlocks,
 // renderNestedModelTypes, renderBlockFields, collectNestedModelTypes, escapeGoString, regexLiteral,
 // and the NestedModelInfo type) have been moved to tools/pkg/codegen/ (SP-2 Task 4).
-
 
 // Provider registration (generateProviderRegistration, cleanOrphanGeneratedFiles,
 // generateCombinedClientTypes, and CoreResources) have been moved to
