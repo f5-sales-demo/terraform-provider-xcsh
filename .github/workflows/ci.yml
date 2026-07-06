@@ -246,7 +246,7 @@ jobs:
           attempt=1
           while [ "$attempt" -le "$max_attempts" ]; do
             echo "::group::Install tfplugindocs - Attempt $attempt of $max_attempts"
-            if go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@latest; then
+            if GOTOOLCHAIN=auto go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@latest; then
               echo "::endgroup::"
               break
             fi
