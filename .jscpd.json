@@ -1,6 +1,8 @@
 {
   "threshold": 10,
-  "reporters": ["console"],
+  "reporters": [
+    "console"
+  ],
   "ignore": [
     "**/*.yaml",
     "**/*.yml",
@@ -16,8 +18,6 @@
     "**/internal/client/**",
     "**/internal/provider/**",
     "**/templates/**",
-    "**/docs/resources/**",
-    "**/docs/data-sources/**",
-    "**/docs/functions/**"
+    "**/docs/**"
   ]
 }
