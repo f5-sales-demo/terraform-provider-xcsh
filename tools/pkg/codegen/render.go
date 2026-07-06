@@ -1466,6 +1466,12 @@ func RenderNestedAttributes(attrs []openapi.TerraformAttribute, indent string) s
 			case "int64":
 				typeName = "Int64"
 				pkgName = "int64planmodifier"
+			case "list":
+				typeName = "List"
+				pkgName = "listplanmodifier"
+			case "map":
+				typeName = "Map"
+				pkgName = "mapplanmodifier"
 			}
 			sb.WriteString(fmt.Sprintf("%s\t\tPlanModifiers: []planmodifier.%s{\n", indent, typeName))
 			switch attr.PlanModifier {
