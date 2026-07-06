@@ -107,36 +107,15 @@ These files live in otherwise auto-generated directories but are hand-written:
 
 ## Workflow Architecture
 
-```
-Push to main (human commit)
-         |
-         v
-+------------------+
-| Detect Changes   | <-- What changed? (specs/code/tools)
-+--------+---------+
-         |
-         v
-+------------------+
-| Build & Test     | <-- Validate merged code
-+--------+---------+
-         |
-    +----+----+
-    v         v
-+-------+ +-------+
-| Regen | | Regen | <-- Regenerate if needed
-|Provider| | Docs  |
-+---+---+ +---+---+
-    +----+----+
-         v
-+------------------+
-| Create PR        | <-- Single consolidated PR
-| (if changes)     |   for all regeneration
-+--------+---------+
-         |
-         v
-+------------------+
-| Tag & Release    | <-- ONE version bump
-+------------------+
+```mermaid
+flowchart TD
+    push[Push to main<br/>human commit] --> detect[Detect Changes<br/>what changed? specs / code / tools]
+    detect --> build[Build &amp; Test<br/>validate merged code]
+    build --> regenProvider[Regenerate Provider<br/>if needed]
+    build --> regenDocs[Regenerate Docs<br/>if needed]
+    regenProvider --> pr[Create PR<br/>single consolidated PR for all regeneration]
+    regenDocs --> pr
+    pr --> release[Tag &amp; Release<br/>ONE version bump]
 ```
 
 Reusable workflows (`_build-test.yml`, `_generate-docs.yml`, `_generate-provider.yml`, `_tag-release.yml`) are called by the `on-merge.yml` orchestrator.
