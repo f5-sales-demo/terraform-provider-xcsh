@@ -157,7 +157,7 @@ docs:
 		tfplugindocs generate --provider-name xcsh; \
 	else \
 		echo "tfplugindocs not installed. Installing..."; \
-		$(GO) install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@latest; \
+		GOTOOLCHAIN=auto $(GO) install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@latest; \
 		tfplugindocs generate --provider-name xcsh; \
 	fi
 	@echo "Transforming documentation to Volterra-style format..."
