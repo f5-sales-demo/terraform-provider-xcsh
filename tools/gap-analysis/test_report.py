@@ -320,7 +320,7 @@ class TestGenerateMarkdownReport:
 
     def test_issue_templates_contain_repos(self, report: str) -> None:
         """Issue templates contain repo references."""
-        assert "terraform-provider-f5xc" in report
+        assert "terraform-provider-xcsh" in report
 
     def test_categories_grouped(self, report: str) -> None:
         """Resource drill-downs group by category."""

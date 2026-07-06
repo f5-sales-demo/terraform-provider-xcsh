@@ -86,7 +86,7 @@
         "x-f5xc-required-for-operations": {"create": true, "update": false},
         "x-f5xc-displayorder": 10,
         "x-f5xc-uniqueness": "global",
-        "x-f5xc-terraform-resource": "f5xc_full_extensions",
+        "x-f5xc-terraform-resource": "xcsh_full_extensions",
 
         "x-f5xc-danger-level": "high",
         "x-f5xc-confirmation-required": true,

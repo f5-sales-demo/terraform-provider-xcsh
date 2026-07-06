@@ -3,7 +3,7 @@
 
 """Tests for extension_map.py - Extension Consumption Map Builder.
 
-Tests run against real files in the terraform-provider-f5xc and
+Tests run against real files in the terraform-provider-xcsh and
 api-specs-enriched repositories.
 """
 
@@ -23,7 +23,7 @@ from extension_map import (
     get_registered_extensions,
 )
 
-PROVIDER_ROOT = Path("/workspace/terraform-provider-f5xc")
+PROVIDER_ROOT = Path("/workspace/terraform-provider-xcsh")
 SPECS_ROOT = Path("/workspace/api-specs-enriched")
 GO_FILE = PROVIDER_ROOT / "tools" / "generate-all-schemas.go"
 SPECS_DIR = SPECS_ROOT / "docs" / "specifications" / "api"

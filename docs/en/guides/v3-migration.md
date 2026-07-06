@@ -138,7 +138,7 @@ If you have automation relying on resource subcategories:
 
 ## Getting Help
 
-- **Documentation**: [Provider Documentation](https://registry.terraform.io/providers/f5-sales-demo/f5xc/latest/docs)
+- **Documentation**: [Provider Documentation](https://registry.terraform.io/providers/f5-sales-demo/xcsh/latest/docs)
 - **Issues**: [GitHub Issues](https://GitHub.com/f5-sales-demo/terraform-provider-xcsh/issues)
 - **F5 Support**: [F5 Distributed Cloud Console](https://console.ves.volterra.io)
 
