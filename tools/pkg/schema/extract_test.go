@@ -116,6 +116,33 @@ func TestExtractResourceSchema_NoProfileStaysRequired(t *testing.T) {
 	}
 }
 
+// A single-allowed profile that is NOT enforced (unverified classification) must not
+// be defaulted/locked — namespace stays Required so we don't over-restrict on a guess.
+func TestExtractResourceSchema_UnverifiedSingleAllowedStaysRequired(t *testing.T) {
+	namespace.ClearProfiles()
+	namespace.SetProfile("unverified_sys", namespace.Profile{
+		Allowed:  []namespace.NamespaceType{namespace.System},
+		Enforced: false,
+	})
+	defer namespace.ClearProfiles()
+
+	spec, extractAPIPath := systemOnlySpec("unverified_sys")
+	result, err := ExtractResourceSchema(spec, "unverified_sys", extractAPIPath)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	ns := findAttr(result.Attributes, "namespace")
+	if ns == nil {
+		t.Fatal("namespace attribute missing")
+	}
+	if !ns.Required {
+		t.Error("unverified (enforced=false) single-allowed namespace must stay Required")
+	}
+	if ns.StringDefault != "" || len(ns.EnumValues) != 0 {
+		t.Errorf("unverified namespace must not be defaulted/locked; got StringDefault=%q EnumValues=%v", ns.StringDefault, ns.EnumValues)
+	}
+}
+
 func TestExtractOneOfGroups_Empty(t *testing.T) {
 	spec := &openapi.Spec{}
 	result := ExtractOneOfGroups(spec, "NonExistent")
