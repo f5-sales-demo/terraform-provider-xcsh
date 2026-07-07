@@ -1,62 +1,37 @@
 ---
-page_title: "f5xc_workload Resource - terraform-provider-f5xc"
+page_title: "xcsh_workload Resource - xcsh"
 subcategory: "Kubernetes"
 description: |-
   Manages a Workload resource in F5 Distributed Cloud for workload. configuration.
 ---
 
-# f5xc_workload (Resource)
+# xcsh_workload (Resource)
 
 Manages a Workload resource in F5 Distributed Cloud for workload. configuration.
 
-~> **Note** Please refer to [Workload API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/container_services/) to learn more.
+~> **Note** Please refer to [Workload API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/container_services/) to learn more.
 
 ## Example Usage
 
 ```terraform
 # Workload Resource Example
-# Manages a Workload resource in F5 Distributed Cloud for workload. configuration.
+# Manages a Workload resource in F5 Distributed Cloud for workload.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
 # Basic Workload configuration
-resource "f5xc_workload" "example" {
+resource "xcsh_workload" "example" {
   name      = "example-workload"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  // One of the arguments from this list "job service stateful_service" must be set
-
-  service {
-    containers {
-      name = "web"
-      image {
-        name        = "nginx"
-        pull_policy = "IMAGE_PULL_POLICY_ALWAYS"
-        public {}
-      }
-    }
-    deploy_options {
-      default_virtual_sites {}
-    }
-  }
 }
 ```
 
@@ -3173,5 +3148,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_workload.example system/example
+terraform import xcsh_workload.example system/example
 ```

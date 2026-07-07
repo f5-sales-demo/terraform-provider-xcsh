@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_ike_phase2_profile Resource - terraform-provider-f5xc"
+page_title: "xcsh_ike_phase2_profile Resource - xcsh"
 subcategory: "VPN"
 description: |-
   Manages a IKE Phase2 Profile resource in F5 Distributed Cloud for ike phase2 profile specification. configuration.
 ---
 
-# f5xc_ike_phase2_profile (Resource)
+# xcsh_ike_phase2_profile (Resource)
 
 Manages a IKE Phase2 Profile resource in F5 Distributed Cloud for ike phase2 profile specification. configuration.
 
@@ -14,47 +14,27 @@ Manages a IKE Phase2 Profile resource in F5 Distributed Cloud for ike phase2 pro
 ## Example Usage
 
 ```terraform
-# IKE Phase2 Profile Resource Example
-# Manages a IKE Phase2 Profile resource in F5 Distributed Cloud for ike phase2 profile specification. configuration.
+# IKEPhase2Profile Resource Example
+# Manages a IKE Phase2 Profile resource in F5 Distributed Cloud for ike phase2 profile specification.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic IKE Phase2 Profile configuration
-resource "f5xc_ike_phase2_profile" "example" {
+# Basic IKEPhase2Profile configuration
+resource "xcsh_ike_phase2_profile" "example" {
   name      = "example-ike-phase2-profile"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # [OneOf: dh_group_set, disable_pfs; Default: disable_pfs] ...
-  dh_group_set {
-    # Configure dh_group_set settings
-  }
-  # Configuration parameter for disable pfs.
-  disable_pfs {
-    # Configure disable_pfs settings
-  }
-  # [OneOf: ike_keylifetime_hours, ike_keylifetime_minutes, u...
-  ike_keylifetime_hours {
-    # Configure ike_keylifetime_hours settings
-  }
+  authentication_algos = ["example-value"]
+  encryption_algos     = ["example-value"]
 }
 ```
 
@@ -228,5 +208,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_ike_phase2_profile.example system/example
+terraform import xcsh_ike_phase2_profile.example system/example
 ```

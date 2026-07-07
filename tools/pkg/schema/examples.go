@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/namespace"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/openapi"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/namespace"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 )
 
 // GenerateExampleUsage creates a sample HCL configuration for the resource.
@@ -16,7 +16,7 @@ func GenerateExampleUsage(resourceName string, attributes []openapi.TerraformAtt
 	_, ns := namespace.ForResource(resourceName)
 
 	var sb strings.Builder
-	sb.WriteString(fmt.Sprintf("resource \"f5xc_%s\" \"example\" {\n", resourceName))
+	sb.WriteString(fmt.Sprintf("resource \"xcsh_%s\" \"example\" {\n", resourceName))
 	sb.WriteString("  name      = \"example\"\n")
 	sb.WriteString(fmt.Sprintf("  namespace = %q\n", ns))
 	sb.WriteString("\n")

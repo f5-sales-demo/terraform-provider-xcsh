@@ -21,9 +21,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -344,39 +344,36 @@ func (r *ForwardingClassResource) Create(ctx context.Context, req resource.Creat
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.Dscp != nil {
-		dscpMap := make(map[string]interface{})
+		DscpMap := make(map[string]interface{})
 		if !data.Dscp.DropPrecedence.IsNull() && !data.Dscp.DropPrecedence.IsUnknown() {
-			dscpMap["drop_precedence"] = data.Dscp.DropPrecedence.ValueString()
+			DscpMap["drop_precedence"] = data.Dscp.DropPrecedence.ValueString()
 		}
 		if !data.Dscp.DscpClass.IsNull() && !data.Dscp.DscpClass.IsUnknown() {
-			dscpMap["dscp_class"] = data.Dscp.DscpClass.ValueString()
+			DscpMap["dscp_class"] = data.Dscp.DscpClass.ValueString()
 		}
-		createReq.Spec["dscp"] = dscpMap
+		createReq.Spec["dscp"] = DscpMap
 	}
 	if data.DscpBasedQueue != nil {
-		dscp_based_queueMap := make(map[string]interface{})
-		createReq.Spec["dscp_based_queue"] = dscp_based_queueMap
+		createReq.Spec["dscp_based_queue"] = map[string]interface{}{}
 	}
 	if data.NoMarking != nil {
-		no_markingMap := make(map[string]interface{})
-		createReq.Spec["no_marking"] = no_markingMap
+		createReq.Spec["no_marking"] = map[string]interface{}{}
 	}
 	if data.NoPolicer != nil {
-		no_policerMap := make(map[string]interface{})
-		createReq.Spec["no_policer"] = no_policerMap
+		createReq.Spec["no_policer"] = map[string]interface{}{}
 	}
 	if data.Policer != nil {
-		policerMap := make(map[string]interface{})
+		PolicerMap := make(map[string]interface{})
 		if !data.Policer.Name.IsNull() && !data.Policer.Name.IsUnknown() {
-			policerMap["name"] = data.Policer.Name.ValueString()
+			PolicerMap["name"] = data.Policer.Name.ValueString()
 		}
 		if !data.Policer.Namespace.IsNull() && !data.Policer.Namespace.IsUnknown() {
-			policerMap["namespace"] = data.Policer.Namespace.ValueString()
+			PolicerMap["namespace"] = data.Policer.Namespace.ValueString()
 		}
 		if !data.Policer.Tenant.IsNull() && !data.Policer.Tenant.IsUnknown() {
-			policerMap["tenant"] = data.Policer.Tenant.ValueString()
+			PolicerMap["tenant"] = data.Policer.Tenant.ValueString()
 		}
-		createReq.Spec["policer"] = policerMap
+		createReq.Spec["policer"] = PolicerMap
 	}
 	if !data.InterfaceGroup.IsNull() && !data.InterfaceGroup.IsUnknown() {
 		createReq.Spec["interface_group"] = data.InterfaceGroup.ValueString()
@@ -417,20 +414,14 @@ func (r *ForwardingClassResource) Create(ctx context.Context, req resource.Creat
 		}
 	}
 	if _, ok := apiResource.Spec["dscp_based_queue"].(map[string]interface{}); ok && isImport && data.DscpBasedQueue == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DscpBasedQueue = &ForwardingClassEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_marking"].(map[string]interface{}); ok && isImport && data.NoMarking == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoMarking = &ForwardingClassEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_policer"].(map[string]interface{}); ok && isImport && data.NoPolicer == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoPolicer = &ForwardingClassEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["policer"].(map[string]interface{}); ok && (isImport || data.Policer != nil) {
 		data.Policer = &ForwardingClassPolicerModel{
 			Name: func() types.String {
@@ -565,20 +556,14 @@ func (r *ForwardingClassResource) Read(ctx context.Context, req resource.ReadReq
 		}
 	}
 	if _, ok := apiResource.Spec["dscp_based_queue"].(map[string]interface{}); ok && isImport && data.DscpBasedQueue == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DscpBasedQueue = &ForwardingClassEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_marking"].(map[string]interface{}); ok && isImport && data.NoMarking == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoMarking = &ForwardingClassEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_policer"].(map[string]interface{}); ok && isImport && data.NoPolicer == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoPolicer = &ForwardingClassEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["policer"].(map[string]interface{}); ok && (isImport || data.Policer != nil) {
 		data.Policer = &ForwardingClassPolicerModel{
 			Name: func() types.String {
@@ -615,6 +600,14 @@ func (r *ForwardingClassResource) Read(ctx context.Context, req resource.ReadReq
 		data.TosValue = types.Int64Value(int64(v))
 	} else {
 		data.TosValue = types.Int64Null()
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -668,39 +661,36 @@ func (r *ForwardingClassResource) Update(ctx context.Context, req resource.Updat
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.Dscp != nil {
-		dscpMap := make(map[string]interface{})
+		DscpMap := make(map[string]interface{})
 		if !data.Dscp.DropPrecedence.IsNull() && !data.Dscp.DropPrecedence.IsUnknown() {
-			dscpMap["drop_precedence"] = data.Dscp.DropPrecedence.ValueString()
+			DscpMap["drop_precedence"] = data.Dscp.DropPrecedence.ValueString()
 		}
 		if !data.Dscp.DscpClass.IsNull() && !data.Dscp.DscpClass.IsUnknown() {
-			dscpMap["dscp_class"] = data.Dscp.DscpClass.ValueString()
+			DscpMap["dscp_class"] = data.Dscp.DscpClass.ValueString()
 		}
-		apiResource.Spec["dscp"] = dscpMap
+		apiResource.Spec["dscp"] = DscpMap
 	}
 	if data.DscpBasedQueue != nil {
-		dscp_based_queueMap := make(map[string]interface{})
-		apiResource.Spec["dscp_based_queue"] = dscp_based_queueMap
+		apiResource.Spec["dscp_based_queue"] = map[string]interface{}{}
 	}
 	if data.NoMarking != nil {
-		no_markingMap := make(map[string]interface{})
-		apiResource.Spec["no_marking"] = no_markingMap
+		apiResource.Spec["no_marking"] = map[string]interface{}{}
 	}
 	if data.NoPolicer != nil {
-		no_policerMap := make(map[string]interface{})
-		apiResource.Spec["no_policer"] = no_policerMap
+		apiResource.Spec["no_policer"] = map[string]interface{}{}
 	}
 	if data.Policer != nil {
-		policerMap := make(map[string]interface{})
+		PolicerMap := make(map[string]interface{})
 		if !data.Policer.Name.IsNull() && !data.Policer.Name.IsUnknown() {
-			policerMap["name"] = data.Policer.Name.ValueString()
+			PolicerMap["name"] = data.Policer.Name.ValueString()
 		}
 		if !data.Policer.Namespace.IsNull() && !data.Policer.Namespace.IsUnknown() {
-			policerMap["namespace"] = data.Policer.Namespace.ValueString()
+			PolicerMap["namespace"] = data.Policer.Namespace.ValueString()
 		}
 		if !data.Policer.Tenant.IsNull() && !data.Policer.Tenant.IsUnknown() {
-			policerMap["tenant"] = data.Policer.Tenant.ValueString()
+			PolicerMap["tenant"] = data.Policer.Tenant.ValueString()
 		}
-		apiResource.Spec["policer"] = policerMap
+		apiResource.Spec["policer"] = PolicerMap
 	}
 	if !data.InterfaceGroup.IsNull() && !data.InterfaceGroup.IsUnknown() {
 		apiResource.Spec["interface_group"] = data.InterfaceGroup.ValueString()
@@ -759,20 +749,14 @@ func (r *ForwardingClassResource) Update(ctx context.Context, req resource.Updat
 		}
 	}
 	if _, ok := apiResource.Spec["dscp_based_queue"].(map[string]interface{}); ok && isImport && data.DscpBasedQueue == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DscpBasedQueue = &ForwardingClassEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_marking"].(map[string]interface{}); ok && isImport && data.NoMarking == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoMarking = &ForwardingClassEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_policer"].(map[string]interface{}); ok && isImport && data.NoPolicer == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoPolicer = &ForwardingClassEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["policer"].(map[string]interface{}); ok && (isImport || data.Policer != nil) {
 		data.Policer = &ForwardingClassPolicerModel{
 			Name: func() types.String {

@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_ike2 Data Source - terraform-provider-f5xc"
+page_title: "xcsh_ike2 Data Source - xcsh"
 subcategory: "VPN"
 description: |-
   Retrieves information about an existing Ike2 resource in F5 Distributed Cloud for ike phase2 profile specification. configuration.
 ---
 
-# f5xc_ike2 (Data Source)
+# xcsh_ike2 (Data Source)
 
 Retrieves information about a Ike2 resource in F5 Distributed Cloud for ike phase2 profile specification. configuration. This is a read-only data source.
 
@@ -15,27 +15,22 @@ Retrieves information about a Ike2 resource in F5 Distributed Cloud for ike phas
 
 ```terraform
 # Ike2 Data Source Example
-# Retrieves information about an existing Ike2
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
 # Look up an existing Ike2 by name
-data "f5xc_ike2" "example" {
+data "xcsh_ike2" "example" {
   name      = "example-ike2"
   namespace = "staging"
-}
-
-output "ike2_id" {
-  value = data.f5xc_ike2.example.id
 }
 ```
 

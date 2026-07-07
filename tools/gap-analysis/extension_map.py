@@ -251,7 +251,7 @@ def build_extension_map(
     6. Otherwise -> UNKNOWN
 
     Args:
-        provider_root: Root of the terraform-provider-f5xc repository.
+        provider_root: Root of the terraform-provider-xcsh repository.
         specs_root: Root of the api-specs-enriched repository.
 
     Returns:
@@ -307,7 +307,7 @@ if __name__ == "__main__":
     provider = (
         Path(sys.argv[1])
         if len(sys.argv) > 1
-        else Path("/workspace/terraform-provider-f5xc")
+        else Path("/workspace/terraform-provider-xcsh")
     )
     specs = (
         Path(sys.argv[2])

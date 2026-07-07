@@ -1,41 +1,36 @@
 ---
-page_title: "f5xc_dns_domain Data Source - terraform-provider-f5xc"
+page_title: "xcsh_dns_domain Data Source - xcsh"
 subcategory: "DNS"
 description: |-
   Retrieves information about DNS Domain in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud.
 ---
 
-# f5xc_dns_domain (Data Source)
+# xcsh_dns_domain (Data Source)
 
 Manages DNS Domain in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud. This is a read-only data source.
 
-~> **Note** Please refer to [DNS Domain API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/dns/) to learn more.
+~> **Note** Please refer to [DNS Domain API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/dns/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# DNS Domain Data Source Example
-# Retrieves information about an existing DNS Domain
+# DNSDomain Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing DNS Domain by name
-data "f5xc_dns_domain" "example" {
+# Look up an existing DNSDomain by name
+data "xcsh_dns_domain" "example" {
   name      = "example-dns-domain"
   namespace = "staging"
-}
-
-output "dns_domain_id" {
-  value = data.f5xc_dns_domain.example.id
 }
 ```
 

@@ -1,60 +1,37 @@
 ---
-page_title: "f5xc_k8s_cluster_role Resource - terraform-provider-f5xc"
+page_title: "xcsh_k8s_cluster_role Resource - xcsh"
 subcategory: "Kubernetes"
 description: |-
   Manages k8s_cluster_role will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_k8s_cluster_role (Resource)
+# xcsh_k8s_cluster_role (Resource)
 
 Manages k8s_cluster_role will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
 
-~> **Note** Please refer to [K8S Cluster Role API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/managed_kubernetes/) to learn more.
+~> **Note** Please refer to [K8S Cluster Role API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/managed_kubernetes/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# K8S Cluster Role Resource Example
-# Manages k8s_cluster_role will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
+# K8SClusterRole Resource Example
+# Manages k8s_cluster_role will create the object in the storage backend for namespace metadata.namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic K8S Cluster Role configuration
-resource "f5xc_k8s_cluster_role" "example" {
+# Basic K8SClusterRole configuration
+resource "xcsh_k8s_cluster_role" "example" {
   name      = "example-k8s-cluster-role"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # [OneOf: k8s_cluster_role_selector, policy_rule_list, yaml...
-  k8s_cluster_role_selector {
-    # Configure k8s_cluster_role_selector settings
-  }
-  # Policy Rule List. List of rules for role permissions.
-  policy_rule_list {
-    # Configure policy_rule_list settings
-  }
-  # List of rules for role permissions .
-  policy_rule {
-    # Configure policy_rule settings
-  }
+  namespace = "system"
 }
 ```
 
@@ -69,8 +46,6 @@ resource "f5xc_k8s_cluster_role" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the K8S Cluster Role. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the K8S Cluster Role will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -78,6 +53,8 @@ resource "f5xc_k8s_cluster_role" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the K8S Cluster Role. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -234,5 +211,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_k8s_cluster_role.example system/example
+terraform import xcsh_k8s_cluster_role.example system/example
 ```

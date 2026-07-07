@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_cminstance Data Source - terraform-provider-f5xc"
+page_title: "xcsh_cminstance Data Source - xcsh"
 subcategory: "Subscriptions"
 description: |-
   Retrieves information about App type will create the configuration in namespace metadata.namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_cminstance (Data Source)
+# xcsh_cminstance (Data Source)
 
 Manages App type will create the configuration in namespace metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
 
@@ -15,27 +15,22 @@ Manages App type will create the configuration in namespace metadata.namespace. 
 
 ```terraform
 # Cminstance Data Source Example
-# Retrieves information about an existing Cminstance
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
 # Look up an existing Cminstance by name
-data "f5xc_cminstance" "example" {
+data "xcsh_cminstance" "example" {
   name      = "example-cminstance"
   namespace = "staging"
-}
-
-output "cminstance_id" {
-  value = data.f5xc_cminstance.example.id
 }
 ```
 

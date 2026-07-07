@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_fast_acl Resource - terraform-provider-f5xc"
+page_title: "xcsh_fast_acl Resource - xcsh"
 subcategory: "Security"
 description: |-
   Manages object, object contains rules to protect site from denial of service It has destination{destination IP, destination port) and references to. in F5 Distributed Cloud.
 ---
 
-# f5xc_fast_acl (Resource)
+# xcsh_fast_acl (Resource)
 
 Manages object, object contains rules to protect site from denial of service It has destination{destination IP, destination port) and references to. in F5 Distributed Cloud.
 
@@ -14,47 +14,24 @@ Manages object, object contains rules to protect site from denial of service It 
 ## Example Usage
 
 ```terraform
-# Fast ACL Resource Example
-# Manages object, object contains rules to protect site from denial of service It has destination{destination IP, destination port) and references to. in F5 Distributed Cloud.
+# FastACL Resource Example
+# Manages object, object contains rules to protect site from denial of service It has destination{destination IP, destination port) and references to.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Fast ACL configuration
-resource "f5xc_fast_acl" "example" {
+# Basic FastACL configuration
+resource "xcsh_fast_acl" "example" {
   name      = "example-fast-acl"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # Type establishes a direct reference from one object(the r...
-  protocol_policer {
-    # Configure protocol_policer settings
-  }
-  # [OneOf: re_acl, site_acl] Fast ACL for RE. Fast ACL defin...
-  re_acl {
-    # Configure re_acl settings
-  }
-  # Enable this option
-  all_public_vips {
-    # Configure all_public_vips settings
-  }
 }
 ```
 
@@ -111,11 +88,11 @@ A [`protocol_policer`](#protocol-policer) block supports the following:
 
 A [`re_acl`](#re-acl) block supports the following:
 
-<a id="re-acl-all-public-vips"></a>&#x2022; [`all_public_vips`](#re-acl-all-public-vips) - Optional Block<br>Enable this option
+<a id="re-acl-all-public-vips"></a>&#x2022; [`all_public_vips`](#re-acl-all-public-vips) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 <a id="re-acl-default-tenant-vip"></a>&#x2022; [`default_tenant_vip`](#re-acl-default-tenant-vip) - Optional Block<br>Enable this option
 
-<a id="re-acl-fast-acl-rules"></a>&#x2022; [`fast_acl_rules`](#re-acl-fast-acl-rules) - Optional Block<br>Rules. Fast ACL rules to match<br>See [Fast ACL Rules](#re-acl-fast-acl-rules) below.
+<a id="re-acl-fast-acl-rules"></a>&#x2022; [`fast_acl_rules`](#re-acl-fast-acl-rules) - Optional Block  Defaults to `[]`<br>Rules. Fast ACL rules to match.  Server applies default when omitted<br>See [Fast ACL Rules](#re-acl-fast-acl-rules) below.
 
 <a id="re-acl-selected-tenant-vip"></a>&#x2022; [`selected_tenant_vip`](#re-acl-selected-tenant-vip) - Optional Block<br>Specific Tenant VIP. Select various tenant public VIP(s)<br>See [Selected Tenant VIP](#re-acl-selected-tenant-vip) below.
 
@@ -394,5 +371,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_fast_acl.example system/example
+terraform import xcsh_fast_acl.example system/example
 ```

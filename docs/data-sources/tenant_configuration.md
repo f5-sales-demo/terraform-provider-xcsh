@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_tenant_configuration Data Source - terraform-provider-f5xc"
+page_title: "xcsh_tenant_configuration Data Source - xcsh"
 subcategory: "Organization"
 description: |-
   Retrieves information about an existing Tenant Configuration resource in F5 Distributed Cloud for tenant configuration specification. configuration.
 ---
 
-# f5xc_tenant_configuration (Data Source)
+# xcsh_tenant_configuration (Data Source)
 
 Retrieves information about a Tenant Configuration resource in F5 Distributed Cloud for tenant configuration specification. configuration. This is a read-only data source.
 
@@ -14,28 +14,23 @@ Retrieves information about a Tenant Configuration resource in F5 Distributed Cl
 ## Example Usage
 
 ```terraform
-# Tenant Configuration Data Source Example
-# Retrieves information about an existing Tenant Configuration
+# TenantConfiguration Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Tenant Configuration by name
-data "f5xc_tenant_configuration" "example" {
+# Look up an existing TenantConfiguration by name
+data "xcsh_tenant_configuration" "example" {
   name      = "example-tenant-configuration"
   namespace = "staging"
-}
-
-output "tenant_configuration_id" {
-  value = data.f5xc_tenant_configuration.example.id
 }
 ```
 

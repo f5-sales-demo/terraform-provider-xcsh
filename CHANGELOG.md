@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Breaking Changes - v3.0.0 Clean Break Release
 
-This is a clean-break pre-release that requires recreating all Terraform-managed resources. This version uses F5 Distributed Cloud API v2 specifications and removes all backwards compatibility with earlier versions.
+This is a clean-break prerelease that requires recreating all Terraform-managed resources. This version uses F5 Distributed Cloud API v2 specifications and removes all backwards compatibility with earlier versions.
 
 #### What Changed
 
@@ -23,7 +23,7 @@ This is a clean-break pre-release that requires recreating all Terraform-managed
 
 #### Migration Required
 
-Since this is a pre-release project, users must:
+Since this is a prerelease project, users must:
 
 1. **Destroy all existing resources**: Run `terraform destroy` with the previous provider version
 2. **Upgrade provider**: Update to v3.0.0 in your Terraform configuration
@@ -37,8 +37,8 @@ Since this is a pre-release project, users must:
 If you have existing F5 Distributed Cloud resources (not managed by Terraform), you can import them:
 
 ```bash
-terraform import f5xc_namespace.example my-namespace
-terraform import f5xc_http_loadbalancer.example namespace/loadbalancer-name
+terraform import xcsh_namespace.example my-namespace
+terraform import xcsh_http_loadbalancer.example namespace/loadbalancer-name
 ```
 
 See the provider documentation for resource-specific import formats.
@@ -47,8 +47,8 @@ See the provider documentation for resource-specific import formats.
 
 - 98 resources based on F5 Distributed Cloud API v2 specifications
 - Provider-defined functions:
-  - `provider::f5xc::blindfold` - Encrypt plaintext with F5XC blindfold encryption
-  - `provider::f5xc::blindfold_file` - Encrypt file contents with F5XC blindfold encryption
+  - `provider::xcsh::blindfold` - Encrypt plaintext with F5XC blindfold encryption
+  - `provider::xcsh::blindfold_file` - Encrypt file contents with F5XC blindfold encryption
 
 ### Improved
 

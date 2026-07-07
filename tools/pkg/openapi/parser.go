@@ -321,6 +321,12 @@ func extractResourcePathsFromPaths(paths map[string]interface{}) []resourcePath 
 	// Include digits (e.g., securemesh_site_v2s has a digit in the name)
 	configPathRegex := regexp.MustCompile(`^/api/config/namespaces/\{namespace\}/([a-z_0-9]+s)$`)
 
+	// Service-prefixed pattern: /api/config/{service}/namespaces/{namespace}/{resource_plural}
+	// (e.g. /api/config/dns/namespaces/{namespace}/dns_zones). The {service} segment groups
+	// related objects in the F5 XC API. The full path is preserved as the resource's APIPath
+	// so the generated client targets the correct service-prefixed URL.
+	configServicePathRegex := regexp.MustCompile(`^/api/config/[a-z_0-9]+/namespaces/\{namespace\}/([a-z_0-9]+s)$`)
+
 	// Secondary pattern: /api/web/{resource_plural} (for system-level resources like namespace)
 	webPathRegex := regexp.MustCompile(`^/api/web/([a-z_0-9]+s)$`)
 
@@ -329,6 +335,9 @@ func extractResourcePathsFromPaths(paths map[string]interface{}) []resourcePath 
 
 		// Try config pattern first (most common)
 		if matches := configPathRegex.FindStringSubmatch(path); len(matches) >= 2 {
+			resourcePlural = matches[1]
+		} else if matches := configServicePathRegex.FindStringSubmatch(path); len(matches) >= 2 {
+			// Service-prefixed config resources (e.g. dns_zones, dns_load_balancers)
 			resourcePlural = matches[1]
 		} else if matches := webPathRegex.FindStringSubmatch(path); len(matches) >= 2 {
 			// Try web pattern for system-level resources (e.g., namespace)

@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_proxy Resource - terraform-provider-f5xc"
+page_title: "xcsh_proxy Resource - xcsh"
 subcategory: "Networking"
 description: |-
   Manages a Proxy resource in F5 Distributed Cloud for tcp loadbalancer create specification. configuration.
 ---
 
-# f5xc_proxy (Resource)
+# xcsh_proxy (Resource)
 
 Manages a Proxy resource in F5 Distributed Cloud for tcp loadbalancer create specification. configuration.
 
@@ -15,35 +15,25 @@ Manages a Proxy resource in F5 Distributed Cloud for tcp loadbalancer create spe
 
 ```terraform
 # Proxy Resource Example
-# Manages a Proxy resource in F5 Distributed Cloud for tcp loadbalancer create specification. configuration.
+# Manages a Proxy resource in F5 Distributed Cloud for tcp loadbalancer create specification.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
 # Basic Proxy configuration
-resource "f5xc_proxy" "example" {
+resource "xcsh_proxy" "example" {
   name      = "example-proxy"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Proxy configuration
-  proxy_url = "`http://proxy.example.com:8080"`
+  connection_timeout = 1
 }
 ```
 
@@ -803,5 +793,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_proxy.example system/example
+terraform import xcsh_proxy.example system/example
 ```

@@ -3,8 +3,8 @@
 package schema
 
 import (
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/conflicts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/openapi"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/conflicts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 )
 
 // HasNestedModelsWithAttrTypes checks recursively if any nested blocks would generate AttrTypes.
@@ -48,6 +48,20 @@ func HasEnumValidatorsAny(attributes []openapi.TerraformAttribute) bool {
 			return true
 		}
 		if HasEnumValidatorsAny(attr.NestedAttributes) {
+			return true
+		}
+	}
+	return false
+}
+
+// HasStringDefaultsAny recursively checks if any attribute (top-level or nested)
+// has a StringDefault. This determines whether stringdefault must be imported.
+func HasStringDefaultsAny(attributes []openapi.TerraformAttribute) bool {
+	for _, attr := range attributes {
+		if attr.StringDefault != "" {
+			return true
+		}
+		if HasStringDefaultsAny(attr.NestedAttributes) {
 			return true
 		}
 	}

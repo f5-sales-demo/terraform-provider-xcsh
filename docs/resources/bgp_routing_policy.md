@@ -1,60 +1,37 @@
 ---
-page_title: "f5xc_bgp_routing_policy Resource - terraform-provider-f5xc"
+page_title: "xcsh_bgp_routing_policy Resource - xcsh"
 subcategory: "Security"
 description: |-
-  Manages a BGP Routing Policy resource in F5 Distributed Cloud for bgp routing policy is a list of rules containing match criteria and action to be applied. these rules help contol routes which are imported or exported to bgp peers. configuration.
+  Manages a BGP Routing Policy resource in F5 Distributed Cloud for bgp routing policy is a list of rules containing match criteria and action to be applied. these rules help control routes which are imported or exported to bgp peers. configuration.
 ---
 
-# f5xc_bgp_routing_policy (Resource)
+# xcsh_bgp_routing_policy (Resource)
 
-Manages a BGP Routing Policy resource in F5 Distributed Cloud for bgp routing policy is a list of rules containing match criteria and action to be applied. these rules help contol routes which are imported or exported to bgp peers. configuration.
+Manages a BGP Routing Policy resource in F5 Distributed Cloud for bgp routing policy is a list of rules containing match criteria and action to be applied. these rules help control routes which are imported or exported to bgp peers. configuration.
 
 ~> **Note** For more information about this resource, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
 
 ## Example Usage
 
 ```terraform
-# BGP Routing Policy Resource Example
-# Manages a BGP Routing Policy resource in F5 Distributed Cloud for bgp routing policy is a list of rules containing match criteria and action to be applied. these rules help contol routes which are imported or exported to bgp peers. configuration.
+# BGPRoutingPolicy Resource Example
+# Manages a BGP Routing Policy resource in F5 Distributed Cloud for bgp routing policy is a list of rules containing match criteria and action to be applied.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic BGP Routing Policy configuration
-resource "f5xc_bgp_routing_policy" "example" {
+# Basic BGPRoutingPolicy configuration
+resource "xcsh_bgp_routing_policy" "example" {
   name      = "example-bgp-routing-policy"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # BGP Routing policy is composed of one or more rules. Note...
-  rules {
-    # Configure rules settings
-  }
-  # Action to be enforced if the BGP route matches the rule.
-  action {
-    # Configure action settings
-  }
-  # Enable this option
-  aggregate {
-    # Configure aggregate settings
-  }
 }
 ```
 
@@ -260,5 +237,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_bgp_routing_policy.example system/example
+terraform import xcsh_bgp_routing_policy.example system/example
 ```

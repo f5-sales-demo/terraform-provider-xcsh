@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_cdn_purge_command Data Source - terraform-provider-f5xc"
+page_title: "xcsh_cdn_purge_command Data Source - xcsh"
 subcategory: "Load Balancing"
 description: |-
   Retrieves information about an existing CDN Purge Command resource in F5 Distributed Cloud for CDN purge command specification. configuration.
 ---
 
-# f5xc_cdn_purge_command (Data Source)
+# xcsh_cdn_purge_command (Data Source)
 
 Retrieves information about a CDN Purge Command resource in F5 Distributed Cloud for CDN purge command specification. configuration. This is a read-only data source.
 
@@ -14,28 +14,23 @@ Retrieves information about a CDN Purge Command resource in F5 Distributed Cloud
 ## Example Usage
 
 ```terraform
-# CDN Purge Command Data Source Example
-# Retrieves information about an existing CDN Purge Command
+# CDNPurgeCommand Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing CDN Purge Command by name
-data "f5xc_cdn_purge_command" "example" {
+# Look up an existing CDNPurgeCommand by name
+data "xcsh_cdn_purge_command" "example" {
   name      = "example-CDN-purge-command"
   namespace = "staging"
-}
-
-output "cdn_purge_command_id" {
-  value = data.f5xc_cdn_purge_command.example.id
 }
 ```
 

@@ -1,4 +1,4 @@
-# f5xc_azure_vnet_site
+# xcsh_azure_vnet_site
 
 Category: Sites
 Deploying F5 sites within Azure Virtual Network environments
@@ -6,71 +6,20 @@ Deploying F5 sites within Azure Virtual Network environments
 ## Required
 
 - name
-- namespace
 - machine_type
 - resource_group
 - ssh_key
 
-## Server Defaults (safe to omit)
-
-- disk_size
-- block_all_services
-- logs_streaming_disabled
-- no_worker_nodes
-- tags
-
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_azure_vnet_site" "example" {
+resource "xcsh_azure_vnet_site" "example" {
   name      = "example-Azure-vnet-site"
-  namespace = "staging"
+  namespace = "system"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  azure_region = "westus2"
-
-  azure_cred {
-    name      = "Azure-credentials"
-    namespace = "staging"
-  }
-
-  resource_group = "f5xc-rg"
-
-  vnet {
-    new_vnet {
-      name         = "f5xc-vnet"
-      primary_ipv4 = "10.0.0.0/16"
-    }
-  }
-
-  machine_type = "Standard_D3_v2"
-
-  ingress_egress_gw {
-    azure_certified_hw = "Azure-byol-multi-nic-voltmesh"
-    az_nodes {
-      azure_az = "1"
-      inside_subnet {
-        subnet_param {
-          ipv4 = "10.0.1.0/24"
-        }
-      }
-      outside_subnet {
-        subnet_param {
-          ipv4 = "10.0.2.0/24"
-        }
-      }
-    }
-  }
-
-  no_worker_nodes {}
+  machine_type   = "example-value"
+  resource_group = "example-value"
+  ssh_key        = "example-value"
 }
 ```
 

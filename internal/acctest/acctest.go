@@ -19,8 +19,8 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/provider"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/provider"
 )
 
 var (
@@ -31,28 +31,28 @@ var (
 )
 
 // Environment variable names for acceptance tests
-// Using F5XC_* prefix for F5 Distributed Cloud branding.
+// Using XCSH_* prefix for xcsh provider branding.
 const (
-	// EnvF5XCURL is the environment variable for the F5 XC API URL
-	EnvF5XCURL = "F5XC_API_URL"
+	// EnvXCSHURL is the environment variable for the API URL
+	EnvXCSHURL = "XCSH_API_URL"
 
-	// EnvF5XCToken is the environment variable for the F5 XC API token
-	EnvF5XCToken = "F5XC_API_TOKEN"
+	// EnvXCSHToken is the environment variable for the API token
+	EnvXCSHToken = "XCSH_API_TOKEN"
 
-	// EnvF5XCP12File is the environment variable for the P12 certificate file path
-	EnvF5XCP12File = "F5XC_P12_FILE"
+	// EnvXCSHP12File is the environment variable for the P12 certificate file path
+	EnvXCSHP12File = "XCSH_P12_FILE"
 
-	// EnvF5XCP12Password is the environment variable for the P12 certificate password
-	EnvF5XCP12Password = "F5XC_P12_PASSWORD" // pragma: allowlist secret
+	// EnvXCSHP12Password is the environment variable for the P12 certificate password
+	EnvXCSHP12Password = "XCSH_P12_PASSWORD" // pragma: allowlist secret
 
-	// EnvF5XCCert is the environment variable for the PEM certificate file path
-	EnvF5XCCert = "F5XC_CERT"
+	// EnvXCSHCert is the environment variable for the PEM certificate file path
+	EnvXCSHCert = "XCSH_CERT"
 
-	// EnvF5XCKey is the environment variable for the PEM key file path
-	EnvF5XCKey = "F5XC_KEY"
+	// EnvXCSHKey is the environment variable for the PEM key file path
+	EnvXCSHKey = "XCSH_KEY"
 
-	// EnvF5XCTenantName is the environment variable for the F5 XC tenant name
-	EnvF5XCTenantName = "F5XC_TENANT_NAME"
+	// EnvXCSHTenantName is the environment variable for the tenant name
+	EnvXCSHTenantName = "XCSH_TENANT_NAME"
 
 	// EnvTFAccTest enables acceptance tests
 	EnvTFAccTest = "TF_ACC"
@@ -60,7 +60,7 @@ const (
 
 // ProtoV6ProviderFactories returns the provider factories for acceptance testing
 var ProtoV6ProviderFactories = map[string]func() (tfprotov6.ProviderServer, error){
-	"f5xc": providerserver.NewProtocol6WithError(provider.New("test")()),
+	"xcsh": providerserver.NewProtocol6WithError(provider.New("test")()),
 }
 
 // ExternalProviders defines external providers used in acceptance tests
@@ -88,17 +88,17 @@ const (
 // DetectAuthMethod determines which authentication method is configured
 func DetectAuthMethod() AuthMethod {
 	// Check P12 authentication (preferred for testing)
-	if os.Getenv(EnvF5XCP12File) != "" && os.Getenv(EnvF5XCP12Password) != "" {
+	if os.Getenv(EnvXCSHP12File) != "" && os.Getenv(EnvXCSHP12Password) != "" {
 		return AuthMethodP12
 	}
 
 	// Check PEM certificate authentication
-	if os.Getenv(EnvF5XCCert) != "" && os.Getenv(EnvF5XCKey) != "" {
+	if os.Getenv(EnvXCSHCert) != "" && os.Getenv(EnvXCSHKey) != "" {
 		return AuthMethodPEM
 	}
 
 	// Check token authentication
-	if os.Getenv(EnvF5XCToken) != "" {
+	if os.Getenv(EnvXCSHToken) != "" {
 		return AuthMethodToken
 	}
 
@@ -107,7 +107,7 @@ func DetectAuthMethod() AuthMethod {
 
 // PreCheck validates that required environment variables are set before running tests.
 // It also logs the test category as REAL_API for reporting purposes.
-// When F5XC_MOCK_MODE is set, it automatically configures the environment to use
+// When XCSH_MOCK_MODE is set, it automatically configures the environment to use
 // the global mock server instead of requiring real credentials.
 func PreCheck(t *testing.T) {
 	t.Helper()
@@ -119,7 +119,7 @@ func PreCheck(t *testing.T) {
 	// Log test category for reporting
 	if IsMockMode() {
 		LogTestCategory(t, TestCategoryMock)
-		t.Logf("Using mock server mode (F5XC_MOCK_MODE=1)")
+		t.Logf("Using mock server mode (XCSH_MOCK_MODE=1)")
 		return // Skip credential validation for mock mode
 	}
 
@@ -127,8 +127,8 @@ func PreCheck(t *testing.T) {
 	LogTestCategory(t, TestCategoryReal)
 
 	// API URL is always required
-	if os.Getenv(EnvF5XCURL) == "" {
-		t.Fatalf("Required environment variable not set: %s", EnvF5XCURL)
+	if os.Getenv(EnvXCSHURL) == "" {
+		t.Fatalf("Required environment variable not set: %s", EnvXCSHURL)
 	}
 
 	// Check for at least one valid authentication method
@@ -136,10 +136,10 @@ func PreCheck(t *testing.T) {
 
 	switch authMethod {
 	case AuthMethodP12:
-		t.Logf("Using P12 certificate authentication (file: %s)", os.Getenv(EnvF5XCP12File))
+		t.Logf("Using P12 certificate authentication (file: %s)", os.Getenv(EnvXCSHP12File))
 	case AuthMethodPEM:
 		t.Logf("Using PEM certificate authentication (cert: %s, key: %s)",
-			os.Getenv(EnvF5XCCert), os.Getenv(EnvF5XCKey))
+			os.Getenv(EnvXCSHCert), os.Getenv(EnvXCSHKey))
 	case AuthMethodToken:
 		t.Logf("Using API token authentication")
 	case AuthMethodNone:
@@ -147,14 +147,14 @@ func PreCheck(t *testing.T) {
 			"  - P12: %s and %s\n"+
 			"  - PEM: %s and %s\n"+
 			"  - Token: %s",
-			EnvF5XCP12File, EnvF5XCP12Password,
-			EnvF5XCCert, EnvF5XCKey,
-			EnvF5XCToken)
+			EnvXCSHP12File, EnvXCSHP12Password,
+			EnvXCSHCert, EnvXCSHKey,
+			EnvXCSHToken)
 	}
 }
 
 // SkipIfNotAccTest skips the test if TF_ACC is not set and mock mode is not enabled.
-// When F5XC_MOCK_MODE is set, tests run without requiring TF_ACC.
+// When XCSH_MOCK_MODE is set, tests run without requiring TF_ACC.
 func SkipIfNotAccTest(t *testing.T) {
 	t.Helper()
 
@@ -180,7 +180,7 @@ func RandomNameWithSuffix(prefix, suffix string) string {
 
 // TestNamespace returns the namespace for tests (default: "default")
 func TestNamespace() string {
-	if ns := os.Getenv("F5XC_DEFAULT_NAMESPACE"); ns != "" {
+	if ns := os.Getenv("XCSH_DEFAULT_NAMESPACE"); ns != "" {
 		return ns
 	}
 	return "default"
@@ -202,7 +202,7 @@ func ConfigCompose(configs ...string) string {
 // is needed - the framework injects the provider via reattach configuration.
 func ProviderConfig() string {
 	return `
-provider "f5xc" {
+provider "xcsh" {
   # Configuration from environment variables
 }
 `
@@ -286,7 +286,7 @@ func NewTestResource(resourceType string) *TestResource {
 
 // FullResourceName returns the full Terraform resource name
 func (r *TestResource) FullResourceName() string {
-	return fmt.Sprintf("f5xc_%s.test", r.ResourceType)
+	return fmt.Sprintf("xcsh_%s.test", r.ResourceType)
 }
 
 // IDAttribute returns the attribute path for the ID
@@ -324,7 +324,7 @@ func TestCheckFuncCompose(funcs ...resource.TestCheckFunc) resource.TestCheckFun
 // The client is created once and reused across all tests.
 func GetTestClient() (*client.Client, error) {
 	testClientOnce.Do(func() {
-		apiURL := os.Getenv(EnvF5XCURL)
+		apiURL := os.Getenv(EnvXCSHURL)
 		if apiURL == "" {
 			apiURL = "https://console.ves.volterra.io"
 		}
@@ -340,18 +340,18 @@ func GetTestClient() (*client.Client, error) {
 		case AuthMethodP12:
 			testClient, testClientErr = client.NewClientWithP12(
 				apiURL,
-				os.Getenv(EnvF5XCP12File),
-				os.Getenv(EnvF5XCP12Password),
+				os.Getenv(EnvXCSHP12File),
+				os.Getenv(EnvXCSHP12Password),
 			)
 		case AuthMethodPEM:
 			testClient, testClientErr = client.NewClientWithCert(
 				apiURL,
-				os.Getenv(EnvF5XCCert),
-				os.Getenv(EnvF5XCKey),
+				os.Getenv(EnvXCSHCert),
+				os.Getenv(EnvXCSHKey),
 				"", // CA cert optional
 			)
 		case AuthMethodToken:
-			testClient = client.NewClient(apiURL, os.Getenv(EnvF5XCToken))
+			testClient = client.NewClient(apiURL, os.Getenv(EnvXCSHToken))
 		default:
 			testClientErr = fmt.Errorf("no authentication method configured")
 		}
@@ -370,7 +370,7 @@ func CheckNamespaceDestroyed(s *terraform.State) error {
 	}
 
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "f5xc_namespace" {
+		if rs.Type != "xcsh_namespace" {
 			continue
 		}
 
@@ -541,7 +541,7 @@ func CheckHealthcheckDestroyed(s *terraform.State) error {
 	}
 
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "f5xc_healthcheck" {
+		if rs.Type != "xcsh_healthcheck" {
 			continue
 		}
 
@@ -717,7 +717,7 @@ func CheckIPPrefixSetDestroyed(s *terraform.State) error {
 	}
 
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "f5xc_ip_prefix_set" {
+		if rs.Type != "xcsh_ip_prefix_set" {
 			continue
 		}
 
@@ -833,7 +833,7 @@ func CheckBGPAsnSetDestroyed(s *terraform.State) error {
 	}
 
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "f5xc_bgp_asn_set" {
+		if rs.Type != "xcsh_bgp_asn_set" {
 			continue
 		}
 
@@ -952,7 +952,7 @@ func CheckPolicerDestroyed(s *terraform.State) error {
 	}
 
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "f5xc_policer" {
+		if rs.Type != "xcsh_policer" {
 			continue
 		}
 
@@ -1071,7 +1071,7 @@ func CheckDataGroupDestroyed(s *terraform.State) error {
 	}
 
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "f5xc_data_group" {
+		if rs.Type != "xcsh_data_group" {
 			continue
 		}
 
@@ -1190,7 +1190,7 @@ func CheckDataTypeDestroyed(s *terraform.State) error {
 	}
 
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "f5xc_data_type" {
+		if rs.Type != "xcsh_data_type" {
 			continue
 		}
 
@@ -1309,7 +1309,7 @@ func CheckFilterSetDestroyed(s *terraform.State) error {
 	}
 
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "f5xc_filter_set" {
+		if rs.Type != "xcsh_filter_set" {
 			continue
 		}
 
@@ -1428,7 +1428,7 @@ func CheckForwardingClassDestroyed(s *terraform.State) error {
 	}
 
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "f5xc_forwarding_class" {
+		if rs.Type != "xcsh_forwarding_class" {
 			continue
 		}
 
@@ -1548,7 +1548,7 @@ func CheckRateLimiterDestroyed(s *terraform.State) error {
 	}
 
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "f5xc_rate_limiter" {
+		if rs.Type != "xcsh_rate_limiter" {
 			continue
 		}
 
@@ -1674,7 +1674,7 @@ func CheckUserIdentificationDestroyed(s *terraform.State) error {
 	}
 
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "f5xc_user_identification" {
+		if rs.Type != "xcsh_user_identification" {
 			continue
 		}
 
@@ -1800,7 +1800,7 @@ func CheckMaliciousUserMitigationDestroyed(s *terraform.State) error {
 	}
 
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "f5xc_malicious_user_mitigation" {
+		if rs.Type != "xcsh_malicious_user_mitigation" {
 			continue
 		}
 
@@ -1921,7 +1921,7 @@ func CheckAlertPolicyDestroyed(s *terraform.State) error {
 	}
 
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "f5xc_alert_policy" {
+		if rs.Type != "xcsh_alert_policy" {
 			continue
 		}
 
@@ -2022,7 +2022,7 @@ func CheckAlertReceiverDestroyed(s *terraform.State) error {
 	}
 
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "f5xc_alert_receiver" {
+		if rs.Type != "xcsh_alert_receiver" {
 			continue
 		}
 
@@ -2123,7 +2123,7 @@ func CheckCloudCredentialsDestroyed(s *terraform.State) error {
 	}
 
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "f5xc_cloud_credentials" {
+		if rs.Type != "xcsh_cloud_credentials" {
 			continue
 		}
 
@@ -2224,7 +2224,7 @@ func CheckNetworkConnectorDestroyed(s *terraform.State) error {
 	}
 
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "f5xc_network_connector" {
+		if rs.Type != "xcsh_network_connector" {
 			continue
 		}
 
@@ -2329,7 +2329,7 @@ func CheckAppFirewallDestroyed(s *terraform.State) error {
 	}
 
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "f5xc_app_firewall" {
+		if rs.Type != "xcsh_app_firewall" {
 			continue
 		}
 
@@ -2444,7 +2444,7 @@ func CheckOriginPoolDestroyed(s *terraform.State) error {
 	}
 
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "f5xc_origin_pool" {
+		if rs.Type != "xcsh_origin_pool" {
 			continue
 		}
 
@@ -2559,7 +2559,7 @@ func CheckServicePolicyDestroyed(s *terraform.State) error {
 	}
 
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "f5xc_service_policy" {
+		if rs.Type != "xcsh_service_policy" {
 			continue
 		}
 

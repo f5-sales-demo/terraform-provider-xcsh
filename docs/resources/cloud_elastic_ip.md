@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_cloud_elastic_ip Resource - terraform-provider-f5xc"
+page_title: "xcsh_cloud_elastic_ip Resource - xcsh"
 subcategory: "Cloud Resources"
 description: |-
   Manages Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site. in F5 Distributed Cloud.
 ---
 
-# f5xc_cloud_elastic_ip (Resource)
+# xcsh_cloud_elastic_ip (Resource)
 
 Manages Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site. in F5 Distributed Cloud.
 
@@ -14,39 +14,26 @@ Manages Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a
 ## Example Usage
 
 ```terraform
-# Cloud Elastic IP Resource Example
-# Manages Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site. in F5 Distributed Cloud.
+# CloudElasticIP Resource Example
+# Manages Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Cloud Elastic IP configuration
-resource "f5xc_cloud_elastic_ip" "example" {
+# Basic CloudElasticIP configuration
+resource "xcsh_cloud_elastic_ip" "example" {
   name      = "example-cloud-elastic-ip"
-  namespace = "staging"
+  namespace = "system"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # Site to which this cloud elastic IP object is attached .
-  site_ref {
-    # Configure site_ref settings
-  }
+  item_count = 1
 }
 ```
 
@@ -61,8 +48,6 @@ resource "f5xc_cloud_elastic_ip" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Cloud Elastic IP. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Cloud Elastic IP will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -70,6 +55,8 @@ resource "f5xc_cloud_elastic_ip" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Cloud Elastic IP. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -202,5 +189,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_cloud_elastic_ip.example system/example
+terraform import xcsh_cloud_elastic_ip.example system/example
 ```

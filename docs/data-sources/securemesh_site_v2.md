@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_securemesh_site_v2 Data Source - terraform-provider-f5xc"
+page_title: "xcsh_securemesh_site_v2 Data Source - xcsh"
 subcategory: "Sites"
 description: |-
   Retrieves information about an existing Securemesh Site V2 resource in F5 Distributed Cloud for deploying secure mesh edge sites with enhanced security and networking features.
 ---
 
-# f5xc_securemesh_site_v2 (Data Source)
+# xcsh_securemesh_site_v2 (Data Source)
 
 Retrieves information about a Securemesh Site V2 resource in F5 Distributed Cloud for deploying secure mesh edge sites with enhanced security and networking features. This is a read-only data source.
 
@@ -14,28 +14,23 @@ Retrieves information about a Securemesh Site V2 resource in F5 Distributed Clou
 ## Example Usage
 
 ```terraform
-# Securemesh Site V2 Data Source Example
-# Retrieves information about an existing Securemesh Site V2
+# SecuremeshSiteV2 Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Securemesh Site V2 by name
-data "f5xc_securemesh_site_v2" "example" {
+# Look up an existing SecuremeshSiteV2 by name
+data "xcsh_securemesh_site_v2" "example" {
   name      = "example-securemesh-site-v2"
   namespace = "staging"
-}
-
-output "securemesh_site_v2_id" {
-  value = data.f5xc_securemesh_site_v2.example.id
 }
 ```
 

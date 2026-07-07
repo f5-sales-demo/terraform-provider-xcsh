@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_dns_proxy Resource - terraform-provider-f5xc"
+page_title: "xcsh_dns_proxy Resource - xcsh"
 subcategory: "DNS"
 description: |-
   Manages DNS Proxy in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud.
 ---
 
-# f5xc_dns_proxy (Resource)
+# xcsh_dns_proxy (Resource)
 
 Manages DNS Proxy in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud.
 
@@ -14,47 +14,26 @@ Manages DNS Proxy in a given namespace. If one already exists it will give an er
 ## Example Usage
 
 ```terraform
-# DNS Proxy Resource Example
-# Manages DNS Proxy in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud.
+# DNSProxy Resource Example
+# Manages DNS Proxy in a given namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic DNS Proxy configuration
-resource "f5xc_dns_proxy" "example" {
+# Basic DNSProxy configuration
+resource "xcsh_dns_proxy" "example" {
   name      = "example-dns-proxy"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # DNS Cache specifies cache configuration.
-  cache_profile {
-    # Configure cache_profile settings
-  }
-  # Configuration parameter for disable cache profile.
-  disable_cache_profile {
-    # Configure disable_cache_profile settings
-  }
-  # Configuration parameter for ddos profile.
-  ddos_profile {
-    # Configure ddos_profile settings
-  }
+  transport_type = "UDP"
 }
 ```
 
@@ -487,5 +466,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_dns_proxy.example system/example
+terraform import xcsh_dns_proxy.example system/example
 ```

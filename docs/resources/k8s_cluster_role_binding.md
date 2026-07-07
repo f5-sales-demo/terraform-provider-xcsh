@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_k8s_cluster_role_binding Resource - terraform-provider-f5xc"
+page_title: "xcsh_k8s_cluster_role_binding Resource - xcsh"
 subcategory: "Kubernetes"
 description: |-
   Manages k8s_cluster_role_binding will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_k8s_cluster_role_binding (Resource)
+# xcsh_k8s_cluster_role_binding (Resource)
 
 Manages k8s_cluster_role_binding will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
 
@@ -14,47 +14,24 @@ Manages k8s_cluster_role_binding will create the object in the storage backend f
 ## Example Usage
 
 ```terraform
-# K8S Cluster Role Binding Resource Example
-# Manages k8s_cluster_role_binding will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
+# K8SClusterRoleBinding Resource Example
+# Manages k8s_cluster_role_binding will create the object in the storage backend for namespace metadata.namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic K8S Cluster Role Binding configuration
-resource "f5xc_k8s_cluster_role_binding" "example" {
+# Basic K8SClusterRoleBinding configuration
+resource "xcsh_k8s_cluster_role_binding" "example" {
   name      = "example-k8s-cluster-role-binding"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # List of subjects (user, group or service account) to which...
-  subjects {
-    # Configure subjects settings
-  }
-  # ServiceAccountType.
-  service_account {
-    # Configure service_account settings
-  }
-  # Type establishes a direct reference from one object(the r...
-  k8s_cluster_role {
-    # Configure k8s_cluster_role settings
-  }
+  namespace = "system"
 }
 ```
 
@@ -69,8 +46,6 @@ resource "f5xc_k8s_cluster_role_binding" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the K8S Cluster Role Binding. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the K8S Cluster Role Binding will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -78,6 +53,8 @@ resource "f5xc_k8s_cluster_role_binding" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the K8S Cluster Role Binding. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -224,5 +201,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_k8s_cluster_role_binding.example system/example
+terraform import xcsh_k8s_cluster_role_binding.example system/example
 ```

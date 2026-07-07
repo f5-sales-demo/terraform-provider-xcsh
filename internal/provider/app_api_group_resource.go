@@ -16,14 +16,15 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -165,13 +166,16 @@ func (r *AppAPIGroupResource) Schema(ctx context.Context, req resource.SchemaReq
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the App API Group will be created.",
-				Required:            true,
+				MarkdownDescription: "Namespace for the App API Group. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
+				Optional:            true,
+				Computed:            true,
+				Default:             stringdefault.StaticString("system"),
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
+					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
@@ -456,71 +460,78 @@ func (r *AppAPIGroupResource) Create(ctx context.Context, req resource.CreateReq
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.Elements.IsNull() && !data.Elements.IsUnknown() {
-		var elementsItems []AppAPIGroupElementsModel
-		diags := data.Elements.ElementsAs(ctx, &elementsItems, false)
+		var ElementsElems []AppAPIGroupElementsModel
+		diags := data.Elements.ElementsAs(ctx, &ElementsElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(elementsItems) > 0 {
-			var elementsList []map[string]interface{}
-			for _, item := range elementsItems {
-				itemMap := make(map[string]interface{})
-				if !item.PathRegex.IsNull() && !item.PathRegex.IsUnknown() {
-					itemMap["path_regex"] = item.PathRegex.ValueString()
+		if !resp.Diagnostics.HasError() && len(ElementsElems) > 0 {
+			var ElementsList []map[string]interface{}
+			for _, ElementsItem := range ElementsElems {
+				ElementsItemMap := make(map[string]interface{})
+				if !ElementsItem.Methods.IsNull() && !ElementsItem.Methods.IsUnknown() {
+					var MethodsItems []string
+					diags := ElementsItem.Methods.ElementsAs(ctx, &MethodsItems, false)
+					if !diags.HasError() {
+						ElementsItemMap["methods"] = MethodsItems
+					}
 				}
-				elementsList = append(elementsList, itemMap)
+				if !ElementsItem.PathRegex.IsNull() && !ElementsItem.PathRegex.IsUnknown() {
+					ElementsItemMap["path_regex"] = ElementsItem.PathRegex.ValueString()
+				}
+				ElementsList = append(ElementsList, ElementsItemMap)
 			}
-			createReq.Spec["elements"] = elementsList
+			createReq.Spec["elements"] = ElementsList
 		}
 	}
 	if data.BigIPVirtualServer != nil {
-		bigip_virtual_serverMap := make(map[string]interface{})
+		BigIPVirtualServerMap := make(map[string]interface{})
 		if data.BigIPVirtualServer.BigIPVirtualServer != nil {
-			bigip_virtual_serverNestedMap := make(map[string]interface{})
+			BigIPVirtualServerMap := make(map[string]interface{})
 			if !data.BigIPVirtualServer.BigIPVirtualServer.Name.IsNull() && !data.BigIPVirtualServer.BigIPVirtualServer.Name.IsUnknown() {
-				bigip_virtual_serverNestedMap["name"] = data.BigIPVirtualServer.BigIPVirtualServer.Name.ValueString()
+				BigIPVirtualServerMap["name"] = data.BigIPVirtualServer.BigIPVirtualServer.Name.ValueString()
 			}
 			if !data.BigIPVirtualServer.BigIPVirtualServer.Namespace.IsNull() && !data.BigIPVirtualServer.BigIPVirtualServer.Namespace.IsUnknown() {
-				bigip_virtual_serverNestedMap["namespace"] = data.BigIPVirtualServer.BigIPVirtualServer.Namespace.ValueString()
+				BigIPVirtualServerMap["namespace"] = data.BigIPVirtualServer.BigIPVirtualServer.Namespace.ValueString()
 			}
 			if !data.BigIPVirtualServer.BigIPVirtualServer.Tenant.IsNull() && !data.BigIPVirtualServer.BigIPVirtualServer.Tenant.IsUnknown() {
-				bigip_virtual_serverNestedMap["tenant"] = data.BigIPVirtualServer.BigIPVirtualServer.Tenant.ValueString()
+				BigIPVirtualServerMap["tenant"] = data.BigIPVirtualServer.BigIPVirtualServer.Tenant.ValueString()
 			}
-			bigip_virtual_serverMap["bigip_virtual_server"] = bigip_virtual_serverNestedMap
+			BigIPVirtualServerMap["bigip_virtual_server"] = BigIPVirtualServerMap
 		}
-		createReq.Spec["bigip_virtual_server"] = bigip_virtual_serverMap
+		createReq.Spec["bigip_virtual_server"] = BigIPVirtualServerMap
 	}
 	if data.CDNLoadBalancer != nil {
-		cdn_loadbalancerMap := make(map[string]interface{})
+		CDNLoadBalancerMap := make(map[string]interface{})
 		if data.CDNLoadBalancer.CDNLoadBalancer != nil {
-			cdn_loadbalancerNestedMap := make(map[string]interface{})
+			CDNLoadBalancerMap := make(map[string]interface{})
 			if !data.CDNLoadBalancer.CDNLoadBalancer.Name.IsNull() && !data.CDNLoadBalancer.CDNLoadBalancer.Name.IsUnknown() {
-				cdn_loadbalancerNestedMap["name"] = data.CDNLoadBalancer.CDNLoadBalancer.Name.ValueString()
+				CDNLoadBalancerMap["name"] = data.CDNLoadBalancer.CDNLoadBalancer.Name.ValueString()
 			}
 			if !data.CDNLoadBalancer.CDNLoadBalancer.Namespace.IsNull() && !data.CDNLoadBalancer.CDNLoadBalancer.Namespace.IsUnknown() {
-				cdn_loadbalancerNestedMap["namespace"] = data.CDNLoadBalancer.CDNLoadBalancer.Namespace.ValueString()
+				CDNLoadBalancerMap["namespace"] = data.CDNLoadBalancer.CDNLoadBalancer.Namespace.ValueString()
 			}
 			if !data.CDNLoadBalancer.CDNLoadBalancer.Tenant.IsNull() && !data.CDNLoadBalancer.CDNLoadBalancer.Tenant.IsUnknown() {
-				cdn_loadbalancerNestedMap["tenant"] = data.CDNLoadBalancer.CDNLoadBalancer.Tenant.ValueString()
+				CDNLoadBalancerMap["tenant"] = data.CDNLoadBalancer.CDNLoadBalancer.Tenant.ValueString()
 			}
-			cdn_loadbalancerMap["cdn_loadbalancer"] = cdn_loadbalancerNestedMap
+			CDNLoadBalancerMap["cdn_loadbalancer"] = CDNLoadBalancerMap
 		}
-		createReq.Spec["cdn_loadbalancer"] = cdn_loadbalancerMap
+		createReq.Spec["cdn_loadbalancer"] = CDNLoadBalancerMap
 	}
 	if data.HTTPLoadBalancer != nil {
-		http_loadbalancerMap := make(map[string]interface{})
+		HTTPLoadBalancerMap := make(map[string]interface{})
 		if data.HTTPLoadBalancer.HTTPLoadBalancer != nil {
-			http_loadbalancerNestedMap := make(map[string]interface{})
+			HTTPLoadBalancerMap := make(map[string]interface{})
 			if !data.HTTPLoadBalancer.HTTPLoadBalancer.Name.IsNull() && !data.HTTPLoadBalancer.HTTPLoadBalancer.Name.IsUnknown() {
-				http_loadbalancerNestedMap["name"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Name.ValueString()
+				HTTPLoadBalancerMap["name"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Name.ValueString()
 			}
 			if !data.HTTPLoadBalancer.HTTPLoadBalancer.Namespace.IsNull() && !data.HTTPLoadBalancer.HTTPLoadBalancer.Namespace.IsUnknown() {
-				http_loadbalancerNestedMap["namespace"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Namespace.ValueString()
+				HTTPLoadBalancerMap["namespace"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Namespace.ValueString()
 			}
 			if !data.HTTPLoadBalancer.HTTPLoadBalancer.Tenant.IsNull() && !data.HTTPLoadBalancer.HTTPLoadBalancer.Tenant.IsUnknown() {
-				http_loadbalancerNestedMap["tenant"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Tenant.ValueString()
+				HTTPLoadBalancerMap["tenant"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Tenant.ValueString()
 			}
-			http_loadbalancerMap["http_loadbalancer"] = http_loadbalancerNestedMap
+			HTTPLoadBalancerMap["http_loadbalancer"] = HTTPLoadBalancerMap
 		}
-		createReq.Spec["http_loadbalancer"] = http_loadbalancerMap
+		createReq.Spec["http_loadbalancer"] = HTTPLoadBalancerMap
 	}
 
 	apiResource, err := r.client.CreateAppAPIGroup(ctx, createReq)
@@ -535,16 +546,18 @@ func (r *AppAPIGroupResource) Create(ctx context.Context, req resource.CreateReq
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["elements"].([]interface{}); ok && len(listData) > 0 {
-		var elementsList []AppAPIGroupElementsModel
+	if !isImport && (data.Elements.IsNull() || len(data.Elements.Elements()) == 0) {
+		data.Elements = types.ListNull(types.ObjectType{AttrTypes: AppAPIGroupElementsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["elements"].([]interface{}); ok && len(listData) > 0 {
+		var ElementsList []AppAPIGroupElementsModel
 		var existingElementsItems []AppAPIGroupElementsModel
 		if !data.Elements.IsNull() && !data.Elements.IsUnknown() {
 			data.Elements.ElementsAs(ctx, &existingElementsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				elementsList = append(elementsList, AppAPIGroupElementsModel{
+				ElementsList = append(ElementsList, AppAPIGroupElementsModel{
 					Methods: func() types.List {
 						if v, ok := itemMap["methods"].([]interface{}); ok && len(v) > 0 {
 							var items []string
@@ -567,30 +580,110 @@ func (r *AppAPIGroupResource) Create(ctx context.Context, req resource.CreateReq
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppAPIGroupElementsModelAttrTypes}, elementsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppAPIGroupElementsModelAttrTypes}, ElementsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Elements = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Elements = types.ListNull(types.ObjectType{AttrTypes: AppAPIGroupElementsModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["bigip_virtual_server"].(map[string]interface{}); ok && isImport && data.BigIPVirtualServer == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.BigIPVirtualServer = &AppAPIGroupBigIPVirtualServerModel{}
+	if blockData, ok := apiResource.Spec["bigip_virtual_server"].(map[string]interface{}); ok && (isImport || data.BigIPVirtualServer != nil) {
+		data.BigIPVirtualServer = &AppAPIGroupBigIPVirtualServerModel{
+			BigIPVirtualServer: func() *AppAPIGroupBigIPVirtualServerBigIPVirtualServerModel {
+				if !isImport && data.BigIPVirtualServer != nil && data.BigIPVirtualServer.BigIPVirtualServer != nil {
+					return data.BigIPVirtualServer.BigIPVirtualServer
+				}
+				if BigIPVirtualServerData, ok := blockData["bigip_virtual_server"].(map[string]interface{}); ok {
+					return &AppAPIGroupBigIPVirtualServerBigIPVirtualServerModel{
+						Name: func() types.String {
+							if v, ok := BigIPVirtualServerData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := BigIPVirtualServerData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := BigIPVirtualServerData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["cdn_loadbalancer"].(map[string]interface{}); ok && isImport && data.CDNLoadBalancer == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.CDNLoadBalancer = &AppAPIGroupCDNLoadBalancerModel{}
+	if blockData, ok := apiResource.Spec["cdn_loadbalancer"].(map[string]interface{}); ok && (isImport || data.CDNLoadBalancer != nil) {
+		data.CDNLoadBalancer = &AppAPIGroupCDNLoadBalancerModel{
+			CDNLoadBalancer: func() *AppAPIGroupCDNLoadBalancerCDNLoadBalancerModel {
+				if !isImport && data.CDNLoadBalancer != nil && data.CDNLoadBalancer.CDNLoadBalancer != nil {
+					return data.CDNLoadBalancer.CDNLoadBalancer
+				}
+				if CDNLoadBalancerData, ok := blockData["cdn_loadbalancer"].(map[string]interface{}); ok {
+					return &AppAPIGroupCDNLoadBalancerCDNLoadBalancerModel{
+						Name: func() types.String {
+							if v, ok := CDNLoadBalancerData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := CDNLoadBalancerData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := CDNLoadBalancerData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["http_loadbalancer"].(map[string]interface{}); ok && isImport && data.HTTPLoadBalancer == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.HTTPLoadBalancer = &AppAPIGroupHTTPLoadBalancerModel{}
+	if blockData, ok := apiResource.Spec["http_loadbalancer"].(map[string]interface{}); ok && (isImport || data.HTTPLoadBalancer != nil) {
+		data.HTTPLoadBalancer = &AppAPIGroupHTTPLoadBalancerModel{
+			HTTPLoadBalancer: func() *AppAPIGroupHTTPLoadBalancerHTTPLoadBalancerModel {
+				if !isImport && data.HTTPLoadBalancer != nil && data.HTTPLoadBalancer.HTTPLoadBalancer != nil {
+					return data.HTTPLoadBalancer.HTTPLoadBalancer
+				}
+				if HTTPLoadBalancerData, ok := blockData["http_loadbalancer"].(map[string]interface{}); ok {
+					return &AppAPIGroupHTTPLoadBalancerHTTPLoadBalancerModel{
+						Name: func() types.String {
+							if v, ok := HTTPLoadBalancerData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := HTTPLoadBalancerData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := HTTPLoadBalancerData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 
 	tflog.Trace(ctx, "created AppAPIGroup resource")
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -671,16 +764,18 @@ func (r *AppAPIGroupResource) Read(ctx context.Context, req resource.ReadRequest
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["elements"].([]interface{}); ok && len(listData) > 0 {
-		var elementsList []AppAPIGroupElementsModel
+	if !isImport && (data.Elements.IsNull() || len(data.Elements.Elements()) == 0) {
+		data.Elements = types.ListNull(types.ObjectType{AttrTypes: AppAPIGroupElementsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["elements"].([]interface{}); ok && len(listData) > 0 {
+		var ElementsList []AppAPIGroupElementsModel
 		var existingElementsItems []AppAPIGroupElementsModel
 		if !data.Elements.IsNull() && !data.Elements.IsUnknown() {
 			data.Elements.ElementsAs(ctx, &existingElementsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				elementsList = append(elementsList, AppAPIGroupElementsModel{
+				ElementsList = append(ElementsList, AppAPIGroupElementsModel{
 					Methods: func() types.List {
 						if v, ok := itemMap["methods"].([]interface{}); ok && len(v) > 0 {
 							var items []string
@@ -703,30 +798,118 @@ func (r *AppAPIGroupResource) Read(ctx context.Context, req resource.ReadRequest
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppAPIGroupElementsModelAttrTypes}, elementsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppAPIGroupElementsModelAttrTypes}, ElementsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Elements = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Elements = types.ListNull(types.ObjectType{AttrTypes: AppAPIGroupElementsModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["bigip_virtual_server"].(map[string]interface{}); ok && isImport && data.BigIPVirtualServer == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.BigIPVirtualServer = &AppAPIGroupBigIPVirtualServerModel{}
+	if blockData, ok := apiResource.Spec["bigip_virtual_server"].(map[string]interface{}); ok && (isImport || data.BigIPVirtualServer != nil) {
+		data.BigIPVirtualServer = &AppAPIGroupBigIPVirtualServerModel{
+			BigIPVirtualServer: func() *AppAPIGroupBigIPVirtualServerBigIPVirtualServerModel {
+				if !isImport && data.BigIPVirtualServer != nil && data.BigIPVirtualServer.BigIPVirtualServer != nil {
+					return data.BigIPVirtualServer.BigIPVirtualServer
+				}
+				if BigIPVirtualServerData, ok := blockData["bigip_virtual_server"].(map[string]interface{}); ok {
+					return &AppAPIGroupBigIPVirtualServerBigIPVirtualServerModel{
+						Name: func() types.String {
+							if v, ok := BigIPVirtualServerData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := BigIPVirtualServerData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := BigIPVirtualServerData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["cdn_loadbalancer"].(map[string]interface{}); ok && isImport && data.CDNLoadBalancer == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.CDNLoadBalancer = &AppAPIGroupCDNLoadBalancerModel{}
+	if blockData, ok := apiResource.Spec["cdn_loadbalancer"].(map[string]interface{}); ok && (isImport || data.CDNLoadBalancer != nil) {
+		data.CDNLoadBalancer = &AppAPIGroupCDNLoadBalancerModel{
+			CDNLoadBalancer: func() *AppAPIGroupCDNLoadBalancerCDNLoadBalancerModel {
+				if !isImport && data.CDNLoadBalancer != nil && data.CDNLoadBalancer.CDNLoadBalancer != nil {
+					return data.CDNLoadBalancer.CDNLoadBalancer
+				}
+				if CDNLoadBalancerData, ok := blockData["cdn_loadbalancer"].(map[string]interface{}); ok {
+					return &AppAPIGroupCDNLoadBalancerCDNLoadBalancerModel{
+						Name: func() types.String {
+							if v, ok := CDNLoadBalancerData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := CDNLoadBalancerData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := CDNLoadBalancerData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["http_loadbalancer"].(map[string]interface{}); ok && isImport && data.HTTPLoadBalancer == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.HTTPLoadBalancer = &AppAPIGroupHTTPLoadBalancerModel{}
+	if blockData, ok := apiResource.Spec["http_loadbalancer"].(map[string]interface{}); ok && (isImport || data.HTTPLoadBalancer != nil) {
+		data.HTTPLoadBalancer = &AppAPIGroupHTTPLoadBalancerModel{
+			HTTPLoadBalancer: func() *AppAPIGroupHTTPLoadBalancerHTTPLoadBalancerModel {
+				if !isImport && data.HTTPLoadBalancer != nil && data.HTTPLoadBalancer.HTTPLoadBalancer != nil {
+					return data.HTTPLoadBalancer.HTTPLoadBalancer
+				}
+				if HTTPLoadBalancerData, ok := blockData["http_loadbalancer"].(map[string]interface{}); ok {
+					return &AppAPIGroupHTTPLoadBalancerHTTPLoadBalancerModel{
+						Name: func() types.String {
+							if v, ok := HTTPLoadBalancerData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := HTTPLoadBalancerData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := HTTPLoadBalancerData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
+	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
@@ -779,71 +962,78 @@ func (r *AppAPIGroupResource) Update(ctx context.Context, req resource.UpdateReq
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.Elements.IsNull() && !data.Elements.IsUnknown() {
-		var elementsItems []AppAPIGroupElementsModel
-		diags := data.Elements.ElementsAs(ctx, &elementsItems, false)
+		var ElementsElems []AppAPIGroupElementsModel
+		diags := data.Elements.ElementsAs(ctx, &ElementsElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(elementsItems) > 0 {
-			var elementsList []map[string]interface{}
-			for _, item := range elementsItems {
-				itemMap := make(map[string]interface{})
-				if !item.PathRegex.IsNull() && !item.PathRegex.IsUnknown() {
-					itemMap["path_regex"] = item.PathRegex.ValueString()
+		if !resp.Diagnostics.HasError() && len(ElementsElems) > 0 {
+			var ElementsList []map[string]interface{}
+			for _, ElementsItem := range ElementsElems {
+				ElementsItemMap := make(map[string]interface{})
+				if !ElementsItem.Methods.IsNull() && !ElementsItem.Methods.IsUnknown() {
+					var MethodsItems []string
+					diags := ElementsItem.Methods.ElementsAs(ctx, &MethodsItems, false)
+					if !diags.HasError() {
+						ElementsItemMap["methods"] = MethodsItems
+					}
 				}
-				elementsList = append(elementsList, itemMap)
+				if !ElementsItem.PathRegex.IsNull() && !ElementsItem.PathRegex.IsUnknown() {
+					ElementsItemMap["path_regex"] = ElementsItem.PathRegex.ValueString()
+				}
+				ElementsList = append(ElementsList, ElementsItemMap)
 			}
-			apiResource.Spec["elements"] = elementsList
+			apiResource.Spec["elements"] = ElementsList
 		}
 	}
 	if data.BigIPVirtualServer != nil {
-		bigip_virtual_serverMap := make(map[string]interface{})
+		BigIPVirtualServerMap := make(map[string]interface{})
 		if data.BigIPVirtualServer.BigIPVirtualServer != nil {
-			bigip_virtual_serverNestedMap := make(map[string]interface{})
+			BigIPVirtualServerMap := make(map[string]interface{})
 			if !data.BigIPVirtualServer.BigIPVirtualServer.Name.IsNull() && !data.BigIPVirtualServer.BigIPVirtualServer.Name.IsUnknown() {
-				bigip_virtual_serverNestedMap["name"] = data.BigIPVirtualServer.BigIPVirtualServer.Name.ValueString()
+				BigIPVirtualServerMap["name"] = data.BigIPVirtualServer.BigIPVirtualServer.Name.ValueString()
 			}
 			if !data.BigIPVirtualServer.BigIPVirtualServer.Namespace.IsNull() && !data.BigIPVirtualServer.BigIPVirtualServer.Namespace.IsUnknown() {
-				bigip_virtual_serverNestedMap["namespace"] = data.BigIPVirtualServer.BigIPVirtualServer.Namespace.ValueString()
+				BigIPVirtualServerMap["namespace"] = data.BigIPVirtualServer.BigIPVirtualServer.Namespace.ValueString()
 			}
 			if !data.BigIPVirtualServer.BigIPVirtualServer.Tenant.IsNull() && !data.BigIPVirtualServer.BigIPVirtualServer.Tenant.IsUnknown() {
-				bigip_virtual_serverNestedMap["tenant"] = data.BigIPVirtualServer.BigIPVirtualServer.Tenant.ValueString()
+				BigIPVirtualServerMap["tenant"] = data.BigIPVirtualServer.BigIPVirtualServer.Tenant.ValueString()
 			}
-			bigip_virtual_serverMap["bigip_virtual_server"] = bigip_virtual_serverNestedMap
+			BigIPVirtualServerMap["bigip_virtual_server"] = BigIPVirtualServerMap
 		}
-		apiResource.Spec["bigip_virtual_server"] = bigip_virtual_serverMap
+		apiResource.Spec["bigip_virtual_server"] = BigIPVirtualServerMap
 	}
 	if data.CDNLoadBalancer != nil {
-		cdn_loadbalancerMap := make(map[string]interface{})
+		CDNLoadBalancerMap := make(map[string]interface{})
 		if data.CDNLoadBalancer.CDNLoadBalancer != nil {
-			cdn_loadbalancerNestedMap := make(map[string]interface{})
+			CDNLoadBalancerMap := make(map[string]interface{})
 			if !data.CDNLoadBalancer.CDNLoadBalancer.Name.IsNull() && !data.CDNLoadBalancer.CDNLoadBalancer.Name.IsUnknown() {
-				cdn_loadbalancerNestedMap["name"] = data.CDNLoadBalancer.CDNLoadBalancer.Name.ValueString()
+				CDNLoadBalancerMap["name"] = data.CDNLoadBalancer.CDNLoadBalancer.Name.ValueString()
 			}
 			if !data.CDNLoadBalancer.CDNLoadBalancer.Namespace.IsNull() && !data.CDNLoadBalancer.CDNLoadBalancer.Namespace.IsUnknown() {
-				cdn_loadbalancerNestedMap["namespace"] = data.CDNLoadBalancer.CDNLoadBalancer.Namespace.ValueString()
+				CDNLoadBalancerMap["namespace"] = data.CDNLoadBalancer.CDNLoadBalancer.Namespace.ValueString()
 			}
 			if !data.CDNLoadBalancer.CDNLoadBalancer.Tenant.IsNull() && !data.CDNLoadBalancer.CDNLoadBalancer.Tenant.IsUnknown() {
-				cdn_loadbalancerNestedMap["tenant"] = data.CDNLoadBalancer.CDNLoadBalancer.Tenant.ValueString()
+				CDNLoadBalancerMap["tenant"] = data.CDNLoadBalancer.CDNLoadBalancer.Tenant.ValueString()
 			}
-			cdn_loadbalancerMap["cdn_loadbalancer"] = cdn_loadbalancerNestedMap
+			CDNLoadBalancerMap["cdn_loadbalancer"] = CDNLoadBalancerMap
 		}
-		apiResource.Spec["cdn_loadbalancer"] = cdn_loadbalancerMap
+		apiResource.Spec["cdn_loadbalancer"] = CDNLoadBalancerMap
 	}
 	if data.HTTPLoadBalancer != nil {
-		http_loadbalancerMap := make(map[string]interface{})
+		HTTPLoadBalancerMap := make(map[string]interface{})
 		if data.HTTPLoadBalancer.HTTPLoadBalancer != nil {
-			http_loadbalancerNestedMap := make(map[string]interface{})
+			HTTPLoadBalancerMap := make(map[string]interface{})
 			if !data.HTTPLoadBalancer.HTTPLoadBalancer.Name.IsNull() && !data.HTTPLoadBalancer.HTTPLoadBalancer.Name.IsUnknown() {
-				http_loadbalancerNestedMap["name"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Name.ValueString()
+				HTTPLoadBalancerMap["name"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Name.ValueString()
 			}
 			if !data.HTTPLoadBalancer.HTTPLoadBalancer.Namespace.IsNull() && !data.HTTPLoadBalancer.HTTPLoadBalancer.Namespace.IsUnknown() {
-				http_loadbalancerNestedMap["namespace"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Namespace.ValueString()
+				HTTPLoadBalancerMap["namespace"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Namespace.ValueString()
 			}
 			if !data.HTTPLoadBalancer.HTTPLoadBalancer.Tenant.IsNull() && !data.HTTPLoadBalancer.HTTPLoadBalancer.Tenant.IsUnknown() {
-				http_loadbalancerNestedMap["tenant"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Tenant.ValueString()
+				HTTPLoadBalancerMap["tenant"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Tenant.ValueString()
 			}
-			http_loadbalancerMap["http_loadbalancer"] = http_loadbalancerNestedMap
+			HTTPLoadBalancerMap["http_loadbalancer"] = HTTPLoadBalancerMap
 		}
-		apiResource.Spec["http_loadbalancer"] = http_loadbalancerMap
+		apiResource.Spec["http_loadbalancer"] = HTTPLoadBalancerMap
 	}
 
 	_, err := r.client.UpdateAppAPIGroup(ctx, apiResource)
@@ -869,16 +1059,18 @@ func (r *AppAPIGroupResource) Update(ctx context.Context, req resource.UpdateReq
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["elements"].([]interface{}); ok && len(listData) > 0 {
-		var elementsList []AppAPIGroupElementsModel
+	if !isImport && (data.Elements.IsNull() || len(data.Elements.Elements()) == 0) {
+		data.Elements = types.ListNull(types.ObjectType{AttrTypes: AppAPIGroupElementsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["elements"].([]interface{}); ok && len(listData) > 0 {
+		var ElementsList []AppAPIGroupElementsModel
 		var existingElementsItems []AppAPIGroupElementsModel
 		if !data.Elements.IsNull() && !data.Elements.IsUnknown() {
 			data.Elements.ElementsAs(ctx, &existingElementsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				elementsList = append(elementsList, AppAPIGroupElementsModel{
+				ElementsList = append(ElementsList, AppAPIGroupElementsModel{
 					Methods: func() types.List {
 						if v, ok := itemMap["methods"].([]interface{}); ok && len(v) > 0 {
 							var items []string
@@ -901,30 +1093,110 @@ func (r *AppAPIGroupResource) Update(ctx context.Context, req resource.UpdateReq
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppAPIGroupElementsModelAttrTypes}, elementsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppAPIGroupElementsModelAttrTypes}, ElementsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Elements = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Elements = types.ListNull(types.ObjectType{AttrTypes: AppAPIGroupElementsModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["bigip_virtual_server"].(map[string]interface{}); ok && isImport && data.BigIPVirtualServer == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.BigIPVirtualServer = &AppAPIGroupBigIPVirtualServerModel{}
+	if blockData, ok := apiResource.Spec["bigip_virtual_server"].(map[string]interface{}); ok && (isImport || data.BigIPVirtualServer != nil) {
+		data.BigIPVirtualServer = &AppAPIGroupBigIPVirtualServerModel{
+			BigIPVirtualServer: func() *AppAPIGroupBigIPVirtualServerBigIPVirtualServerModel {
+				if !isImport && data.BigIPVirtualServer != nil && data.BigIPVirtualServer.BigIPVirtualServer != nil {
+					return data.BigIPVirtualServer.BigIPVirtualServer
+				}
+				if BigIPVirtualServerData, ok := blockData["bigip_virtual_server"].(map[string]interface{}); ok {
+					return &AppAPIGroupBigIPVirtualServerBigIPVirtualServerModel{
+						Name: func() types.String {
+							if v, ok := BigIPVirtualServerData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := BigIPVirtualServerData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := BigIPVirtualServerData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["cdn_loadbalancer"].(map[string]interface{}); ok && isImport && data.CDNLoadBalancer == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.CDNLoadBalancer = &AppAPIGroupCDNLoadBalancerModel{}
+	if blockData, ok := apiResource.Spec["cdn_loadbalancer"].(map[string]interface{}); ok && (isImport || data.CDNLoadBalancer != nil) {
+		data.CDNLoadBalancer = &AppAPIGroupCDNLoadBalancerModel{
+			CDNLoadBalancer: func() *AppAPIGroupCDNLoadBalancerCDNLoadBalancerModel {
+				if !isImport && data.CDNLoadBalancer != nil && data.CDNLoadBalancer.CDNLoadBalancer != nil {
+					return data.CDNLoadBalancer.CDNLoadBalancer
+				}
+				if CDNLoadBalancerData, ok := blockData["cdn_loadbalancer"].(map[string]interface{}); ok {
+					return &AppAPIGroupCDNLoadBalancerCDNLoadBalancerModel{
+						Name: func() types.String {
+							if v, ok := CDNLoadBalancerData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := CDNLoadBalancerData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := CDNLoadBalancerData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["http_loadbalancer"].(map[string]interface{}); ok && isImport && data.HTTPLoadBalancer == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.HTTPLoadBalancer = &AppAPIGroupHTTPLoadBalancerModel{}
+	if blockData, ok := apiResource.Spec["http_loadbalancer"].(map[string]interface{}); ok && (isImport || data.HTTPLoadBalancer != nil) {
+		data.HTTPLoadBalancer = &AppAPIGroupHTTPLoadBalancerModel{
+			HTTPLoadBalancer: func() *AppAPIGroupHTTPLoadBalancerHTTPLoadBalancerModel {
+				if !isImport && data.HTTPLoadBalancer != nil && data.HTTPLoadBalancer.HTTPLoadBalancer != nil {
+					return data.HTTPLoadBalancer.HTTPLoadBalancer
+				}
+				if HTTPLoadBalancerData, ok := blockData["http_loadbalancer"].(map[string]interface{}); ok {
+					return &AppAPIGroupHTTPLoadBalancerHTTPLoadBalancerModel{
+						Name: func() types.String {
+							if v, ok := HTTPLoadBalancerData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := HTTPLoadBalancerData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := HTTPLoadBalancerData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }

@@ -19,9 +19,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -247,24 +247,24 @@ func (r *DNSComplianceChecksResource) Create(ctx context.Context, req resource.C
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.DomainDenylist.IsNull() && !data.DomainDenylist.IsUnknown() {
-		var domain_denylistList []string
-		resp.Diagnostics.Append(data.DomainDenylist.ElementsAs(ctx, &domain_denylistList, false)...)
-		if !resp.Diagnostics.HasError() {
-			createReq.Spec["domain_denylist"] = domain_denylistList
+		var DomainDenylistItems []string
+		diags := data.DomainDenylist.ElementsAs(ctx, &DomainDenylistItems, false)
+		if !diags.HasError() {
+			createReq.Spec["domain_denylist"] = DomainDenylistItems
 		}
 	}
 	if !data.DisallowedQueryTypeList.IsNull() && !data.DisallowedQueryTypeList.IsUnknown() {
-		var disallowed_query_type_listList []string
-		resp.Diagnostics.Append(data.DisallowedQueryTypeList.ElementsAs(ctx, &disallowed_query_type_listList, false)...)
-		if !resp.Diagnostics.HasError() {
-			createReq.Spec["disallowed_query_type_list"] = disallowed_query_type_listList
+		var DisallowedQueryTypeListItems []string
+		diags := data.DisallowedQueryTypeList.ElementsAs(ctx, &DisallowedQueryTypeListItems, false)
+		if !diags.HasError() {
+			createReq.Spec["disallowed_query_type_list"] = DisallowedQueryTypeListItems
 		}
 	}
 	if !data.DisallowedResourceRecordTypeList.IsNull() && !data.DisallowedResourceRecordTypeList.IsUnknown() {
-		var disallowed_resource_record_type_listList []string
-		resp.Diagnostics.Append(data.DisallowedResourceRecordTypeList.ElementsAs(ctx, &disallowed_resource_record_type_listList, false)...)
-		if !resp.Diagnostics.HasError() {
-			createReq.Spec["disallowed_resource_record_type_list"] = disallowed_resource_record_type_listList
+		var DisallowedResourceRecordTypeListItems []string
+		diags := data.DisallowedResourceRecordTypeList.ElementsAs(ctx, &DisallowedResourceRecordTypeListItems, false)
+		if !diags.HasError() {
+			createReq.Spec["disallowed_resource_record_type_list"] = DisallowedResourceRecordTypeListItems
 		}
 	}
 
@@ -451,6 +451,14 @@ func (r *DNSComplianceChecksResource) Read(ctx context.Context, req resource.Rea
 		data.DisallowedResourceRecordTypeList = types.ListNull(types.StringType)
 	}
 
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
+	}
+
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
 
@@ -502,24 +510,24 @@ func (r *DNSComplianceChecksResource) Update(ctx context.Context, req resource.U
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.DomainDenylist.IsNull() && !data.DomainDenylist.IsUnknown() {
-		var domain_denylistList []string
-		resp.Diagnostics.Append(data.DomainDenylist.ElementsAs(ctx, &domain_denylistList, false)...)
-		if !resp.Diagnostics.HasError() {
-			apiResource.Spec["domain_denylist"] = domain_denylistList
+		var DomainDenylistItems []string
+		diags := data.DomainDenylist.ElementsAs(ctx, &DomainDenylistItems, false)
+		if !diags.HasError() {
+			apiResource.Spec["domain_denylist"] = DomainDenylistItems
 		}
 	}
 	if !data.DisallowedQueryTypeList.IsNull() && !data.DisallowedQueryTypeList.IsUnknown() {
-		var disallowed_query_type_listList []string
-		resp.Diagnostics.Append(data.DisallowedQueryTypeList.ElementsAs(ctx, &disallowed_query_type_listList, false)...)
-		if !resp.Diagnostics.HasError() {
-			apiResource.Spec["disallowed_query_type_list"] = disallowed_query_type_listList
+		var DisallowedQueryTypeListItems []string
+		diags := data.DisallowedQueryTypeList.ElementsAs(ctx, &DisallowedQueryTypeListItems, false)
+		if !diags.HasError() {
+			apiResource.Spec["disallowed_query_type_list"] = DisallowedQueryTypeListItems
 		}
 	}
 	if !data.DisallowedResourceRecordTypeList.IsNull() && !data.DisallowedResourceRecordTypeList.IsUnknown() {
-		var disallowed_resource_record_type_listList []string
-		resp.Diagnostics.Append(data.DisallowedResourceRecordTypeList.ElementsAs(ctx, &disallowed_resource_record_type_listList, false)...)
-		if !resp.Diagnostics.HasError() {
-			apiResource.Spec["disallowed_resource_record_type_list"] = disallowed_resource_record_type_listList
+		var DisallowedResourceRecordTypeListItems []string
+		diags := data.DisallowedResourceRecordTypeList.ElementsAs(ctx, &DisallowedResourceRecordTypeListItems, false)
+		if !diags.HasError() {
+			apiResource.Spec["disallowed_resource_record_type_list"] = DisallowedResourceRecordTypeListItems
 		}
 	}
 

@@ -20,9 +20,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -336,31 +336,31 @@ func (r *ContainerRegistryResource) Create(ctx context.Context, req resource.Cre
 		createReq.Spec["user_name"] = data.UserName.ValueString()
 	}
 	if data.Password != nil {
-		passwordMap := make(map[string]interface{})
+		PasswordMap := make(map[string]interface{})
 		if data.Password.BlindfoldSecretInfo != nil {
-			blindfold_secret_infoNestedMap := make(map[string]interface{})
+			BlindfoldSecretInfoMap := make(map[string]interface{})
 			if !data.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-				blindfold_secret_infoNestedMap["decryption_provider"] = data.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				BlindfoldSecretInfoMap["decryption_provider"] = data.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 			}
 			if !data.Password.BlindfoldSecretInfo.Location.IsNull() && !data.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-				blindfold_secret_infoNestedMap["location"] = data.Password.BlindfoldSecretInfo.Location.ValueString()
+				BlindfoldSecretInfoMap["location"] = data.Password.BlindfoldSecretInfo.Location.ValueString()
 			}
 			if !data.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-				blindfold_secret_infoNestedMap["store_provider"] = data.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+				BlindfoldSecretInfoMap["store_provider"] = data.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
 			}
-			passwordMap["blindfold_secret_info"] = blindfold_secret_infoNestedMap
+			PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
 		}
 		if data.Password.ClearSecretInfo != nil {
-			clear_secret_infoNestedMap := make(map[string]interface{})
+			ClearSecretInfoMap := make(map[string]interface{})
 			if !data.Password.ClearSecretInfo.Provider.IsNull() && !data.Password.ClearSecretInfo.Provider.IsUnknown() {
-				clear_secret_infoNestedMap["provider"] = data.Password.ClearSecretInfo.Provider.ValueString()
+				ClearSecretInfoMap["provider"] = data.Password.ClearSecretInfo.Provider.ValueString()
 			}
 			if !data.Password.ClearSecretInfo.URL.IsNull() && !data.Password.ClearSecretInfo.URL.IsUnknown() {
-				clear_secret_infoNestedMap["url"] = data.Password.ClearSecretInfo.URL.ValueString()
+				ClearSecretInfoMap["url"] = data.Password.ClearSecretInfo.URL.ValueString()
 			}
-			passwordMap["clear_secret_info"] = clear_secret_infoNestedMap
+			PasswordMap["clear_secret_info"] = ClearSecretInfoMap
 		}
-		createReq.Spec["password"] = passwordMap
+		createReq.Spec["password"] = PasswordMap
 	}
 	if !data.Email.IsNull() && !data.Email.IsUnknown() {
 		createReq.Spec["email"] = data.Email.ValueString()
@@ -388,11 +388,60 @@ func (r *ContainerRegistryResource) Create(ctx context.Context, req resource.Cre
 	} else {
 		data.UserName = types.StringNull()
 	}
-	if _, ok := apiResource.Spec["password"].(map[string]interface{}); ok && isImport && data.Password == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Password = &ContainerRegistryPasswordModel{}
+	if blockData, ok := apiResource.Spec["password"].(map[string]interface{}); ok && (isImport || data.Password != nil) {
+		data.Password = &ContainerRegistryPasswordModel{
+			BlindfoldSecretInfo: func() *ContainerRegistryPasswordBlindfoldSecretInfoModel {
+				if !isImport && data.Password != nil && data.Password.BlindfoldSecretInfo != nil {
+					return data.Password.BlindfoldSecretInfo
+				}
+				if BlindfoldSecretInfoData, ok := blockData["blindfold_secret_info"].(map[string]interface{}); ok {
+					return &ContainerRegistryPasswordBlindfoldSecretInfoModel{
+						DecryptionProvider: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Location: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						StoreProvider: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			ClearSecretInfo: func() *ContainerRegistryPasswordClearSecretInfoModel {
+				if !isImport && data.Password != nil && data.Password.ClearSecretInfo != nil {
+					return data.Password.ClearSecretInfo
+				}
+				if ClearSecretInfoData, ok := blockData["clear_secret_info"].(map[string]interface{}); ok {
+					return &ContainerRegistryPasswordClearSecretInfoModel{
+						Provider: func() types.String {
+							if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						URL: func() types.String {
+							if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["email"].(string); ok && v != "" {
 		data.Email = types.StringValue(v)
 	} else {
@@ -488,15 +537,72 @@ func (r *ContainerRegistryResource) Read(ctx context.Context, req resource.ReadR
 	} else {
 		data.UserName = types.StringNull()
 	}
-	if _, ok := apiResource.Spec["password"].(map[string]interface{}); ok && isImport && data.Password == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Password = &ContainerRegistryPasswordModel{}
+	if blockData, ok := apiResource.Spec["password"].(map[string]interface{}); ok && (isImport || data.Password != nil) {
+		data.Password = &ContainerRegistryPasswordModel{
+			BlindfoldSecretInfo: func() *ContainerRegistryPasswordBlindfoldSecretInfoModel {
+				if !isImport && data.Password != nil && data.Password.BlindfoldSecretInfo != nil {
+					return data.Password.BlindfoldSecretInfo
+				}
+				if BlindfoldSecretInfoData, ok := blockData["blindfold_secret_info"].(map[string]interface{}); ok {
+					return &ContainerRegistryPasswordBlindfoldSecretInfoModel{
+						DecryptionProvider: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Location: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						StoreProvider: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			ClearSecretInfo: func() *ContainerRegistryPasswordClearSecretInfoModel {
+				if !isImport && data.Password != nil && data.Password.ClearSecretInfo != nil {
+					return data.Password.ClearSecretInfo
+				}
+				if ClearSecretInfoData, ok := blockData["clear_secret_info"].(map[string]interface{}); ok {
+					return &ContainerRegistryPasswordClearSecretInfoModel{
+						Provider: func() types.String {
+							if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						URL: func() types.String {
+							if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["email"].(string); ok && v != "" {
 		data.Email = types.StringValue(v)
 	} else {
 		data.Email = types.StringNull()
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -556,31 +662,31 @@ func (r *ContainerRegistryResource) Update(ctx context.Context, req resource.Upd
 		apiResource.Spec["user_name"] = data.UserName.ValueString()
 	}
 	if data.Password != nil {
-		passwordMap := make(map[string]interface{})
+		PasswordMap := make(map[string]interface{})
 		if data.Password.BlindfoldSecretInfo != nil {
-			blindfold_secret_infoNestedMap := make(map[string]interface{})
+			BlindfoldSecretInfoMap := make(map[string]interface{})
 			if !data.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-				blindfold_secret_infoNestedMap["decryption_provider"] = data.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				BlindfoldSecretInfoMap["decryption_provider"] = data.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 			}
 			if !data.Password.BlindfoldSecretInfo.Location.IsNull() && !data.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-				blindfold_secret_infoNestedMap["location"] = data.Password.BlindfoldSecretInfo.Location.ValueString()
+				BlindfoldSecretInfoMap["location"] = data.Password.BlindfoldSecretInfo.Location.ValueString()
 			}
 			if !data.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-				blindfold_secret_infoNestedMap["store_provider"] = data.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+				BlindfoldSecretInfoMap["store_provider"] = data.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
 			}
-			passwordMap["blindfold_secret_info"] = blindfold_secret_infoNestedMap
+			PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
 		}
 		if data.Password.ClearSecretInfo != nil {
-			clear_secret_infoNestedMap := make(map[string]interface{})
+			ClearSecretInfoMap := make(map[string]interface{})
 			if !data.Password.ClearSecretInfo.Provider.IsNull() && !data.Password.ClearSecretInfo.Provider.IsUnknown() {
-				clear_secret_infoNestedMap["provider"] = data.Password.ClearSecretInfo.Provider.ValueString()
+				ClearSecretInfoMap["provider"] = data.Password.ClearSecretInfo.Provider.ValueString()
 			}
 			if !data.Password.ClearSecretInfo.URL.IsNull() && !data.Password.ClearSecretInfo.URL.IsUnknown() {
-				clear_secret_infoNestedMap["url"] = data.Password.ClearSecretInfo.URL.ValueString()
+				ClearSecretInfoMap["url"] = data.Password.ClearSecretInfo.URL.ValueString()
 			}
-			passwordMap["clear_secret_info"] = clear_secret_infoNestedMap
+			PasswordMap["clear_secret_info"] = ClearSecretInfoMap
 		}
-		apiResource.Spec["password"] = passwordMap
+		apiResource.Spec["password"] = PasswordMap
 	}
 	if !data.Email.IsNull() && !data.Email.IsUnknown() {
 		apiResource.Spec["email"] = data.Email.ValueString()
@@ -619,11 +725,60 @@ func (r *ContainerRegistryResource) Update(ctx context.Context, req resource.Upd
 	} else {
 		data.UserName = types.StringNull()
 	}
-	if _, ok := apiResource.Spec["password"].(map[string]interface{}); ok && isImport && data.Password == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Password = &ContainerRegistryPasswordModel{}
+	if blockData, ok := apiResource.Spec["password"].(map[string]interface{}); ok && (isImport || data.Password != nil) {
+		data.Password = &ContainerRegistryPasswordModel{
+			BlindfoldSecretInfo: func() *ContainerRegistryPasswordBlindfoldSecretInfoModel {
+				if !isImport && data.Password != nil && data.Password.BlindfoldSecretInfo != nil {
+					return data.Password.BlindfoldSecretInfo
+				}
+				if BlindfoldSecretInfoData, ok := blockData["blindfold_secret_info"].(map[string]interface{}); ok {
+					return &ContainerRegistryPasswordBlindfoldSecretInfoModel{
+						DecryptionProvider: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Location: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						StoreProvider: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			ClearSecretInfo: func() *ContainerRegistryPasswordClearSecretInfoModel {
+				if !isImport && data.Password != nil && data.Password.ClearSecretInfo != nil {
+					return data.Password.ClearSecretInfo
+				}
+				if ClearSecretInfoData, ok := blockData["clear_secret_info"].(map[string]interface{}); ok {
+					return &ContainerRegistryPasswordClearSecretInfoModel{
+						Provider: func() types.String {
+							if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						URL: func() types.String {
+							if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["email"].(string); ok && v != "" {
 		data.Email = types.StringValue(v)
 	} else {

@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_k8s_pod_security_admission Resource - terraform-provider-f5xc"
+page_title: "xcsh_k8s_pod_security_admission Resource - xcsh"
 subcategory: "Kubernetes"
 description: |-
   Manages k8s_pod_security_admission will create the object in the storage backend. in F5 Distributed Cloud.
 ---
 
-# f5xc_k8s_pod_security_admission (Resource)
+# xcsh_k8s_pod_security_admission (Resource)
 
 Manages k8s_pod_security_admission will create the object in the storage backend. in F5 Distributed Cloud.
 
@@ -14,47 +14,24 @@ Manages k8s_pod_security_admission will create the object in the storage backend
 ## Example Usage
 
 ```terraform
-# K8S Pod Security Admission Resource Example
-# Manages k8s_pod_security_admission will create the object in the storage backend. in F5 Distributed Cloud.
+# K8SPodSecurityAdmission Resource Example
+# Manages k8s_pod_security_admission will create the object in the storage backend.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic K8S Pod Security Admission configuration
-resource "f5xc_k8s_pod_security_admission" "example" {
+# Basic K8SPodSecurityAdmission configuration
+resource "xcsh_k8s_pod_security_admission" "example" {
   name      = "example-k8s-pod-security-admission"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # K8s Pod Security Admission. .
-  pod_security_admission_specs {
-    # Configure pod_security_admission_specs settings
-  }
-  # Enable this option
-  audit {
-    # Configure audit settings
-  }
-  # Enable this option
-  baseline {
-    # Configure baseline settings
-  }
 }
 ```
 
@@ -210,5 +187,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_k8s_pod_security_admission.example system/example
+terraform import xcsh_k8s_pod_security_admission.example system/example
 ```

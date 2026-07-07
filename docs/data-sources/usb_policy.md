@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_usb_policy Data Source - terraform-provider-f5xc"
+page_title: "xcsh_usb_policy Data Source - xcsh"
 subcategory: "Security"
 description: |-
   Retrieves information about an existing USB policy object. in F5 Distributed Cloud.
 ---
 
-# f5xc_usb_policy (Data Source)
+# xcsh_usb_policy (Data Source)
 
 Retrieves information about new USB policy object. in F5 Distributed Cloud. This is a read-only data source.
 
@@ -14,28 +14,23 @@ Retrieves information about new USB policy object. in F5 Distributed Cloud. This
 ## Example Usage
 
 ```terraform
-# Usb Policy Data Source Example
-# Retrieves information about an existing Usb Policy
+# UsbPolicy Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Usb Policy by name
-data "f5xc_usb_policy" "example" {
+# Look up an existing UsbPolicy by name
+data "xcsh_usb_policy" "example" {
   name      = "example-usb-policy"
   namespace = "staging"
-}
-
-output "usb_policy_id" {
-  value = data.f5xc_usb_policy.example.id
 }
 ```
 

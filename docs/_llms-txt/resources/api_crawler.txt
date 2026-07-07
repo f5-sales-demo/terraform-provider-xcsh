@@ -1,4 +1,4 @@
-# f5xc_api_crawler
+# xcsh_api_crawler
 
 Category: API Security
 API Crawler resource
@@ -6,30 +6,13 @@ API Crawler resource
 ## Required
 
 - name
-- namespace
 
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_api_crawler" "example" {
+resource "xcsh_api_crawler" "example" {
   name      = "example-api-crawler"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  domains {
-  }
-  simple_login {
-  }
-  password {
-  }
+  namespace = "system"
 }
 ```
 

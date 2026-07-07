@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_app_api_group Data Source - terraform-provider-f5xc"
+page_title: "xcsh_app_api_group Data Source - xcsh"
 subcategory: "API Security"
 description: |-
   Retrieves information about app_api_group creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_app_api_group (Data Source)
+# xcsh_app_api_group (Data Source)
 
 Manages app_api_group creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
 
@@ -14,28 +14,23 @@ Manages app_api_group creates a new object in the storage backend for metadata.n
 ## Example Usage
 
 ```terraform
-# App API Group Data Source Example
-# Retrieves information about an existing App API Group
+# AppAPIGroup Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing App API Group by name
-data "f5xc_app_api_group" "example" {
+# Look up an existing AppAPIGroup by name
+data "xcsh_app_api_group" "example" {
   name      = "example-app-api-group"
   namespace = "staging"
-}
-
-output "app_api_group_id" {
-  value = data.f5xc_app_api_group.example.id
 }
 ```
 

@@ -20,9 +20,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -338,61 +338,61 @@ func (r *UserIdentificationResource) Create(ctx context.Context, req resource.Cr
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.Rules.IsNull() && !data.Rules.IsUnknown() {
-		var rulesItems []UserIdentificationRulesModel
-		diags := data.Rules.ElementsAs(ctx, &rulesItems, false)
+		var RulesElems []UserIdentificationRulesModel
+		diags := data.Rules.ElementsAs(ctx, &RulesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(rulesItems) > 0 {
-			var rulesList []map[string]interface{}
-			for _, item := range rulesItems {
-				itemMap := make(map[string]interface{})
-				if item.ClientAsn != nil {
-					itemMap["client_asn"] = map[string]interface{}{}
+		if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
+			var RulesList []map[string]interface{}
+			for _, RulesItem := range RulesElems {
+				RulesItemMap := make(map[string]interface{})
+				if RulesItem.ClientAsn != nil {
+					RulesItemMap["client_asn"] = map[string]interface{}{}
 				}
-				if item.ClientCity != nil {
-					itemMap["client_city"] = map[string]interface{}{}
+				if RulesItem.ClientCity != nil {
+					RulesItemMap["client_city"] = map[string]interface{}{}
 				}
-				if item.ClientCountry != nil {
-					itemMap["client_country"] = map[string]interface{}{}
+				if RulesItem.ClientCountry != nil {
+					RulesItemMap["client_country"] = map[string]interface{}{}
 				}
-				if item.ClientIP != nil {
-					itemMap["client_ip"] = map[string]interface{}{}
+				if RulesItem.ClientIP != nil {
+					RulesItemMap["client_ip"] = map[string]interface{}{}
 				}
-				if item.ClientRegion != nil {
-					itemMap["client_region"] = map[string]interface{}{}
+				if RulesItem.ClientRegion != nil {
+					RulesItemMap["client_region"] = map[string]interface{}{}
 				}
-				if !item.CookieName.IsNull() && !item.CookieName.IsUnknown() {
-					itemMap["cookie_name"] = item.CookieName.ValueString()
+				if !RulesItem.CookieName.IsNull() && !RulesItem.CookieName.IsUnknown() {
+					RulesItemMap["cookie_name"] = RulesItem.CookieName.ValueString()
 				}
-				if !item.HTTPHeaderName.IsNull() && !item.HTTPHeaderName.IsUnknown() {
-					itemMap["http_header_name"] = item.HTTPHeaderName.ValueString()
+				if !RulesItem.HTTPHeaderName.IsNull() && !RulesItem.HTTPHeaderName.IsUnknown() {
+					RulesItemMap["http_header_name"] = RulesItem.HTTPHeaderName.ValueString()
 				}
-				if !item.IPAndHTTPHeaderName.IsNull() && !item.IPAndHTTPHeaderName.IsUnknown() {
-					itemMap["ip_and_http_header_name"] = item.IPAndHTTPHeaderName.ValueString()
+				if !RulesItem.IPAndHTTPHeaderName.IsNull() && !RulesItem.IPAndHTTPHeaderName.IsUnknown() {
+					RulesItemMap["ip_and_http_header_name"] = RulesItem.IPAndHTTPHeaderName.ValueString()
 				}
-				if item.IPAndJa4TLSFingerprint != nil {
-					itemMap["ip_and_ja4_tls_fingerprint"] = map[string]interface{}{}
+				if RulesItem.IPAndJa4TLSFingerprint != nil {
+					RulesItemMap["ip_and_ja4_tls_fingerprint"] = map[string]interface{}{}
 				}
-				if item.IPAndTLSFingerprint != nil {
-					itemMap["ip_and_tls_fingerprint"] = map[string]interface{}{}
+				if RulesItem.IPAndTLSFingerprint != nil {
+					RulesItemMap["ip_and_tls_fingerprint"] = map[string]interface{}{}
 				}
-				if item.Ja4TLSFingerprint != nil {
-					itemMap["ja4_tls_fingerprint"] = map[string]interface{}{}
+				if RulesItem.Ja4TLSFingerprint != nil {
+					RulesItemMap["ja4_tls_fingerprint"] = map[string]interface{}{}
 				}
-				if !item.JWTClaimName.IsNull() && !item.JWTClaimName.IsUnknown() {
-					itemMap["jwt_claim_name"] = item.JWTClaimName.ValueString()
+				if !RulesItem.JWTClaimName.IsNull() && !RulesItem.JWTClaimName.IsUnknown() {
+					RulesItemMap["jwt_claim_name"] = RulesItem.JWTClaimName.ValueString()
 				}
-				if item.None != nil {
-					itemMap["none"] = map[string]interface{}{}
+				if RulesItem.None != nil {
+					RulesItemMap["none"] = map[string]interface{}{}
 				}
-				if !item.QueryParamKey.IsNull() && !item.QueryParamKey.IsUnknown() {
-					itemMap["query_param_key"] = item.QueryParamKey.ValueString()
+				if !RulesItem.QueryParamKey.IsNull() && !RulesItem.QueryParamKey.IsUnknown() {
+					RulesItemMap["query_param_key"] = RulesItem.QueryParamKey.ValueString()
 				}
-				if item.TLSFingerprint != nil {
-					itemMap["tls_fingerprint"] = map[string]interface{}{}
+				if RulesItem.TLSFingerprint != nil {
+					RulesItemMap["tls_fingerprint"] = map[string]interface{}{}
 				}
-				rulesList = append(rulesList, itemMap)
+				RulesList = append(RulesList, RulesItemMap)
 			}
-			createReq.Spec["rules"] = rulesList
+			createReq.Spec["rules"] = RulesList
 		}
 	}
 
@@ -408,18 +408,23 @@ func (r *UserIdentificationResource) Create(ctx context.Context, req resource.Cr
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["rules"].([]interface{}); ok && len(listData) > 0 {
-		var rulesList []UserIdentificationRulesModel
+	if !isImport && (data.Rules.IsNull() || len(data.Rules.Elements()) == 0) {
+		data.Rules = types.ListNull(types.ObjectType{AttrTypes: UserIdentificationRulesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["rules"].([]interface{}); ok && len(listData) > 0 {
+		var RulesList []UserIdentificationRulesModel
 		var existingRulesItems []UserIdentificationRulesModel
 		if !data.Rules.IsNull() && !data.Rules.IsUnknown() {
 			data.Rules.ElementsAs(ctx, &existingRulesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				rulesList = append(rulesList, UserIdentificationRulesModel{
+				RulesList = append(RulesList, UserIdentificationRulesModel{
 					ClientAsn: func() *UserIdentificationEmptyModel {
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].ClientAsn != nil {
+							return &UserIdentificationEmptyModel{}
+						}
+						if _, ok := itemMap["client_asn"].(map[string]interface{}); ok {
 							return &UserIdentificationEmptyModel{}
 						}
 						return nil
@@ -428,10 +433,16 @@ func (r *UserIdentificationResource) Create(ctx context.Context, req resource.Cr
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].ClientCity != nil {
 							return &UserIdentificationEmptyModel{}
 						}
+						if _, ok := itemMap["client_city"].(map[string]interface{}); ok {
+							return &UserIdentificationEmptyModel{}
+						}
 						return nil
 					}(),
 					ClientCountry: func() *UserIdentificationEmptyModel {
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].ClientCountry != nil {
+							return &UserIdentificationEmptyModel{}
+						}
+						if _, ok := itemMap["client_country"].(map[string]interface{}); ok {
 							return &UserIdentificationEmptyModel{}
 						}
 						return nil
@@ -440,10 +451,16 @@ func (r *UserIdentificationResource) Create(ctx context.Context, req resource.Cr
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].ClientIP != nil {
 							return &UserIdentificationEmptyModel{}
 						}
+						if _, ok := itemMap["client_ip"].(map[string]interface{}); ok {
+							return &UserIdentificationEmptyModel{}
+						}
 						return nil
 					}(),
 					ClientRegion: func() *UserIdentificationEmptyModel {
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].ClientRegion != nil {
+							return &UserIdentificationEmptyModel{}
+						}
+						if _, ok := itemMap["client_region"].(map[string]interface{}); ok {
 							return &UserIdentificationEmptyModel{}
 						}
 						return nil
@@ -470,16 +487,25 @@ func (r *UserIdentificationResource) Create(ctx context.Context, req resource.Cr
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].IPAndJa4TLSFingerprint != nil {
 							return &UserIdentificationEmptyModel{}
 						}
+						if _, ok := itemMap["ip_and_ja4_tls_fingerprint"].(map[string]interface{}); ok {
+							return &UserIdentificationEmptyModel{}
+						}
 						return nil
 					}(),
 					IPAndTLSFingerprint: func() *UserIdentificationEmptyModel {
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].IPAndTLSFingerprint != nil {
 							return &UserIdentificationEmptyModel{}
 						}
+						if _, ok := itemMap["ip_and_tls_fingerprint"].(map[string]interface{}); ok {
+							return &UserIdentificationEmptyModel{}
+						}
 						return nil
 					}(),
 					Ja4TLSFingerprint: func() *UserIdentificationEmptyModel {
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Ja4TLSFingerprint != nil {
+							return &UserIdentificationEmptyModel{}
+						}
+						if _, ok := itemMap["ja4_tls_fingerprint"].(map[string]interface{}); ok {
 							return &UserIdentificationEmptyModel{}
 						}
 						return nil
@@ -494,6 +520,9 @@ func (r *UserIdentificationResource) Create(ctx context.Context, req resource.Cr
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].None != nil {
 							return &UserIdentificationEmptyModel{}
 						}
+						if _, ok := itemMap["none"].(map[string]interface{}); ok {
+							return &UserIdentificationEmptyModel{}
+						}
 						return nil
 					}(),
 					QueryParamKey: func() types.String {
@@ -506,18 +535,20 @@ func (r *UserIdentificationResource) Create(ctx context.Context, req resource.Cr
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].TLSFingerprint != nil {
 							return &UserIdentificationEmptyModel{}
 						}
+						if _, ok := itemMap["tls_fingerprint"].(map[string]interface{}); ok {
+							return &UserIdentificationEmptyModel{}
+						}
 						return nil
 					}(),
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: UserIdentificationRulesModelAttrTypes}, rulesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: UserIdentificationRulesModelAttrTypes}, RulesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: UserIdentificationRulesModelAttrTypes})
 	}
 
@@ -600,18 +631,23 @@ func (r *UserIdentificationResource) Read(ctx context.Context, req resource.Read
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["rules"].([]interface{}); ok && len(listData) > 0 {
-		var rulesList []UserIdentificationRulesModel
+	if !isImport && (data.Rules.IsNull() || len(data.Rules.Elements()) == 0) {
+		data.Rules = types.ListNull(types.ObjectType{AttrTypes: UserIdentificationRulesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["rules"].([]interface{}); ok && len(listData) > 0 {
+		var RulesList []UserIdentificationRulesModel
 		var existingRulesItems []UserIdentificationRulesModel
 		if !data.Rules.IsNull() && !data.Rules.IsUnknown() {
 			data.Rules.ElementsAs(ctx, &existingRulesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				rulesList = append(rulesList, UserIdentificationRulesModel{
+				RulesList = append(RulesList, UserIdentificationRulesModel{
 					ClientAsn: func() *UserIdentificationEmptyModel {
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].ClientAsn != nil {
+							return &UserIdentificationEmptyModel{}
+						}
+						if _, ok := itemMap["client_asn"].(map[string]interface{}); ok {
 							return &UserIdentificationEmptyModel{}
 						}
 						return nil
@@ -620,10 +656,16 @@ func (r *UserIdentificationResource) Read(ctx context.Context, req resource.Read
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].ClientCity != nil {
 							return &UserIdentificationEmptyModel{}
 						}
+						if _, ok := itemMap["client_city"].(map[string]interface{}); ok {
+							return &UserIdentificationEmptyModel{}
+						}
 						return nil
 					}(),
 					ClientCountry: func() *UserIdentificationEmptyModel {
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].ClientCountry != nil {
+							return &UserIdentificationEmptyModel{}
+						}
+						if _, ok := itemMap["client_country"].(map[string]interface{}); ok {
 							return &UserIdentificationEmptyModel{}
 						}
 						return nil
@@ -632,10 +674,16 @@ func (r *UserIdentificationResource) Read(ctx context.Context, req resource.Read
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].ClientIP != nil {
 							return &UserIdentificationEmptyModel{}
 						}
+						if _, ok := itemMap["client_ip"].(map[string]interface{}); ok {
+							return &UserIdentificationEmptyModel{}
+						}
 						return nil
 					}(),
 					ClientRegion: func() *UserIdentificationEmptyModel {
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].ClientRegion != nil {
+							return &UserIdentificationEmptyModel{}
+						}
+						if _, ok := itemMap["client_region"].(map[string]interface{}); ok {
 							return &UserIdentificationEmptyModel{}
 						}
 						return nil
@@ -662,16 +710,25 @@ func (r *UserIdentificationResource) Read(ctx context.Context, req resource.Read
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].IPAndJa4TLSFingerprint != nil {
 							return &UserIdentificationEmptyModel{}
 						}
+						if _, ok := itemMap["ip_and_ja4_tls_fingerprint"].(map[string]interface{}); ok {
+							return &UserIdentificationEmptyModel{}
+						}
 						return nil
 					}(),
 					IPAndTLSFingerprint: func() *UserIdentificationEmptyModel {
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].IPAndTLSFingerprint != nil {
 							return &UserIdentificationEmptyModel{}
 						}
+						if _, ok := itemMap["ip_and_tls_fingerprint"].(map[string]interface{}); ok {
+							return &UserIdentificationEmptyModel{}
+						}
 						return nil
 					}(),
 					Ja4TLSFingerprint: func() *UserIdentificationEmptyModel {
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Ja4TLSFingerprint != nil {
+							return &UserIdentificationEmptyModel{}
+						}
+						if _, ok := itemMap["ja4_tls_fingerprint"].(map[string]interface{}); ok {
 							return &UserIdentificationEmptyModel{}
 						}
 						return nil
@@ -686,6 +743,9 @@ func (r *UserIdentificationResource) Read(ctx context.Context, req resource.Read
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].None != nil {
 							return &UserIdentificationEmptyModel{}
 						}
+						if _, ok := itemMap["none"].(map[string]interface{}); ok {
+							return &UserIdentificationEmptyModel{}
+						}
 						return nil
 					}(),
 					QueryParamKey: func() types.String {
@@ -698,19 +758,29 @@ func (r *UserIdentificationResource) Read(ctx context.Context, req resource.Read
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].TLSFingerprint != nil {
 							return &UserIdentificationEmptyModel{}
 						}
+						if _, ok := itemMap["tls_fingerprint"].(map[string]interface{}); ok {
+							return &UserIdentificationEmptyModel{}
+						}
 						return nil
 					}(),
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: UserIdentificationRulesModelAttrTypes}, rulesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: UserIdentificationRulesModelAttrTypes}, RulesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: UserIdentificationRulesModelAttrTypes})
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -764,61 +834,61 @@ func (r *UserIdentificationResource) Update(ctx context.Context, req resource.Up
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.Rules.IsNull() && !data.Rules.IsUnknown() {
-		var rulesItems []UserIdentificationRulesModel
-		diags := data.Rules.ElementsAs(ctx, &rulesItems, false)
+		var RulesElems []UserIdentificationRulesModel
+		diags := data.Rules.ElementsAs(ctx, &RulesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(rulesItems) > 0 {
-			var rulesList []map[string]interface{}
-			for _, item := range rulesItems {
-				itemMap := make(map[string]interface{})
-				if item.ClientAsn != nil {
-					itemMap["client_asn"] = map[string]interface{}{}
+		if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
+			var RulesList []map[string]interface{}
+			for _, RulesItem := range RulesElems {
+				RulesItemMap := make(map[string]interface{})
+				if RulesItem.ClientAsn != nil {
+					RulesItemMap["client_asn"] = map[string]interface{}{}
 				}
-				if item.ClientCity != nil {
-					itemMap["client_city"] = map[string]interface{}{}
+				if RulesItem.ClientCity != nil {
+					RulesItemMap["client_city"] = map[string]interface{}{}
 				}
-				if item.ClientCountry != nil {
-					itemMap["client_country"] = map[string]interface{}{}
+				if RulesItem.ClientCountry != nil {
+					RulesItemMap["client_country"] = map[string]interface{}{}
 				}
-				if item.ClientIP != nil {
-					itemMap["client_ip"] = map[string]interface{}{}
+				if RulesItem.ClientIP != nil {
+					RulesItemMap["client_ip"] = map[string]interface{}{}
 				}
-				if item.ClientRegion != nil {
-					itemMap["client_region"] = map[string]interface{}{}
+				if RulesItem.ClientRegion != nil {
+					RulesItemMap["client_region"] = map[string]interface{}{}
 				}
-				if !item.CookieName.IsNull() && !item.CookieName.IsUnknown() {
-					itemMap["cookie_name"] = item.CookieName.ValueString()
+				if !RulesItem.CookieName.IsNull() && !RulesItem.CookieName.IsUnknown() {
+					RulesItemMap["cookie_name"] = RulesItem.CookieName.ValueString()
 				}
-				if !item.HTTPHeaderName.IsNull() && !item.HTTPHeaderName.IsUnknown() {
-					itemMap["http_header_name"] = item.HTTPHeaderName.ValueString()
+				if !RulesItem.HTTPHeaderName.IsNull() && !RulesItem.HTTPHeaderName.IsUnknown() {
+					RulesItemMap["http_header_name"] = RulesItem.HTTPHeaderName.ValueString()
 				}
-				if !item.IPAndHTTPHeaderName.IsNull() && !item.IPAndHTTPHeaderName.IsUnknown() {
-					itemMap["ip_and_http_header_name"] = item.IPAndHTTPHeaderName.ValueString()
+				if !RulesItem.IPAndHTTPHeaderName.IsNull() && !RulesItem.IPAndHTTPHeaderName.IsUnknown() {
+					RulesItemMap["ip_and_http_header_name"] = RulesItem.IPAndHTTPHeaderName.ValueString()
 				}
-				if item.IPAndJa4TLSFingerprint != nil {
-					itemMap["ip_and_ja4_tls_fingerprint"] = map[string]interface{}{}
+				if RulesItem.IPAndJa4TLSFingerprint != nil {
+					RulesItemMap["ip_and_ja4_tls_fingerprint"] = map[string]interface{}{}
 				}
-				if item.IPAndTLSFingerprint != nil {
-					itemMap["ip_and_tls_fingerprint"] = map[string]interface{}{}
+				if RulesItem.IPAndTLSFingerprint != nil {
+					RulesItemMap["ip_and_tls_fingerprint"] = map[string]interface{}{}
 				}
-				if item.Ja4TLSFingerprint != nil {
-					itemMap["ja4_tls_fingerprint"] = map[string]interface{}{}
+				if RulesItem.Ja4TLSFingerprint != nil {
+					RulesItemMap["ja4_tls_fingerprint"] = map[string]interface{}{}
 				}
-				if !item.JWTClaimName.IsNull() && !item.JWTClaimName.IsUnknown() {
-					itemMap["jwt_claim_name"] = item.JWTClaimName.ValueString()
+				if !RulesItem.JWTClaimName.IsNull() && !RulesItem.JWTClaimName.IsUnknown() {
+					RulesItemMap["jwt_claim_name"] = RulesItem.JWTClaimName.ValueString()
 				}
-				if item.None != nil {
-					itemMap["none"] = map[string]interface{}{}
+				if RulesItem.None != nil {
+					RulesItemMap["none"] = map[string]interface{}{}
 				}
-				if !item.QueryParamKey.IsNull() && !item.QueryParamKey.IsUnknown() {
-					itemMap["query_param_key"] = item.QueryParamKey.ValueString()
+				if !RulesItem.QueryParamKey.IsNull() && !RulesItem.QueryParamKey.IsUnknown() {
+					RulesItemMap["query_param_key"] = RulesItem.QueryParamKey.ValueString()
 				}
-				if item.TLSFingerprint != nil {
-					itemMap["tls_fingerprint"] = map[string]interface{}{}
+				if RulesItem.TLSFingerprint != nil {
+					RulesItemMap["tls_fingerprint"] = map[string]interface{}{}
 				}
-				rulesList = append(rulesList, itemMap)
+				RulesList = append(RulesList, RulesItemMap)
 			}
-			apiResource.Spec["rules"] = rulesList
+			apiResource.Spec["rules"] = RulesList
 		}
 	}
 
@@ -845,18 +915,23 @@ func (r *UserIdentificationResource) Update(ctx context.Context, req resource.Up
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["rules"].([]interface{}); ok && len(listData) > 0 {
-		var rulesList []UserIdentificationRulesModel
+	if !isImport && (data.Rules.IsNull() || len(data.Rules.Elements()) == 0) {
+		data.Rules = types.ListNull(types.ObjectType{AttrTypes: UserIdentificationRulesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["rules"].([]interface{}); ok && len(listData) > 0 {
+		var RulesList []UserIdentificationRulesModel
 		var existingRulesItems []UserIdentificationRulesModel
 		if !data.Rules.IsNull() && !data.Rules.IsUnknown() {
 			data.Rules.ElementsAs(ctx, &existingRulesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				rulesList = append(rulesList, UserIdentificationRulesModel{
+				RulesList = append(RulesList, UserIdentificationRulesModel{
 					ClientAsn: func() *UserIdentificationEmptyModel {
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].ClientAsn != nil {
+							return &UserIdentificationEmptyModel{}
+						}
+						if _, ok := itemMap["client_asn"].(map[string]interface{}); ok {
 							return &UserIdentificationEmptyModel{}
 						}
 						return nil
@@ -865,10 +940,16 @@ func (r *UserIdentificationResource) Update(ctx context.Context, req resource.Up
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].ClientCity != nil {
 							return &UserIdentificationEmptyModel{}
 						}
+						if _, ok := itemMap["client_city"].(map[string]interface{}); ok {
+							return &UserIdentificationEmptyModel{}
+						}
 						return nil
 					}(),
 					ClientCountry: func() *UserIdentificationEmptyModel {
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].ClientCountry != nil {
+							return &UserIdentificationEmptyModel{}
+						}
+						if _, ok := itemMap["client_country"].(map[string]interface{}); ok {
 							return &UserIdentificationEmptyModel{}
 						}
 						return nil
@@ -877,10 +958,16 @@ func (r *UserIdentificationResource) Update(ctx context.Context, req resource.Up
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].ClientIP != nil {
 							return &UserIdentificationEmptyModel{}
 						}
+						if _, ok := itemMap["client_ip"].(map[string]interface{}); ok {
+							return &UserIdentificationEmptyModel{}
+						}
 						return nil
 					}(),
 					ClientRegion: func() *UserIdentificationEmptyModel {
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].ClientRegion != nil {
+							return &UserIdentificationEmptyModel{}
+						}
+						if _, ok := itemMap["client_region"].(map[string]interface{}); ok {
 							return &UserIdentificationEmptyModel{}
 						}
 						return nil
@@ -907,16 +994,25 @@ func (r *UserIdentificationResource) Update(ctx context.Context, req resource.Up
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].IPAndJa4TLSFingerprint != nil {
 							return &UserIdentificationEmptyModel{}
 						}
+						if _, ok := itemMap["ip_and_ja4_tls_fingerprint"].(map[string]interface{}); ok {
+							return &UserIdentificationEmptyModel{}
+						}
 						return nil
 					}(),
 					IPAndTLSFingerprint: func() *UserIdentificationEmptyModel {
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].IPAndTLSFingerprint != nil {
 							return &UserIdentificationEmptyModel{}
 						}
+						if _, ok := itemMap["ip_and_tls_fingerprint"].(map[string]interface{}); ok {
+							return &UserIdentificationEmptyModel{}
+						}
 						return nil
 					}(),
 					Ja4TLSFingerprint: func() *UserIdentificationEmptyModel {
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Ja4TLSFingerprint != nil {
+							return &UserIdentificationEmptyModel{}
+						}
+						if _, ok := itemMap["ja4_tls_fingerprint"].(map[string]interface{}); ok {
 							return &UserIdentificationEmptyModel{}
 						}
 						return nil
@@ -931,6 +1027,9 @@ func (r *UserIdentificationResource) Update(ctx context.Context, req resource.Up
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].None != nil {
 							return &UserIdentificationEmptyModel{}
 						}
+						if _, ok := itemMap["none"].(map[string]interface{}); ok {
+							return &UserIdentificationEmptyModel{}
+						}
 						return nil
 					}(),
 					QueryParamKey: func() types.String {
@@ -943,18 +1042,20 @@ func (r *UserIdentificationResource) Update(ctx context.Context, req resource.Up
 						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].TLSFingerprint != nil {
 							return &UserIdentificationEmptyModel{}
 						}
+						if _, ok := itemMap["tls_fingerprint"].(map[string]interface{}); ok {
+							return &UserIdentificationEmptyModel{}
+						}
 						return nil
 					}(),
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: UserIdentificationRulesModelAttrTypes}, rulesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: UserIdentificationRulesModelAttrTypes}, RulesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: UserIdentificationRulesModelAttrTypes})
 	}
 

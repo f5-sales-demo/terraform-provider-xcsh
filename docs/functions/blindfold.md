@@ -1,19 +1,19 @@
 ---
-page_title: "blindfold function - terraform-provider-f5xc"
+page_title: "blindfold function - xcsh"
 description: |-
   Encrypts base64-encoded plaintext using F5 Distributed Cloud Secret Management (blindfold).
   Returns a sealed secret string suitable for use in blindfold_secret_info.location fields.
   Security: The encryption happens locally using the public key fetched from F5XC.
-  The plaintext secret is never transmitted to F5XC during encryption.
+  The plaintext secret is never transmitted to XCSH during encryption.
   Example
   
-  resource "f5xc_http_loadbalancer" "example" {
+  resource "xcsh_http_loadbalancer" "example" {
     name = "secure-lb"
   
     tls_parameters {
       private_key {
         blindfold_secret_info {
-          location = provider::f5xc::blindfold(
+          location = provider::xcsh::blindfold(
             base64encode(file("${path.module}/private.key")),
             "example-secret-policy",
             "shared"
@@ -31,18 +31,18 @@ Encrypts base64-encoded plaintext using F5 Distributed Cloud Secret Management (
 Returns a sealed secret string suitable for use in `blindfold_secret_info.location` fields.
 
 **Security**: The encryption happens locally using the public key fetched from F5XC.
-The plaintext secret is **never** transmitted to F5XC during encryption.
+The plaintext secret is **never** transmitted to XCSH during encryption.
 
 ## Example
 
 ```hcl
-resource "f5xc_http_loadbalancer" "example" {
+resource "xcsh_http_loadbalancer" "example" {
   name = "secure-lb"
 
   tls_parameters {
     private_key {
       blindfold_secret_info {
-        location = provider::f5xc::blindfold(
+        location = provider::xcsh::blindfold(
           base64encode(file("${path.module}/private.key")),
           "example-secret-policy",
           "shared"
@@ -71,13 +71,23 @@ Example: `base64encode(file("private.key"))`
 1. `policy_name` (String) Name of the SecretPolicy that controls which clients can decrypt this secret.
 
 The policy must exist in the specified namespace before encryption.
-1. `namespace` (String) F5XC namespace containing the SecretPolicy.
+1. `namespace` (String) XCSH namespace containing the SecretPolicy.
 
 Common values: `shared`, `system`, or your application namespace.
 
 ## Example Usage
 
 ```terraform
+terraform {
+  required_version = ">= 1.8"
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 # Encrypt a secret string using F5XC blindfold
 #
 # The blindfold function encrypts base64-encoded plaintext using F5 Distributed
@@ -86,7 +96,7 @@ Common values: `shared`, `system`, or your application namespace.
 
 # Example: Encrypt a password for use in origin pool authentication
 locals {
-  encrypted_password = provider::f5xc::blindfold(
+  encrypted_password = provider::xcsh::blindfold(
     base64encode("example-secret-password"),
     "production-secrets-policy",
     "shared"
@@ -95,15 +105,33 @@ locals {
 
 # Example: Encrypt a TLS private key from a file
 locals {
-  encrypted_key = provider::f5xc::blindfold(
+  encrypted_key = provider::xcsh::blindfold(
     base64encode(file("${path.module}/certs/private.key")),
     "tls-secrets-policy",
     "shared"
   )
 }
 
-# Example: Using the encrypted secret in a resource
-resource "f5xc_http_loadbalancer" "example" {
+# Example: Using the encrypted secrets in a resource
+resource "xcsh_origin_pool" "example" {
+  name      = "secure-pool"
+  namespace = "production"
+
+  origin_servers {
+    private_ip {
+      ip = "10.0.0.1"
+    }
+  }
+
+  port = 443
+
+  # Use the encrypted password from locals
+  custom_hash_algorithms {
+    hash_algorithms = [local.encrypted_password]
+  }
+}
+
+resource "xcsh_http_loadbalancer" "example" {
   name      = "secure-lb"
   namespace = "production"
 
@@ -114,11 +142,7 @@ resource "f5xc_http_loadbalancer" "example" {
       custom_security {
         private_key {
           blindfold_secret_info {
-            location = provider::f5xc::blindfold(
-              base64encode(file("${path.module}/certs/server.key")),
-              "tls-secrets-policy",
-              "shared"
-            )
+            location = local.encrypted_key
           }
         }
       }

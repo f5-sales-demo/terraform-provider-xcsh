@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_alert_receiver Resource - terraform-provider-f5xc"
+page_title: "xcsh_alert_receiver Resource - xcsh"
 subcategory: "Monitoring"
 description: |-
   Manages new Alert Receiver object. in F5 Distributed Cloud.
 ---
 
-# f5xc_alert_receiver (Resource)
+# xcsh_alert_receiver (Resource)
 
 Manages new Alert Receiver object. in F5 Distributed Cloud.
 
@@ -14,39 +14,24 @@ Manages new Alert Receiver object. in F5 Distributed Cloud.
 ## Example Usage
 
 ```terraform
-# Alert Receiver Resource Example
-# Manages new Alert Receiver object. in F5 Distributed Cloud.
+# AlertReceiver Resource Example
+# Manages new Alert Receiver object.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Alert Receiver configuration
-resource "f5xc_alert_receiver" "example" {
+# Basic AlertReceiver configuration
+resource "xcsh_alert_receiver" "example" {
   name      = "example-alert-receiver"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Alert Receiver configuration
-  # Slack configuration
-  slack {
-    url = "`https://your-slack-webhook-url"`
-  }
+  namespace = "system"
 }
 ```
 
@@ -80,8 +65,6 @@ spec:
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Alert Receiver. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Alert Receiver will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -89,6 +72,8 @@ spec:
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Alert Receiver. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -463,5 +448,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_alert_receiver.example system/example
+terraform import xcsh_alert_receiver.example system/example
 ```

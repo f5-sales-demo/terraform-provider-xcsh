@@ -1,4 +1,4 @@
-# f5xc_discovery
+# xcsh_discovery
 
 Category: Applications
 Api to create discovery object for a site or virtual site in system namespace. configuration
@@ -6,47 +6,13 @@ Api to create discovery object for a site or virtual site in system namespace. c
 ## Required
 
 - name
-- namespace
 
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_discovery" "example" {
+resource "xcsh_discovery" "example" {
   name      = "example-discovery"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  discovery_k8s {
-    access_info {
-      kubeconfig_url {
-        clear_secret_info {
-          url = "string:///base64-kubeconfig"
-        }
-      }
-      isolated {}
-    }
-    publish_info {
-      disable {}
-    }
-  }
-
-  where {
-    site {
-      ref {
-        name      = "example-site"
-        namespace = "staging"
-      }
-      network_type = "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE"
-    }
-  }
+  namespace = "system"
 }
 ```
 

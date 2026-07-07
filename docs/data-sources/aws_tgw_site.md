@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_aws_tgw_site Data Source - terraform-provider-f5xc"
+page_title: "xcsh_aws_tgw_site Data Source - xcsh"
 subcategory: "Sites"
 description: |-
   Retrieves information about an existing AWS TGW Site resource in F5 Distributed Cloud for deploying F5 sites connected via AWS Transit Gateway.
 ---
 
-# f5xc_aws_tgw_site (Data Source)
+# xcsh_aws_tgw_site (Data Source)
 
 Retrieves information about a AWS TGW Site resource in F5 Distributed Cloud for deploying F5 sites connected via AWS Transit Gateway. This is a read-only data source.
 
@@ -14,28 +14,23 @@ Retrieves information about a AWS TGW Site resource in F5 Distributed Cloud for 
 ## Example Usage
 
 ```terraform
-# AWS TGW Site Data Source Example
-# Retrieves information about an existing AWS TGW Site
+# AWSTGWSite Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing AWS TGW Site by name
-data "f5xc_aws_tgw_site" "example" {
+# Look up an existing AWSTGWSite by name
+data "xcsh_aws_tgw_site" "example" {
   name      = "example-aws-tgw-site"
   namespace = "staging"
-}
-
-output "aws_tgw_site_id" {
-  value = data.f5xc_aws_tgw_site.example.id
 }
 ```
 

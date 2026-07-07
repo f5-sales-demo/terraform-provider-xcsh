@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_bigip_http_proxy Resource - terraform-provider-f5xc"
+page_title: "xcsh_bigip_http_proxy Resource - xcsh"
 subcategory: "BIG-IP Integration"
 description: |-
   Manages BIG-IP HTTP Proxy in a given namespace. If one already exists, it will give an error. in F5 Distributed Cloud.
 ---
 
-# f5xc_bigip_http_proxy (Resource)
+# xcsh_bigip_http_proxy (Resource)
 
 Manages BIG-IP HTTP Proxy in a given namespace. If one already exists, it will give an error. in F5 Distributed Cloud.
 
@@ -14,47 +14,24 @@ Manages BIG-IP HTTP Proxy in a given namespace. If one already exists, it will g
 ## Example Usage
 
 ```terraform
-# Bigip HTTP Proxy Resource Example
-# Manages BIG-IP HTTP Proxy in a given namespace. If one already exists, it will give an error. in F5 Distributed Cloud.
+# BigIPHTTPProxy Resource Example
+# Manages BIG-IP HTTP Proxy in a given namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Bigip HTTP Proxy configuration
-resource "f5xc_bigip_http_proxy" "example" {
+# Basic BigIPHTTPProxy configuration
+resource "xcsh_bigip_http_proxy" "example" {
   name      = "example-bigip-http-proxy"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # Defines various advanced Profile OPTIONS for a Loadbalancer.
-  advanced_profile {
-    # Configure advanced_profile settings
-  }
-  # Enable this option
-  disable_spec {
-    # Configure disable_spec settings
-  }
-  # Configuration parameter for enable default profile.
-  enable_default_profile {
-    # Configure enable_default_profile settings
-  }
 }
 ```
 
@@ -793,5 +770,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_bigip_http_proxy.example system/example
+terraform import xcsh_bigip_http_proxy.example system/example
 ```

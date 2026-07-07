@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_authentication Data Source - terraform-provider-f5xc"
+page_title: "xcsh_authentication Data Source - xcsh"
 subcategory: "Authentication"
 description: |-
   Retrieves information about an existing Authentication resource in F5 Distributed Cloud.
 ---
 
-# f5xc_authentication (Data Source)
+# xcsh_authentication (Data Source)
 
 Retrieves information about an Authentication resource in F5 Distributed Cloud. This is a read-only data source.
 
@@ -15,27 +15,22 @@ Retrieves information about an Authentication resource in F5 Distributed Cloud. 
 
 ```terraform
 # Authentication Data Source Example
-# Retrieves information about an existing Authentication
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
 # Look up an existing Authentication by name
-data "f5xc_authentication" "example" {
+data "xcsh_authentication" "example" {
   name      = "example-authentication"
   namespace = "staging"
-}
-
-output "authentication_id" {
-  value = data.f5xc_authentication.example.id
 }
 ```
 

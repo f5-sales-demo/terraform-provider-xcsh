@@ -14,6 +14,9 @@ node_modules/
 dist/
 *.tgz
 
+# Chrome extension signing key (never commit)
+key.pem
+
 # Environment
 .env
 .env.*
@@ -94,6 +97,7 @@ projects/
 .claude/todos/
 .claude/worktrees/
 .claude/scheduled_tasks.lock
+.remember/
 .playwright-mcp/
 .serena/
 .auto-claude/
@@ -117,6 +121,7 @@ oauth-success.html
 # Lock file preferences (Bun-based repos)
 package-lock.json
 yarn.lock
+bun.lock
 
 # Monorepo build
 .turbo/
@@ -135,6 +140,9 @@ worktrees/
 .wt/
 .codex/
 playground/
+
+# Locally cloned dev repos (checked out alongside the parent, not tracked by it)
+starlight-mega-menu/
 
 # Documentation build artifacts
 docs/_data/
@@ -179,6 +187,7 @@ packages/ai/test/.temp-images/
 docs/superpowers/
 !.xcsh/
 .xcsh/plugins/
+.xcsh/contexts/
 .pi_config/
 .opencode/
 .worktree-test-baseline.txt

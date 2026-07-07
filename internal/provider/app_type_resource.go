@@ -15,14 +15,15 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -112,13 +113,16 @@ func (r *AppTypeResource) Schema(ctx context.Context, req resource.SchemaRequest
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the App Type will be created.",
-				Required:            true,
+				MarkdownDescription: "Namespace for the App Type. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
+				Optional:            true,
+				Computed:            true,
+				Default:             stringdefault.StaticString("system"),
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
+					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
@@ -296,36 +300,36 @@ func (r *AppTypeResource) Create(ctx context.Context, req resource.CreateRequest
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.BusinessLogicMarkupSetting != nil {
-		business_logic_markup_settingMap := make(map[string]interface{})
+		BusinessLogicMarkupSettingMap := make(map[string]interface{})
 		if data.BusinessLogicMarkupSetting.DisableSpec != nil {
-			business_logic_markup_settingMap["disable"] = map[string]interface{}{}
+			BusinessLogicMarkupSettingMap["disable"] = map[string]interface{}{}
 		}
 		if data.BusinessLogicMarkupSetting.DiscoveredAPISettings != nil {
-			discovered_api_settingsNestedMap := make(map[string]interface{})
+			DiscoveredAPISettingsMap := make(map[string]interface{})
 			if !data.BusinessLogicMarkupSetting.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis.IsNull() && !data.BusinessLogicMarkupSetting.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis.IsUnknown() {
-				discovered_api_settingsNestedMap["purge_duration_for_inactive_discovered_apis"] = data.BusinessLogicMarkupSetting.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis.ValueInt64()
+				DiscoveredAPISettingsMap["purge_duration_for_inactive_discovered_apis"] = data.BusinessLogicMarkupSetting.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis.ValueInt64()
 			}
-			business_logic_markup_settingMap["discovered_api_settings"] = discovered_api_settingsNestedMap
+			BusinessLogicMarkupSettingMap["discovered_api_settings"] = DiscoveredAPISettingsMap
 		}
 		if data.BusinessLogicMarkupSetting.Enable != nil {
-			business_logic_markup_settingMap["enable"] = map[string]interface{}{}
+			BusinessLogicMarkupSettingMap["enable"] = map[string]interface{}{}
 		}
-		createReq.Spec["business_logic_markup_setting"] = business_logic_markup_settingMap
+		createReq.Spec["business_logic_markup_setting"] = BusinessLogicMarkupSettingMap
 	}
 	if !data.Features.IsNull() && !data.Features.IsUnknown() {
-		var featuresItems []AppTypeFeaturesModel
-		diags := data.Features.ElementsAs(ctx, &featuresItems, false)
+		var FeaturesElems []AppTypeFeaturesModel
+		diags := data.Features.ElementsAs(ctx, &FeaturesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(featuresItems) > 0 {
-			var featuresList []map[string]interface{}
-			for _, item := range featuresItems {
-				itemMap := make(map[string]interface{})
-				if !item.Type.IsNull() && !item.Type.IsUnknown() {
-					itemMap["type"] = item.Type.ValueString()
+		if !resp.Diagnostics.HasError() && len(FeaturesElems) > 0 {
+			var FeaturesList []map[string]interface{}
+			for _, FeaturesItem := range FeaturesElems {
+				FeaturesItemMap := make(map[string]interface{})
+				if !FeaturesItem.Type.IsNull() && !FeaturesItem.Type.IsUnknown() {
+					FeaturesItemMap["type"] = FeaturesItem.Type.ValueString()
 				}
-				featuresList = append(featuresList, itemMap)
+				FeaturesList = append(FeaturesList, FeaturesItemMap)
 			}
-			createReq.Spec["features"] = featuresList
+			createReq.Spec["features"] = FeaturesList
 		}
 	}
 
@@ -341,21 +345,56 @@ func (r *AppTypeResource) Create(ctx context.Context, req resource.CreateRequest
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["business_logic_markup_setting"].(map[string]interface{}); ok && isImport && data.BusinessLogicMarkupSetting == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.BusinessLogicMarkupSetting = &AppTypeBusinessLogicMarkupSettingModel{}
+	if blockData, ok := apiResource.Spec["business_logic_markup_setting"].(map[string]interface{}); ok && (isImport || data.BusinessLogicMarkupSetting != nil) {
+		data.BusinessLogicMarkupSetting = &AppTypeBusinessLogicMarkupSettingModel{
+			DisableSpec: func() *AppTypeEmptyModel {
+				if !isImport && data.BusinessLogicMarkupSetting != nil {
+					return data.BusinessLogicMarkupSetting.DisableSpec
+				}
+				if _, ok := blockData["disable"].(map[string]interface{}); ok {
+					return &AppTypeEmptyModel{}
+				}
+				return nil
+			}(),
+			DiscoveredAPISettings: func() *AppTypeBusinessLogicMarkupSettingDiscoveredAPISettingsModel {
+				if !isImport && data.BusinessLogicMarkupSetting != nil && data.BusinessLogicMarkupSetting.DiscoveredAPISettings != nil {
+					return data.BusinessLogicMarkupSetting.DiscoveredAPISettings
+				}
+				if DiscoveredAPISettingsData, ok := blockData["discovered_api_settings"].(map[string]interface{}); ok {
+					return &AppTypeBusinessLogicMarkupSettingDiscoveredAPISettingsModel{
+						PurgeDurationForInactiveDiscoveredApis: func() types.Int64 {
+							if v, ok := DiscoveredAPISettingsData["purge_duration_for_inactive_discovered_apis"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Enable: func() *AppTypeEmptyModel {
+				if !isImport && data.BusinessLogicMarkupSetting != nil {
+					return data.BusinessLogicMarkupSetting.Enable
+				}
+				if _, ok := blockData["enable"].(map[string]interface{}); ok {
+					return &AppTypeEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["features"].([]interface{}); ok && len(listData) > 0 {
-		var featuresList []AppTypeFeaturesModel
+	if !isImport && (data.Features.IsNull() || len(data.Features.Elements()) == 0) {
+		data.Features = types.ListNull(types.ObjectType{AttrTypes: AppTypeFeaturesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["features"].([]interface{}); ok && len(listData) > 0 {
+		var FeaturesList []AppTypeFeaturesModel
 		var existingFeaturesItems []AppTypeFeaturesModel
 		if !data.Features.IsNull() && !data.Features.IsUnknown() {
 			data.Features.ElementsAs(ctx, &existingFeaturesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				featuresList = append(featuresList, AppTypeFeaturesModel{
+				FeaturesList = append(FeaturesList, AppTypeFeaturesModel{
 					Type: func() types.String {
 						if v, ok := itemMap["type"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -365,13 +404,12 @@ func (r *AppTypeResource) Create(ctx context.Context, req resource.CreateRequest
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppTypeFeaturesModelAttrTypes}, featuresList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppTypeFeaturesModelAttrTypes}, FeaturesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Features = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Features = types.ListNull(types.ObjectType{AttrTypes: AppTypeFeaturesModelAttrTypes})
 	}
 
@@ -454,21 +492,56 @@ func (r *AppTypeResource) Read(ctx context.Context, req resource.ReadRequest, re
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["business_logic_markup_setting"].(map[string]interface{}); ok && isImport && data.BusinessLogicMarkupSetting == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.BusinessLogicMarkupSetting = &AppTypeBusinessLogicMarkupSettingModel{}
+	if blockData, ok := apiResource.Spec["business_logic_markup_setting"].(map[string]interface{}); ok && (isImport || data.BusinessLogicMarkupSetting != nil) {
+		data.BusinessLogicMarkupSetting = &AppTypeBusinessLogicMarkupSettingModel{
+			DisableSpec: func() *AppTypeEmptyModel {
+				if !isImport && data.BusinessLogicMarkupSetting != nil {
+					return data.BusinessLogicMarkupSetting.DisableSpec
+				}
+				if _, ok := blockData["disable"].(map[string]interface{}); ok {
+					return &AppTypeEmptyModel{}
+				}
+				return nil
+			}(),
+			DiscoveredAPISettings: func() *AppTypeBusinessLogicMarkupSettingDiscoveredAPISettingsModel {
+				if !isImport && data.BusinessLogicMarkupSetting != nil && data.BusinessLogicMarkupSetting.DiscoveredAPISettings != nil {
+					return data.BusinessLogicMarkupSetting.DiscoveredAPISettings
+				}
+				if DiscoveredAPISettingsData, ok := blockData["discovered_api_settings"].(map[string]interface{}); ok {
+					return &AppTypeBusinessLogicMarkupSettingDiscoveredAPISettingsModel{
+						PurgeDurationForInactiveDiscoveredApis: func() types.Int64 {
+							if v, ok := DiscoveredAPISettingsData["purge_duration_for_inactive_discovered_apis"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Enable: func() *AppTypeEmptyModel {
+				if !isImport && data.BusinessLogicMarkupSetting != nil {
+					return data.BusinessLogicMarkupSetting.Enable
+				}
+				if _, ok := blockData["enable"].(map[string]interface{}); ok {
+					return &AppTypeEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["features"].([]interface{}); ok && len(listData) > 0 {
-		var featuresList []AppTypeFeaturesModel
+	if !isImport && (data.Features.IsNull() || len(data.Features.Elements()) == 0) {
+		data.Features = types.ListNull(types.ObjectType{AttrTypes: AppTypeFeaturesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["features"].([]interface{}); ok && len(listData) > 0 {
+		var FeaturesList []AppTypeFeaturesModel
 		var existingFeaturesItems []AppTypeFeaturesModel
 		if !data.Features.IsNull() && !data.Features.IsUnknown() {
 			data.Features.ElementsAs(ctx, &existingFeaturesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				featuresList = append(featuresList, AppTypeFeaturesModel{
+				FeaturesList = append(FeaturesList, AppTypeFeaturesModel{
 					Type: func() types.String {
 						if v, ok := itemMap["type"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -478,14 +551,21 @@ func (r *AppTypeResource) Read(ctx context.Context, req resource.ReadRequest, re
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppTypeFeaturesModelAttrTypes}, featuresList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppTypeFeaturesModelAttrTypes}, FeaturesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Features = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Features = types.ListNull(types.ObjectType{AttrTypes: AppTypeFeaturesModelAttrTypes})
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -539,36 +619,36 @@ func (r *AppTypeResource) Update(ctx context.Context, req resource.UpdateRequest
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.BusinessLogicMarkupSetting != nil {
-		business_logic_markup_settingMap := make(map[string]interface{})
+		BusinessLogicMarkupSettingMap := make(map[string]interface{})
 		if data.BusinessLogicMarkupSetting.DisableSpec != nil {
-			business_logic_markup_settingMap["disable"] = map[string]interface{}{}
+			BusinessLogicMarkupSettingMap["disable"] = map[string]interface{}{}
 		}
 		if data.BusinessLogicMarkupSetting.DiscoveredAPISettings != nil {
-			discovered_api_settingsNestedMap := make(map[string]interface{})
+			DiscoveredAPISettingsMap := make(map[string]interface{})
 			if !data.BusinessLogicMarkupSetting.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis.IsNull() && !data.BusinessLogicMarkupSetting.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis.IsUnknown() {
-				discovered_api_settingsNestedMap["purge_duration_for_inactive_discovered_apis"] = data.BusinessLogicMarkupSetting.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis.ValueInt64()
+				DiscoveredAPISettingsMap["purge_duration_for_inactive_discovered_apis"] = data.BusinessLogicMarkupSetting.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis.ValueInt64()
 			}
-			business_logic_markup_settingMap["discovered_api_settings"] = discovered_api_settingsNestedMap
+			BusinessLogicMarkupSettingMap["discovered_api_settings"] = DiscoveredAPISettingsMap
 		}
 		if data.BusinessLogicMarkupSetting.Enable != nil {
-			business_logic_markup_settingMap["enable"] = map[string]interface{}{}
+			BusinessLogicMarkupSettingMap["enable"] = map[string]interface{}{}
 		}
-		apiResource.Spec["business_logic_markup_setting"] = business_logic_markup_settingMap
+		apiResource.Spec["business_logic_markup_setting"] = BusinessLogicMarkupSettingMap
 	}
 	if !data.Features.IsNull() && !data.Features.IsUnknown() {
-		var featuresItems []AppTypeFeaturesModel
-		diags := data.Features.ElementsAs(ctx, &featuresItems, false)
+		var FeaturesElems []AppTypeFeaturesModel
+		diags := data.Features.ElementsAs(ctx, &FeaturesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(featuresItems) > 0 {
-			var featuresList []map[string]interface{}
-			for _, item := range featuresItems {
-				itemMap := make(map[string]interface{})
-				if !item.Type.IsNull() && !item.Type.IsUnknown() {
-					itemMap["type"] = item.Type.ValueString()
+		if !resp.Diagnostics.HasError() && len(FeaturesElems) > 0 {
+			var FeaturesList []map[string]interface{}
+			for _, FeaturesItem := range FeaturesElems {
+				FeaturesItemMap := make(map[string]interface{})
+				if !FeaturesItem.Type.IsNull() && !FeaturesItem.Type.IsUnknown() {
+					FeaturesItemMap["type"] = FeaturesItem.Type.ValueString()
 				}
-				featuresList = append(featuresList, itemMap)
+				FeaturesList = append(FeaturesList, FeaturesItemMap)
 			}
-			apiResource.Spec["features"] = featuresList
+			apiResource.Spec["features"] = FeaturesList
 		}
 	}
 
@@ -595,21 +675,56 @@ func (r *AppTypeResource) Update(ctx context.Context, req resource.UpdateRequest
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["business_logic_markup_setting"].(map[string]interface{}); ok && isImport && data.BusinessLogicMarkupSetting == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.BusinessLogicMarkupSetting = &AppTypeBusinessLogicMarkupSettingModel{}
+	if blockData, ok := apiResource.Spec["business_logic_markup_setting"].(map[string]interface{}); ok && (isImport || data.BusinessLogicMarkupSetting != nil) {
+		data.BusinessLogicMarkupSetting = &AppTypeBusinessLogicMarkupSettingModel{
+			DisableSpec: func() *AppTypeEmptyModel {
+				if !isImport && data.BusinessLogicMarkupSetting != nil {
+					return data.BusinessLogicMarkupSetting.DisableSpec
+				}
+				if _, ok := blockData["disable"].(map[string]interface{}); ok {
+					return &AppTypeEmptyModel{}
+				}
+				return nil
+			}(),
+			DiscoveredAPISettings: func() *AppTypeBusinessLogicMarkupSettingDiscoveredAPISettingsModel {
+				if !isImport && data.BusinessLogicMarkupSetting != nil && data.BusinessLogicMarkupSetting.DiscoveredAPISettings != nil {
+					return data.BusinessLogicMarkupSetting.DiscoveredAPISettings
+				}
+				if DiscoveredAPISettingsData, ok := blockData["discovered_api_settings"].(map[string]interface{}); ok {
+					return &AppTypeBusinessLogicMarkupSettingDiscoveredAPISettingsModel{
+						PurgeDurationForInactiveDiscoveredApis: func() types.Int64 {
+							if v, ok := DiscoveredAPISettingsData["purge_duration_for_inactive_discovered_apis"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Enable: func() *AppTypeEmptyModel {
+				if !isImport && data.BusinessLogicMarkupSetting != nil {
+					return data.BusinessLogicMarkupSetting.Enable
+				}
+				if _, ok := blockData["enable"].(map[string]interface{}); ok {
+					return &AppTypeEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["features"].([]interface{}); ok && len(listData) > 0 {
-		var featuresList []AppTypeFeaturesModel
+	if !isImport && (data.Features.IsNull() || len(data.Features.Elements()) == 0) {
+		data.Features = types.ListNull(types.ObjectType{AttrTypes: AppTypeFeaturesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["features"].([]interface{}); ok && len(listData) > 0 {
+		var FeaturesList []AppTypeFeaturesModel
 		var existingFeaturesItems []AppTypeFeaturesModel
 		if !data.Features.IsNull() && !data.Features.IsUnknown() {
 			data.Features.ElementsAs(ctx, &existingFeaturesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				featuresList = append(featuresList, AppTypeFeaturesModel{
+				FeaturesList = append(FeaturesList, AppTypeFeaturesModel{
 					Type: func() types.String {
 						if v, ok := itemMap["type"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -619,13 +734,12 @@ func (r *AppTypeResource) Update(ctx context.Context, req resource.UpdateRequest
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppTypeFeaturesModelAttrTypes}, featuresList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppTypeFeaturesModelAttrTypes}, FeaturesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Features = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Features = types.ListNull(types.ObjectType{AttrTypes: AppTypeFeaturesModelAttrTypes})
 	}
 

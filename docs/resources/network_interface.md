@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_network_interface Resource - terraform-provider-f5xc"
+page_title: "xcsh_network_interface Resource - xcsh"
 subcategory: "Networking"
 description: |-
   Manages a Network Interface resource in F5 Distributed Cloud for network interface represents configuration of a network device. it is created by users in system namespace. configuration.
 ---
 
-# f5xc_network_interface (Resource)
+# xcsh_network_interface (Resource)
 
 Manages a Network Interface resource in F5 Distributed Cloud for network interface represents configuration of a network device. it is created by users in system namespace. configuration.
 
@@ -14,47 +14,24 @@ Manages a Network Interface resource in F5 Distributed Cloud for network interfa
 ## Example Usage
 
 ```terraform
-# Network Interface Resource Example
-# Manages a Network Interface resource in F5 Distributed Cloud for network interface represents configuration of a network device. it is created by users in system namespace. configuration.
+# NetworkInterface Resource Example
+# Manages a Network Interface resource in F5 Distributed Cloud for network interface represents configuration of a network device.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Network Interface configuration
-resource "f5xc_network_interface" "example" {
+# Basic NetworkInterface configuration
+resource "xcsh_network_interface" "example" {
   name      = "example-network-interface"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # [OneOf: dedicated_interface, dedicated_management_interfa...
-  dedicated_interface {
-    # Configure dedicated_interface settings
-  }
-  # Enable this option
-  cluster {
-    # Configure cluster settings
-  }
-  # Enable this option
-  is_primary {
-    # Configure is_primary settings
-  }
+  namespace = "system"
 }
 ```
 
@@ -69,8 +46,6 @@ resource "f5xc_network_interface" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Network Interface. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Network Interface will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -78,6 +53,8 @@ resource "f5xc_network_interface" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Network Interface. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -504,5 +481,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_network_interface.example system/example
+terraform import xcsh_network_interface.example system/example
 ```

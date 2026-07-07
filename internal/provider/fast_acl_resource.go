@@ -23,9 +23,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -67,7 +67,7 @@ var FastACLProtocolPolicerModelAttrTypes = map[string]attr.Type{
 type FastACLREACLModel struct {
 	AllPublicVips     *FastACLEmptyModel                  `tfsdk:"all_public_vips"`
 	DefaultTenantVIP  *FastACLEmptyModel                  `tfsdk:"default_tenant_vip"`
-	FastACLRules      []FastACLREACLFastACLRulesModel     `tfsdk:"fast_acl_rules"`
+	FastACLRules      types.List                          `tfsdk:"fast_acl_rules"`
 	SelectedTenantVIP *FastACLREACLSelectedTenantVIPModel `tfsdk:"selected_tenant_vip"`
 }
 
@@ -113,7 +113,7 @@ var FastACLREACLFastACLRulesActionModelAttrTypes = map[string]attr.Type{
 
 // FastACLREACLFastACLRulesActionPolicerActionModel represents policer_action block
 type FastACLREACLFastACLRulesActionPolicerActionModel struct {
-	Ref []FastACLREACLFastACLRulesActionPolicerActionRefModel `tfsdk:"ref"`
+	Ref types.List `tfsdk:"ref"`
 }
 
 // FastACLREACLFastACLRulesActionPolicerActionModelAttrTypes defines the attribute types for FastACLREACLFastACLRulesActionPolicerActionModel
@@ -141,7 +141,7 @@ var FastACLREACLFastACLRulesActionPolicerActionRefModelAttrTypes = map[string]at
 
 // FastACLREACLFastACLRulesActionProtocolPolicerActionModel represents protocol_policer_action block
 type FastACLREACLFastACLRulesActionProtocolPolicerActionModel struct {
-	Ref []FastACLREACLFastACLRulesActionProtocolPolicerActionRefModel `tfsdk:"ref"`
+	Ref types.List `tfsdk:"ref"`
 }
 
 // FastACLREACLFastACLRulesActionProtocolPolicerActionModelAttrTypes defines the attribute types for FastACLREACLFastACLRulesActionProtocolPolicerActionModel
@@ -169,7 +169,7 @@ var FastACLREACLFastACLRulesActionProtocolPolicerActionRefModelAttrTypes = map[s
 
 // FastACLREACLFastACLRulesIPPrefixSetModel represents ip_prefix_set block
 type FastACLREACLFastACLRulesIPPrefixSetModel struct {
-	Ref []FastACLREACLFastACLRulesIPPrefixSetRefModel `tfsdk:"ref"`
+	Ref types.List `tfsdk:"ref"`
 }
 
 // FastACLREACLFastACLRulesIPPrefixSetModelAttrTypes defines the attribute types for FastACLREACLFastACLRulesIPPrefixSetModel
@@ -233,8 +233,8 @@ var FastACLREACLFastACLRulesPrefixModelAttrTypes = map[string]attr.Type{
 
 // FastACLREACLSelectedTenantVIPModel represents selected_tenant_vip block
 type FastACLREACLSelectedTenantVIPModel struct {
-	DefaultTenantVIP types.Bool                                       `tfsdk:"default_tenant_vip"`
-	PublicIPRefs     []FastACLREACLSelectedTenantVIPPublicIPRefsModel `tfsdk:"public_ip_refs"`
+	DefaultTenantVIP types.Bool `tfsdk:"default_tenant_vip"`
+	PublicIPRefs     types.List `tfsdk:"public_ip_refs"`
 }
 
 // FastACLREACLSelectedTenantVIPModelAttrTypes defines the attribute types for FastACLREACLSelectedTenantVIPModel
@@ -259,12 +259,12 @@ var FastACLREACLSelectedTenantVIPPublicIPRefsModelAttrTypes = map[string]attr.Ty
 
 // FastACLSiteACLModel represents site_acl block
 type FastACLSiteACLModel struct {
-	AllServices       *FastACLEmptyModel                `tfsdk:"all_services"`
-	FastACLRules      []FastACLSiteACLFastACLRulesModel `tfsdk:"fast_acl_rules"`
-	InsideNetwork     *FastACLEmptyModel                `tfsdk:"inside_network"`
-	InterfaceServices *FastACLEmptyModel                `tfsdk:"interface_services"`
-	OutsideNetwork    *FastACLEmptyModel                `tfsdk:"outside_network"`
-	VIPServices       *FastACLEmptyModel                `tfsdk:"vip_services"`
+	AllServices       *FastACLEmptyModel `tfsdk:"all_services"`
+	FastACLRules      types.List         `tfsdk:"fast_acl_rules"`
+	InsideNetwork     *FastACLEmptyModel `tfsdk:"inside_network"`
+	InterfaceServices *FastACLEmptyModel `tfsdk:"interface_services"`
+	OutsideNetwork    *FastACLEmptyModel `tfsdk:"outside_network"`
+	VIPServices       *FastACLEmptyModel `tfsdk:"vip_services"`
 }
 
 // FastACLSiteACLModelAttrTypes defines the attribute types for FastACLSiteACLModel
@@ -311,7 +311,7 @@ var FastACLSiteACLFastACLRulesActionModelAttrTypes = map[string]attr.Type{
 
 // FastACLSiteACLFastACLRulesActionPolicerActionModel represents policer_action block
 type FastACLSiteACLFastACLRulesActionPolicerActionModel struct {
-	Ref []FastACLSiteACLFastACLRulesActionPolicerActionRefModel `tfsdk:"ref"`
+	Ref types.List `tfsdk:"ref"`
 }
 
 // FastACLSiteACLFastACLRulesActionPolicerActionModelAttrTypes defines the attribute types for FastACLSiteACLFastACLRulesActionPolicerActionModel
@@ -339,7 +339,7 @@ var FastACLSiteACLFastACLRulesActionPolicerActionRefModelAttrTypes = map[string]
 
 // FastACLSiteACLFastACLRulesActionProtocolPolicerActionModel represents protocol_policer_action block
 type FastACLSiteACLFastACLRulesActionProtocolPolicerActionModel struct {
-	Ref []FastACLSiteACLFastACLRulesActionProtocolPolicerActionRefModel `tfsdk:"ref"`
+	Ref types.List `tfsdk:"ref"`
 }
 
 // FastACLSiteACLFastACLRulesActionProtocolPolicerActionModelAttrTypes defines the attribute types for FastACLSiteACLFastACLRulesActionProtocolPolicerActionModel
@@ -367,7 +367,7 @@ var FastACLSiteACLFastACLRulesActionProtocolPolicerActionRefModelAttrTypes = map
 
 // FastACLSiteACLFastACLRulesIPPrefixSetModel represents ip_prefix_set block
 type FastACLSiteACLFastACLRulesIPPrefixSetModel struct {
-	Ref []FastACLSiteACLFastACLRulesIPPrefixSetRefModel `tfsdk:"ref"`
+	Ref types.List `tfsdk:"ref"`
 }
 
 // FastACLSiteACLFastACLRulesIPPrefixSetModelAttrTypes defines the attribute types for FastACLSiteACLFastACLRulesIPPrefixSetModel
@@ -543,13 +543,13 @@ func (r *FastACLResource) Schema(ctx context.Context, req resource.SchemaRequest
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"all_public_vips": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
+						MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
 					},
 					"default_tenant_vip": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",
 					},
 					"fast_acl_rules": schema.ListNestedBlock{
-						MarkdownDescription: "Rules. Fast ACL rules to match.",
+						MarkdownDescription: "Rules. Fast ACL rules to match. Defaults to `[]`. Server applies default when omitted.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
@@ -1213,119 +1213,383 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.ProtocolPolicer != nil {
-		protocol_policerMap := make(map[string]interface{})
+		ProtocolPolicerMap := make(map[string]interface{})
 		if !data.ProtocolPolicer.Name.IsNull() && !data.ProtocolPolicer.Name.IsUnknown() {
-			protocol_policerMap["name"] = data.ProtocolPolicer.Name.ValueString()
+			ProtocolPolicerMap["name"] = data.ProtocolPolicer.Name.ValueString()
 		}
 		if !data.ProtocolPolicer.Namespace.IsNull() && !data.ProtocolPolicer.Namespace.IsUnknown() {
-			protocol_policerMap["namespace"] = data.ProtocolPolicer.Namespace.ValueString()
+			ProtocolPolicerMap["namespace"] = data.ProtocolPolicer.Namespace.ValueString()
 		}
 		if !data.ProtocolPolicer.Tenant.IsNull() && !data.ProtocolPolicer.Tenant.IsUnknown() {
-			protocol_policerMap["tenant"] = data.ProtocolPolicer.Tenant.ValueString()
+			ProtocolPolicerMap["tenant"] = data.ProtocolPolicer.Tenant.ValueString()
 		}
-		createReq.Spec["protocol_policer"] = protocol_policerMap
+		createReq.Spec["protocol_policer"] = ProtocolPolicerMap
 	}
 	if data.REACL != nil {
-		re_aclMap := make(map[string]interface{})
+		REACLMap := make(map[string]interface{})
 		if data.REACL.AllPublicVips != nil {
-			re_aclMap["all_public_vips"] = map[string]interface{}{}
+			REACLMap["all_public_vips"] = map[string]interface{}{}
 		}
 		if data.REACL.DefaultTenantVIP != nil {
-			re_aclMap["default_tenant_vip"] = map[string]interface{}{}
+			REACLMap["default_tenant_vip"] = map[string]interface{}{}
 		}
-		if len(data.REACL.FastACLRules) > 0 {
-			var fast_acl_rulesList []map[string]interface{}
-			for _, listItem := range data.REACL.FastACLRules {
-				listItemMap := make(map[string]interface{})
-				if listItem.Action != nil {
-					actionDeepMap := make(map[string]interface{})
-					if !listItem.Action.SimpleAction.IsNull() && !listItem.Action.SimpleAction.IsUnknown() {
-						actionDeepMap["simple_action"] = listItem.Action.SimpleAction.ValueString()
+		if !data.REACL.FastACLRules.IsNull() && !data.REACL.FastACLRules.IsUnknown() {
+			var FastACLRulesElems []FastACLREACLFastACLRulesModel
+			diags := data.REACL.FastACLRules.ElementsAs(ctx, &FastACLRulesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(FastACLRulesElems) > 0 {
+				var FastACLRulesList []map[string]interface{}
+				for _, FastACLRulesItem := range FastACLRulesElems {
+					FastACLRulesItemMap := make(map[string]interface{})
+					if FastACLRulesItem.Action != nil {
+						ActionMap := make(map[string]interface{})
+						if FastACLRulesItem.Action.PolicerAction != nil {
+							PolicerActionMap := make(map[string]interface{})
+							if !FastACLRulesItem.Action.PolicerAction.Ref.IsNull() && !FastACLRulesItem.Action.PolicerAction.Ref.IsUnknown() {
+								var RefElems []FastACLREACLFastACLRulesActionPolicerActionRefModel
+								diags := FastACLRulesItem.Action.PolicerAction.Ref.ElementsAs(ctx, &RefElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+									var RefList []map[string]interface{}
+									for _, RefItem := range RefElems {
+										RefItemMap := make(map[string]interface{})
+										if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+											RefItemMap["kind"] = RefItem.Kind.ValueString()
+										}
+										if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+											RefItemMap["name"] = RefItem.Name.ValueString()
+										}
+										if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+											RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+										}
+										if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+											RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+										}
+										if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+											RefItemMap["uid"] = RefItem.Uid.ValueString()
+										}
+										RefList = append(RefList, RefItemMap)
+									}
+									PolicerActionMap["ref"] = RefList
+								}
+							}
+							ActionMap["policer_action"] = PolicerActionMap
+						}
+						if FastACLRulesItem.Action.ProtocolPolicerAction != nil {
+							ProtocolPolicerActionMap := make(map[string]interface{})
+							if !FastACLRulesItem.Action.ProtocolPolicerAction.Ref.IsNull() && !FastACLRulesItem.Action.ProtocolPolicerAction.Ref.IsUnknown() {
+								var RefElems []FastACLREACLFastACLRulesActionProtocolPolicerActionRefModel
+								diags := FastACLRulesItem.Action.ProtocolPolicerAction.Ref.ElementsAs(ctx, &RefElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+									var RefList []map[string]interface{}
+									for _, RefItem := range RefElems {
+										RefItemMap := make(map[string]interface{})
+										if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+											RefItemMap["kind"] = RefItem.Kind.ValueString()
+										}
+										if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+											RefItemMap["name"] = RefItem.Name.ValueString()
+										}
+										if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+											RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+										}
+										if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+											RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+										}
+										if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+											RefItemMap["uid"] = RefItem.Uid.ValueString()
+										}
+										RefList = append(RefList, RefItemMap)
+									}
+									ProtocolPolicerActionMap["ref"] = RefList
+								}
+							}
+							ActionMap["protocol_policer_action"] = ProtocolPolicerActionMap
+						}
+						if !FastACLRulesItem.Action.SimpleAction.IsNull() && !FastACLRulesItem.Action.SimpleAction.IsUnknown() {
+							ActionMap["simple_action"] = FastACLRulesItem.Action.SimpleAction.ValueString()
+						}
+						FastACLRulesItemMap["action"] = ActionMap
 					}
-					listItemMap["action"] = actionDeepMap
-				}
-				if listItem.IPPrefixSet != nil {
-					ip_prefix_setDeepMap := make(map[string]interface{})
-					listItemMap["ip_prefix_set"] = ip_prefix_setDeepMap
-				}
-				if listItem.Metadata != nil {
-					metadataDeepMap := make(map[string]interface{})
-					if !listItem.Metadata.DescriptionSpec.IsNull() && !listItem.Metadata.DescriptionSpec.IsUnknown() {
-						metadataDeepMap["description"] = listItem.Metadata.DescriptionSpec.ValueString()
+					if FastACLRulesItem.IPPrefixSet != nil {
+						IPPrefixSetMap := make(map[string]interface{})
+						if !FastACLRulesItem.IPPrefixSet.Ref.IsNull() && !FastACLRulesItem.IPPrefixSet.Ref.IsUnknown() {
+							var RefElems []FastACLREACLFastACLRulesIPPrefixSetRefModel
+							diags := FastACLRulesItem.IPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+								var RefList []map[string]interface{}
+								for _, RefItem := range RefElems {
+									RefItemMap := make(map[string]interface{})
+									if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+										RefItemMap["kind"] = RefItem.Kind.ValueString()
+									}
+									if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+										RefItemMap["name"] = RefItem.Name.ValueString()
+									}
+									if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+										RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+									}
+									if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+										RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+									}
+									if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+										RefItemMap["uid"] = RefItem.Uid.ValueString()
+									}
+									RefList = append(RefList, RefItemMap)
+								}
+								IPPrefixSetMap["ref"] = RefList
+							}
+						}
+						FastACLRulesItemMap["ip_prefix_set"] = IPPrefixSetMap
 					}
-					if !listItem.Metadata.Name.IsNull() && !listItem.Metadata.Name.IsUnknown() {
-						metadataDeepMap["name"] = listItem.Metadata.Name.ValueString()
+					if FastACLRulesItem.Metadata != nil {
+						MetadataMap := make(map[string]interface{})
+						if !FastACLRulesItem.Metadata.DescriptionSpec.IsNull() && !FastACLRulesItem.Metadata.DescriptionSpec.IsUnknown() {
+							MetadataMap["description"] = FastACLRulesItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !FastACLRulesItem.Metadata.Name.IsNull() && !FastACLRulesItem.Metadata.Name.IsUnknown() {
+							MetadataMap["name"] = FastACLRulesItem.Metadata.Name.ValueString()
+						}
+						FastACLRulesItemMap["metadata"] = MetadataMap
 					}
-					listItemMap["metadata"] = metadataDeepMap
+					if len(FastACLRulesItem.Port) > 0 {
+						var PortList []map[string]interface{}
+						for _, PortItem := range FastACLRulesItem.Port {
+							PortItemMap := make(map[string]interface{})
+							if PortItem.All != nil {
+								PortItemMap["all"] = map[string]interface{}{}
+							}
+							if PortItem.DNS != nil {
+								PortItemMap["dns"] = map[string]interface{}{}
+							}
+							if !PortItem.UserDefined.IsNull() && !PortItem.UserDefined.IsUnknown() {
+								PortItemMap["user_defined"] = PortItem.UserDefined.ValueInt64()
+							}
+							PortList = append(PortList, PortItemMap)
+						}
+						FastACLRulesItemMap["port"] = PortList
+					}
+					if FastACLRulesItem.Prefix != nil {
+						PrefixMap := make(map[string]interface{})
+						if !FastACLRulesItem.Prefix.Prefix.IsNull() && !FastACLRulesItem.Prefix.Prefix.IsUnknown() {
+							var PrefixItems []string
+							diags := FastACLRulesItem.Prefix.Prefix.ElementsAs(ctx, &PrefixItems, false)
+							if !diags.HasError() {
+								PrefixMap["prefix"] = PrefixItems
+							}
+						}
+						FastACLRulesItemMap["prefix"] = PrefixMap
+					}
+					FastACLRulesList = append(FastACLRulesList, FastACLRulesItemMap)
 				}
-				if listItem.Prefix != nil {
-					prefixDeepMap := make(map[string]interface{})
-					listItemMap["prefix"] = prefixDeepMap
-				}
-				fast_acl_rulesList = append(fast_acl_rulesList, listItemMap)
+				REACLMap["fast_acl_rules"] = FastACLRulesList
 			}
-			re_aclMap["fast_acl_rules"] = fast_acl_rulesList
 		}
 		if data.REACL.SelectedTenantVIP != nil {
-			selected_tenant_vipNestedMap := make(map[string]interface{})
+			SelectedTenantVIPMap := make(map[string]interface{})
 			if !data.REACL.SelectedTenantVIP.DefaultTenantVIP.IsNull() && !data.REACL.SelectedTenantVIP.DefaultTenantVIP.IsUnknown() {
-				selected_tenant_vipNestedMap["default_tenant_vip"] = data.REACL.SelectedTenantVIP.DefaultTenantVIP.ValueBool()
+				SelectedTenantVIPMap["default_tenant_vip"] = data.REACL.SelectedTenantVIP.DefaultTenantVIP.ValueBool()
 			}
-			re_aclMap["selected_tenant_vip"] = selected_tenant_vipNestedMap
+			if !data.REACL.SelectedTenantVIP.PublicIPRefs.IsNull() && !data.REACL.SelectedTenantVIP.PublicIPRefs.IsUnknown() {
+				var PublicIPRefsElems []FastACLREACLSelectedTenantVIPPublicIPRefsModel
+				diags := data.REACL.SelectedTenantVIP.PublicIPRefs.ElementsAs(ctx, &PublicIPRefsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(PublicIPRefsElems) > 0 {
+					var PublicIPRefsList []map[string]interface{}
+					for _, PublicIPRefsItem := range PublicIPRefsElems {
+						PublicIPRefsItemMap := make(map[string]interface{})
+						if !PublicIPRefsItem.Name.IsNull() && !PublicIPRefsItem.Name.IsUnknown() {
+							PublicIPRefsItemMap["name"] = PublicIPRefsItem.Name.ValueString()
+						}
+						if !PublicIPRefsItem.Namespace.IsNull() && !PublicIPRefsItem.Namespace.IsUnknown() {
+							PublicIPRefsItemMap["namespace"] = PublicIPRefsItem.Namespace.ValueString()
+						}
+						if !PublicIPRefsItem.Tenant.IsNull() && !PublicIPRefsItem.Tenant.IsUnknown() {
+							PublicIPRefsItemMap["tenant"] = PublicIPRefsItem.Tenant.ValueString()
+						}
+						PublicIPRefsList = append(PublicIPRefsList, PublicIPRefsItemMap)
+					}
+					SelectedTenantVIPMap["public_ip_refs"] = PublicIPRefsList
+				}
+			}
+			REACLMap["selected_tenant_vip"] = SelectedTenantVIPMap
 		}
-		createReq.Spec["re_acl"] = re_aclMap
+		createReq.Spec["re_acl"] = REACLMap
 	}
 	if data.SiteACL != nil {
-		site_aclMap := make(map[string]interface{})
+		SiteACLMap := make(map[string]interface{})
 		if data.SiteACL.AllServices != nil {
-			site_aclMap["all_services"] = map[string]interface{}{}
+			SiteACLMap["all_services"] = map[string]interface{}{}
 		}
-		if len(data.SiteACL.FastACLRules) > 0 {
-			var fast_acl_rulesList []map[string]interface{}
-			for _, listItem := range data.SiteACL.FastACLRules {
-				listItemMap := make(map[string]interface{})
-				if listItem.Action != nil {
-					actionDeepMap := make(map[string]interface{})
-					if !listItem.Action.SimpleAction.IsNull() && !listItem.Action.SimpleAction.IsUnknown() {
-						actionDeepMap["simple_action"] = listItem.Action.SimpleAction.ValueString()
+		if !data.SiteACL.FastACLRules.IsNull() && !data.SiteACL.FastACLRules.IsUnknown() {
+			var FastACLRulesElems []FastACLSiteACLFastACLRulesModel
+			diags := data.SiteACL.FastACLRules.ElementsAs(ctx, &FastACLRulesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(FastACLRulesElems) > 0 {
+				var FastACLRulesList []map[string]interface{}
+				for _, FastACLRulesItem := range FastACLRulesElems {
+					FastACLRulesItemMap := make(map[string]interface{})
+					if FastACLRulesItem.Action != nil {
+						ActionMap := make(map[string]interface{})
+						if FastACLRulesItem.Action.PolicerAction != nil {
+							PolicerActionMap := make(map[string]interface{})
+							if !FastACLRulesItem.Action.PolicerAction.Ref.IsNull() && !FastACLRulesItem.Action.PolicerAction.Ref.IsUnknown() {
+								var RefElems []FastACLSiteACLFastACLRulesActionPolicerActionRefModel
+								diags := FastACLRulesItem.Action.PolicerAction.Ref.ElementsAs(ctx, &RefElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+									var RefList []map[string]interface{}
+									for _, RefItem := range RefElems {
+										RefItemMap := make(map[string]interface{})
+										if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+											RefItemMap["kind"] = RefItem.Kind.ValueString()
+										}
+										if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+											RefItemMap["name"] = RefItem.Name.ValueString()
+										}
+										if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+											RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+										}
+										if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+											RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+										}
+										if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+											RefItemMap["uid"] = RefItem.Uid.ValueString()
+										}
+										RefList = append(RefList, RefItemMap)
+									}
+									PolicerActionMap["ref"] = RefList
+								}
+							}
+							ActionMap["policer_action"] = PolicerActionMap
+						}
+						if FastACLRulesItem.Action.ProtocolPolicerAction != nil {
+							ProtocolPolicerActionMap := make(map[string]interface{})
+							if !FastACLRulesItem.Action.ProtocolPolicerAction.Ref.IsNull() && !FastACLRulesItem.Action.ProtocolPolicerAction.Ref.IsUnknown() {
+								var RefElems []FastACLSiteACLFastACLRulesActionProtocolPolicerActionRefModel
+								diags := FastACLRulesItem.Action.ProtocolPolicerAction.Ref.ElementsAs(ctx, &RefElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+									var RefList []map[string]interface{}
+									for _, RefItem := range RefElems {
+										RefItemMap := make(map[string]interface{})
+										if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+											RefItemMap["kind"] = RefItem.Kind.ValueString()
+										}
+										if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+											RefItemMap["name"] = RefItem.Name.ValueString()
+										}
+										if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+											RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+										}
+										if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+											RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+										}
+										if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+											RefItemMap["uid"] = RefItem.Uid.ValueString()
+										}
+										RefList = append(RefList, RefItemMap)
+									}
+									ProtocolPolicerActionMap["ref"] = RefList
+								}
+							}
+							ActionMap["protocol_policer_action"] = ProtocolPolicerActionMap
+						}
+						if !FastACLRulesItem.Action.SimpleAction.IsNull() && !FastACLRulesItem.Action.SimpleAction.IsUnknown() {
+							ActionMap["simple_action"] = FastACLRulesItem.Action.SimpleAction.ValueString()
+						}
+						FastACLRulesItemMap["action"] = ActionMap
 					}
-					listItemMap["action"] = actionDeepMap
-				}
-				if listItem.IPPrefixSet != nil {
-					ip_prefix_setDeepMap := make(map[string]interface{})
-					listItemMap["ip_prefix_set"] = ip_prefix_setDeepMap
-				}
-				if listItem.Metadata != nil {
-					metadataDeepMap := make(map[string]interface{})
-					if !listItem.Metadata.DescriptionSpec.IsNull() && !listItem.Metadata.DescriptionSpec.IsUnknown() {
-						metadataDeepMap["description"] = listItem.Metadata.DescriptionSpec.ValueString()
+					if FastACLRulesItem.IPPrefixSet != nil {
+						IPPrefixSetMap := make(map[string]interface{})
+						if !FastACLRulesItem.IPPrefixSet.Ref.IsNull() && !FastACLRulesItem.IPPrefixSet.Ref.IsUnknown() {
+							var RefElems []FastACLSiteACLFastACLRulesIPPrefixSetRefModel
+							diags := FastACLRulesItem.IPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+								var RefList []map[string]interface{}
+								for _, RefItem := range RefElems {
+									RefItemMap := make(map[string]interface{})
+									if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+										RefItemMap["kind"] = RefItem.Kind.ValueString()
+									}
+									if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+										RefItemMap["name"] = RefItem.Name.ValueString()
+									}
+									if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+										RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+									}
+									if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+										RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+									}
+									if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+										RefItemMap["uid"] = RefItem.Uid.ValueString()
+									}
+									RefList = append(RefList, RefItemMap)
+								}
+								IPPrefixSetMap["ref"] = RefList
+							}
+						}
+						FastACLRulesItemMap["ip_prefix_set"] = IPPrefixSetMap
 					}
-					if !listItem.Metadata.Name.IsNull() && !listItem.Metadata.Name.IsUnknown() {
-						metadataDeepMap["name"] = listItem.Metadata.Name.ValueString()
+					if FastACLRulesItem.Metadata != nil {
+						MetadataMap := make(map[string]interface{})
+						if !FastACLRulesItem.Metadata.DescriptionSpec.IsNull() && !FastACLRulesItem.Metadata.DescriptionSpec.IsUnknown() {
+							MetadataMap["description"] = FastACLRulesItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !FastACLRulesItem.Metadata.Name.IsNull() && !FastACLRulesItem.Metadata.Name.IsUnknown() {
+							MetadataMap["name"] = FastACLRulesItem.Metadata.Name.ValueString()
+						}
+						FastACLRulesItemMap["metadata"] = MetadataMap
 					}
-					listItemMap["metadata"] = metadataDeepMap
+					if len(FastACLRulesItem.Port) > 0 {
+						var PortList []map[string]interface{}
+						for _, PortItem := range FastACLRulesItem.Port {
+							PortItemMap := make(map[string]interface{})
+							if PortItem.All != nil {
+								PortItemMap["all"] = map[string]interface{}{}
+							}
+							if PortItem.DNS != nil {
+								PortItemMap["dns"] = map[string]interface{}{}
+							}
+							if !PortItem.UserDefined.IsNull() && !PortItem.UserDefined.IsUnknown() {
+								PortItemMap["user_defined"] = PortItem.UserDefined.ValueInt64()
+							}
+							PortList = append(PortList, PortItemMap)
+						}
+						FastACLRulesItemMap["port"] = PortList
+					}
+					if FastACLRulesItem.Prefix != nil {
+						PrefixMap := make(map[string]interface{})
+						if !FastACLRulesItem.Prefix.Prefix.IsNull() && !FastACLRulesItem.Prefix.Prefix.IsUnknown() {
+							var PrefixItems []string
+							diags := FastACLRulesItem.Prefix.Prefix.ElementsAs(ctx, &PrefixItems, false)
+							if !diags.HasError() {
+								PrefixMap["prefix"] = PrefixItems
+							}
+						}
+						FastACLRulesItemMap["prefix"] = PrefixMap
+					}
+					FastACLRulesList = append(FastACLRulesList, FastACLRulesItemMap)
 				}
-				if listItem.Prefix != nil {
-					prefixDeepMap := make(map[string]interface{})
-					listItemMap["prefix"] = prefixDeepMap
-				}
-				fast_acl_rulesList = append(fast_acl_rulesList, listItemMap)
+				SiteACLMap["fast_acl_rules"] = FastACLRulesList
 			}
-			site_aclMap["fast_acl_rules"] = fast_acl_rulesList
 		}
 		if data.SiteACL.InsideNetwork != nil {
-			site_aclMap["inside_network"] = map[string]interface{}{}
+			SiteACLMap["inside_network"] = map[string]interface{}{}
 		}
 		if data.SiteACL.InterfaceServices != nil {
-			site_aclMap["interface_services"] = map[string]interface{}{}
+			SiteACLMap["interface_services"] = map[string]interface{}{}
 		}
 		if data.SiteACL.OutsideNetwork != nil {
-			site_aclMap["outside_network"] = map[string]interface{}{}
+			SiteACLMap["outside_network"] = map[string]interface{}{}
 		}
 		if data.SiteACL.VIPServices != nil {
-			site_aclMap["vip_services"] = map[string]interface{}{}
+			SiteACLMap["vip_services"] = map[string]interface{}{}
 		}
-		createReq.Spec["site_acl"] = site_aclMap
+		createReq.Spec["site_acl"] = SiteACLMap
 	}
 
 	apiResource, err := r.client.CreateFastACL(ctx, createReq)
@@ -1366,11 +1630,8 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 		data.REACL = &FastACLREACLModel{
 			AllPublicVips: func() *FastACLEmptyModel {
 				if !isImport && data.REACL != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.REACL.AllPublicVips
 				}
-				// Import case: read from API
 				if _, ok := blockData["all_public_vips"].(map[string]interface{}); ok {
 					return &FastACLEmptyModel{}
 				}
@@ -1378,27 +1639,129 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 			}(),
 			DefaultTenantVIP: func() *FastACLEmptyModel {
 				if !isImport && data.REACL != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.REACL.DefaultTenantVIP
 				}
-				// Import case: read from API
 				if _, ok := blockData["default_tenant_vip"].(map[string]interface{}); ok {
 					return &FastACLEmptyModel{}
 				}
 				return nil
 			}(),
-			FastACLRules: func() []FastACLREACLFastACLRulesModel {
-				if listData, ok := blockData["fast_acl_rules"].([]interface{}); ok && len(listData) > 0 {
-					var result []FastACLREACLFastACLRulesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FastACLREACLFastACLRulesModel{
+			FastACLRules: func() types.List {
+				if !isImport && data.REACL != nil && (data.REACL.FastACLRules.IsNull() || len(data.REACL.FastACLRules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesModelAttrTypes})
+				}
+				if rawList, ok := blockData["fast_acl_rules"].([]interface{}); ok && len(rawList) > 0 {
+					var FastACLRulesResult []FastACLREACLFastACLRulesModel
+					for _, FastACLRulesItem := range rawList {
+						if FastACLRulesItemMap, ok := FastACLRulesItem.(map[string]interface{}); ok {
+							FastACLRulesResult = append(FastACLRulesResult, FastACLREACLFastACLRulesModel{
 								Action: func() *FastACLREACLFastACLRulesActionModel {
-									if deepMap, ok := itemMap["action"].(map[string]interface{}); ok {
+									if ActionData, ok := FastACLRulesItemMap["action"].(map[string]interface{}); ok {
 										return &FastACLREACLFastACLRulesActionModel{
+											PolicerAction: func() *FastACLREACLFastACLRulesActionPolicerActionModel {
+												if PolicerActionData, ok := ActionData["policer_action"].(map[string]interface{}); ok {
+													return &FastACLREACLFastACLRulesActionPolicerActionModel{
+														Ref: func() types.List {
+															if rawList, ok := PolicerActionData["ref"].([]interface{}); ok && len(rawList) > 0 {
+																var RefResult []FastACLREACLFastACLRulesActionPolicerActionRefModel
+																for _, RefItem := range rawList {
+																	if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+																		RefResult = append(RefResult, FastACLREACLFastACLRulesActionPolicerActionRefModel{
+																			Kind: func() types.String {
+																				if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Name: func() types.String {
+																				if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Namespace: func() types.String {
+																				if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Tenant: func() types.String {
+																				if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Uid: func() types.String {
+																				if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLREACLFastACLRulesActionPolicerActionRefModelAttrTypes}, RefResult)
+																return listVal
+															}
+															return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesActionPolicerActionRefModelAttrTypes})
+														}(),
+													}
+												}
+												return nil
+											}(),
+											ProtocolPolicerAction: func() *FastACLREACLFastACLRulesActionProtocolPolicerActionModel {
+												if ProtocolPolicerActionData, ok := ActionData["protocol_policer_action"].(map[string]interface{}); ok {
+													return &FastACLREACLFastACLRulesActionProtocolPolicerActionModel{
+														Ref: func() types.List {
+															if rawList, ok := ProtocolPolicerActionData["ref"].([]interface{}); ok && len(rawList) > 0 {
+																var RefResult []FastACLREACLFastACLRulesActionProtocolPolicerActionRefModel
+																for _, RefItem := range rawList {
+																	if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+																		RefResult = append(RefResult, FastACLREACLFastACLRulesActionProtocolPolicerActionRefModel{
+																			Kind: func() types.String {
+																				if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Name: func() types.String {
+																				if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Namespace: func() types.String {
+																				if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Tenant: func() types.String {
+																				if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Uid: func() types.String {
+																				if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLREACLFastACLRulesActionProtocolPolicerActionRefModelAttrTypes}, RefResult)
+																return listVal
+															}
+															return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesActionProtocolPolicerActionRefModelAttrTypes})
+														}(),
+													}
+												}
+												return nil
+											}(),
 											SimpleAction: func() types.String {
-												if v, ok := deepMap["simple_action"].(string); ok && v != "" {
+												if v, ok := ActionData["simple_action"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1408,22 +1771,67 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 									return nil
 								}(),
 								IPPrefixSet: func() *FastACLREACLFastACLRulesIPPrefixSetModel {
-									if _, ok := itemMap["ip_prefix_set"].(map[string]interface{}); ok {
-										return &FastACLREACLFastACLRulesIPPrefixSetModel{}
+									if IPPrefixSetData, ok := FastACLRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
+										return &FastACLREACLFastACLRulesIPPrefixSetModel{
+											Ref: func() types.List {
+												if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
+													var RefResult []FastACLREACLFastACLRulesIPPrefixSetRefModel
+													for _, RefItem := range rawList {
+														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+															RefResult = append(RefResult, FastACLREACLFastACLRulesIPPrefixSetRefModel{
+																Kind: func() types.String {
+																	if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLREACLFastACLRulesIPPrefixSetRefModelAttrTypes}, RefResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesIPPrefixSetRefModelAttrTypes})
+											}(),
+										}
 									}
 									return nil
 								}(),
 								Metadata: func() *FastACLREACLFastACLRulesMetadataModel {
-									if deepMap, ok := itemMap["metadata"].(map[string]interface{}); ok {
+									if MetadataData, ok := FastACLRulesItemMap["metadata"].(map[string]interface{}); ok {
 										return &FastACLREACLFastACLRulesMetadataModel{
 											DescriptionSpec: func() types.String {
-												if v, ok := deepMap["description"].(string); ok && v != "" {
+												if v, ok := MetadataData["description"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Name: func() types.String {
-												if v, ok := deepMap["name"].(string); ok && v != "" {
+												if v, ok := MetadataData["name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1432,32 +1840,108 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 									}
 									return nil
 								}(),
+								Port: func() []FastACLREACLFastACLRulesPortModel {
+									if rawList, ok := FastACLRulesItemMap["port"].([]interface{}); ok && len(rawList) > 0 {
+										var PortResult []FastACLREACLFastACLRulesPortModel
+										for _, PortItem := range rawList {
+											if PortItemMap, ok := PortItem.(map[string]interface{}); ok {
+												PortResult = append(PortResult, FastACLREACLFastACLRulesPortModel{
+													All: func() *FastACLEmptyModel {
+														if _, ok := PortItemMap["all"].(map[string]interface{}); ok {
+															return &FastACLEmptyModel{}
+														}
+														return nil
+													}(),
+													DNS: func() *FastACLEmptyModel {
+														if _, ok := PortItemMap["dns"].(map[string]interface{}); ok {
+															return &FastACLEmptyModel{}
+														}
+														return nil
+													}(),
+													UserDefined: func() types.Int64 {
+														if v, ok := PortItemMap["user_defined"].(float64); ok && v != 0 {
+															return types.Int64Value(int64(v))
+														}
+														return types.Int64Null()
+													}(),
+												})
+											}
+										}
+										return PortResult
+									}
+									return nil
+								}(),
 								Prefix: func() *FastACLREACLFastACLRulesPrefixModel {
-									if _, ok := itemMap["prefix"].(map[string]interface{}); ok {
-										return &FastACLREACLFastACLRulesPrefixModel{}
+									if PrefixData, ok := FastACLRulesItemMap["prefix"].(map[string]interface{}); ok {
+										return &FastACLREACLFastACLRulesPrefixModel{
+											Prefix: func() types.List {
+												if v, ok := PrefixData["prefix"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLREACLFastACLRulesModelAttrTypes}, FastACLRulesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesModelAttrTypes})
 			}(),
 			SelectedTenantVIP: func() *FastACLREACLSelectedTenantVIPModel {
 				if !isImport && data.REACL != nil && data.REACL.SelectedTenantVIP != nil {
-					// Normal Read: preserve existing state value
 					return data.REACL.SelectedTenantVIP
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["selected_tenant_vip"].(map[string]interface{}); ok {
+				if SelectedTenantVIPData, ok := blockData["selected_tenant_vip"].(map[string]interface{}); ok {
 					return &FastACLREACLSelectedTenantVIPModel{
 						DefaultTenantVIP: func() types.Bool {
-							if v, ok := nestedBlockData["default_tenant_vip"].(bool); ok {
+							if v, ok := SelectedTenantVIPData["default_tenant_vip"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
+						}(),
+						PublicIPRefs: func() types.List {
+							if rawList, ok := SelectedTenantVIPData["public_ip_refs"].([]interface{}); ok && len(rawList) > 0 {
+								var PublicIPRefsResult []FastACLREACLSelectedTenantVIPPublicIPRefsModel
+								for _, PublicIPRefsItem := range rawList {
+									if PublicIPRefsItemMap, ok := PublicIPRefsItem.(map[string]interface{}); ok {
+										PublicIPRefsResult = append(PublicIPRefsResult, FastACLREACLSelectedTenantVIPPublicIPRefsModel{
+											Name: func() types.String {
+												if v, ok := PublicIPRefsItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := PublicIPRefsItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := PublicIPRefsItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLREACLSelectedTenantVIPPublicIPRefsModelAttrTypes}, PublicIPRefsResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLSelectedTenantVIPPublicIPRefsModelAttrTypes})
 						}(),
 					}
 				}
@@ -1469,27 +1953,129 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 		data.SiteACL = &FastACLSiteACLModel{
 			AllServices: func() *FastACLEmptyModel {
 				if !isImport && data.SiteACL != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.SiteACL.AllServices
 				}
-				// Import case: read from API
 				if _, ok := blockData["all_services"].(map[string]interface{}); ok {
 					return &FastACLEmptyModel{}
 				}
 				return nil
 			}(),
-			FastACLRules: func() []FastACLSiteACLFastACLRulesModel {
-				if listData, ok := blockData["fast_acl_rules"].([]interface{}); ok && len(listData) > 0 {
-					var result []FastACLSiteACLFastACLRulesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FastACLSiteACLFastACLRulesModel{
+			FastACLRules: func() types.List {
+				if !isImport && data.SiteACL != nil && (data.SiteACL.FastACLRules.IsNull() || len(data.SiteACL.FastACLRules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesModelAttrTypes})
+				}
+				if rawList, ok := blockData["fast_acl_rules"].([]interface{}); ok && len(rawList) > 0 {
+					var FastACLRulesResult []FastACLSiteACLFastACLRulesModel
+					for _, FastACLRulesItem := range rawList {
+						if FastACLRulesItemMap, ok := FastACLRulesItem.(map[string]interface{}); ok {
+							FastACLRulesResult = append(FastACLRulesResult, FastACLSiteACLFastACLRulesModel{
 								Action: func() *FastACLSiteACLFastACLRulesActionModel {
-									if deepMap, ok := itemMap["action"].(map[string]interface{}); ok {
+									if ActionData, ok := FastACLRulesItemMap["action"].(map[string]interface{}); ok {
 										return &FastACLSiteACLFastACLRulesActionModel{
+											PolicerAction: func() *FastACLSiteACLFastACLRulesActionPolicerActionModel {
+												if PolicerActionData, ok := ActionData["policer_action"].(map[string]interface{}); ok {
+													return &FastACLSiteACLFastACLRulesActionPolicerActionModel{
+														Ref: func() types.List {
+															if rawList, ok := PolicerActionData["ref"].([]interface{}); ok && len(rawList) > 0 {
+																var RefResult []FastACLSiteACLFastACLRulesActionPolicerActionRefModel
+																for _, RefItem := range rawList {
+																	if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+																		RefResult = append(RefResult, FastACLSiteACLFastACLRulesActionPolicerActionRefModel{
+																			Kind: func() types.String {
+																				if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Name: func() types.String {
+																				if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Namespace: func() types.String {
+																				if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Tenant: func() types.String {
+																				if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Uid: func() types.String {
+																				if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesActionPolicerActionRefModelAttrTypes}, RefResult)
+																return listVal
+															}
+															return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesActionPolicerActionRefModelAttrTypes})
+														}(),
+													}
+												}
+												return nil
+											}(),
+											ProtocolPolicerAction: func() *FastACLSiteACLFastACLRulesActionProtocolPolicerActionModel {
+												if ProtocolPolicerActionData, ok := ActionData["protocol_policer_action"].(map[string]interface{}); ok {
+													return &FastACLSiteACLFastACLRulesActionProtocolPolicerActionModel{
+														Ref: func() types.List {
+															if rawList, ok := ProtocolPolicerActionData["ref"].([]interface{}); ok && len(rawList) > 0 {
+																var RefResult []FastACLSiteACLFastACLRulesActionProtocolPolicerActionRefModel
+																for _, RefItem := range rawList {
+																	if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+																		RefResult = append(RefResult, FastACLSiteACLFastACLRulesActionProtocolPolicerActionRefModel{
+																			Kind: func() types.String {
+																				if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Name: func() types.String {
+																				if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Namespace: func() types.String {
+																				if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Tenant: func() types.String {
+																				if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Uid: func() types.String {
+																				if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesActionProtocolPolicerActionRefModelAttrTypes}, RefResult)
+																return listVal
+															}
+															return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesActionProtocolPolicerActionRefModelAttrTypes})
+														}(),
+													}
+												}
+												return nil
+											}(),
 											SimpleAction: func() types.String {
-												if v, ok := deepMap["simple_action"].(string); ok && v != "" {
+												if v, ok := ActionData["simple_action"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1499,22 +2085,67 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 									return nil
 								}(),
 								IPPrefixSet: func() *FastACLSiteACLFastACLRulesIPPrefixSetModel {
-									if _, ok := itemMap["ip_prefix_set"].(map[string]interface{}); ok {
-										return &FastACLSiteACLFastACLRulesIPPrefixSetModel{}
+									if IPPrefixSetData, ok := FastACLRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
+										return &FastACLSiteACLFastACLRulesIPPrefixSetModel{
+											Ref: func() types.List {
+												if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
+													var RefResult []FastACLSiteACLFastACLRulesIPPrefixSetRefModel
+													for _, RefItem := range rawList {
+														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+															RefResult = append(RefResult, FastACLSiteACLFastACLRulesIPPrefixSetRefModel{
+																Kind: func() types.String {
+																	if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesIPPrefixSetRefModelAttrTypes}, RefResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesIPPrefixSetRefModelAttrTypes})
+											}(),
+										}
 									}
 									return nil
 								}(),
 								Metadata: func() *FastACLSiteACLFastACLRulesMetadataModel {
-									if deepMap, ok := itemMap["metadata"].(map[string]interface{}); ok {
+									if MetadataData, ok := FastACLRulesItemMap["metadata"].(map[string]interface{}); ok {
 										return &FastACLSiteACLFastACLRulesMetadataModel{
 											DescriptionSpec: func() types.String {
-												if v, ok := deepMap["description"].(string); ok && v != "" {
+												if v, ok := MetadataData["description"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Name: func() types.String {
-												if v, ok := deepMap["name"].(string); ok && v != "" {
+												if v, ok := MetadataData["name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1523,26 +2154,69 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 									}
 									return nil
 								}(),
+								Port: func() []FastACLSiteACLFastACLRulesPortModel {
+									if rawList, ok := FastACLRulesItemMap["port"].([]interface{}); ok && len(rawList) > 0 {
+										var PortResult []FastACLSiteACLFastACLRulesPortModel
+										for _, PortItem := range rawList {
+											if PortItemMap, ok := PortItem.(map[string]interface{}); ok {
+												PortResult = append(PortResult, FastACLSiteACLFastACLRulesPortModel{
+													All: func() *FastACLEmptyModel {
+														if _, ok := PortItemMap["all"].(map[string]interface{}); ok {
+															return &FastACLEmptyModel{}
+														}
+														return nil
+													}(),
+													DNS: func() *FastACLEmptyModel {
+														if _, ok := PortItemMap["dns"].(map[string]interface{}); ok {
+															return &FastACLEmptyModel{}
+														}
+														return nil
+													}(),
+													UserDefined: func() types.Int64 {
+														if v, ok := PortItemMap["user_defined"].(float64); ok && v != 0 {
+															return types.Int64Value(int64(v))
+														}
+														return types.Int64Null()
+													}(),
+												})
+											}
+										}
+										return PortResult
+									}
+									return nil
+								}(),
 								Prefix: func() *FastACLSiteACLFastACLRulesPrefixModel {
-									if _, ok := itemMap["prefix"].(map[string]interface{}); ok {
-										return &FastACLSiteACLFastACLRulesPrefixModel{}
+									if PrefixData, ok := FastACLRulesItemMap["prefix"].(map[string]interface{}); ok {
+										return &FastACLSiteACLFastACLRulesPrefixModel{
+											Prefix: func() types.List {
+												if v, ok := PrefixData["prefix"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesModelAttrTypes}, FastACLRulesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesModelAttrTypes})
 			}(),
 			InsideNetwork: func() *FastACLEmptyModel {
 				if !isImport && data.SiteACL != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.SiteACL.InsideNetwork
 				}
-				// Import case: read from API
 				if _, ok := blockData["inside_network"].(map[string]interface{}); ok {
 					return &FastACLEmptyModel{}
 				}
@@ -1550,11 +2224,8 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 			}(),
 			InterfaceServices: func() *FastACLEmptyModel {
 				if !isImport && data.SiteACL != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.SiteACL.InterfaceServices
 				}
-				// Import case: read from API
 				if _, ok := blockData["interface_services"].(map[string]interface{}); ok {
 					return &FastACLEmptyModel{}
 				}
@@ -1562,11 +2233,8 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 			}(),
 			OutsideNetwork: func() *FastACLEmptyModel {
 				if !isImport && data.SiteACL != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.SiteACL.OutsideNetwork
 				}
-				// Import case: read from API
 				if _, ok := blockData["outside_network"].(map[string]interface{}); ok {
 					return &FastACLEmptyModel{}
 				}
@@ -1574,11 +2242,8 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 			}(),
 			VIPServices: func() *FastACLEmptyModel {
 				if !isImport && data.SiteACL != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.SiteACL.VIPServices
 				}
-				// Import case: read from API
 				if _, ok := blockData["vip_services"].(map[string]interface{}); ok {
 					return &FastACLEmptyModel{}
 				}
@@ -1692,11 +2357,8 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 		data.REACL = &FastACLREACLModel{
 			AllPublicVips: func() *FastACLEmptyModel {
 				if !isImport && data.REACL != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.REACL.AllPublicVips
 				}
-				// Import case: read from API
 				if _, ok := blockData["all_public_vips"].(map[string]interface{}); ok {
 					return &FastACLEmptyModel{}
 				}
@@ -1704,27 +2366,129 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 			}(),
 			DefaultTenantVIP: func() *FastACLEmptyModel {
 				if !isImport && data.REACL != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.REACL.DefaultTenantVIP
 				}
-				// Import case: read from API
 				if _, ok := blockData["default_tenant_vip"].(map[string]interface{}); ok {
 					return &FastACLEmptyModel{}
 				}
 				return nil
 			}(),
-			FastACLRules: func() []FastACLREACLFastACLRulesModel {
-				if listData, ok := blockData["fast_acl_rules"].([]interface{}); ok && len(listData) > 0 {
-					var result []FastACLREACLFastACLRulesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FastACLREACLFastACLRulesModel{
+			FastACLRules: func() types.List {
+				if !isImport && data.REACL != nil && (data.REACL.FastACLRules.IsNull() || len(data.REACL.FastACLRules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesModelAttrTypes})
+				}
+				if rawList, ok := blockData["fast_acl_rules"].([]interface{}); ok && len(rawList) > 0 {
+					var FastACLRulesResult []FastACLREACLFastACLRulesModel
+					for _, FastACLRulesItem := range rawList {
+						if FastACLRulesItemMap, ok := FastACLRulesItem.(map[string]interface{}); ok {
+							FastACLRulesResult = append(FastACLRulesResult, FastACLREACLFastACLRulesModel{
 								Action: func() *FastACLREACLFastACLRulesActionModel {
-									if deepMap, ok := itemMap["action"].(map[string]interface{}); ok {
+									if ActionData, ok := FastACLRulesItemMap["action"].(map[string]interface{}); ok {
 										return &FastACLREACLFastACLRulesActionModel{
+											PolicerAction: func() *FastACLREACLFastACLRulesActionPolicerActionModel {
+												if PolicerActionData, ok := ActionData["policer_action"].(map[string]interface{}); ok {
+													return &FastACLREACLFastACLRulesActionPolicerActionModel{
+														Ref: func() types.List {
+															if rawList, ok := PolicerActionData["ref"].([]interface{}); ok && len(rawList) > 0 {
+																var RefResult []FastACLREACLFastACLRulesActionPolicerActionRefModel
+																for _, RefItem := range rawList {
+																	if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+																		RefResult = append(RefResult, FastACLREACLFastACLRulesActionPolicerActionRefModel{
+																			Kind: func() types.String {
+																				if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Name: func() types.String {
+																				if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Namespace: func() types.String {
+																				if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Tenant: func() types.String {
+																				if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Uid: func() types.String {
+																				if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLREACLFastACLRulesActionPolicerActionRefModelAttrTypes}, RefResult)
+																return listVal
+															}
+															return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesActionPolicerActionRefModelAttrTypes})
+														}(),
+													}
+												}
+												return nil
+											}(),
+											ProtocolPolicerAction: func() *FastACLREACLFastACLRulesActionProtocolPolicerActionModel {
+												if ProtocolPolicerActionData, ok := ActionData["protocol_policer_action"].(map[string]interface{}); ok {
+													return &FastACLREACLFastACLRulesActionProtocolPolicerActionModel{
+														Ref: func() types.List {
+															if rawList, ok := ProtocolPolicerActionData["ref"].([]interface{}); ok && len(rawList) > 0 {
+																var RefResult []FastACLREACLFastACLRulesActionProtocolPolicerActionRefModel
+																for _, RefItem := range rawList {
+																	if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+																		RefResult = append(RefResult, FastACLREACLFastACLRulesActionProtocolPolicerActionRefModel{
+																			Kind: func() types.String {
+																				if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Name: func() types.String {
+																				if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Namespace: func() types.String {
+																				if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Tenant: func() types.String {
+																				if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Uid: func() types.String {
+																				if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLREACLFastACLRulesActionProtocolPolicerActionRefModelAttrTypes}, RefResult)
+																return listVal
+															}
+															return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesActionProtocolPolicerActionRefModelAttrTypes})
+														}(),
+													}
+												}
+												return nil
+											}(),
 											SimpleAction: func() types.String {
-												if v, ok := deepMap["simple_action"].(string); ok && v != "" {
+												if v, ok := ActionData["simple_action"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1734,22 +2498,67 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 									return nil
 								}(),
 								IPPrefixSet: func() *FastACLREACLFastACLRulesIPPrefixSetModel {
-									if _, ok := itemMap["ip_prefix_set"].(map[string]interface{}); ok {
-										return &FastACLREACLFastACLRulesIPPrefixSetModel{}
+									if IPPrefixSetData, ok := FastACLRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
+										return &FastACLREACLFastACLRulesIPPrefixSetModel{
+											Ref: func() types.List {
+												if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
+													var RefResult []FastACLREACLFastACLRulesIPPrefixSetRefModel
+													for _, RefItem := range rawList {
+														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+															RefResult = append(RefResult, FastACLREACLFastACLRulesIPPrefixSetRefModel{
+																Kind: func() types.String {
+																	if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLREACLFastACLRulesIPPrefixSetRefModelAttrTypes}, RefResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesIPPrefixSetRefModelAttrTypes})
+											}(),
+										}
 									}
 									return nil
 								}(),
 								Metadata: func() *FastACLREACLFastACLRulesMetadataModel {
-									if deepMap, ok := itemMap["metadata"].(map[string]interface{}); ok {
+									if MetadataData, ok := FastACLRulesItemMap["metadata"].(map[string]interface{}); ok {
 										return &FastACLREACLFastACLRulesMetadataModel{
 											DescriptionSpec: func() types.String {
-												if v, ok := deepMap["description"].(string); ok && v != "" {
+												if v, ok := MetadataData["description"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Name: func() types.String {
-												if v, ok := deepMap["name"].(string); ok && v != "" {
+												if v, ok := MetadataData["name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1758,32 +2567,108 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 									}
 									return nil
 								}(),
+								Port: func() []FastACLREACLFastACLRulesPortModel {
+									if rawList, ok := FastACLRulesItemMap["port"].([]interface{}); ok && len(rawList) > 0 {
+										var PortResult []FastACLREACLFastACLRulesPortModel
+										for _, PortItem := range rawList {
+											if PortItemMap, ok := PortItem.(map[string]interface{}); ok {
+												PortResult = append(PortResult, FastACLREACLFastACLRulesPortModel{
+													All: func() *FastACLEmptyModel {
+														if _, ok := PortItemMap["all"].(map[string]interface{}); ok {
+															return &FastACLEmptyModel{}
+														}
+														return nil
+													}(),
+													DNS: func() *FastACLEmptyModel {
+														if _, ok := PortItemMap["dns"].(map[string]interface{}); ok {
+															return &FastACLEmptyModel{}
+														}
+														return nil
+													}(),
+													UserDefined: func() types.Int64 {
+														if v, ok := PortItemMap["user_defined"].(float64); ok && v != 0 {
+															return types.Int64Value(int64(v))
+														}
+														return types.Int64Null()
+													}(),
+												})
+											}
+										}
+										return PortResult
+									}
+									return nil
+								}(),
 								Prefix: func() *FastACLREACLFastACLRulesPrefixModel {
-									if _, ok := itemMap["prefix"].(map[string]interface{}); ok {
-										return &FastACLREACLFastACLRulesPrefixModel{}
+									if PrefixData, ok := FastACLRulesItemMap["prefix"].(map[string]interface{}); ok {
+										return &FastACLREACLFastACLRulesPrefixModel{
+											Prefix: func() types.List {
+												if v, ok := PrefixData["prefix"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLREACLFastACLRulesModelAttrTypes}, FastACLRulesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesModelAttrTypes})
 			}(),
 			SelectedTenantVIP: func() *FastACLREACLSelectedTenantVIPModel {
 				if !isImport && data.REACL != nil && data.REACL.SelectedTenantVIP != nil {
-					// Normal Read: preserve existing state value
 					return data.REACL.SelectedTenantVIP
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["selected_tenant_vip"].(map[string]interface{}); ok {
+				if SelectedTenantVIPData, ok := blockData["selected_tenant_vip"].(map[string]interface{}); ok {
 					return &FastACLREACLSelectedTenantVIPModel{
 						DefaultTenantVIP: func() types.Bool {
-							if v, ok := nestedBlockData["default_tenant_vip"].(bool); ok {
+							if v, ok := SelectedTenantVIPData["default_tenant_vip"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
+						}(),
+						PublicIPRefs: func() types.List {
+							if rawList, ok := SelectedTenantVIPData["public_ip_refs"].([]interface{}); ok && len(rawList) > 0 {
+								var PublicIPRefsResult []FastACLREACLSelectedTenantVIPPublicIPRefsModel
+								for _, PublicIPRefsItem := range rawList {
+									if PublicIPRefsItemMap, ok := PublicIPRefsItem.(map[string]interface{}); ok {
+										PublicIPRefsResult = append(PublicIPRefsResult, FastACLREACLSelectedTenantVIPPublicIPRefsModel{
+											Name: func() types.String {
+												if v, ok := PublicIPRefsItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := PublicIPRefsItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := PublicIPRefsItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLREACLSelectedTenantVIPPublicIPRefsModelAttrTypes}, PublicIPRefsResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLSelectedTenantVIPPublicIPRefsModelAttrTypes})
 						}(),
 					}
 				}
@@ -1795,27 +2680,129 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 		data.SiteACL = &FastACLSiteACLModel{
 			AllServices: func() *FastACLEmptyModel {
 				if !isImport && data.SiteACL != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.SiteACL.AllServices
 				}
-				// Import case: read from API
 				if _, ok := blockData["all_services"].(map[string]interface{}); ok {
 					return &FastACLEmptyModel{}
 				}
 				return nil
 			}(),
-			FastACLRules: func() []FastACLSiteACLFastACLRulesModel {
-				if listData, ok := blockData["fast_acl_rules"].([]interface{}); ok && len(listData) > 0 {
-					var result []FastACLSiteACLFastACLRulesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FastACLSiteACLFastACLRulesModel{
+			FastACLRules: func() types.List {
+				if !isImport && data.SiteACL != nil && (data.SiteACL.FastACLRules.IsNull() || len(data.SiteACL.FastACLRules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesModelAttrTypes})
+				}
+				if rawList, ok := blockData["fast_acl_rules"].([]interface{}); ok && len(rawList) > 0 {
+					var FastACLRulesResult []FastACLSiteACLFastACLRulesModel
+					for _, FastACLRulesItem := range rawList {
+						if FastACLRulesItemMap, ok := FastACLRulesItem.(map[string]interface{}); ok {
+							FastACLRulesResult = append(FastACLRulesResult, FastACLSiteACLFastACLRulesModel{
 								Action: func() *FastACLSiteACLFastACLRulesActionModel {
-									if deepMap, ok := itemMap["action"].(map[string]interface{}); ok {
+									if ActionData, ok := FastACLRulesItemMap["action"].(map[string]interface{}); ok {
 										return &FastACLSiteACLFastACLRulesActionModel{
+											PolicerAction: func() *FastACLSiteACLFastACLRulesActionPolicerActionModel {
+												if PolicerActionData, ok := ActionData["policer_action"].(map[string]interface{}); ok {
+													return &FastACLSiteACLFastACLRulesActionPolicerActionModel{
+														Ref: func() types.List {
+															if rawList, ok := PolicerActionData["ref"].([]interface{}); ok && len(rawList) > 0 {
+																var RefResult []FastACLSiteACLFastACLRulesActionPolicerActionRefModel
+																for _, RefItem := range rawList {
+																	if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+																		RefResult = append(RefResult, FastACLSiteACLFastACLRulesActionPolicerActionRefModel{
+																			Kind: func() types.String {
+																				if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Name: func() types.String {
+																				if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Namespace: func() types.String {
+																				if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Tenant: func() types.String {
+																				if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Uid: func() types.String {
+																				if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesActionPolicerActionRefModelAttrTypes}, RefResult)
+																return listVal
+															}
+															return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesActionPolicerActionRefModelAttrTypes})
+														}(),
+													}
+												}
+												return nil
+											}(),
+											ProtocolPolicerAction: func() *FastACLSiteACLFastACLRulesActionProtocolPolicerActionModel {
+												if ProtocolPolicerActionData, ok := ActionData["protocol_policer_action"].(map[string]interface{}); ok {
+													return &FastACLSiteACLFastACLRulesActionProtocolPolicerActionModel{
+														Ref: func() types.List {
+															if rawList, ok := ProtocolPolicerActionData["ref"].([]interface{}); ok && len(rawList) > 0 {
+																var RefResult []FastACLSiteACLFastACLRulesActionProtocolPolicerActionRefModel
+																for _, RefItem := range rawList {
+																	if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+																		RefResult = append(RefResult, FastACLSiteACLFastACLRulesActionProtocolPolicerActionRefModel{
+																			Kind: func() types.String {
+																				if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Name: func() types.String {
+																				if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Namespace: func() types.String {
+																				if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Tenant: func() types.String {
+																				if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Uid: func() types.String {
+																				if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesActionProtocolPolicerActionRefModelAttrTypes}, RefResult)
+																return listVal
+															}
+															return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesActionProtocolPolicerActionRefModelAttrTypes})
+														}(),
+													}
+												}
+												return nil
+											}(),
 											SimpleAction: func() types.String {
-												if v, ok := deepMap["simple_action"].(string); ok && v != "" {
+												if v, ok := ActionData["simple_action"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1825,22 +2812,67 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 									return nil
 								}(),
 								IPPrefixSet: func() *FastACLSiteACLFastACLRulesIPPrefixSetModel {
-									if _, ok := itemMap["ip_prefix_set"].(map[string]interface{}); ok {
-										return &FastACLSiteACLFastACLRulesIPPrefixSetModel{}
+									if IPPrefixSetData, ok := FastACLRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
+										return &FastACLSiteACLFastACLRulesIPPrefixSetModel{
+											Ref: func() types.List {
+												if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
+													var RefResult []FastACLSiteACLFastACLRulesIPPrefixSetRefModel
+													for _, RefItem := range rawList {
+														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+															RefResult = append(RefResult, FastACLSiteACLFastACLRulesIPPrefixSetRefModel{
+																Kind: func() types.String {
+																	if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesIPPrefixSetRefModelAttrTypes}, RefResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesIPPrefixSetRefModelAttrTypes})
+											}(),
+										}
 									}
 									return nil
 								}(),
 								Metadata: func() *FastACLSiteACLFastACLRulesMetadataModel {
-									if deepMap, ok := itemMap["metadata"].(map[string]interface{}); ok {
+									if MetadataData, ok := FastACLRulesItemMap["metadata"].(map[string]interface{}); ok {
 										return &FastACLSiteACLFastACLRulesMetadataModel{
 											DescriptionSpec: func() types.String {
-												if v, ok := deepMap["description"].(string); ok && v != "" {
+												if v, ok := MetadataData["description"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Name: func() types.String {
-												if v, ok := deepMap["name"].(string); ok && v != "" {
+												if v, ok := MetadataData["name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1849,26 +2881,69 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 									}
 									return nil
 								}(),
+								Port: func() []FastACLSiteACLFastACLRulesPortModel {
+									if rawList, ok := FastACLRulesItemMap["port"].([]interface{}); ok && len(rawList) > 0 {
+										var PortResult []FastACLSiteACLFastACLRulesPortModel
+										for _, PortItem := range rawList {
+											if PortItemMap, ok := PortItem.(map[string]interface{}); ok {
+												PortResult = append(PortResult, FastACLSiteACLFastACLRulesPortModel{
+													All: func() *FastACLEmptyModel {
+														if _, ok := PortItemMap["all"].(map[string]interface{}); ok {
+															return &FastACLEmptyModel{}
+														}
+														return nil
+													}(),
+													DNS: func() *FastACLEmptyModel {
+														if _, ok := PortItemMap["dns"].(map[string]interface{}); ok {
+															return &FastACLEmptyModel{}
+														}
+														return nil
+													}(),
+													UserDefined: func() types.Int64 {
+														if v, ok := PortItemMap["user_defined"].(float64); ok && v != 0 {
+															return types.Int64Value(int64(v))
+														}
+														return types.Int64Null()
+													}(),
+												})
+											}
+										}
+										return PortResult
+									}
+									return nil
+								}(),
 								Prefix: func() *FastACLSiteACLFastACLRulesPrefixModel {
-									if _, ok := itemMap["prefix"].(map[string]interface{}); ok {
-										return &FastACLSiteACLFastACLRulesPrefixModel{}
+									if PrefixData, ok := FastACLRulesItemMap["prefix"].(map[string]interface{}); ok {
+										return &FastACLSiteACLFastACLRulesPrefixModel{
+											Prefix: func() types.List {
+												if v, ok := PrefixData["prefix"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesModelAttrTypes}, FastACLRulesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesModelAttrTypes})
 			}(),
 			InsideNetwork: func() *FastACLEmptyModel {
 				if !isImport && data.SiteACL != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.SiteACL.InsideNetwork
 				}
-				// Import case: read from API
 				if _, ok := blockData["inside_network"].(map[string]interface{}); ok {
 					return &FastACLEmptyModel{}
 				}
@@ -1876,11 +2951,8 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 			}(),
 			InterfaceServices: func() *FastACLEmptyModel {
 				if !isImport && data.SiteACL != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.SiteACL.InterfaceServices
 				}
-				// Import case: read from API
 				if _, ok := blockData["interface_services"].(map[string]interface{}); ok {
 					return &FastACLEmptyModel{}
 				}
@@ -1888,11 +2960,8 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 			}(),
 			OutsideNetwork: func() *FastACLEmptyModel {
 				if !isImport && data.SiteACL != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.SiteACL.OutsideNetwork
 				}
-				// Import case: read from API
 				if _, ok := blockData["outside_network"].(map[string]interface{}); ok {
 					return &FastACLEmptyModel{}
 				}
@@ -1900,17 +2969,22 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 			}(),
 			VIPServices: func() *FastACLEmptyModel {
 				if !isImport && data.SiteACL != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.SiteACL.VIPServices
 				}
-				// Import case: read from API
 				if _, ok := blockData["vip_services"].(map[string]interface{}); ok {
 					return &FastACLEmptyModel{}
 				}
 				return nil
 			}(),
 		}
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -1964,119 +3038,383 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.ProtocolPolicer != nil {
-		protocol_policerMap := make(map[string]interface{})
+		ProtocolPolicerMap := make(map[string]interface{})
 		if !data.ProtocolPolicer.Name.IsNull() && !data.ProtocolPolicer.Name.IsUnknown() {
-			protocol_policerMap["name"] = data.ProtocolPolicer.Name.ValueString()
+			ProtocolPolicerMap["name"] = data.ProtocolPolicer.Name.ValueString()
 		}
 		if !data.ProtocolPolicer.Namespace.IsNull() && !data.ProtocolPolicer.Namespace.IsUnknown() {
-			protocol_policerMap["namespace"] = data.ProtocolPolicer.Namespace.ValueString()
+			ProtocolPolicerMap["namespace"] = data.ProtocolPolicer.Namespace.ValueString()
 		}
 		if !data.ProtocolPolicer.Tenant.IsNull() && !data.ProtocolPolicer.Tenant.IsUnknown() {
-			protocol_policerMap["tenant"] = data.ProtocolPolicer.Tenant.ValueString()
+			ProtocolPolicerMap["tenant"] = data.ProtocolPolicer.Tenant.ValueString()
 		}
-		apiResource.Spec["protocol_policer"] = protocol_policerMap
+		apiResource.Spec["protocol_policer"] = ProtocolPolicerMap
 	}
 	if data.REACL != nil {
-		re_aclMap := make(map[string]interface{})
+		REACLMap := make(map[string]interface{})
 		if data.REACL.AllPublicVips != nil {
-			re_aclMap["all_public_vips"] = map[string]interface{}{}
+			REACLMap["all_public_vips"] = map[string]interface{}{}
 		}
 		if data.REACL.DefaultTenantVIP != nil {
-			re_aclMap["default_tenant_vip"] = map[string]interface{}{}
+			REACLMap["default_tenant_vip"] = map[string]interface{}{}
 		}
-		if len(data.REACL.FastACLRules) > 0 {
-			var fast_acl_rulesList []map[string]interface{}
-			for _, listItem := range data.REACL.FastACLRules {
-				listItemMap := make(map[string]interface{})
-				if listItem.Action != nil {
-					actionDeepMap := make(map[string]interface{})
-					if !listItem.Action.SimpleAction.IsNull() && !listItem.Action.SimpleAction.IsUnknown() {
-						actionDeepMap["simple_action"] = listItem.Action.SimpleAction.ValueString()
+		if !data.REACL.FastACLRules.IsNull() && !data.REACL.FastACLRules.IsUnknown() {
+			var FastACLRulesElems []FastACLREACLFastACLRulesModel
+			diags := data.REACL.FastACLRules.ElementsAs(ctx, &FastACLRulesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(FastACLRulesElems) > 0 {
+				var FastACLRulesList []map[string]interface{}
+				for _, FastACLRulesItem := range FastACLRulesElems {
+					FastACLRulesItemMap := make(map[string]interface{})
+					if FastACLRulesItem.Action != nil {
+						ActionMap := make(map[string]interface{})
+						if FastACLRulesItem.Action.PolicerAction != nil {
+							PolicerActionMap := make(map[string]interface{})
+							if !FastACLRulesItem.Action.PolicerAction.Ref.IsNull() && !FastACLRulesItem.Action.PolicerAction.Ref.IsUnknown() {
+								var RefElems []FastACLREACLFastACLRulesActionPolicerActionRefModel
+								diags := FastACLRulesItem.Action.PolicerAction.Ref.ElementsAs(ctx, &RefElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+									var RefList []map[string]interface{}
+									for _, RefItem := range RefElems {
+										RefItemMap := make(map[string]interface{})
+										if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+											RefItemMap["kind"] = RefItem.Kind.ValueString()
+										}
+										if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+											RefItemMap["name"] = RefItem.Name.ValueString()
+										}
+										if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+											RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+										}
+										if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+											RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+										}
+										if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+											RefItemMap["uid"] = RefItem.Uid.ValueString()
+										}
+										RefList = append(RefList, RefItemMap)
+									}
+									PolicerActionMap["ref"] = RefList
+								}
+							}
+							ActionMap["policer_action"] = PolicerActionMap
+						}
+						if FastACLRulesItem.Action.ProtocolPolicerAction != nil {
+							ProtocolPolicerActionMap := make(map[string]interface{})
+							if !FastACLRulesItem.Action.ProtocolPolicerAction.Ref.IsNull() && !FastACLRulesItem.Action.ProtocolPolicerAction.Ref.IsUnknown() {
+								var RefElems []FastACLREACLFastACLRulesActionProtocolPolicerActionRefModel
+								diags := FastACLRulesItem.Action.ProtocolPolicerAction.Ref.ElementsAs(ctx, &RefElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+									var RefList []map[string]interface{}
+									for _, RefItem := range RefElems {
+										RefItemMap := make(map[string]interface{})
+										if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+											RefItemMap["kind"] = RefItem.Kind.ValueString()
+										}
+										if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+											RefItemMap["name"] = RefItem.Name.ValueString()
+										}
+										if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+											RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+										}
+										if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+											RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+										}
+										if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+											RefItemMap["uid"] = RefItem.Uid.ValueString()
+										}
+										RefList = append(RefList, RefItemMap)
+									}
+									ProtocolPolicerActionMap["ref"] = RefList
+								}
+							}
+							ActionMap["protocol_policer_action"] = ProtocolPolicerActionMap
+						}
+						if !FastACLRulesItem.Action.SimpleAction.IsNull() && !FastACLRulesItem.Action.SimpleAction.IsUnknown() {
+							ActionMap["simple_action"] = FastACLRulesItem.Action.SimpleAction.ValueString()
+						}
+						FastACLRulesItemMap["action"] = ActionMap
 					}
-					listItemMap["action"] = actionDeepMap
-				}
-				if listItem.IPPrefixSet != nil {
-					ip_prefix_setDeepMap := make(map[string]interface{})
-					listItemMap["ip_prefix_set"] = ip_prefix_setDeepMap
-				}
-				if listItem.Metadata != nil {
-					metadataDeepMap := make(map[string]interface{})
-					if !listItem.Metadata.DescriptionSpec.IsNull() && !listItem.Metadata.DescriptionSpec.IsUnknown() {
-						metadataDeepMap["description"] = listItem.Metadata.DescriptionSpec.ValueString()
+					if FastACLRulesItem.IPPrefixSet != nil {
+						IPPrefixSetMap := make(map[string]interface{})
+						if !FastACLRulesItem.IPPrefixSet.Ref.IsNull() && !FastACLRulesItem.IPPrefixSet.Ref.IsUnknown() {
+							var RefElems []FastACLREACLFastACLRulesIPPrefixSetRefModel
+							diags := FastACLRulesItem.IPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+								var RefList []map[string]interface{}
+								for _, RefItem := range RefElems {
+									RefItemMap := make(map[string]interface{})
+									if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+										RefItemMap["kind"] = RefItem.Kind.ValueString()
+									}
+									if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+										RefItemMap["name"] = RefItem.Name.ValueString()
+									}
+									if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+										RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+									}
+									if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+										RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+									}
+									if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+										RefItemMap["uid"] = RefItem.Uid.ValueString()
+									}
+									RefList = append(RefList, RefItemMap)
+								}
+								IPPrefixSetMap["ref"] = RefList
+							}
+						}
+						FastACLRulesItemMap["ip_prefix_set"] = IPPrefixSetMap
 					}
-					if !listItem.Metadata.Name.IsNull() && !listItem.Metadata.Name.IsUnknown() {
-						metadataDeepMap["name"] = listItem.Metadata.Name.ValueString()
+					if FastACLRulesItem.Metadata != nil {
+						MetadataMap := make(map[string]interface{})
+						if !FastACLRulesItem.Metadata.DescriptionSpec.IsNull() && !FastACLRulesItem.Metadata.DescriptionSpec.IsUnknown() {
+							MetadataMap["description"] = FastACLRulesItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !FastACLRulesItem.Metadata.Name.IsNull() && !FastACLRulesItem.Metadata.Name.IsUnknown() {
+							MetadataMap["name"] = FastACLRulesItem.Metadata.Name.ValueString()
+						}
+						FastACLRulesItemMap["metadata"] = MetadataMap
 					}
-					listItemMap["metadata"] = metadataDeepMap
+					if len(FastACLRulesItem.Port) > 0 {
+						var PortList []map[string]interface{}
+						for _, PortItem := range FastACLRulesItem.Port {
+							PortItemMap := make(map[string]interface{})
+							if PortItem.All != nil {
+								PortItemMap["all"] = map[string]interface{}{}
+							}
+							if PortItem.DNS != nil {
+								PortItemMap["dns"] = map[string]interface{}{}
+							}
+							if !PortItem.UserDefined.IsNull() && !PortItem.UserDefined.IsUnknown() {
+								PortItemMap["user_defined"] = PortItem.UserDefined.ValueInt64()
+							}
+							PortList = append(PortList, PortItemMap)
+						}
+						FastACLRulesItemMap["port"] = PortList
+					}
+					if FastACLRulesItem.Prefix != nil {
+						PrefixMap := make(map[string]interface{})
+						if !FastACLRulesItem.Prefix.Prefix.IsNull() && !FastACLRulesItem.Prefix.Prefix.IsUnknown() {
+							var PrefixItems []string
+							diags := FastACLRulesItem.Prefix.Prefix.ElementsAs(ctx, &PrefixItems, false)
+							if !diags.HasError() {
+								PrefixMap["prefix"] = PrefixItems
+							}
+						}
+						FastACLRulesItemMap["prefix"] = PrefixMap
+					}
+					FastACLRulesList = append(FastACLRulesList, FastACLRulesItemMap)
 				}
-				if listItem.Prefix != nil {
-					prefixDeepMap := make(map[string]interface{})
-					listItemMap["prefix"] = prefixDeepMap
-				}
-				fast_acl_rulesList = append(fast_acl_rulesList, listItemMap)
+				REACLMap["fast_acl_rules"] = FastACLRulesList
 			}
-			re_aclMap["fast_acl_rules"] = fast_acl_rulesList
 		}
 		if data.REACL.SelectedTenantVIP != nil {
-			selected_tenant_vipNestedMap := make(map[string]interface{})
+			SelectedTenantVIPMap := make(map[string]interface{})
 			if !data.REACL.SelectedTenantVIP.DefaultTenantVIP.IsNull() && !data.REACL.SelectedTenantVIP.DefaultTenantVIP.IsUnknown() {
-				selected_tenant_vipNestedMap["default_tenant_vip"] = data.REACL.SelectedTenantVIP.DefaultTenantVIP.ValueBool()
+				SelectedTenantVIPMap["default_tenant_vip"] = data.REACL.SelectedTenantVIP.DefaultTenantVIP.ValueBool()
 			}
-			re_aclMap["selected_tenant_vip"] = selected_tenant_vipNestedMap
+			if !data.REACL.SelectedTenantVIP.PublicIPRefs.IsNull() && !data.REACL.SelectedTenantVIP.PublicIPRefs.IsUnknown() {
+				var PublicIPRefsElems []FastACLREACLSelectedTenantVIPPublicIPRefsModel
+				diags := data.REACL.SelectedTenantVIP.PublicIPRefs.ElementsAs(ctx, &PublicIPRefsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(PublicIPRefsElems) > 0 {
+					var PublicIPRefsList []map[string]interface{}
+					for _, PublicIPRefsItem := range PublicIPRefsElems {
+						PublicIPRefsItemMap := make(map[string]interface{})
+						if !PublicIPRefsItem.Name.IsNull() && !PublicIPRefsItem.Name.IsUnknown() {
+							PublicIPRefsItemMap["name"] = PublicIPRefsItem.Name.ValueString()
+						}
+						if !PublicIPRefsItem.Namespace.IsNull() && !PublicIPRefsItem.Namespace.IsUnknown() {
+							PublicIPRefsItemMap["namespace"] = PublicIPRefsItem.Namespace.ValueString()
+						}
+						if !PublicIPRefsItem.Tenant.IsNull() && !PublicIPRefsItem.Tenant.IsUnknown() {
+							PublicIPRefsItemMap["tenant"] = PublicIPRefsItem.Tenant.ValueString()
+						}
+						PublicIPRefsList = append(PublicIPRefsList, PublicIPRefsItemMap)
+					}
+					SelectedTenantVIPMap["public_ip_refs"] = PublicIPRefsList
+				}
+			}
+			REACLMap["selected_tenant_vip"] = SelectedTenantVIPMap
 		}
-		apiResource.Spec["re_acl"] = re_aclMap
+		apiResource.Spec["re_acl"] = REACLMap
 	}
 	if data.SiteACL != nil {
-		site_aclMap := make(map[string]interface{})
+		SiteACLMap := make(map[string]interface{})
 		if data.SiteACL.AllServices != nil {
-			site_aclMap["all_services"] = map[string]interface{}{}
+			SiteACLMap["all_services"] = map[string]interface{}{}
 		}
-		if len(data.SiteACL.FastACLRules) > 0 {
-			var fast_acl_rulesList []map[string]interface{}
-			for _, listItem := range data.SiteACL.FastACLRules {
-				listItemMap := make(map[string]interface{})
-				if listItem.Action != nil {
-					actionDeepMap := make(map[string]interface{})
-					if !listItem.Action.SimpleAction.IsNull() && !listItem.Action.SimpleAction.IsUnknown() {
-						actionDeepMap["simple_action"] = listItem.Action.SimpleAction.ValueString()
+		if !data.SiteACL.FastACLRules.IsNull() && !data.SiteACL.FastACLRules.IsUnknown() {
+			var FastACLRulesElems []FastACLSiteACLFastACLRulesModel
+			diags := data.SiteACL.FastACLRules.ElementsAs(ctx, &FastACLRulesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(FastACLRulesElems) > 0 {
+				var FastACLRulesList []map[string]interface{}
+				for _, FastACLRulesItem := range FastACLRulesElems {
+					FastACLRulesItemMap := make(map[string]interface{})
+					if FastACLRulesItem.Action != nil {
+						ActionMap := make(map[string]interface{})
+						if FastACLRulesItem.Action.PolicerAction != nil {
+							PolicerActionMap := make(map[string]interface{})
+							if !FastACLRulesItem.Action.PolicerAction.Ref.IsNull() && !FastACLRulesItem.Action.PolicerAction.Ref.IsUnknown() {
+								var RefElems []FastACLSiteACLFastACLRulesActionPolicerActionRefModel
+								diags := FastACLRulesItem.Action.PolicerAction.Ref.ElementsAs(ctx, &RefElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+									var RefList []map[string]interface{}
+									for _, RefItem := range RefElems {
+										RefItemMap := make(map[string]interface{})
+										if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+											RefItemMap["kind"] = RefItem.Kind.ValueString()
+										}
+										if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+											RefItemMap["name"] = RefItem.Name.ValueString()
+										}
+										if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+											RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+										}
+										if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+											RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+										}
+										if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+											RefItemMap["uid"] = RefItem.Uid.ValueString()
+										}
+										RefList = append(RefList, RefItemMap)
+									}
+									PolicerActionMap["ref"] = RefList
+								}
+							}
+							ActionMap["policer_action"] = PolicerActionMap
+						}
+						if FastACLRulesItem.Action.ProtocolPolicerAction != nil {
+							ProtocolPolicerActionMap := make(map[string]interface{})
+							if !FastACLRulesItem.Action.ProtocolPolicerAction.Ref.IsNull() && !FastACLRulesItem.Action.ProtocolPolicerAction.Ref.IsUnknown() {
+								var RefElems []FastACLSiteACLFastACLRulesActionProtocolPolicerActionRefModel
+								diags := FastACLRulesItem.Action.ProtocolPolicerAction.Ref.ElementsAs(ctx, &RefElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+									var RefList []map[string]interface{}
+									for _, RefItem := range RefElems {
+										RefItemMap := make(map[string]interface{})
+										if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+											RefItemMap["kind"] = RefItem.Kind.ValueString()
+										}
+										if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+											RefItemMap["name"] = RefItem.Name.ValueString()
+										}
+										if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+											RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+										}
+										if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+											RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+										}
+										if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+											RefItemMap["uid"] = RefItem.Uid.ValueString()
+										}
+										RefList = append(RefList, RefItemMap)
+									}
+									ProtocolPolicerActionMap["ref"] = RefList
+								}
+							}
+							ActionMap["protocol_policer_action"] = ProtocolPolicerActionMap
+						}
+						if !FastACLRulesItem.Action.SimpleAction.IsNull() && !FastACLRulesItem.Action.SimpleAction.IsUnknown() {
+							ActionMap["simple_action"] = FastACLRulesItem.Action.SimpleAction.ValueString()
+						}
+						FastACLRulesItemMap["action"] = ActionMap
 					}
-					listItemMap["action"] = actionDeepMap
-				}
-				if listItem.IPPrefixSet != nil {
-					ip_prefix_setDeepMap := make(map[string]interface{})
-					listItemMap["ip_prefix_set"] = ip_prefix_setDeepMap
-				}
-				if listItem.Metadata != nil {
-					metadataDeepMap := make(map[string]interface{})
-					if !listItem.Metadata.DescriptionSpec.IsNull() && !listItem.Metadata.DescriptionSpec.IsUnknown() {
-						metadataDeepMap["description"] = listItem.Metadata.DescriptionSpec.ValueString()
+					if FastACLRulesItem.IPPrefixSet != nil {
+						IPPrefixSetMap := make(map[string]interface{})
+						if !FastACLRulesItem.IPPrefixSet.Ref.IsNull() && !FastACLRulesItem.IPPrefixSet.Ref.IsUnknown() {
+							var RefElems []FastACLSiteACLFastACLRulesIPPrefixSetRefModel
+							diags := FastACLRulesItem.IPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+								var RefList []map[string]interface{}
+								for _, RefItem := range RefElems {
+									RefItemMap := make(map[string]interface{})
+									if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+										RefItemMap["kind"] = RefItem.Kind.ValueString()
+									}
+									if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+										RefItemMap["name"] = RefItem.Name.ValueString()
+									}
+									if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+										RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+									}
+									if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+										RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+									}
+									if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+										RefItemMap["uid"] = RefItem.Uid.ValueString()
+									}
+									RefList = append(RefList, RefItemMap)
+								}
+								IPPrefixSetMap["ref"] = RefList
+							}
+						}
+						FastACLRulesItemMap["ip_prefix_set"] = IPPrefixSetMap
 					}
-					if !listItem.Metadata.Name.IsNull() && !listItem.Metadata.Name.IsUnknown() {
-						metadataDeepMap["name"] = listItem.Metadata.Name.ValueString()
+					if FastACLRulesItem.Metadata != nil {
+						MetadataMap := make(map[string]interface{})
+						if !FastACLRulesItem.Metadata.DescriptionSpec.IsNull() && !FastACLRulesItem.Metadata.DescriptionSpec.IsUnknown() {
+							MetadataMap["description"] = FastACLRulesItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !FastACLRulesItem.Metadata.Name.IsNull() && !FastACLRulesItem.Metadata.Name.IsUnknown() {
+							MetadataMap["name"] = FastACLRulesItem.Metadata.Name.ValueString()
+						}
+						FastACLRulesItemMap["metadata"] = MetadataMap
 					}
-					listItemMap["metadata"] = metadataDeepMap
+					if len(FastACLRulesItem.Port) > 0 {
+						var PortList []map[string]interface{}
+						for _, PortItem := range FastACLRulesItem.Port {
+							PortItemMap := make(map[string]interface{})
+							if PortItem.All != nil {
+								PortItemMap["all"] = map[string]interface{}{}
+							}
+							if PortItem.DNS != nil {
+								PortItemMap["dns"] = map[string]interface{}{}
+							}
+							if !PortItem.UserDefined.IsNull() && !PortItem.UserDefined.IsUnknown() {
+								PortItemMap["user_defined"] = PortItem.UserDefined.ValueInt64()
+							}
+							PortList = append(PortList, PortItemMap)
+						}
+						FastACLRulesItemMap["port"] = PortList
+					}
+					if FastACLRulesItem.Prefix != nil {
+						PrefixMap := make(map[string]interface{})
+						if !FastACLRulesItem.Prefix.Prefix.IsNull() && !FastACLRulesItem.Prefix.Prefix.IsUnknown() {
+							var PrefixItems []string
+							diags := FastACLRulesItem.Prefix.Prefix.ElementsAs(ctx, &PrefixItems, false)
+							if !diags.HasError() {
+								PrefixMap["prefix"] = PrefixItems
+							}
+						}
+						FastACLRulesItemMap["prefix"] = PrefixMap
+					}
+					FastACLRulesList = append(FastACLRulesList, FastACLRulesItemMap)
 				}
-				if listItem.Prefix != nil {
-					prefixDeepMap := make(map[string]interface{})
-					listItemMap["prefix"] = prefixDeepMap
-				}
-				fast_acl_rulesList = append(fast_acl_rulesList, listItemMap)
+				SiteACLMap["fast_acl_rules"] = FastACLRulesList
 			}
-			site_aclMap["fast_acl_rules"] = fast_acl_rulesList
 		}
 		if data.SiteACL.InsideNetwork != nil {
-			site_aclMap["inside_network"] = map[string]interface{}{}
+			SiteACLMap["inside_network"] = map[string]interface{}{}
 		}
 		if data.SiteACL.InterfaceServices != nil {
-			site_aclMap["interface_services"] = map[string]interface{}{}
+			SiteACLMap["interface_services"] = map[string]interface{}{}
 		}
 		if data.SiteACL.OutsideNetwork != nil {
-			site_aclMap["outside_network"] = map[string]interface{}{}
+			SiteACLMap["outside_network"] = map[string]interface{}{}
 		}
 		if data.SiteACL.VIPServices != nil {
-			site_aclMap["vip_services"] = map[string]interface{}{}
+			SiteACLMap["vip_services"] = map[string]interface{}{}
 		}
-		apiResource.Spec["site_acl"] = site_aclMap
+		apiResource.Spec["site_acl"] = SiteACLMap
 	}
 
 	_, err := r.client.UpdateFastACL(ctx, apiResource)
@@ -2128,11 +3466,8 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 		data.REACL = &FastACLREACLModel{
 			AllPublicVips: func() *FastACLEmptyModel {
 				if !isImport && data.REACL != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.REACL.AllPublicVips
 				}
-				// Import case: read from API
 				if _, ok := blockData["all_public_vips"].(map[string]interface{}); ok {
 					return &FastACLEmptyModel{}
 				}
@@ -2140,27 +3475,129 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 			}(),
 			DefaultTenantVIP: func() *FastACLEmptyModel {
 				if !isImport && data.REACL != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.REACL.DefaultTenantVIP
 				}
-				// Import case: read from API
 				if _, ok := blockData["default_tenant_vip"].(map[string]interface{}); ok {
 					return &FastACLEmptyModel{}
 				}
 				return nil
 			}(),
-			FastACLRules: func() []FastACLREACLFastACLRulesModel {
-				if listData, ok := blockData["fast_acl_rules"].([]interface{}); ok && len(listData) > 0 {
-					var result []FastACLREACLFastACLRulesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FastACLREACLFastACLRulesModel{
+			FastACLRules: func() types.List {
+				if !isImport && data.REACL != nil && (data.REACL.FastACLRules.IsNull() || len(data.REACL.FastACLRules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesModelAttrTypes})
+				}
+				if rawList, ok := blockData["fast_acl_rules"].([]interface{}); ok && len(rawList) > 0 {
+					var FastACLRulesResult []FastACLREACLFastACLRulesModel
+					for _, FastACLRulesItem := range rawList {
+						if FastACLRulesItemMap, ok := FastACLRulesItem.(map[string]interface{}); ok {
+							FastACLRulesResult = append(FastACLRulesResult, FastACLREACLFastACLRulesModel{
 								Action: func() *FastACLREACLFastACLRulesActionModel {
-									if deepMap, ok := itemMap["action"].(map[string]interface{}); ok {
+									if ActionData, ok := FastACLRulesItemMap["action"].(map[string]interface{}); ok {
 										return &FastACLREACLFastACLRulesActionModel{
+											PolicerAction: func() *FastACLREACLFastACLRulesActionPolicerActionModel {
+												if PolicerActionData, ok := ActionData["policer_action"].(map[string]interface{}); ok {
+													return &FastACLREACLFastACLRulesActionPolicerActionModel{
+														Ref: func() types.List {
+															if rawList, ok := PolicerActionData["ref"].([]interface{}); ok && len(rawList) > 0 {
+																var RefResult []FastACLREACLFastACLRulesActionPolicerActionRefModel
+																for _, RefItem := range rawList {
+																	if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+																		RefResult = append(RefResult, FastACLREACLFastACLRulesActionPolicerActionRefModel{
+																			Kind: func() types.String {
+																				if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Name: func() types.String {
+																				if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Namespace: func() types.String {
+																				if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Tenant: func() types.String {
+																				if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Uid: func() types.String {
+																				if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLREACLFastACLRulesActionPolicerActionRefModelAttrTypes}, RefResult)
+																return listVal
+															}
+															return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesActionPolicerActionRefModelAttrTypes})
+														}(),
+													}
+												}
+												return nil
+											}(),
+											ProtocolPolicerAction: func() *FastACLREACLFastACLRulesActionProtocolPolicerActionModel {
+												if ProtocolPolicerActionData, ok := ActionData["protocol_policer_action"].(map[string]interface{}); ok {
+													return &FastACLREACLFastACLRulesActionProtocolPolicerActionModel{
+														Ref: func() types.List {
+															if rawList, ok := ProtocolPolicerActionData["ref"].([]interface{}); ok && len(rawList) > 0 {
+																var RefResult []FastACLREACLFastACLRulesActionProtocolPolicerActionRefModel
+																for _, RefItem := range rawList {
+																	if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+																		RefResult = append(RefResult, FastACLREACLFastACLRulesActionProtocolPolicerActionRefModel{
+																			Kind: func() types.String {
+																				if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Name: func() types.String {
+																				if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Namespace: func() types.String {
+																				if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Tenant: func() types.String {
+																				if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Uid: func() types.String {
+																				if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLREACLFastACLRulesActionProtocolPolicerActionRefModelAttrTypes}, RefResult)
+																return listVal
+															}
+															return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesActionProtocolPolicerActionRefModelAttrTypes})
+														}(),
+													}
+												}
+												return nil
+											}(),
 											SimpleAction: func() types.String {
-												if v, ok := deepMap["simple_action"].(string); ok && v != "" {
+												if v, ok := ActionData["simple_action"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -2170,22 +3607,67 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 									return nil
 								}(),
 								IPPrefixSet: func() *FastACLREACLFastACLRulesIPPrefixSetModel {
-									if _, ok := itemMap["ip_prefix_set"].(map[string]interface{}); ok {
-										return &FastACLREACLFastACLRulesIPPrefixSetModel{}
+									if IPPrefixSetData, ok := FastACLRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
+										return &FastACLREACLFastACLRulesIPPrefixSetModel{
+											Ref: func() types.List {
+												if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
+													var RefResult []FastACLREACLFastACLRulesIPPrefixSetRefModel
+													for _, RefItem := range rawList {
+														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+															RefResult = append(RefResult, FastACLREACLFastACLRulesIPPrefixSetRefModel{
+																Kind: func() types.String {
+																	if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLREACLFastACLRulesIPPrefixSetRefModelAttrTypes}, RefResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesIPPrefixSetRefModelAttrTypes})
+											}(),
+										}
 									}
 									return nil
 								}(),
 								Metadata: func() *FastACLREACLFastACLRulesMetadataModel {
-									if deepMap, ok := itemMap["metadata"].(map[string]interface{}); ok {
+									if MetadataData, ok := FastACLRulesItemMap["metadata"].(map[string]interface{}); ok {
 										return &FastACLREACLFastACLRulesMetadataModel{
 											DescriptionSpec: func() types.String {
-												if v, ok := deepMap["description"].(string); ok && v != "" {
+												if v, ok := MetadataData["description"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Name: func() types.String {
-												if v, ok := deepMap["name"].(string); ok && v != "" {
+												if v, ok := MetadataData["name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -2194,32 +3676,108 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 									}
 									return nil
 								}(),
+								Port: func() []FastACLREACLFastACLRulesPortModel {
+									if rawList, ok := FastACLRulesItemMap["port"].([]interface{}); ok && len(rawList) > 0 {
+										var PortResult []FastACLREACLFastACLRulesPortModel
+										for _, PortItem := range rawList {
+											if PortItemMap, ok := PortItem.(map[string]interface{}); ok {
+												PortResult = append(PortResult, FastACLREACLFastACLRulesPortModel{
+													All: func() *FastACLEmptyModel {
+														if _, ok := PortItemMap["all"].(map[string]interface{}); ok {
+															return &FastACLEmptyModel{}
+														}
+														return nil
+													}(),
+													DNS: func() *FastACLEmptyModel {
+														if _, ok := PortItemMap["dns"].(map[string]interface{}); ok {
+															return &FastACLEmptyModel{}
+														}
+														return nil
+													}(),
+													UserDefined: func() types.Int64 {
+														if v, ok := PortItemMap["user_defined"].(float64); ok && v != 0 {
+															return types.Int64Value(int64(v))
+														}
+														return types.Int64Null()
+													}(),
+												})
+											}
+										}
+										return PortResult
+									}
+									return nil
+								}(),
 								Prefix: func() *FastACLREACLFastACLRulesPrefixModel {
-									if _, ok := itemMap["prefix"].(map[string]interface{}); ok {
-										return &FastACLREACLFastACLRulesPrefixModel{}
+									if PrefixData, ok := FastACLRulesItemMap["prefix"].(map[string]interface{}); ok {
+										return &FastACLREACLFastACLRulesPrefixModel{
+											Prefix: func() types.List {
+												if v, ok := PrefixData["prefix"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLREACLFastACLRulesModelAttrTypes}, FastACLRulesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesModelAttrTypes})
 			}(),
 			SelectedTenantVIP: func() *FastACLREACLSelectedTenantVIPModel {
 				if !isImport && data.REACL != nil && data.REACL.SelectedTenantVIP != nil {
-					// Normal Read: preserve existing state value
 					return data.REACL.SelectedTenantVIP
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["selected_tenant_vip"].(map[string]interface{}); ok {
+				if SelectedTenantVIPData, ok := blockData["selected_tenant_vip"].(map[string]interface{}); ok {
 					return &FastACLREACLSelectedTenantVIPModel{
 						DefaultTenantVIP: func() types.Bool {
-							if v, ok := nestedBlockData["default_tenant_vip"].(bool); ok {
+							if v, ok := SelectedTenantVIPData["default_tenant_vip"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
+						}(),
+						PublicIPRefs: func() types.List {
+							if rawList, ok := SelectedTenantVIPData["public_ip_refs"].([]interface{}); ok && len(rawList) > 0 {
+								var PublicIPRefsResult []FastACLREACLSelectedTenantVIPPublicIPRefsModel
+								for _, PublicIPRefsItem := range rawList {
+									if PublicIPRefsItemMap, ok := PublicIPRefsItem.(map[string]interface{}); ok {
+										PublicIPRefsResult = append(PublicIPRefsResult, FastACLREACLSelectedTenantVIPPublicIPRefsModel{
+											Name: func() types.String {
+												if v, ok := PublicIPRefsItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := PublicIPRefsItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := PublicIPRefsItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLREACLSelectedTenantVIPPublicIPRefsModelAttrTypes}, PublicIPRefsResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLSelectedTenantVIPPublicIPRefsModelAttrTypes})
 						}(),
 					}
 				}
@@ -2231,27 +3789,129 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 		data.SiteACL = &FastACLSiteACLModel{
 			AllServices: func() *FastACLEmptyModel {
 				if !isImport && data.SiteACL != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.SiteACL.AllServices
 				}
-				// Import case: read from API
 				if _, ok := blockData["all_services"].(map[string]interface{}); ok {
 					return &FastACLEmptyModel{}
 				}
 				return nil
 			}(),
-			FastACLRules: func() []FastACLSiteACLFastACLRulesModel {
-				if listData, ok := blockData["fast_acl_rules"].([]interface{}); ok && len(listData) > 0 {
-					var result []FastACLSiteACLFastACLRulesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FastACLSiteACLFastACLRulesModel{
+			FastACLRules: func() types.List {
+				if !isImport && data.SiteACL != nil && (data.SiteACL.FastACLRules.IsNull() || len(data.SiteACL.FastACLRules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesModelAttrTypes})
+				}
+				if rawList, ok := blockData["fast_acl_rules"].([]interface{}); ok && len(rawList) > 0 {
+					var FastACLRulesResult []FastACLSiteACLFastACLRulesModel
+					for _, FastACLRulesItem := range rawList {
+						if FastACLRulesItemMap, ok := FastACLRulesItem.(map[string]interface{}); ok {
+							FastACLRulesResult = append(FastACLRulesResult, FastACLSiteACLFastACLRulesModel{
 								Action: func() *FastACLSiteACLFastACLRulesActionModel {
-									if deepMap, ok := itemMap["action"].(map[string]interface{}); ok {
+									if ActionData, ok := FastACLRulesItemMap["action"].(map[string]interface{}); ok {
 										return &FastACLSiteACLFastACLRulesActionModel{
+											PolicerAction: func() *FastACLSiteACLFastACLRulesActionPolicerActionModel {
+												if PolicerActionData, ok := ActionData["policer_action"].(map[string]interface{}); ok {
+													return &FastACLSiteACLFastACLRulesActionPolicerActionModel{
+														Ref: func() types.List {
+															if rawList, ok := PolicerActionData["ref"].([]interface{}); ok && len(rawList) > 0 {
+																var RefResult []FastACLSiteACLFastACLRulesActionPolicerActionRefModel
+																for _, RefItem := range rawList {
+																	if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+																		RefResult = append(RefResult, FastACLSiteACLFastACLRulesActionPolicerActionRefModel{
+																			Kind: func() types.String {
+																				if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Name: func() types.String {
+																				if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Namespace: func() types.String {
+																				if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Tenant: func() types.String {
+																				if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Uid: func() types.String {
+																				if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesActionPolicerActionRefModelAttrTypes}, RefResult)
+																return listVal
+															}
+															return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesActionPolicerActionRefModelAttrTypes})
+														}(),
+													}
+												}
+												return nil
+											}(),
+											ProtocolPolicerAction: func() *FastACLSiteACLFastACLRulesActionProtocolPolicerActionModel {
+												if ProtocolPolicerActionData, ok := ActionData["protocol_policer_action"].(map[string]interface{}); ok {
+													return &FastACLSiteACLFastACLRulesActionProtocolPolicerActionModel{
+														Ref: func() types.List {
+															if rawList, ok := ProtocolPolicerActionData["ref"].([]interface{}); ok && len(rawList) > 0 {
+																var RefResult []FastACLSiteACLFastACLRulesActionProtocolPolicerActionRefModel
+																for _, RefItem := range rawList {
+																	if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+																		RefResult = append(RefResult, FastACLSiteACLFastACLRulesActionProtocolPolicerActionRefModel{
+																			Kind: func() types.String {
+																				if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Name: func() types.String {
+																				if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Namespace: func() types.String {
+																				if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Tenant: func() types.String {
+																				if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Uid: func() types.String {
+																				if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesActionProtocolPolicerActionRefModelAttrTypes}, RefResult)
+																return listVal
+															}
+															return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesActionProtocolPolicerActionRefModelAttrTypes})
+														}(),
+													}
+												}
+												return nil
+											}(),
 											SimpleAction: func() types.String {
-												if v, ok := deepMap["simple_action"].(string); ok && v != "" {
+												if v, ok := ActionData["simple_action"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -2261,22 +3921,67 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 									return nil
 								}(),
 								IPPrefixSet: func() *FastACLSiteACLFastACLRulesIPPrefixSetModel {
-									if _, ok := itemMap["ip_prefix_set"].(map[string]interface{}); ok {
-										return &FastACLSiteACLFastACLRulesIPPrefixSetModel{}
+									if IPPrefixSetData, ok := FastACLRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
+										return &FastACLSiteACLFastACLRulesIPPrefixSetModel{
+											Ref: func() types.List {
+												if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
+													var RefResult []FastACLSiteACLFastACLRulesIPPrefixSetRefModel
+													for _, RefItem := range rawList {
+														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+															RefResult = append(RefResult, FastACLSiteACLFastACLRulesIPPrefixSetRefModel{
+																Kind: func() types.String {
+																	if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesIPPrefixSetRefModelAttrTypes}, RefResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesIPPrefixSetRefModelAttrTypes})
+											}(),
+										}
 									}
 									return nil
 								}(),
 								Metadata: func() *FastACLSiteACLFastACLRulesMetadataModel {
-									if deepMap, ok := itemMap["metadata"].(map[string]interface{}); ok {
+									if MetadataData, ok := FastACLRulesItemMap["metadata"].(map[string]interface{}); ok {
 										return &FastACLSiteACLFastACLRulesMetadataModel{
 											DescriptionSpec: func() types.String {
-												if v, ok := deepMap["description"].(string); ok && v != "" {
+												if v, ok := MetadataData["description"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Name: func() types.String {
-												if v, ok := deepMap["name"].(string); ok && v != "" {
+												if v, ok := MetadataData["name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -2285,26 +3990,69 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 									}
 									return nil
 								}(),
+								Port: func() []FastACLSiteACLFastACLRulesPortModel {
+									if rawList, ok := FastACLRulesItemMap["port"].([]interface{}); ok && len(rawList) > 0 {
+										var PortResult []FastACLSiteACLFastACLRulesPortModel
+										for _, PortItem := range rawList {
+											if PortItemMap, ok := PortItem.(map[string]interface{}); ok {
+												PortResult = append(PortResult, FastACLSiteACLFastACLRulesPortModel{
+													All: func() *FastACLEmptyModel {
+														if _, ok := PortItemMap["all"].(map[string]interface{}); ok {
+															return &FastACLEmptyModel{}
+														}
+														return nil
+													}(),
+													DNS: func() *FastACLEmptyModel {
+														if _, ok := PortItemMap["dns"].(map[string]interface{}); ok {
+															return &FastACLEmptyModel{}
+														}
+														return nil
+													}(),
+													UserDefined: func() types.Int64 {
+														if v, ok := PortItemMap["user_defined"].(float64); ok && v != 0 {
+															return types.Int64Value(int64(v))
+														}
+														return types.Int64Null()
+													}(),
+												})
+											}
+										}
+										return PortResult
+									}
+									return nil
+								}(),
 								Prefix: func() *FastACLSiteACLFastACLRulesPrefixModel {
-									if _, ok := itemMap["prefix"].(map[string]interface{}); ok {
-										return &FastACLSiteACLFastACLRulesPrefixModel{}
+									if PrefixData, ok := FastACLRulesItemMap["prefix"].(map[string]interface{}); ok {
+										return &FastACLSiteACLFastACLRulesPrefixModel{
+											Prefix: func() types.List {
+												if v, ok := PrefixData["prefix"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesModelAttrTypes}, FastACLRulesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesModelAttrTypes})
 			}(),
 			InsideNetwork: func() *FastACLEmptyModel {
 				if !isImport && data.SiteACL != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.SiteACL.InsideNetwork
 				}
-				// Import case: read from API
 				if _, ok := blockData["inside_network"].(map[string]interface{}); ok {
 					return &FastACLEmptyModel{}
 				}
@@ -2312,11 +4060,8 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 			}(),
 			InterfaceServices: func() *FastACLEmptyModel {
 				if !isImport && data.SiteACL != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.SiteACL.InterfaceServices
 				}
-				// Import case: read from API
 				if _, ok := blockData["interface_services"].(map[string]interface{}); ok {
 					return &FastACLEmptyModel{}
 				}
@@ -2324,11 +4069,8 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 			}(),
 			OutsideNetwork: func() *FastACLEmptyModel {
 				if !isImport && data.SiteACL != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.SiteACL.OutsideNetwork
 				}
-				// Import case: read from API
 				if _, ok := blockData["outside_network"].(map[string]interface{}); ok {
 					return &FastACLEmptyModel{}
 				}
@@ -2336,11 +4078,8 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 			}(),
 			VIPServices: func() *FastACLEmptyModel {
 				if !isImport && data.SiteACL != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.SiteACL.VIPServices
 				}
-				// Import case: read from API
 				if _, ok := blockData["vip_services"].(map[string]interface{}); ok {
 					return &FastACLEmptyModel{}
 				}

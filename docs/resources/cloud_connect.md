@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_cloud_connect Resource - terraform-provider-f5xc"
+page_title: "xcsh_cloud_connect Resource - xcsh"
 subcategory: "Networking"
 description: |-
   Manages a Cloud Connect resource in F5 Distributed Cloud for establishing connectivity to cloud provider networks.
 ---
 
-# f5xc_cloud_connect (Resource)
+# xcsh_cloud_connect (Resource)
 
 Manages a Cloud Connect resource in F5 Distributed Cloud for establishing connectivity to cloud provider networks.
 
@@ -14,47 +14,24 @@ Manages a Cloud Connect resource in F5 Distributed Cloud for establishing connec
 ## Example Usage
 
 ```terraform
-# Cloud Connect Resource Example
+# CloudConnect Resource Example
 # Manages a Cloud Connect resource in F5 Distributed Cloud for establishing connectivity to cloud provider networks.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Cloud Connect configuration
-resource "f5xc_cloud_connect" "example" {
+# Basic CloudConnect configuration
+resource "xcsh_cloud_connect" "example" {
   name      = "example-cloud-connect"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # Configuration parameter for aws provider.
-  aws_provider {
-    # Configure aws_provider settings
-  }
-  # AWS TGW Site Type. Cloud Connect AWS TGW Site Type.
-  aws_tgw_site {
-    # Configure aws_tgw_site settings
-  }
-  # Type establishes a direct reference from one object(the r...
-  cred {
-    # Configure cred settings
-  }
 }
 ```
 
@@ -394,5 +371,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_cloud_connect.example system/example
+terraform import xcsh_cloud_connect.example system/example
 ```

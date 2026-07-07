@@ -25,7 +25,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/resource"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/resource"
 )
 
 // LLMsConfig represents the llms-config.json structure.
@@ -55,16 +55,16 @@ type LLMsConfig struct {
 
 // ResourceInfo holds parsed information about a resource.
 type ResourceInfo struct {
-	Name            string
-	FullName        string // f5xc_<name>
-	Category        string
-	Description     string
-	RequiredFields  []string
-	OneOfGroups     []OneOfGroup
-	ServerDefaults  []string
-	MinimalConfig   string
-	Dependencies    []string
-	IsPromoted      bool
+	Name           string
+	FullName       string // xcsh_<name>
+	Category       string
+	Description    string
+	RequiredFields []string
+	OneOfGroups    []OneOfGroup
+	ServerDefaults []string
+	MinimalConfig  string
+	Dependencies   []string
+	IsPromoted     bool
 }
 
 // OneOfGroup represents a mutually exclusive group of fields.
@@ -93,6 +93,8 @@ type JSONProvider struct {
 	Source        string   `json:"source"`
 	Registry      string   `json:"registry"`
 	RequiredBlock string   `json:"required_block"`
+	ConfigBlock   string   `json:"config_block"`
+	AuthMethods   []string `json:"auth_methods"`
 	SyntaxRules   []string `json:"syntax_rules"`
 }
 
@@ -152,12 +154,12 @@ var categoryDescriptions = map[string]string{
 
 // Regex patterns
 var (
-	oneOfCommentRE     = regexp.MustCompile(`//\s*One of the arguments from this list "([^"]+)" must be set`)
-	codeBlockRE        = regexp.MustCompile("(?s)```(?:terraform|hcl)\n(.*?)```")
+	oneOfCommentRE      = regexp.MustCompile(`//\s*One of the arguments from this list "([^"]+)" must be set`)
+	codeBlockRE         = regexp.MustCompile("(?s)```(?:terraform|hcl)\n(.*?)```")
 	serverDefaultLineRE = regexp.MustCompile(`^#\s+-\s+(\S+)\s*$`)
-	requiredFieldRE    = regexp.MustCompile(`<a[^>]*>.*?</a>.*?\[(` + "`" + `[^` + "`" + `]+` + "`" + `)\].*?-\s*Required\s+(String|Number|Bool|Block)`)
-	serverDefaultTagRE = regexp.MustCompile(`Server Default|⚙️\s*\*\*Server Default\*\*`)
-	resourceBlockRE    = regexp.MustCompile(`(?s)resource\s+"f5xc_\w+"\s+"[^"]+"\s+\{[^}]*\}`)
+	requiredFieldRE     = regexp.MustCompile(`<a[^>]*>.*?</a>.*?\[(` + "`" + `[^` + "`" + `]+` + "`" + `)\].*?-\s*Required\s+(String|Number|Bool|Block)`)
+	serverDefaultTagRE  = regexp.MustCompile(`Server Default|⚙️\s*\*\*Server Default\*\*`)
+	resourceBlockRE     = regexp.MustCompile(`(?s)resource\s+"xcsh_\w+"\s+"[^"]+"\s+\{[^}]*\}`)
 )
 
 func main() {
@@ -167,8 +169,12 @@ func main() {
 		os.Exit(1)
 	}
 
+	// Load per-kind server defaults directly from the api-specs-enriched
+	// single source of truth (falls back to docs markers when unavailable).
+	artifactServerDefaults := loadArtifactServerDefaults()
+
 	// Parse all resources
-	resources, err := parseAllResources(config)
+	resources, err := parseAllResources(config, artifactServerDefaults)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error parsing resources: %v\n", err)
 		os.Exit(1)
@@ -234,7 +240,55 @@ func loadConfig(path string) (*LLMsConfig, error) {
 	return &config, nil
 }
 
-func parseAllResources(config *LLMsConfig) ([]ResourceInfo, error) {
+// minimalDefaultsArtifact mirrors the minimal-export-defaults.json published by
+// api-specs-enriched — the single source of truth for per-kind server defaults
+// that JSON/YAML/HCL export also consume.
+type minimalDefaultsArtifact struct {
+	Resources map[string]struct {
+		ServerDefaultFields []string `json:"serverDefaultFields"`
+	} `json:"resources"`
+}
+
+// loadArtifactServerDefaults reads the published minimal-export-defaults.json and
+// returns a kind -> sorted, spec.-stripped server-default field list. This is the
+// primary, direct-from-source signal for the index's server_defaults (preferred
+// over re-deriving from rendered docs markers). Returns nil when the artifact is
+// unavailable, so callers fall back to the docs-markdown extraction.
+func loadArtifactServerDefaults() map[string][]string {
+	specDir := os.Getenv("XCSH_SPEC_DIR")
+	if specDir == "" {
+		specDir = "docs/specifications/api"
+	}
+	path := filepath.Join(specDir, "minimal-export-defaults.json")
+	data, err := os.ReadFile(path)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Note: %s not found; server_defaults fall back to docs markers\n", path)
+		return nil
+	}
+	var art minimalDefaultsArtifact
+	if err := json.Unmarshal(data, &art); err != nil {
+		fmt.Fprintf(os.Stderr, "Warning: could not parse %s: %v; falling back to docs markers\n", path, err)
+		return nil
+	}
+	result := make(map[string][]string, len(art.Resources))
+	for kind, r := range art.Resources {
+		seen := make(map[string]bool)
+		fields := make([]string, 0, len(r.ServerDefaultFields))
+		for _, p := range r.ServerDefaultFields {
+			f := strings.TrimPrefix(p, "spec.")
+			if f == "" || seen[f] {
+				continue
+			}
+			seen[f] = true
+			fields = append(fields, f)
+		}
+		sort.Strings(fields)
+		result[kind] = fields
+	}
+	return result
+}
+
+func parseAllResources(config *LLMsConfig, artifactServerDefaults map[string][]string) ([]ResourceInfo, error) {
 	files, err := filepath.Glob("docs/resources/*.md")
 	if err != nil {
 		return nil, err
@@ -248,7 +302,7 @@ func parseAllResources(config *LLMsConfig) ([]ResourceInfo, error) {
 			continue
 		}
 
-		res, err := parseResource(f, name, config)
+		res, err := parseResource(f, name, config, artifactServerDefaults)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Warning: could not parse %s: %v\n", name, err)
 			continue
@@ -259,7 +313,7 @@ func parseAllResources(config *LLMsConfig) ([]ResourceInfo, error) {
 	return resources, nil
 }
 
-func parseResource(path, name string, config *LLMsConfig) (ResourceInfo, error) {
+func parseResource(path, name string, config *LLMsConfig, artifactServerDefaults map[string][]string) (ResourceInfo, error) {
 	data, err := os.ReadFile(path)
 	if err != nil {
 		return ResourceInfo{}, err
@@ -268,7 +322,7 @@ func parseResource(path, name string, config *LLMsConfig) (ResourceInfo, error) 
 
 	res := ResourceInfo{
 		Name:     name,
-		FullName: "f5xc_" + name,
+		FullName: "xcsh_" + name,
 	}
 
 	// Extract frontmatter
@@ -288,8 +342,14 @@ func parseResource(path, name string, config *LLMsConfig) (ResourceInfo, error) 
 	// Extract OneOf groups with context
 	res.OneOfGroups = extractOneOfGroupsWithContext(content)
 
-	// Extract server defaults
-	res.ServerDefaults = extractServerDefaults(content)
+	// Server defaults: prefer the api-specs-enriched single source of truth
+	// (minimal-export-defaults.json); fall back to docs markers when the
+	// artifact lacks this kind so coverage never regresses.
+	if sd, ok := artifactServerDefaults[name]; ok {
+		res.ServerDefaults = sd
+	} else {
+		res.ServerDefaults = extractServerDefaults(content)
+	}
 
 	// Extract minimal config
 	res.MinimalConfig = extractMinimalConfig(content, name)
@@ -554,7 +614,7 @@ func extractOneOfGroupsWithContext(content string) []OneOfGroup {
 		for i := 0; i < opens; i++ {
 			if !insideResource {
 				// Check if this is the resource block opening
-				if strings.Contains(trimmed, "resource \"f5xc_") {
+				if strings.Contains(trimmed, "resource \"xcsh_") {
 					insideResource = true
 					depth = 1
 					break // only one open brace on this line for resource
@@ -607,7 +667,7 @@ func findBlockFields(codeBlock string) map[string]bool {
 		}
 		if m := blockRE.FindStringSubmatch(line); m != nil {
 			name := m[1]
-			if name != "resource" && name != "terraform" && name != "required_providers" && name != "f5xc" {
+			if name != "resource" && name != "terraform" && name != "required_providers" && name != "xcsh" {
 				blockFields[name] = true
 			}
 		}
@@ -620,47 +680,47 @@ func findBlockFields(codeBlock string) map[string]bool {
 func isEmptyBlockField(name string) bool {
 	// Known attribute fields (string values, not blocks)
 	knownAttributes := map[string]bool{
-		"host_header":               true, // string value: "example.com"
-		"server_name":               true, // string value
-		"api_specification":         true, // reference
-		"api_testing":               true, // reference when not empty
-		"captcha_challenge":         true, // config string
-		"js_challenge":              true, // config string
-		"policy_based_challenge":    true, // reference
-		"cookie_stickiness":         true, // config
-		"least_active":              true, // config
-		"random":                    true, // config
-		"ring_hash":                 true, // config
-		"round_robin":               true, // selector (but empty block form)
-		"source_ip_stickiness":      true, // config
-		"http":                      true, // has nested config
-		"https":                     true, // has nested config
-		"https_auto_cert":           true, // has nested config
-		"malware_protection_settings": true,
-		"api_rate_limit":            true,
-		"rate_limit":                true,
-		"active_service_policies":   true,
+		"host_header":                     true, // string value: "example.com"
+		"server_name":                     true, // string value
+		"api_specification":               true, // reference
+		"api_testing":                     true, // reference when not empty
+		"captcha_challenge":               true, // config string
+		"js_challenge":                    true, // config string
+		"policy_based_challenge":          true, // reference
+		"cookie_stickiness":               true, // config
+		"least_active":                    true, // config
+		"random":                          true, // config
+		"ring_hash":                       true, // config
+		"round_robin":                     true, // selector (but empty block form)
+		"source_ip_stickiness":            true, // config
+		"http":                            true, // has nested config
+		"https":                           true, // has nested config
+		"https_auto_cert":                 true, // has nested config
+		"malware_protection_settings":     true,
+		"api_rate_limit":                  true,
+		"rate_limit":                      true,
+		"active_service_policies":         true,
 		"service_policies_from_namespace": true, // but often empty
-		"user_id_client_ip":         true,
-		"user_identification":       true,
-		"app_firewall":              true, // reference block with name/namespace
-		"bot_defense":               true,
-		"bot_defense_advanced":      true,
-		"headers":                   true, // map
-		"request_headers_to_remove": true, // list
+		"user_id_client_ip":               true,
+		"user_identification":             true,
+		"app_firewall":                    true, // reference block with name/namespace
+		"bot_defense":                     true,
+		"bot_defense_advanced":            true,
+		"headers":                         true, // map
+		"request_headers_to_remove":       true, // list
 	}
 
 	if knownAttributes[name] {
 		// Check if it's one of the selector variants
 		// These are actually blocks when used as selectors:
 		selectorsAsBlocks := map[string]bool{
-			"round_robin":               true,
-			"least_active":              true,
-			"random":                    true,
-			"cookie_stickiness":         true,
-			"source_ip_stickiness":      true,
+			"round_robin":                     true,
+			"least_active":                    true,
+			"random":                          true,
+			"cookie_stickiness":               true,
+			"source_ip_stickiness":            true,
 			"service_policies_from_namespace": true,
-			"user_id_client_ip":         true,
+			"user_id_client_ip":               true,
 		}
 		if selectorsAsBlocks[name] {
 			return true
@@ -752,7 +812,7 @@ func extractMinimalConfig(content, name string) string {
 	var configLines []string
 	inResource := false
 	braceDepth := 0
-	resourcePattern := fmt.Sprintf(`resource "f5xc_%s"`, name)
+	resourcePattern := fmt.Sprintf(`resource "xcsh_%s"`, name)
 
 	for _, line := range lines {
 		if !inResource && strings.Contains(line, resourcePattern) {
@@ -835,9 +895,15 @@ func groupByCategory(resources []ResourceInfo) []CategoryInfo {
 		categories = append(categories, *cat)
 	}
 
-	// Sort categories by resource count descending
+	// Sort categories by resource count descending, then by name ascending.
+	// The name tiebreaker makes ordering deterministic: without it, equal-count
+	// categories retained Go's randomized map-iteration order, so every
+	// regeneration reshuffled them and produced spurious diffs.
 	sort.Slice(categories, func(i, j int) bool {
-		return len(categories[i].Resources) > len(categories[j].Resources)
+		if len(categories[i].Resources) != len(categories[j].Resources) {
+			return len(categories[i].Resources) > len(categories[j].Resources)
+		}
+		return categories[i].Name < categories[j].Name
 	})
 
 	return categories
@@ -891,8 +957,8 @@ func generateL0(config *LLMsConfig, categories []CategoryInfo) error {
 	sb.WriteString("## Required Block\n\n")
 	sb.WriteString("    terraform {\n")
 	sb.WriteString("      required_providers {\n")
-	sb.WriteString("        f5xc = {\n")
-	sb.WriteString("          source = \"f5xc-salesdemos/f5xc\"\n")
+	sb.WriteString("        xcsh = {\n")
+	sb.WriteString("          source = \"f5-sales-demo/xcsh\"\n")
 	sb.WriteString("        }\n")
 	sb.WriteString("      }\n")
 	sb.WriteString("    }\n\n")
@@ -1098,11 +1164,20 @@ func generateJSONIndex(config *LLMsConfig, categories []CategoryInfo, reverseDep
 			Registry: config.Deprecation.Canonical.Registry,
 			RequiredBlock: `terraform {
   required_providers {
-    f5xc = {
-      source = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source = "f5-sales-demo/xcsh"
     }
   }
 }`,
+			ConfigBlock: `provider "xcsh" {}`,
+			AuthMethods: []string{
+				"REQUIRED: every .tf must contain a `provider \"xcsh\" {}` block. Without it Terraform errors: \"Provider requires explicit configuration. Add a provider block\".",
+				"Configure exactly ONE auth method, via environment variables (preferred) or explicit arguments in the provider block:",
+				"api_token (env XCSH_API_TOKEN) — API token authentication.",
+				"api_p12_file + p12_password (env XCSH_P12_FILE + XCSH_P12_PASSWORD) — PKCS#12 certificate authentication.",
+				"api_cert + api_key (env XCSH_CERT + XCSH_KEY) — PEM certificate authentication.",
+				"api_url (env XCSH_API_URL) — tenant base URL without /api suffix, e.g. https://your-tenant.console.ves.volterra.io.",
+			},
 			SyntaxRules: []string{
 				"OneOf selectors: use empty block `field {}`, never `field = true`",
 				"Cross-resource refs: block with name + namespace attributes",
@@ -1149,7 +1224,7 @@ func generateJSONIndex(config *LLMsConfig, categories []CategoryInfo, reverseDep
 				ServerDefaults: res.ServerDefaults,
 				MinimalConfig:  res.MinimalConfig,
 				Dependencies:   deps,
-				ImportSyntax:   fmt.Sprintf("terraform import f5xc_%s.example namespace/name", res.Name),
+				ImportSyntax:   fmt.Sprintf("terraform import xcsh_%s.example namespace/name", res.Name),
 			}
 		}
 	}

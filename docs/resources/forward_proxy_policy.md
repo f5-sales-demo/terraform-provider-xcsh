@@ -1,68 +1,37 @@
 ---
-page_title: "f5xc_forward_proxy_policy Resource - terraform-provider-f5xc"
+page_title: "xcsh_forward_proxy_policy Resource - xcsh"
 subcategory: "Security"
 description: |-
   Manages a Forward Proxy Policy resource in F5 Distributed Cloud for forward proxy policy specification. configuration.
 ---
 
-# f5xc_forward_proxy_policy (Resource)
+# xcsh_forward_proxy_policy (Resource)
 
 Manages a Forward Proxy Policy resource in F5 Distributed Cloud for forward proxy policy specification. configuration.
 
-~> **Note** Please refer to [Forward Proxy Policy API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/network_security/) to learn more.
+~> **Note** Please refer to [Forward Proxy Policy API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/network_security/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# Forward Proxy Policy Resource Example
-# Manages a Forward Proxy Policy resource in F5 Distributed Cloud for forward proxy policy specification. configuration.
+# ForwardProxyPolicy Resource Example
+# Manages a Forward Proxy Policy resource in F5 Distributed Cloud for forward proxy policy specification.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Forward Proxy Policy configuration
-resource "f5xc_forward_proxy_policy" "example" {
+# Basic ForwardProxyPolicy configuration
+resource "xcsh_forward_proxy_policy" "example" {
   name      = "example-forward-proxy-policy"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Forward Proxy Policy configuration
-  proxy_label_selector {
-    expressions = ["app in (web, api)"]
-  }
-
-  drp_http_connect {
-    any_proxy {}
-    rule_list {
-      rules {
-        metadata {
-          name = "allow-external"
-        }
-        spec {
-          action = "ALLOW"
-          dst_list {
-            any_dst {}
-          }
-        }
-      }
-    }
-  }
 }
 ```
 
@@ -513,5 +482,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_forward_proxy_policy.example system/example
+terraform import xcsh_forward_proxy_policy.example system/example
 ```

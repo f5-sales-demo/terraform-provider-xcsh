@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_advertise_policy Data Source - terraform-provider-f5xc"
+page_title: "xcsh_advertise_policy Data Source - xcsh"
 subcategory: "Load Balancing"
 description: |-
   Retrieves information about an existing Advertise Policy resource in F5 Distributed Cloud for advertise_policy object controls how and where a service represented by a given virtual_host object is advertised to consumers. configuration.
 ---
 
-# f5xc_advertise_policy (Data Source)
+# xcsh_advertise_policy (Data Source)
 
 Retrieves information about a Advertise Policy resource in F5 Distributed Cloud for advertise_policy object controls how and where a service represented by a given virtual_host object is advertised to consumers. configuration. This is a read-only data source.
 
@@ -14,28 +14,23 @@ Retrieves information about a Advertise Policy resource in F5 Distributed Cloud 
 ## Example Usage
 
 ```terraform
-# Advertise Policy Data Source Example
-# Retrieves information about an existing Advertise Policy
+# AdvertisePolicy Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Advertise Policy by name
-data "f5xc_advertise_policy" "example" {
+# Look up an existing AdvertisePolicy by name
+data "xcsh_advertise_policy" "example" {
   name      = "example-advertise-policy"
   namespace = "staging"
-}
-
-output "advertise_policy_id" {
-  value = data.f5xc_advertise_policy.example.id
 }
 ```
 

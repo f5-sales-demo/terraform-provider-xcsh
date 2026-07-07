@@ -1,41 +1,36 @@
 ---
-page_title: "f5xc_virtual_network Data Source - terraform-provider-f5xc"
+page_title: "xcsh_virtual_network Data Source - xcsh"
 subcategory: "Networking"
 description: |-
   Retrieves information about virtual network in given namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_virtual_network (Data Source)
+# xcsh_virtual_network (Data Source)
 
 Manages virtual network in given namespace. in F5 Distributed Cloud. This is a read-only data source.
 
-~> **Note** Please refer to [Virtual Network API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/network/) to learn more.
+~> **Note** Please refer to [Virtual Network API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/network/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# Virtual Network Data Source Example
-# Retrieves information about an existing Virtual Network
+# VirtualNetwork Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Virtual Network by name
-data "f5xc_virtual_network" "example" {
+# Look up an existing VirtualNetwork by name
+data "xcsh_virtual_network" "example" {
   name      = "example-virtual-network"
   namespace = "staging"
-}
-
-output "virtual_network_id" {
-  value = data.f5xc_virtual_network.example.id
 }
 ```
 

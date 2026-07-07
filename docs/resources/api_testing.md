@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_api_testing Resource - terraform-provider-f5xc"
+page_title: "xcsh_api_testing Resource - xcsh"
 subcategory: "API Security"
 description: |-
   Manages an API Testing resource in F5 Distributed Cloud.
 ---
 
-# f5xc_api_testing (Resource)
+# xcsh_api_testing (Resource)
 
 Manages an API Testing resource in F5 Distributed Cloud.
 
@@ -14,47 +14,26 @@ Manages an API Testing resource in F5 Distributed Cloud.
 ## Example Usage
 
 ```terraform
-# API Testing Resource Example
+# APITesting Resource Example
 # Manages an API Testing resource in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic API Testing configuration
-resource "f5xc_api_testing" "example" {
+# Basic APITesting configuration
+resource "xcsh_api_testing" "example" {
   name      = "example-api-testing"
-  namespace = "staging"
+  namespace = "system"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # Add and configure testing domains and credentials .
-  domains {
-    # Configure domains settings
-  }
-  # Add credentials for API testing to use in the selected en...
-  credentials {
-    # Configure credentials settings
-  }
-  # Enable this option
-  admin {
-    # Configure admin settings
-  }
+  custom_header_value = "example-value"
 }
 ```
 
@@ -69,8 +48,6 @@ resource "f5xc_api_testing" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the API Testing. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the API Testing will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -78,6 +55,8 @@ resource "f5xc_api_testing" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the API Testing. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -327,5 +306,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_api_testing.example system/example
+terraform import xcsh_api_testing.example system/example
 ```

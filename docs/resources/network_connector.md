@@ -1,58 +1,37 @@
 ---
-page_title: "f5xc_network_connector Resource - terraform-provider-f5xc"
+page_title: "xcsh_network_connector Resource - xcsh"
 subcategory: "Networking"
 description: |-
   Manages a Network Connector resource in F5 Distributed Cloud for network connector is created by users in system namespace. configuration.
 ---
 
-# f5xc_network_connector (Resource)
+# xcsh_network_connector (Resource)
 
 Manages a Network Connector resource in F5 Distributed Cloud for network connector is created by users in system namespace. configuration.
 
-~> **Note** Please refer to [Network Connector API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/network/) to learn more.
+~> **Note** Please refer to [Network Connector API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/network/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# Network Connector Resource Example
-# Manages a Network Connector resource in F5 Distributed Cloud for network connector is created by users in system namespace. configuration.
+# NetworkConnector Resource Example
+# Manages a Network Connector resource in F5 Distributed Cloud for network connector is created by users in system namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Network Connector configuration
-resource "f5xc_network_connector" "example" {
+# Basic NetworkConnector configuration
+resource "xcsh_network_connector" "example" {
   name      = "example-network-connector"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Network Connector configuration
-  # Direct connection
-  sli_to_global_dr {
-    global_vn {
-      name      = "global-network"
-      namespace = "staging"
-    }
-  }
-
-  # Disable forward proxy
-  disable_forward_proxy {}
+  namespace = "system"
 }
 ```
 
@@ -69,8 +48,6 @@ resource "f5xc_network_connector" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Network Connector. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Network Connector will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -78,6 +55,8 @@ resource "f5xc_network_connector" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Network Connector. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -321,5 +300,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_network_connector.example system/example
+terraform import xcsh_network_connector.example system/example
 ```

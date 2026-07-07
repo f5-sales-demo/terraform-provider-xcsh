@@ -59,9 +59,9 @@ Owner: @robinmordasiewicz
 
 ```bash
 # Rotation procedure:
-1. Generate new fine-grained PAT at https://github.com/settings/tokens?type=beta
+1. Generate new fine-grained PAT at <https://github.com/settings/tokens>?type=beta
 2. Configure scopes: repo, workflow
-3. Set repository access: robinmordasiewicz/terraform-provider-f5xc only
+3. Set repository access: robinmordasiewicz/terraform-provider-xcsh only
 4. Update repository secret:
    echo "new_token_value" | gh secret set AUTO_MERGE_TOKEN
 5. Test with workflow trigger:
@@ -103,12 +103,12 @@ Monitor for:
 
 ### Step 1: Generate New Token
 
-1. Visit: https://github.com/settings/tokens?type=beta
+1. Visit: <https://github.com/settings/tokens>?type=beta
 2. Click "Generate new token"
 3. Configure token:
-   - **Name**: `terraform-provider-f5xc-automation`
+   - **Name**: `terraform-provider-xcsh-automation`
    - **Expiration**: 90 days
-   - **Repository access**: Only select repositories → `robinmordasiewicz/terraform-provider-f5xc`
+   - **Repository access**: Only select repositories → `robinmordasiewicz/terraform-provider-xcsh`
    - **Permissions**:
      - Contents: Read and write
      - Pull requests: Read and write
@@ -149,7 +149,7 @@ gh pr view <PR_NUMBER> --json autoMergeRequest
 
 ### Step 4: Revoke Old Token
 
-1. Visit: https://github.com/settings/tokens
+1. Visit: <https://github.com/settings/tokens>
 2. Find the old token
 3. Click "Revoke"
 4. Confirm revocation
@@ -162,7 +162,7 @@ If the token is accidentally exposed:
 
 ```bash
 # 1. Immediately revoke the token
-# Visit: https://github.com/settings/tokens → Revoke
+# Visit: <https://github.com/settings/tokens> → Revoke
 
 # 2. Generate new token (see Step 1 above)
 
@@ -170,7 +170,7 @@ If the token is accidentally exposed:
 echo "github_pat_NEW_TOKEN" | gh secret set AUTO_MERGE_TOKEN
 
 # 4. Audit recent repository activity
-gh api repos/robinmordasiewicz/terraform-provider-f5xc/events
+gh api repos/robinmordasiewicz/terraform-provider-xcsh/events
 
 # 5. Review recent PRs for suspicious changes
 gh pr list --state all --limit 20
@@ -206,7 +206,7 @@ After rotating the token, verify:
 - [ ] PR created with auto-merge enabled
 - [ ] Status checks triggered on bot-created PR
 - [ ] PR auto-merged after checks passed
-- [ ] Old token revoked at https://github.com/settings/tokens
+- [ ] Old token revoked at <https://github.com/settings/tokens>
 
 ## Alternative Approaches Considered
 

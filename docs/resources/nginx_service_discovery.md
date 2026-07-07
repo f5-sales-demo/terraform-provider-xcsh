@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_nginx_service_discovery Resource - terraform-provider-f5xc"
+page_title: "xcsh_nginx_service_discovery Resource - xcsh"
 subcategory: "Networking"
 description: |-
   Manages a Nginx Service Discovery resource in F5 Distributed Cloud for api to create nginx service discovery object for a site or virtual site in system namespace. configuration.
 ---
 
-# f5xc_nginx_service_discovery (Resource)
+# xcsh_nginx_service_discovery (Resource)
 
 Manages a Nginx Service Discovery resource in F5 Distributed Cloud for api to create nginx service discovery object for a site or virtual site in system namespace. configuration.
 
@@ -14,47 +14,24 @@ Manages a Nginx Service Discovery resource in F5 Distributed Cloud for api to cr
 ## Example Usage
 
 ```terraform
-# Nginx Service Discovery Resource Example
-# Manages a Nginx Service Discovery resource in F5 Distributed Cloud for api to create nginx service discovery object for a site or virtual site in system namespace. configuration.
+# NginxServiceDiscovery Resource Example
+# Manages a Nginx Service Discovery resource in F5 Distributed Cloud for api to create nginx service discovery object for a site or virtual site in system namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Nginx Service Discovery configuration
-resource "f5xc_nginx_service_discovery" "example" {
+# Basic NginxServiceDiscovery configuration
+resource "xcsh_nginx_service_discovery" "example" {
   name      = "example-nginx-service-discovery"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # Configuration parameter for discovery target.
-  discovery_target {
-    # Configure discovery_target settings
-  }
-  # Configuration parameter for config sync group.
-  config_sync_group {
-    # Configure config_sync_group settings
-  }
-  # NGINXInstance Reference. Select new NGINX Instance.
-  nginx_instance {
-    # Configure nginx_instance settings
-  }
+  namespace = "system"
 }
 ```
 
@@ -69,8 +46,6 @@ resource "f5xc_nginx_service_discovery" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Nginx Service Discovery. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Nginx Service Discovery will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -78,6 +53,8 @@ resource "f5xc_nginx_service_discovery" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Nginx Service Discovery. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -243,5 +220,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_nginx_service_discovery.example system/example
+terraform import xcsh_nginx_service_discovery.example system/example
 ```

@@ -23,9 +23,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -145,7 +145,7 @@ var RateLimiterPolicyRulesSpecAsnListModelAttrTypes = map[string]attr.Type{
 
 // RateLimiterPolicyRulesSpecAsnMatcherModel represents asn_matcher block
 type RateLimiterPolicyRulesSpecAsnMatcherModel struct {
-	AsnSets []RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModel `tfsdk:"asn_sets"`
+	AsnSets types.List `tfsdk:"asn_sets"`
 }
 
 // RateLimiterPolicyRulesSpecAsnMatcherModelAttrTypes defines the attribute types for RateLimiterPolicyRulesSpecAsnMatcherModel
@@ -255,8 +255,8 @@ var RateLimiterPolicyRulesSpecHTTPMethodModelAttrTypes = map[string]attr.Type{
 
 // RateLimiterPolicyRulesSpecIPMatcherModel represents ip_matcher block
 type RateLimiterPolicyRulesSpecIPMatcherModel struct {
-	InvertMatcher types.Bool                                           `tfsdk:"invert_matcher"`
-	PrefixSets    []RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModel `tfsdk:"prefix_sets"`
+	InvertMatcher types.Bool `tfsdk:"invert_matcher"`
+	PrefixSets    types.List `tfsdk:"prefix_sets"`
 }
 
 // RateLimiterPolicyRulesSpecIPMatcherModelAttrTypes defines the attribute types for RateLimiterPolicyRulesSpecIPMatcherModel
@@ -937,228 +937,315 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.AnyServer != nil {
-		any_serverMap := make(map[string]interface{})
-		createReq.Spec["any_server"] = any_serverMap
+		createReq.Spec["any_server"] = map[string]interface{}{}
 	}
 	if data.ServerNameMatcher != nil {
-		server_name_matcherMap := make(map[string]interface{})
+		ServerNameMatcherMap := make(map[string]interface{})
 		if !data.ServerNameMatcher.ExactValues.IsNull() && !data.ServerNameMatcher.ExactValues.IsUnknown() {
-			var exact_valuesItems []string
-			diags := data.ServerNameMatcher.ExactValues.ElementsAs(ctx, &exact_valuesItems, false)
+			var ExactValuesItems []string
+			diags := data.ServerNameMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
 			if !diags.HasError() {
-				server_name_matcherMap["exact_values"] = exact_valuesItems
+				ServerNameMatcherMap["exact_values"] = ExactValuesItems
 			}
 		}
 		if !data.ServerNameMatcher.RegexValues.IsNull() && !data.ServerNameMatcher.RegexValues.IsUnknown() {
-			var regex_valuesItems []string
-			diags := data.ServerNameMatcher.RegexValues.ElementsAs(ctx, &regex_valuesItems, false)
+			var RegexValuesItems []string
+			diags := data.ServerNameMatcher.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
 			if !diags.HasError() {
-				server_name_matcherMap["regex_values"] = regex_valuesItems
+				ServerNameMatcherMap["regex_values"] = RegexValuesItems
 			}
 		}
-		createReq.Spec["server_name_matcher"] = server_name_matcherMap
+		createReq.Spec["server_name_matcher"] = ServerNameMatcherMap
 	}
 	if data.ServerSelector != nil {
-		server_selectorMap := make(map[string]interface{})
+		ServerSelectorMap := make(map[string]interface{})
 		if !data.ServerSelector.Expressions.IsNull() && !data.ServerSelector.Expressions.IsUnknown() {
-			var expressionsItems []string
-			diags := data.ServerSelector.Expressions.ElementsAs(ctx, &expressionsItems, false)
+			var ExpressionsItems []string
+			diags := data.ServerSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 			if !diags.HasError() {
-				server_selectorMap["expressions"] = expressionsItems
+				ServerSelectorMap["expressions"] = ExpressionsItems
 			}
 		}
-		createReq.Spec["server_selector"] = server_selectorMap
+		createReq.Spec["server_selector"] = ServerSelectorMap
 	}
 	if !data.Rules.IsNull() && !data.Rules.IsUnknown() {
-		var rulesItems []RateLimiterPolicyRulesModel
-		diags := data.Rules.ElementsAs(ctx, &rulesItems, false)
+		var RulesElems []RateLimiterPolicyRulesModel
+		diags := data.Rules.ElementsAs(ctx, &RulesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(rulesItems) > 0 {
-			var rulesList []map[string]interface{}
-			for _, item := range rulesItems {
-				itemMap := make(map[string]interface{})
-				if item.Metadata != nil {
-					metadataNestedMap := make(map[string]interface{})
-					if !item.Metadata.DescriptionSpec.IsNull() && !item.Metadata.DescriptionSpec.IsUnknown() {
-						metadataNestedMap["description"] = item.Metadata.DescriptionSpec.ValueString()
+		if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
+			var RulesList []map[string]interface{}
+			for _, RulesItem := range RulesElems {
+				RulesItemMap := make(map[string]interface{})
+				if RulesItem.Metadata != nil {
+					MetadataMap := make(map[string]interface{})
+					if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
+						MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
 					}
-					if !item.Metadata.Name.IsNull() && !item.Metadata.Name.IsUnknown() {
-						metadataNestedMap["name"] = item.Metadata.Name.ValueString()
+					if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
+						MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
 					}
-					itemMap["metadata"] = metadataNestedMap
+					RulesItemMap["metadata"] = MetadataMap
 				}
-				if item.Spec != nil {
-					specNestedMap := make(map[string]interface{})
-					if item.Spec.AnyAsn != nil {
-						specNestedMap["any_asn"] = map[string]interface{}{}
+				if RulesItem.Spec != nil {
+					SpecMap := make(map[string]interface{})
+					if RulesItem.Spec.AnyAsn != nil {
+						SpecMap["any_asn"] = map[string]interface{}{}
 					}
-					if item.Spec.AnyCountry != nil {
-						specNestedMap["any_country"] = map[string]interface{}{}
+					if RulesItem.Spec.AnyCountry != nil {
+						SpecMap["any_country"] = map[string]interface{}{}
 					}
-					if item.Spec.AnyIP != nil {
-						specNestedMap["any_ip"] = map[string]interface{}{}
+					if RulesItem.Spec.AnyIP != nil {
+						SpecMap["any_ip"] = map[string]interface{}{}
 					}
-					if item.Spec.ApplyRateLimiter != nil {
-						specNestedMap["apply_rate_limiter"] = map[string]interface{}{}
+					if RulesItem.Spec.ApplyRateLimiter != nil {
+						SpecMap["apply_rate_limiter"] = map[string]interface{}{}
 					}
-					if item.Spec.AsnList != nil {
-						asn_listDeepMap := make(map[string]interface{})
-						specNestedMap["asn_list"] = asn_listDeepMap
+					if RulesItem.Spec.AsnList != nil {
+						AsnListMap := make(map[string]interface{})
+						if !RulesItem.Spec.AsnList.AsNumbers.IsNull() && !RulesItem.Spec.AsnList.AsNumbers.IsUnknown() {
+							var AsNumbersItems []int64
+							diags := RulesItem.Spec.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+							if !diags.HasError() {
+								AsnListMap["as_numbers"] = AsNumbersItems
+							}
+						}
+						SpecMap["asn_list"] = AsnListMap
 					}
-					if item.Spec.AsnMatcher != nil {
-						asn_matcherDeepMap := make(map[string]interface{})
-						specNestedMap["asn_matcher"] = asn_matcherDeepMap
+					if RulesItem.Spec.AsnMatcher != nil {
+						AsnMatcherMap := make(map[string]interface{})
+						if !RulesItem.Spec.AsnMatcher.AsnSets.IsNull() && !RulesItem.Spec.AsnMatcher.AsnSets.IsUnknown() {
+							var AsnSetsElems []RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModel
+							diags := RulesItem.Spec.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(AsnSetsElems) > 0 {
+								var AsnSetsList []map[string]interface{}
+								for _, AsnSetsItem := range AsnSetsElems {
+									AsnSetsItemMap := make(map[string]interface{})
+									if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
+										AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
+									}
+									if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
+										AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
+									}
+									if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
+										AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
+									}
+									if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
+										AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
+									}
+									if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
+										AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
+									}
+									AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
+								}
+								AsnMatcherMap["asn_sets"] = AsnSetsList
+							}
+						}
+						SpecMap["asn_matcher"] = AsnMatcherMap
 					}
-					if item.Spec.BypassRateLimiter != nil {
-						specNestedMap["bypass_rate_limiter"] = map[string]interface{}{}
+					if RulesItem.Spec.BypassRateLimiter != nil {
+						SpecMap["bypass_rate_limiter"] = map[string]interface{}{}
 					}
-					if item.Spec.CountryList != nil {
-						country_listDeepMap := make(map[string]interface{})
-						if !item.Spec.CountryList.CountryCodes.IsNull() && !item.Spec.CountryList.CountryCodes.IsUnknown() {
+					if RulesItem.Spec.CountryList != nil {
+						CountryListMap := make(map[string]interface{})
+						if !RulesItem.Spec.CountryList.CountryCodes.IsNull() && !RulesItem.Spec.CountryList.CountryCodes.IsUnknown() {
 							var CountryCodesItems []string
-							diags := item.Spec.CountryList.CountryCodes.ElementsAs(ctx, &CountryCodesItems, false)
+							diags := RulesItem.Spec.CountryList.CountryCodes.ElementsAs(ctx, &CountryCodesItems, false)
 							if !diags.HasError() {
-								country_listDeepMap["country_codes"] = CountryCodesItems
+								CountryListMap["country_codes"] = CountryCodesItems
 							}
 						}
-						if !item.Spec.CountryList.InvertMatch.IsNull() && !item.Spec.CountryList.InvertMatch.IsUnknown() {
-							country_listDeepMap["invert_match"] = item.Spec.CountryList.InvertMatch.ValueBool()
+						if !RulesItem.Spec.CountryList.InvertMatch.IsNull() && !RulesItem.Spec.CountryList.InvertMatch.IsUnknown() {
+							CountryListMap["invert_match"] = RulesItem.Spec.CountryList.InvertMatch.ValueBool()
 						}
-						specNestedMap["country_list"] = country_listDeepMap
+						SpecMap["country_list"] = CountryListMap
 					}
-					if item.Spec.CustomRateLimiter != nil {
-						custom_rate_limiterDeepMap := make(map[string]interface{})
-						if !item.Spec.CustomRateLimiter.Name.IsNull() && !item.Spec.CustomRateLimiter.Name.IsUnknown() {
-							custom_rate_limiterDeepMap["name"] = item.Spec.CustomRateLimiter.Name.ValueString()
+					if RulesItem.Spec.CustomRateLimiter != nil {
+						CustomRateLimiterMap := make(map[string]interface{})
+						if !RulesItem.Spec.CustomRateLimiter.Name.IsNull() && !RulesItem.Spec.CustomRateLimiter.Name.IsUnknown() {
+							CustomRateLimiterMap["name"] = RulesItem.Spec.CustomRateLimiter.Name.ValueString()
 						}
-						if !item.Spec.CustomRateLimiter.Namespace.IsNull() && !item.Spec.CustomRateLimiter.Namespace.IsUnknown() {
-							custom_rate_limiterDeepMap["namespace"] = item.Spec.CustomRateLimiter.Namespace.ValueString()
+						if !RulesItem.Spec.CustomRateLimiter.Namespace.IsNull() && !RulesItem.Spec.CustomRateLimiter.Namespace.IsUnknown() {
+							CustomRateLimiterMap["namespace"] = RulesItem.Spec.CustomRateLimiter.Namespace.ValueString()
 						}
-						if !item.Spec.CustomRateLimiter.Tenant.IsNull() && !item.Spec.CustomRateLimiter.Tenant.IsUnknown() {
-							custom_rate_limiterDeepMap["tenant"] = item.Spec.CustomRateLimiter.Tenant.ValueString()
+						if !RulesItem.Spec.CustomRateLimiter.Tenant.IsNull() && !RulesItem.Spec.CustomRateLimiter.Tenant.IsUnknown() {
+							CustomRateLimiterMap["tenant"] = RulesItem.Spec.CustomRateLimiter.Tenant.ValueString()
 						}
-						specNestedMap["custom_rate_limiter"] = custom_rate_limiterDeepMap
+						SpecMap["custom_rate_limiter"] = CustomRateLimiterMap
 					}
-					if item.Spec.DomainMatcher != nil {
-						domain_matcherDeepMap := make(map[string]interface{})
-						if !item.Spec.DomainMatcher.ExactValues.IsNull() && !item.Spec.DomainMatcher.ExactValues.IsUnknown() {
+					if RulesItem.Spec.DomainMatcher != nil {
+						DomainMatcherMap := make(map[string]interface{})
+						if !RulesItem.Spec.DomainMatcher.ExactValues.IsNull() && !RulesItem.Spec.DomainMatcher.ExactValues.IsUnknown() {
 							var ExactValuesItems []string
-							diags := item.Spec.DomainMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+							diags := RulesItem.Spec.DomainMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
 							if !diags.HasError() {
-								domain_matcherDeepMap["exact_values"] = ExactValuesItems
+								DomainMatcherMap["exact_values"] = ExactValuesItems
 							}
 						}
-						if !item.Spec.DomainMatcher.RegexValues.IsNull() && !item.Spec.DomainMatcher.RegexValues.IsUnknown() {
+						if !RulesItem.Spec.DomainMatcher.RegexValues.IsNull() && !RulesItem.Spec.DomainMatcher.RegexValues.IsUnknown() {
 							var RegexValuesItems []string
-							diags := item.Spec.DomainMatcher.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+							diags := RulesItem.Spec.DomainMatcher.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
 							if !diags.HasError() {
-								domain_matcherDeepMap["regex_values"] = RegexValuesItems
+								DomainMatcherMap["regex_values"] = RegexValuesItems
 							}
 						}
-						specNestedMap["domain_matcher"] = domain_matcherDeepMap
+						SpecMap["domain_matcher"] = DomainMatcherMap
 					}
-					if len(item.Spec.Headers) > 0 {
-						var headersDeepList []map[string]interface{}
-						for _, deepListItem := range item.Spec.Headers {
-							deepListItemMap := make(map[string]interface{})
-							if deepListItem.CheckNotPresent != nil {
-								deepListItemMap["check_not_present"] = map[string]interface{}{}
+					if len(RulesItem.Spec.Headers) > 0 {
+						var HeadersList []map[string]interface{}
+						for _, HeadersItem := range RulesItem.Spec.Headers {
+							HeadersItemMap := make(map[string]interface{})
+							if HeadersItem.CheckNotPresent != nil {
+								HeadersItemMap["check_not_present"] = map[string]interface{}{}
 							}
-							if deepListItem.CheckPresent != nil {
-								deepListItemMap["check_present"] = map[string]interface{}{}
+							if HeadersItem.CheckPresent != nil {
+								HeadersItemMap["check_present"] = map[string]interface{}{}
 							}
-							if !deepListItem.InvertMatcher.IsNull() && !deepListItem.InvertMatcher.IsUnknown() {
-								deepListItemMap["invert_matcher"] = deepListItem.InvertMatcher.ValueBool()
+							if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
+								HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
 							}
-							if !deepListItem.Name.IsNull() && !deepListItem.Name.IsUnknown() {
-								deepListItemMap["name"] = deepListItem.Name.ValueString()
+							if HeadersItem.Item != nil {
+								ItemMap := make(map[string]interface{})
+								if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
+									var ExactValuesItems []string
+									diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+									if !diags.HasError() {
+										ItemMap["exact_values"] = ExactValuesItems
+									}
+								}
+								if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
+									var RegexValuesItems []string
+									diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+									if !diags.HasError() {
+										ItemMap["regex_values"] = RegexValuesItems
+									}
+								}
+								if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
+									var TransformersItems []string
+									diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+									if !diags.HasError() {
+										ItemMap["transformers"] = TransformersItems
+									}
+								}
+								HeadersItemMap["item"] = ItemMap
 							}
-							headersDeepList = append(headersDeepList, deepListItemMap)
+							if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+								HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+							}
+							HeadersList = append(HeadersList, HeadersItemMap)
 						}
-						specNestedMap["headers"] = headersDeepList
+						SpecMap["headers"] = HeadersList
 					}
-					if item.Spec.HTTPMethod != nil {
-						http_methodDeepMap := make(map[string]interface{})
-						if !item.Spec.HTTPMethod.InvertMatcher.IsNull() && !item.Spec.HTTPMethod.InvertMatcher.IsUnknown() {
-							http_methodDeepMap["invert_matcher"] = item.Spec.HTTPMethod.InvertMatcher.ValueBool()
+					if RulesItem.Spec.HTTPMethod != nil {
+						HTTPMethodMap := make(map[string]interface{})
+						if !RulesItem.Spec.HTTPMethod.InvertMatcher.IsNull() && !RulesItem.Spec.HTTPMethod.InvertMatcher.IsUnknown() {
+							HTTPMethodMap["invert_matcher"] = RulesItem.Spec.HTTPMethod.InvertMatcher.ValueBool()
 						}
-						if !item.Spec.HTTPMethod.Methods.IsNull() && !item.Spec.HTTPMethod.Methods.IsUnknown() {
+						if !RulesItem.Spec.HTTPMethod.Methods.IsNull() && !RulesItem.Spec.HTTPMethod.Methods.IsUnknown() {
 							var MethodsItems []string
-							diags := item.Spec.HTTPMethod.Methods.ElementsAs(ctx, &MethodsItems, false)
+							diags := RulesItem.Spec.HTTPMethod.Methods.ElementsAs(ctx, &MethodsItems, false)
 							if !diags.HasError() {
-								http_methodDeepMap["methods"] = MethodsItems
+								HTTPMethodMap["methods"] = MethodsItems
 							}
 						}
-						specNestedMap["http_method"] = http_methodDeepMap
+						SpecMap["http_method"] = HTTPMethodMap
 					}
-					if item.Spec.IPMatcher != nil {
-						ip_matcherDeepMap := make(map[string]interface{})
-						if !item.Spec.IPMatcher.InvertMatcher.IsNull() && !item.Spec.IPMatcher.InvertMatcher.IsUnknown() {
-							ip_matcherDeepMap["invert_matcher"] = item.Spec.IPMatcher.InvertMatcher.ValueBool()
+					if RulesItem.Spec.IPMatcher != nil {
+						IPMatcherMap := make(map[string]interface{})
+						if !RulesItem.Spec.IPMatcher.InvertMatcher.IsNull() && !RulesItem.Spec.IPMatcher.InvertMatcher.IsUnknown() {
+							IPMatcherMap["invert_matcher"] = RulesItem.Spec.IPMatcher.InvertMatcher.ValueBool()
 						}
-						specNestedMap["ip_matcher"] = ip_matcherDeepMap
+						if !RulesItem.Spec.IPMatcher.PrefixSets.IsNull() && !RulesItem.Spec.IPMatcher.PrefixSets.IsUnknown() {
+							var PrefixSetsElems []RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModel
+							diags := RulesItem.Spec.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(PrefixSetsElems) > 0 {
+								var PrefixSetsList []map[string]interface{}
+								for _, PrefixSetsItem := range PrefixSetsElems {
+									PrefixSetsItemMap := make(map[string]interface{})
+									if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
+										PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
+									}
+									if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
+										PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
+									}
+									if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
+										PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
+									}
+									if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
+										PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
+									}
+									if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
+										PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
+									}
+									PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
+								}
+								IPMatcherMap["prefix_sets"] = PrefixSetsList
+							}
+						}
+						SpecMap["ip_matcher"] = IPMatcherMap
 					}
-					if item.Spec.IPPrefixList != nil {
-						ip_prefix_listDeepMap := make(map[string]interface{})
-						if !item.Spec.IPPrefixList.InvertMatch.IsNull() && !item.Spec.IPPrefixList.InvertMatch.IsUnknown() {
-							ip_prefix_listDeepMap["invert_match"] = item.Spec.IPPrefixList.InvertMatch.ValueBool()
+					if RulesItem.Spec.IPPrefixList != nil {
+						IPPrefixListMap := make(map[string]interface{})
+						if !RulesItem.Spec.IPPrefixList.InvertMatch.IsNull() && !RulesItem.Spec.IPPrefixList.InvertMatch.IsUnknown() {
+							IPPrefixListMap["invert_match"] = RulesItem.Spec.IPPrefixList.InvertMatch.ValueBool()
 						}
-						if !item.Spec.IPPrefixList.IPPrefixes.IsNull() && !item.Spec.IPPrefixList.IPPrefixes.IsUnknown() {
+						if !RulesItem.Spec.IPPrefixList.IPPrefixes.IsNull() && !RulesItem.Spec.IPPrefixList.IPPrefixes.IsUnknown() {
 							var IPPrefixesItems []string
-							diags := item.Spec.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+							diags := RulesItem.Spec.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
 							if !diags.HasError() {
-								ip_prefix_listDeepMap["ip_prefixes"] = IPPrefixesItems
+								IPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 							}
 						}
-						specNestedMap["ip_prefix_list"] = ip_prefix_listDeepMap
+						SpecMap["ip_prefix_list"] = IPPrefixListMap
 					}
-					if item.Spec.Path != nil {
-						pathDeepMap := make(map[string]interface{})
-						if !item.Spec.Path.ExactValues.IsNull() && !item.Spec.Path.ExactValues.IsUnknown() {
+					if RulesItem.Spec.Path != nil {
+						PathMap := make(map[string]interface{})
+						if !RulesItem.Spec.Path.ExactValues.IsNull() && !RulesItem.Spec.Path.ExactValues.IsUnknown() {
 							var ExactValuesItems []string
-							diags := item.Spec.Path.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+							diags := RulesItem.Spec.Path.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
 							if !diags.HasError() {
-								pathDeepMap["exact_values"] = ExactValuesItems
+								PathMap["exact_values"] = ExactValuesItems
 							}
 						}
-						if !item.Spec.Path.InvertMatcher.IsNull() && !item.Spec.Path.InvertMatcher.IsUnknown() {
-							pathDeepMap["invert_matcher"] = item.Spec.Path.InvertMatcher.ValueBool()
+						if !RulesItem.Spec.Path.InvertMatcher.IsNull() && !RulesItem.Spec.Path.InvertMatcher.IsUnknown() {
+							PathMap["invert_matcher"] = RulesItem.Spec.Path.InvertMatcher.ValueBool()
 						}
-						if !item.Spec.Path.PrefixValues.IsNull() && !item.Spec.Path.PrefixValues.IsUnknown() {
+						if !RulesItem.Spec.Path.PrefixValues.IsNull() && !RulesItem.Spec.Path.PrefixValues.IsUnknown() {
 							var PrefixValuesItems []string
-							diags := item.Spec.Path.PrefixValues.ElementsAs(ctx, &PrefixValuesItems, false)
+							diags := RulesItem.Spec.Path.PrefixValues.ElementsAs(ctx, &PrefixValuesItems, false)
 							if !diags.HasError() {
-								pathDeepMap["prefix_values"] = PrefixValuesItems
+								PathMap["prefix_values"] = PrefixValuesItems
 							}
 						}
-						if !item.Spec.Path.RegexValues.IsNull() && !item.Spec.Path.RegexValues.IsUnknown() {
+						if !RulesItem.Spec.Path.RegexValues.IsNull() && !RulesItem.Spec.Path.RegexValues.IsUnknown() {
 							var RegexValuesItems []string
-							diags := item.Spec.Path.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+							diags := RulesItem.Spec.Path.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
 							if !diags.HasError() {
-								pathDeepMap["regex_values"] = RegexValuesItems
+								PathMap["regex_values"] = RegexValuesItems
 							}
 						}
-						if !item.Spec.Path.SuffixValues.IsNull() && !item.Spec.Path.SuffixValues.IsUnknown() {
+						if !RulesItem.Spec.Path.SuffixValues.IsNull() && !RulesItem.Spec.Path.SuffixValues.IsUnknown() {
 							var SuffixValuesItems []string
-							diags := item.Spec.Path.SuffixValues.ElementsAs(ctx, &SuffixValuesItems, false)
+							diags := RulesItem.Spec.Path.SuffixValues.ElementsAs(ctx, &SuffixValuesItems, false)
 							if !diags.HasError() {
-								pathDeepMap["suffix_values"] = SuffixValuesItems
+								PathMap["suffix_values"] = SuffixValuesItems
 							}
 						}
-						if !item.Spec.Path.Transformers.IsNull() && !item.Spec.Path.Transformers.IsUnknown() {
+						if !RulesItem.Spec.Path.Transformers.IsNull() && !RulesItem.Spec.Path.Transformers.IsUnknown() {
 							var TransformersItems []string
-							diags := item.Spec.Path.Transformers.ElementsAs(ctx, &TransformersItems, false)
+							diags := RulesItem.Spec.Path.Transformers.ElementsAs(ctx, &TransformersItems, false)
 							if !diags.HasError() {
-								pathDeepMap["transformers"] = TransformersItems
+								PathMap["transformers"] = TransformersItems
 							}
 						}
-						specNestedMap["path"] = pathDeepMap
+						SpecMap["path"] = PathMap
 					}
-					itemMap["spec"] = specNestedMap
+					RulesItemMap["spec"] = SpecMap
 				}
-				rulesList = append(rulesList, itemMap)
+				RulesList = append(RulesList, RulesItemMap)
 			}
-			createReq.Spec["rules"] = rulesList
+			createReq.Spec["rules"] = RulesList
 		}
 	}
 	if !data.ServerName.IsNull() && !data.ServerName.IsUnknown() {
@@ -1178,10 +1265,8 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["any_server"].(map[string]interface{}); ok && isImport && data.AnyServer == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.AnyServer = &RateLimiterPolicyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["server_name_matcher"].(map[string]interface{}); ok && (isImport || data.ServerNameMatcher != nil) {
 		data.ServerNameMatcher = &RateLimiterPolicyServerNameMatcherModel{
 			ExactValues: func() types.List {
@@ -1229,27 +1314,29 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 			}(),
 		}
 	}
-	if listData, ok := apiResource.Spec["rules"].([]interface{}); ok && len(listData) > 0 {
-		var rulesList []RateLimiterPolicyRulesModel
+	if !isImport && (data.Rules.IsNull() || len(data.Rules.Elements()) == 0) {
+		data.Rules = types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["rules"].([]interface{}); ok && len(listData) > 0 {
+		var RulesList []RateLimiterPolicyRulesModel
 		var existingRulesItems []RateLimiterPolicyRulesModel
 		if !data.Rules.IsNull() && !data.Rules.IsUnknown() {
 			data.Rules.ElementsAs(ctx, &existingRulesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				rulesList = append(rulesList, RateLimiterPolicyRulesModel{
+				RulesList = append(RulesList, RateLimiterPolicyRulesModel{
 					Metadata: func() *RateLimiterPolicyRulesMetadataModel {
-						if nestedMap, ok := itemMap["metadata"].(map[string]interface{}); ok {
+						if MetadataData, ok := itemMap["metadata"].(map[string]interface{}); ok {
 							return &RateLimiterPolicyRulesMetadataModel{
 								DescriptionSpec: func() types.String {
-									if v, ok := nestedMap["description"].(string); ok && v != "" {
+									if v, ok := MetadataData["description"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := nestedMap["name"].(string); ok && v != "" {
+									if v, ok := MetadataData["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -1259,35 +1346,460 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 						return nil
 					}(),
 					Spec: func() *RateLimiterPolicyRulesSpecModel {
-						if _, ok := itemMap["spec"].(map[string]interface{}); ok {
+						if SpecData, ok := itemMap["spec"].(map[string]interface{}); ok {
 							return &RateLimiterPolicyRulesSpecModel{
 								AnyAsn: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.AnyAsn != nil {
+									if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AnyCountry: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.AnyCountry != nil {
+									if _, ok := SpecData["any_country"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AnyIP: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.AnyIP != nil {
+									if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								ApplyRateLimiter: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.ApplyRateLimiter != nil {
+									if _, ok := SpecData["apply_rate_limiter"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
+								AsnList: func() *RateLimiterPolicyRulesSpecAsnListModel {
+									if AsnListData, ok := SpecData["asn_list"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecAsnListModel{
+											AsNumbers: func() types.List {
+												if v, ok := AsnListData["as_numbers"].([]interface{}); ok && len(v) > 0 {
+													var items []int64
+													for _, item := range v {
+														if s, ok := item.(float64); ok {
+															items = append(items, int64(s))
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													return listVal
+												}
+												return types.ListNull(types.Int64Type)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								AsnMatcher: func() *RateLimiterPolicyRulesSpecAsnMatcherModel {
+									if AsnMatcherData, ok := SpecData["asn_matcher"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecAsnMatcherModel{
+											AsnSets: func() types.List {
+												if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
+													var AsnSetsResult []RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModel
+													for _, AsnSetsItem := range rawList {
+														if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
+															AsnSetsResult = append(AsnSetsResult, RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModel{
+																Kind: func() types.String {
+																	if v, ok := AsnSetsItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := AsnSetsItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := AsnSetsItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := AsnSetsItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := AsnSetsItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModelAttrTypes}, AsnSetsResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModelAttrTypes})
+											}(),
+										}
+									}
+									return nil
+								}(),
 								BypassRateLimiter: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.BypassRateLimiter != nil {
+									if _, ok := SpecData["bypass_rate_limiter"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
+									}
+									return nil
+								}(),
+								CountryList: func() *RateLimiterPolicyRulesSpecCountryListModel {
+									if CountryListData, ok := SpecData["country_list"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecCountryListModel{
+											CountryCodes: func() types.List {
+												if v, ok := CountryListData["country_codes"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											InvertMatch: func() types.Bool {
+												if v, ok := CountryListData["invert_match"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								CustomRateLimiter: func() *RateLimiterPolicyRulesSpecCustomRateLimiterModel {
+									if CustomRateLimiterData, ok := SpecData["custom_rate_limiter"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecCustomRateLimiterModel{
+											Name: func() types.String {
+												if v, ok := CustomRateLimiterData["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := CustomRateLimiterData["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := CustomRateLimiterData["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								DomainMatcher: func() *RateLimiterPolicyRulesSpecDomainMatcherModel {
+									if DomainMatcherData, ok := SpecData["domain_matcher"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecDomainMatcherModel{
+											ExactValues: func() types.List {
+												if v, ok := DomainMatcherData["exact_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											RegexValues: func() types.List {
+												if v, ok := DomainMatcherData["regex_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Headers: func() []RateLimiterPolicyRulesSpecHeadersModel {
+									if rawList, ok := SpecData["headers"].([]interface{}); ok && len(rawList) > 0 {
+										var HeadersResult []RateLimiterPolicyRulesSpecHeadersModel
+										for _, HeadersItem := range rawList {
+											if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
+												HeadersResult = append(HeadersResult, RateLimiterPolicyRulesSpecHeadersModel{
+													CheckNotPresent: func() *RateLimiterPolicyEmptyModel {
+														if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
+															return &RateLimiterPolicyEmptyModel{}
+														}
+														return nil
+													}(),
+													CheckPresent: func() *RateLimiterPolicyEmptyModel {
+														if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
+															return &RateLimiterPolicyEmptyModel{}
+														}
+														return nil
+													}(),
+													InvertMatcher: func() types.Bool {
+														if v, ok := HeadersItemMap["invert_matcher"].(bool); ok {
+															return types.BoolValue(v)
+														}
+														return types.BoolNull()
+													}(),
+													Item: func() *RateLimiterPolicyRulesSpecHeadersItemModel {
+														if ItemData, ok := HeadersItemMap["item"].(map[string]interface{}); ok {
+															return &RateLimiterPolicyRulesSpecHeadersItemModel{
+																ExactValues: func() types.List {
+																	if v, ok := ItemData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																		var items []string
+																		for _, item := range v {
+																			if s, ok := item.(string); ok {
+																				items = append(items, s)
+																			}
+																		}
+																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		return listVal
+																	}
+																	return types.ListNull(types.StringType)
+																}(),
+																RegexValues: func() types.List {
+																	if v, ok := ItemData["regex_values"].([]interface{}); ok && len(v) > 0 {
+																		var items []string
+																		for _, item := range v {
+																			if s, ok := item.(string); ok {
+																				items = append(items, s)
+																			}
+																		}
+																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		return listVal
+																	}
+																	return types.ListNull(types.StringType)
+																}(),
+																Transformers: func() types.List {
+																	if v, ok := ItemData["transformers"].([]interface{}); ok && len(v) > 0 {
+																		var items []string
+																		for _, item := range v {
+																			if s, ok := item.(string); ok {
+																				items = append(items, s)
+																			}
+																		}
+																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		return listVal
+																	}
+																	return types.ListNull(types.StringType)
+																}(),
+															}
+														}
+														return nil
+													}(),
+													Name: func() types.String {
+														if v, ok := HeadersItemMap["name"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												})
+											}
+										}
+										return HeadersResult
+									}
+									return nil
+								}(),
+								HTTPMethod: func() *RateLimiterPolicyRulesSpecHTTPMethodModel {
+									if HTTPMethodData, ok := SpecData["http_method"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecHTTPMethodModel{
+											InvertMatcher: func() types.Bool {
+												if v, ok := HTTPMethodData["invert_matcher"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											Methods: func() types.List {
+												if v, ok := HTTPMethodData["methods"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								IPMatcher: func() *RateLimiterPolicyRulesSpecIPMatcherModel {
+									if IPMatcherData, ok := SpecData["ip_matcher"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecIPMatcherModel{
+											InvertMatcher: func() types.Bool {
+												if v, ok := IPMatcherData["invert_matcher"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											PrefixSets: func() types.List {
+												if rawList, ok := IPMatcherData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
+													var PrefixSetsResult []RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModel
+													for _, PrefixSetsItem := range rawList {
+														if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
+															PrefixSetsResult = append(PrefixSetsResult, RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModel{
+																Kind: func() types.String {
+																	if v, ok := PrefixSetsItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := PrefixSetsItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := PrefixSetsItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := PrefixSetsItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := PrefixSetsItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModelAttrTypes}, PrefixSetsResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModelAttrTypes})
+											}(),
+										}
+									}
+									return nil
+								}(),
+								IPPrefixList: func() *RateLimiterPolicyRulesSpecIPPrefixListModel {
+									if IPPrefixListData, ok := SpecData["ip_prefix_list"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecIPPrefixListModel{
+											InvertMatch: func() types.Bool {
+												if v, ok := IPPrefixListData["invert_match"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											IPPrefixes: func() types.List {
+												if v, ok := IPPrefixListData["ip_prefixes"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Path: func() *RateLimiterPolicyRulesSpecPathModel {
+									if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecPathModel{
+											ExactValues: func() types.List {
+												if v, ok := PathData["exact_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											InvertMatcher: func() types.Bool {
+												if v, ok := PathData["invert_matcher"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											PrefixValues: func() types.List {
+												if v, ok := PathData["prefix_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											RegexValues: func() types.List {
+												if v, ok := PathData["regex_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											SuffixValues: func() types.List {
+												if v, ok := PathData["suffix_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											Transformers: func() types.List {
+												if v, ok := PathData["transformers"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
@@ -1298,13 +1810,12 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RateLimiterPolicyRulesModelAttrTypes}, rulesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RateLimiterPolicyRulesModelAttrTypes}, RulesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesModelAttrTypes})
 	}
 	if v, ok := apiResource.Spec["server_name"].(string); ok && v != "" {
@@ -1393,10 +1904,8 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["any_server"].(map[string]interface{}); ok && isImport && data.AnyServer == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.AnyServer = &RateLimiterPolicyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["server_name_matcher"].(map[string]interface{}); ok && (isImport || data.ServerNameMatcher != nil) {
 		data.ServerNameMatcher = &RateLimiterPolicyServerNameMatcherModel{
 			ExactValues: func() types.List {
@@ -1444,27 +1953,29 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 			}(),
 		}
 	}
-	if listData, ok := apiResource.Spec["rules"].([]interface{}); ok && len(listData) > 0 {
-		var rulesList []RateLimiterPolicyRulesModel
+	if !isImport && (data.Rules.IsNull() || len(data.Rules.Elements()) == 0) {
+		data.Rules = types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["rules"].([]interface{}); ok && len(listData) > 0 {
+		var RulesList []RateLimiterPolicyRulesModel
 		var existingRulesItems []RateLimiterPolicyRulesModel
 		if !data.Rules.IsNull() && !data.Rules.IsUnknown() {
 			data.Rules.ElementsAs(ctx, &existingRulesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				rulesList = append(rulesList, RateLimiterPolicyRulesModel{
+				RulesList = append(RulesList, RateLimiterPolicyRulesModel{
 					Metadata: func() *RateLimiterPolicyRulesMetadataModel {
-						if nestedMap, ok := itemMap["metadata"].(map[string]interface{}); ok {
+						if MetadataData, ok := itemMap["metadata"].(map[string]interface{}); ok {
 							return &RateLimiterPolicyRulesMetadataModel{
 								DescriptionSpec: func() types.String {
-									if v, ok := nestedMap["description"].(string); ok && v != "" {
+									if v, ok := MetadataData["description"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := nestedMap["name"].(string); ok && v != "" {
+									if v, ok := MetadataData["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -1474,35 +1985,460 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 						return nil
 					}(),
 					Spec: func() *RateLimiterPolicyRulesSpecModel {
-						if _, ok := itemMap["spec"].(map[string]interface{}); ok {
+						if SpecData, ok := itemMap["spec"].(map[string]interface{}); ok {
 							return &RateLimiterPolicyRulesSpecModel{
 								AnyAsn: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.AnyAsn != nil {
+									if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AnyCountry: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.AnyCountry != nil {
+									if _, ok := SpecData["any_country"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AnyIP: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.AnyIP != nil {
+									if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								ApplyRateLimiter: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.ApplyRateLimiter != nil {
+									if _, ok := SpecData["apply_rate_limiter"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
+								AsnList: func() *RateLimiterPolicyRulesSpecAsnListModel {
+									if AsnListData, ok := SpecData["asn_list"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecAsnListModel{
+											AsNumbers: func() types.List {
+												if v, ok := AsnListData["as_numbers"].([]interface{}); ok && len(v) > 0 {
+													var items []int64
+													for _, item := range v {
+														if s, ok := item.(float64); ok {
+															items = append(items, int64(s))
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													return listVal
+												}
+												return types.ListNull(types.Int64Type)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								AsnMatcher: func() *RateLimiterPolicyRulesSpecAsnMatcherModel {
+									if AsnMatcherData, ok := SpecData["asn_matcher"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecAsnMatcherModel{
+											AsnSets: func() types.List {
+												if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
+													var AsnSetsResult []RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModel
+													for _, AsnSetsItem := range rawList {
+														if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
+															AsnSetsResult = append(AsnSetsResult, RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModel{
+																Kind: func() types.String {
+																	if v, ok := AsnSetsItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := AsnSetsItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := AsnSetsItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := AsnSetsItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := AsnSetsItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModelAttrTypes}, AsnSetsResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModelAttrTypes})
+											}(),
+										}
+									}
+									return nil
+								}(),
 								BypassRateLimiter: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.BypassRateLimiter != nil {
+									if _, ok := SpecData["bypass_rate_limiter"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
+									}
+									return nil
+								}(),
+								CountryList: func() *RateLimiterPolicyRulesSpecCountryListModel {
+									if CountryListData, ok := SpecData["country_list"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecCountryListModel{
+											CountryCodes: func() types.List {
+												if v, ok := CountryListData["country_codes"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											InvertMatch: func() types.Bool {
+												if v, ok := CountryListData["invert_match"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								CustomRateLimiter: func() *RateLimiterPolicyRulesSpecCustomRateLimiterModel {
+									if CustomRateLimiterData, ok := SpecData["custom_rate_limiter"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecCustomRateLimiterModel{
+											Name: func() types.String {
+												if v, ok := CustomRateLimiterData["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := CustomRateLimiterData["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := CustomRateLimiterData["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								DomainMatcher: func() *RateLimiterPolicyRulesSpecDomainMatcherModel {
+									if DomainMatcherData, ok := SpecData["domain_matcher"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecDomainMatcherModel{
+											ExactValues: func() types.List {
+												if v, ok := DomainMatcherData["exact_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											RegexValues: func() types.List {
+												if v, ok := DomainMatcherData["regex_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Headers: func() []RateLimiterPolicyRulesSpecHeadersModel {
+									if rawList, ok := SpecData["headers"].([]interface{}); ok && len(rawList) > 0 {
+										var HeadersResult []RateLimiterPolicyRulesSpecHeadersModel
+										for _, HeadersItem := range rawList {
+											if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
+												HeadersResult = append(HeadersResult, RateLimiterPolicyRulesSpecHeadersModel{
+													CheckNotPresent: func() *RateLimiterPolicyEmptyModel {
+														if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
+															return &RateLimiterPolicyEmptyModel{}
+														}
+														return nil
+													}(),
+													CheckPresent: func() *RateLimiterPolicyEmptyModel {
+														if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
+															return &RateLimiterPolicyEmptyModel{}
+														}
+														return nil
+													}(),
+													InvertMatcher: func() types.Bool {
+														if v, ok := HeadersItemMap["invert_matcher"].(bool); ok {
+															return types.BoolValue(v)
+														}
+														return types.BoolNull()
+													}(),
+													Item: func() *RateLimiterPolicyRulesSpecHeadersItemModel {
+														if ItemData, ok := HeadersItemMap["item"].(map[string]interface{}); ok {
+															return &RateLimiterPolicyRulesSpecHeadersItemModel{
+																ExactValues: func() types.List {
+																	if v, ok := ItemData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																		var items []string
+																		for _, item := range v {
+																			if s, ok := item.(string); ok {
+																				items = append(items, s)
+																			}
+																		}
+																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		return listVal
+																	}
+																	return types.ListNull(types.StringType)
+																}(),
+																RegexValues: func() types.List {
+																	if v, ok := ItemData["regex_values"].([]interface{}); ok && len(v) > 0 {
+																		var items []string
+																		for _, item := range v {
+																			if s, ok := item.(string); ok {
+																				items = append(items, s)
+																			}
+																		}
+																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		return listVal
+																	}
+																	return types.ListNull(types.StringType)
+																}(),
+																Transformers: func() types.List {
+																	if v, ok := ItemData["transformers"].([]interface{}); ok && len(v) > 0 {
+																		var items []string
+																		for _, item := range v {
+																			if s, ok := item.(string); ok {
+																				items = append(items, s)
+																			}
+																		}
+																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		return listVal
+																	}
+																	return types.ListNull(types.StringType)
+																}(),
+															}
+														}
+														return nil
+													}(),
+													Name: func() types.String {
+														if v, ok := HeadersItemMap["name"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												})
+											}
+										}
+										return HeadersResult
+									}
+									return nil
+								}(),
+								HTTPMethod: func() *RateLimiterPolicyRulesSpecHTTPMethodModel {
+									if HTTPMethodData, ok := SpecData["http_method"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecHTTPMethodModel{
+											InvertMatcher: func() types.Bool {
+												if v, ok := HTTPMethodData["invert_matcher"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											Methods: func() types.List {
+												if v, ok := HTTPMethodData["methods"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								IPMatcher: func() *RateLimiterPolicyRulesSpecIPMatcherModel {
+									if IPMatcherData, ok := SpecData["ip_matcher"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecIPMatcherModel{
+											InvertMatcher: func() types.Bool {
+												if v, ok := IPMatcherData["invert_matcher"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											PrefixSets: func() types.List {
+												if rawList, ok := IPMatcherData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
+													var PrefixSetsResult []RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModel
+													for _, PrefixSetsItem := range rawList {
+														if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
+															PrefixSetsResult = append(PrefixSetsResult, RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModel{
+																Kind: func() types.String {
+																	if v, ok := PrefixSetsItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := PrefixSetsItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := PrefixSetsItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := PrefixSetsItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := PrefixSetsItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModelAttrTypes}, PrefixSetsResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModelAttrTypes})
+											}(),
+										}
+									}
+									return nil
+								}(),
+								IPPrefixList: func() *RateLimiterPolicyRulesSpecIPPrefixListModel {
+									if IPPrefixListData, ok := SpecData["ip_prefix_list"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecIPPrefixListModel{
+											InvertMatch: func() types.Bool {
+												if v, ok := IPPrefixListData["invert_match"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											IPPrefixes: func() types.List {
+												if v, ok := IPPrefixListData["ip_prefixes"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Path: func() *RateLimiterPolicyRulesSpecPathModel {
+									if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecPathModel{
+											ExactValues: func() types.List {
+												if v, ok := PathData["exact_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											InvertMatcher: func() types.Bool {
+												if v, ok := PathData["invert_matcher"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											PrefixValues: func() types.List {
+												if v, ok := PathData["prefix_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											RegexValues: func() types.List {
+												if v, ok := PathData["regex_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											SuffixValues: func() types.List {
+												if v, ok := PathData["suffix_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											Transformers: func() types.List {
+												if v, ok := PathData["transformers"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
@@ -1513,19 +2449,26 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RateLimiterPolicyRulesModelAttrTypes}, rulesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RateLimiterPolicyRulesModelAttrTypes}, RulesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesModelAttrTypes})
 	}
 	if v, ok := apiResource.Spec["server_name"].(string); ok && v != "" {
 		data.ServerName = types.StringValue(v)
 	} else {
 		data.ServerName = types.StringNull()
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -1579,228 +2522,315 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.AnyServer != nil {
-		any_serverMap := make(map[string]interface{})
-		apiResource.Spec["any_server"] = any_serverMap
+		apiResource.Spec["any_server"] = map[string]interface{}{}
 	}
 	if data.ServerNameMatcher != nil {
-		server_name_matcherMap := make(map[string]interface{})
+		ServerNameMatcherMap := make(map[string]interface{})
 		if !data.ServerNameMatcher.ExactValues.IsNull() && !data.ServerNameMatcher.ExactValues.IsUnknown() {
-			var exact_valuesItems []string
-			diags := data.ServerNameMatcher.ExactValues.ElementsAs(ctx, &exact_valuesItems, false)
+			var ExactValuesItems []string
+			diags := data.ServerNameMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
 			if !diags.HasError() {
-				server_name_matcherMap["exact_values"] = exact_valuesItems
+				ServerNameMatcherMap["exact_values"] = ExactValuesItems
 			}
 		}
 		if !data.ServerNameMatcher.RegexValues.IsNull() && !data.ServerNameMatcher.RegexValues.IsUnknown() {
-			var regex_valuesItems []string
-			diags := data.ServerNameMatcher.RegexValues.ElementsAs(ctx, &regex_valuesItems, false)
+			var RegexValuesItems []string
+			diags := data.ServerNameMatcher.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
 			if !diags.HasError() {
-				server_name_matcherMap["regex_values"] = regex_valuesItems
+				ServerNameMatcherMap["regex_values"] = RegexValuesItems
 			}
 		}
-		apiResource.Spec["server_name_matcher"] = server_name_matcherMap
+		apiResource.Spec["server_name_matcher"] = ServerNameMatcherMap
 	}
 	if data.ServerSelector != nil {
-		server_selectorMap := make(map[string]interface{})
+		ServerSelectorMap := make(map[string]interface{})
 		if !data.ServerSelector.Expressions.IsNull() && !data.ServerSelector.Expressions.IsUnknown() {
-			var expressionsItems []string
-			diags := data.ServerSelector.Expressions.ElementsAs(ctx, &expressionsItems, false)
+			var ExpressionsItems []string
+			diags := data.ServerSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 			if !diags.HasError() {
-				server_selectorMap["expressions"] = expressionsItems
+				ServerSelectorMap["expressions"] = ExpressionsItems
 			}
 		}
-		apiResource.Spec["server_selector"] = server_selectorMap
+		apiResource.Spec["server_selector"] = ServerSelectorMap
 	}
 	if !data.Rules.IsNull() && !data.Rules.IsUnknown() {
-		var rulesItems []RateLimiterPolicyRulesModel
-		diags := data.Rules.ElementsAs(ctx, &rulesItems, false)
+		var RulesElems []RateLimiterPolicyRulesModel
+		diags := data.Rules.ElementsAs(ctx, &RulesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(rulesItems) > 0 {
-			var rulesList []map[string]interface{}
-			for _, item := range rulesItems {
-				itemMap := make(map[string]interface{})
-				if item.Metadata != nil {
-					metadataNestedMap := make(map[string]interface{})
-					if !item.Metadata.DescriptionSpec.IsNull() && !item.Metadata.DescriptionSpec.IsUnknown() {
-						metadataNestedMap["description"] = item.Metadata.DescriptionSpec.ValueString()
+		if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
+			var RulesList []map[string]interface{}
+			for _, RulesItem := range RulesElems {
+				RulesItemMap := make(map[string]interface{})
+				if RulesItem.Metadata != nil {
+					MetadataMap := make(map[string]interface{})
+					if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
+						MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
 					}
-					if !item.Metadata.Name.IsNull() && !item.Metadata.Name.IsUnknown() {
-						metadataNestedMap["name"] = item.Metadata.Name.ValueString()
+					if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
+						MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
 					}
-					itemMap["metadata"] = metadataNestedMap
+					RulesItemMap["metadata"] = MetadataMap
 				}
-				if item.Spec != nil {
-					specNestedMap := make(map[string]interface{})
-					if item.Spec.AnyAsn != nil {
-						specNestedMap["any_asn"] = map[string]interface{}{}
+				if RulesItem.Spec != nil {
+					SpecMap := make(map[string]interface{})
+					if RulesItem.Spec.AnyAsn != nil {
+						SpecMap["any_asn"] = map[string]interface{}{}
 					}
-					if item.Spec.AnyCountry != nil {
-						specNestedMap["any_country"] = map[string]interface{}{}
+					if RulesItem.Spec.AnyCountry != nil {
+						SpecMap["any_country"] = map[string]interface{}{}
 					}
-					if item.Spec.AnyIP != nil {
-						specNestedMap["any_ip"] = map[string]interface{}{}
+					if RulesItem.Spec.AnyIP != nil {
+						SpecMap["any_ip"] = map[string]interface{}{}
 					}
-					if item.Spec.ApplyRateLimiter != nil {
-						specNestedMap["apply_rate_limiter"] = map[string]interface{}{}
+					if RulesItem.Spec.ApplyRateLimiter != nil {
+						SpecMap["apply_rate_limiter"] = map[string]interface{}{}
 					}
-					if item.Spec.AsnList != nil {
-						asn_listDeepMap := make(map[string]interface{})
-						specNestedMap["asn_list"] = asn_listDeepMap
+					if RulesItem.Spec.AsnList != nil {
+						AsnListMap := make(map[string]interface{})
+						if !RulesItem.Spec.AsnList.AsNumbers.IsNull() && !RulesItem.Spec.AsnList.AsNumbers.IsUnknown() {
+							var AsNumbersItems []int64
+							diags := RulesItem.Spec.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+							if !diags.HasError() {
+								AsnListMap["as_numbers"] = AsNumbersItems
+							}
+						}
+						SpecMap["asn_list"] = AsnListMap
 					}
-					if item.Spec.AsnMatcher != nil {
-						asn_matcherDeepMap := make(map[string]interface{})
-						specNestedMap["asn_matcher"] = asn_matcherDeepMap
+					if RulesItem.Spec.AsnMatcher != nil {
+						AsnMatcherMap := make(map[string]interface{})
+						if !RulesItem.Spec.AsnMatcher.AsnSets.IsNull() && !RulesItem.Spec.AsnMatcher.AsnSets.IsUnknown() {
+							var AsnSetsElems []RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModel
+							diags := RulesItem.Spec.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(AsnSetsElems) > 0 {
+								var AsnSetsList []map[string]interface{}
+								for _, AsnSetsItem := range AsnSetsElems {
+									AsnSetsItemMap := make(map[string]interface{})
+									if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
+										AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
+									}
+									if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
+										AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
+									}
+									if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
+										AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
+									}
+									if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
+										AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
+									}
+									if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
+										AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
+									}
+									AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
+								}
+								AsnMatcherMap["asn_sets"] = AsnSetsList
+							}
+						}
+						SpecMap["asn_matcher"] = AsnMatcherMap
 					}
-					if item.Spec.BypassRateLimiter != nil {
-						specNestedMap["bypass_rate_limiter"] = map[string]interface{}{}
+					if RulesItem.Spec.BypassRateLimiter != nil {
+						SpecMap["bypass_rate_limiter"] = map[string]interface{}{}
 					}
-					if item.Spec.CountryList != nil {
-						country_listDeepMap := make(map[string]interface{})
-						if !item.Spec.CountryList.CountryCodes.IsNull() && !item.Spec.CountryList.CountryCodes.IsUnknown() {
+					if RulesItem.Spec.CountryList != nil {
+						CountryListMap := make(map[string]interface{})
+						if !RulesItem.Spec.CountryList.CountryCodes.IsNull() && !RulesItem.Spec.CountryList.CountryCodes.IsUnknown() {
 							var CountryCodesItems []string
-							diags := item.Spec.CountryList.CountryCodes.ElementsAs(ctx, &CountryCodesItems, false)
+							diags := RulesItem.Spec.CountryList.CountryCodes.ElementsAs(ctx, &CountryCodesItems, false)
 							if !diags.HasError() {
-								country_listDeepMap["country_codes"] = CountryCodesItems
+								CountryListMap["country_codes"] = CountryCodesItems
 							}
 						}
-						if !item.Spec.CountryList.InvertMatch.IsNull() && !item.Spec.CountryList.InvertMatch.IsUnknown() {
-							country_listDeepMap["invert_match"] = item.Spec.CountryList.InvertMatch.ValueBool()
+						if !RulesItem.Spec.CountryList.InvertMatch.IsNull() && !RulesItem.Spec.CountryList.InvertMatch.IsUnknown() {
+							CountryListMap["invert_match"] = RulesItem.Spec.CountryList.InvertMatch.ValueBool()
 						}
-						specNestedMap["country_list"] = country_listDeepMap
+						SpecMap["country_list"] = CountryListMap
 					}
-					if item.Spec.CustomRateLimiter != nil {
-						custom_rate_limiterDeepMap := make(map[string]interface{})
-						if !item.Spec.CustomRateLimiter.Name.IsNull() && !item.Spec.CustomRateLimiter.Name.IsUnknown() {
-							custom_rate_limiterDeepMap["name"] = item.Spec.CustomRateLimiter.Name.ValueString()
+					if RulesItem.Spec.CustomRateLimiter != nil {
+						CustomRateLimiterMap := make(map[string]interface{})
+						if !RulesItem.Spec.CustomRateLimiter.Name.IsNull() && !RulesItem.Spec.CustomRateLimiter.Name.IsUnknown() {
+							CustomRateLimiterMap["name"] = RulesItem.Spec.CustomRateLimiter.Name.ValueString()
 						}
-						if !item.Spec.CustomRateLimiter.Namespace.IsNull() && !item.Spec.CustomRateLimiter.Namespace.IsUnknown() {
-							custom_rate_limiterDeepMap["namespace"] = item.Spec.CustomRateLimiter.Namespace.ValueString()
+						if !RulesItem.Spec.CustomRateLimiter.Namespace.IsNull() && !RulesItem.Spec.CustomRateLimiter.Namespace.IsUnknown() {
+							CustomRateLimiterMap["namespace"] = RulesItem.Spec.CustomRateLimiter.Namespace.ValueString()
 						}
-						if !item.Spec.CustomRateLimiter.Tenant.IsNull() && !item.Spec.CustomRateLimiter.Tenant.IsUnknown() {
-							custom_rate_limiterDeepMap["tenant"] = item.Spec.CustomRateLimiter.Tenant.ValueString()
+						if !RulesItem.Spec.CustomRateLimiter.Tenant.IsNull() && !RulesItem.Spec.CustomRateLimiter.Tenant.IsUnknown() {
+							CustomRateLimiterMap["tenant"] = RulesItem.Spec.CustomRateLimiter.Tenant.ValueString()
 						}
-						specNestedMap["custom_rate_limiter"] = custom_rate_limiterDeepMap
+						SpecMap["custom_rate_limiter"] = CustomRateLimiterMap
 					}
-					if item.Spec.DomainMatcher != nil {
-						domain_matcherDeepMap := make(map[string]interface{})
-						if !item.Spec.DomainMatcher.ExactValues.IsNull() && !item.Spec.DomainMatcher.ExactValues.IsUnknown() {
+					if RulesItem.Spec.DomainMatcher != nil {
+						DomainMatcherMap := make(map[string]interface{})
+						if !RulesItem.Spec.DomainMatcher.ExactValues.IsNull() && !RulesItem.Spec.DomainMatcher.ExactValues.IsUnknown() {
 							var ExactValuesItems []string
-							diags := item.Spec.DomainMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+							diags := RulesItem.Spec.DomainMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
 							if !diags.HasError() {
-								domain_matcherDeepMap["exact_values"] = ExactValuesItems
+								DomainMatcherMap["exact_values"] = ExactValuesItems
 							}
 						}
-						if !item.Spec.DomainMatcher.RegexValues.IsNull() && !item.Spec.DomainMatcher.RegexValues.IsUnknown() {
+						if !RulesItem.Spec.DomainMatcher.RegexValues.IsNull() && !RulesItem.Spec.DomainMatcher.RegexValues.IsUnknown() {
 							var RegexValuesItems []string
-							diags := item.Spec.DomainMatcher.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+							diags := RulesItem.Spec.DomainMatcher.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
 							if !diags.HasError() {
-								domain_matcherDeepMap["regex_values"] = RegexValuesItems
+								DomainMatcherMap["regex_values"] = RegexValuesItems
 							}
 						}
-						specNestedMap["domain_matcher"] = domain_matcherDeepMap
+						SpecMap["domain_matcher"] = DomainMatcherMap
 					}
-					if len(item.Spec.Headers) > 0 {
-						var headersDeepList []map[string]interface{}
-						for _, deepListItem := range item.Spec.Headers {
-							deepListItemMap := make(map[string]interface{})
-							if deepListItem.CheckNotPresent != nil {
-								deepListItemMap["check_not_present"] = map[string]interface{}{}
+					if len(RulesItem.Spec.Headers) > 0 {
+						var HeadersList []map[string]interface{}
+						for _, HeadersItem := range RulesItem.Spec.Headers {
+							HeadersItemMap := make(map[string]interface{})
+							if HeadersItem.CheckNotPresent != nil {
+								HeadersItemMap["check_not_present"] = map[string]interface{}{}
 							}
-							if deepListItem.CheckPresent != nil {
-								deepListItemMap["check_present"] = map[string]interface{}{}
+							if HeadersItem.CheckPresent != nil {
+								HeadersItemMap["check_present"] = map[string]interface{}{}
 							}
-							if !deepListItem.InvertMatcher.IsNull() && !deepListItem.InvertMatcher.IsUnknown() {
-								deepListItemMap["invert_matcher"] = deepListItem.InvertMatcher.ValueBool()
+							if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
+								HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
 							}
-							if !deepListItem.Name.IsNull() && !deepListItem.Name.IsUnknown() {
-								deepListItemMap["name"] = deepListItem.Name.ValueString()
+							if HeadersItem.Item != nil {
+								ItemMap := make(map[string]interface{})
+								if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
+									var ExactValuesItems []string
+									diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+									if !diags.HasError() {
+										ItemMap["exact_values"] = ExactValuesItems
+									}
+								}
+								if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
+									var RegexValuesItems []string
+									diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+									if !diags.HasError() {
+										ItemMap["regex_values"] = RegexValuesItems
+									}
+								}
+								if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
+									var TransformersItems []string
+									diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+									if !diags.HasError() {
+										ItemMap["transformers"] = TransformersItems
+									}
+								}
+								HeadersItemMap["item"] = ItemMap
 							}
-							headersDeepList = append(headersDeepList, deepListItemMap)
+							if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+								HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+							}
+							HeadersList = append(HeadersList, HeadersItemMap)
 						}
-						specNestedMap["headers"] = headersDeepList
+						SpecMap["headers"] = HeadersList
 					}
-					if item.Spec.HTTPMethod != nil {
-						http_methodDeepMap := make(map[string]interface{})
-						if !item.Spec.HTTPMethod.InvertMatcher.IsNull() && !item.Spec.HTTPMethod.InvertMatcher.IsUnknown() {
-							http_methodDeepMap["invert_matcher"] = item.Spec.HTTPMethod.InvertMatcher.ValueBool()
+					if RulesItem.Spec.HTTPMethod != nil {
+						HTTPMethodMap := make(map[string]interface{})
+						if !RulesItem.Spec.HTTPMethod.InvertMatcher.IsNull() && !RulesItem.Spec.HTTPMethod.InvertMatcher.IsUnknown() {
+							HTTPMethodMap["invert_matcher"] = RulesItem.Spec.HTTPMethod.InvertMatcher.ValueBool()
 						}
-						if !item.Spec.HTTPMethod.Methods.IsNull() && !item.Spec.HTTPMethod.Methods.IsUnknown() {
+						if !RulesItem.Spec.HTTPMethod.Methods.IsNull() && !RulesItem.Spec.HTTPMethod.Methods.IsUnknown() {
 							var MethodsItems []string
-							diags := item.Spec.HTTPMethod.Methods.ElementsAs(ctx, &MethodsItems, false)
+							diags := RulesItem.Spec.HTTPMethod.Methods.ElementsAs(ctx, &MethodsItems, false)
 							if !diags.HasError() {
-								http_methodDeepMap["methods"] = MethodsItems
+								HTTPMethodMap["methods"] = MethodsItems
 							}
 						}
-						specNestedMap["http_method"] = http_methodDeepMap
+						SpecMap["http_method"] = HTTPMethodMap
 					}
-					if item.Spec.IPMatcher != nil {
-						ip_matcherDeepMap := make(map[string]interface{})
-						if !item.Spec.IPMatcher.InvertMatcher.IsNull() && !item.Spec.IPMatcher.InvertMatcher.IsUnknown() {
-							ip_matcherDeepMap["invert_matcher"] = item.Spec.IPMatcher.InvertMatcher.ValueBool()
+					if RulesItem.Spec.IPMatcher != nil {
+						IPMatcherMap := make(map[string]interface{})
+						if !RulesItem.Spec.IPMatcher.InvertMatcher.IsNull() && !RulesItem.Spec.IPMatcher.InvertMatcher.IsUnknown() {
+							IPMatcherMap["invert_matcher"] = RulesItem.Spec.IPMatcher.InvertMatcher.ValueBool()
 						}
-						specNestedMap["ip_matcher"] = ip_matcherDeepMap
+						if !RulesItem.Spec.IPMatcher.PrefixSets.IsNull() && !RulesItem.Spec.IPMatcher.PrefixSets.IsUnknown() {
+							var PrefixSetsElems []RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModel
+							diags := RulesItem.Spec.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(PrefixSetsElems) > 0 {
+								var PrefixSetsList []map[string]interface{}
+								for _, PrefixSetsItem := range PrefixSetsElems {
+									PrefixSetsItemMap := make(map[string]interface{})
+									if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
+										PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
+									}
+									if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
+										PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
+									}
+									if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
+										PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
+									}
+									if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
+										PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
+									}
+									if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
+										PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
+									}
+									PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
+								}
+								IPMatcherMap["prefix_sets"] = PrefixSetsList
+							}
+						}
+						SpecMap["ip_matcher"] = IPMatcherMap
 					}
-					if item.Spec.IPPrefixList != nil {
-						ip_prefix_listDeepMap := make(map[string]interface{})
-						if !item.Spec.IPPrefixList.InvertMatch.IsNull() && !item.Spec.IPPrefixList.InvertMatch.IsUnknown() {
-							ip_prefix_listDeepMap["invert_match"] = item.Spec.IPPrefixList.InvertMatch.ValueBool()
+					if RulesItem.Spec.IPPrefixList != nil {
+						IPPrefixListMap := make(map[string]interface{})
+						if !RulesItem.Spec.IPPrefixList.InvertMatch.IsNull() && !RulesItem.Spec.IPPrefixList.InvertMatch.IsUnknown() {
+							IPPrefixListMap["invert_match"] = RulesItem.Spec.IPPrefixList.InvertMatch.ValueBool()
 						}
-						if !item.Spec.IPPrefixList.IPPrefixes.IsNull() && !item.Spec.IPPrefixList.IPPrefixes.IsUnknown() {
+						if !RulesItem.Spec.IPPrefixList.IPPrefixes.IsNull() && !RulesItem.Spec.IPPrefixList.IPPrefixes.IsUnknown() {
 							var IPPrefixesItems []string
-							diags := item.Spec.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+							diags := RulesItem.Spec.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
 							if !diags.HasError() {
-								ip_prefix_listDeepMap["ip_prefixes"] = IPPrefixesItems
+								IPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 							}
 						}
-						specNestedMap["ip_prefix_list"] = ip_prefix_listDeepMap
+						SpecMap["ip_prefix_list"] = IPPrefixListMap
 					}
-					if item.Spec.Path != nil {
-						pathDeepMap := make(map[string]interface{})
-						if !item.Spec.Path.ExactValues.IsNull() && !item.Spec.Path.ExactValues.IsUnknown() {
+					if RulesItem.Spec.Path != nil {
+						PathMap := make(map[string]interface{})
+						if !RulesItem.Spec.Path.ExactValues.IsNull() && !RulesItem.Spec.Path.ExactValues.IsUnknown() {
 							var ExactValuesItems []string
-							diags := item.Spec.Path.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+							diags := RulesItem.Spec.Path.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
 							if !diags.HasError() {
-								pathDeepMap["exact_values"] = ExactValuesItems
+								PathMap["exact_values"] = ExactValuesItems
 							}
 						}
-						if !item.Spec.Path.InvertMatcher.IsNull() && !item.Spec.Path.InvertMatcher.IsUnknown() {
-							pathDeepMap["invert_matcher"] = item.Spec.Path.InvertMatcher.ValueBool()
+						if !RulesItem.Spec.Path.InvertMatcher.IsNull() && !RulesItem.Spec.Path.InvertMatcher.IsUnknown() {
+							PathMap["invert_matcher"] = RulesItem.Spec.Path.InvertMatcher.ValueBool()
 						}
-						if !item.Spec.Path.PrefixValues.IsNull() && !item.Spec.Path.PrefixValues.IsUnknown() {
+						if !RulesItem.Spec.Path.PrefixValues.IsNull() && !RulesItem.Spec.Path.PrefixValues.IsUnknown() {
 							var PrefixValuesItems []string
-							diags := item.Spec.Path.PrefixValues.ElementsAs(ctx, &PrefixValuesItems, false)
+							diags := RulesItem.Spec.Path.PrefixValues.ElementsAs(ctx, &PrefixValuesItems, false)
 							if !diags.HasError() {
-								pathDeepMap["prefix_values"] = PrefixValuesItems
+								PathMap["prefix_values"] = PrefixValuesItems
 							}
 						}
-						if !item.Spec.Path.RegexValues.IsNull() && !item.Spec.Path.RegexValues.IsUnknown() {
+						if !RulesItem.Spec.Path.RegexValues.IsNull() && !RulesItem.Spec.Path.RegexValues.IsUnknown() {
 							var RegexValuesItems []string
-							diags := item.Spec.Path.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+							diags := RulesItem.Spec.Path.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
 							if !diags.HasError() {
-								pathDeepMap["regex_values"] = RegexValuesItems
+								PathMap["regex_values"] = RegexValuesItems
 							}
 						}
-						if !item.Spec.Path.SuffixValues.IsNull() && !item.Spec.Path.SuffixValues.IsUnknown() {
+						if !RulesItem.Spec.Path.SuffixValues.IsNull() && !RulesItem.Spec.Path.SuffixValues.IsUnknown() {
 							var SuffixValuesItems []string
-							diags := item.Spec.Path.SuffixValues.ElementsAs(ctx, &SuffixValuesItems, false)
+							diags := RulesItem.Spec.Path.SuffixValues.ElementsAs(ctx, &SuffixValuesItems, false)
 							if !diags.HasError() {
-								pathDeepMap["suffix_values"] = SuffixValuesItems
+								PathMap["suffix_values"] = SuffixValuesItems
 							}
 						}
-						if !item.Spec.Path.Transformers.IsNull() && !item.Spec.Path.Transformers.IsUnknown() {
+						if !RulesItem.Spec.Path.Transformers.IsNull() && !RulesItem.Spec.Path.Transformers.IsUnknown() {
 							var TransformersItems []string
-							diags := item.Spec.Path.Transformers.ElementsAs(ctx, &TransformersItems, false)
+							diags := RulesItem.Spec.Path.Transformers.ElementsAs(ctx, &TransformersItems, false)
 							if !diags.HasError() {
-								pathDeepMap["transformers"] = TransformersItems
+								PathMap["transformers"] = TransformersItems
 							}
 						}
-						specNestedMap["path"] = pathDeepMap
+						SpecMap["path"] = PathMap
 					}
-					itemMap["spec"] = specNestedMap
+					RulesItemMap["spec"] = SpecMap
 				}
-				rulesList = append(rulesList, itemMap)
+				RulesList = append(RulesList, RulesItemMap)
 			}
-			apiResource.Spec["rules"] = rulesList
+			apiResource.Spec["rules"] = RulesList
 		}
 	}
 	if !data.ServerName.IsNull() && !data.ServerName.IsUnknown() {
@@ -1838,10 +2868,8 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["any_server"].(map[string]interface{}); ok && isImport && data.AnyServer == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.AnyServer = &RateLimiterPolicyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["server_name_matcher"].(map[string]interface{}); ok && (isImport || data.ServerNameMatcher != nil) {
 		data.ServerNameMatcher = &RateLimiterPolicyServerNameMatcherModel{
 			ExactValues: func() types.List {
@@ -1889,27 +2917,29 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 			}(),
 		}
 	}
-	if listData, ok := apiResource.Spec["rules"].([]interface{}); ok && len(listData) > 0 {
-		var rulesList []RateLimiterPolicyRulesModel
+	if !isImport && (data.Rules.IsNull() || len(data.Rules.Elements()) == 0) {
+		data.Rules = types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["rules"].([]interface{}); ok && len(listData) > 0 {
+		var RulesList []RateLimiterPolicyRulesModel
 		var existingRulesItems []RateLimiterPolicyRulesModel
 		if !data.Rules.IsNull() && !data.Rules.IsUnknown() {
 			data.Rules.ElementsAs(ctx, &existingRulesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				rulesList = append(rulesList, RateLimiterPolicyRulesModel{
+				RulesList = append(RulesList, RateLimiterPolicyRulesModel{
 					Metadata: func() *RateLimiterPolicyRulesMetadataModel {
-						if nestedMap, ok := itemMap["metadata"].(map[string]interface{}); ok {
+						if MetadataData, ok := itemMap["metadata"].(map[string]interface{}); ok {
 							return &RateLimiterPolicyRulesMetadataModel{
 								DescriptionSpec: func() types.String {
-									if v, ok := nestedMap["description"].(string); ok && v != "" {
+									if v, ok := MetadataData["description"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := nestedMap["name"].(string); ok && v != "" {
+									if v, ok := MetadataData["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -1919,35 +2949,460 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 						return nil
 					}(),
 					Spec: func() *RateLimiterPolicyRulesSpecModel {
-						if _, ok := itemMap["spec"].(map[string]interface{}); ok {
+						if SpecData, ok := itemMap["spec"].(map[string]interface{}); ok {
 							return &RateLimiterPolicyRulesSpecModel{
 								AnyAsn: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.AnyAsn != nil {
+									if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AnyCountry: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.AnyCountry != nil {
+									if _, ok := SpecData["any_country"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AnyIP: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.AnyIP != nil {
+									if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								ApplyRateLimiter: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.ApplyRateLimiter != nil {
+									if _, ok := SpecData["apply_rate_limiter"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
+								AsnList: func() *RateLimiterPolicyRulesSpecAsnListModel {
+									if AsnListData, ok := SpecData["asn_list"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecAsnListModel{
+											AsNumbers: func() types.List {
+												if v, ok := AsnListData["as_numbers"].([]interface{}); ok && len(v) > 0 {
+													var items []int64
+													for _, item := range v {
+														if s, ok := item.(float64); ok {
+															items = append(items, int64(s))
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													return listVal
+												}
+												return types.ListNull(types.Int64Type)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								AsnMatcher: func() *RateLimiterPolicyRulesSpecAsnMatcherModel {
+									if AsnMatcherData, ok := SpecData["asn_matcher"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecAsnMatcherModel{
+											AsnSets: func() types.List {
+												if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
+													var AsnSetsResult []RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModel
+													for _, AsnSetsItem := range rawList {
+														if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
+															AsnSetsResult = append(AsnSetsResult, RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModel{
+																Kind: func() types.String {
+																	if v, ok := AsnSetsItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := AsnSetsItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := AsnSetsItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := AsnSetsItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := AsnSetsItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModelAttrTypes}, AsnSetsResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModelAttrTypes})
+											}(),
+										}
+									}
+									return nil
+								}(),
 								BypassRateLimiter: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.BypassRateLimiter != nil {
+									if _, ok := SpecData["bypass_rate_limiter"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
+									}
+									return nil
+								}(),
+								CountryList: func() *RateLimiterPolicyRulesSpecCountryListModel {
+									if CountryListData, ok := SpecData["country_list"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecCountryListModel{
+											CountryCodes: func() types.List {
+												if v, ok := CountryListData["country_codes"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											InvertMatch: func() types.Bool {
+												if v, ok := CountryListData["invert_match"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								CustomRateLimiter: func() *RateLimiterPolicyRulesSpecCustomRateLimiterModel {
+									if CustomRateLimiterData, ok := SpecData["custom_rate_limiter"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecCustomRateLimiterModel{
+											Name: func() types.String {
+												if v, ok := CustomRateLimiterData["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := CustomRateLimiterData["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := CustomRateLimiterData["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								DomainMatcher: func() *RateLimiterPolicyRulesSpecDomainMatcherModel {
+									if DomainMatcherData, ok := SpecData["domain_matcher"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecDomainMatcherModel{
+											ExactValues: func() types.List {
+												if v, ok := DomainMatcherData["exact_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											RegexValues: func() types.List {
+												if v, ok := DomainMatcherData["regex_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Headers: func() []RateLimiterPolicyRulesSpecHeadersModel {
+									if rawList, ok := SpecData["headers"].([]interface{}); ok && len(rawList) > 0 {
+										var HeadersResult []RateLimiterPolicyRulesSpecHeadersModel
+										for _, HeadersItem := range rawList {
+											if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
+												HeadersResult = append(HeadersResult, RateLimiterPolicyRulesSpecHeadersModel{
+													CheckNotPresent: func() *RateLimiterPolicyEmptyModel {
+														if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
+															return &RateLimiterPolicyEmptyModel{}
+														}
+														return nil
+													}(),
+													CheckPresent: func() *RateLimiterPolicyEmptyModel {
+														if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
+															return &RateLimiterPolicyEmptyModel{}
+														}
+														return nil
+													}(),
+													InvertMatcher: func() types.Bool {
+														if v, ok := HeadersItemMap["invert_matcher"].(bool); ok {
+															return types.BoolValue(v)
+														}
+														return types.BoolNull()
+													}(),
+													Item: func() *RateLimiterPolicyRulesSpecHeadersItemModel {
+														if ItemData, ok := HeadersItemMap["item"].(map[string]interface{}); ok {
+															return &RateLimiterPolicyRulesSpecHeadersItemModel{
+																ExactValues: func() types.List {
+																	if v, ok := ItemData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																		var items []string
+																		for _, item := range v {
+																			if s, ok := item.(string); ok {
+																				items = append(items, s)
+																			}
+																		}
+																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		return listVal
+																	}
+																	return types.ListNull(types.StringType)
+																}(),
+																RegexValues: func() types.List {
+																	if v, ok := ItemData["regex_values"].([]interface{}); ok && len(v) > 0 {
+																		var items []string
+																		for _, item := range v {
+																			if s, ok := item.(string); ok {
+																				items = append(items, s)
+																			}
+																		}
+																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		return listVal
+																	}
+																	return types.ListNull(types.StringType)
+																}(),
+																Transformers: func() types.List {
+																	if v, ok := ItemData["transformers"].([]interface{}); ok && len(v) > 0 {
+																		var items []string
+																		for _, item := range v {
+																			if s, ok := item.(string); ok {
+																				items = append(items, s)
+																			}
+																		}
+																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		return listVal
+																	}
+																	return types.ListNull(types.StringType)
+																}(),
+															}
+														}
+														return nil
+													}(),
+													Name: func() types.String {
+														if v, ok := HeadersItemMap["name"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												})
+											}
+										}
+										return HeadersResult
+									}
+									return nil
+								}(),
+								HTTPMethod: func() *RateLimiterPolicyRulesSpecHTTPMethodModel {
+									if HTTPMethodData, ok := SpecData["http_method"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecHTTPMethodModel{
+											InvertMatcher: func() types.Bool {
+												if v, ok := HTTPMethodData["invert_matcher"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											Methods: func() types.List {
+												if v, ok := HTTPMethodData["methods"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								IPMatcher: func() *RateLimiterPolicyRulesSpecIPMatcherModel {
+									if IPMatcherData, ok := SpecData["ip_matcher"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecIPMatcherModel{
+											InvertMatcher: func() types.Bool {
+												if v, ok := IPMatcherData["invert_matcher"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											PrefixSets: func() types.List {
+												if rawList, ok := IPMatcherData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
+													var PrefixSetsResult []RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModel
+													for _, PrefixSetsItem := range rawList {
+														if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
+															PrefixSetsResult = append(PrefixSetsResult, RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModel{
+																Kind: func() types.String {
+																	if v, ok := PrefixSetsItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := PrefixSetsItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := PrefixSetsItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := PrefixSetsItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := PrefixSetsItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModelAttrTypes}, PrefixSetsResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModelAttrTypes})
+											}(),
+										}
+									}
+									return nil
+								}(),
+								IPPrefixList: func() *RateLimiterPolicyRulesSpecIPPrefixListModel {
+									if IPPrefixListData, ok := SpecData["ip_prefix_list"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecIPPrefixListModel{
+											InvertMatch: func() types.Bool {
+												if v, ok := IPPrefixListData["invert_match"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											IPPrefixes: func() types.List {
+												if v, ok := IPPrefixListData["ip_prefixes"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Path: func() *RateLimiterPolicyRulesSpecPathModel {
+									if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecPathModel{
+											ExactValues: func() types.List {
+												if v, ok := PathData["exact_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											InvertMatcher: func() types.Bool {
+												if v, ok := PathData["invert_matcher"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											PrefixValues: func() types.List {
+												if v, ok := PathData["prefix_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											RegexValues: func() types.List {
+												if v, ok := PathData["regex_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											SuffixValues: func() types.List {
+												if v, ok := PathData["suffix_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											Transformers: func() types.List {
+												if v, ok := PathData["transformers"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
@@ -1958,13 +3413,12 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RateLimiterPolicyRulesModelAttrTypes}, rulesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RateLimiterPolicyRulesModelAttrTypes}, RulesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesModelAttrTypes})
 	}
 	if v, ok := apiResource.Spec["server_name"].(string); ok && v != "" {

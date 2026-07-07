@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_network_policy_rule Resource - terraform-provider-f5xc"
+page_title: "xcsh_network_policy_rule Resource - xcsh"
 subcategory: "Security"
 description: |-
   Manages network policy rule with configured parameters in specified namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_network_policy_rule (Resource)
+# xcsh_network_policy_rule (Resource)
 
 Manages network policy rule with configured parameters in specified namespace. in F5 Distributed Cloud.
 
@@ -14,47 +14,24 @@ Manages network policy rule with configured parameters in specified namespace. i
 ## Example Usage
 
 ```terraform
-# Network Policy Rule Resource Example
-# Manages network policy rule with configured parameters in specified namespace. in F5 Distributed Cloud.
+# NetworkPolicyRule Resource Example
+# Manages network policy rule with configured parameters in specified namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Network Policy Rule configuration
-resource "f5xc_network_policy_rule" "example" {
+# Basic NetworkPolicyRule configuration
+resource "xcsh_network_policy_rule" "example" {
   name      = "example-network-policy-rule"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # Network Policy Rule Advanced Action provides additional O...
-  advanced_action {
-    # Configure advanced_action settings
-  }
-  # [OneOf: ip_prefix_set, prefix, prefix_selector] List of r...
-  ip_prefix_set {
-    # Configure ip_prefix_set settings
-  }
-  # List of references to ip_prefix_set objects.
-  ref {
-    # Configure ref settings
-  }
+  namespace = "system"
 }
 ```
 
@@ -69,8 +46,6 @@ resource "f5xc_network_policy_rule" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Network Policy Rule. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Network Policy Rule will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -78,6 +53,8 @@ resource "f5xc_network_policy_rule" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Network Policy Rule. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -252,5 +229,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_network_policy_rule.example system/example
+terraform import xcsh_network_policy_rule.example system/example
 ```

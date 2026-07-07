@@ -1,60 +1,37 @@
 ---
-page_title: "f5xc_virtual_k8s Resource - terraform-provider-f5xc"
+page_title: "xcsh_virtual_k8s Resource - xcsh"
 subcategory: "Kubernetes"
 description: |-
   Manages virtual_k8s will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_virtual_k8s (Resource)
+# xcsh_virtual_k8s (Resource)
 
 Manages virtual_k8s will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
 
-~> **Note** Please refer to [Virtual K8S API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/container_services/) to learn more.
+~> **Note** Please refer to [Virtual K8S API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/container_services/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# Virtual K8S Resource Example
-# Manages virtual_k8s will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
+# VirtualK8S Resource Example
+# Manages virtual_k8s will create the object in the storage backend for namespace metadata.namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Virtual K8S configuration
-resource "f5xc_virtual_k8s" "example" {
+# Basic VirtualK8S configuration
+resource "xcsh_virtual_k8s" "example" {
   name      = "example-virtual-k8s"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # Type establishes a direct reference from one object(the r...
-  default_flavor_ref {
-    # Configure default_flavor_ref settings
-  }
-  # [OneOf: disabled, isolated] Enable this option
-  disabled {
-    # Configure disabled settings
-  }
-  # Enable this option
-  isolated {
-    # Configure isolated settings
-  }
 }
 ```
 
@@ -225,5 +202,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_virtual_k8s.example system/example
+terraform import xcsh_virtual_k8s.example system/example
 ```

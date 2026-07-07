@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_fast_acl_rule Data Source - terraform-provider-f5xc"
+page_title: "xcsh_fast_acl_rule Data Source - xcsh"
 subcategory: "Security"
 description: |-
   Retrieves information about an existing Fast ACL rule, has specification to match source IP, source port and action to apply. in F5 Distributed Cloud.
 ---
 
-# f5xc_fast_acl_rule (Data Source)
+# xcsh_fast_acl_rule (Data Source)
 
 Retrieves information about new Fast ACL rule, has specification to match source IP, source port and action to apply. in F5 Distributed Cloud. This is a read-only data source.
 
@@ -14,28 +14,23 @@ Retrieves information about new Fast ACL rule, has specification to match source
 ## Example Usage
 
 ```terraform
-# Fast ACL Rule Data Source Example
-# Retrieves information about an existing Fast ACL Rule
+# FastACLRule Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Fast ACL Rule by name
-data "f5xc_fast_acl_rule" "example" {
+# Look up an existing FastACLRule by name
+data "xcsh_fast_acl_rule" "example" {
   name      = "example-fast-acl-rule"
   namespace = "staging"
-}
-
-output "fast_acl_rule_id" {
-  value = data.f5xc_fast_acl_rule.example.id
 }
 ```
 

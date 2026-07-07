@@ -26,7 +26,7 @@ jobs:
       changed: ${{ steps.check.outputs.changed }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: ${{ inputs.ref || github.ref }}
           fetch-depth: 0
@@ -34,14 +34,14 @@ jobs:
       - name: Download specs if not present
         env:
           GH_TOKEN: ${{ github.token }}
-          ENRICHED_REPO: f5xc-salesdemos/api-specs-enriched
+          ENRICHED_REPO: f5-sales-demo/api-specs-enriched
         run: |
           SPEC_COUNT=$(find "${{ inputs.spec-dir }}" -name "*.json" -type f 2>/dev/null | wc -l)
           if [ "$SPEC_COUNT" -eq "0" ]; then
             echo "Specs not in tree (gitignored) — downloading latest from $ENRICHED_REPO"
             mkdir -p "${{ inputs.spec-dir }}"
             ASSET_ID=$(gh api "repos/$ENRICHED_REPO/releases" --jq \
-              '[.[0].assets[] | select(.name | startswith("f5xc-api-specs"))] | .[0].id')
+              '[.[0].assets[] | select(.name | startswith("xcsh-api-specs") or startswith("f5xc-api-specs"))] | .[0].id')
             if [ -n "$ASSET_ID" ] && [ "$ASSET_ID" != "null" ]; then
               gh api "repos/$ENRICHED_REPO/releases/assets/$ASSET_ID" \
                 -H "Accept: application/octet-stream" > /tmp/specs.zip

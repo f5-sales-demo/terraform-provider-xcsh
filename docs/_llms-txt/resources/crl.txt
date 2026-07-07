@@ -1,4 +1,4 @@
-# f5xc_crl
+# xcsh_crl
 
 Category: Certificates
 Api to create crl object. configuration
@@ -15,21 +15,14 @@ Api to create crl object. configuration
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_crl" "example" {
+resource "xcsh_crl" "example" {
   name      = "example-crl"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  http_access {
-  }
+  refresh_interval = 1
+  server_address   = "example-value"
+  server_port      = 1
+  timeout          = 1
 }
 ```
 

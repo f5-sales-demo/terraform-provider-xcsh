@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_bot_defense_app_infrastructure Resource - terraform-provider-f5xc"
+page_title: "xcsh_bot_defense_app_infrastructure Resource - xcsh"
 subcategory: "Security"
 description: |-
   Manages Bot Defense App Infrastructure in a given namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_bot_defense_app_infrastructure (Resource)
+# xcsh_bot_defense_app_infrastructure (Resource)
 
 Manages Bot Defense App Infrastructure in a given namespace. in F5 Distributed Cloud.
 
@@ -14,47 +14,27 @@ Manages Bot Defense App Infrastructure in a given namespace. in F5 Distributed C
 ## Example Usage
 
 ```terraform
-# Bot Defense App Infrastructure Resource Example
-# Manages Bot Defense App Infrastructure in a given namespace. in F5 Distributed Cloud.
+# BotDefenseAppInfrastructure Resource Example
+# Manages Bot Defense App Infrastructure in a given namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Bot Defense App Infrastructure configuration
-resource "f5xc_bot_defense_app_infrastructure" "example" {
+# Basic BotDefenseAppInfrastructure configuration
+resource "xcsh_bot_defense_app_infrastructure" "example" {
   name      = "example-bot-defense-app-infrastructure"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # [OneOf: cloud_hosted, data_center_hosted] F5 Hosted. Infr...
-  cloud_hosted {
-    # Configure cloud_hosted settings
-  }
-  # Egress. Egress .
-  egress {
-    # Configure egress settings
-  }
-  # Ingress. Ingress .
-  ingress {
-    # Configure ingress settings
-  }
+  environment_type = "PRODUCTION"
+  traffic_type     = "WEB"
 }
 ```
 
@@ -276,5 +256,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_bot_defense_app_infrastructure.example system/example
+terraform import xcsh_bot_defense_app_infrastructure.example system/example
 ```

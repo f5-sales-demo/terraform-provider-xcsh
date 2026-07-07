@@ -20,9 +20,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -467,86 +467,86 @@ func (r *BotDefenseAppInfrastructureResource) Create(ctx context.Context, req re
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.CloudHosted != nil {
-		cloud_hostedMap := make(map[string]interface{})
+		CloudHostedMap := make(map[string]interface{})
 		if len(data.CloudHosted.Egress) > 0 {
-			var egressList []map[string]interface{}
-			for _, listItem := range data.CloudHosted.Egress {
-				listItemMap := make(map[string]interface{})
-				if !listItem.IPAddress.IsNull() && !listItem.IPAddress.IsUnknown() {
-					listItemMap["ip_address"] = listItem.IPAddress.ValueString()
+			var EgressList []map[string]interface{}
+			for _, EgressItem := range data.CloudHosted.Egress {
+				EgressItemMap := make(map[string]interface{})
+				if !EgressItem.IPAddress.IsNull() && !EgressItem.IPAddress.IsUnknown() {
+					EgressItemMap["ip_address"] = EgressItem.IPAddress.ValueString()
 				}
-				if !listItem.Location.IsNull() && !listItem.Location.IsUnknown() {
-					listItemMap["location"] = listItem.Location.ValueString()
+				if !EgressItem.Location.IsNull() && !EgressItem.Location.IsUnknown() {
+					EgressItemMap["location"] = EgressItem.Location.ValueString()
 				}
-				egressList = append(egressList, listItemMap)
+				EgressList = append(EgressList, EgressItemMap)
 			}
-			cloud_hostedMap["egress"] = egressList
+			CloudHostedMap["egress"] = EgressList
 		}
 		if !data.CloudHosted.InfraHostName.IsNull() && !data.CloudHosted.InfraHostName.IsUnknown() {
-			cloud_hostedMap["infra_host_name"] = data.CloudHosted.InfraHostName.ValueString()
+			CloudHostedMap["infra_host_name"] = data.CloudHosted.InfraHostName.ValueString()
 		}
 		if len(data.CloudHosted.Ingress) > 0 {
-			var ingressList []map[string]interface{}
-			for _, listItem := range data.CloudHosted.Ingress {
-				listItemMap := make(map[string]interface{})
-				if !listItem.HostName.IsNull() && !listItem.HostName.IsUnknown() {
-					listItemMap["host_name"] = listItem.HostName.ValueString()
+			var IngressList []map[string]interface{}
+			for _, IngressItem := range data.CloudHosted.Ingress {
+				IngressItemMap := make(map[string]interface{})
+				if !IngressItem.HostName.IsNull() && !IngressItem.HostName.IsUnknown() {
+					IngressItemMap["host_name"] = IngressItem.HostName.ValueString()
 				}
-				if !listItem.IPAddress.IsNull() && !listItem.IPAddress.IsUnknown() {
-					listItemMap["ip_address"] = listItem.IPAddress.ValueString()
+				if !IngressItem.IPAddress.IsNull() && !IngressItem.IPAddress.IsUnknown() {
+					IngressItemMap["ip_address"] = IngressItem.IPAddress.ValueString()
 				}
-				if !listItem.Location.IsNull() && !listItem.Location.IsUnknown() {
-					listItemMap["location"] = listItem.Location.ValueString()
+				if !IngressItem.Location.IsNull() && !IngressItem.Location.IsUnknown() {
+					IngressItemMap["location"] = IngressItem.Location.ValueString()
 				}
-				ingressList = append(ingressList, listItemMap)
+				IngressList = append(IngressList, IngressItemMap)
 			}
-			cloud_hostedMap["ingress"] = ingressList
+			CloudHostedMap["ingress"] = IngressList
 		}
 		if !data.CloudHosted.Region.IsNull() && !data.CloudHosted.Region.IsUnknown() {
-			cloud_hostedMap["region"] = data.CloudHosted.Region.ValueString()
+			CloudHostedMap["region"] = data.CloudHosted.Region.ValueString()
 		}
-		createReq.Spec["cloud_hosted"] = cloud_hostedMap
+		createReq.Spec["cloud_hosted"] = CloudHostedMap
 	}
 	if data.DataCenterHosted != nil {
-		data_center_hostedMap := make(map[string]interface{})
+		DataCenterHostedMap := make(map[string]interface{})
 		if len(data.DataCenterHosted.Egress) > 0 {
-			var egressList []map[string]interface{}
-			for _, listItem := range data.DataCenterHosted.Egress {
-				listItemMap := make(map[string]interface{})
-				if !listItem.IPAddress.IsNull() && !listItem.IPAddress.IsUnknown() {
-					listItemMap["ip_address"] = listItem.IPAddress.ValueString()
+			var EgressList []map[string]interface{}
+			for _, EgressItem := range data.DataCenterHosted.Egress {
+				EgressItemMap := make(map[string]interface{})
+				if !EgressItem.IPAddress.IsNull() && !EgressItem.IPAddress.IsUnknown() {
+					EgressItemMap["ip_address"] = EgressItem.IPAddress.ValueString()
 				}
-				if !listItem.Location.IsNull() && !listItem.Location.IsUnknown() {
-					listItemMap["location"] = listItem.Location.ValueString()
+				if !EgressItem.Location.IsNull() && !EgressItem.Location.IsUnknown() {
+					EgressItemMap["location"] = EgressItem.Location.ValueString()
 				}
-				egressList = append(egressList, listItemMap)
+				EgressList = append(EgressList, EgressItemMap)
 			}
-			data_center_hostedMap["egress"] = egressList
+			DataCenterHostedMap["egress"] = EgressList
 		}
 		if !data.DataCenterHosted.InfraHostName.IsNull() && !data.DataCenterHosted.InfraHostName.IsUnknown() {
-			data_center_hostedMap["infra_host_name"] = data.DataCenterHosted.InfraHostName.ValueString()
+			DataCenterHostedMap["infra_host_name"] = data.DataCenterHosted.InfraHostName.ValueString()
 		}
 		if len(data.DataCenterHosted.Ingress) > 0 {
-			var ingressList []map[string]interface{}
-			for _, listItem := range data.DataCenterHosted.Ingress {
-				listItemMap := make(map[string]interface{})
-				if !listItem.HostName.IsNull() && !listItem.HostName.IsUnknown() {
-					listItemMap["host_name"] = listItem.HostName.ValueString()
+			var IngressList []map[string]interface{}
+			for _, IngressItem := range data.DataCenterHosted.Ingress {
+				IngressItemMap := make(map[string]interface{})
+				if !IngressItem.HostName.IsNull() && !IngressItem.HostName.IsUnknown() {
+					IngressItemMap["host_name"] = IngressItem.HostName.ValueString()
 				}
-				if !listItem.IPAddress.IsNull() && !listItem.IPAddress.IsUnknown() {
-					listItemMap["ip_address"] = listItem.IPAddress.ValueString()
+				if !IngressItem.IPAddress.IsNull() && !IngressItem.IPAddress.IsUnknown() {
+					IngressItemMap["ip_address"] = IngressItem.IPAddress.ValueString()
 				}
-				if !listItem.Location.IsNull() && !listItem.Location.IsUnknown() {
-					listItemMap["location"] = listItem.Location.ValueString()
+				if !IngressItem.Location.IsNull() && !IngressItem.Location.IsUnknown() {
+					IngressItemMap["location"] = IngressItem.Location.ValueString()
 				}
-				ingressList = append(ingressList, listItemMap)
+				IngressList = append(IngressList, IngressItemMap)
 			}
-			data_center_hostedMap["ingress"] = ingressList
+			DataCenterHostedMap["ingress"] = IngressList
 		}
 		if !data.DataCenterHosted.Region.IsNull() && !data.DataCenterHosted.Region.IsUnknown() {
-			data_center_hostedMap["region"] = data.DataCenterHosted.Region.ValueString()
+			DataCenterHostedMap["region"] = data.DataCenterHosted.Region.ValueString()
 		}
-		createReq.Spec["data_center_hosted"] = data_center_hostedMap
+		createReq.Spec["data_center_hosted"] = DataCenterHostedMap
 	}
 	if !data.EnvironmentType.IsNull() && !data.EnvironmentType.IsUnknown() {
 		createReq.Spec["environment_type"] = data.EnvironmentType.ValueString()
@@ -570,19 +570,22 @@ func (r *BotDefenseAppInfrastructureResource) Create(ctx context.Context, req re
 	if blockData, ok := apiResource.Spec["cloud_hosted"].(map[string]interface{}); ok && (isImport || data.CloudHosted != nil) {
 		data.CloudHosted = &BotDefenseAppInfrastructureCloudHostedModel{
 			Egress: func() []BotDefenseAppInfrastructureCloudHostedEgressModel {
-				if listData, ok := blockData["egress"].([]interface{}); ok && len(listData) > 0 {
-					var result []BotDefenseAppInfrastructureCloudHostedEgressModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, BotDefenseAppInfrastructureCloudHostedEgressModel{
+				if !isImport && data.CloudHosted != nil && len(data.CloudHosted.Egress) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["egress"].([]interface{}); ok && len(rawList) > 0 {
+					var EgressResult []BotDefenseAppInfrastructureCloudHostedEgressModel
+					for _, EgressItem := range rawList {
+						if EgressItemMap, ok := EgressItem.(map[string]interface{}); ok {
+							EgressResult = append(EgressResult, BotDefenseAppInfrastructureCloudHostedEgressModel{
 								IPAddress: func() types.String {
-									if v, ok := itemMap["ip_address"].(string); ok && v != "" {
+									if v, ok := EgressItemMap["ip_address"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Location: func() types.String {
-									if v, ok := itemMap["location"].(string); ok && v != "" {
+									if v, ok := EgressItemMap["location"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -590,7 +593,7 @@ func (r *BotDefenseAppInfrastructureResource) Create(ctx context.Context, req re
 							})
 						}
 					}
-					return result
+					return EgressResult
 				}
 				return nil
 			}(),
@@ -601,25 +604,28 @@ func (r *BotDefenseAppInfrastructureResource) Create(ctx context.Context, req re
 				return types.StringNull()
 			}(),
 			Ingress: func() []BotDefenseAppInfrastructureCloudHostedIngressModel {
-				if listData, ok := blockData["ingress"].([]interface{}); ok && len(listData) > 0 {
-					var result []BotDefenseAppInfrastructureCloudHostedIngressModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, BotDefenseAppInfrastructureCloudHostedIngressModel{
+				if !isImport && data.CloudHosted != nil && len(data.CloudHosted.Ingress) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["ingress"].([]interface{}); ok && len(rawList) > 0 {
+					var IngressResult []BotDefenseAppInfrastructureCloudHostedIngressModel
+					for _, IngressItem := range rawList {
+						if IngressItemMap, ok := IngressItem.(map[string]interface{}); ok {
+							IngressResult = append(IngressResult, BotDefenseAppInfrastructureCloudHostedIngressModel{
 								HostName: func() types.String {
-									if v, ok := itemMap["host_name"].(string); ok && v != "" {
+									if v, ok := IngressItemMap["host_name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								IPAddress: func() types.String {
-									if v, ok := itemMap["ip_address"].(string); ok && v != "" {
+									if v, ok := IngressItemMap["ip_address"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Location: func() types.String {
-									if v, ok := itemMap["location"].(string); ok && v != "" {
+									if v, ok := IngressItemMap["location"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -627,7 +633,7 @@ func (r *BotDefenseAppInfrastructureResource) Create(ctx context.Context, req re
 							})
 						}
 					}
-					return result
+					return IngressResult
 				}
 				return nil
 			}(),
@@ -642,19 +648,22 @@ func (r *BotDefenseAppInfrastructureResource) Create(ctx context.Context, req re
 	if blockData, ok := apiResource.Spec["data_center_hosted"].(map[string]interface{}); ok && (isImport || data.DataCenterHosted != nil) {
 		data.DataCenterHosted = &BotDefenseAppInfrastructureDataCenterHostedModel{
 			Egress: func() []BotDefenseAppInfrastructureDataCenterHostedEgressModel {
-				if listData, ok := blockData["egress"].([]interface{}); ok && len(listData) > 0 {
-					var result []BotDefenseAppInfrastructureDataCenterHostedEgressModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, BotDefenseAppInfrastructureDataCenterHostedEgressModel{
+				if !isImport && data.DataCenterHosted != nil && len(data.DataCenterHosted.Egress) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["egress"].([]interface{}); ok && len(rawList) > 0 {
+					var EgressResult []BotDefenseAppInfrastructureDataCenterHostedEgressModel
+					for _, EgressItem := range rawList {
+						if EgressItemMap, ok := EgressItem.(map[string]interface{}); ok {
+							EgressResult = append(EgressResult, BotDefenseAppInfrastructureDataCenterHostedEgressModel{
 								IPAddress: func() types.String {
-									if v, ok := itemMap["ip_address"].(string); ok && v != "" {
+									if v, ok := EgressItemMap["ip_address"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Location: func() types.String {
-									if v, ok := itemMap["location"].(string); ok && v != "" {
+									if v, ok := EgressItemMap["location"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -662,7 +671,7 @@ func (r *BotDefenseAppInfrastructureResource) Create(ctx context.Context, req re
 							})
 						}
 					}
-					return result
+					return EgressResult
 				}
 				return nil
 			}(),
@@ -673,25 +682,28 @@ func (r *BotDefenseAppInfrastructureResource) Create(ctx context.Context, req re
 				return types.StringNull()
 			}(),
 			Ingress: func() []BotDefenseAppInfrastructureDataCenterHostedIngressModel {
-				if listData, ok := blockData["ingress"].([]interface{}); ok && len(listData) > 0 {
-					var result []BotDefenseAppInfrastructureDataCenterHostedIngressModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, BotDefenseAppInfrastructureDataCenterHostedIngressModel{
+				if !isImport && data.DataCenterHosted != nil && len(data.DataCenterHosted.Ingress) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["ingress"].([]interface{}); ok && len(rawList) > 0 {
+					var IngressResult []BotDefenseAppInfrastructureDataCenterHostedIngressModel
+					for _, IngressItem := range rawList {
+						if IngressItemMap, ok := IngressItem.(map[string]interface{}); ok {
+							IngressResult = append(IngressResult, BotDefenseAppInfrastructureDataCenterHostedIngressModel{
 								HostName: func() types.String {
-									if v, ok := itemMap["host_name"].(string); ok && v != "" {
+									if v, ok := IngressItemMap["host_name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								IPAddress: func() types.String {
-									if v, ok := itemMap["ip_address"].(string); ok && v != "" {
+									if v, ok := IngressItemMap["ip_address"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Location: func() types.String {
-									if v, ok := itemMap["location"].(string); ok && v != "" {
+									if v, ok := IngressItemMap["location"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -699,7 +711,7 @@ func (r *BotDefenseAppInfrastructureResource) Create(ctx context.Context, req re
 							})
 						}
 					}
-					return result
+					return IngressResult
 				}
 				return nil
 			}(),
@@ -804,19 +816,22 @@ func (r *BotDefenseAppInfrastructureResource) Read(ctx context.Context, req reso
 	if blockData, ok := apiResource.Spec["cloud_hosted"].(map[string]interface{}); ok && (isImport || data.CloudHosted != nil) {
 		data.CloudHosted = &BotDefenseAppInfrastructureCloudHostedModel{
 			Egress: func() []BotDefenseAppInfrastructureCloudHostedEgressModel {
-				if listData, ok := blockData["egress"].([]interface{}); ok && len(listData) > 0 {
-					var result []BotDefenseAppInfrastructureCloudHostedEgressModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, BotDefenseAppInfrastructureCloudHostedEgressModel{
+				if !isImport && data.CloudHosted != nil && len(data.CloudHosted.Egress) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["egress"].([]interface{}); ok && len(rawList) > 0 {
+					var EgressResult []BotDefenseAppInfrastructureCloudHostedEgressModel
+					for _, EgressItem := range rawList {
+						if EgressItemMap, ok := EgressItem.(map[string]interface{}); ok {
+							EgressResult = append(EgressResult, BotDefenseAppInfrastructureCloudHostedEgressModel{
 								IPAddress: func() types.String {
-									if v, ok := itemMap["ip_address"].(string); ok && v != "" {
+									if v, ok := EgressItemMap["ip_address"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Location: func() types.String {
-									if v, ok := itemMap["location"].(string); ok && v != "" {
+									if v, ok := EgressItemMap["location"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -824,7 +839,7 @@ func (r *BotDefenseAppInfrastructureResource) Read(ctx context.Context, req reso
 							})
 						}
 					}
-					return result
+					return EgressResult
 				}
 				return nil
 			}(),
@@ -835,25 +850,28 @@ func (r *BotDefenseAppInfrastructureResource) Read(ctx context.Context, req reso
 				return types.StringNull()
 			}(),
 			Ingress: func() []BotDefenseAppInfrastructureCloudHostedIngressModel {
-				if listData, ok := blockData["ingress"].([]interface{}); ok && len(listData) > 0 {
-					var result []BotDefenseAppInfrastructureCloudHostedIngressModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, BotDefenseAppInfrastructureCloudHostedIngressModel{
+				if !isImport && data.CloudHosted != nil && len(data.CloudHosted.Ingress) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["ingress"].([]interface{}); ok && len(rawList) > 0 {
+					var IngressResult []BotDefenseAppInfrastructureCloudHostedIngressModel
+					for _, IngressItem := range rawList {
+						if IngressItemMap, ok := IngressItem.(map[string]interface{}); ok {
+							IngressResult = append(IngressResult, BotDefenseAppInfrastructureCloudHostedIngressModel{
 								HostName: func() types.String {
-									if v, ok := itemMap["host_name"].(string); ok && v != "" {
+									if v, ok := IngressItemMap["host_name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								IPAddress: func() types.String {
-									if v, ok := itemMap["ip_address"].(string); ok && v != "" {
+									if v, ok := IngressItemMap["ip_address"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Location: func() types.String {
-									if v, ok := itemMap["location"].(string); ok && v != "" {
+									if v, ok := IngressItemMap["location"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -861,7 +879,7 @@ func (r *BotDefenseAppInfrastructureResource) Read(ctx context.Context, req reso
 							})
 						}
 					}
-					return result
+					return IngressResult
 				}
 				return nil
 			}(),
@@ -876,19 +894,22 @@ func (r *BotDefenseAppInfrastructureResource) Read(ctx context.Context, req reso
 	if blockData, ok := apiResource.Spec["data_center_hosted"].(map[string]interface{}); ok && (isImport || data.DataCenterHosted != nil) {
 		data.DataCenterHosted = &BotDefenseAppInfrastructureDataCenterHostedModel{
 			Egress: func() []BotDefenseAppInfrastructureDataCenterHostedEgressModel {
-				if listData, ok := blockData["egress"].([]interface{}); ok && len(listData) > 0 {
-					var result []BotDefenseAppInfrastructureDataCenterHostedEgressModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, BotDefenseAppInfrastructureDataCenterHostedEgressModel{
+				if !isImport && data.DataCenterHosted != nil && len(data.DataCenterHosted.Egress) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["egress"].([]interface{}); ok && len(rawList) > 0 {
+					var EgressResult []BotDefenseAppInfrastructureDataCenterHostedEgressModel
+					for _, EgressItem := range rawList {
+						if EgressItemMap, ok := EgressItem.(map[string]interface{}); ok {
+							EgressResult = append(EgressResult, BotDefenseAppInfrastructureDataCenterHostedEgressModel{
 								IPAddress: func() types.String {
-									if v, ok := itemMap["ip_address"].(string); ok && v != "" {
+									if v, ok := EgressItemMap["ip_address"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Location: func() types.String {
-									if v, ok := itemMap["location"].(string); ok && v != "" {
+									if v, ok := EgressItemMap["location"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -896,7 +917,7 @@ func (r *BotDefenseAppInfrastructureResource) Read(ctx context.Context, req reso
 							})
 						}
 					}
-					return result
+					return EgressResult
 				}
 				return nil
 			}(),
@@ -907,25 +928,28 @@ func (r *BotDefenseAppInfrastructureResource) Read(ctx context.Context, req reso
 				return types.StringNull()
 			}(),
 			Ingress: func() []BotDefenseAppInfrastructureDataCenterHostedIngressModel {
-				if listData, ok := blockData["ingress"].([]interface{}); ok && len(listData) > 0 {
-					var result []BotDefenseAppInfrastructureDataCenterHostedIngressModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, BotDefenseAppInfrastructureDataCenterHostedIngressModel{
+				if !isImport && data.DataCenterHosted != nil && len(data.DataCenterHosted.Ingress) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["ingress"].([]interface{}); ok && len(rawList) > 0 {
+					var IngressResult []BotDefenseAppInfrastructureDataCenterHostedIngressModel
+					for _, IngressItem := range rawList {
+						if IngressItemMap, ok := IngressItem.(map[string]interface{}); ok {
+							IngressResult = append(IngressResult, BotDefenseAppInfrastructureDataCenterHostedIngressModel{
 								HostName: func() types.String {
-									if v, ok := itemMap["host_name"].(string); ok && v != "" {
+									if v, ok := IngressItemMap["host_name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								IPAddress: func() types.String {
-									if v, ok := itemMap["ip_address"].(string); ok && v != "" {
+									if v, ok := IngressItemMap["ip_address"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Location: func() types.String {
-									if v, ok := itemMap["location"].(string); ok && v != "" {
+									if v, ok := IngressItemMap["location"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -933,7 +957,7 @@ func (r *BotDefenseAppInfrastructureResource) Read(ctx context.Context, req reso
 							})
 						}
 					}
-					return result
+					return IngressResult
 				}
 				return nil
 			}(),
@@ -954,6 +978,14 @@ func (r *BotDefenseAppInfrastructureResource) Read(ctx context.Context, req reso
 		data.TrafficType = types.StringValue(v)
 	} else {
 		data.TrafficType = types.StringNull()
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -1007,86 +1039,86 @@ func (r *BotDefenseAppInfrastructureResource) Update(ctx context.Context, req re
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.CloudHosted != nil {
-		cloud_hostedMap := make(map[string]interface{})
+		CloudHostedMap := make(map[string]interface{})
 		if len(data.CloudHosted.Egress) > 0 {
-			var egressList []map[string]interface{}
-			for _, listItem := range data.CloudHosted.Egress {
-				listItemMap := make(map[string]interface{})
-				if !listItem.IPAddress.IsNull() && !listItem.IPAddress.IsUnknown() {
-					listItemMap["ip_address"] = listItem.IPAddress.ValueString()
+			var EgressList []map[string]interface{}
+			for _, EgressItem := range data.CloudHosted.Egress {
+				EgressItemMap := make(map[string]interface{})
+				if !EgressItem.IPAddress.IsNull() && !EgressItem.IPAddress.IsUnknown() {
+					EgressItemMap["ip_address"] = EgressItem.IPAddress.ValueString()
 				}
-				if !listItem.Location.IsNull() && !listItem.Location.IsUnknown() {
-					listItemMap["location"] = listItem.Location.ValueString()
+				if !EgressItem.Location.IsNull() && !EgressItem.Location.IsUnknown() {
+					EgressItemMap["location"] = EgressItem.Location.ValueString()
 				}
-				egressList = append(egressList, listItemMap)
+				EgressList = append(EgressList, EgressItemMap)
 			}
-			cloud_hostedMap["egress"] = egressList
+			CloudHostedMap["egress"] = EgressList
 		}
 		if !data.CloudHosted.InfraHostName.IsNull() && !data.CloudHosted.InfraHostName.IsUnknown() {
-			cloud_hostedMap["infra_host_name"] = data.CloudHosted.InfraHostName.ValueString()
+			CloudHostedMap["infra_host_name"] = data.CloudHosted.InfraHostName.ValueString()
 		}
 		if len(data.CloudHosted.Ingress) > 0 {
-			var ingressList []map[string]interface{}
-			for _, listItem := range data.CloudHosted.Ingress {
-				listItemMap := make(map[string]interface{})
-				if !listItem.HostName.IsNull() && !listItem.HostName.IsUnknown() {
-					listItemMap["host_name"] = listItem.HostName.ValueString()
+			var IngressList []map[string]interface{}
+			for _, IngressItem := range data.CloudHosted.Ingress {
+				IngressItemMap := make(map[string]interface{})
+				if !IngressItem.HostName.IsNull() && !IngressItem.HostName.IsUnknown() {
+					IngressItemMap["host_name"] = IngressItem.HostName.ValueString()
 				}
-				if !listItem.IPAddress.IsNull() && !listItem.IPAddress.IsUnknown() {
-					listItemMap["ip_address"] = listItem.IPAddress.ValueString()
+				if !IngressItem.IPAddress.IsNull() && !IngressItem.IPAddress.IsUnknown() {
+					IngressItemMap["ip_address"] = IngressItem.IPAddress.ValueString()
 				}
-				if !listItem.Location.IsNull() && !listItem.Location.IsUnknown() {
-					listItemMap["location"] = listItem.Location.ValueString()
+				if !IngressItem.Location.IsNull() && !IngressItem.Location.IsUnknown() {
+					IngressItemMap["location"] = IngressItem.Location.ValueString()
 				}
-				ingressList = append(ingressList, listItemMap)
+				IngressList = append(IngressList, IngressItemMap)
 			}
-			cloud_hostedMap["ingress"] = ingressList
+			CloudHostedMap["ingress"] = IngressList
 		}
 		if !data.CloudHosted.Region.IsNull() && !data.CloudHosted.Region.IsUnknown() {
-			cloud_hostedMap["region"] = data.CloudHosted.Region.ValueString()
+			CloudHostedMap["region"] = data.CloudHosted.Region.ValueString()
 		}
-		apiResource.Spec["cloud_hosted"] = cloud_hostedMap
+		apiResource.Spec["cloud_hosted"] = CloudHostedMap
 	}
 	if data.DataCenterHosted != nil {
-		data_center_hostedMap := make(map[string]interface{})
+		DataCenterHostedMap := make(map[string]interface{})
 		if len(data.DataCenterHosted.Egress) > 0 {
-			var egressList []map[string]interface{}
-			for _, listItem := range data.DataCenterHosted.Egress {
-				listItemMap := make(map[string]interface{})
-				if !listItem.IPAddress.IsNull() && !listItem.IPAddress.IsUnknown() {
-					listItemMap["ip_address"] = listItem.IPAddress.ValueString()
+			var EgressList []map[string]interface{}
+			for _, EgressItem := range data.DataCenterHosted.Egress {
+				EgressItemMap := make(map[string]interface{})
+				if !EgressItem.IPAddress.IsNull() && !EgressItem.IPAddress.IsUnknown() {
+					EgressItemMap["ip_address"] = EgressItem.IPAddress.ValueString()
 				}
-				if !listItem.Location.IsNull() && !listItem.Location.IsUnknown() {
-					listItemMap["location"] = listItem.Location.ValueString()
+				if !EgressItem.Location.IsNull() && !EgressItem.Location.IsUnknown() {
+					EgressItemMap["location"] = EgressItem.Location.ValueString()
 				}
-				egressList = append(egressList, listItemMap)
+				EgressList = append(EgressList, EgressItemMap)
 			}
-			data_center_hostedMap["egress"] = egressList
+			DataCenterHostedMap["egress"] = EgressList
 		}
 		if !data.DataCenterHosted.InfraHostName.IsNull() && !data.DataCenterHosted.InfraHostName.IsUnknown() {
-			data_center_hostedMap["infra_host_name"] = data.DataCenterHosted.InfraHostName.ValueString()
+			DataCenterHostedMap["infra_host_name"] = data.DataCenterHosted.InfraHostName.ValueString()
 		}
 		if len(data.DataCenterHosted.Ingress) > 0 {
-			var ingressList []map[string]interface{}
-			for _, listItem := range data.DataCenterHosted.Ingress {
-				listItemMap := make(map[string]interface{})
-				if !listItem.HostName.IsNull() && !listItem.HostName.IsUnknown() {
-					listItemMap["host_name"] = listItem.HostName.ValueString()
+			var IngressList []map[string]interface{}
+			for _, IngressItem := range data.DataCenterHosted.Ingress {
+				IngressItemMap := make(map[string]interface{})
+				if !IngressItem.HostName.IsNull() && !IngressItem.HostName.IsUnknown() {
+					IngressItemMap["host_name"] = IngressItem.HostName.ValueString()
 				}
-				if !listItem.IPAddress.IsNull() && !listItem.IPAddress.IsUnknown() {
-					listItemMap["ip_address"] = listItem.IPAddress.ValueString()
+				if !IngressItem.IPAddress.IsNull() && !IngressItem.IPAddress.IsUnknown() {
+					IngressItemMap["ip_address"] = IngressItem.IPAddress.ValueString()
 				}
-				if !listItem.Location.IsNull() && !listItem.Location.IsUnknown() {
-					listItemMap["location"] = listItem.Location.ValueString()
+				if !IngressItem.Location.IsNull() && !IngressItem.Location.IsUnknown() {
+					IngressItemMap["location"] = IngressItem.Location.ValueString()
 				}
-				ingressList = append(ingressList, listItemMap)
+				IngressList = append(IngressList, IngressItemMap)
 			}
-			data_center_hostedMap["ingress"] = ingressList
+			DataCenterHostedMap["ingress"] = IngressList
 		}
 		if !data.DataCenterHosted.Region.IsNull() && !data.DataCenterHosted.Region.IsUnknown() {
-			data_center_hostedMap["region"] = data.DataCenterHosted.Region.ValueString()
+			DataCenterHostedMap["region"] = data.DataCenterHosted.Region.ValueString()
 		}
-		apiResource.Spec["data_center_hosted"] = data_center_hostedMap
+		apiResource.Spec["data_center_hosted"] = DataCenterHostedMap
 	}
 	if !data.EnvironmentType.IsNull() && !data.EnvironmentType.IsUnknown() {
 		apiResource.Spec["environment_type"] = data.EnvironmentType.ValueString()
@@ -1121,19 +1153,22 @@ func (r *BotDefenseAppInfrastructureResource) Update(ctx context.Context, req re
 	if blockData, ok := apiResource.Spec["cloud_hosted"].(map[string]interface{}); ok && (isImport || data.CloudHosted != nil) {
 		data.CloudHosted = &BotDefenseAppInfrastructureCloudHostedModel{
 			Egress: func() []BotDefenseAppInfrastructureCloudHostedEgressModel {
-				if listData, ok := blockData["egress"].([]interface{}); ok && len(listData) > 0 {
-					var result []BotDefenseAppInfrastructureCloudHostedEgressModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, BotDefenseAppInfrastructureCloudHostedEgressModel{
+				if !isImport && data.CloudHosted != nil && len(data.CloudHosted.Egress) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["egress"].([]interface{}); ok && len(rawList) > 0 {
+					var EgressResult []BotDefenseAppInfrastructureCloudHostedEgressModel
+					for _, EgressItem := range rawList {
+						if EgressItemMap, ok := EgressItem.(map[string]interface{}); ok {
+							EgressResult = append(EgressResult, BotDefenseAppInfrastructureCloudHostedEgressModel{
 								IPAddress: func() types.String {
-									if v, ok := itemMap["ip_address"].(string); ok && v != "" {
+									if v, ok := EgressItemMap["ip_address"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Location: func() types.String {
-									if v, ok := itemMap["location"].(string); ok && v != "" {
+									if v, ok := EgressItemMap["location"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -1141,7 +1176,7 @@ func (r *BotDefenseAppInfrastructureResource) Update(ctx context.Context, req re
 							})
 						}
 					}
-					return result
+					return EgressResult
 				}
 				return nil
 			}(),
@@ -1152,25 +1187,28 @@ func (r *BotDefenseAppInfrastructureResource) Update(ctx context.Context, req re
 				return types.StringNull()
 			}(),
 			Ingress: func() []BotDefenseAppInfrastructureCloudHostedIngressModel {
-				if listData, ok := blockData["ingress"].([]interface{}); ok && len(listData) > 0 {
-					var result []BotDefenseAppInfrastructureCloudHostedIngressModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, BotDefenseAppInfrastructureCloudHostedIngressModel{
+				if !isImport && data.CloudHosted != nil && len(data.CloudHosted.Ingress) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["ingress"].([]interface{}); ok && len(rawList) > 0 {
+					var IngressResult []BotDefenseAppInfrastructureCloudHostedIngressModel
+					for _, IngressItem := range rawList {
+						if IngressItemMap, ok := IngressItem.(map[string]interface{}); ok {
+							IngressResult = append(IngressResult, BotDefenseAppInfrastructureCloudHostedIngressModel{
 								HostName: func() types.String {
-									if v, ok := itemMap["host_name"].(string); ok && v != "" {
+									if v, ok := IngressItemMap["host_name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								IPAddress: func() types.String {
-									if v, ok := itemMap["ip_address"].(string); ok && v != "" {
+									if v, ok := IngressItemMap["ip_address"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Location: func() types.String {
-									if v, ok := itemMap["location"].(string); ok && v != "" {
+									if v, ok := IngressItemMap["location"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -1178,7 +1216,7 @@ func (r *BotDefenseAppInfrastructureResource) Update(ctx context.Context, req re
 							})
 						}
 					}
-					return result
+					return IngressResult
 				}
 				return nil
 			}(),
@@ -1193,19 +1231,22 @@ func (r *BotDefenseAppInfrastructureResource) Update(ctx context.Context, req re
 	if blockData, ok := apiResource.Spec["data_center_hosted"].(map[string]interface{}); ok && (isImport || data.DataCenterHosted != nil) {
 		data.DataCenterHosted = &BotDefenseAppInfrastructureDataCenterHostedModel{
 			Egress: func() []BotDefenseAppInfrastructureDataCenterHostedEgressModel {
-				if listData, ok := blockData["egress"].([]interface{}); ok && len(listData) > 0 {
-					var result []BotDefenseAppInfrastructureDataCenterHostedEgressModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, BotDefenseAppInfrastructureDataCenterHostedEgressModel{
+				if !isImport && data.DataCenterHosted != nil && len(data.DataCenterHosted.Egress) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["egress"].([]interface{}); ok && len(rawList) > 0 {
+					var EgressResult []BotDefenseAppInfrastructureDataCenterHostedEgressModel
+					for _, EgressItem := range rawList {
+						if EgressItemMap, ok := EgressItem.(map[string]interface{}); ok {
+							EgressResult = append(EgressResult, BotDefenseAppInfrastructureDataCenterHostedEgressModel{
 								IPAddress: func() types.String {
-									if v, ok := itemMap["ip_address"].(string); ok && v != "" {
+									if v, ok := EgressItemMap["ip_address"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Location: func() types.String {
-									if v, ok := itemMap["location"].(string); ok && v != "" {
+									if v, ok := EgressItemMap["location"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -1213,7 +1254,7 @@ func (r *BotDefenseAppInfrastructureResource) Update(ctx context.Context, req re
 							})
 						}
 					}
-					return result
+					return EgressResult
 				}
 				return nil
 			}(),
@@ -1224,25 +1265,28 @@ func (r *BotDefenseAppInfrastructureResource) Update(ctx context.Context, req re
 				return types.StringNull()
 			}(),
 			Ingress: func() []BotDefenseAppInfrastructureDataCenterHostedIngressModel {
-				if listData, ok := blockData["ingress"].([]interface{}); ok && len(listData) > 0 {
-					var result []BotDefenseAppInfrastructureDataCenterHostedIngressModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, BotDefenseAppInfrastructureDataCenterHostedIngressModel{
+				if !isImport && data.DataCenterHosted != nil && len(data.DataCenterHosted.Ingress) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["ingress"].([]interface{}); ok && len(rawList) > 0 {
+					var IngressResult []BotDefenseAppInfrastructureDataCenterHostedIngressModel
+					for _, IngressItem := range rawList {
+						if IngressItemMap, ok := IngressItem.(map[string]interface{}); ok {
+							IngressResult = append(IngressResult, BotDefenseAppInfrastructureDataCenterHostedIngressModel{
 								HostName: func() types.String {
-									if v, ok := itemMap["host_name"].(string); ok && v != "" {
+									if v, ok := IngressItemMap["host_name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								IPAddress: func() types.String {
-									if v, ok := itemMap["ip_address"].(string); ok && v != "" {
+									if v, ok := IngressItemMap["ip_address"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Location: func() types.String {
-									if v, ok := itemMap["location"].(string); ok && v != "" {
+									if v, ok := IngressItemMap["location"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -1250,7 +1294,7 @@ func (r *BotDefenseAppInfrastructureResource) Update(ctx context.Context, req re
 							})
 						}
 					}
-					return result
+					return IngressResult
 				}
 				return nil
 			}(),

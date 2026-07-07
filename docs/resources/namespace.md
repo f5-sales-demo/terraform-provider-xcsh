@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_namespace Resource - terraform-provider-f5xc"
+page_title: "xcsh_namespace Resource - xcsh"
 subcategory: "Organization"
 description: |-
   Manages new namespace. Name of the object is name of the namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_namespace (Resource)
+# xcsh_namespace (Resource)
 
 Manages new namespace. Name of the object is name of the namespace. in F5 Distributed Cloud.
 
@@ -15,35 +15,23 @@ Manages new namespace. Name of the object is name of the namespace. in F5 Distri
 
 ```terraform
 # Namespace Resource Example
-# Manages new namespace. Name of the object is name of the namespace. in F5 Distributed Cloud.
+# Manages new namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
 # Basic Namespace configuration
-resource "f5xc_namespace" "example" {
+resource "xcsh_namespace" "example" {
   name      = "example-namespace"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Namespace configuration
-  description = "Example namespace for application workloads"
 }
 ```
 
@@ -179,5 +167,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_namespace.example system/example
+terraform import xcsh_namespace.example system/example
 ```

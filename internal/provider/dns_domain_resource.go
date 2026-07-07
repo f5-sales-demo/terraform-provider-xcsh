@@ -14,14 +14,15 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -77,13 +78,16 @@ func (r *DNSDomainResource) Schema(ctx context.Context, req resource.SchemaReque
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the DNS Domain will be created.",
-				Required:            true,
+				MarkdownDescription: "Namespace for the DNS Domain. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
+				Optional:            true,
+				Computed:            true,
+				Default:             stringdefault.StaticString("system"),
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
+					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
@@ -236,8 +240,7 @@ func (r *DNSDomainResource) Create(ctx context.Context, req resource.CreateReque
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.VolterraManaged != nil {
-		volterra_managedMap := make(map[string]interface{})
-		createReq.Spec["volterra_managed"] = volterra_managedMap
+		createReq.Spec["volterra_managed"] = map[string]interface{}{}
 	}
 	if !data.DnssecMode.IsNull() && !data.DnssecMode.IsUnknown() {
 		createReq.Spec["dnssec_mode"] = data.DnssecMode.ValueString()
@@ -256,10 +259,8 @@ func (r *DNSDomainResource) Create(ctx context.Context, req resource.CreateReque
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["volterra_managed"].(map[string]interface{}); ok && isImport && data.VolterraManaged == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.VolterraManaged = &DNSDomainEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["dnssec_mode"].(string); ok && v != "" {
 		data.DnssecMode = types.StringValue(v)
 	} else {
@@ -346,14 +347,20 @@ func (r *DNSDomainResource) Read(ctx context.Context, req resource.ReadRequest, 
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["volterra_managed"].(map[string]interface{}); ok && isImport && data.VolterraManaged == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.VolterraManaged = &DNSDomainEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["dnssec_mode"].(string); ok && v != "" {
 		data.DnssecMode = types.StringValue(v)
 	} else {
 		data.DnssecMode = types.StringNull()
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -407,8 +414,7 @@ func (r *DNSDomainResource) Update(ctx context.Context, req resource.UpdateReque
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.VolterraManaged != nil {
-		volterra_managedMap := make(map[string]interface{})
-		apiResource.Spec["volterra_managed"] = volterra_managedMap
+		apiResource.Spec["volterra_managed"] = map[string]interface{}{}
 	}
 	if !data.DnssecMode.IsNull() && !data.DnssecMode.IsUnknown() {
 		apiResource.Spec["dnssec_mode"] = data.DnssecMode.ValueString()
@@ -438,10 +444,8 @@ func (r *DNSDomainResource) Update(ctx context.Context, req resource.UpdateReque
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["volterra_managed"].(map[string]interface{}); ok && isImport && data.VolterraManaged == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.VolterraManaged = &DNSDomainEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["dnssec_mode"].(string); ok && v != "" {
 		data.DnssecMode = types.StringValue(v)
 	} else {

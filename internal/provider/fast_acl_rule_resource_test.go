@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/acctest"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/acctest"
 )
 
 func TestAccFastACLRuleResource_basic(t *testing.T) {
@@ -18,12 +18,12 @@ func TestAccFastACLRuleResource_basic(t *testing.T) {
 
 	rName := acctest.RandomName("tf-acc-test-faclr")
 	nsName := acctest.RandomName("tf-acc-test-ns")
-	resourceName := "f5xc_fast_acl_rule.test"
+	resourceName := "xcsh_fast_acl_rule.test"
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy:             acctest.CheckResourceDestroyed("f5xc_fast_acl_rule"),
+		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_fast_acl_rule"),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccFastACLRuleConfig_basic(nsName, rName),
@@ -63,7 +63,7 @@ func testAccFastACLRuleConfig_basic(nsName, name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "f5xc_fast_acl_rule" "test" {
+resource "xcsh_fast_acl_rule" "test" {
   name      = %[1]q
   namespace = "system"
 

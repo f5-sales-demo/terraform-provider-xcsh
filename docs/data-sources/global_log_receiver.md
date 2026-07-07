@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_global_log_receiver Data Source - terraform-provider-f5xc"
+page_title: "xcsh_global_log_receiver Data Source - xcsh"
 subcategory: "Monitoring"
 description: |-
   Retrieves information about an existing Global Log Receiver object. in F5 Distributed Cloud.
 ---
 
-# f5xc_global_log_receiver (Data Source)
+# xcsh_global_log_receiver (Data Source)
 
 Retrieves information about new Global Log Receiver object. in F5 Distributed Cloud. This is a read-only data source.
 
@@ -14,28 +14,23 @@ Retrieves information about new Global Log Receiver object. in F5 Distributed Cl
 ## Example Usage
 
 ```terraform
-# Global Log Receiver Data Source Example
-# Retrieves information about an existing Global Log Receiver
+# GlobalLogReceiver Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Global Log Receiver by name
-data "f5xc_global_log_receiver" "example" {
+# Look up an existing GlobalLogReceiver by name
+data "xcsh_global_log_receiver" "example" {
   name      = "example-global-log-receiver"
   namespace = "staging"
-}
-
-output "global_log_receiver_id" {
-  value = data.f5xc_global_log_receiver.example.id
 }
 ```
 

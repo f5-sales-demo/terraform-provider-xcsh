@@ -1,4 +1,4 @@
-# f5xc_log_receiver
+# xcsh_log_receiver
 
 Category: Monitoring
 New Log Receiver object
@@ -6,34 +6,13 @@ New Log Receiver object
 ## Required
 
 - name
-- namespace
 
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_log_receiver" "example" {
+resource "xcsh_log_receiver" "example" {
   name      = "example-log-receiver"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  http_receiver {
-    uri = "`https://logs.example.com/ingest"`
-    batch {
-      max_bytes       = 1048576
-      max_events      = 100
-      timeout_seconds = 5
-    }
-    no_tls_verify_hostname {}
-    no_compression {}
-  }
+  namespace = "system"
 }
 ```
 

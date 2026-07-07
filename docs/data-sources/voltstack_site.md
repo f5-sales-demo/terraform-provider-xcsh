@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_voltstack_site Data Source - terraform-provider-f5xc"
+page_title: "xcsh_voltstack_site Data Source - xcsh"
 subcategory: "Sites"
 description: |-
   Retrieves information about an existing Voltstack Site resource in F5 Distributed Cloud for deploying Volterra stack sites for edge computing.
 ---
 
-# f5xc_voltstack_site (Data Source)
+# xcsh_voltstack_site (Data Source)
 
 Retrieves information about a Voltstack Site resource in F5 Distributed Cloud for deploying Volterra stack sites for edge computing. This is a read-only data source.
 
@@ -14,28 +14,23 @@ Retrieves information about a Voltstack Site resource in F5 Distributed Cloud fo
 ## Example Usage
 
 ```terraform
-# Voltstack Site Data Source Example
-# Retrieves information about an existing Voltstack Site
+# VoltstackSite Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Voltstack Site by name
-data "f5xc_voltstack_site" "example" {
+# Look up an existing VoltstackSite by name
+data "xcsh_voltstack_site" "example" {
   name      = "example-voltstack-site"
   namespace = "staging"
-}
-
-output "voltstack_site_id" {
-  value = data.f5xc_voltstack_site.example.id
 }
 ```
 

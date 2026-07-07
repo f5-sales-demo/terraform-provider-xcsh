@@ -1,41 +1,36 @@
 ---
-page_title: "f5xc_tcp_loadbalancer Data Source - terraform-provider-f5xc"
+page_title: "xcsh_tcp_loadbalancer Data Source - xcsh"
 subcategory: "Load Balancing"
 description: |-
   Retrieves information about an existing TCP Load Balancer resource in F5 Distributed Cloud for load balancing TCP traffic across origin pools.
 ---
 
-# f5xc_tcp_loadbalancer (Data Source)
+# xcsh_tcp_loadbalancer (Data Source)
 
 Retrieves information about a TCP Load Balancer resource in F5 Distributed Cloud for load balancing TCP traffic across origin pools. This is a read-only data source.
 
-~> **Note** Please refer to [TCP Loadbalancer API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/virtual/) to learn more.
+~> **Note** Please refer to [TCP Loadbalancer API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/virtual/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# TCP Loadbalancer Data Source Example
-# Retrieves information about an existing TCP Loadbalancer
+# TCPLoadBalancer Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing TCP Loadbalancer by name
-data "f5xc_tcp_loadbalancer" "example" {
+# Look up an existing TCPLoadBalancer by name
+data "xcsh_tcp_loadbalancer" "example" {
   name      = "example-tcp-loadbalancer"
   namespace = "staging"
-}
-
-output "tcp_loadbalancer_id" {
-  value = data.f5xc_tcp_loadbalancer.example.id
 }
 ```
 

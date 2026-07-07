@@ -51,7 +51,7 @@ jobs:
       github.head_ref != 'openapi-update'
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -67,6 +67,20 @@ jobs:
           if echo "$CHANGED_FILES" | grep -qE "^tools/transform-docs\.go$|^tools/generate-|^templates/"; then
             echo "Generator tools modified - docs/examples changes are allowed"
             GENERATOR_TOOLS_MODIFIED=true
+          fi
+
+          # Check if module path changed (rename scenario) - allows generated Go files
+          # Only when the module directive itself changed (not just dependency updates)
+          MODULE_RENAMED=false
+          OLD_MODULE=""
+          NEW_MODULE=""
+          if echo "$CHANGED_FILES" | grep -qE "^go\.mod$"; then
+            OLD_MODULE=$(git show "origin/${{ github.base_ref }}:go.mod" 2>/dev/null | grep '^module ' | awk '{print $2}')
+            NEW_MODULE=$(grep '^module ' go.mod | awk '{print $2}')
+            if [ -n "$OLD_MODULE" ] && [ -n "$NEW_MODULE" ] && [ "$OLD_MODULE" != "$NEW_MODULE" ]; then
+              echo "Module path renamed: $OLD_MODULE -> $NEW_MODULE"
+              MODULE_RENAMED=true
+            fi
           fi
 
           # Define patterns for generated files
@@ -148,6 +162,14 @@ jobs:
                     continue
                   fi
                 fi
+                # Module rename: allow generated .go files only if their diff
+                # contains the old→new import path substitution
+                if [ "$MODULE_RENAMED" = true ] && echo "$file" | grep -qE "\.go$"; then
+                  CHANGED_LINES=$(git diff "origin/${{ github.base_ref }}" -- "$file" 2>/dev/null | grep -E '^[+-]' | grep -v '^[+-][+-][+-]')
+                  if echo "$CHANGED_LINES" | grep -qF "\"$OLD_MODULE" && echo "$CHANGED_LINES" | grep -qF "\"$NEW_MODULE"; then
+                    continue
+                  fi
+                fi
                 VIOLATIONS="$VIOLATIONS\n  - $file"
                 break
               fi
@@ -187,7 +209,7 @@ jobs:
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -224,7 +246,7 @@ jobs:
           attempt=1
           while [ "$attempt" -le "$max_attempts" ]; do
             echo "::group::Install tfplugindocs - Attempt $attempt of $max_attempts"
-            if go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.24.0; then
+            if GOTOOLCHAIN=auto go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@latest; then
               echo "::endgroup::"
               break
             fi
@@ -254,8 +276,8 @@ jobs:
           max_attempts=3
           attempt=1
           while [ "$attempt" -le "$max_attempts" ]; do
-            echo "::group::tfplugindocs generate - Attempt $attempt of $max_attempts"
-            if tfplugindocs generate; then
+            echo "::group::tfplugindocs generate --provider-name xcsh - Attempt $attempt of $max_attempts"
+            if tfplugindocs generate --provider-name xcsh; then
               echo "::endgroup::"
               break
             fi
@@ -287,7 +309,7 @@ jobs:
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Check if mock fixture regeneration needed
         id: check
@@ -362,7 +384,7 @@ jobs:
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -402,7 +424,7 @@ jobs:
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 

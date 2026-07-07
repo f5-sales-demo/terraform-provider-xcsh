@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_protocol_policer Resource - terraform-provider-f5xc"
+page_title: "xcsh_protocol_policer Resource - xcsh"
 subcategory: "Security"
 description: |-
   Manages protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits. in F5 Distributed Cloud.
 ---
 
-# f5xc_protocol_policer (Resource)
+# xcsh_protocol_policer (Resource)
 
 Manages protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits. in F5 Distributed Cloud.
 
@@ -14,47 +14,24 @@ Manages protocol_policer object, protocol_policer object contains list of L4 pro
 ## Example Usage
 
 ```terraform
-# Protocol Policer Resource Example
-# Manages protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits. in F5 Distributed Cloud.
+# ProtocolPolicer Resource Example
+# Manages protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Protocol Policer configuration
-resource "f5xc_protocol_policer" "example" {
+# Basic ProtocolPolicer configuration
+resource "xcsh_protocol_policer" "example" {
   name      = "example-protocol-policer"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # List of L4 protocol match condition and associated traffi...
-  protocol_policer {
-    # Configure protocol_policer settings
-  }
-  # Reference to policer object to apply traffic rate limits .
-  policer {
-    # Configure policer settings
-  }
-  # Protocol and protocol specific flags to be matched in pac...
-  protocol {
-    # Configure protocol settings
-  }
 }
 ```
 
@@ -240,5 +217,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_protocol_policer.example system/example
+terraform import xcsh_protocol_policer.example system/example
 ```

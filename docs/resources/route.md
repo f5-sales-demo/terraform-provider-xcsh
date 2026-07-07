@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_route Resource - terraform-provider-f5xc"
+page_title: "xcsh_route Resource - xcsh"
 subcategory: "Load Balancing"
 description: |-
   Manages route object in a given namespace. Route object is list of route rules. Each rule has match condition to match incoming requests and actions to take on matching requests. in F5 Distributed Cloud.
 ---
 
-# f5xc_route (Resource)
+# xcsh_route (Resource)
 
 Manages route object in a given namespace. Route object is list of route rules. Each rule has match condition to match incoming requests and actions to take on matching requests. in F5 Distributed Cloud.
 
@@ -15,50 +15,23 @@ Manages route object in a given namespace. Route object is list of route rules. 
 
 ```terraform
 # Route Resource Example
-# Manages route object in a given namespace. Route object is list of route rules. Each rule has match condition to match incoming requests and actions to take on matching requests. in F5 Distributed Cloud.
+# Manages route object in a given namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
 # Basic Route configuration
-resource "f5xc_route" "example" {
+resource "xcsh_route" "example" {
   name      = "example-route"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Route configuration
-  routes {
-    match {
-      path {
-        prefix = "/api/"
-      }
-    }
-    route_destination {
-      destinations {
-        cluster {
-          name      = "api-cluster"
-          namespace = "staging"
-        }
-        weight = 100
-      }
-    }
-  }
 }
 ```
 
@@ -782,5 +755,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_route.example system/example
+terraform import xcsh_route.example system/example
 ```

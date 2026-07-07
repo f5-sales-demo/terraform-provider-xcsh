@@ -18,9 +18,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -226,12 +226,10 @@ func (r *SegmentResource) Create(ctx context.Context, req resource.CreateRequest
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.DisableSpec != nil {
-		disable_specMap := make(map[string]interface{})
-		createReq.Spec["disable"] = disable_specMap
+		createReq.Spec["disable"] = map[string]interface{}{}
 	}
 	if data.Enable != nil {
-		enableMap := make(map[string]interface{})
-		createReq.Spec["enable"] = enableMap
+		createReq.Spec["enable"] = map[string]interface{}{}
 	}
 
 	apiResource, err := r.client.CreateSegment(ctx, createReq)
@@ -247,15 +245,11 @@ func (r *SegmentResource) Create(ctx context.Context, req resource.CreateRequest
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["disable"].(map[string]interface{}); ok && isImport && data.DisableSpec == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableSpec = &SegmentEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["enable"].(map[string]interface{}); ok && isImport && data.Enable == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.Enable = &SegmentEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 
 	tflog.Trace(ctx, "created Segment resource")
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -337,15 +331,19 @@ func (r *SegmentResource) Read(ctx context.Context, req resource.ReadRequest, re
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["disable"].(map[string]interface{}); ok && isImport && data.DisableSpec == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableSpec = &SegmentEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["enable"].(map[string]interface{}); ok && isImport && data.Enable == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.Enable = &SegmentEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
+	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
@@ -398,12 +396,10 @@ func (r *SegmentResource) Update(ctx context.Context, req resource.UpdateRequest
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.DisableSpec != nil {
-		disable_specMap := make(map[string]interface{})
-		apiResource.Spec["disable"] = disable_specMap
+		apiResource.Spec["disable"] = map[string]interface{}{}
 	}
 	if data.Enable != nil {
-		enableMap := make(map[string]interface{})
-		apiResource.Spec["enable"] = enableMap
+		apiResource.Spec["enable"] = map[string]interface{}{}
 	}
 
 	_, err := r.client.UpdateSegment(ctx, apiResource)
@@ -430,15 +426,11 @@ func (r *SegmentResource) Update(ctx context.Context, req resource.UpdateRequest
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["disable"].(map[string]interface{}); ok && isImport && data.DisableSpec == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableSpec = &SegmentEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["enable"].(map[string]interface{}); ok && isImport && data.Enable == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.Enable = &SegmentEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }

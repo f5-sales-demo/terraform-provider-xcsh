@@ -1,4 +1,4 @@
-# f5xc_aws_vpc_site
+# xcsh_aws_vpc_site
 
 Category: Sites
 Deploying F5 sites within AWS VPC environments
@@ -6,7 +6,6 @@ Deploying F5 sites within AWS VPC environments
 ## Required
 
 - name
-- namespace
 - address
 - aws_region
 - disk_size
@@ -16,53 +15,15 @@ Deploying F5 sites within AWS VPC environments
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_aws_vpc_site" "example" {
+resource "xcsh_aws_vpc_site" "example" {
   name      = "example-aws-vpc-site"
-  namespace = "staging"
+  namespace = "system"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  aws_region = "us-west-2"
-
-  aws_cred {
-    name      = "aws-credentials"
-    namespace = "staging"
-  }
-
-  vpc {
-    new_vpc {
-      name_tag     = "f5xc-vpc"
-      primary_ipv4 = "10.0.0.0/16"
-    }
-  }
-
-  instance_type = "t3.xlarge"
-
-  ingress_egress_gw {
-    aws_certified_hw = "aws-byol-multi-nic-voltmesh"
-    az_nodes {
-      aws_az_name = "us-west-2a"
-      inside_subnet {
-        subnet_param {
-          ipv4 = "10.0.1.0/24"
-        }
-      }
-      outside_subnet {
-        subnet_param {
-          ipv4 = "10.0.2.0/24"
-        }
-      }
-    }
-  }
-
-  no_worker_nodes {}
+  aws_region    = "example-value"
+  instance_type = "example-value"
+  ssh_key       = "example-value"
+  address       = "example-value"
+  disk_size     = 1
 }
 ```
 

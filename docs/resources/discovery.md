@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_discovery Resource - terraform-provider-f5xc"
+page_title: "xcsh_discovery Resource - xcsh"
 subcategory: "Applications"
 description: |-
   Manages a Discovery resource in F5 Distributed Cloud for api to create discovery object for a site or virtual site in system namespace. configuration.
 ---
 
-# f5xc_discovery (Resource)
+# xcsh_discovery (Resource)
 
 Manages a Discovery resource in F5 Distributed Cloud for api to create discovery object for a site or virtual site in system namespace. configuration.
 
@@ -15,58 +15,23 @@ Manages a Discovery resource in F5 Distributed Cloud for api to create discovery
 
 ```terraform
 # Discovery Resource Example
-# Manages a Discovery resource in F5 Distributed Cloud for api to create discovery object for a site or virtual site in system namespace. configuration.
+# Manages a Discovery resource in F5 Distributed Cloud for api to create discovery object for a site or virtual site in system namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
 # Basic Discovery configuration
-resource "f5xc_discovery" "example" {
+resource "xcsh_discovery" "example" {
   name      = "example-discovery"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Discovery configuration
-  discovery_k8s {
-    access_info {
-      kubeconfig_url {
-        clear_secret_info {
-          url = "string:///base64-kubeconfig"
-        }
-      }
-      isolated {}
-    }
-    publish_info {
-      disable {}
-    }
-  }
-
-  # Site selection
-  where {
-    site {
-      ref {
-        name      = "example-site"
-        namespace = "staging"
-      }
-      network_type = "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE"
-    }
-  }
+  namespace = "system"
 }
 ```
 
@@ -81,8 +46,6 @@ resource "f5xc_discovery" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Discovery. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Discovery will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -90,6 +53,8 @@ resource "f5xc_discovery" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Discovery. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -104,7 +69,7 @@ resource "f5xc_discovery" "example" {
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
-<a id="where"></a>&#x2022; [`where`](#where) - Optional Block<br>NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules \* Direct reference to virtual_network object \* Site local network when refering to site object \* All site local<br>See [Where](#where) below for
+<a id="where"></a>&#x2022; [`where`](#where) - Optional Block<br>NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules \* Direct reference to virtual_network object \* Site local network when referring to site object \* All site local<br>See [Where](#where) below for
 details.
 
 ### Attributes Reference
@@ -472,5 +437,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_discovery.example system/example
+terraform import xcsh_discovery.example system/example
 ```

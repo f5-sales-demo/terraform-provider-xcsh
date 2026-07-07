@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_fast_acl_rule Resource - terraform-provider-f5xc"
+page_title: "xcsh_fast_acl_rule Resource - xcsh"
 subcategory: "Security"
 description: |-
   Manages new Fast ACL rule, has specification to match source IP, source port and action to apply. in F5 Distributed Cloud.
 ---
 
-# f5xc_fast_acl_rule (Resource)
+# xcsh_fast_acl_rule (Resource)
 
 Manages new Fast ACL rule, has specification to match source IP, source port and action to apply. in F5 Distributed Cloud.
 
@@ -14,47 +14,24 @@ Manages new Fast ACL rule, has specification to match source IP, source port and
 ## Example Usage
 
 ```terraform
-# Fast ACL Rule Resource Example
-# Manages new Fast ACL rule, has specification to match source IP, source port and action to apply. in F5 Distributed Cloud.
+# FastACLRule Resource Example
+# Manages new Fast ACL rule, has specification to match source IP, source port and action to apply.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Fast ACL Rule configuration
-resource "f5xc_fast_acl_rule" "example" {
+# Basic FastACLRule configuration
+resource "xcsh_fast_acl_rule" "example" {
   name      = "example-fast-acl-rule"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # Source Ports. L4 port numbers to match .
-  port {
-    # Configure port settings
-  }
-  # Enable this option
-  all {
-    # Configure all settings
-  }
-  # Enable this option
-  dns {
-    # Configure dns settings
-  }
+  namespace = "system"
 }
 ```
 
@@ -69,8 +46,6 @@ resource "f5xc_fast_acl_rule" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Fast ACL Rule. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Fast ACL Rule will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -78,6 +53,8 @@ resource "f5xc_fast_acl_rule" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Fast ACL Rule. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -286,5 +263,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_fast_acl_rule.example system/example
+terraform import xcsh_fast_acl_rule.example system/example
 ```

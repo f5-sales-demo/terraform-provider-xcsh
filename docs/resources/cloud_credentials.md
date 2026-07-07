@@ -1,57 +1,37 @@
 ---
-page_title: "f5xc_cloud_credentials Resource - terraform-provider-f5xc"
+page_title: "xcsh_cloud_credentials Resource - xcsh"
 subcategory: "Authentication"
 description: |-
   Manages a Cloud Credentials resource in F5 Distributed Cloud for api to create cloud_credentials object. configuration.
 ---
 
-# f5xc_cloud_credentials (Resource)
+# xcsh_cloud_credentials (Resource)
 
 Manages a Cloud Credentials resource in F5 Distributed Cloud for api to create cloud_credentials object. configuration.
 
-~> **Note** Please refer to [Cloud Credentials API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/cloud_infrastructure/) to learn more.
+~> **Note** Please refer to [Cloud Credentials API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/cloud_infrastructure/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# Cloud Credentials Resource Example
-# Manages a Cloud Credentials resource in F5 Distributed Cloud for api to create cloud_credentials object. configuration.
+# CloudCredentials Resource Example
+# Manages a Cloud Credentials resource in F5 Distributed Cloud for api to create cloud_credentials object.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Cloud Credentials configuration
-resource "f5xc_cloud_credentials" "example" {
+# Basic CloudCredentials configuration
+resource "xcsh_cloud_credentials" "example" {
   name      = "example-cloud-credentials"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Cloud Credentials configuration
-  # AWS credentials example
-  aws_secret_key {
-    access_key = "AKIAIOSFODNN7EXAMPLE"
-    secret_key {
-      clear_secret_info {
-        url = "string:///d0phbmVzc2VjcmV0a2V5"
-      }
-    }
-  }
+  namespace = "system"
 }
 ```
 
@@ -66,8 +46,6 @@ resource "f5xc_cloud_credentials" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Cloud Credentials. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Cloud Credentials will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -75,6 +53,8 @@ resource "f5xc_cloud_credentials" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Cloud Credentials. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -329,5 +309,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_cloud_credentials.example system/example
+terraform import xcsh_cloud_credentials.example system/example
 ```

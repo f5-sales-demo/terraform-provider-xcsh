@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_bgp Resource - terraform-provider-f5xc"
+page_title: "xcsh_bgp Resource - xcsh"
 subcategory: "Networking"
 description: |-
   Manages a BGP resource in F5 Distributed Cloud for bgp object is the configuration for peering with external bgp servers. it is created by users in system namespace. configuration.
 ---
 
-# f5xc_bgp (Resource)
+# xcsh_bgp (Resource)
 
 Manages a BGP resource in F5 Distributed Cloud for bgp object is the configuration for peering with external bgp servers. it is created by users in system namespace. configuration.
 
@@ -15,53 +15,23 @@ Manages a BGP resource in F5 Distributed Cloud for bgp object is the configurati
 
 ```terraform
 # BGP Resource Example
-# Manages a BGP resource in F5 Distributed Cloud for bgp object is the configuration for peering with external bgp servers. it is created by users in system namespace. configuration.
+# Manages a BGP resource in F5 Distributed Cloud for bgp object is the configuration for peering with external bgp servers.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
 # Basic BGP configuration
-resource "f5xc_bgp" "example" {
+resource "xcsh_bgp" "example" {
   name      = "example-bgp"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # BGP configuration
-  bgp_router_id = "192.168.1.1"
-
-  bgp_peers {
-    metadata {
-      name = "upstream-peer"
-    }
-    spec {
-      peer_asn     = 65000
-      peer_address = "192.168.1.2"
-    }
-  }
-
-  local_asn = 65001
-
-  # Site reference
-  site {
-    name      = "example-site"
-    namespace = "staging"
-  }
+  namespace = "system"
 }
 ```
 
@@ -76,8 +46,6 @@ resource "f5xc_bgp" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the BGP. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the BGP will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -85,6 +53,8 @@ resource "f5xc_bgp" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the BGP. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -442,5 +412,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_bgp.example system/example
+terraform import xcsh_bgp.example system/example
 ```

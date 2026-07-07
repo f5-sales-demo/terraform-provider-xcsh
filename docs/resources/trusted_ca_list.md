@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_trusted_ca_list Resource - terraform-provider-f5xc"
+page_title: "xcsh_trusted_ca_list Resource - xcsh"
 subcategory: "Certificates"
 description: |-
   Manages a Trusted CA List resource in F5 Distributed Cloud for trusted certificate authority list management.
 ---
 
-# f5xc_trusted_ca_list (Resource)
+# xcsh_trusted_ca_list (Resource)
 
 Manages a Trusted CA List resource in F5 Distributed Cloud for trusted certificate authority list management.
 
@@ -14,36 +14,26 @@ Manages a Trusted CA List resource in F5 Distributed Cloud for trusted certifica
 ## Example Usage
 
 ```terraform
-# Trusted CA List Resource Example
+# TrustedCAList Resource Example
 # Manages a Trusted CA List resource in F5 Distributed Cloud for trusted certificate authority list management.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Trusted CA List configuration
-resource "f5xc_trusted_ca_list" "example" {
+# Basic TrustedCAList configuration
+resource "xcsh_trusted_ca_list" "example" {
   name      = "example-trusted-ca-list"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Trusted CA List configuration
-  trusted_ca_url = "string:///LS0tLS1CRUdJTi..."
+  trusted_ca_url = "example-value"
 }
 ```
 
@@ -183,5 +173,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_trusted_ca_list.example system/example
+terraform import xcsh_trusted_ca_list.example system/example
 ```

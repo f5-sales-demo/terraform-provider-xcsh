@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_policer Data Source - terraform-provider-f5xc"
+page_title: "xcsh_policer Data Source - xcsh"
 subcategory: "Service Mesh"
 description: |-
   Retrieves information about an existing policer with traffic rate limits. in F5 Distributed Cloud.
 ---
 
-# f5xc_policer (Data Source)
+# xcsh_policer (Data Source)
 
 Retrieves information about new policer with traffic rate limits. in F5 Distributed Cloud. This is a read-only data source.
 
@@ -15,27 +15,22 @@ Retrieves information about new policer with traffic rate limits. in F5 Distribu
 
 ```terraform
 # Policer Data Source Example
-# Retrieves information about an existing Policer
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
 # Look up an existing Policer by name
-data "f5xc_policer" "example" {
+data "xcsh_policer" "example" {
   name      = "example-policer"
   namespace = "staging"
-}
-
-output "policer_id" {
-  value = data.f5xc_policer.example.id
 }
 ```
 

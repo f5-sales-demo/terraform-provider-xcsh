@@ -1,4 +1,4 @@
-# f5xc_workload
+# xcsh_workload
 
 Category: Kubernetes
 Workload. configuration
@@ -8,44 +8,12 @@ Workload. configuration
 - name
 - namespace
 
-## OneOf Groups
-
-Pick exactly one:
-  job = "..."
-  service = "..."
-  stateful_service = "..."
-
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_workload" "example" {
+resource "xcsh_workload" "example" {
   name      = "example-workload"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  // One of the arguments from this list "job service stateful_service" must be set
-
-  service {
-    containers {
-      name = "web"
-      image {
-        name        = "nginx"
-        pull_policy = "IMAGE_PULL_POLICY_ALWAYS"
-        public {}
-      }
-    }
-    deploy_options {
-      default_virtual_sites {}
-    }
-  }
 }
 ```
 

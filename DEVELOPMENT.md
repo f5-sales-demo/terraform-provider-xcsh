@@ -9,28 +9,28 @@ via Terraform.
 
 ```bash
 # Build the provider binary
-go build -o terraform-provider-f5xc
+go build -o terraform-provider-xcsh
 
 # Run all tests
 go test ./...
 
-# Run acceptance tests (requires F5XC_API_TOKEN or F5XC_P12_FILE)
+# Run acceptance tests (requires XCSH_API_TOKEN or XCSH_P12_FILE)
 TF_ACC=1 go test ./... -v -timeout 120m
 
 # Generate documentation (requires terraform CLI)
 go generate ./...
 
 # Install locally for testing
-mkdir -p ~/.terraform.d/plugins/registry.terraform.io/f5xc-salesdemos/f5xc/0.1.0/darwin_arm64
-cp terraform-provider-f5xc ~/.terraform.d/plugins/registry.terraform.io/f5xc-salesdemos/f5xc/0.1.0/darwin_arm64/
+mkdir -p ~/.terraform.d/plugins/registry.terraform.io/f5-sales-demo/xcsh/0.1.0/darwin_arm64
+cp terraform-provider-xcsh ~/.terraform.d/plugins/registry.terraform.io/f5-sales-demo/xcsh/0.1.0/darwin_arm64/
 ```
 
 ## Environment Variables
 
-- `F5XC_API_TOKEN` - API token for F5 Distributed Cloud (one of token or P12 required)
-- `F5XC_API_URL` - API URL for your F5 Distributed Cloud tenant (required, no default)
-- `F5XC_P12_FILE` - Path to P12 certificate file (alternative to token auth)
-- `F5XC_P12_PASSWORD` - Password for P12 file (required with F5XC_P12_FILE)
+- `XCSH_API_TOKEN` - API token for F5 Distributed Cloud (one of token or P12 required)
+- `XCSH_API_URL` - API URL for your F5 Distributed Cloud tenant (required, no default)
+- `XCSH_P12_FILE` - Path to P12 certificate file (alternative to token auth)
+- `XCSH_P12_PASSWORD` - Password for P12 file (required with XCSH_P12_FILE)
 - `TF_ACC=1` - Enable acceptance tests
 
 ## Architecture
@@ -107,36 +107,15 @@ These files live in otherwise auto-generated directories but are hand-written:
 
 ## Workflow Architecture
 
-```
-Push to main (human commit)
-         |
-         v
-+------------------+
-| Detect Changes   | <-- What changed? (specs/code/tools)
-+--------+---------+
-         |
-         v
-+------------------+
-| Build & Test     | <-- Validate merged code
-+--------+---------+
-         |
-    +----+----+
-    v         v
-+-------+ +-------+
-| Regen | | Regen | <-- Regenerate if needed
-|Provider| | Docs  |
-+---+---+ +---+---+
-    +----+----+
-         v
-+------------------+
-| Create PR        | <-- Single consolidated PR
-| (if changes)     |   for all regeneration
-+--------+---------+
-         |
-         v
-+------------------+
-| Tag & Release    | <-- ONE version bump
-+------------------+
+```mermaid
+flowchart TD
+    push[Push to main<br/>human commit] --> detect[Detect Changes<br/>what changed? specs / code / tools]
+    detect --> build[Build &amp; Test<br/>validate merged code]
+    build --> regenProvider[Regenerate Provider<br/>if needed]
+    build --> regenDocs[Regenerate Docs<br/>if needed]
+    regenProvider --> pr[Create PR<br/>single consolidated PR for all regeneration]
+    regenDocs --> pr
+    pr --> release[Tag &amp; Release<br/>ONE version bump]
 ```
 
 Reusable workflows (`_build-test.yml`, `_generate-docs.yml`, `_generate-provider.yml`, `_tag-release.yml`) are called by the `on-merge.yml` orchestrator.
@@ -148,7 +127,7 @@ Reusable workflows (`_build-test.yml`, `_generate-docs.yml`, `_generate-provider
 Encrypts base64-encoded plaintext using F5XC blindfold encryption:
 
 ```hcl
-provider::f5xc::blindfold(plaintext, policy_name, namespace)
+provider::xcsh::blindfold(plaintext, policy_name, namespace)
 ```
 
 ### The `blindfold_file` Function
@@ -156,7 +135,7 @@ provider::f5xc::blindfold(plaintext, policy_name, namespace)
 Reads a file and encrypts its contents:
 
 ```hcl
-provider::f5xc::blindfold_file(path, policy_name, namespace)
+provider::xcsh::blindfold_file(path, policy_name, namespace)
 ```
 
 Requirements: Terraform 1.8.0+, valid F5XC provider config, existing SecretPolicy.

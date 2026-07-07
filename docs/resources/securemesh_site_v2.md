@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_securemesh_site_v2 Resource - terraform-provider-f5xc"
+page_title: "xcsh_securemesh_site_v2 Resource - xcsh"
 subcategory: "Sites"
 description: |-
   Manages a Securemesh Site V2 resource in F5 Distributed Cloud for deploying secure mesh edge sites with enhanced security and networking features.
 ---
 
-# f5xc_securemesh_site_v2 (Resource)
+# xcsh_securemesh_site_v2 (Resource)
 
 Manages a Securemesh Site V2 resource in F5 Distributed Cloud for deploying secure mesh edge sites with enhanced security and networking features.
 
@@ -14,47 +14,24 @@ Manages a Securemesh Site V2 resource in F5 Distributed Cloud for deploying secu
 ## Example Usage
 
 ```terraform
-# Securemesh Site V2 Resource Example
+# SecuremeshSiteV2 Resource Example
 # Manages a Securemesh Site V2 resource in F5 Distributed Cloud for deploying secure mesh edge sites with enhanced security and networking features.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Securemesh Site V2 configuration
-resource "f5xc_securemesh_site_v2" "example" {
+# Basic SecuremeshSiteV2 configuration
+resource "xcsh_securemesh_site_v2" "example" {
   name      = "example-securemesh-site-v2"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # Optimize the site for L3 or L7 traffic processing. L7 opt...
-  performance_enhancement_mode {
-    # Configure performance_enhancement_mode settings
-  }
-  # Configuration parameter for perf mode l3 enhanced.
-  perf_mode_l3_enhanced {
-    # Configure perf_mode_l3_enhanced settings
-  }
-  # Enable this option
-  jumbo {
-    # Configure jumbo settings
-  }
+  namespace = "system"
 }
 ```
 
@@ -69,8 +46,6 @@ resource "f5xc_securemesh_site_v2" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Securemesh Site V2. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Securemesh Site V2 will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -78,6 +53,8 @@ resource "f5xc_securemesh_site_v2" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Securemesh Site V2. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -2351,5 +2328,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_securemesh_site_v2.example system/example
+terraform import xcsh_securemesh_site_v2.example system/example
 ```

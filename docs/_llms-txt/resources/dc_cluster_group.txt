@@ -1,4 +1,4 @@
-# f5xc_dc_cluster_group
+# xcsh_dc_cluster_group
 
 Category: Networking
 DC Cluster group in given namespace
@@ -6,30 +6,13 @@ DC Cluster group in given namespace
 ## Required
 
 - name
-- namespace
 
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_dc_cluster_group" "example" {
+resource "xcsh_dc_cluster_group" "example" {
   name      = "example-dc-cluster-group"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  type {
-  }
-  control_and_data_plane_mesh {
-  }
-  data_plane_mesh {
-  }
+  namespace = "system"
 }
 ```
 

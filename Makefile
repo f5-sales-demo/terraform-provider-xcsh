@@ -1,7 +1,7 @@
-# Makefile for terraform-provider-f5xc
+# Makefile for terraform-provider-xcsh
 # Automated build, test, and code generation
 
-BINARY_NAME=terraform-provider-f5xc
+BINARY_NAME=terraform-provider-xcsh
 VERSION?=$(shell git describe --tags --always --dirty 2>/dev/null || echo "dev")
 GOOS?=$(shell go env GOOS)
 GOARCH?=$(shell go env GOARCH)
@@ -14,7 +14,7 @@ DOCS_DIR=docs
 SPEC_DIR?=docs/specifications/api
 
 # API spec source
-ENRICHED_REPO?=f5xc-salesdemos/api-specs-enriched
+ENRICHED_REPO?=f5-sales-demo/api-specs-enriched
 
 # Go commands
 GO=go
@@ -28,7 +28,7 @@ all: generate build lint test docs
 
 # Help
 help:
-	@echo "terraform-provider-f5xc Makefile"
+	@echo "terraform-provider-xcsh Makefile"
 	@echo ""
 	@echo "Usage:"
 	@echo "  make              - Generate, build, lint, test, and generate docs"
@@ -65,21 +65,21 @@ help:
 	@echo "  make sweep        - Clean up ALL orphaned test resources (prefix-based)"
 	@echo "                      WARNING: Deletes any resource with tf-acc-test-* or tf-test-* prefix"
 	@echo "                      Use only when no other users are running tests on the same tenant"
-	@echo "  make sweep-resource RESOURCE=f5xc_namespace - Sweep specific resource type"
+	@echo "  make sweep-resource RESOURCE=xcsh_namespace - Sweep specific resource type"
 	@echo ""
 	@echo "  For SAFE multi-user cleanup, use CleanupTracked() in your test code:"
 	@echo "    defer acctest.CleanupTracked()  // Only deletes resources THIS test created"
 	@echo ""
 	@echo "Environment Variables:"
 	@echo "  TF_ACC=1           - Enable real acceptance tests"
-	@echo "  F5XC_MOCK_MODE=1   - Enable mock server tests"
+	@echo "  XCSH_MOCK_MODE=1   - Enable mock server tests"
 	@echo "  SPEC_DIR           - Directory containing OpenAPI specs (default: docs/specifications/api)"
-	@echo "  F5XC_SPEC_DIR      - Alternative env var for spec directory"
+	@echo "  XCSH_SPEC_DIR      - Alternative env var for spec directory"
 	@echo ""
 	@echo "For real acceptance tests, set one of:"
-	@echo "  F5XC_API_URL + F5XC_P12_FILE + F5XC_P12_PASSWORD (P12 auth)"
-	@echo "  F5XC_API_URL + F5XC_CERT + F5XC_KEY (PEM auth)"
-	@echo "  F5XC_API_URL + F5XC_API_TOKEN (Token auth)"
+	@echo "  XCSH_API_URL + XCSH_P12_FILE + XCSH_P12_PASSWORD (P12 auth)"
+	@echo "  XCSH_API_URL + XCSH_CERT + XCSH_KEY (PEM auth)"
+	@echo "  XCSH_API_URL + XCSH_API_TOKEN (Token auth)"
 
 # Build the provider
 build:
@@ -108,7 +108,7 @@ download-specs:
 	@LATEST=$$(gh api repos/$(ENRICHED_REPO)/releases --jq '.[0].tag_name'); \
 	echo "Version: $$LATEST"; \
 	ASSET_ID=$$(gh api repos/$(ENRICHED_REPO)/releases --jq \
-		'[.[0].assets[] | select(.name | startswith("f5xc-api-specs"))] | .[0].id'); \
+		'[.[0].assets[] | select(.name | startswith("xcsh-api-specs") or startswith("f5xc-api-specs"))] | .[0].id'); \
 	gh api repos/$(ENRICHED_REPO)/releases/assets/$$ASSET_ID \
 		-H "Accept: application/octet-stream" > /tmp/specs.zip; \
 	rm -rf $(SPEC_DIR)/*; \
@@ -118,6 +118,15 @@ download-specs:
 		'[.[0].assets[] | select(.name=="api-catalog.json")] | .[0].id'); \
 	gh api repos/$(ENRICHED_REPO)/releases/assets/$$AID \
 		-H "Accept: application/octet-stream" > $(SPEC_DIR)/api-catalog.json; \
+	MID=$$(gh api repos/$(ENRICHED_REPO)/releases --jq \
+		'[.[0].assets[] | select(.name=="minimal-export-defaults.json")] | .[0].id'); \
+	if [ -n "$$MID" ]; then \
+		gh api repos/$(ENRICHED_REPO)/releases/assets/$$MID \
+			-H "Accept: application/octet-stream" > $(SPEC_DIR)/minimal-export-defaults.json; \
+		echo "Downloaded minimal-export-defaults.json"; \
+	else \
+		echo "Note: minimal-export-defaults.json absent from latest release; server_defaults fall back to docs markers"; \
+	fi; \
 	echo "Specs downloaded to $(SPEC_DIR)"
 
 # Generate resources from OpenAPI specs
@@ -132,49 +141,49 @@ generate-schemas:
 		echo "No v2 OpenAPI specs found in $(SPEC_DIR). Skipping generation."; \
 		echo "Run 'make download-specs' first, or set SPEC_DIR to a directory with index.json + domains/"; \
 	fi
+	@# Examples are generated schema-driven from the committed provider schema (spec-free),
+	@# so this runs after the provider is generated and needs no specs. generate-examples
+	@# also prunes orphan example dirs and runs terraform fmt.
+	@echo "Generating Terraform examples from provider schema..."
+	$(GO) run $(TOOLS_DIR)/generate-examples.go
 
 # Generate Terraform documentation
 docs:
 	@echo "Generating Terraform documentation..."
 	@if command -v tfplugindocs >/dev/null 2>&1; then \
-		tfplugindocs generate; \
+		tfplugindocs generate --provider-name xcsh; \
 	else \
 		echo "tfplugindocs not installed. Installing..."; \
-		$(GO) install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@latest; \
-		tfplugindocs generate; \
+		GOTOOLCHAIN=auto $(GO) install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@latest; \
+		tfplugindocs generate --provider-name xcsh; \
 	fi
 	@echo "Transforming documentation to Volterra-style format..."
 	$(GO) run $(TOOLS_DIR)/transform-docs.go
 
-# Validate generated Terraform examples
-# Resources with verified test examples (named .tf files beyond resource.tf) must pass.
-# Others emit warnings only.
+# Validate generated Terraform examples.
+# Examples are schema-driven (generated from the TerraformAttribute tree), so EVERY example
+# must terraform-validate. Any invalid example fails the build — no warnings-only escape hatch.
 validate-examples:
 	@echo "Validating generated Terraform examples..."
-	@fail=0; warn=0; pass=0; \
-	for dir in examples/resources/f5xc_*; do \
-		if [ ! -f "$$dir/resource.tf" ]; then continue; fi; \
-		verified=$$(find "$$dir" -name '*.tf' ! -name 'resource.tf' 2>/dev/null | wc -l | tr -d ' '); \
+	@fail=0; pass=0; \
+	for dir in examples/resources/xcsh_* examples/data-sources/xcsh_*; do \
+		main=$$(find "$$dir" -maxdepth 1 -name 'resource.tf' -o -maxdepth 1 -name 'data-source.tf' 2>/dev/null | head -1); \
+		if [ -z "$$main" ]; then continue; fi; \
 		tmpdir=$$(mktemp -d); \
-		cp "$$dir/resource.tf" "$$tmpdir/main.tf"; \
-		cd "$$tmpdir" && terraform init -backend=false -no-color >/dev/null 2>&1 && \
+		cp "$$main" "$$tmpdir/main.tf"; \
+		cd "$$tmpdir" && terraform init -backend=false -no-color >/dev/null 2>&1; \
 		if ! terraform validate -no-color >/dev/null 2>&1; then \
-			if [ "$$verified" -gt 0 ]; then \
-				echo "FAIL: $$dir/resource.tf"; \
-				fail=1; \
-			else \
-				echo "WARN: $$dir/resource.tf"; \
-				warn=$$((warn + 1)); \
-			fi; \
+			echo "FAIL: $$main"; \
+			fail=$$((fail + 1)); \
 		else \
 			pass=$$((pass + 1)); \
 		fi; \
 		cd - >/dev/null; \
 		rm -rf "$$tmpdir"; \
 	done; \
-	echo "Results: $$pass passed, $$warn warnings, $$fail failures"; \
+	echo "Results: $$pass passed, $$fail failures"; \
 	if [ $$fail -gt 0 ]; then \
-		echo "Verified example validation failed"; \
+		echo "Example validation failed — all generated examples must terraform-validate"; \
 		exit 1; \
 	fi; \
 	echo "All examples valid"
@@ -183,6 +192,13 @@ validate-examples:
 llms-txt:
 	@echo "Generating llms.txt hierarchy..."
 	$(GO) run $(TOOLS_DIR)/generate-llms-txt.go
+	@# json.MarshalIndent output is not biome-formatted; format the index so the
+	@# committed file matches the biome-check gate (pre-commit + super-linter).
+	@if command -v biome >/dev/null 2>&1; then \
+		biome format --write docs/terraform-llms-index.json >/dev/null && echo "Formatted docs/terraform-llms-index.json with biome"; \
+	else \
+		echo "WARNING: biome not found — run 'biome format --write docs/terraform-llms-index.json' before committing"; \
+	fi
 	@echo "llms.txt hierarchy generation complete"
 
 # Clean build artifacts
@@ -207,8 +223,8 @@ regenerate: clean-generated generate
 # Install provider locally for testing
 install: build
 	@echo "Installing provider locally..."
-	mkdir -p ~/.terraform.d/plugins/registry.terraform.io/f5xc/f5xc/$(VERSION)/$(GOOS)_$(GOARCH)
-	cp $(BINARY_NAME) ~/.terraform.d/plugins/registry.terraform.io/f5xc/f5xc/$(VERSION)/$(GOOS)_$(GOARCH)/
+	mkdir -p ~/.terraform.d/plugins/registry.terraform.io/f5-sales-demo/xcsh/$(VERSION)/$(GOOS)_$(GOARCH)
+	cp $(BINARY_NAME) ~/.terraform.d/plugins/registry.terraform.io/f5-sales-demo/xcsh/$(VERSION)/$(GOOS)_$(GOARCH)/
 
 # Acceptance testing and cleanup
 testacc:
@@ -222,10 +238,10 @@ testacc:
 #
 # Usage: make sweep
 # Environment variables required:
-#   - F5XC_API_URL: F5 XC API URL
-#   - F5XC_P12_FILE and F5XC_P12_PASSWORD (for P12 auth)
-#   - OR F5XC_CERT and F5XC_KEY (for PEM auth)
-#   - OR F5XC_API_TOKEN (for token auth)
+#   - XCSH_API_URL: F5 XC API URL
+#   - XCSH_P12_FILE and XCSH_P12_PASSWORD (for P12 auth)
+#   - OR XCSH_CERT and XCSH_KEY (for PEM auth)
+#   - OR XCSH_API_TOKEN (for token auth)
 sweep:
 	@echo "⚠️  WARNING: Prefix-based sweep - will delete ALL test resources!"
 	@echo "Sweeping resources with prefix 'tf-acc-test-' or 'tf-test-'..."
@@ -236,11 +252,11 @@ sweep:
 	TF_ACC=1 $(GO) test ./internal/acctest -v -sweep=all -timeout 30m
 
 # Sweep specific resource type
-# Usage: make sweep-resource RESOURCE=f5xc_namespace
+# Usage: make sweep-resource RESOURCE=xcsh_namespace
 sweep-resource:
 	@if [ -z "$(RESOURCE)" ]; then \
 		echo "Error: RESOURCE variable not set"; \
-		echo "Usage: make sweep-resource RESOURCE=f5xc_namespace"; \
+		echo "Usage: make sweep-resource RESOURCE=xcsh_namespace"; \
 		exit 1; \
 	fi
 	@echo "Sweeping $(RESOURCE) resources..."
@@ -302,12 +318,12 @@ testacc-real:
 	@echo "Test output saved to .test-output-real.txt"
 
 # Run curated staging acceptance tests (representative subset across all domains)
-# Sequential execution to avoid rate limiting. Requires F5XC_API_URL and F5XC_API_TOKEN.
+# Sequential execution to avoid rate limiting. Requires XCSH_API_URL and XCSH_API_TOKEN.
 # Covers 9 verified resources: Namespace, Healthcheck, OriginPool, AppFirewall,
 # VirtualSite, AlertPolicy, AlertReceiver, ServicePolicy, GlobalLogReceiver
 testacc-staging:
 	@echo "Running curated staging acceptance tests..."
-	@echo "Target: $${F5XC_API_URL}"
+	@echo "Target: $${XCSH_API_URL}"
 	@echo ""
 	TF_ACC=1 $(GO) test -v -timeout 60m -count=1 -parallel=1 \
 		./internal/provider/... \
@@ -322,7 +338,7 @@ testacc-mock:
 	@echo "Running MOCK API acceptance tests (TestMock*)..."
 	@echo "Category: MOCK_API - Tests against local mock server"
 	@echo ""
-	F5XC_MOCK_MODE=1 $(GO) test -v -timeout 30m ./internal/provider/... -run "^TestMock" 2>&1 | tee .test-output-mock.txt
+	XCSH_MOCK_MODE=1 $(GO) test -v -timeout 30m ./internal/provider/... -run "^TestMock" 2>&1 | tee .test-output-mock.txt
 	@echo ""
 	@echo "Test output saved to .test-output-mock.txt"
 
@@ -333,15 +349,15 @@ testacc-all:
 	@echo "========================================================================"
 	@echo "PHASE 1: MOCK API TESTS (no credentials required)"
 	@echo "========================================================================"
-	F5XC_MOCK_MODE=1 $(GO) test -json -timeout 30m ./internal/provider/... -run "^TestMock" 2>&1 | tee .test-json-mock.txt | $(GO) run $(TOOLS_DIR)/test-report/main.go || true
+	XCSH_MOCK_MODE=1 $(GO) test -json -timeout 30m ./internal/provider/... -run "^TestMock" 2>&1 | tee .test-json-mock.txt | $(GO) run $(TOOLS_DIR)/test-report/main.go || true
 	@echo ""
 	@echo "========================================================================"
 	@echo "PHASE 2: REAL API TESTS (requires credentials)"
 	@echo "========================================================================"
-	@if [ -n "$$F5XC_API_URL" ]; then \
+	@if [ -n "$$XCSH_API_URL" ]; then \
 		TF_ACC=1 $(GO) test -json -timeout 120m ./internal/provider/... -run "^TestAcc" 2>&1 | tee .test-json-real.txt | $(GO) run $(TOOLS_DIR)/test-report/main.go || true; \
 	else \
-		echo "⚠️  Skipping real API tests: F5XC_API_URL not set"; \
+		echo "⚠️  Skipping real API tests: XCSH_API_URL not set"; \
 	fi
 	@echo ""
 	@echo "========================================================================"
@@ -399,7 +415,7 @@ test-comprehensive-mock:
 	./scripts/run-comprehensive-tests.sh --mode mock-only
 
 # Run real API tests only - SEQUENTIAL with rate limiting
-# Requires: F5XC_API_URL, F5XC_P12_FILE, F5XC_P12_PASSWORD (or F5XC_API_TOKEN)
+# Requires: XCSH_API_URL, XCSH_P12_FILE, XCSH_P12_PASSWORD (or XCSH_API_TOKEN)
 test-comprehensive-real:
 	@echo "Running comprehensive real API tests (sequential)..."
 	./scripts/run-comprehensive-tests.sh --mode real-only

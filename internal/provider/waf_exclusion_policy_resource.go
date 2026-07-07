@@ -21,9 +21,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -512,116 +512,123 @@ func (r *WAFExclusionPolicyResource) Create(ctx context.Context, req resource.Cr
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.WAFExclusionRules.IsNull() && !data.WAFExclusionRules.IsUnknown() {
-		var waf_exclusion_rulesItems []WAFExclusionPolicyWAFExclusionRulesModel
-		diags := data.WAFExclusionRules.ElementsAs(ctx, &waf_exclusion_rulesItems, false)
+		var WAFExclusionRulesElems []WAFExclusionPolicyWAFExclusionRulesModel
+		diags := data.WAFExclusionRules.ElementsAs(ctx, &WAFExclusionRulesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(waf_exclusion_rulesItems) > 0 {
-			var waf_exclusion_rulesList []map[string]interface{}
-			for _, item := range waf_exclusion_rulesItems {
-				itemMap := make(map[string]interface{})
-				if item.AnyDomain != nil {
-					itemMap["any_domain"] = map[string]interface{}{}
+		if !resp.Diagnostics.HasError() && len(WAFExclusionRulesElems) > 0 {
+			var WAFExclusionRulesList []map[string]interface{}
+			for _, WAFExclusionRulesItem := range WAFExclusionRulesElems {
+				WAFExclusionRulesItemMap := make(map[string]interface{})
+				if WAFExclusionRulesItem.AnyDomain != nil {
+					WAFExclusionRulesItemMap["any_domain"] = map[string]interface{}{}
 				}
-				if item.AnyPath != nil {
-					itemMap["any_path"] = map[string]interface{}{}
+				if WAFExclusionRulesItem.AnyPath != nil {
+					WAFExclusionRulesItemMap["any_path"] = map[string]interface{}{}
 				}
-				if item.AppFirewallDetectionControl != nil {
-					app_firewall_detection_controlNestedMap := make(map[string]interface{})
-					if len(item.AppFirewallDetectionControl.ExcludeAttackTypeContexts) > 0 {
-						var exclude_attack_type_contextsDeepList []map[string]interface{}
-						for _, deepListItem := range item.AppFirewallDetectionControl.ExcludeAttackTypeContexts {
-							deepListItemMap := make(map[string]interface{})
-							if !deepListItem.Context.IsNull() && !deepListItem.Context.IsUnknown() {
-								deepListItemMap["context"] = deepListItem.Context.ValueString()
+				if WAFExclusionRulesItem.AppFirewallDetectionControl != nil {
+					AppFirewallDetectionControlMap := make(map[string]interface{})
+					if len(WAFExclusionRulesItem.AppFirewallDetectionControl.ExcludeAttackTypeContexts) > 0 {
+						var ExcludeAttackTypeContextsList []map[string]interface{}
+						for _, ExcludeAttackTypeContextsItem := range WAFExclusionRulesItem.AppFirewallDetectionControl.ExcludeAttackTypeContexts {
+							ExcludeAttackTypeContextsItemMap := make(map[string]interface{})
+							if !ExcludeAttackTypeContextsItem.Context.IsNull() && !ExcludeAttackTypeContextsItem.Context.IsUnknown() {
+								ExcludeAttackTypeContextsItemMap["context"] = ExcludeAttackTypeContextsItem.Context.ValueString()
 							}
-							if !deepListItem.ContextName.IsNull() && !deepListItem.ContextName.IsUnknown() {
-								deepListItemMap["context_name"] = deepListItem.ContextName.ValueString()
+							if !ExcludeAttackTypeContextsItem.ContextName.IsNull() && !ExcludeAttackTypeContextsItem.ContextName.IsUnknown() {
+								ExcludeAttackTypeContextsItemMap["context_name"] = ExcludeAttackTypeContextsItem.ContextName.ValueString()
 							}
-							if !deepListItem.ExcludeAttackType.IsNull() && !deepListItem.ExcludeAttackType.IsUnknown() {
-								deepListItemMap["exclude_attack_type"] = deepListItem.ExcludeAttackType.ValueString()
+							if !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsNull() && !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsUnknown() {
+								ExcludeAttackTypeContextsItemMap["exclude_attack_type"] = ExcludeAttackTypeContextsItem.ExcludeAttackType.ValueString()
 							}
-							exclude_attack_type_contextsDeepList = append(exclude_attack_type_contextsDeepList, deepListItemMap)
+							ExcludeAttackTypeContextsList = append(ExcludeAttackTypeContextsList, ExcludeAttackTypeContextsItemMap)
 						}
-						app_firewall_detection_controlNestedMap["exclude_attack_type_contexts"] = exclude_attack_type_contextsDeepList
+						AppFirewallDetectionControlMap["exclude_attack_type_contexts"] = ExcludeAttackTypeContextsList
 					}
-					if len(item.AppFirewallDetectionControl.ExcludeBotNameContexts) > 0 {
-						var exclude_bot_name_contextsDeepList []map[string]interface{}
-						for _, deepListItem := range item.AppFirewallDetectionControl.ExcludeBotNameContexts {
-							deepListItemMap := make(map[string]interface{})
-							if !deepListItem.BotName.IsNull() && !deepListItem.BotName.IsUnknown() {
-								deepListItemMap["bot_name"] = deepListItem.BotName.ValueString()
+					if len(WAFExclusionRulesItem.AppFirewallDetectionControl.ExcludeBotNameContexts) > 0 {
+						var ExcludeBotNameContextsList []map[string]interface{}
+						for _, ExcludeBotNameContextsItem := range WAFExclusionRulesItem.AppFirewallDetectionControl.ExcludeBotNameContexts {
+							ExcludeBotNameContextsItemMap := make(map[string]interface{})
+							if !ExcludeBotNameContextsItem.BotName.IsNull() && !ExcludeBotNameContextsItem.BotName.IsUnknown() {
+								ExcludeBotNameContextsItemMap["bot_name"] = ExcludeBotNameContextsItem.BotName.ValueString()
 							}
-							exclude_bot_name_contextsDeepList = append(exclude_bot_name_contextsDeepList, deepListItemMap)
+							ExcludeBotNameContextsList = append(ExcludeBotNameContextsList, ExcludeBotNameContextsItemMap)
 						}
-						app_firewall_detection_controlNestedMap["exclude_bot_name_contexts"] = exclude_bot_name_contextsDeepList
+						AppFirewallDetectionControlMap["exclude_bot_name_contexts"] = ExcludeBotNameContextsList
 					}
-					if len(item.AppFirewallDetectionControl.ExcludeSignatureContexts) > 0 {
-						var exclude_signature_contextsDeepList []map[string]interface{}
-						for _, deepListItem := range item.AppFirewallDetectionControl.ExcludeSignatureContexts {
-							deepListItemMap := make(map[string]interface{})
-							if !deepListItem.Context.IsNull() && !deepListItem.Context.IsUnknown() {
-								deepListItemMap["context"] = deepListItem.Context.ValueString()
+					if len(WAFExclusionRulesItem.AppFirewallDetectionControl.ExcludeSignatureContexts) > 0 {
+						var ExcludeSignatureContextsList []map[string]interface{}
+						for _, ExcludeSignatureContextsItem := range WAFExclusionRulesItem.AppFirewallDetectionControl.ExcludeSignatureContexts {
+							ExcludeSignatureContextsItemMap := make(map[string]interface{})
+							if !ExcludeSignatureContextsItem.Context.IsNull() && !ExcludeSignatureContextsItem.Context.IsUnknown() {
+								ExcludeSignatureContextsItemMap["context"] = ExcludeSignatureContextsItem.Context.ValueString()
 							}
-							if !deepListItem.ContextName.IsNull() && !deepListItem.ContextName.IsUnknown() {
-								deepListItemMap["context_name"] = deepListItem.ContextName.ValueString()
+							if !ExcludeSignatureContextsItem.ContextName.IsNull() && !ExcludeSignatureContextsItem.ContextName.IsUnknown() {
+								ExcludeSignatureContextsItemMap["context_name"] = ExcludeSignatureContextsItem.ContextName.ValueString()
 							}
-							if !deepListItem.SignatureID.IsNull() && !deepListItem.SignatureID.IsUnknown() {
-								deepListItemMap["signature_id"] = deepListItem.SignatureID.ValueInt64()
+							if !ExcludeSignatureContextsItem.SignatureID.IsNull() && !ExcludeSignatureContextsItem.SignatureID.IsUnknown() {
+								ExcludeSignatureContextsItemMap["signature_id"] = ExcludeSignatureContextsItem.SignatureID.ValueInt64()
 							}
-							exclude_signature_contextsDeepList = append(exclude_signature_contextsDeepList, deepListItemMap)
+							ExcludeSignatureContextsList = append(ExcludeSignatureContextsList, ExcludeSignatureContextsItemMap)
 						}
-						app_firewall_detection_controlNestedMap["exclude_signature_contexts"] = exclude_signature_contextsDeepList
+						AppFirewallDetectionControlMap["exclude_signature_contexts"] = ExcludeSignatureContextsList
 					}
-					if len(item.AppFirewallDetectionControl.ExcludeViolationContexts) > 0 {
-						var exclude_violation_contextsDeepList []map[string]interface{}
-						for _, deepListItem := range item.AppFirewallDetectionControl.ExcludeViolationContexts {
-							deepListItemMap := make(map[string]interface{})
-							if !deepListItem.Context.IsNull() && !deepListItem.Context.IsUnknown() {
-								deepListItemMap["context"] = deepListItem.Context.ValueString()
+					if len(WAFExclusionRulesItem.AppFirewallDetectionControl.ExcludeViolationContexts) > 0 {
+						var ExcludeViolationContextsList []map[string]interface{}
+						for _, ExcludeViolationContextsItem := range WAFExclusionRulesItem.AppFirewallDetectionControl.ExcludeViolationContexts {
+							ExcludeViolationContextsItemMap := make(map[string]interface{})
+							if !ExcludeViolationContextsItem.Context.IsNull() && !ExcludeViolationContextsItem.Context.IsUnknown() {
+								ExcludeViolationContextsItemMap["context"] = ExcludeViolationContextsItem.Context.ValueString()
 							}
-							if !deepListItem.ContextName.IsNull() && !deepListItem.ContextName.IsUnknown() {
-								deepListItemMap["context_name"] = deepListItem.ContextName.ValueString()
+							if !ExcludeViolationContextsItem.ContextName.IsNull() && !ExcludeViolationContextsItem.ContextName.IsUnknown() {
+								ExcludeViolationContextsItemMap["context_name"] = ExcludeViolationContextsItem.ContextName.ValueString()
 							}
-							if !deepListItem.ExcludeViolation.IsNull() && !deepListItem.ExcludeViolation.IsUnknown() {
-								deepListItemMap["exclude_violation"] = deepListItem.ExcludeViolation.ValueString()
+							if !ExcludeViolationContextsItem.ExcludeViolation.IsNull() && !ExcludeViolationContextsItem.ExcludeViolation.IsUnknown() {
+								ExcludeViolationContextsItemMap["exclude_violation"] = ExcludeViolationContextsItem.ExcludeViolation.ValueString()
 							}
-							exclude_violation_contextsDeepList = append(exclude_violation_contextsDeepList, deepListItemMap)
+							ExcludeViolationContextsList = append(ExcludeViolationContextsList, ExcludeViolationContextsItemMap)
 						}
-						app_firewall_detection_controlNestedMap["exclude_violation_contexts"] = exclude_violation_contextsDeepList
+						AppFirewallDetectionControlMap["exclude_violation_contexts"] = ExcludeViolationContextsList
 					}
-					itemMap["app_firewall_detection_control"] = app_firewall_detection_controlNestedMap
+					WAFExclusionRulesItemMap["app_firewall_detection_control"] = AppFirewallDetectionControlMap
 				}
-				if !item.ExactValue.IsNull() && !item.ExactValue.IsUnknown() {
-					itemMap["exact_value"] = item.ExactValue.ValueString()
+				if !WAFExclusionRulesItem.ExactValue.IsNull() && !WAFExclusionRulesItem.ExactValue.IsUnknown() {
+					WAFExclusionRulesItemMap["exact_value"] = WAFExclusionRulesItem.ExactValue.ValueString()
 				}
-				if !item.ExpirationTimestamp.IsNull() && !item.ExpirationTimestamp.IsUnknown() {
-					itemMap["expiration_timestamp"] = item.ExpirationTimestamp.ValueString()
+				if !WAFExclusionRulesItem.ExpirationTimestamp.IsNull() && !WAFExclusionRulesItem.ExpirationTimestamp.IsUnknown() {
+					WAFExclusionRulesItemMap["expiration_timestamp"] = WAFExclusionRulesItem.ExpirationTimestamp.ValueString()
 				}
-				if item.Metadata != nil {
-					metadataNestedMap := make(map[string]interface{})
-					if !item.Metadata.DescriptionSpec.IsNull() && !item.Metadata.DescriptionSpec.IsUnknown() {
-						metadataNestedMap["description"] = item.Metadata.DescriptionSpec.ValueString()
+				if WAFExclusionRulesItem.Metadata != nil {
+					MetadataMap := make(map[string]interface{})
+					if !WAFExclusionRulesItem.Metadata.DescriptionSpec.IsNull() && !WAFExclusionRulesItem.Metadata.DescriptionSpec.IsUnknown() {
+						MetadataMap["description"] = WAFExclusionRulesItem.Metadata.DescriptionSpec.ValueString()
 					}
-					if !item.Metadata.Name.IsNull() && !item.Metadata.Name.IsUnknown() {
-						metadataNestedMap["name"] = item.Metadata.Name.ValueString()
+					if !WAFExclusionRulesItem.Metadata.Name.IsNull() && !WAFExclusionRulesItem.Metadata.Name.IsUnknown() {
+						MetadataMap["name"] = WAFExclusionRulesItem.Metadata.Name.ValueString()
 					}
-					itemMap["metadata"] = metadataNestedMap
+					WAFExclusionRulesItemMap["metadata"] = MetadataMap
 				}
-				if !item.PathPrefix.IsNull() && !item.PathPrefix.IsUnknown() {
-					itemMap["path_prefix"] = item.PathPrefix.ValueString()
+				if !WAFExclusionRulesItem.Methods.IsNull() && !WAFExclusionRulesItem.Methods.IsUnknown() {
+					var MethodsItems []string
+					diags := WAFExclusionRulesItem.Methods.ElementsAs(ctx, &MethodsItems, false)
+					if !diags.HasError() {
+						WAFExclusionRulesItemMap["methods"] = MethodsItems
+					}
 				}
-				if !item.PathRegex.IsNull() && !item.PathRegex.IsUnknown() {
-					itemMap["path_regex"] = item.PathRegex.ValueString()
+				if !WAFExclusionRulesItem.PathPrefix.IsNull() && !WAFExclusionRulesItem.PathPrefix.IsUnknown() {
+					WAFExclusionRulesItemMap["path_prefix"] = WAFExclusionRulesItem.PathPrefix.ValueString()
 				}
-				if !item.SuffixValue.IsNull() && !item.SuffixValue.IsUnknown() {
-					itemMap["suffix_value"] = item.SuffixValue.ValueString()
+				if !WAFExclusionRulesItem.PathRegex.IsNull() && !WAFExclusionRulesItem.PathRegex.IsUnknown() {
+					WAFExclusionRulesItemMap["path_regex"] = WAFExclusionRulesItem.PathRegex.ValueString()
 				}
-				if item.WAFSkipProcessing != nil {
-					itemMap["waf_skip_processing"] = map[string]interface{}{}
+				if !WAFExclusionRulesItem.SuffixValue.IsNull() && !WAFExclusionRulesItem.SuffixValue.IsUnknown() {
+					WAFExclusionRulesItemMap["suffix_value"] = WAFExclusionRulesItem.SuffixValue.ValueString()
 				}
-				waf_exclusion_rulesList = append(waf_exclusion_rulesList, itemMap)
+				if WAFExclusionRulesItem.WAFSkipProcessing != nil {
+					WAFExclusionRulesItemMap["waf_skip_processing"] = map[string]interface{}{}
+				}
+				WAFExclusionRulesList = append(WAFExclusionRulesList, WAFExclusionRulesItemMap)
 			}
-			createReq.Spec["waf_exclusion_rules"] = waf_exclusion_rulesList
+			createReq.Spec["waf_exclusion_rules"] = WAFExclusionRulesList
 		}
 	}
 
@@ -637,18 +644,23 @@ func (r *WAFExclusionPolicyResource) Create(ctx context.Context, req resource.Cr
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["waf_exclusion_rules"].([]interface{}); ok && len(listData) > 0 {
-		var waf_exclusion_rulesList []WAFExclusionPolicyWAFExclusionRulesModel
+	if !isImport && (data.WAFExclusionRules.IsNull() || len(data.WAFExclusionRules.Elements()) == 0) {
+		data.WAFExclusionRules = types.ListNull(types.ObjectType{AttrTypes: WAFExclusionPolicyWAFExclusionRulesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["waf_exclusion_rules"].([]interface{}); ok && len(listData) > 0 {
+		var WAFExclusionRulesList []WAFExclusionPolicyWAFExclusionRulesModel
 		var existingWAFExclusionRulesItems []WAFExclusionPolicyWAFExclusionRulesModel
 		if !data.WAFExclusionRules.IsNull() && !data.WAFExclusionRules.IsUnknown() {
 			data.WAFExclusionRules.ElementsAs(ctx, &existingWAFExclusionRulesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				waf_exclusion_rulesList = append(waf_exclusion_rulesList, WAFExclusionPolicyWAFExclusionRulesModel{
+				WAFExclusionRulesList = append(WAFExclusionRulesList, WAFExclusionPolicyWAFExclusionRulesModel{
 					AnyDomain: func() *WAFExclusionPolicyEmptyModel {
 						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && existingWAFExclusionRulesItems[listIdx].AnyDomain != nil {
+							return &WAFExclusionPolicyEmptyModel{}
+						}
+						if _, ok := itemMap["any_domain"].(map[string]interface{}); ok {
 							return &WAFExclusionPolicyEmptyModel{}
 						}
 						return nil
@@ -657,11 +669,127 @@ func (r *WAFExclusionPolicyResource) Create(ctx context.Context, req resource.Cr
 						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && existingWAFExclusionRulesItems[listIdx].AnyPath != nil {
 							return &WAFExclusionPolicyEmptyModel{}
 						}
+						if _, ok := itemMap["any_path"].(map[string]interface{}); ok {
+							return &WAFExclusionPolicyEmptyModel{}
+						}
 						return nil
 					}(),
 					AppFirewallDetectionControl: func() *WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlModel {
-						if _, ok := itemMap["app_firewall_detection_control"].(map[string]interface{}); ok {
-							return &WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlModel{}
+						if AppFirewallDetectionControlData, ok := itemMap["app_firewall_detection_control"].(map[string]interface{}); ok {
+							return &WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlModel{
+								ExcludeAttackTypeContexts: func() []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel {
+									if rawList, ok := AppFirewallDetectionControlData["exclude_attack_type_contexts"].([]interface{}); ok && len(rawList) > 0 {
+										var ExcludeAttackTypeContextsResult []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel
+										for _, ExcludeAttackTypeContextsItem := range rawList {
+											if ExcludeAttackTypeContextsItemMap, ok := ExcludeAttackTypeContextsItem.(map[string]interface{}); ok {
+												ExcludeAttackTypeContextsResult = append(ExcludeAttackTypeContextsResult, WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel{
+													Context: func() types.String {
+														if v, ok := ExcludeAttackTypeContextsItemMap["context"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													ContextName: func() types.String {
+														if v, ok := ExcludeAttackTypeContextsItemMap["context_name"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													ExcludeAttackType: func() types.String {
+														if v, ok := ExcludeAttackTypeContextsItemMap["exclude_attack_type"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												})
+											}
+										}
+										return ExcludeAttackTypeContextsResult
+									}
+									return nil
+								}(),
+								ExcludeBotNameContexts: func() []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeBotNameContextsModel {
+									if rawList, ok := AppFirewallDetectionControlData["exclude_bot_name_contexts"].([]interface{}); ok && len(rawList) > 0 {
+										var ExcludeBotNameContextsResult []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeBotNameContextsModel
+										for _, ExcludeBotNameContextsItem := range rawList {
+											if ExcludeBotNameContextsItemMap, ok := ExcludeBotNameContextsItem.(map[string]interface{}); ok {
+												ExcludeBotNameContextsResult = append(ExcludeBotNameContextsResult, WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeBotNameContextsModel{
+													BotName: func() types.String {
+														if v, ok := ExcludeBotNameContextsItemMap["bot_name"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												})
+											}
+										}
+										return ExcludeBotNameContextsResult
+									}
+									return nil
+								}(),
+								ExcludeSignatureContexts: func() []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeSignatureContextsModel {
+									if rawList, ok := AppFirewallDetectionControlData["exclude_signature_contexts"].([]interface{}); ok && len(rawList) > 0 {
+										var ExcludeSignatureContextsResult []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeSignatureContextsModel
+										for _, ExcludeSignatureContextsItem := range rawList {
+											if ExcludeSignatureContextsItemMap, ok := ExcludeSignatureContextsItem.(map[string]interface{}); ok {
+												ExcludeSignatureContextsResult = append(ExcludeSignatureContextsResult, WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeSignatureContextsModel{
+													Context: func() types.String {
+														if v, ok := ExcludeSignatureContextsItemMap["context"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													ContextName: func() types.String {
+														if v, ok := ExcludeSignatureContextsItemMap["context_name"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													SignatureID: func() types.Int64 {
+														if v, ok := ExcludeSignatureContextsItemMap["signature_id"].(float64); ok && v != 0 {
+															return types.Int64Value(int64(v))
+														}
+														return types.Int64Null()
+													}(),
+												})
+											}
+										}
+										return ExcludeSignatureContextsResult
+									}
+									return nil
+								}(),
+								ExcludeViolationContexts: func() []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeViolationContextsModel {
+									if rawList, ok := AppFirewallDetectionControlData["exclude_violation_contexts"].([]interface{}); ok && len(rawList) > 0 {
+										var ExcludeViolationContextsResult []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeViolationContextsModel
+										for _, ExcludeViolationContextsItem := range rawList {
+											if ExcludeViolationContextsItemMap, ok := ExcludeViolationContextsItem.(map[string]interface{}); ok {
+												ExcludeViolationContextsResult = append(ExcludeViolationContextsResult, WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeViolationContextsModel{
+													Context: func() types.String {
+														if v, ok := ExcludeViolationContextsItemMap["context"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													ContextName: func() types.String {
+														if v, ok := ExcludeViolationContextsItemMap["context_name"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													ExcludeViolation: func() types.String {
+														if v, ok := ExcludeViolationContextsItemMap["exclude_violation"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												})
+											}
+										}
+										return ExcludeViolationContextsResult
+									}
+									return nil
+								}(),
+							}
 						}
 						return nil
 					}(),
@@ -678,16 +806,16 @@ func (r *WAFExclusionPolicyResource) Create(ctx context.Context, req resource.Cr
 						return types.StringNull()
 					}(),
 					Metadata: func() *WAFExclusionPolicyWAFExclusionRulesMetadataModel {
-						if nestedMap, ok := itemMap["metadata"].(map[string]interface{}); ok {
+						if MetadataData, ok := itemMap["metadata"].(map[string]interface{}); ok {
 							return &WAFExclusionPolicyWAFExclusionRulesMetadataModel{
 								DescriptionSpec: func() types.String {
-									if v, ok := nestedMap["description"].(string); ok && v != "" {
+									if v, ok := MetadataData["description"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := nestedMap["name"].(string); ok && v != "" {
+									if v, ok := MetadataData["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -731,18 +859,20 @@ func (r *WAFExclusionPolicyResource) Create(ctx context.Context, req resource.Cr
 						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && existingWAFExclusionRulesItems[listIdx].WAFSkipProcessing != nil {
 							return &WAFExclusionPolicyEmptyModel{}
 						}
+						if _, ok := itemMap["waf_skip_processing"].(map[string]interface{}); ok {
+							return &WAFExclusionPolicyEmptyModel{}
+						}
 						return nil
 					}(),
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: WAFExclusionPolicyWAFExclusionRulesModelAttrTypes}, waf_exclusion_rulesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: WAFExclusionPolicyWAFExclusionRulesModelAttrTypes}, WAFExclusionRulesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.WAFExclusionRules = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.WAFExclusionRules = types.ListNull(types.ObjectType{AttrTypes: WAFExclusionPolicyWAFExclusionRulesModelAttrTypes})
 	}
 
@@ -825,18 +955,23 @@ func (r *WAFExclusionPolicyResource) Read(ctx context.Context, req resource.Read
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["waf_exclusion_rules"].([]interface{}); ok && len(listData) > 0 {
-		var waf_exclusion_rulesList []WAFExclusionPolicyWAFExclusionRulesModel
+	if !isImport && (data.WAFExclusionRules.IsNull() || len(data.WAFExclusionRules.Elements()) == 0) {
+		data.WAFExclusionRules = types.ListNull(types.ObjectType{AttrTypes: WAFExclusionPolicyWAFExclusionRulesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["waf_exclusion_rules"].([]interface{}); ok && len(listData) > 0 {
+		var WAFExclusionRulesList []WAFExclusionPolicyWAFExclusionRulesModel
 		var existingWAFExclusionRulesItems []WAFExclusionPolicyWAFExclusionRulesModel
 		if !data.WAFExclusionRules.IsNull() && !data.WAFExclusionRules.IsUnknown() {
 			data.WAFExclusionRules.ElementsAs(ctx, &existingWAFExclusionRulesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				waf_exclusion_rulesList = append(waf_exclusion_rulesList, WAFExclusionPolicyWAFExclusionRulesModel{
+				WAFExclusionRulesList = append(WAFExclusionRulesList, WAFExclusionPolicyWAFExclusionRulesModel{
 					AnyDomain: func() *WAFExclusionPolicyEmptyModel {
 						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && existingWAFExclusionRulesItems[listIdx].AnyDomain != nil {
+							return &WAFExclusionPolicyEmptyModel{}
+						}
+						if _, ok := itemMap["any_domain"].(map[string]interface{}); ok {
 							return &WAFExclusionPolicyEmptyModel{}
 						}
 						return nil
@@ -845,11 +980,127 @@ func (r *WAFExclusionPolicyResource) Read(ctx context.Context, req resource.Read
 						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && existingWAFExclusionRulesItems[listIdx].AnyPath != nil {
 							return &WAFExclusionPolicyEmptyModel{}
 						}
+						if _, ok := itemMap["any_path"].(map[string]interface{}); ok {
+							return &WAFExclusionPolicyEmptyModel{}
+						}
 						return nil
 					}(),
 					AppFirewallDetectionControl: func() *WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlModel {
-						if _, ok := itemMap["app_firewall_detection_control"].(map[string]interface{}); ok {
-							return &WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlModel{}
+						if AppFirewallDetectionControlData, ok := itemMap["app_firewall_detection_control"].(map[string]interface{}); ok {
+							return &WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlModel{
+								ExcludeAttackTypeContexts: func() []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel {
+									if rawList, ok := AppFirewallDetectionControlData["exclude_attack_type_contexts"].([]interface{}); ok && len(rawList) > 0 {
+										var ExcludeAttackTypeContextsResult []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel
+										for _, ExcludeAttackTypeContextsItem := range rawList {
+											if ExcludeAttackTypeContextsItemMap, ok := ExcludeAttackTypeContextsItem.(map[string]interface{}); ok {
+												ExcludeAttackTypeContextsResult = append(ExcludeAttackTypeContextsResult, WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel{
+													Context: func() types.String {
+														if v, ok := ExcludeAttackTypeContextsItemMap["context"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													ContextName: func() types.String {
+														if v, ok := ExcludeAttackTypeContextsItemMap["context_name"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													ExcludeAttackType: func() types.String {
+														if v, ok := ExcludeAttackTypeContextsItemMap["exclude_attack_type"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												})
+											}
+										}
+										return ExcludeAttackTypeContextsResult
+									}
+									return nil
+								}(),
+								ExcludeBotNameContexts: func() []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeBotNameContextsModel {
+									if rawList, ok := AppFirewallDetectionControlData["exclude_bot_name_contexts"].([]interface{}); ok && len(rawList) > 0 {
+										var ExcludeBotNameContextsResult []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeBotNameContextsModel
+										for _, ExcludeBotNameContextsItem := range rawList {
+											if ExcludeBotNameContextsItemMap, ok := ExcludeBotNameContextsItem.(map[string]interface{}); ok {
+												ExcludeBotNameContextsResult = append(ExcludeBotNameContextsResult, WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeBotNameContextsModel{
+													BotName: func() types.String {
+														if v, ok := ExcludeBotNameContextsItemMap["bot_name"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												})
+											}
+										}
+										return ExcludeBotNameContextsResult
+									}
+									return nil
+								}(),
+								ExcludeSignatureContexts: func() []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeSignatureContextsModel {
+									if rawList, ok := AppFirewallDetectionControlData["exclude_signature_contexts"].([]interface{}); ok && len(rawList) > 0 {
+										var ExcludeSignatureContextsResult []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeSignatureContextsModel
+										for _, ExcludeSignatureContextsItem := range rawList {
+											if ExcludeSignatureContextsItemMap, ok := ExcludeSignatureContextsItem.(map[string]interface{}); ok {
+												ExcludeSignatureContextsResult = append(ExcludeSignatureContextsResult, WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeSignatureContextsModel{
+													Context: func() types.String {
+														if v, ok := ExcludeSignatureContextsItemMap["context"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													ContextName: func() types.String {
+														if v, ok := ExcludeSignatureContextsItemMap["context_name"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													SignatureID: func() types.Int64 {
+														if v, ok := ExcludeSignatureContextsItemMap["signature_id"].(float64); ok && v != 0 {
+															return types.Int64Value(int64(v))
+														}
+														return types.Int64Null()
+													}(),
+												})
+											}
+										}
+										return ExcludeSignatureContextsResult
+									}
+									return nil
+								}(),
+								ExcludeViolationContexts: func() []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeViolationContextsModel {
+									if rawList, ok := AppFirewallDetectionControlData["exclude_violation_contexts"].([]interface{}); ok && len(rawList) > 0 {
+										var ExcludeViolationContextsResult []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeViolationContextsModel
+										for _, ExcludeViolationContextsItem := range rawList {
+											if ExcludeViolationContextsItemMap, ok := ExcludeViolationContextsItem.(map[string]interface{}); ok {
+												ExcludeViolationContextsResult = append(ExcludeViolationContextsResult, WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeViolationContextsModel{
+													Context: func() types.String {
+														if v, ok := ExcludeViolationContextsItemMap["context"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													ContextName: func() types.String {
+														if v, ok := ExcludeViolationContextsItemMap["context_name"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													ExcludeViolation: func() types.String {
+														if v, ok := ExcludeViolationContextsItemMap["exclude_violation"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												})
+											}
+										}
+										return ExcludeViolationContextsResult
+									}
+									return nil
+								}(),
+							}
 						}
 						return nil
 					}(),
@@ -866,16 +1117,16 @@ func (r *WAFExclusionPolicyResource) Read(ctx context.Context, req resource.Read
 						return types.StringNull()
 					}(),
 					Metadata: func() *WAFExclusionPolicyWAFExclusionRulesMetadataModel {
-						if nestedMap, ok := itemMap["metadata"].(map[string]interface{}); ok {
+						if MetadataData, ok := itemMap["metadata"].(map[string]interface{}); ok {
 							return &WAFExclusionPolicyWAFExclusionRulesMetadataModel{
 								DescriptionSpec: func() types.String {
-									if v, ok := nestedMap["description"].(string); ok && v != "" {
+									if v, ok := MetadataData["description"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := nestedMap["name"].(string); ok && v != "" {
+									if v, ok := MetadataData["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -919,19 +1170,29 @@ func (r *WAFExclusionPolicyResource) Read(ctx context.Context, req resource.Read
 						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && existingWAFExclusionRulesItems[listIdx].WAFSkipProcessing != nil {
 							return &WAFExclusionPolicyEmptyModel{}
 						}
+						if _, ok := itemMap["waf_skip_processing"].(map[string]interface{}); ok {
+							return &WAFExclusionPolicyEmptyModel{}
+						}
 						return nil
 					}(),
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: WAFExclusionPolicyWAFExclusionRulesModelAttrTypes}, waf_exclusion_rulesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: WAFExclusionPolicyWAFExclusionRulesModelAttrTypes}, WAFExclusionRulesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.WAFExclusionRules = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.WAFExclusionRules = types.ListNull(types.ObjectType{AttrTypes: WAFExclusionPolicyWAFExclusionRulesModelAttrTypes})
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -985,116 +1246,123 @@ func (r *WAFExclusionPolicyResource) Update(ctx context.Context, req resource.Up
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.WAFExclusionRules.IsNull() && !data.WAFExclusionRules.IsUnknown() {
-		var waf_exclusion_rulesItems []WAFExclusionPolicyWAFExclusionRulesModel
-		diags := data.WAFExclusionRules.ElementsAs(ctx, &waf_exclusion_rulesItems, false)
+		var WAFExclusionRulesElems []WAFExclusionPolicyWAFExclusionRulesModel
+		diags := data.WAFExclusionRules.ElementsAs(ctx, &WAFExclusionRulesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(waf_exclusion_rulesItems) > 0 {
-			var waf_exclusion_rulesList []map[string]interface{}
-			for _, item := range waf_exclusion_rulesItems {
-				itemMap := make(map[string]interface{})
-				if item.AnyDomain != nil {
-					itemMap["any_domain"] = map[string]interface{}{}
+		if !resp.Diagnostics.HasError() && len(WAFExclusionRulesElems) > 0 {
+			var WAFExclusionRulesList []map[string]interface{}
+			for _, WAFExclusionRulesItem := range WAFExclusionRulesElems {
+				WAFExclusionRulesItemMap := make(map[string]interface{})
+				if WAFExclusionRulesItem.AnyDomain != nil {
+					WAFExclusionRulesItemMap["any_domain"] = map[string]interface{}{}
 				}
-				if item.AnyPath != nil {
-					itemMap["any_path"] = map[string]interface{}{}
+				if WAFExclusionRulesItem.AnyPath != nil {
+					WAFExclusionRulesItemMap["any_path"] = map[string]interface{}{}
 				}
-				if item.AppFirewallDetectionControl != nil {
-					app_firewall_detection_controlNestedMap := make(map[string]interface{})
-					if len(item.AppFirewallDetectionControl.ExcludeAttackTypeContexts) > 0 {
-						var exclude_attack_type_contextsDeepList []map[string]interface{}
-						for _, deepListItem := range item.AppFirewallDetectionControl.ExcludeAttackTypeContexts {
-							deepListItemMap := make(map[string]interface{})
-							if !deepListItem.Context.IsNull() && !deepListItem.Context.IsUnknown() {
-								deepListItemMap["context"] = deepListItem.Context.ValueString()
+				if WAFExclusionRulesItem.AppFirewallDetectionControl != nil {
+					AppFirewallDetectionControlMap := make(map[string]interface{})
+					if len(WAFExclusionRulesItem.AppFirewallDetectionControl.ExcludeAttackTypeContexts) > 0 {
+						var ExcludeAttackTypeContextsList []map[string]interface{}
+						for _, ExcludeAttackTypeContextsItem := range WAFExclusionRulesItem.AppFirewallDetectionControl.ExcludeAttackTypeContexts {
+							ExcludeAttackTypeContextsItemMap := make(map[string]interface{})
+							if !ExcludeAttackTypeContextsItem.Context.IsNull() && !ExcludeAttackTypeContextsItem.Context.IsUnknown() {
+								ExcludeAttackTypeContextsItemMap["context"] = ExcludeAttackTypeContextsItem.Context.ValueString()
 							}
-							if !deepListItem.ContextName.IsNull() && !deepListItem.ContextName.IsUnknown() {
-								deepListItemMap["context_name"] = deepListItem.ContextName.ValueString()
+							if !ExcludeAttackTypeContextsItem.ContextName.IsNull() && !ExcludeAttackTypeContextsItem.ContextName.IsUnknown() {
+								ExcludeAttackTypeContextsItemMap["context_name"] = ExcludeAttackTypeContextsItem.ContextName.ValueString()
 							}
-							if !deepListItem.ExcludeAttackType.IsNull() && !deepListItem.ExcludeAttackType.IsUnknown() {
-								deepListItemMap["exclude_attack_type"] = deepListItem.ExcludeAttackType.ValueString()
+							if !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsNull() && !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsUnknown() {
+								ExcludeAttackTypeContextsItemMap["exclude_attack_type"] = ExcludeAttackTypeContextsItem.ExcludeAttackType.ValueString()
 							}
-							exclude_attack_type_contextsDeepList = append(exclude_attack_type_contextsDeepList, deepListItemMap)
+							ExcludeAttackTypeContextsList = append(ExcludeAttackTypeContextsList, ExcludeAttackTypeContextsItemMap)
 						}
-						app_firewall_detection_controlNestedMap["exclude_attack_type_contexts"] = exclude_attack_type_contextsDeepList
+						AppFirewallDetectionControlMap["exclude_attack_type_contexts"] = ExcludeAttackTypeContextsList
 					}
-					if len(item.AppFirewallDetectionControl.ExcludeBotNameContexts) > 0 {
-						var exclude_bot_name_contextsDeepList []map[string]interface{}
-						for _, deepListItem := range item.AppFirewallDetectionControl.ExcludeBotNameContexts {
-							deepListItemMap := make(map[string]interface{})
-							if !deepListItem.BotName.IsNull() && !deepListItem.BotName.IsUnknown() {
-								deepListItemMap["bot_name"] = deepListItem.BotName.ValueString()
+					if len(WAFExclusionRulesItem.AppFirewallDetectionControl.ExcludeBotNameContexts) > 0 {
+						var ExcludeBotNameContextsList []map[string]interface{}
+						for _, ExcludeBotNameContextsItem := range WAFExclusionRulesItem.AppFirewallDetectionControl.ExcludeBotNameContexts {
+							ExcludeBotNameContextsItemMap := make(map[string]interface{})
+							if !ExcludeBotNameContextsItem.BotName.IsNull() && !ExcludeBotNameContextsItem.BotName.IsUnknown() {
+								ExcludeBotNameContextsItemMap["bot_name"] = ExcludeBotNameContextsItem.BotName.ValueString()
 							}
-							exclude_bot_name_contextsDeepList = append(exclude_bot_name_contextsDeepList, deepListItemMap)
+							ExcludeBotNameContextsList = append(ExcludeBotNameContextsList, ExcludeBotNameContextsItemMap)
 						}
-						app_firewall_detection_controlNestedMap["exclude_bot_name_contexts"] = exclude_bot_name_contextsDeepList
+						AppFirewallDetectionControlMap["exclude_bot_name_contexts"] = ExcludeBotNameContextsList
 					}
-					if len(item.AppFirewallDetectionControl.ExcludeSignatureContexts) > 0 {
-						var exclude_signature_contextsDeepList []map[string]interface{}
-						for _, deepListItem := range item.AppFirewallDetectionControl.ExcludeSignatureContexts {
-							deepListItemMap := make(map[string]interface{})
-							if !deepListItem.Context.IsNull() && !deepListItem.Context.IsUnknown() {
-								deepListItemMap["context"] = deepListItem.Context.ValueString()
+					if len(WAFExclusionRulesItem.AppFirewallDetectionControl.ExcludeSignatureContexts) > 0 {
+						var ExcludeSignatureContextsList []map[string]interface{}
+						for _, ExcludeSignatureContextsItem := range WAFExclusionRulesItem.AppFirewallDetectionControl.ExcludeSignatureContexts {
+							ExcludeSignatureContextsItemMap := make(map[string]interface{})
+							if !ExcludeSignatureContextsItem.Context.IsNull() && !ExcludeSignatureContextsItem.Context.IsUnknown() {
+								ExcludeSignatureContextsItemMap["context"] = ExcludeSignatureContextsItem.Context.ValueString()
 							}
-							if !deepListItem.ContextName.IsNull() && !deepListItem.ContextName.IsUnknown() {
-								deepListItemMap["context_name"] = deepListItem.ContextName.ValueString()
+							if !ExcludeSignatureContextsItem.ContextName.IsNull() && !ExcludeSignatureContextsItem.ContextName.IsUnknown() {
+								ExcludeSignatureContextsItemMap["context_name"] = ExcludeSignatureContextsItem.ContextName.ValueString()
 							}
-							if !deepListItem.SignatureID.IsNull() && !deepListItem.SignatureID.IsUnknown() {
-								deepListItemMap["signature_id"] = deepListItem.SignatureID.ValueInt64()
+							if !ExcludeSignatureContextsItem.SignatureID.IsNull() && !ExcludeSignatureContextsItem.SignatureID.IsUnknown() {
+								ExcludeSignatureContextsItemMap["signature_id"] = ExcludeSignatureContextsItem.SignatureID.ValueInt64()
 							}
-							exclude_signature_contextsDeepList = append(exclude_signature_contextsDeepList, deepListItemMap)
+							ExcludeSignatureContextsList = append(ExcludeSignatureContextsList, ExcludeSignatureContextsItemMap)
 						}
-						app_firewall_detection_controlNestedMap["exclude_signature_contexts"] = exclude_signature_contextsDeepList
+						AppFirewallDetectionControlMap["exclude_signature_contexts"] = ExcludeSignatureContextsList
 					}
-					if len(item.AppFirewallDetectionControl.ExcludeViolationContexts) > 0 {
-						var exclude_violation_contextsDeepList []map[string]interface{}
-						for _, deepListItem := range item.AppFirewallDetectionControl.ExcludeViolationContexts {
-							deepListItemMap := make(map[string]interface{})
-							if !deepListItem.Context.IsNull() && !deepListItem.Context.IsUnknown() {
-								deepListItemMap["context"] = deepListItem.Context.ValueString()
+					if len(WAFExclusionRulesItem.AppFirewallDetectionControl.ExcludeViolationContexts) > 0 {
+						var ExcludeViolationContextsList []map[string]interface{}
+						for _, ExcludeViolationContextsItem := range WAFExclusionRulesItem.AppFirewallDetectionControl.ExcludeViolationContexts {
+							ExcludeViolationContextsItemMap := make(map[string]interface{})
+							if !ExcludeViolationContextsItem.Context.IsNull() && !ExcludeViolationContextsItem.Context.IsUnknown() {
+								ExcludeViolationContextsItemMap["context"] = ExcludeViolationContextsItem.Context.ValueString()
 							}
-							if !deepListItem.ContextName.IsNull() && !deepListItem.ContextName.IsUnknown() {
-								deepListItemMap["context_name"] = deepListItem.ContextName.ValueString()
+							if !ExcludeViolationContextsItem.ContextName.IsNull() && !ExcludeViolationContextsItem.ContextName.IsUnknown() {
+								ExcludeViolationContextsItemMap["context_name"] = ExcludeViolationContextsItem.ContextName.ValueString()
 							}
-							if !deepListItem.ExcludeViolation.IsNull() && !deepListItem.ExcludeViolation.IsUnknown() {
-								deepListItemMap["exclude_violation"] = deepListItem.ExcludeViolation.ValueString()
+							if !ExcludeViolationContextsItem.ExcludeViolation.IsNull() && !ExcludeViolationContextsItem.ExcludeViolation.IsUnknown() {
+								ExcludeViolationContextsItemMap["exclude_violation"] = ExcludeViolationContextsItem.ExcludeViolation.ValueString()
 							}
-							exclude_violation_contextsDeepList = append(exclude_violation_contextsDeepList, deepListItemMap)
+							ExcludeViolationContextsList = append(ExcludeViolationContextsList, ExcludeViolationContextsItemMap)
 						}
-						app_firewall_detection_controlNestedMap["exclude_violation_contexts"] = exclude_violation_contextsDeepList
+						AppFirewallDetectionControlMap["exclude_violation_contexts"] = ExcludeViolationContextsList
 					}
-					itemMap["app_firewall_detection_control"] = app_firewall_detection_controlNestedMap
+					WAFExclusionRulesItemMap["app_firewall_detection_control"] = AppFirewallDetectionControlMap
 				}
-				if !item.ExactValue.IsNull() && !item.ExactValue.IsUnknown() {
-					itemMap["exact_value"] = item.ExactValue.ValueString()
+				if !WAFExclusionRulesItem.ExactValue.IsNull() && !WAFExclusionRulesItem.ExactValue.IsUnknown() {
+					WAFExclusionRulesItemMap["exact_value"] = WAFExclusionRulesItem.ExactValue.ValueString()
 				}
-				if !item.ExpirationTimestamp.IsNull() && !item.ExpirationTimestamp.IsUnknown() {
-					itemMap["expiration_timestamp"] = item.ExpirationTimestamp.ValueString()
+				if !WAFExclusionRulesItem.ExpirationTimestamp.IsNull() && !WAFExclusionRulesItem.ExpirationTimestamp.IsUnknown() {
+					WAFExclusionRulesItemMap["expiration_timestamp"] = WAFExclusionRulesItem.ExpirationTimestamp.ValueString()
 				}
-				if item.Metadata != nil {
-					metadataNestedMap := make(map[string]interface{})
-					if !item.Metadata.DescriptionSpec.IsNull() && !item.Metadata.DescriptionSpec.IsUnknown() {
-						metadataNestedMap["description"] = item.Metadata.DescriptionSpec.ValueString()
+				if WAFExclusionRulesItem.Metadata != nil {
+					MetadataMap := make(map[string]interface{})
+					if !WAFExclusionRulesItem.Metadata.DescriptionSpec.IsNull() && !WAFExclusionRulesItem.Metadata.DescriptionSpec.IsUnknown() {
+						MetadataMap["description"] = WAFExclusionRulesItem.Metadata.DescriptionSpec.ValueString()
 					}
-					if !item.Metadata.Name.IsNull() && !item.Metadata.Name.IsUnknown() {
-						metadataNestedMap["name"] = item.Metadata.Name.ValueString()
+					if !WAFExclusionRulesItem.Metadata.Name.IsNull() && !WAFExclusionRulesItem.Metadata.Name.IsUnknown() {
+						MetadataMap["name"] = WAFExclusionRulesItem.Metadata.Name.ValueString()
 					}
-					itemMap["metadata"] = metadataNestedMap
+					WAFExclusionRulesItemMap["metadata"] = MetadataMap
 				}
-				if !item.PathPrefix.IsNull() && !item.PathPrefix.IsUnknown() {
-					itemMap["path_prefix"] = item.PathPrefix.ValueString()
+				if !WAFExclusionRulesItem.Methods.IsNull() && !WAFExclusionRulesItem.Methods.IsUnknown() {
+					var MethodsItems []string
+					diags := WAFExclusionRulesItem.Methods.ElementsAs(ctx, &MethodsItems, false)
+					if !diags.HasError() {
+						WAFExclusionRulesItemMap["methods"] = MethodsItems
+					}
 				}
-				if !item.PathRegex.IsNull() && !item.PathRegex.IsUnknown() {
-					itemMap["path_regex"] = item.PathRegex.ValueString()
+				if !WAFExclusionRulesItem.PathPrefix.IsNull() && !WAFExclusionRulesItem.PathPrefix.IsUnknown() {
+					WAFExclusionRulesItemMap["path_prefix"] = WAFExclusionRulesItem.PathPrefix.ValueString()
 				}
-				if !item.SuffixValue.IsNull() && !item.SuffixValue.IsUnknown() {
-					itemMap["suffix_value"] = item.SuffixValue.ValueString()
+				if !WAFExclusionRulesItem.PathRegex.IsNull() && !WAFExclusionRulesItem.PathRegex.IsUnknown() {
+					WAFExclusionRulesItemMap["path_regex"] = WAFExclusionRulesItem.PathRegex.ValueString()
 				}
-				if item.WAFSkipProcessing != nil {
-					itemMap["waf_skip_processing"] = map[string]interface{}{}
+				if !WAFExclusionRulesItem.SuffixValue.IsNull() && !WAFExclusionRulesItem.SuffixValue.IsUnknown() {
+					WAFExclusionRulesItemMap["suffix_value"] = WAFExclusionRulesItem.SuffixValue.ValueString()
 				}
-				waf_exclusion_rulesList = append(waf_exclusion_rulesList, itemMap)
+				if WAFExclusionRulesItem.WAFSkipProcessing != nil {
+					WAFExclusionRulesItemMap["waf_skip_processing"] = map[string]interface{}{}
+				}
+				WAFExclusionRulesList = append(WAFExclusionRulesList, WAFExclusionRulesItemMap)
 			}
-			apiResource.Spec["waf_exclusion_rules"] = waf_exclusion_rulesList
+			apiResource.Spec["waf_exclusion_rules"] = WAFExclusionRulesList
 		}
 	}
 
@@ -1121,18 +1389,23 @@ func (r *WAFExclusionPolicyResource) Update(ctx context.Context, req resource.Up
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["waf_exclusion_rules"].([]interface{}); ok && len(listData) > 0 {
-		var waf_exclusion_rulesList []WAFExclusionPolicyWAFExclusionRulesModel
+	if !isImport && (data.WAFExclusionRules.IsNull() || len(data.WAFExclusionRules.Elements()) == 0) {
+		data.WAFExclusionRules = types.ListNull(types.ObjectType{AttrTypes: WAFExclusionPolicyWAFExclusionRulesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["waf_exclusion_rules"].([]interface{}); ok && len(listData) > 0 {
+		var WAFExclusionRulesList []WAFExclusionPolicyWAFExclusionRulesModel
 		var existingWAFExclusionRulesItems []WAFExclusionPolicyWAFExclusionRulesModel
 		if !data.WAFExclusionRules.IsNull() && !data.WAFExclusionRules.IsUnknown() {
 			data.WAFExclusionRules.ElementsAs(ctx, &existingWAFExclusionRulesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				waf_exclusion_rulesList = append(waf_exclusion_rulesList, WAFExclusionPolicyWAFExclusionRulesModel{
+				WAFExclusionRulesList = append(WAFExclusionRulesList, WAFExclusionPolicyWAFExclusionRulesModel{
 					AnyDomain: func() *WAFExclusionPolicyEmptyModel {
 						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && existingWAFExclusionRulesItems[listIdx].AnyDomain != nil {
+							return &WAFExclusionPolicyEmptyModel{}
+						}
+						if _, ok := itemMap["any_domain"].(map[string]interface{}); ok {
 							return &WAFExclusionPolicyEmptyModel{}
 						}
 						return nil
@@ -1141,11 +1414,127 @@ func (r *WAFExclusionPolicyResource) Update(ctx context.Context, req resource.Up
 						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && existingWAFExclusionRulesItems[listIdx].AnyPath != nil {
 							return &WAFExclusionPolicyEmptyModel{}
 						}
+						if _, ok := itemMap["any_path"].(map[string]interface{}); ok {
+							return &WAFExclusionPolicyEmptyModel{}
+						}
 						return nil
 					}(),
 					AppFirewallDetectionControl: func() *WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlModel {
-						if _, ok := itemMap["app_firewall_detection_control"].(map[string]interface{}); ok {
-							return &WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlModel{}
+						if AppFirewallDetectionControlData, ok := itemMap["app_firewall_detection_control"].(map[string]interface{}); ok {
+							return &WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlModel{
+								ExcludeAttackTypeContexts: func() []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel {
+									if rawList, ok := AppFirewallDetectionControlData["exclude_attack_type_contexts"].([]interface{}); ok && len(rawList) > 0 {
+										var ExcludeAttackTypeContextsResult []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel
+										for _, ExcludeAttackTypeContextsItem := range rawList {
+											if ExcludeAttackTypeContextsItemMap, ok := ExcludeAttackTypeContextsItem.(map[string]interface{}); ok {
+												ExcludeAttackTypeContextsResult = append(ExcludeAttackTypeContextsResult, WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel{
+													Context: func() types.String {
+														if v, ok := ExcludeAttackTypeContextsItemMap["context"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													ContextName: func() types.String {
+														if v, ok := ExcludeAttackTypeContextsItemMap["context_name"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													ExcludeAttackType: func() types.String {
+														if v, ok := ExcludeAttackTypeContextsItemMap["exclude_attack_type"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												})
+											}
+										}
+										return ExcludeAttackTypeContextsResult
+									}
+									return nil
+								}(),
+								ExcludeBotNameContexts: func() []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeBotNameContextsModel {
+									if rawList, ok := AppFirewallDetectionControlData["exclude_bot_name_contexts"].([]interface{}); ok && len(rawList) > 0 {
+										var ExcludeBotNameContextsResult []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeBotNameContextsModel
+										for _, ExcludeBotNameContextsItem := range rawList {
+											if ExcludeBotNameContextsItemMap, ok := ExcludeBotNameContextsItem.(map[string]interface{}); ok {
+												ExcludeBotNameContextsResult = append(ExcludeBotNameContextsResult, WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeBotNameContextsModel{
+													BotName: func() types.String {
+														if v, ok := ExcludeBotNameContextsItemMap["bot_name"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												})
+											}
+										}
+										return ExcludeBotNameContextsResult
+									}
+									return nil
+								}(),
+								ExcludeSignatureContexts: func() []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeSignatureContextsModel {
+									if rawList, ok := AppFirewallDetectionControlData["exclude_signature_contexts"].([]interface{}); ok && len(rawList) > 0 {
+										var ExcludeSignatureContextsResult []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeSignatureContextsModel
+										for _, ExcludeSignatureContextsItem := range rawList {
+											if ExcludeSignatureContextsItemMap, ok := ExcludeSignatureContextsItem.(map[string]interface{}); ok {
+												ExcludeSignatureContextsResult = append(ExcludeSignatureContextsResult, WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeSignatureContextsModel{
+													Context: func() types.String {
+														if v, ok := ExcludeSignatureContextsItemMap["context"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													ContextName: func() types.String {
+														if v, ok := ExcludeSignatureContextsItemMap["context_name"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													SignatureID: func() types.Int64 {
+														if v, ok := ExcludeSignatureContextsItemMap["signature_id"].(float64); ok && v != 0 {
+															return types.Int64Value(int64(v))
+														}
+														return types.Int64Null()
+													}(),
+												})
+											}
+										}
+										return ExcludeSignatureContextsResult
+									}
+									return nil
+								}(),
+								ExcludeViolationContexts: func() []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeViolationContextsModel {
+									if rawList, ok := AppFirewallDetectionControlData["exclude_violation_contexts"].([]interface{}); ok && len(rawList) > 0 {
+										var ExcludeViolationContextsResult []WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeViolationContextsModel
+										for _, ExcludeViolationContextsItem := range rawList {
+											if ExcludeViolationContextsItemMap, ok := ExcludeViolationContextsItem.(map[string]interface{}); ok {
+												ExcludeViolationContextsResult = append(ExcludeViolationContextsResult, WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlExcludeViolationContextsModel{
+													Context: func() types.String {
+														if v, ok := ExcludeViolationContextsItemMap["context"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													ContextName: func() types.String {
+														if v, ok := ExcludeViolationContextsItemMap["context_name"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													ExcludeViolation: func() types.String {
+														if v, ok := ExcludeViolationContextsItemMap["exclude_violation"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												})
+											}
+										}
+										return ExcludeViolationContextsResult
+									}
+									return nil
+								}(),
+							}
 						}
 						return nil
 					}(),
@@ -1162,16 +1551,16 @@ func (r *WAFExclusionPolicyResource) Update(ctx context.Context, req resource.Up
 						return types.StringNull()
 					}(),
 					Metadata: func() *WAFExclusionPolicyWAFExclusionRulesMetadataModel {
-						if nestedMap, ok := itemMap["metadata"].(map[string]interface{}); ok {
+						if MetadataData, ok := itemMap["metadata"].(map[string]interface{}); ok {
 							return &WAFExclusionPolicyWAFExclusionRulesMetadataModel{
 								DescriptionSpec: func() types.String {
-									if v, ok := nestedMap["description"].(string); ok && v != "" {
+									if v, ok := MetadataData["description"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := nestedMap["name"].(string); ok && v != "" {
+									if v, ok := MetadataData["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -1215,18 +1604,20 @@ func (r *WAFExclusionPolicyResource) Update(ctx context.Context, req resource.Up
 						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && existingWAFExclusionRulesItems[listIdx].WAFSkipProcessing != nil {
 							return &WAFExclusionPolicyEmptyModel{}
 						}
+						if _, ok := itemMap["waf_skip_processing"].(map[string]interface{}); ok {
+							return &WAFExclusionPolicyEmptyModel{}
+						}
 						return nil
 					}(),
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: WAFExclusionPolicyWAFExclusionRulesModelAttrTypes}, waf_exclusion_rulesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: WAFExclusionPolicyWAFExclusionRulesModelAttrTypes}, WAFExclusionRulesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.WAFExclusionRules = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.WAFExclusionRules = types.ListNull(types.ObjectType{AttrTypes: WAFExclusionPolicyWAFExclusionRulesModelAttrTypes})
 	}
 

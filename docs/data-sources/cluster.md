@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_cluster Data Source - terraform-provider-f5xc"
+page_title: "xcsh_cluster Data Source - xcsh"
 subcategory: "Load Balancing"
 description: |-
   Retrieves information about cluster will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_cluster (Data Source)
+# xcsh_cluster (Data Source)
 
 Manages cluster will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
 
@@ -15,27 +15,22 @@ Manages cluster will create the object in the storage backend for namespace meta
 
 ```terraform
 # Cluster Data Source Example
-# Retrieves information about an existing Cluster
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
 # Look up an existing Cluster by name
-data "f5xc_cluster" "example" {
+data "xcsh_cluster" "example" {
   name      = "example-cluster"
   namespace = "staging"
-}
-
-output "cluster_id" {
-  value = data.f5xc_cluster.example.id
 }
 ```
 

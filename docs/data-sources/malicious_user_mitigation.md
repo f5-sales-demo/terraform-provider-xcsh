@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_malicious_user_mitigation Data Source - terraform-provider-f5xc"
+page_title: "xcsh_malicious_user_mitigation Data Source - xcsh"
 subcategory: "Security"
 description: |-
   Retrieves information about malicious_user_mitigation creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_malicious_user_mitigation (Data Source)
+# xcsh_malicious_user_mitigation (Data Source)
 
 Manages malicious_user_mitigation creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
 
@@ -14,28 +14,23 @@ Manages malicious_user_mitigation creates a new object in the storage backend fo
 ## Example Usage
 
 ```terraform
-# Malicious User Mitigation Data Source Example
-# Retrieves information about an existing Malicious User Mitigation
+# MaliciousUserMitigation Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Malicious User Mitigation by name
-data "f5xc_malicious_user_mitigation" "example" {
+# Look up an existing MaliciousUserMitigation by name
+data "xcsh_malicious_user_mitigation" "example" {
   name      = "example-malicious-user-mitigation"
   namespace = "staging"
-}
-
-output "malicious_user_mitigation_id" {
-  value = data.f5xc_malicious_user_mitigation.example.id
 }
 ```
 

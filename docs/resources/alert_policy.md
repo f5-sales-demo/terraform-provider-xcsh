@@ -1,66 +1,37 @@
 ---
-page_title: "f5xc_alert_policy Resource - terraform-provider-f5xc"
+page_title: "xcsh_alert_policy Resource - xcsh"
 subcategory: "Security"
 description: |-
   Manages new Alert Policy Object. in F5 Distributed Cloud.
 ---
 
-# f5xc_alert_policy (Resource)
+# xcsh_alert_policy (Resource)
 
 Manages new Alert Policy Object. in F5 Distributed Cloud.
 
-~> **Note** Please refer to [Alert Policy API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/observability/) to learn more.
+~> **Note** Please refer to [Alert Policy API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/observability/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# Alert Policy Resource Example
-# Manages new Alert Policy Object. in F5 Distributed Cloud.
+# AlertPolicy Resource Example
+# Manages new Alert Policy Object.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Alert Policy configuration
-resource "f5xc_alert_policy" "example" {
+# Basic AlertPolicy configuration
+resource "xcsh_alert_policy" "example" {
   name      = "example-alert-policy"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Alert Policy configuration
-  # Alert receivers
-  receivers {
-    name      = "slack-receiver"
-    namespace = "staging"
-  }
-
-  # Alert routes
-  routes {
-    any {}
-    send {}
-  }
-
-  # Notification parameters
-  notification_parameters {
-    default {}
-    group_wait     = "30s"
-    group_interval = "1m"
-  }
 }
 ```
 
@@ -151,7 +122,7 @@ A [`routes`](#routes) block supports the following:
 `VES_CLIENT_SIDE_DEFENSE_SENSITIVE_FIELD_READ`, `TLS_AUTOMATIC_CERTIFICATE_RENEWAL_FAILURE`, `TLS_AUTOMATIC_CERTIFICATE_RENEWAL_STILL_FAILING`, `TLS_AUTOMATIC_CERTIFICATE_EXPIRED`, `TLS_CUSTOM_CERTIFICATE_EXPIRING`, `TLS_CUSTOM_CERTIFICATE_EXPIRING_SOON`, `TLS_CUSTOM_CERTIFICATE_EXPIRED`, `L7DDOS`, `DNS_ZONE_IGNORED_DUPLICATE_RECORD`, `API_SECURITY_UNUSED_API_DETECTED`,
 `API_SECURITY_SHADOW_API_DETECTED`, `API_SECURITY_SENSITIVE_DATA_IN_RESPONSE_DETECTED`, `API_SECURITY_RISK_SCORE_HIGH_DETECTED`, `ROUTED_DDOS_ALERT_NOTIFICATION`, `ROUTED_DDOS_MITIGATION_NOTIFICATION`<br>[Enum:
 SITE_CUSTOMER_TUNNEL_INTERFACE_DOWN|SITE_PHYSICAL_INTERFACE_DOWN|TUNNELS_TO_CUSTOMER_SITE_DOWN|SERVICE_SERVER_ERROR|SERVICE_CLIENT_ERROR|SERVICE_HEALTH_LOW|SERVICE_UNAVAILABLE|SERVICE_SERVER_ERROR_PER_SOURCE_SITE|SERVICE_CLIENT_ERROR_PER_SOURCE_SITE|SERVICE_ENDPOINT_HEALTHCHECK_FAILURE|SYNTHETIC_MONITOR_HEALTH_CRITICAL|MALICIOUS_USER_DETECTED|WAF_TOO_MANY_ATTACKS|API_SECURITY_TOO_MANY_ATTACKS|SERVICE_POLICY_TOO_MANY_ATTACKS|WAF_TOO_MANY_MALICIOUS_BOTS|BOT_DEFENSE_TOO_MANY_SECURITY_EVENTS|THREAT_CAMPAIGN|VES_CLIENT_SIDE_DEFENSE_SUSPICIOUS_DOMAIN|VES_CLIENT_SIDE_DEFENSE_SENSITIVE_FIELD_READ|TLS_AUTOMATIC_CERTIFICATE_RENEWAL_FAILURE|TLS_AUTOMATIC_CERTIFICATE_RENEWAL_STILL_FAILING|TLS_AUTOMATIC_CERTIFICATE_EXPIRED|TLS_CUSTOM_CERTIFICATE_EXPIRING|TLS_CUSTOM_CERTIFICATE_EXPIRING_SOON|TLS_CUSTOM_CERTIFICATE_EXPIRED|L7DDOS|DNS_ZONE_IGNORED_DUPLICATE_RECORD|API_SECURITY_UNUSED_API_DETECTED|API_SECURITY_SHADOW_API_DETECTED|API_SECURITY_SENSITIVE_DATA_IN_RESPONSE_DETECTED|API_SECURITY_RISK_SCORE_HIGH_DETECTED|ROUTED_DDOS_ALERT_NOTIFICATION|ROUTED_DDOS_MITIGATION_NOTIFICATION]
-List of Alert Names Customer tunnel interface down Physical Interface down Tunnel Interfaces to Customer Site Down Virutal Host server error Virtual Host client error Service Health Low Service Unavailable Virtual Host server error Virtual Host client error Endpoint Healthcheck failure Synthetic
+List of Alert Names Customer tunnel interface down Physical Interface down Tunnel Interfaces to Customer Site Down Virtual Host server error Virtual Host client error Service Health Low Service Unavailable Virtual Host server error Virtual Host client error Endpoint Healthcheck failure Synthetic
 
 <a id="routes-alertname-regex"></a>&#x2022; [`alertname_regex`](#routes-alertname-regex) - Optional String<br>Regular Expression match for the alertname
 
@@ -343,5 +314,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_alert_policy.example system/example
+terraform import xcsh_alert_policy.example system/example
 ```

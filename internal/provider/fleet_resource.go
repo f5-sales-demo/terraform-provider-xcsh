@@ -18,14 +18,15 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -159,7 +160,7 @@ var FleetDcClusterGroupInsideModelAttrTypes = map[string]attr.Type{
 
 // FleetDeviceListModel represents device_list block
 type FleetDeviceListModel struct {
-	Devices []FleetDeviceListDevicesModel `tfsdk:"devices"`
+	Devices types.List `tfsdk:"devices"`
 }
 
 // FleetDeviceListModelAttrTypes defines the attribute types for FleetDeviceListModel
@@ -183,8 +184,8 @@ var FleetDeviceListDevicesModelAttrTypes = map[string]attr.Type{
 
 // FleetDeviceListDevicesNetworkDeviceModel represents network_device block
 type FleetDeviceListDevicesNetworkDeviceModel struct {
-	Use       types.String                                        `tfsdk:"use"`
-	Interface []FleetDeviceListDevicesNetworkDeviceInterfaceModel `tfsdk:"interface"`
+	Use       types.String `tfsdk:"use"`
+	Interface types.List   `tfsdk:"interface"`
 }
 
 // FleetDeviceListDevicesNetworkDeviceModelAttrTypes defines the attribute types for FleetDeviceListDevicesNetworkDeviceModel
@@ -245,7 +246,7 @@ var FleetInsideVirtualNetworkModelAttrTypes = map[string]attr.Type{
 
 // FleetInterfaceListModel represents interface_list block
 type FleetInterfaceListModel struct {
-	Interfaces []FleetInterfaceListInterfacesModel `tfsdk:"interfaces"`
+	Interfaces types.List `tfsdk:"interfaces"`
 }
 
 // FleetInterfaceListModelAttrTypes defines the attribute types for FleetInterfaceListModel
@@ -1341,7 +1342,7 @@ var FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeF
 
 // FleetStorageInterfaceListModel represents storage_interface_list block
 type FleetStorageInterfaceListModel struct {
-	Interfaces []FleetStorageInterfaceListInterfacesModel `tfsdk:"interfaces"`
+	Interfaces types.List `tfsdk:"interfaces"`
 }
 
 // FleetStorageInterfaceListModelAttrTypes defines the attribute types for FleetStorageInterfaceListModel
@@ -1365,7 +1366,7 @@ var FleetStorageInterfaceListInterfacesModelAttrTypes = map[string]attr.Type{
 
 // FleetStorageStaticRoutesModel represents storage_static_routes block
 type FleetStorageStaticRoutesModel struct {
-	StorageRoutes []FleetStorageStaticRoutesStorageRoutesModel `tfsdk:"storage_routes"`
+	StorageRoutes types.List `tfsdk:"storage_routes"`
 }
 
 // FleetStorageStaticRoutesModelAttrTypes defines the attribute types for FleetStorageStaticRoutesModel
@@ -1392,7 +1393,7 @@ var FleetStorageStaticRoutesStorageRoutesModelAttrTypes = map[string]attr.Type{
 // FleetStorageStaticRoutesStorageRoutesNexthopModel represents nexthop block
 type FleetStorageStaticRoutesStorageRoutesNexthopModel struct {
 	Type           types.String                                                     `tfsdk:"type"`
-	Interface      []FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModel     `tfsdk:"interface"`
+	Interface      types.List                                                       `tfsdk:"interface"`
 	NexthopAddress *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressModel `tfsdk:"nexthop_address"`
 }
 
@@ -1572,13 +1573,16 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Fleet will be created.",
-				Required:            true,
+				MarkdownDescription: "Namespace for the Fleet. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
+				Optional:            true,
+				Computed:            true,
+				Default:             stringdefault.StaticString("system"),
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
+					stringvalidator.OneOf("system"),
 				},
 			},
 			"fleet_label": schema.StringAttribute{
@@ -4003,607 +4007,1418 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 		createReq.Spec["fleet_label"] = data.FleetLabel.ValueString()
 	}
 	if data.PerformanceEnhancementMode != nil {
-		performance_enhancement_modeMap := make(map[string]interface{})
+		PerformanceEnhancementModeMap := make(map[string]interface{})
 		if data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-			perf_mode_l3_enhancedNestedMap := make(map[string]interface{})
-			performance_enhancement_modeMap["perf_mode_l3_enhanced"] = perf_mode_l3_enhancedNestedMap
+			PerfModeL3EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				PerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				PerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerfModeL3EnhancedMap
 		}
 		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-			performance_enhancement_modeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
 		}
-		createReq.Spec["performance_enhancement_mode"] = performance_enhancement_modeMap
+		createReq.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
 	}
 	if data.AllowAllUsb != nil {
-		allow_all_usbMap := make(map[string]interface{})
-		createReq.Spec["allow_all_usb"] = allow_all_usbMap
+		createReq.Spec["allow_all_usb"] = map[string]interface{}{}
 	}
 	if !data.BlockedServices.IsNull() && !data.BlockedServices.IsUnknown() {
-		var blocked_servicesItems []FleetBlockedServicesModel
-		diags := data.BlockedServices.ElementsAs(ctx, &blocked_servicesItems, false)
+		var BlockedServicesElems []FleetBlockedServicesModel
+		diags := data.BlockedServices.ElementsAs(ctx, &BlockedServicesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(blocked_servicesItems) > 0 {
-			var blocked_servicesList []map[string]interface{}
-			for _, item := range blocked_servicesItems {
-				itemMap := make(map[string]interface{})
-				if item.DNS != nil {
-					itemMap["dns"] = map[string]interface{}{}
+		if !resp.Diagnostics.HasError() && len(BlockedServicesElems) > 0 {
+			var BlockedServicesList []map[string]interface{}
+			for _, BlockedServicesItem := range BlockedServicesElems {
+				BlockedServicesItemMap := make(map[string]interface{})
+				if BlockedServicesItem.DNS != nil {
+					BlockedServicesItemMap["dns"] = map[string]interface{}{}
 				}
-				if !item.NetworkType.IsNull() && !item.NetworkType.IsUnknown() {
-					itemMap["network_type"] = item.NetworkType.ValueString()
+				if !BlockedServicesItem.NetworkType.IsNull() && !BlockedServicesItem.NetworkType.IsUnknown() {
+					BlockedServicesItemMap["network_type"] = BlockedServicesItem.NetworkType.ValueString()
 				}
-				if item.SSH != nil {
-					itemMap["ssh"] = map[string]interface{}{}
+				if BlockedServicesItem.SSH != nil {
+					BlockedServicesItemMap["ssh"] = map[string]interface{}{}
 				}
-				if item.WebUserInterface != nil {
-					itemMap["web_user_interface"] = map[string]interface{}{}
+				if BlockedServicesItem.WebUserInterface != nil {
+					BlockedServicesItemMap["web_user_interface"] = map[string]interface{}{}
 				}
-				blocked_servicesList = append(blocked_servicesList, itemMap)
+				BlockedServicesList = append(BlockedServicesList, BlockedServicesItemMap)
 			}
-			createReq.Spec["blocked_services"] = blocked_servicesList
+			createReq.Spec["blocked_services"] = BlockedServicesList
 		}
 	}
 	if data.BondDeviceList != nil {
-		bond_device_listMap := make(map[string]interface{})
+		BondDeviceListMap := make(map[string]interface{})
 		if len(data.BondDeviceList.BondDevices) > 0 {
-			var bond_devicesList []map[string]interface{}
-			for _, listItem := range data.BondDeviceList.BondDevices {
-				listItemMap := make(map[string]interface{})
-				if listItem.ActiveBackup != nil {
-					listItemMap["active_backup"] = map[string]interface{}{}
+			var BondDevicesList []map[string]interface{}
+			for _, BondDevicesItem := range data.BondDeviceList.BondDevices {
+				BondDevicesItemMap := make(map[string]interface{})
+				if BondDevicesItem.ActiveBackup != nil {
+					BondDevicesItemMap["active_backup"] = map[string]interface{}{}
 				}
-				if listItem.Lacp != nil {
-					lacpDeepMap := make(map[string]interface{})
-					if !listItem.Lacp.Rate.IsNull() && !listItem.Lacp.Rate.IsUnknown() {
-						lacpDeepMap["rate"] = listItem.Lacp.Rate.ValueInt64()
+				if !BondDevicesItem.Devices.IsNull() && !BondDevicesItem.Devices.IsUnknown() {
+					var DevicesItems []string
+					diags := BondDevicesItem.Devices.ElementsAs(ctx, &DevicesItems, false)
+					if !diags.HasError() {
+						BondDevicesItemMap["devices"] = DevicesItems
 					}
-					listItemMap["lacp"] = lacpDeepMap
 				}
-				if !listItem.LinkPollingInterval.IsNull() && !listItem.LinkPollingInterval.IsUnknown() {
-					listItemMap["link_polling_interval"] = listItem.LinkPollingInterval.ValueInt64()
+				if BondDevicesItem.Lacp != nil {
+					LacpMap := make(map[string]interface{})
+					if !BondDevicesItem.Lacp.Rate.IsNull() && !BondDevicesItem.Lacp.Rate.IsUnknown() {
+						LacpMap["rate"] = BondDevicesItem.Lacp.Rate.ValueInt64()
+					}
+					BondDevicesItemMap["lacp"] = LacpMap
 				}
-				if !listItem.LinkUpDelay.IsNull() && !listItem.LinkUpDelay.IsUnknown() {
-					listItemMap["link_up_delay"] = listItem.LinkUpDelay.ValueInt64()
+				if !BondDevicesItem.LinkPollingInterval.IsNull() && !BondDevicesItem.LinkPollingInterval.IsUnknown() {
+					BondDevicesItemMap["link_polling_interval"] = BondDevicesItem.LinkPollingInterval.ValueInt64()
 				}
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
+				if !BondDevicesItem.LinkUpDelay.IsNull() && !BondDevicesItem.LinkUpDelay.IsUnknown() {
+					BondDevicesItemMap["link_up_delay"] = BondDevicesItem.LinkUpDelay.ValueInt64()
 				}
-				bond_devicesList = append(bond_devicesList, listItemMap)
+				if !BondDevicesItem.Name.IsNull() && !BondDevicesItem.Name.IsUnknown() {
+					BondDevicesItemMap["name"] = BondDevicesItem.Name.ValueString()
+				}
+				BondDevicesList = append(BondDevicesList, BondDevicesItemMap)
 			}
-			bond_device_listMap["bond_devices"] = bond_devicesList
+			BondDeviceListMap["bond_devices"] = BondDevicesList
 		}
-		createReq.Spec["bond_device_list"] = bond_device_listMap
+		createReq.Spec["bond_device_list"] = BondDeviceListMap
 	}
 	if data.DcClusterGroup != nil {
-		dc_cluster_groupMap := make(map[string]interface{})
+		DcClusterGroupMap := make(map[string]interface{})
 		if !data.DcClusterGroup.Name.IsNull() && !data.DcClusterGroup.Name.IsUnknown() {
-			dc_cluster_groupMap["name"] = data.DcClusterGroup.Name.ValueString()
+			DcClusterGroupMap["name"] = data.DcClusterGroup.Name.ValueString()
 		}
 		if !data.DcClusterGroup.Namespace.IsNull() && !data.DcClusterGroup.Namespace.IsUnknown() {
-			dc_cluster_groupMap["namespace"] = data.DcClusterGroup.Namespace.ValueString()
+			DcClusterGroupMap["namespace"] = data.DcClusterGroup.Namespace.ValueString()
 		}
 		if !data.DcClusterGroup.Tenant.IsNull() && !data.DcClusterGroup.Tenant.IsUnknown() {
-			dc_cluster_groupMap["tenant"] = data.DcClusterGroup.Tenant.ValueString()
+			DcClusterGroupMap["tenant"] = data.DcClusterGroup.Tenant.ValueString()
 		}
-		createReq.Spec["dc_cluster_group"] = dc_cluster_groupMap
+		createReq.Spec["dc_cluster_group"] = DcClusterGroupMap
 	}
 	if data.DcClusterGroupInside != nil {
-		dc_cluster_group_insideMap := make(map[string]interface{})
+		DcClusterGroupInsideMap := make(map[string]interface{})
 		if !data.DcClusterGroupInside.Name.IsNull() && !data.DcClusterGroupInside.Name.IsUnknown() {
-			dc_cluster_group_insideMap["name"] = data.DcClusterGroupInside.Name.ValueString()
+			DcClusterGroupInsideMap["name"] = data.DcClusterGroupInside.Name.ValueString()
 		}
 		if !data.DcClusterGroupInside.Namespace.IsNull() && !data.DcClusterGroupInside.Namespace.IsUnknown() {
-			dc_cluster_group_insideMap["namespace"] = data.DcClusterGroupInside.Namespace.ValueString()
+			DcClusterGroupInsideMap["namespace"] = data.DcClusterGroupInside.Namespace.ValueString()
 		}
 		if !data.DcClusterGroupInside.Tenant.IsNull() && !data.DcClusterGroupInside.Tenant.IsUnknown() {
-			dc_cluster_group_insideMap["tenant"] = data.DcClusterGroupInside.Tenant.ValueString()
+			DcClusterGroupInsideMap["tenant"] = data.DcClusterGroupInside.Tenant.ValueString()
 		}
-		createReq.Spec["dc_cluster_group_inside"] = dc_cluster_group_insideMap
+		createReq.Spec["dc_cluster_group_inside"] = DcClusterGroupInsideMap
 	}
 	if data.DefaultConfig != nil {
-		default_configMap := make(map[string]interface{})
-		createReq.Spec["default_config"] = default_configMap
+		createReq.Spec["default_config"] = map[string]interface{}{}
 	}
 	if data.DefaultSriovInterface != nil {
-		default_sriov_interfaceMap := make(map[string]interface{})
-		createReq.Spec["default_sriov_interface"] = default_sriov_interfaceMap
+		createReq.Spec["default_sriov_interface"] = map[string]interface{}{}
 	}
 	if data.DefaultStorageClass != nil {
-		default_storage_classMap := make(map[string]interface{})
-		createReq.Spec["default_storage_class"] = default_storage_classMap
+		createReq.Spec["default_storage_class"] = map[string]interface{}{}
 	}
 	if data.DenyAllUsb != nil {
-		deny_all_usbMap := make(map[string]interface{})
-		createReq.Spec["deny_all_usb"] = deny_all_usbMap
+		createReq.Spec["deny_all_usb"] = map[string]interface{}{}
 	}
 	if data.DeviceList != nil {
-		device_listMap := make(map[string]interface{})
-		if len(data.DeviceList.Devices) > 0 {
-			var devicesList []map[string]interface{}
-			for _, listItem := range data.DeviceList.Devices {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
-				}
-				if listItem.NetworkDevice != nil {
-					network_deviceDeepMap := make(map[string]interface{})
-					if !listItem.NetworkDevice.Use.IsNull() && !listItem.NetworkDevice.Use.IsUnknown() {
-						network_deviceDeepMap["use"] = listItem.NetworkDevice.Use.ValueString()
+		DeviceListMap := make(map[string]interface{})
+		if !data.DeviceList.Devices.IsNull() && !data.DeviceList.Devices.IsUnknown() {
+			var DevicesElems []FleetDeviceListDevicesModel
+			diags := data.DeviceList.Devices.ElementsAs(ctx, &DevicesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(DevicesElems) > 0 {
+				var DevicesList []map[string]interface{}
+				for _, DevicesItem := range DevicesElems {
+					DevicesItemMap := make(map[string]interface{})
+					if !DevicesItem.Name.IsNull() && !DevicesItem.Name.IsUnknown() {
+						DevicesItemMap["name"] = DevicesItem.Name.ValueString()
 					}
-					listItemMap["network_device"] = network_deviceDeepMap
+					if DevicesItem.NetworkDevice != nil {
+						NetworkDeviceMap := make(map[string]interface{})
+						if !DevicesItem.NetworkDevice.Interface.IsNull() && !DevicesItem.NetworkDevice.Interface.IsUnknown() {
+							var InterfaceElems []FleetDeviceListDevicesNetworkDeviceInterfaceModel
+							diags := DevicesItem.NetworkDevice.Interface.ElementsAs(ctx, &InterfaceElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceElems) > 0 {
+								var InterfaceList []map[string]interface{}
+								for _, InterfaceItem := range InterfaceElems {
+									InterfaceItemMap := make(map[string]interface{})
+									if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
+										InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
+									}
+									if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
+										InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
+									}
+									if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
+										InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
+									}
+									if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
+										InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
+									}
+									if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
+										InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
+									}
+									InterfaceList = append(InterfaceList, InterfaceItemMap)
+								}
+								NetworkDeviceMap["interface"] = InterfaceList
+							}
+						}
+						if !DevicesItem.NetworkDevice.Use.IsNull() && !DevicesItem.NetworkDevice.Use.IsUnknown() {
+							NetworkDeviceMap["use"] = DevicesItem.NetworkDevice.Use.ValueString()
+						}
+						DevicesItemMap["network_device"] = NetworkDeviceMap
+					}
+					if !DevicesItem.Owner.IsNull() && !DevicesItem.Owner.IsUnknown() {
+						DevicesItemMap["owner"] = DevicesItem.Owner.ValueString()
+					}
+					DevicesList = append(DevicesList, DevicesItemMap)
 				}
-				if !listItem.Owner.IsNull() && !listItem.Owner.IsUnknown() {
-					listItemMap["owner"] = listItem.Owner.ValueString()
-				}
-				devicesList = append(devicesList, listItemMap)
+				DeviceListMap["devices"] = DevicesList
 			}
-			device_listMap["devices"] = devicesList
 		}
-		createReq.Spec["device_list"] = device_listMap
+		createReq.Spec["device_list"] = DeviceListMap
 	}
 	if data.DisableGPU != nil {
-		disable_gpuMap := make(map[string]interface{})
-		createReq.Spec["disable_gpu"] = disable_gpuMap
+		createReq.Spec["disable_gpu"] = map[string]interface{}{}
 	}
 	if data.DisableVM != nil {
-		disable_vmMap := make(map[string]interface{})
-		createReq.Spec["disable_vm"] = disable_vmMap
+		createReq.Spec["disable_vm"] = map[string]interface{}{}
 	}
 	if data.EnableGPU != nil {
-		enable_gpuMap := make(map[string]interface{})
-		createReq.Spec["enable_gpu"] = enable_gpuMap
+		createReq.Spec["enable_gpu"] = map[string]interface{}{}
 	}
 	if data.EnableVgpu != nil {
-		enable_vgpuMap := make(map[string]interface{})
+		EnableVgpuMap := make(map[string]interface{})
 		if !data.EnableVgpu.FeatureType.IsNull() && !data.EnableVgpu.FeatureType.IsUnknown() {
-			enable_vgpuMap["feature_type"] = data.EnableVgpu.FeatureType.ValueString()
+			EnableVgpuMap["feature_type"] = data.EnableVgpu.FeatureType.ValueString()
 		}
 		if !data.EnableVgpu.ServerAddress.IsNull() && !data.EnableVgpu.ServerAddress.IsUnknown() {
-			enable_vgpuMap["server_address"] = data.EnableVgpu.ServerAddress.ValueString()
+			EnableVgpuMap["server_address"] = data.EnableVgpu.ServerAddress.ValueString()
 		}
 		if !data.EnableVgpu.ServerPort.IsNull() && !data.EnableVgpu.ServerPort.IsUnknown() {
-			enable_vgpuMap["server_port"] = data.EnableVgpu.ServerPort.ValueInt64()
+			EnableVgpuMap["server_port"] = data.EnableVgpu.ServerPort.ValueInt64()
 		}
-		createReq.Spec["enable_vgpu"] = enable_vgpuMap
+		createReq.Spec["enable_vgpu"] = EnableVgpuMap
 	}
 	if data.EnableVM != nil {
-		enable_vmMap := make(map[string]interface{})
-		createReq.Spec["enable_vm"] = enable_vmMap
+		createReq.Spec["enable_vm"] = map[string]interface{}{}
 	}
 	if !data.InsideVirtualNetwork.IsNull() && !data.InsideVirtualNetwork.IsUnknown() {
-		var inside_virtual_networkItems []FleetInsideVirtualNetworkModel
-		diags := data.InsideVirtualNetwork.ElementsAs(ctx, &inside_virtual_networkItems, false)
+		var InsideVirtualNetworkElems []FleetInsideVirtualNetworkModel
+		diags := data.InsideVirtualNetwork.ElementsAs(ctx, &InsideVirtualNetworkElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(inside_virtual_networkItems) > 0 {
-			var inside_virtual_networkList []map[string]interface{}
-			for _, item := range inside_virtual_networkItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(InsideVirtualNetworkElems) > 0 {
+			var InsideVirtualNetworkList []map[string]interface{}
+			for _, InsideVirtualNetworkItem := range InsideVirtualNetworkElems {
+				InsideVirtualNetworkItemMap := make(map[string]interface{})
+				if !InsideVirtualNetworkItem.Kind.IsNull() && !InsideVirtualNetworkItem.Kind.IsUnknown() {
+					InsideVirtualNetworkItemMap["kind"] = InsideVirtualNetworkItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !InsideVirtualNetworkItem.Name.IsNull() && !InsideVirtualNetworkItem.Name.IsUnknown() {
+					InsideVirtualNetworkItemMap["name"] = InsideVirtualNetworkItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !InsideVirtualNetworkItem.Namespace.IsNull() && !InsideVirtualNetworkItem.Namespace.IsUnknown() {
+					InsideVirtualNetworkItemMap["namespace"] = InsideVirtualNetworkItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !InsideVirtualNetworkItem.Tenant.IsNull() && !InsideVirtualNetworkItem.Tenant.IsUnknown() {
+					InsideVirtualNetworkItemMap["tenant"] = InsideVirtualNetworkItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !InsideVirtualNetworkItem.Uid.IsNull() && !InsideVirtualNetworkItem.Uid.IsUnknown() {
+					InsideVirtualNetworkItemMap["uid"] = InsideVirtualNetworkItem.Uid.ValueString()
 				}
-				inside_virtual_networkList = append(inside_virtual_networkList, itemMap)
+				InsideVirtualNetworkList = append(InsideVirtualNetworkList, InsideVirtualNetworkItemMap)
 			}
-			createReq.Spec["inside_virtual_network"] = inside_virtual_networkList
+			createReq.Spec["inside_virtual_network"] = InsideVirtualNetworkList
 		}
 	}
 	if data.InterfaceList != nil {
-		interface_listMap := make(map[string]interface{})
-		if len(data.InterfaceList.Interfaces) > 0 {
-			var interfacesList []map[string]interface{}
-			for _, listItem := range data.InterfaceList.Interfaces {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
+		InterfaceListMap := make(map[string]interface{})
+		if !data.InterfaceList.Interfaces.IsNull() && !data.InterfaceList.Interfaces.IsUnknown() {
+			var InterfacesElems []FleetInterfaceListInterfacesModel
+			diags := data.InterfaceList.Interfaces.ElementsAs(ctx, &InterfacesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(InterfacesElems) > 0 {
+				var InterfacesList []map[string]interface{}
+				for _, InterfacesItem := range InterfacesElems {
+					InterfacesItemMap := make(map[string]interface{})
+					if !InterfacesItem.Name.IsNull() && !InterfacesItem.Name.IsUnknown() {
+						InterfacesItemMap["name"] = InterfacesItem.Name.ValueString()
+					}
+					if !InterfacesItem.Namespace.IsNull() && !InterfacesItem.Namespace.IsUnknown() {
+						InterfacesItemMap["namespace"] = InterfacesItem.Namespace.ValueString()
+					}
+					if !InterfacesItem.Tenant.IsNull() && !InterfacesItem.Tenant.IsUnknown() {
+						InterfacesItemMap["tenant"] = InterfacesItem.Tenant.ValueString()
+					}
+					InterfacesList = append(InterfacesList, InterfacesItemMap)
 				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				interfacesList = append(interfacesList, listItemMap)
+				InterfaceListMap["interfaces"] = InterfacesList
 			}
-			interface_listMap["interfaces"] = interfacesList
 		}
-		createReq.Spec["interface_list"] = interface_listMap
+		createReq.Spec["interface_list"] = InterfaceListMap
 	}
 	if data.KubernetesUpgradeDrain != nil {
-		kubernetes_upgrade_drainMap := make(map[string]interface{})
+		KubernetesUpgradeDrainMap := make(map[string]interface{})
 		if data.KubernetesUpgradeDrain.DisableUpgradeDrain != nil {
-			kubernetes_upgrade_drainMap["disable_upgrade_drain"] = map[string]interface{}{}
+			KubernetesUpgradeDrainMap["disable_upgrade_drain"] = map[string]interface{}{}
 		}
 		if data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
-			enable_upgrade_drainNestedMap := make(map[string]interface{})
+			EnableUpgradeDrainMap := make(map[string]interface{})
+			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode != nil {
+				EnableUpgradeDrainMap["disable_vega_upgrade_mode"] = map[string]interface{}{}
+			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
-				enable_upgrade_drainNestedMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
+				EnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
-				enable_upgrade_drainNestedMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
+				EnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
 			}
-			kubernetes_upgrade_drainMap["enable_upgrade_drain"] = enable_upgrade_drainNestedMap
+			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode != nil {
+				EnableUpgradeDrainMap["enable_vega_upgrade_mode"] = map[string]interface{}{}
+			}
+			KubernetesUpgradeDrainMap["enable_upgrade_drain"] = EnableUpgradeDrainMap
 		}
-		createReq.Spec["kubernetes_upgrade_drain"] = kubernetes_upgrade_drainMap
+		createReq.Spec["kubernetes_upgrade_drain"] = KubernetesUpgradeDrainMap
 	}
 	if data.LogReceiver != nil {
-		log_receiverMap := make(map[string]interface{})
+		LogReceiverMap := make(map[string]interface{})
 		if !data.LogReceiver.Name.IsNull() && !data.LogReceiver.Name.IsUnknown() {
-			log_receiverMap["name"] = data.LogReceiver.Name.ValueString()
+			LogReceiverMap["name"] = data.LogReceiver.Name.ValueString()
 		}
 		if !data.LogReceiver.Namespace.IsNull() && !data.LogReceiver.Namespace.IsUnknown() {
-			log_receiverMap["namespace"] = data.LogReceiver.Namespace.ValueString()
+			LogReceiverMap["namespace"] = data.LogReceiver.Namespace.ValueString()
 		}
 		if !data.LogReceiver.Tenant.IsNull() && !data.LogReceiver.Tenant.IsUnknown() {
-			log_receiverMap["tenant"] = data.LogReceiver.Tenant.ValueString()
+			LogReceiverMap["tenant"] = data.LogReceiver.Tenant.ValueString()
 		}
-		createReq.Spec["log_receiver"] = log_receiverMap
+		createReq.Spec["log_receiver"] = LogReceiverMap
 	}
 	if data.LogsStreamingDisabled != nil {
-		logs_streaming_disabledMap := make(map[string]interface{})
-		createReq.Spec["logs_streaming_disabled"] = logs_streaming_disabledMap
+		createReq.Spec["logs_streaming_disabled"] = map[string]interface{}{}
 	}
 	if !data.NetworkConnectors.IsNull() && !data.NetworkConnectors.IsUnknown() {
-		var network_connectorsItems []FleetNetworkConnectorsModel
-		diags := data.NetworkConnectors.ElementsAs(ctx, &network_connectorsItems, false)
+		var NetworkConnectorsElems []FleetNetworkConnectorsModel
+		diags := data.NetworkConnectors.ElementsAs(ctx, &NetworkConnectorsElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(network_connectorsItems) > 0 {
-			var network_connectorsList []map[string]interface{}
-			for _, item := range network_connectorsItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(NetworkConnectorsElems) > 0 {
+			var NetworkConnectorsList []map[string]interface{}
+			for _, NetworkConnectorsItem := range NetworkConnectorsElems {
+				NetworkConnectorsItemMap := make(map[string]interface{})
+				if !NetworkConnectorsItem.Kind.IsNull() && !NetworkConnectorsItem.Kind.IsUnknown() {
+					NetworkConnectorsItemMap["kind"] = NetworkConnectorsItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !NetworkConnectorsItem.Name.IsNull() && !NetworkConnectorsItem.Name.IsUnknown() {
+					NetworkConnectorsItemMap["name"] = NetworkConnectorsItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !NetworkConnectorsItem.Namespace.IsNull() && !NetworkConnectorsItem.Namespace.IsUnknown() {
+					NetworkConnectorsItemMap["namespace"] = NetworkConnectorsItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !NetworkConnectorsItem.Tenant.IsNull() && !NetworkConnectorsItem.Tenant.IsUnknown() {
+					NetworkConnectorsItemMap["tenant"] = NetworkConnectorsItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !NetworkConnectorsItem.Uid.IsNull() && !NetworkConnectorsItem.Uid.IsUnknown() {
+					NetworkConnectorsItemMap["uid"] = NetworkConnectorsItem.Uid.ValueString()
 				}
-				network_connectorsList = append(network_connectorsList, itemMap)
+				NetworkConnectorsList = append(NetworkConnectorsList, NetworkConnectorsItemMap)
 			}
-			createReq.Spec["network_connectors"] = network_connectorsList
+			createReq.Spec["network_connectors"] = NetworkConnectorsList
 		}
 	}
 	if !data.NetworkFirewall.IsNull() && !data.NetworkFirewall.IsUnknown() {
-		var network_firewallItems []FleetNetworkFirewallModel
-		diags := data.NetworkFirewall.ElementsAs(ctx, &network_firewallItems, false)
+		var NetworkFirewallElems []FleetNetworkFirewallModel
+		diags := data.NetworkFirewall.ElementsAs(ctx, &NetworkFirewallElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(network_firewallItems) > 0 {
-			var network_firewallList []map[string]interface{}
-			for _, item := range network_firewallItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(NetworkFirewallElems) > 0 {
+			var NetworkFirewallList []map[string]interface{}
+			for _, NetworkFirewallItem := range NetworkFirewallElems {
+				NetworkFirewallItemMap := make(map[string]interface{})
+				if !NetworkFirewallItem.Kind.IsNull() && !NetworkFirewallItem.Kind.IsUnknown() {
+					NetworkFirewallItemMap["kind"] = NetworkFirewallItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !NetworkFirewallItem.Name.IsNull() && !NetworkFirewallItem.Name.IsUnknown() {
+					NetworkFirewallItemMap["name"] = NetworkFirewallItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !NetworkFirewallItem.Namespace.IsNull() && !NetworkFirewallItem.Namespace.IsUnknown() {
+					NetworkFirewallItemMap["namespace"] = NetworkFirewallItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !NetworkFirewallItem.Tenant.IsNull() && !NetworkFirewallItem.Tenant.IsUnknown() {
+					NetworkFirewallItemMap["tenant"] = NetworkFirewallItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !NetworkFirewallItem.Uid.IsNull() && !NetworkFirewallItem.Uid.IsUnknown() {
+					NetworkFirewallItemMap["uid"] = NetworkFirewallItem.Uid.ValueString()
 				}
-				network_firewallList = append(network_firewallList, itemMap)
+				NetworkFirewallList = append(NetworkFirewallList, NetworkFirewallItemMap)
 			}
-			createReq.Spec["network_firewall"] = network_firewallList
+			createReq.Spec["network_firewall"] = NetworkFirewallList
 		}
 	}
 	if data.NoBondDevices != nil {
-		no_bond_devicesMap := make(map[string]interface{})
-		createReq.Spec["no_bond_devices"] = no_bond_devicesMap
+		createReq.Spec["no_bond_devices"] = map[string]interface{}{}
 	}
 	if data.NoDcClusterGroup != nil {
-		no_dc_cluster_groupMap := make(map[string]interface{})
-		createReq.Spec["no_dc_cluster_group"] = no_dc_cluster_groupMap
+		createReq.Spec["no_dc_cluster_group"] = map[string]interface{}{}
 	}
 	if data.NoStorageDevice != nil {
-		no_storage_deviceMap := make(map[string]interface{})
-		createReq.Spec["no_storage_device"] = no_storage_deviceMap
+		createReq.Spec["no_storage_device"] = map[string]interface{}{}
 	}
 	if data.NoStorageInterfaces != nil {
-		no_storage_interfacesMap := make(map[string]interface{})
-		createReq.Spec["no_storage_interfaces"] = no_storage_interfacesMap
+		createReq.Spec["no_storage_interfaces"] = map[string]interface{}{}
 	}
 	if data.NoStorageStaticRoutes != nil {
-		no_storage_static_routesMap := make(map[string]interface{})
-		createReq.Spec["no_storage_static_routes"] = no_storage_static_routesMap
+		createReq.Spec["no_storage_static_routes"] = map[string]interface{}{}
 	}
 	if !data.OutsideVirtualNetwork.IsNull() && !data.OutsideVirtualNetwork.IsUnknown() {
-		var outside_virtual_networkItems []FleetOutsideVirtualNetworkModel
-		diags := data.OutsideVirtualNetwork.ElementsAs(ctx, &outside_virtual_networkItems, false)
+		var OutsideVirtualNetworkElems []FleetOutsideVirtualNetworkModel
+		diags := data.OutsideVirtualNetwork.ElementsAs(ctx, &OutsideVirtualNetworkElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(outside_virtual_networkItems) > 0 {
-			var outside_virtual_networkList []map[string]interface{}
-			for _, item := range outside_virtual_networkItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(OutsideVirtualNetworkElems) > 0 {
+			var OutsideVirtualNetworkList []map[string]interface{}
+			for _, OutsideVirtualNetworkItem := range OutsideVirtualNetworkElems {
+				OutsideVirtualNetworkItemMap := make(map[string]interface{})
+				if !OutsideVirtualNetworkItem.Kind.IsNull() && !OutsideVirtualNetworkItem.Kind.IsUnknown() {
+					OutsideVirtualNetworkItemMap["kind"] = OutsideVirtualNetworkItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !OutsideVirtualNetworkItem.Name.IsNull() && !OutsideVirtualNetworkItem.Name.IsUnknown() {
+					OutsideVirtualNetworkItemMap["name"] = OutsideVirtualNetworkItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !OutsideVirtualNetworkItem.Namespace.IsNull() && !OutsideVirtualNetworkItem.Namespace.IsUnknown() {
+					OutsideVirtualNetworkItemMap["namespace"] = OutsideVirtualNetworkItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !OutsideVirtualNetworkItem.Tenant.IsNull() && !OutsideVirtualNetworkItem.Tenant.IsUnknown() {
+					OutsideVirtualNetworkItemMap["tenant"] = OutsideVirtualNetworkItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !OutsideVirtualNetworkItem.Uid.IsNull() && !OutsideVirtualNetworkItem.Uid.IsUnknown() {
+					OutsideVirtualNetworkItemMap["uid"] = OutsideVirtualNetworkItem.Uid.ValueString()
 				}
-				outside_virtual_networkList = append(outside_virtual_networkList, itemMap)
+				OutsideVirtualNetworkList = append(OutsideVirtualNetworkList, OutsideVirtualNetworkItemMap)
 			}
-			createReq.Spec["outside_virtual_network"] = outside_virtual_networkList
+			createReq.Spec["outside_virtual_network"] = OutsideVirtualNetworkList
 		}
 	}
 	if data.SriovInterfaces != nil {
-		sriov_interfacesMap := make(map[string]interface{})
+		SriovInterfacesMap := make(map[string]interface{})
 		if len(data.SriovInterfaces.SriovInterface) > 0 {
-			var sriov_interfaceList []map[string]interface{}
-			for _, listItem := range data.SriovInterfaces.SriovInterface {
-				listItemMap := make(map[string]interface{})
-				if !listItem.InterfaceName.IsNull() && !listItem.InterfaceName.IsUnknown() {
-					listItemMap["interface_name"] = listItem.InterfaceName.ValueString()
+			var SriovInterfaceList []map[string]interface{}
+			for _, SriovInterfaceItem := range data.SriovInterfaces.SriovInterface {
+				SriovInterfaceItemMap := make(map[string]interface{})
+				if !SriovInterfaceItem.InterfaceName.IsNull() && !SriovInterfaceItem.InterfaceName.IsUnknown() {
+					SriovInterfaceItemMap["interface_name"] = SriovInterfaceItem.InterfaceName.ValueString()
 				}
-				if !listItem.NumberOfVfioVfs.IsNull() && !listItem.NumberOfVfioVfs.IsUnknown() {
-					listItemMap["number_of_vfio_vfs"] = listItem.NumberOfVfioVfs.ValueInt64()
+				if !SriovInterfaceItem.NumberOfVfioVfs.IsNull() && !SriovInterfaceItem.NumberOfVfioVfs.IsUnknown() {
+					SriovInterfaceItemMap["number_of_vfio_vfs"] = SriovInterfaceItem.NumberOfVfioVfs.ValueInt64()
 				}
-				if !listItem.NumberOfVfs.IsNull() && !listItem.NumberOfVfs.IsUnknown() {
-					listItemMap["number_of_vfs"] = listItem.NumberOfVfs.ValueInt64()
+				if !SriovInterfaceItem.NumberOfVfs.IsNull() && !SriovInterfaceItem.NumberOfVfs.IsUnknown() {
+					SriovInterfaceItemMap["number_of_vfs"] = SriovInterfaceItem.NumberOfVfs.ValueInt64()
 				}
-				sriov_interfaceList = append(sriov_interfaceList, listItemMap)
+				SriovInterfaceList = append(SriovInterfaceList, SriovInterfaceItemMap)
 			}
-			sriov_interfacesMap["sriov_interface"] = sriov_interfaceList
+			SriovInterfacesMap["sriov_interface"] = SriovInterfaceList
 		}
-		createReq.Spec["sriov_interfaces"] = sriov_interfacesMap
+		createReq.Spec["sriov_interfaces"] = SriovInterfacesMap
 	}
 	if data.StorageClassList != nil {
-		storage_class_listMap := make(map[string]interface{})
+		StorageClassListMap := make(map[string]interface{})
 		if len(data.StorageClassList.StorageClasses) > 0 {
-			var storage_classesList []map[string]interface{}
-			for _, listItem := range data.StorageClassList.StorageClasses {
-				listItemMap := make(map[string]interface{})
-				if listItem.AdvancedStorageParameters != nil {
-					listItemMap["advanced_storage_parameters"] = map[string]interface{}{}
+			var StorageClassesList []map[string]interface{}
+			for _, StorageClassesItem := range data.StorageClassList.StorageClasses {
+				StorageClassesItemMap := make(map[string]interface{})
+				if StorageClassesItem.AdvancedStorageParameters != nil {
+					StorageClassesItemMap["advanced_storage_parameters"] = map[string]interface{}{}
 				}
-				if !listItem.AllowVolumeExpansion.IsNull() && !listItem.AllowVolumeExpansion.IsUnknown() {
-					listItemMap["allow_volume_expansion"] = listItem.AllowVolumeExpansion.ValueBool()
+				if !StorageClassesItem.AllowVolumeExpansion.IsNull() && !StorageClassesItem.AllowVolumeExpansion.IsUnknown() {
+					StorageClassesItemMap["allow_volume_expansion"] = StorageClassesItem.AllowVolumeExpansion.ValueBool()
 				}
-				if listItem.CustomStorage != nil {
-					custom_storageDeepMap := make(map[string]interface{})
-					if !listItem.CustomStorage.Yaml.IsNull() && !listItem.CustomStorage.Yaml.IsUnknown() {
-						custom_storageDeepMap["yaml"] = listItem.CustomStorage.Yaml.ValueString()
+				if StorageClassesItem.CustomStorage != nil {
+					CustomStorageMap := make(map[string]interface{})
+					if !StorageClassesItem.CustomStorage.Yaml.IsNull() && !StorageClassesItem.CustomStorage.Yaml.IsUnknown() {
+						CustomStorageMap["yaml"] = StorageClassesItem.CustomStorage.Yaml.ValueString()
 					}
-					listItemMap["custom_storage"] = custom_storageDeepMap
+					StorageClassesItemMap["custom_storage"] = CustomStorageMap
 				}
-				if !listItem.DefaultStorageClass.IsNull() && !listItem.DefaultStorageClass.IsUnknown() {
-					listItemMap["default_storage_class"] = listItem.DefaultStorageClass.ValueBool()
+				if !StorageClassesItem.DefaultStorageClass.IsNull() && !StorageClassesItem.DefaultStorageClass.IsUnknown() {
+					StorageClassesItemMap["default_storage_class"] = StorageClassesItem.DefaultStorageClass.ValueBool()
 				}
-				if !listItem.DescriptionSpec.IsNull() && !listItem.DescriptionSpec.IsUnknown() {
-					listItemMap["description"] = listItem.DescriptionSpec.ValueString()
+				if !StorageClassesItem.DescriptionSpec.IsNull() && !StorageClassesItem.DescriptionSpec.IsUnknown() {
+					StorageClassesItemMap["description"] = StorageClassesItem.DescriptionSpec.ValueString()
 				}
-				if listItem.HpeStorage != nil {
-					hpe_storageDeepMap := make(map[string]interface{})
-					if !listItem.HpeStorage.AllowMutations.IsNull() && !listItem.HpeStorage.AllowMutations.IsUnknown() {
-						hpe_storageDeepMap["allow_mutations"] = listItem.HpeStorage.AllowMutations.ValueString()
+				if StorageClassesItem.HpeStorage != nil {
+					HpeStorageMap := make(map[string]interface{})
+					if !StorageClassesItem.HpeStorage.AllowMutations.IsNull() && !StorageClassesItem.HpeStorage.AllowMutations.IsUnknown() {
+						HpeStorageMap["allow_mutations"] = StorageClassesItem.HpeStorage.AllowMutations.ValueString()
 					}
-					if !listItem.HpeStorage.AllowOverrides.IsNull() && !listItem.HpeStorage.AllowOverrides.IsUnknown() {
-						hpe_storageDeepMap["allow_overrides"] = listItem.HpeStorage.AllowOverrides.ValueString()
+					if !StorageClassesItem.HpeStorage.AllowOverrides.IsNull() && !StorageClassesItem.HpeStorage.AllowOverrides.IsUnknown() {
+						HpeStorageMap["allow_overrides"] = StorageClassesItem.HpeStorage.AllowOverrides.ValueString()
 					}
-					if !listItem.HpeStorage.DedupeEnabled.IsNull() && !listItem.HpeStorage.DedupeEnabled.IsUnknown() {
-						hpe_storageDeepMap["dedupe_enabled"] = listItem.HpeStorage.DedupeEnabled.ValueBool()
+					if !StorageClassesItem.HpeStorage.DedupeEnabled.IsNull() && !StorageClassesItem.HpeStorage.DedupeEnabled.IsUnknown() {
+						HpeStorageMap["dedupe_enabled"] = StorageClassesItem.HpeStorage.DedupeEnabled.ValueBool()
 					}
-					if !listItem.HpeStorage.DescriptionSpec.IsNull() && !listItem.HpeStorage.DescriptionSpec.IsUnknown() {
-						hpe_storageDeepMap["description"] = listItem.HpeStorage.DescriptionSpec.ValueString()
+					if !StorageClassesItem.HpeStorage.DescriptionSpec.IsNull() && !StorageClassesItem.HpeStorage.DescriptionSpec.IsUnknown() {
+						HpeStorageMap["description"] = StorageClassesItem.HpeStorage.DescriptionSpec.ValueString()
 					}
-					if !listItem.HpeStorage.DestroyOnDelete.IsNull() && !listItem.HpeStorage.DestroyOnDelete.IsUnknown() {
-						hpe_storageDeepMap["destroy_on_delete"] = listItem.HpeStorage.DestroyOnDelete.ValueBool()
+					if !StorageClassesItem.HpeStorage.DestroyOnDelete.IsNull() && !StorageClassesItem.HpeStorage.DestroyOnDelete.IsUnknown() {
+						HpeStorageMap["destroy_on_delete"] = StorageClassesItem.HpeStorage.DestroyOnDelete.ValueBool()
 					}
-					if !listItem.HpeStorage.Encrypted.IsNull() && !listItem.HpeStorage.Encrypted.IsUnknown() {
-						hpe_storageDeepMap["encrypted"] = listItem.HpeStorage.Encrypted.ValueBool()
+					if !StorageClassesItem.HpeStorage.Encrypted.IsNull() && !StorageClassesItem.HpeStorage.Encrypted.IsUnknown() {
+						HpeStorageMap["encrypted"] = StorageClassesItem.HpeStorage.Encrypted.ValueBool()
 					}
-					if !listItem.HpeStorage.Folder.IsNull() && !listItem.HpeStorage.Folder.IsUnknown() {
-						hpe_storageDeepMap["folder"] = listItem.HpeStorage.Folder.ValueString()
+					if !StorageClassesItem.HpeStorage.Folder.IsNull() && !StorageClassesItem.HpeStorage.Folder.IsUnknown() {
+						HpeStorageMap["folder"] = StorageClassesItem.HpeStorage.Folder.ValueString()
 					}
-					if !listItem.HpeStorage.LimitIops.IsNull() && !listItem.HpeStorage.LimitIops.IsUnknown() {
-						hpe_storageDeepMap["limit_iops"] = listItem.HpeStorage.LimitIops.ValueString()
+					if !StorageClassesItem.HpeStorage.LimitIops.IsNull() && !StorageClassesItem.HpeStorage.LimitIops.IsUnknown() {
+						HpeStorageMap["limit_iops"] = StorageClassesItem.HpeStorage.LimitIops.ValueString()
 					}
-					if !listItem.HpeStorage.LimitMbps.IsNull() && !listItem.HpeStorage.LimitMbps.IsUnknown() {
-						hpe_storageDeepMap["limit_mbps"] = listItem.HpeStorage.LimitMbps.ValueString()
+					if !StorageClassesItem.HpeStorage.LimitMbps.IsNull() && !StorageClassesItem.HpeStorage.LimitMbps.IsUnknown() {
+						HpeStorageMap["limit_mbps"] = StorageClassesItem.HpeStorage.LimitMbps.ValueString()
 					}
-					if !listItem.HpeStorage.PerformancePolicy.IsNull() && !listItem.HpeStorage.PerformancePolicy.IsUnknown() {
-						hpe_storageDeepMap["performance_policy"] = listItem.HpeStorage.PerformancePolicy.ValueString()
+					if !StorageClassesItem.HpeStorage.PerformancePolicy.IsNull() && !StorageClassesItem.HpeStorage.PerformancePolicy.IsUnknown() {
+						HpeStorageMap["performance_policy"] = StorageClassesItem.HpeStorage.PerformancePolicy.ValueString()
 					}
-					if !listItem.HpeStorage.Pool.IsNull() && !listItem.HpeStorage.Pool.IsUnknown() {
-						hpe_storageDeepMap["pool"] = listItem.HpeStorage.Pool.ValueString()
+					if !StorageClassesItem.HpeStorage.Pool.IsNull() && !StorageClassesItem.HpeStorage.Pool.IsUnknown() {
+						HpeStorageMap["pool"] = StorageClassesItem.HpeStorage.Pool.ValueString()
 					}
-					if !listItem.HpeStorage.ProtectionTemplate.IsNull() && !listItem.HpeStorage.ProtectionTemplate.IsUnknown() {
-						hpe_storageDeepMap["protection_template"] = listItem.HpeStorage.ProtectionTemplate.ValueString()
+					if !StorageClassesItem.HpeStorage.ProtectionTemplate.IsNull() && !StorageClassesItem.HpeStorage.ProtectionTemplate.IsUnknown() {
+						HpeStorageMap["protection_template"] = StorageClassesItem.HpeStorage.ProtectionTemplate.ValueString()
 					}
-					if !listItem.HpeStorage.SecretName.IsNull() && !listItem.HpeStorage.SecretName.IsUnknown() {
-						hpe_storageDeepMap["secret_name"] = listItem.HpeStorage.SecretName.ValueString()
+					if !StorageClassesItem.HpeStorage.SecretName.IsNull() && !StorageClassesItem.HpeStorage.SecretName.IsUnknown() {
+						HpeStorageMap["secret_name"] = StorageClassesItem.HpeStorage.SecretName.ValueString()
 					}
-					if !listItem.HpeStorage.SecretNamespace.IsNull() && !listItem.HpeStorage.SecretNamespace.IsUnknown() {
-						hpe_storageDeepMap["secret_namespace"] = listItem.HpeStorage.SecretNamespace.ValueString()
+					if !StorageClassesItem.HpeStorage.SecretNamespace.IsNull() && !StorageClassesItem.HpeStorage.SecretNamespace.IsUnknown() {
+						HpeStorageMap["secret_namespace"] = StorageClassesItem.HpeStorage.SecretNamespace.ValueString()
 					}
-					if !listItem.HpeStorage.SyncOnDetach.IsNull() && !listItem.HpeStorage.SyncOnDetach.IsUnknown() {
-						hpe_storageDeepMap["sync_on_detach"] = listItem.HpeStorage.SyncOnDetach.ValueBool()
+					if !StorageClassesItem.HpeStorage.SyncOnDetach.IsNull() && !StorageClassesItem.HpeStorage.SyncOnDetach.IsUnknown() {
+						HpeStorageMap["sync_on_detach"] = StorageClassesItem.HpeStorage.SyncOnDetach.ValueBool()
 					}
-					if !listItem.HpeStorage.Thick.IsNull() && !listItem.HpeStorage.Thick.IsUnknown() {
-						hpe_storageDeepMap["thick"] = listItem.HpeStorage.Thick.ValueBool()
+					if !StorageClassesItem.HpeStorage.Thick.IsNull() && !StorageClassesItem.HpeStorage.Thick.IsUnknown() {
+						HpeStorageMap["thick"] = StorageClassesItem.HpeStorage.Thick.ValueBool()
 					}
-					listItemMap["hpe_storage"] = hpe_storageDeepMap
+					StorageClassesItemMap["hpe_storage"] = HpeStorageMap
 				}
-				if listItem.NetappTrident != nil {
-					netapp_tridentDeepMap := make(map[string]interface{})
-					if listItem.NetappTrident.Selector != nil {
-						netapp_tridentDeepMap["selector"] = map[string]interface{}{}
+				if StorageClassesItem.NetappTrident != nil {
+					NetappTridentMap := make(map[string]interface{})
+					if StorageClassesItem.NetappTrident.Selector != nil {
+						NetappTridentMap["selector"] = map[string]interface{}{}
 					}
-					if !listItem.NetappTrident.StoragePools.IsNull() && !listItem.NetappTrident.StoragePools.IsUnknown() {
-						netapp_tridentDeepMap["storage_pools"] = listItem.NetappTrident.StoragePools.ValueString()
+					if !StorageClassesItem.NetappTrident.StoragePools.IsNull() && !StorageClassesItem.NetappTrident.StoragePools.IsUnknown() {
+						NetappTridentMap["storage_pools"] = StorageClassesItem.NetappTrident.StoragePools.ValueString()
 					}
-					listItemMap["netapp_trident"] = netapp_tridentDeepMap
+					StorageClassesItemMap["netapp_trident"] = NetappTridentMap
 				}
-				if listItem.PureServiceOrchestrator != nil {
-					pure_service_orchestratorDeepMap := make(map[string]interface{})
-					if !listItem.PureServiceOrchestrator.Backend.IsNull() && !listItem.PureServiceOrchestrator.Backend.IsUnknown() {
-						pure_service_orchestratorDeepMap["backend"] = listItem.PureServiceOrchestrator.Backend.ValueString()
+				if StorageClassesItem.PureServiceOrchestrator != nil {
+					PureServiceOrchestratorMap := make(map[string]interface{})
+					if !StorageClassesItem.PureServiceOrchestrator.Backend.IsNull() && !StorageClassesItem.PureServiceOrchestrator.Backend.IsUnknown() {
+						PureServiceOrchestratorMap["backend"] = StorageClassesItem.PureServiceOrchestrator.Backend.ValueString()
 					}
-					if !listItem.PureServiceOrchestrator.BandwidthLimit.IsNull() && !listItem.PureServiceOrchestrator.BandwidthLimit.IsUnknown() {
-						pure_service_orchestratorDeepMap["bandwidth_limit"] = listItem.PureServiceOrchestrator.BandwidthLimit.ValueString()
+					if !StorageClassesItem.PureServiceOrchestrator.BandwidthLimit.IsNull() && !StorageClassesItem.PureServiceOrchestrator.BandwidthLimit.IsUnknown() {
+						PureServiceOrchestratorMap["bandwidth_limit"] = StorageClassesItem.PureServiceOrchestrator.BandwidthLimit.ValueString()
 					}
-					if !listItem.PureServiceOrchestrator.IopsLimit.IsNull() && !listItem.PureServiceOrchestrator.IopsLimit.IsUnknown() {
-						pure_service_orchestratorDeepMap["iops_limit"] = listItem.PureServiceOrchestrator.IopsLimit.ValueInt64()
+					if !StorageClassesItem.PureServiceOrchestrator.IopsLimit.IsNull() && !StorageClassesItem.PureServiceOrchestrator.IopsLimit.IsUnknown() {
+						PureServiceOrchestratorMap["iops_limit"] = StorageClassesItem.PureServiceOrchestrator.IopsLimit.ValueInt64()
 					}
-					listItemMap["pure_service_orchestrator"] = pure_service_orchestratorDeepMap
+					StorageClassesItemMap["pure_service_orchestrator"] = PureServiceOrchestratorMap
 				}
-				if !listItem.ReclaimPolicy.IsNull() && !listItem.ReclaimPolicy.IsUnknown() {
-					listItemMap["reclaim_policy"] = listItem.ReclaimPolicy.ValueString()
+				if !StorageClassesItem.ReclaimPolicy.IsNull() && !StorageClassesItem.ReclaimPolicy.IsUnknown() {
+					StorageClassesItemMap["reclaim_policy"] = StorageClassesItem.ReclaimPolicy.ValueString()
 				}
-				if !listItem.StorageClassName.IsNull() && !listItem.StorageClassName.IsUnknown() {
-					listItemMap["storage_class_name"] = listItem.StorageClassName.ValueString()
+				if !StorageClassesItem.StorageClassName.IsNull() && !StorageClassesItem.StorageClassName.IsUnknown() {
+					StorageClassesItemMap["storage_class_name"] = StorageClassesItem.StorageClassName.ValueString()
 				}
-				if !listItem.StorageDevice.IsNull() && !listItem.StorageDevice.IsUnknown() {
-					listItemMap["storage_device"] = listItem.StorageDevice.ValueString()
+				if !StorageClassesItem.StorageDevice.IsNull() && !StorageClassesItem.StorageDevice.IsUnknown() {
+					StorageClassesItemMap["storage_device"] = StorageClassesItem.StorageDevice.ValueString()
 				}
-				storage_classesList = append(storage_classesList, listItemMap)
+				StorageClassesList = append(StorageClassesList, StorageClassesItemMap)
 			}
-			storage_class_listMap["storage_classes"] = storage_classesList
+			StorageClassListMap["storage_classes"] = StorageClassesList
 		}
-		createReq.Spec["storage_class_list"] = storage_class_listMap
+		createReq.Spec["storage_class_list"] = StorageClassListMap
 	}
 	if data.StorageDeviceList != nil {
-		storage_device_listMap := make(map[string]interface{})
+		StorageDeviceListMap := make(map[string]interface{})
 		if len(data.StorageDeviceList.StorageDevices) > 0 {
-			var storage_devicesList []map[string]interface{}
-			for _, listItem := range data.StorageDeviceList.StorageDevices {
-				listItemMap := make(map[string]interface{})
-				if listItem.AdvancedAdvancedParameters != nil {
-					listItemMap["advanced_advanced_parameters"] = map[string]interface{}{}
+			var StorageDevicesList []map[string]interface{}
+			for _, StorageDevicesItem := range data.StorageDeviceList.StorageDevices {
+				StorageDevicesItemMap := make(map[string]interface{})
+				if StorageDevicesItem.AdvancedAdvancedParameters != nil {
+					StorageDevicesItemMap["advanced_advanced_parameters"] = map[string]interface{}{}
 				}
-				if listItem.CustomStorage != nil {
-					listItemMap["custom_storage"] = map[string]interface{}{}
+				if StorageDevicesItem.CustomStorage != nil {
+					StorageDevicesItemMap["custom_storage"] = map[string]interface{}{}
 				}
-				if listItem.HpeStorage != nil {
-					hpe_storageDeepMap := make(map[string]interface{})
-					if !listItem.HpeStorage.APIServerPort.IsNull() && !listItem.HpeStorage.APIServerPort.IsUnknown() {
-						hpe_storageDeepMap["api_server_port"] = listItem.HpeStorage.APIServerPort.ValueInt64()
+				if StorageDevicesItem.HpeStorage != nil {
+					HpeStorageMap := make(map[string]interface{})
+					if !StorageDevicesItem.HpeStorage.APIServerPort.IsNull() && !StorageDevicesItem.HpeStorage.APIServerPort.IsUnknown() {
+						HpeStorageMap["api_server_port"] = StorageDevicesItem.HpeStorage.APIServerPort.ValueInt64()
 					}
-					if !listItem.HpeStorage.IscsiChapUser.IsNull() && !listItem.HpeStorage.IscsiChapUser.IsUnknown() {
-						hpe_storageDeepMap["iscsi_chap_user"] = listItem.HpeStorage.IscsiChapUser.ValueString()
+					if StorageDevicesItem.HpeStorage.IscsiChapPassword != nil {
+						IscsiChapPasswordMap := make(map[string]interface{})
+						if StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							IscsiChapPasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.Provider.ValueString()
+							}
+							if !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.URL.ValueString()
+							}
+							IscsiChapPasswordMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						HpeStorageMap["iscsi_chap_password"] = IscsiChapPasswordMap
 					}
-					if !listItem.HpeStorage.StorageServerIPAddress.IsNull() && !listItem.HpeStorage.StorageServerIPAddress.IsUnknown() {
-						hpe_storageDeepMap["storage_server_ip_address"] = listItem.HpeStorage.StorageServerIPAddress.ValueString()
+					if !StorageDevicesItem.HpeStorage.IscsiChapUser.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapUser.IsUnknown() {
+						HpeStorageMap["iscsi_chap_user"] = StorageDevicesItem.HpeStorage.IscsiChapUser.ValueString()
 					}
-					if !listItem.HpeStorage.StorageServerName.IsNull() && !listItem.HpeStorage.StorageServerName.IsUnknown() {
-						hpe_storageDeepMap["storage_server_name"] = listItem.HpeStorage.StorageServerName.ValueString()
+					if StorageDevicesItem.HpeStorage.Password != nil {
+						PasswordMap := make(map[string]interface{})
+						if StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if StorageDevicesItem.HpeStorage.Password.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.Provider.ValueString()
+							}
+							if !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.URL.ValueString()
+							}
+							PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						HpeStorageMap["password"] = PasswordMap
 					}
-					if !listItem.HpeStorage.Username.IsNull() && !listItem.HpeStorage.Username.IsUnknown() {
-						hpe_storageDeepMap["username"] = listItem.HpeStorage.Username.ValueString()
+					if !StorageDevicesItem.HpeStorage.StorageServerIPAddress.IsNull() && !StorageDevicesItem.HpeStorage.StorageServerIPAddress.IsUnknown() {
+						HpeStorageMap["storage_server_ip_address"] = StorageDevicesItem.HpeStorage.StorageServerIPAddress.ValueString()
 					}
-					listItemMap["hpe_storage"] = hpe_storageDeepMap
+					if !StorageDevicesItem.HpeStorage.StorageServerName.IsNull() && !StorageDevicesItem.HpeStorage.StorageServerName.IsUnknown() {
+						HpeStorageMap["storage_server_name"] = StorageDevicesItem.HpeStorage.StorageServerName.ValueString()
+					}
+					if !StorageDevicesItem.HpeStorage.Username.IsNull() && !StorageDevicesItem.HpeStorage.Username.IsUnknown() {
+						HpeStorageMap["username"] = StorageDevicesItem.HpeStorage.Username.ValueString()
+					}
+					StorageDevicesItemMap["hpe_storage"] = HpeStorageMap
 				}
-				if listItem.NetappTrident != nil {
-					netapp_tridentDeepMap := make(map[string]interface{})
-					listItemMap["netapp_trident"] = netapp_tridentDeepMap
-				}
-				if listItem.PureServiceOrchestrator != nil {
-					pure_service_orchestratorDeepMap := make(map[string]interface{})
-					if !listItem.PureServiceOrchestrator.ClusterID.IsNull() && !listItem.PureServiceOrchestrator.ClusterID.IsUnknown() {
-						pure_service_orchestratorDeepMap["cluster_id"] = listItem.PureServiceOrchestrator.ClusterID.ValueString()
+				if StorageDevicesItem.NetappTrident != nil {
+					NetappTridentMap := make(map[string]interface{})
+					if StorageDevicesItem.NetappTrident.NetappBackendOntapNas != nil {
+						NetappBackendOntapNasMap := make(map[string]interface{})
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs != nil {
+							AutoExportCidrsMap := make(map[string]interface{})
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.IsUnknown() {
+								var PrefixesItems []string
+								diags := StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+								if !diags.HasError() {
+									AutoExportCidrsMap["prefixes"] = PrefixesItems
+								}
+							}
+							NetappBackendOntapNasMap["auto_export_cidrs"] = AutoExportCidrsMap
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportPolicy.IsUnknown() {
+							NetappBackendOntapNasMap["auto_export_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportPolicy.ValueBool()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.BackendName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.BackendName.IsUnknown() {
+							NetappBackendOntapNasMap["backend_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.BackendName.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientCertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientCertificate.IsUnknown() {
+							NetappBackendOntapNasMap["client_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientCertificate.ValueString()
+						}
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil {
+							ClientPrivateKeyMap := make(map[string]interface{})
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								ClientPrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.Provider.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.URL.ValueString()
+								}
+								ClientPrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							NetappBackendOntapNasMap["client_private_key"] = ClientPrivateKeyMap
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifDNSName.IsUnknown() {
+							NetappBackendOntapNasMap["data_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifDNSName.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.IsUnknown() {
+							NetappBackendOntapNasMap["data_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.ValueString()
+						}
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Labels != nil {
+							NetappBackendOntapNasMap["labels"] = map[string]interface{}{}
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.IsUnknown() {
+							NetappBackendOntapNasMap["limit_aggregate_usage"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitVolumeSize.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitVolumeSize.IsUnknown() {
+							NetappBackendOntapNasMap["limit_volume_size"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitVolumeSize.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifDNSName.IsUnknown() {
+							NetappBackendOntapNasMap["management_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifDNSName.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifIP.IsUnknown() {
+							NetappBackendOntapNasMap["management_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifIP.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.NfsMountOptions.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.NfsMountOptions.IsUnknown() {
+							NetappBackendOntapNasMap["nfs_mount_options"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.NfsMountOptions.ValueString()
+						}
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password != nil {
+							PasswordMap := make(map[string]interface{})
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.Provider.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.URL.ValueString()
+								}
+								PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							NetappBackendOntapNasMap["password"] = PasswordMap
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Region.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Region.IsUnknown() {
+							NetappBackendOntapNasMap["region"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Region.ValueString()
+						}
+						if len(StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Storage) > 0 {
+							var StorageList []map[string]interface{}
+							for _, StorageItem := range StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Storage {
+								StorageItemMap := make(map[string]interface{})
+								if StorageItem.Labels != nil {
+									StorageItemMap["labels"] = map[string]interface{}{}
+								}
+								if StorageItem.VolumeDefaults != nil {
+									VolumeDefaultsMap := make(map[string]interface{})
+									if !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
+										VolumeDefaultsMap["adaptive_qos_policy"] = StorageItem.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.Encryption.IsNull() && !StorageItem.VolumeDefaults.Encryption.IsUnknown() {
+										VolumeDefaultsMap["encryption"] = StorageItem.VolumeDefaults.Encryption.ValueBool()
+									}
+									if !StorageItem.VolumeDefaults.ExportPolicy.IsNull() && !StorageItem.VolumeDefaults.ExportPolicy.IsUnknown() {
+										VolumeDefaultsMap["export_policy"] = StorageItem.VolumeDefaults.ExportPolicy.ValueString()
+									}
+									if StorageItem.VolumeDefaults.NoQOS != nil {
+										VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
+									}
+									if !StorageItem.VolumeDefaults.QOSPolicy.IsNull() && !StorageItem.VolumeDefaults.QOSPolicy.IsUnknown() {
+										VolumeDefaultsMap["qos_policy"] = StorageItem.VolumeDefaults.QOSPolicy.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.SecurityStyle.IsNull() && !StorageItem.VolumeDefaults.SecurityStyle.IsUnknown() {
+										VolumeDefaultsMap["security_style"] = StorageItem.VolumeDefaults.SecurityStyle.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.SnapshotDir.IsNull() && !StorageItem.VolumeDefaults.SnapshotDir.IsUnknown() {
+										VolumeDefaultsMap["snapshot_dir"] = StorageItem.VolumeDefaults.SnapshotDir.ValueBool()
+									}
+									if !StorageItem.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageItem.VolumeDefaults.SnapshotPolicy.IsUnknown() {
+										VolumeDefaultsMap["snapshot_policy"] = StorageItem.VolumeDefaults.SnapshotPolicy.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.SnapshotReserve.IsNull() && !StorageItem.VolumeDefaults.SnapshotReserve.IsUnknown() {
+										VolumeDefaultsMap["snapshot_reserve"] = StorageItem.VolumeDefaults.SnapshotReserve.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.SpaceReserve.IsNull() && !StorageItem.VolumeDefaults.SpaceReserve.IsUnknown() {
+										VolumeDefaultsMap["space_reserve"] = StorageItem.VolumeDefaults.SpaceReserve.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.SplitOnClone.IsNull() && !StorageItem.VolumeDefaults.SplitOnClone.IsUnknown() {
+										VolumeDefaultsMap["split_on_clone"] = StorageItem.VolumeDefaults.SplitOnClone.ValueBool()
+									}
+									if !StorageItem.VolumeDefaults.TieringPolicy.IsNull() && !StorageItem.VolumeDefaults.TieringPolicy.IsUnknown() {
+										VolumeDefaultsMap["tiering_policy"] = StorageItem.VolumeDefaults.TieringPolicy.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.UnixPermissions.IsNull() && !StorageItem.VolumeDefaults.UnixPermissions.IsUnknown() {
+										VolumeDefaultsMap["unix_permissions"] = StorageItem.VolumeDefaults.UnixPermissions.ValueInt64()
+									}
+									StorageItemMap["volume_defaults"] = VolumeDefaultsMap
+								}
+								if !StorageItem.Zone.IsNull() && !StorageItem.Zone.IsUnknown() {
+									StorageItemMap["zone"] = StorageItem.Zone.ValueString()
+								}
+								StorageList = append(StorageList, StorageItemMap)
+							}
+							NetappBackendOntapNasMap["storage"] = StorageList
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StorageDriverName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StorageDriverName.IsUnknown() {
+							NetappBackendOntapNasMap["storage_driver_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StorageDriverName.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StoragePrefix.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StoragePrefix.IsUnknown() {
+							NetappBackendOntapNasMap["storage_prefix"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StoragePrefix.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Svm.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Svm.IsUnknown() {
+							NetappBackendOntapNasMap["svm"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Svm.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.TrustedCACertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.TrustedCACertificate.IsUnknown() {
+							NetappBackendOntapNasMap["trusted_ca_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.TrustedCACertificate.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Username.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Username.IsUnknown() {
+							NetappBackendOntapNasMap["username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Username.ValueString()
+						}
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil {
+							VolumeDefaultsMap := make(map[string]interface{})
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
+								VolumeDefaultsMap["adaptive_qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.IsUnknown() {
+								VolumeDefaultsMap["encryption"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.ValueBool()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.IsUnknown() {
+								VolumeDefaultsMap["export_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.ValueString()
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS != nil {
+								VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.QOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.QOSPolicy.IsUnknown() {
+								VolumeDefaultsMap["qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.QOSPolicy.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SecurityStyle.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SecurityStyle.IsUnknown() {
+								VolumeDefaultsMap["security_style"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SecurityStyle.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.IsUnknown() {
+								VolumeDefaultsMap["snapshot_dir"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.ValueBool()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotPolicy.IsUnknown() {
+								VolumeDefaultsMap["snapshot_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotPolicy.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotReserve.IsUnknown() {
+								VolumeDefaultsMap["snapshot_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotReserve.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SpaceReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SpaceReserve.IsUnknown() {
+								VolumeDefaultsMap["space_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SpaceReserve.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.IsUnknown() {
+								VolumeDefaultsMap["split_on_clone"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.ValueBool()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.TieringPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.TieringPolicy.IsUnknown() {
+								VolumeDefaultsMap["tiering_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.TieringPolicy.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.IsUnknown() {
+								VolumeDefaultsMap["unix_permissions"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.ValueInt64()
+							}
+							NetappBackendOntapNasMap["volume_defaults"] = VolumeDefaultsMap
+						}
+						NetappTridentMap["netapp_backend_ontap_nas"] = NetappBackendOntapNasMap
 					}
-					if !listItem.PureServiceOrchestrator.EnableStorageTopology.IsNull() && !listItem.PureServiceOrchestrator.EnableStorageTopology.IsUnknown() {
-						pure_service_orchestratorDeepMap["enable_storage_topology"] = listItem.PureServiceOrchestrator.EnableStorageTopology.ValueBool()
+					if StorageDevicesItem.NetappTrident.NetappBackendOntapSan != nil {
+						NetappBackendOntapSanMap := make(map[string]interface{})
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientCertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientCertificate.IsUnknown() {
+							NetappBackendOntapSanMap["client_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientCertificate.ValueString()
+						}
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil {
+							ClientPrivateKeyMap := make(map[string]interface{})
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								ClientPrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.Provider.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.URL.ValueString()
+								}
+								ClientPrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							NetappBackendOntapSanMap["client_private_key"] = ClientPrivateKeyMap
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifDNSName.IsUnknown() {
+							NetappBackendOntapSanMap["data_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifDNSName.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifIP.IsUnknown() {
+							NetappBackendOntapSanMap["data_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifIP.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.IsUnknown() {
+							NetappBackendOntapSanMap["igroup_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.ValueString()
+						}
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Labels != nil {
+							NetappBackendOntapSanMap["labels"] = map[string]interface{}{}
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsUnknown() {
+							NetappBackendOntapSanMap["limit_aggregate_usage"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.ValueInt64()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitVolumeSize.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitVolumeSize.IsUnknown() {
+							NetappBackendOntapSanMap["limit_volume_size"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitVolumeSize.ValueInt64()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifDNSName.IsUnknown() {
+							NetappBackendOntapSanMap["management_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifDNSName.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.IsUnknown() {
+							NetappBackendOntapSanMap["management_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.ValueString()
+						}
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.NoChap != nil {
+							NetappBackendOntapSanMap["no_chap"] = map[string]interface{}{}
+						}
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password != nil {
+							PasswordMap := make(map[string]interface{})
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.Provider.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.URL.ValueString()
+								}
+								PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							NetappBackendOntapSanMap["password"] = PasswordMap
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Region.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Region.IsUnknown() {
+							NetappBackendOntapSanMap["region"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Region.ValueString()
+						}
+						if len(StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Storage) > 0 {
+							var StorageList []map[string]interface{}
+							for _, StorageItem := range StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Storage {
+								StorageItemMap := make(map[string]interface{})
+								if StorageItem.Labels != nil {
+									StorageItemMap["labels"] = map[string]interface{}{}
+								}
+								if StorageItem.VolumeDefaults != nil {
+									VolumeDefaultsMap := make(map[string]interface{})
+									if !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
+										VolumeDefaultsMap["adaptive_qos_policy"] = StorageItem.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.Encryption.IsNull() && !StorageItem.VolumeDefaults.Encryption.IsUnknown() {
+										VolumeDefaultsMap["encryption"] = StorageItem.VolumeDefaults.Encryption.ValueBool()
+									}
+									if !StorageItem.VolumeDefaults.ExportPolicy.IsNull() && !StorageItem.VolumeDefaults.ExportPolicy.IsUnknown() {
+										VolumeDefaultsMap["export_policy"] = StorageItem.VolumeDefaults.ExportPolicy.ValueString()
+									}
+									if StorageItem.VolumeDefaults.NoQOS != nil {
+										VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
+									}
+									if !StorageItem.VolumeDefaults.QOSPolicy.IsNull() && !StorageItem.VolumeDefaults.QOSPolicy.IsUnknown() {
+										VolumeDefaultsMap["qos_policy"] = StorageItem.VolumeDefaults.QOSPolicy.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.SecurityStyle.IsNull() && !StorageItem.VolumeDefaults.SecurityStyle.IsUnknown() {
+										VolumeDefaultsMap["security_style"] = StorageItem.VolumeDefaults.SecurityStyle.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.SnapshotDir.IsNull() && !StorageItem.VolumeDefaults.SnapshotDir.IsUnknown() {
+										VolumeDefaultsMap["snapshot_dir"] = StorageItem.VolumeDefaults.SnapshotDir.ValueBool()
+									}
+									if !StorageItem.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageItem.VolumeDefaults.SnapshotPolicy.IsUnknown() {
+										VolumeDefaultsMap["snapshot_policy"] = StorageItem.VolumeDefaults.SnapshotPolicy.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.SnapshotReserve.IsNull() && !StorageItem.VolumeDefaults.SnapshotReserve.IsUnknown() {
+										VolumeDefaultsMap["snapshot_reserve"] = StorageItem.VolumeDefaults.SnapshotReserve.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.SpaceReserve.IsNull() && !StorageItem.VolumeDefaults.SpaceReserve.IsUnknown() {
+										VolumeDefaultsMap["space_reserve"] = StorageItem.VolumeDefaults.SpaceReserve.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.SplitOnClone.IsNull() && !StorageItem.VolumeDefaults.SplitOnClone.IsUnknown() {
+										VolumeDefaultsMap["split_on_clone"] = StorageItem.VolumeDefaults.SplitOnClone.ValueBool()
+									}
+									if !StorageItem.VolumeDefaults.TieringPolicy.IsNull() && !StorageItem.VolumeDefaults.TieringPolicy.IsUnknown() {
+										VolumeDefaultsMap["tiering_policy"] = StorageItem.VolumeDefaults.TieringPolicy.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.UnixPermissions.IsNull() && !StorageItem.VolumeDefaults.UnixPermissions.IsUnknown() {
+										VolumeDefaultsMap["unix_permissions"] = StorageItem.VolumeDefaults.UnixPermissions.ValueInt64()
+									}
+									StorageItemMap["volume_defaults"] = VolumeDefaultsMap
+								}
+								if !StorageItem.Zone.IsNull() && !StorageItem.Zone.IsUnknown() {
+									StorageItemMap["zone"] = StorageItem.Zone.ValueString()
+								}
+								StorageList = append(StorageList, StorageItemMap)
+							}
+							NetappBackendOntapSanMap["storage"] = StorageList
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StorageDriverName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StorageDriverName.IsUnknown() {
+							NetappBackendOntapSanMap["storage_driver_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StorageDriverName.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StoragePrefix.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StoragePrefix.IsUnknown() {
+							NetappBackendOntapSanMap["storage_prefix"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StoragePrefix.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Svm.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Svm.IsUnknown() {
+							NetappBackendOntapSanMap["svm"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Svm.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.TrustedCACertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.TrustedCACertificate.IsUnknown() {
+							NetappBackendOntapSanMap["trusted_ca_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.TrustedCACertificate.ValueString()
+						}
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap != nil {
+							UseChapMap := make(map[string]interface{})
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil {
+								ChapInitiatorSecretMap := make(map[string]interface{})
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									ChapInitiatorSecretMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.Provider.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.URL.ValueString()
+									}
+									ChapInitiatorSecretMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								UseChapMap["chap_initiator_secret"] = ChapInitiatorSecretMap
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil {
+								ChapTargetInitiatorSecretMap := make(map[string]interface{})
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									ChapTargetInitiatorSecretMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.Provider.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.URL.ValueString()
+									}
+									ChapTargetInitiatorSecretMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								UseChapMap["chap_target_initiator_secret"] = ChapTargetInitiatorSecretMap
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetUsername.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetUsername.IsUnknown() {
+								UseChapMap["chap_target_username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetUsername.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapUsername.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapUsername.IsUnknown() {
+								UseChapMap["chap_username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapUsername.ValueString()
+							}
+							NetappBackendOntapSanMap["use_chap"] = UseChapMap
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Username.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Username.IsUnknown() {
+							NetappBackendOntapSanMap["username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Username.ValueString()
+						}
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil {
+							VolumeDefaultsMap := make(map[string]interface{})
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
+								VolumeDefaultsMap["adaptive_qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.IsUnknown() {
+								VolumeDefaultsMap["encryption"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.ValueBool()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.IsUnknown() {
+								VolumeDefaultsMap["export_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.ValueString()
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS != nil {
+								VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.QOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.QOSPolicy.IsUnknown() {
+								VolumeDefaultsMap["qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.QOSPolicy.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SecurityStyle.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SecurityStyle.IsUnknown() {
+								VolumeDefaultsMap["security_style"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SecurityStyle.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.IsUnknown() {
+								VolumeDefaultsMap["snapshot_dir"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.ValueBool()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotPolicy.IsUnknown() {
+								VolumeDefaultsMap["snapshot_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotPolicy.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotReserve.IsUnknown() {
+								VolumeDefaultsMap["snapshot_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotReserve.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SpaceReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SpaceReserve.IsUnknown() {
+								VolumeDefaultsMap["space_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SpaceReserve.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.IsUnknown() {
+								VolumeDefaultsMap["split_on_clone"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.ValueBool()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.TieringPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.TieringPolicy.IsUnknown() {
+								VolumeDefaultsMap["tiering_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.TieringPolicy.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.IsUnknown() {
+								VolumeDefaultsMap["unix_permissions"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.ValueInt64()
+							}
+							NetappBackendOntapSanMap["volume_defaults"] = VolumeDefaultsMap
+						}
+						NetappTridentMap["netapp_backend_ontap_san"] = NetappBackendOntapSanMap
 					}
-					if !listItem.PureServiceOrchestrator.EnableStrictTopology.IsNull() && !listItem.PureServiceOrchestrator.EnableStrictTopology.IsUnknown() {
-						pure_service_orchestratorDeepMap["enable_strict_topology"] = listItem.PureServiceOrchestrator.EnableStrictTopology.ValueBool()
+					StorageDevicesItemMap["netapp_trident"] = NetappTridentMap
+				}
+				if StorageDevicesItem.PureServiceOrchestrator != nil {
+					PureServiceOrchestratorMap := make(map[string]interface{})
+					if StorageDevicesItem.PureServiceOrchestrator.Arrays != nil {
+						ArraysMap := make(map[string]interface{})
+						if StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray != nil {
+							FlashArrayMap := make(map[string]interface{})
+							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsOpt.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsOpt.IsUnknown() {
+								FlashArrayMap["default_fs_opt"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsOpt.ValueString()
+							}
+							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsType.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsType.IsUnknown() {
+								FlashArrayMap["default_fs_type"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsType.ValueString()
+							}
+							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.IsUnknown() {
+								var DefaultMountOptsItems []string
+								diags := StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.ElementsAs(ctx, &DefaultMountOptsItems, false)
+								if !diags.HasError() {
+									FlashArrayMap["default_mount_opts"] = DefaultMountOptsItems
+								}
+							}
+							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.IsUnknown() {
+								FlashArrayMap["disable_preempt_attachments"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.ValueBool()
+							}
+							if len(StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.FlashArrays) > 0 {
+								var FlashArraysList []map[string]interface{}
+								for _, FlashArraysItem := range StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.FlashArrays {
+									FlashArraysItemMap := make(map[string]interface{})
+									if FlashArraysItem.APIToken != nil {
+										APITokenMap := make(map[string]interface{})
+										if FlashArraysItem.APIToken.BlindfoldSecretInfo != nil {
+											BlindfoldSecretInfoMap := make(map[string]interface{})
+											if !FlashArraysItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+												BlindfoldSecretInfoMap["decryption_provider"] = FlashArraysItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+											}
+											if !FlashArraysItem.APIToken.BlindfoldSecretInfo.Location.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfo.Location.IsUnknown() {
+												BlindfoldSecretInfoMap["location"] = FlashArraysItem.APIToken.BlindfoldSecretInfo.Location.ValueString()
+											}
+											if !FlashArraysItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+												BlindfoldSecretInfoMap["store_provider"] = FlashArraysItem.APIToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+											}
+											APITokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+										}
+										if FlashArraysItem.APIToken.ClearSecretInfo != nil {
+											ClearSecretInfoMap := make(map[string]interface{})
+											if !FlashArraysItem.APIToken.ClearSecretInfo.Provider.IsNull() && !FlashArraysItem.APIToken.ClearSecretInfo.Provider.IsUnknown() {
+												ClearSecretInfoMap["provider"] = FlashArraysItem.APIToken.ClearSecretInfo.Provider.ValueString()
+											}
+											if !FlashArraysItem.APIToken.ClearSecretInfo.URL.IsNull() && !FlashArraysItem.APIToken.ClearSecretInfo.URL.IsUnknown() {
+												ClearSecretInfoMap["url"] = FlashArraysItem.APIToken.ClearSecretInfo.URL.ValueString()
+											}
+											APITokenMap["clear_secret_info"] = ClearSecretInfoMap
+										}
+										FlashArraysItemMap["api_token"] = APITokenMap
+									}
+									if FlashArraysItem.Labels != nil {
+										FlashArraysItemMap["labels"] = map[string]interface{}{}
+									}
+									if !FlashArraysItem.MgmtDNSName.IsNull() && !FlashArraysItem.MgmtDNSName.IsUnknown() {
+										FlashArraysItemMap["mgmt_dns_name"] = FlashArraysItem.MgmtDNSName.ValueString()
+									}
+									if !FlashArraysItem.MgmtIP.IsNull() && !FlashArraysItem.MgmtIP.IsUnknown() {
+										FlashArraysItemMap["mgmt_ip"] = FlashArraysItem.MgmtIP.ValueString()
+									}
+									FlashArraysList = append(FlashArraysList, FlashArraysItemMap)
+								}
+								FlashArrayMap["flash_arrays"] = FlashArraysList
+							}
+							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.IsUnknown() {
+								FlashArrayMap["iscsi_login_timeout"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.ValueInt64()
+							}
+							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.SanType.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.SanType.IsUnknown() {
+								FlashArrayMap["san_type"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.SanType.ValueString()
+							}
+							ArraysMap["flash_array"] = FlashArrayMap
+						}
+						if StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade != nil {
+							FlashBladeMap := make(map[string]interface{})
+							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.IsUnknown() {
+								FlashBladeMap["enable_snapshot_directory"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.ValueBool()
+							}
+							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.ExportRules.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.ExportRules.IsUnknown() {
+								FlashBladeMap["export_rules"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.ExportRules.ValueString()
+							}
+							if len(StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades) > 0 {
+								var FlashBladesList []map[string]interface{}
+								for _, FlashBladesItem := range StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades {
+									FlashBladesItemMap := make(map[string]interface{})
+									if FlashBladesItem.APIToken != nil {
+										APITokenMap := make(map[string]interface{})
+										if FlashBladesItem.APIToken.BlindfoldSecretInfo != nil {
+											BlindfoldSecretInfoMap := make(map[string]interface{})
+											if !FlashBladesItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+												BlindfoldSecretInfoMap["decryption_provider"] = FlashBladesItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+											}
+											if !FlashBladesItem.APIToken.BlindfoldSecretInfo.Location.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfo.Location.IsUnknown() {
+												BlindfoldSecretInfoMap["location"] = FlashBladesItem.APIToken.BlindfoldSecretInfo.Location.ValueString()
+											}
+											if !FlashBladesItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+												BlindfoldSecretInfoMap["store_provider"] = FlashBladesItem.APIToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+											}
+											APITokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+										}
+										if FlashBladesItem.APIToken.ClearSecretInfo != nil {
+											ClearSecretInfoMap := make(map[string]interface{})
+											if !FlashBladesItem.APIToken.ClearSecretInfo.Provider.IsNull() && !FlashBladesItem.APIToken.ClearSecretInfo.Provider.IsUnknown() {
+												ClearSecretInfoMap["provider"] = FlashBladesItem.APIToken.ClearSecretInfo.Provider.ValueString()
+											}
+											if !FlashBladesItem.APIToken.ClearSecretInfo.URL.IsNull() && !FlashBladesItem.APIToken.ClearSecretInfo.URL.IsUnknown() {
+												ClearSecretInfoMap["url"] = FlashBladesItem.APIToken.ClearSecretInfo.URL.ValueString()
+											}
+											APITokenMap["clear_secret_info"] = ClearSecretInfoMap
+										}
+										FlashBladesItemMap["api_token"] = APITokenMap
+									}
+									if FlashBladesItem.Labels != nil {
+										FlashBladesItemMap["labels"] = map[string]interface{}{}
+									}
+									if !FlashBladesItem.MgmtDNSName.IsNull() && !FlashBladesItem.MgmtDNSName.IsUnknown() {
+										FlashBladesItemMap["mgmt_dns_name"] = FlashBladesItem.MgmtDNSName.ValueString()
+									}
+									if !FlashBladesItem.MgmtIP.IsNull() && !FlashBladesItem.MgmtIP.IsUnknown() {
+										FlashBladesItemMap["mgmt_ip"] = FlashBladesItem.MgmtIP.ValueString()
+									}
+									if !FlashBladesItem.NfsEndpointDNSName.IsNull() && !FlashBladesItem.NfsEndpointDNSName.IsUnknown() {
+										FlashBladesItemMap["nfs_endpoint_dns_name"] = FlashBladesItem.NfsEndpointDNSName.ValueString()
+									}
+									if !FlashBladesItem.NfsEndpointIP.IsNull() && !FlashBladesItem.NfsEndpointIP.IsUnknown() {
+										FlashBladesItemMap["nfs_endpoint_ip"] = FlashBladesItem.NfsEndpointIP.ValueString()
+									}
+									FlashBladesList = append(FlashBladesList, FlashBladesItemMap)
+								}
+								FlashBladeMap["flash_blades"] = FlashBladesList
+							}
+							ArraysMap["flash_blade"] = FlashBladeMap
+						}
+						PureServiceOrchestratorMap["arrays"] = ArraysMap
 					}
-					listItemMap["pure_service_orchestrator"] = pure_service_orchestratorDeepMap
+					if !StorageDevicesItem.PureServiceOrchestrator.ClusterID.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.ClusterID.IsUnknown() {
+						PureServiceOrchestratorMap["cluster_id"] = StorageDevicesItem.PureServiceOrchestrator.ClusterID.ValueString()
+					}
+					if !StorageDevicesItem.PureServiceOrchestrator.EnableStorageTopology.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.EnableStorageTopology.IsUnknown() {
+						PureServiceOrchestratorMap["enable_storage_topology"] = StorageDevicesItem.PureServiceOrchestrator.EnableStorageTopology.ValueBool()
+					}
+					if !StorageDevicesItem.PureServiceOrchestrator.EnableStrictTopology.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.EnableStrictTopology.IsUnknown() {
+						PureServiceOrchestratorMap["enable_strict_topology"] = StorageDevicesItem.PureServiceOrchestrator.EnableStrictTopology.ValueBool()
+					}
+					StorageDevicesItemMap["pure_service_orchestrator"] = PureServiceOrchestratorMap
 				}
-				if !listItem.StorageDevice.IsNull() && !listItem.StorageDevice.IsUnknown() {
-					listItemMap["storage_device"] = listItem.StorageDevice.ValueString()
+				if !StorageDevicesItem.StorageDevice.IsNull() && !StorageDevicesItem.StorageDevice.IsUnknown() {
+					StorageDevicesItemMap["storage_device"] = StorageDevicesItem.StorageDevice.ValueString()
 				}
-				storage_devicesList = append(storage_devicesList, listItemMap)
+				StorageDevicesList = append(StorageDevicesList, StorageDevicesItemMap)
 			}
-			storage_device_listMap["storage_devices"] = storage_devicesList
+			StorageDeviceListMap["storage_devices"] = StorageDevicesList
 		}
-		createReq.Spec["storage_device_list"] = storage_device_listMap
+		createReq.Spec["storage_device_list"] = StorageDeviceListMap
 	}
 	if data.StorageInterfaceList != nil {
-		storage_interface_listMap := make(map[string]interface{})
-		if len(data.StorageInterfaceList.Interfaces) > 0 {
-			var interfacesList []map[string]interface{}
-			for _, listItem := range data.StorageInterfaceList.Interfaces {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
+		StorageInterfaceListMap := make(map[string]interface{})
+		if !data.StorageInterfaceList.Interfaces.IsNull() && !data.StorageInterfaceList.Interfaces.IsUnknown() {
+			var InterfacesElems []FleetStorageInterfaceListInterfacesModel
+			diags := data.StorageInterfaceList.Interfaces.ElementsAs(ctx, &InterfacesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(InterfacesElems) > 0 {
+				var InterfacesList []map[string]interface{}
+				for _, InterfacesItem := range InterfacesElems {
+					InterfacesItemMap := make(map[string]interface{})
+					if !InterfacesItem.Name.IsNull() && !InterfacesItem.Name.IsUnknown() {
+						InterfacesItemMap["name"] = InterfacesItem.Name.ValueString()
+					}
+					if !InterfacesItem.Namespace.IsNull() && !InterfacesItem.Namespace.IsUnknown() {
+						InterfacesItemMap["namespace"] = InterfacesItem.Namespace.ValueString()
+					}
+					if !InterfacesItem.Tenant.IsNull() && !InterfacesItem.Tenant.IsUnknown() {
+						InterfacesItemMap["tenant"] = InterfacesItem.Tenant.ValueString()
+					}
+					InterfacesList = append(InterfacesList, InterfacesItemMap)
 				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				interfacesList = append(interfacesList, listItemMap)
+				StorageInterfaceListMap["interfaces"] = InterfacesList
 			}
-			storage_interface_listMap["interfaces"] = interfacesList
 		}
-		createReq.Spec["storage_interface_list"] = storage_interface_listMap
+		createReq.Spec["storage_interface_list"] = StorageInterfaceListMap
 	}
 	if data.StorageStaticRoutes != nil {
-		storage_static_routesMap := make(map[string]interface{})
-		if len(data.StorageStaticRoutes.StorageRoutes) > 0 {
-			var storage_routesList []map[string]interface{}
-			for _, listItem := range data.StorageStaticRoutes.StorageRoutes {
-				listItemMap := make(map[string]interface{})
-				if listItem.Labels != nil {
-					listItemMap["labels"] = map[string]interface{}{}
-				}
-				if listItem.Nexthop != nil {
-					nexthopDeepMap := make(map[string]interface{})
-					if !listItem.Nexthop.Type.IsNull() && !listItem.Nexthop.Type.IsUnknown() {
-						nexthopDeepMap["type"] = listItem.Nexthop.Type.ValueString()
+		StorageStaticRoutesMap := make(map[string]interface{})
+		if !data.StorageStaticRoutes.StorageRoutes.IsNull() && !data.StorageStaticRoutes.StorageRoutes.IsUnknown() {
+			var StorageRoutesElems []FleetStorageStaticRoutesStorageRoutesModel
+			diags := data.StorageStaticRoutes.StorageRoutes.ElementsAs(ctx, &StorageRoutesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(StorageRoutesElems) > 0 {
+				var StorageRoutesList []map[string]interface{}
+				for _, StorageRoutesItem := range StorageRoutesElems {
+					StorageRoutesItemMap := make(map[string]interface{})
+					if !StorageRoutesItem.Attrs.IsNull() && !StorageRoutesItem.Attrs.IsUnknown() {
+						var AttrsItems []string
+						diags := StorageRoutesItem.Attrs.ElementsAs(ctx, &AttrsItems, false)
+						if !diags.HasError() {
+							StorageRoutesItemMap["attrs"] = AttrsItems
+						}
 					}
-					listItemMap["nexthop"] = nexthopDeepMap
+					if StorageRoutesItem.Labels != nil {
+						StorageRoutesItemMap["labels"] = map[string]interface{}{}
+					}
+					if StorageRoutesItem.Nexthop != nil {
+						NexthopMap := make(map[string]interface{})
+						if !StorageRoutesItem.Nexthop.Interface.IsNull() && !StorageRoutesItem.Nexthop.Interface.IsUnknown() {
+							var InterfaceElems []FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModel
+							diags := StorageRoutesItem.Nexthop.Interface.ElementsAs(ctx, &InterfaceElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceElems) > 0 {
+								var InterfaceList []map[string]interface{}
+								for _, InterfaceItem := range InterfaceElems {
+									InterfaceItemMap := make(map[string]interface{})
+									if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
+										InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
+									}
+									if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
+										InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
+									}
+									if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
+										InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
+									}
+									if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
+										InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
+									}
+									if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
+										InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
+									}
+									InterfaceList = append(InterfaceList, InterfaceItemMap)
+								}
+								NexthopMap["interface"] = InterfaceList
+							}
+						}
+						if StorageRoutesItem.Nexthop.NexthopAddress != nil {
+							NexthopAddressMap := make(map[string]interface{})
+							if StorageRoutesItem.Nexthop.NexthopAddress.Ipv4 != nil {
+								Ipv4Map := make(map[string]interface{})
+								if !StorageRoutesItem.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StorageRoutesItem.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
+									Ipv4Map["addr"] = StorageRoutesItem.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
+								}
+								NexthopAddressMap["ipv4"] = Ipv4Map
+							}
+							if StorageRoutesItem.Nexthop.NexthopAddress.Ipv6 != nil {
+								Ipv6Map := make(map[string]interface{})
+								if !StorageRoutesItem.Nexthop.NexthopAddress.Ipv6.Addr.IsNull() && !StorageRoutesItem.Nexthop.NexthopAddress.Ipv6.Addr.IsUnknown() {
+									Ipv6Map["addr"] = StorageRoutesItem.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
+								}
+								NexthopAddressMap["ipv6"] = Ipv6Map
+							}
+							NexthopMap["nexthop_address"] = NexthopAddressMap
+						}
+						if !StorageRoutesItem.Nexthop.Type.IsNull() && !StorageRoutesItem.Nexthop.Type.IsUnknown() {
+							NexthopMap["type"] = StorageRoutesItem.Nexthop.Type.ValueString()
+						}
+						StorageRoutesItemMap["nexthop"] = NexthopMap
+					}
+					if len(StorageRoutesItem.Subnets) > 0 {
+						var SubnetsList []map[string]interface{}
+						for _, SubnetsItem := range StorageRoutesItem.Subnets {
+							SubnetsItemMap := make(map[string]interface{})
+							if SubnetsItem.Ipv4 != nil {
+								Ipv4Map := make(map[string]interface{})
+								if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
+									Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+								}
+								if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
+									Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+								}
+								SubnetsItemMap["ipv4"] = Ipv4Map
+							}
+							if SubnetsItem.Ipv6 != nil {
+								Ipv6Map := make(map[string]interface{})
+								if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
+									Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+								}
+								if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
+									Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+								}
+								SubnetsItemMap["ipv6"] = Ipv6Map
+							}
+							SubnetsList = append(SubnetsList, SubnetsItemMap)
+						}
+						StorageRoutesItemMap["subnets"] = SubnetsList
+					}
+					StorageRoutesList = append(StorageRoutesList, StorageRoutesItemMap)
 				}
-				storage_routesList = append(storage_routesList, listItemMap)
+				StorageStaticRoutesMap["storage_routes"] = StorageRoutesList
 			}
-			storage_static_routesMap["storage_routes"] = storage_routesList
 		}
-		createReq.Spec["storage_static_routes"] = storage_static_routesMap
+		createReq.Spec["storage_static_routes"] = StorageStaticRoutesMap
 	}
 	if data.UsbPolicy != nil {
-		usb_policyMap := make(map[string]interface{})
+		UsbPolicyMap := make(map[string]interface{})
 		if !data.UsbPolicy.Name.IsNull() && !data.UsbPolicy.Name.IsUnknown() {
-			usb_policyMap["name"] = data.UsbPolicy.Name.ValueString()
+			UsbPolicyMap["name"] = data.UsbPolicy.Name.ValueString()
 		}
 		if !data.UsbPolicy.Namespace.IsNull() && !data.UsbPolicy.Namespace.IsUnknown() {
-			usb_policyMap["namespace"] = data.UsbPolicy.Namespace.ValueString()
+			UsbPolicyMap["namespace"] = data.UsbPolicy.Namespace.ValueString()
 		}
 		if !data.UsbPolicy.Tenant.IsNull() && !data.UsbPolicy.Tenant.IsUnknown() {
-			usb_policyMap["tenant"] = data.UsbPolicy.Tenant.ValueString()
+			UsbPolicyMap["tenant"] = data.UsbPolicy.Tenant.ValueString()
 		}
-		createReq.Spec["usb_policy"] = usb_policyMap
+		createReq.Spec["usb_policy"] = UsbPolicyMap
 	}
 	if !data.EnableDefaultFleetConfigDownload.IsNull() && !data.EnableDefaultFleetConfigDownload.IsUnknown() {
 		createReq.Spec["enable_default_fleet_config_download"] = data.EnableDefaultFleetConfigDownload.ValueBool()
@@ -4632,28 +5447,61 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 	} else {
 		data.FleetLabel = types.StringNull()
 	}
-	if _, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && isImport && data.PerformanceEnhancementMode == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.PerformanceEnhancementMode = &FleetPerformanceEnhancementModeModel{}
+	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
+		data.PerformanceEnhancementMode = &FleetPerformanceEnhancementModeModel{
+			PerfModeL3Enhanced: func() *FleetPerformanceEnhancementModePerfModeL3EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
+				}
+				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
+					return &FleetPerformanceEnhancementModePerfModeL3EnhancedModel{
+						Jumbo: func() *FleetEmptyModel {
+							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+						NoJumbo: func() *FleetEmptyModel {
+							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PerfModeL7Enhanced: func() *FleetEmptyModel {
+				if !isImport && data.PerformanceEnhancementMode != nil {
+					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
+				}
+				if _, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &FleetEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["allow_all_usb"].(map[string]interface{}); ok && isImport && data.AllowAllUsb == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.AllowAllUsb = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["blocked_services"].([]interface{}); ok && len(listData) > 0 {
-		var blocked_servicesList []FleetBlockedServicesModel
+	if !isImport && (data.BlockedServices.IsNull() || len(data.BlockedServices.Elements()) == 0) {
+		data.BlockedServices = types.ListNull(types.ObjectType{AttrTypes: FleetBlockedServicesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["blocked_services"].([]interface{}); ok && len(listData) > 0 {
+		var BlockedServicesList []FleetBlockedServicesModel
 		var existingBlockedServicesItems []FleetBlockedServicesModel
 		if !data.BlockedServices.IsNull() && !data.BlockedServices.IsUnknown() {
 			data.BlockedServices.ElementsAs(ctx, &existingBlockedServicesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				blocked_servicesList = append(blocked_servicesList, FleetBlockedServicesModel{
+				BlockedServicesList = append(BlockedServicesList, FleetBlockedServicesModel{
 					DNS: func() *FleetEmptyModel {
 						if !isImport && len(existingBlockedServicesItems) > listIdx && existingBlockedServicesItems[listIdx].DNS != nil {
+							return &FleetEmptyModel{}
+						}
+						if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 							return &FleetEmptyModel{}
 						}
 						return nil
@@ -4668,10 +5516,16 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 						if !isImport && len(existingBlockedServicesItems) > listIdx && existingBlockedServicesItems[listIdx].SSH != nil {
 							return &FleetEmptyModel{}
 						}
+						if _, ok := itemMap["ssh"].(map[string]interface{}); ok {
+							return &FleetEmptyModel{}
+						}
 						return nil
 					}(),
 					WebUserInterface: func() *FleetEmptyModel {
 						if !isImport && len(existingBlockedServicesItems) > listIdx && existingBlockedServicesItems[listIdx].WebUserInterface != nil {
+							return &FleetEmptyModel{}
+						}
+						if _, ok := itemMap["web_user_interface"].(map[string]interface{}); ok {
 							return &FleetEmptyModel{}
 						}
 						return nil
@@ -4679,34 +5533,49 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetBlockedServicesModelAttrTypes}, blocked_servicesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetBlockedServicesModelAttrTypes}, BlockedServicesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.BlockedServices = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.BlockedServices = types.ListNull(types.ObjectType{AttrTypes: FleetBlockedServicesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["bond_device_list"].(map[string]interface{}); ok && (isImport || data.BondDeviceList != nil) {
 		data.BondDeviceList = &FleetBondDeviceListModel{
 			BondDevices: func() []FleetBondDeviceListBondDevicesModel {
-				if listData, ok := blockData["bond_devices"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetBondDeviceListBondDevicesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetBondDeviceListBondDevicesModel{
+				if !isImport && data.BondDeviceList != nil && len(data.BondDeviceList.BondDevices) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["bond_devices"].([]interface{}); ok && len(rawList) > 0 {
+					var BondDevicesResult []FleetBondDeviceListBondDevicesModel
+					for _, BondDevicesItem := range rawList {
+						if BondDevicesItemMap, ok := BondDevicesItem.(map[string]interface{}); ok {
+							BondDevicesResult = append(BondDevicesResult, FleetBondDeviceListBondDevicesModel{
 								ActiveBackup: func() *FleetEmptyModel {
-									if _, ok := itemMap["active_backup"].(map[string]interface{}); ok {
+									if _, ok := BondDevicesItemMap["active_backup"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
 									return nil
 								}(),
+								Devices: func() types.List {
+									if v, ok := BondDevicesItemMap["devices"].([]interface{}); ok && len(v) > 0 {
+										var items []string
+										for _, item := range v {
+											if s, ok := item.(string); ok {
+												items = append(items, s)
+											}
+										}
+										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										return listVal
+									}
+									return types.ListNull(types.StringType)
+								}(),
 								Lacp: func() *FleetBondDeviceListBondDevicesLacpModel {
-									if deepMap, ok := itemMap["lacp"].(map[string]interface{}); ok {
+									if LacpData, ok := BondDevicesItemMap["lacp"].(map[string]interface{}); ok {
 										return &FleetBondDeviceListBondDevicesLacpModel{
 											Rate: func() types.Int64 {
-												if v, ok := deepMap["rate"].(float64); ok {
+												if v, ok := LacpData["rate"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
@@ -4716,19 +5585,19 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return nil
 								}(),
 								LinkPollingInterval: func() types.Int64 {
-									if v, ok := itemMap["link_polling_interval"].(float64); ok {
+									if v, ok := BondDevicesItemMap["link_polling_interval"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								LinkUpDelay: func() types.Int64 {
-									if v, ok := itemMap["link_up_delay"].(float64); ok {
+									if v, ok := BondDevicesItemMap["link_up_delay"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := BondDevicesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -4736,7 +5605,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 							})
 						}
 					}
-					return result
+					return BondDevicesResult
 				}
 				return nil
 			}(),
@@ -4787,44 +5656,83 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 		}
 	}
 	if _, ok := apiResource.Spec["default_config"].(map[string]interface{}); ok && isImport && data.DefaultConfig == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DefaultConfig = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["default_sriov_interface"].(map[string]interface{}); ok && isImport && data.DefaultSriovInterface == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DefaultSriovInterface = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["default_storage_class"].(map[string]interface{}); ok && isImport && data.DefaultStorageClass == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DefaultStorageClass = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["deny_all_usb"].(map[string]interface{}); ok && isImport && data.DenyAllUsb == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DenyAllUsb = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["device_list"].(map[string]interface{}); ok && (isImport || data.DeviceList != nil) {
 		data.DeviceList = &FleetDeviceListModel{
-			Devices: func() []FleetDeviceListDevicesModel {
-				if listData, ok := blockData["devices"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetDeviceListDevicesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetDeviceListDevicesModel{
+			Devices: func() types.List {
+				if !isImport && data.DeviceList != nil && (data.DeviceList.Devices.IsNull() || len(data.DeviceList.Devices.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetDeviceListDevicesModelAttrTypes})
+				}
+				if rawList, ok := blockData["devices"].([]interface{}); ok && len(rawList) > 0 {
+					var DevicesResult []FleetDeviceListDevicesModel
+					for _, DevicesItem := range rawList {
+						if DevicesItemMap, ok := DevicesItem.(map[string]interface{}); ok {
+							DevicesResult = append(DevicesResult, FleetDeviceListDevicesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := DevicesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								NetworkDevice: func() *FleetDeviceListDevicesNetworkDeviceModel {
-									if deepMap, ok := itemMap["network_device"].(map[string]interface{}); ok {
+									if NetworkDeviceData, ok := DevicesItemMap["network_device"].(map[string]interface{}); ok {
 										return &FleetDeviceListDevicesNetworkDeviceModel{
+											Interface: func() types.List {
+												if rawList, ok := NetworkDeviceData["interface"].([]interface{}); ok && len(rawList) > 0 {
+													var InterfaceResult []FleetDeviceListDevicesNetworkDeviceInterfaceModel
+													for _, InterfaceItem := range rawList {
+														if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
+															InterfaceResult = append(InterfaceResult, FleetDeviceListDevicesNetworkDeviceInterfaceModel{
+																Kind: func() types.String {
+																	if v, ok := InterfaceItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := InterfaceItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := InterfaceItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := InterfaceItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := InterfaceItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetDeviceListDevicesNetworkDeviceInterfaceModelAttrTypes}, InterfaceResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: FleetDeviceListDevicesNetworkDeviceInterfaceModelAttrTypes})
+											}(),
 											Use: func() types.String {
-												if v, ok := deepMap["use"].(string); ok && v != "" {
+												if v, ok := NetworkDeviceData["use"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -4834,7 +5742,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return nil
 								}(),
 								Owner: func() types.String {
-									if v, ok := itemMap["owner"].(string); ok && v != "" {
+									if v, ok := DevicesItemMap["owner"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -4842,27 +5750,22 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetDeviceListDevicesModelAttrTypes}, DevicesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FleetDeviceListDevicesModelAttrTypes})
 			}(),
 		}
 	}
 	if _, ok := apiResource.Spec["disable_gpu"].(map[string]interface{}); ok && isImport && data.DisableGPU == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableGPU = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["disable_vm"].(map[string]interface{}); ok && isImport && data.DisableVM == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableVM = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["enable_gpu"].(map[string]interface{}); ok && isImport && data.EnableGPU == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.EnableGPU = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["enable_vgpu"].(map[string]interface{}); ok && (isImport || data.EnableVgpu != nil) {
 		data.EnableVgpu = &FleetEnableVgpuModel{
 			FeatureType: func() types.String {
@@ -4879,16 +5782,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 			}(),
 			ServerPort: func() types.Int64 {
 				if !isImport && data.EnableVgpu != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.EnableVgpu.ServerPort
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["server_port"].(float64); ok {
+				if v, ok := blockData["server_port"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -4896,20 +5792,20 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 		}
 	}
 	if _, ok := apiResource.Spec["enable_vm"].(map[string]interface{}); ok && isImport && data.EnableVM == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.EnableVM = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["inside_virtual_network"].([]interface{}); ok && len(listData) > 0 {
-		var inside_virtual_networkList []FleetInsideVirtualNetworkModel
+	if !isImport && (data.InsideVirtualNetwork.IsNull() || len(data.InsideVirtualNetwork.Elements()) == 0) {
+		data.InsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetInsideVirtualNetworkModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["inside_virtual_network"].([]interface{}); ok && len(listData) > 0 {
+		var InsideVirtualNetworkList []FleetInsideVirtualNetworkModel
 		var existingInsideVirtualNetworkItems []FleetInsideVirtualNetworkModel
 		if !data.InsideVirtualNetwork.IsNull() && !data.InsideVirtualNetwork.IsUnknown() {
 			data.InsideVirtualNetwork.ElementsAs(ctx, &existingInsideVirtualNetworkItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				inside_virtual_networkList = append(inside_virtual_networkList, FleetInsideVirtualNetworkModel{
+				InsideVirtualNetworkList = append(InsideVirtualNetworkList, FleetInsideVirtualNetworkModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -4943,37 +5839,39 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetInsideVirtualNetworkModelAttrTypes}, inside_virtual_networkList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetInsideVirtualNetworkModelAttrTypes}, InsideVirtualNetworkList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.InsideVirtualNetwork = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.InsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetInsideVirtualNetworkModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["interface_list"].(map[string]interface{}); ok && (isImport || data.InterfaceList != nil) {
 		data.InterfaceList = &FleetInterfaceListModel{
-			Interfaces: func() []FleetInterfaceListInterfacesModel {
-				if listData, ok := blockData["interfaces"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetInterfaceListInterfacesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetInterfaceListInterfacesModel{
+			Interfaces: func() types.List {
+				if !isImport && data.InterfaceList != nil && (data.InterfaceList.Interfaces.IsNull() || len(data.InterfaceList.Interfaces.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetInterfaceListInterfacesModelAttrTypes})
+				}
+				if rawList, ok := blockData["interfaces"].([]interface{}); ok && len(rawList) > 0 {
+					var InterfacesResult []FleetInterfaceListInterfacesModel
+					for _, InterfacesItem := range rawList {
+						if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
+							InterfacesResult = append(InterfacesResult, FleetInterfaceListInterfacesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := InterfacesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := InterfacesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := InterfacesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -4981,17 +5879,60 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetInterfaceListInterfacesModelAttrTypes}, InterfacesResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: FleetInterfaceListInterfacesModelAttrTypes})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["kubernetes_upgrade_drain"].(map[string]interface{}); ok && (isImport || data.KubernetesUpgradeDrain != nil) {
+		data.KubernetesUpgradeDrain = &FleetKubernetesUpgradeDrainModel{
+			DisableUpgradeDrain: func() *FleetEmptyModel {
+				if !isImport && data.KubernetesUpgradeDrain != nil {
+					return data.KubernetesUpgradeDrain.DisableUpgradeDrain
+				}
+				if _, ok := blockData["disable_upgrade_drain"].(map[string]interface{}); ok {
+					return &FleetEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableUpgradeDrain: func() *FleetKubernetesUpgradeDrainEnableUpgradeDrainModel {
+				if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+					return data.KubernetesUpgradeDrain.EnableUpgradeDrain
+				}
+				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
+					return &FleetKubernetesUpgradeDrainEnableUpgradeDrainModel{
+						DisableVegaUpgradeMode: func() *FleetEmptyModel {
+							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+						DrainMaxUnavailableNodeCount: func() types.Int64 {
+							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						DrainNodeTimeout: func() types.Int64 {
+							if v, ok := EnableUpgradeDrainData["drain_node_timeout"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						EnableVegaUpgradeMode: func() *FleetEmptyModel {
+							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["kubernetes_upgrade_drain"].(map[string]interface{}); ok && isImport && data.KubernetesUpgradeDrain == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.KubernetesUpgradeDrain = &FleetKubernetesUpgradeDrainModel{}
-	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["log_receiver"].(map[string]interface{}); ok && (isImport || data.LogReceiver != nil) {
 		data.LogReceiver = &FleetLogReceiverModel{
 			Name: func() types.String {
@@ -5015,20 +5956,20 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 		}
 	}
 	if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok && isImport && data.LogsStreamingDisabled == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.LogsStreamingDisabled = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["network_connectors"].([]interface{}); ok && len(listData) > 0 {
-		var network_connectorsList []FleetNetworkConnectorsModel
+	if !isImport && (data.NetworkConnectors.IsNull() || len(data.NetworkConnectors.Elements()) == 0) {
+		data.NetworkConnectors = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkConnectorsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["network_connectors"].([]interface{}); ok && len(listData) > 0 {
+		var NetworkConnectorsList []FleetNetworkConnectorsModel
 		var existingNetworkConnectorsItems []FleetNetworkConnectorsModel
 		if !data.NetworkConnectors.IsNull() && !data.NetworkConnectors.IsUnknown() {
 			data.NetworkConnectors.ElementsAs(ctx, &existingNetworkConnectorsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				network_connectorsList = append(network_connectorsList, FleetNetworkConnectorsModel{
+				NetworkConnectorsList = append(NetworkConnectorsList, FleetNetworkConnectorsModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -5062,25 +6003,26 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetNetworkConnectorsModelAttrTypes}, network_connectorsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetNetworkConnectorsModelAttrTypes}, NetworkConnectorsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.NetworkConnectors = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.NetworkConnectors = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkConnectorsModelAttrTypes})
 	}
-	if listData, ok := apiResource.Spec["network_firewall"].([]interface{}); ok && len(listData) > 0 {
-		var network_firewallList []FleetNetworkFirewallModel
+	if !isImport && (data.NetworkFirewall.IsNull() || len(data.NetworkFirewall.Elements()) == 0) {
+		data.NetworkFirewall = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkFirewallModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["network_firewall"].([]interface{}); ok && len(listData) > 0 {
+		var NetworkFirewallList []FleetNetworkFirewallModel
 		var existingNetworkFirewallItems []FleetNetworkFirewallModel
 		if !data.NetworkFirewall.IsNull() && !data.NetworkFirewall.IsUnknown() {
 			data.NetworkFirewall.ElementsAs(ctx, &existingNetworkFirewallItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				network_firewallList = append(network_firewallList, FleetNetworkFirewallModel{
+				NetworkFirewallList = append(NetworkFirewallList, FleetNetworkFirewallModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -5114,50 +6056,41 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetNetworkFirewallModelAttrTypes}, network_firewallList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetNetworkFirewallModelAttrTypes}, NetworkFirewallList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.NetworkFirewall = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.NetworkFirewall = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkFirewallModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["no_bond_devices"].(map[string]interface{}); ok && isImport && data.NoBondDevices == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoBondDevices = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_dc_cluster_group"].(map[string]interface{}); ok && isImport && data.NoDcClusterGroup == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoDcClusterGroup = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_storage_device"].(map[string]interface{}); ok && isImport && data.NoStorageDevice == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoStorageDevice = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_storage_interfaces"].(map[string]interface{}); ok && isImport && data.NoStorageInterfaces == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoStorageInterfaces = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_storage_static_routes"].(map[string]interface{}); ok && isImport && data.NoStorageStaticRoutes == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoStorageStaticRoutes = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["outside_virtual_network"].([]interface{}); ok && len(listData) > 0 {
-		var outside_virtual_networkList []FleetOutsideVirtualNetworkModel
+	if !isImport && (data.OutsideVirtualNetwork.IsNull() || len(data.OutsideVirtualNetwork.Elements()) == 0) {
+		data.OutsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetOutsideVirtualNetworkModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["outside_virtual_network"].([]interface{}); ok && len(listData) > 0 {
+		var OutsideVirtualNetworkList []FleetOutsideVirtualNetworkModel
 		var existingOutsideVirtualNetworkItems []FleetOutsideVirtualNetworkModel
 		if !data.OutsideVirtualNetwork.IsNull() && !data.OutsideVirtualNetwork.IsUnknown() {
 			data.OutsideVirtualNetwork.ElementsAs(ctx, &existingOutsideVirtualNetworkItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				outside_virtual_networkList = append(outside_virtual_networkList, FleetOutsideVirtualNetworkModel{
+				OutsideVirtualNetworkList = append(OutsideVirtualNetworkList, FleetOutsideVirtualNetworkModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -5191,37 +6124,39 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetOutsideVirtualNetworkModelAttrTypes}, outside_virtual_networkList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetOutsideVirtualNetworkModelAttrTypes}, OutsideVirtualNetworkList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.OutsideVirtualNetwork = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.OutsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetOutsideVirtualNetworkModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["sriov_interfaces"].(map[string]interface{}); ok && (isImport || data.SriovInterfaces != nil) {
 		data.SriovInterfaces = &FleetSriovInterfacesModel{
 			SriovInterface: func() []FleetSriovInterfacesSriovInterfaceModel {
-				if listData, ok := blockData["sriov_interface"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetSriovInterfacesSriovInterfaceModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetSriovInterfacesSriovInterfaceModel{
+				if !isImport && data.SriovInterfaces != nil && len(data.SriovInterfaces.SriovInterface) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["sriov_interface"].([]interface{}); ok && len(rawList) > 0 {
+					var SriovInterfaceResult []FleetSriovInterfacesSriovInterfaceModel
+					for _, SriovInterfaceItem := range rawList {
+						if SriovInterfaceItemMap, ok := SriovInterfaceItem.(map[string]interface{}); ok {
+							SriovInterfaceResult = append(SriovInterfaceResult, FleetSriovInterfacesSriovInterfaceModel{
 								InterfaceName: func() types.String {
-									if v, ok := itemMap["interface_name"].(string); ok && v != "" {
+									if v, ok := SriovInterfaceItemMap["interface_name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								NumberOfVfioVfs: func() types.Int64 {
-									if v, ok := itemMap["number_of_vfio_vfs"].(float64); ok {
+									if v, ok := SriovInterfaceItemMap["number_of_vfio_vfs"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								NumberOfVfs: func() types.Int64 {
-									if v, ok := itemMap["number_of_vfs"].(float64); ok {
+									if v, ok := SriovInterfaceItemMap["number_of_vfs"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
@@ -5229,7 +6164,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 							})
 						}
 					}
-					return result
+					return SriovInterfaceResult
 				}
 				return nil
 			}(),
@@ -5238,28 +6173,31 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 	if blockData, ok := apiResource.Spec["storage_class_list"].(map[string]interface{}); ok && (isImport || data.StorageClassList != nil) {
 		data.StorageClassList = &FleetStorageClassListModel{
 			StorageClasses: func() []FleetStorageClassListStorageClassesModel {
-				if listData, ok := blockData["storage_classes"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetStorageClassListStorageClassesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetStorageClassListStorageClassesModel{
+				if !isImport && data.StorageClassList != nil && len(data.StorageClassList.StorageClasses) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["storage_classes"].([]interface{}); ok && len(rawList) > 0 {
+					var StorageClassesResult []FleetStorageClassListStorageClassesModel
+					for _, StorageClassesItem := range rawList {
+						if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
+							StorageClassesResult = append(StorageClassesResult, FleetStorageClassListStorageClassesModel{
 								AdvancedStorageParameters: func() *FleetEmptyModel {
-									if _, ok := itemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
+									if _, ok := StorageClassesItemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
 									return nil
 								}(),
 								AllowVolumeExpansion: func() types.Bool {
-									if v, ok := itemMap["allow_volume_expansion"].(bool); ok {
+									if v, ok := StorageClassesItemMap["allow_volume_expansion"].(bool); ok {
 										return types.BoolValue(v)
 									}
 									return types.BoolNull()
 								}(),
 								CustomStorage: func() *FleetStorageClassListStorageClassesCustomStorageModel {
-									if deepMap, ok := itemMap["custom_storage"].(map[string]interface{}); ok {
+									if CustomStorageData, ok := StorageClassesItemMap["custom_storage"].(map[string]interface{}); ok {
 										return &FleetStorageClassListStorageClassesCustomStorageModel{
 											Yaml: func() types.String {
-												if v, ok := deepMap["yaml"].(string); ok && v != "" {
+												if v, ok := CustomStorageData["yaml"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -5269,112 +6207,112 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return nil
 								}(),
 								DefaultStorageClass: func() types.Bool {
-									if v, ok := itemMap["default_storage_class"].(bool); ok {
+									if v, ok := StorageClassesItemMap["default_storage_class"].(bool); ok {
 										return types.BoolValue(v)
 									}
 									return types.BoolNull()
 								}(),
 								DescriptionSpec: func() types.String {
-									if v, ok := itemMap["description"].(string); ok && v != "" {
+									if v, ok := StorageClassesItemMap["description"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								HpeStorage: func() *FleetStorageClassListStorageClassesHpeStorageModel {
-									if deepMap, ok := itemMap["hpe_storage"].(map[string]interface{}); ok {
+									if HpeStorageData, ok := StorageClassesItemMap["hpe_storage"].(map[string]interface{}); ok {
 										return &FleetStorageClassListStorageClassesHpeStorageModel{
 											AllowMutations: func() types.String {
-												if v, ok := deepMap["allow_mutations"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["allow_mutations"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											AllowOverrides: func() types.String {
-												if v, ok := deepMap["allow_overrides"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["allow_overrides"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											DedupeEnabled: func() types.Bool {
-												if v, ok := deepMap["dedupe_enabled"].(bool); ok {
+												if v, ok := HpeStorageData["dedupe_enabled"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											DescriptionSpec: func() types.String {
-												if v, ok := deepMap["description"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["description"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											DestroyOnDelete: func() types.Bool {
-												if v, ok := deepMap["destroy_on_delete"].(bool); ok {
+												if v, ok := HpeStorageData["destroy_on_delete"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											Encrypted: func() types.Bool {
-												if v, ok := deepMap["encrypted"].(bool); ok {
+												if v, ok := HpeStorageData["encrypted"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											Folder: func() types.String {
-												if v, ok := deepMap["folder"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["folder"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											LimitIops: func() types.String {
-												if v, ok := deepMap["limit_iops"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["limit_iops"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											LimitMbps: func() types.String {
-												if v, ok := deepMap["limit_mbps"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["limit_mbps"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											PerformancePolicy: func() types.String {
-												if v, ok := deepMap["performance_policy"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["performance_policy"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Pool: func() types.String {
-												if v, ok := deepMap["pool"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["pool"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											ProtectionTemplate: func() types.String {
-												if v, ok := deepMap["protection_template"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["protection_template"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											SecretName: func() types.String {
-												if v, ok := deepMap["secret_name"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["secret_name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											SecretNamespace: func() types.String {
-												if v, ok := deepMap["secret_namespace"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["secret_namespace"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											SyncOnDetach: func() types.Bool {
-												if v, ok := deepMap["sync_on_detach"].(bool); ok {
+												if v, ok := HpeStorageData["sync_on_detach"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											Thick: func() types.Bool {
-												if v, ok := deepMap["thick"].(bool); ok {
+												if v, ok := HpeStorageData["thick"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
@@ -5384,16 +6322,16 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return nil
 								}(),
 								NetappTrident: func() *FleetStorageClassListStorageClassesNetappTridentModel {
-									if deepMap, ok := itemMap["netapp_trident"].(map[string]interface{}); ok {
+									if NetappTridentData, ok := StorageClassesItemMap["netapp_trident"].(map[string]interface{}); ok {
 										return &FleetStorageClassListStorageClassesNetappTridentModel{
 											Selector: func() *FleetEmptyModel {
-												if _, ok := deepMap["selector"].(map[string]interface{}); ok {
+												if _, ok := NetappTridentData["selector"].(map[string]interface{}); ok {
 													return &FleetEmptyModel{}
 												}
 												return nil
 											}(),
 											StoragePools: func() types.String {
-												if v, ok := deepMap["storage_pools"].(string); ok && v != "" {
+												if v, ok := NetappTridentData["storage_pools"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -5403,22 +6341,22 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return nil
 								}(),
 								PureServiceOrchestrator: func() *FleetStorageClassListStorageClassesPureServiceOrchestratorModel {
-									if deepMap, ok := itemMap["pure_service_orchestrator"].(map[string]interface{}); ok {
+									if PureServiceOrchestratorData, ok := StorageClassesItemMap["pure_service_orchestrator"].(map[string]interface{}); ok {
 										return &FleetStorageClassListStorageClassesPureServiceOrchestratorModel{
 											Backend: func() types.String {
-												if v, ok := deepMap["backend"].(string); ok && v != "" {
+												if v, ok := PureServiceOrchestratorData["backend"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											BandwidthLimit: func() types.String {
-												if v, ok := deepMap["bandwidth_limit"].(string); ok && v != "" {
+												if v, ok := PureServiceOrchestratorData["bandwidth_limit"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											IopsLimit: func() types.Int64 {
-												if v, ok := deepMap["iops_limit"].(float64); ok {
+												if v, ok := PureServiceOrchestratorData["iops_limit"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
@@ -5428,19 +6366,19 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return nil
 								}(),
 								ReclaimPolicy: func() types.String {
-									if v, ok := itemMap["reclaim_policy"].(string); ok && v != "" {
+									if v, ok := StorageClassesItemMap["reclaim_policy"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								StorageClassName: func() types.String {
-									if v, ok := itemMap["storage_class_name"].(string); ok && v != "" {
+									if v, ok := StorageClassesItemMap["storage_class_name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								StorageDevice: func() types.String {
-									if v, ok := itemMap["storage_device"].(string); ok && v != "" {
+									if v, ok := StorageClassesItemMap["storage_device"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -5448,7 +6386,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 							})
 						}
 					}
-					return result
+					return StorageClassesResult
 				}
 				return nil
 			}(),
@@ -5457,52 +6395,157 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 	if blockData, ok := apiResource.Spec["storage_device_list"].(map[string]interface{}); ok && (isImport || data.StorageDeviceList != nil) {
 		data.StorageDeviceList = &FleetStorageDeviceListModel{
 			StorageDevices: func() []FleetStorageDeviceListStorageDevicesModel {
-				if listData, ok := blockData["storage_devices"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetStorageDeviceListStorageDevicesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetStorageDeviceListStorageDevicesModel{
+				if !isImport && data.StorageDeviceList != nil && len(data.StorageDeviceList.StorageDevices) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["storage_devices"].([]interface{}); ok && len(rawList) > 0 {
+					var StorageDevicesResult []FleetStorageDeviceListStorageDevicesModel
+					for _, StorageDevicesItem := range rawList {
+						if StorageDevicesItemMap, ok := StorageDevicesItem.(map[string]interface{}); ok {
+							StorageDevicesResult = append(StorageDevicesResult, FleetStorageDeviceListStorageDevicesModel{
 								AdvancedAdvancedParameters: func() *FleetEmptyModel {
-									if _, ok := itemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
+									if _, ok := StorageDevicesItemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
 									return nil
 								}(),
 								CustomStorage: func() *FleetEmptyModel {
-									if _, ok := itemMap["custom_storage"].(map[string]interface{}); ok {
+									if _, ok := StorageDevicesItemMap["custom_storage"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
 									return nil
 								}(),
 								HpeStorage: func() *FleetStorageDeviceListStorageDevicesHpeStorageModel {
-									if deepMap, ok := itemMap["hpe_storage"].(map[string]interface{}); ok {
+									if HpeStorageData, ok := StorageDevicesItemMap["hpe_storage"].(map[string]interface{}); ok {
 										return &FleetStorageDeviceListStorageDevicesHpeStorageModel{
 											APIServerPort: func() types.Int64 {
-												if v, ok := deepMap["api_server_port"].(float64); ok {
+												if v, ok := HpeStorageData["api_server_port"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
 											}(),
+											IscsiChapPassword: func() *FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordModel {
+												if IscsiChapPasswordData, ok := HpeStorageData["iscsi_chap_password"].(map[string]interface{}); ok {
+													return &FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordModel{
+														BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := IscsiChapPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModel {
+															if ClearSecretInfoData, ok := IscsiChapPasswordData["clear_secret_info"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
 											IscsiChapUser: func() types.String {
-												if v, ok := deepMap["iscsi_chap_user"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["iscsi_chap_user"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
+											Password: func() *FleetStorageDeviceListStorageDevicesHpeStoragePasswordModel {
+												if PasswordData, ok := HpeStorageData["password"].(map[string]interface{}); ok {
+													return &FleetStorageDeviceListStorageDevicesHpeStoragePasswordModel{
+														BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
 											StorageServerIPAddress: func() types.String {
-												if v, ok := deepMap["storage_server_ip_address"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["storage_server_ip_address"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											StorageServerName: func() types.String {
-												if v, ok := deepMap["storage_server_name"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["storage_server_name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Username: func() types.String {
-												if v, ok := deepMap["username"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["username"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -5512,28 +6555,1228 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return nil
 								}(),
 								NetappTrident: func() *FleetStorageDeviceListStorageDevicesNetappTridentModel {
-									if _, ok := itemMap["netapp_trident"].(map[string]interface{}); ok {
-										return &FleetStorageDeviceListStorageDevicesNetappTridentModel{}
+									if NetappTridentData, ok := StorageDevicesItemMap["netapp_trident"].(map[string]interface{}); ok {
+										return &FleetStorageDeviceListStorageDevicesNetappTridentModel{
+											NetappBackendOntapNas: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasModel {
+												if NetappBackendOntapNasData, ok := NetappTridentData["netapp_backend_ontap_nas"].(map[string]interface{}); ok {
+													return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasModel{
+														AutoExportCidrs: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasAutoExportCidrsModel {
+															if AutoExportCidrsData, ok := NetappBackendOntapNasData["auto_export_cidrs"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasAutoExportCidrsModel{
+																	Prefixes: func() types.List {
+																		if v, ok := AutoExportCidrsData["prefixes"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														AutoExportPolicy: func() types.Bool {
+															if v, ok := NetappBackendOntapNasData["auto_export_policy"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														BackendName: func() types.String {
+															if v, ok := NetappBackendOntapNasData["backend_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ClientCertificate: func() types.String {
+															if v, ok := NetappBackendOntapNasData["client_certificate"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ClientPrivateKey: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel {
+															if ClientPrivateKeyData, ok := NetappBackendOntapNasData["client_private_key"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel{
+																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														DataLifDNSName: func() types.String {
+															if v, ok := NetappBackendOntapNasData["data_lif_dns_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														DataLifIP: func() types.String {
+															if v, ok := NetappBackendOntapNasData["data_lif_ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Labels: func() *FleetEmptyModel {
+															if _, ok := NetappBackendOntapNasData["labels"].(map[string]interface{}); ok {
+																return &FleetEmptyModel{}
+															}
+															return nil
+														}(),
+														LimitAggregateUsage: func() types.String {
+															if v, ok := NetappBackendOntapNasData["limit_aggregate_usage"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														LimitVolumeSize: func() types.String {
+															if v, ok := NetappBackendOntapNasData["limit_volume_size"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ManagementLifDNSName: func() types.String {
+															if v, ok := NetappBackendOntapNasData["management_lif_dns_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ManagementLifIP: func() types.String {
+															if v, ok := NetappBackendOntapNasData["management_lif_ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														NfsMountOptions: func() types.String {
+															if v, ok := NetappBackendOntapNasData["nfs_mount_options"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Password: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModel {
+															if PasswordData, ok := NetappBackendOntapNasData["password"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModel{
+																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Region: func() types.String {
+															if v, ok := NetappBackendOntapNasData["region"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Storage: func() []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel {
+															if rawList, ok := NetappBackendOntapNasData["storage"].([]interface{}); ok && len(rawList) > 0 {
+																var StorageResult []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel
+																for _, StorageItem := range rawList {
+																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
+																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel{
+																			Labels: func() *FleetEmptyModel {
+																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
+																					return &FleetEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModel {
+																				if VolumeDefaultsData, ok := StorageItemMap["volume_defaults"].(map[string]interface{}); ok {
+																					return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModel{
+																						AdaptiveQOSPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["adaptive_qos_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						Encryption: func() types.Bool {
+																							if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
+																								return types.BoolValue(v)
+																							}
+																							return types.BoolNull()
+																						}(),
+																						ExportPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["export_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						NoQOS: func() *FleetEmptyModel {
+																							if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
+																								return &FleetEmptyModel{}
+																							}
+																							return nil
+																						}(),
+																						QOSPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SecurityStyle: func() types.String {
+																							if v, ok := VolumeDefaultsData["security_style"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SnapshotDir: func() types.Bool {
+																							if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
+																								return types.BoolValue(v)
+																							}
+																							return types.BoolNull()
+																						}(),
+																						SnapshotPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["snapshot_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SnapshotReserve: func() types.String {
+																							if v, ok := VolumeDefaultsData["snapshot_reserve"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SpaceReserve: func() types.String {
+																							if v, ok := VolumeDefaultsData["space_reserve"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SplitOnClone: func() types.Bool {
+																							if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
+																								return types.BoolValue(v)
+																							}
+																							return types.BoolNull()
+																						}(),
+																						TieringPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["tiering_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						UnixPermissions: func() types.Int64 {
+																							if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
+																								return types.Int64Value(int64(v))
+																							}
+																							return types.Int64Null()
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																			Zone: func() types.String {
+																				if v, ok := StorageItemMap["zone"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																return StorageResult
+															}
+															return nil
+														}(),
+														StorageDriverName: func() types.String {
+															if v, ok := NetappBackendOntapNasData["storage_driver_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														StoragePrefix: func() types.String {
+															if v, ok := NetappBackendOntapNasData["storage_prefix"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Svm: func() types.String {
+															if v, ok := NetappBackendOntapNasData["svm"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														TrustedCACertificate: func() types.String {
+															if v, ok := NetappBackendOntapNasData["trusted_ca_certificate"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Username: func() types.String {
+															if v, ok := NetappBackendOntapNasData["username"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModel {
+															if VolumeDefaultsData, ok := NetappBackendOntapNasData["volume_defaults"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModel{
+																	AdaptiveQOSPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["adaptive_qos_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Encryption: func() types.Bool {
+																		if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	ExportPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["export_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	NoQOS: func() *FleetEmptyModel {
+																		if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
+																			return &FleetEmptyModel{}
+																		}
+																		return nil
+																	}(),
+																	QOSPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SecurityStyle: func() types.String {
+																		if v, ok := VolumeDefaultsData["security_style"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SnapshotDir: func() types.Bool {
+																		if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	SnapshotPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["snapshot_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SnapshotReserve: func() types.String {
+																		if v, ok := VolumeDefaultsData["snapshot_reserve"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SpaceReserve: func() types.String {
+																		if v, ok := VolumeDefaultsData["space_reserve"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SplitOnClone: func() types.Bool {
+																		if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	TieringPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["tiering_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	UnixPermissions: func() types.Int64 {
+																		if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		return types.Int64Null()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											NetappBackendOntapSan: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel {
+												if NetappBackendOntapSanData, ok := NetappTridentData["netapp_backend_ontap_san"].(map[string]interface{}); ok {
+													return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel{
+														ClientCertificate: func() types.String {
+															if v, ok := NetappBackendOntapSanData["client_certificate"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ClientPrivateKey: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel {
+															if ClientPrivateKeyData, ok := NetappBackendOntapSanData["client_private_key"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel{
+																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														DataLifDNSName: func() types.String {
+															if v, ok := NetappBackendOntapSanData["data_lif_dns_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														DataLifIP: func() types.String {
+															if v, ok := NetappBackendOntapSanData["data_lif_ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														IgroupName: func() types.String {
+															if v, ok := NetappBackendOntapSanData["igroup_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Labels: func() *FleetEmptyModel {
+															if _, ok := NetappBackendOntapSanData["labels"].(map[string]interface{}); ok {
+																return &FleetEmptyModel{}
+															}
+															return nil
+														}(),
+														LimitAggregateUsage: func() types.Int64 {
+															if v, ok := NetappBackendOntapSanData["limit_aggregate_usage"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														LimitVolumeSize: func() types.Int64 {
+															if v, ok := NetappBackendOntapSanData["limit_volume_size"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														ManagementLifDNSName: func() types.String {
+															if v, ok := NetappBackendOntapSanData["management_lif_dns_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ManagementLifIP: func() types.String {
+															if v, ok := NetappBackendOntapSanData["management_lif_ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														NoChap: func() *FleetEmptyModel {
+															if _, ok := NetappBackendOntapSanData["no_chap"].(map[string]interface{}); ok {
+																return &FleetEmptyModel{}
+															}
+															return nil
+														}(),
+														Password: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel {
+															if PasswordData, ok := NetappBackendOntapSanData["password"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel{
+																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Region: func() types.String {
+															if v, ok := NetappBackendOntapSanData["region"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Storage: func() []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel {
+															if rawList, ok := NetappBackendOntapSanData["storage"].([]interface{}); ok && len(rawList) > 0 {
+																var StorageResult []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel
+																for _, StorageItem := range rawList {
+																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
+																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel{
+																			Labels: func() *FleetEmptyModel {
+																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
+																					return &FleetEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModel {
+																				if VolumeDefaultsData, ok := StorageItemMap["volume_defaults"].(map[string]interface{}); ok {
+																					return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModel{
+																						AdaptiveQOSPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["adaptive_qos_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						Encryption: func() types.Bool {
+																							if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
+																								return types.BoolValue(v)
+																							}
+																							return types.BoolNull()
+																						}(),
+																						ExportPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["export_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						NoQOS: func() *FleetEmptyModel {
+																							if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
+																								return &FleetEmptyModel{}
+																							}
+																							return nil
+																						}(),
+																						QOSPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SecurityStyle: func() types.String {
+																							if v, ok := VolumeDefaultsData["security_style"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SnapshotDir: func() types.Bool {
+																							if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
+																								return types.BoolValue(v)
+																							}
+																							return types.BoolNull()
+																						}(),
+																						SnapshotPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["snapshot_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SnapshotReserve: func() types.String {
+																							if v, ok := VolumeDefaultsData["snapshot_reserve"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SpaceReserve: func() types.String {
+																							if v, ok := VolumeDefaultsData["space_reserve"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SplitOnClone: func() types.Bool {
+																							if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
+																								return types.BoolValue(v)
+																							}
+																							return types.BoolNull()
+																						}(),
+																						TieringPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["tiering_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						UnixPermissions: func() types.Int64 {
+																							if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
+																								return types.Int64Value(int64(v))
+																							}
+																							return types.Int64Null()
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																			Zone: func() types.String {
+																				if v, ok := StorageItemMap["zone"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																return StorageResult
+															}
+															return nil
+														}(),
+														StorageDriverName: func() types.String {
+															if v, ok := NetappBackendOntapSanData["storage_driver_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														StoragePrefix: func() types.String {
+															if v, ok := NetappBackendOntapSanData["storage_prefix"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Svm: func() types.String {
+															if v, ok := NetappBackendOntapSanData["svm"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														TrustedCACertificate: func() types.String {
+															if v, ok := NetappBackendOntapSanData["trusted_ca_certificate"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														UseChap: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapModel {
+															if UseChapData, ok := NetappBackendOntapSanData["use_chap"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapModel{
+																	ChapInitiatorSecret: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretModel {
+																		if ChapInitiatorSecretData, ok := UseChapData["chap_initiator_secret"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretModel{
+																				BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModel {
+																					if BlindfoldSecretInfoData, ok := ChapInitiatorSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
+																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModel{
+																							DecryptionProvider: func() types.String {
+																								if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																							Location: func() types.String {
+																								if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																							StoreProvider: func() types.String {
+																								if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
+																				ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModel {
+																					if ClearSecretInfoData, ok := ChapInitiatorSecretData["clear_secret_info"].(map[string]interface{}); ok {
+																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModel{
+																							Provider: func() types.String {
+																								if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																							URL: func() types.String {
+																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ChapTargetInitiatorSecret: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretModel {
+																		if ChapTargetInitiatorSecretData, ok := UseChapData["chap_target_initiator_secret"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretModel{
+																				BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoModel {
+																					if BlindfoldSecretInfoData, ok := ChapTargetInitiatorSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
+																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoModel{
+																							DecryptionProvider: func() types.String {
+																								if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																							Location: func() types.String {
+																								if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																							StoreProvider: func() types.String {
+																								if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
+																				ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel {
+																					if ClearSecretInfoData, ok := ChapTargetInitiatorSecretData["clear_secret_info"].(map[string]interface{}); ok {
+																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel{
+																							Provider: func() types.String {
+																								if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																							URL: func() types.String {
+																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ChapTargetUsername: func() types.String {
+																		if v, ok := UseChapData["chap_target_username"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	ChapUsername: func() types.String {
+																		if v, ok := UseChapData["chap_username"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Username: func() types.String {
+															if v, ok := NetappBackendOntapSanData["username"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModel {
+															if VolumeDefaultsData, ok := NetappBackendOntapSanData["volume_defaults"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModel{
+																	AdaptiveQOSPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["adaptive_qos_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Encryption: func() types.Bool {
+																		if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	ExportPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["export_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	NoQOS: func() *FleetEmptyModel {
+																		if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
+																			return &FleetEmptyModel{}
+																		}
+																		return nil
+																	}(),
+																	QOSPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SecurityStyle: func() types.String {
+																		if v, ok := VolumeDefaultsData["security_style"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SnapshotDir: func() types.Bool {
+																		if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	SnapshotPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["snapshot_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SnapshotReserve: func() types.String {
+																		if v, ok := VolumeDefaultsData["snapshot_reserve"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SpaceReserve: func() types.String {
+																		if v, ok := VolumeDefaultsData["space_reserve"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SplitOnClone: func() types.Bool {
+																		if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	TieringPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["tiering_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	UnixPermissions: func() types.Int64 {
+																		if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		return types.Int64Null()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
 									}
 									return nil
 								}(),
 								PureServiceOrchestrator: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorModel {
-									if deepMap, ok := itemMap["pure_service_orchestrator"].(map[string]interface{}); ok {
+									if PureServiceOrchestratorData, ok := StorageDevicesItemMap["pure_service_orchestrator"].(map[string]interface{}); ok {
 										return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorModel{
+											Arrays: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysModel {
+												if ArraysData, ok := PureServiceOrchestratorData["arrays"].(map[string]interface{}); ok {
+													return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysModel{
+														FlashArray: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayModel {
+															if FlashArrayData, ok := ArraysData["flash_array"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayModel{
+																	DefaultFsOpt: func() types.String {
+																		if v, ok := FlashArrayData["default_fs_opt"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	DefaultFsType: func() types.String {
+																		if v, ok := FlashArrayData["default_fs_type"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	DefaultMountOpts: func() types.List {
+																		if v, ok := FlashArrayData["default_mount_opts"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																	DisablePreemptAttachments: func() types.Bool {
+																		if v, ok := FlashArrayData["disable_preempt_attachments"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	FlashArrays: func() []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel {
+																		if rawList, ok := FlashArrayData["flash_arrays"].([]interface{}); ok && len(rawList) > 0 {
+																			var FlashArraysResult []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel
+																			for _, FlashArraysItem := range rawList {
+																				if FlashArraysItemMap, ok := FlashArraysItem.(map[string]interface{}); ok {
+																					FlashArraysResult = append(FlashArraysResult, FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel{
+																						APIToken: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModel {
+																							if APITokenData, ok := FlashArraysItemMap["api_token"].(map[string]interface{}); ok {
+																								return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModel{
+																									BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoModel {
+																										if BlindfoldSecretInfoData, ok := APITokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoModel{
+																												DecryptionProvider: func() types.String {
+																													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																												Location: func() types.String {
+																													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																												StoreProvider: func() types.String {
+																													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																											}
+																										}
+																										return nil
+																									}(),
+																									ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel {
+																										if ClearSecretInfoData, ok := APITokenData["clear_secret_info"].(map[string]interface{}); ok {
+																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel{
+																												Provider: func() types.String {
+																													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																												URL: func() types.String {
+																													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																											}
+																										}
+																										return nil
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																						Labels: func() *FleetEmptyModel {
+																							if _, ok := FlashArraysItemMap["labels"].(map[string]interface{}); ok {
+																								return &FleetEmptyModel{}
+																							}
+																							return nil
+																						}(),
+																						MgmtDNSName: func() types.String {
+																							if v, ok := FlashArraysItemMap["mgmt_dns_name"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						MgmtIP: func() types.String {
+																							if v, ok := FlashArraysItemMap["mgmt_ip"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																					})
+																				}
+																			}
+																			return FlashArraysResult
+																		}
+																		return nil
+																	}(),
+																	IscsiLoginTimeout: func() types.Int64 {
+																		if v, ok := FlashArrayData["iscsi_login_timeout"].(float64); ok && v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		return types.Int64Null()
+																	}(),
+																	SanType: func() types.String {
+																		if v, ok := FlashArrayData["san_type"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														FlashBlade: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeModel {
+															if FlashBladeData, ok := ArraysData["flash_blade"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeModel{
+																	EnableSnapshotDirectory: func() types.Bool {
+																		if v, ok := FlashBladeData["enable_snapshot_directory"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	ExportRules: func() types.String {
+																		if v, ok := FlashBladeData["export_rules"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	FlashBlades: func() []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel {
+																		if rawList, ok := FlashBladeData["flash_blades"].([]interface{}); ok && len(rawList) > 0 {
+																			var FlashBladesResult []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel
+																			for _, FlashBladesItem := range rawList {
+																				if FlashBladesItemMap, ok := FlashBladesItem.(map[string]interface{}); ok {
+																					FlashBladesResult = append(FlashBladesResult, FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel{
+																						APIToken: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModel {
+																							if APITokenData, ok := FlashBladesItemMap["api_token"].(map[string]interface{}); ok {
+																								return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModel{
+																									BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoModel {
+																										if BlindfoldSecretInfoData, ok := APITokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoModel{
+																												DecryptionProvider: func() types.String {
+																													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																												Location: func() types.String {
+																													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																												StoreProvider: func() types.String {
+																													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																											}
+																										}
+																										return nil
+																									}(),
+																									ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel {
+																										if ClearSecretInfoData, ok := APITokenData["clear_secret_info"].(map[string]interface{}); ok {
+																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel{
+																												Provider: func() types.String {
+																													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																												URL: func() types.String {
+																													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																											}
+																										}
+																										return nil
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																						Labels: func() *FleetEmptyModel {
+																							if _, ok := FlashBladesItemMap["labels"].(map[string]interface{}); ok {
+																								return &FleetEmptyModel{}
+																							}
+																							return nil
+																						}(),
+																						MgmtDNSName: func() types.String {
+																							if v, ok := FlashBladesItemMap["mgmt_dns_name"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						MgmtIP: func() types.String {
+																							if v, ok := FlashBladesItemMap["mgmt_ip"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						NfsEndpointDNSName: func() types.String {
+																							if v, ok := FlashBladesItemMap["nfs_endpoint_dns_name"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						NfsEndpointIP: func() types.String {
+																							if v, ok := FlashBladesItemMap["nfs_endpoint_ip"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																					})
+																				}
+																			}
+																			return FlashBladesResult
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
 											ClusterID: func() types.String {
-												if v, ok := deepMap["cluster_id"].(string); ok && v != "" {
+												if v, ok := PureServiceOrchestratorData["cluster_id"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											EnableStorageTopology: func() types.Bool {
-												if v, ok := deepMap["enable_storage_topology"].(bool); ok {
+												if v, ok := PureServiceOrchestratorData["enable_storage_topology"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											EnableStrictTopology: func() types.Bool {
-												if v, ok := deepMap["enable_strict_topology"].(bool); ok {
+												if v, ok := PureServiceOrchestratorData["enable_strict_topology"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
@@ -5543,7 +7786,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return nil
 								}(),
 								StorageDevice: func() types.String {
-									if v, ok := itemMap["storage_device"].(string); ok && v != "" {
+									if v, ok := StorageDevicesItemMap["storage_device"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -5551,7 +7794,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 							})
 						}
 					}
-					return result
+					return StorageDevicesResult
 				}
 				return nil
 			}(),
@@ -5559,26 +7802,29 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 	}
 	if blockData, ok := apiResource.Spec["storage_interface_list"].(map[string]interface{}); ok && (isImport || data.StorageInterfaceList != nil) {
 		data.StorageInterfaceList = &FleetStorageInterfaceListModel{
-			Interfaces: func() []FleetStorageInterfaceListInterfacesModel {
-				if listData, ok := blockData["interfaces"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetStorageInterfaceListInterfacesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetStorageInterfaceListInterfacesModel{
+			Interfaces: func() types.List {
+				if !isImport && data.StorageInterfaceList != nil && (data.StorageInterfaceList.Interfaces.IsNull() || len(data.StorageInterfaceList.Interfaces.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageInterfaceListInterfacesModelAttrTypes})
+				}
+				if rawList, ok := blockData["interfaces"].([]interface{}); ok && len(rawList) > 0 {
+					var InterfacesResult []FleetStorageInterfaceListInterfacesModel
+					for _, InterfacesItem := range rawList {
+						if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
+							InterfacesResult = append(InterfacesResult, FleetStorageInterfaceListInterfacesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := InterfacesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := InterfacesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := InterfacesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -5586,31 +7832,125 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageInterfaceListInterfacesModelAttrTypes}, InterfacesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FleetStorageInterfaceListInterfacesModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["storage_static_routes"].(map[string]interface{}); ok && (isImport || data.StorageStaticRoutes != nil) {
 		data.StorageStaticRoutes = &FleetStorageStaticRoutesModel{
-			StorageRoutes: func() []FleetStorageStaticRoutesStorageRoutesModel {
-				if listData, ok := blockData["storage_routes"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetStorageStaticRoutesStorageRoutesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetStorageStaticRoutesStorageRoutesModel{
+			StorageRoutes: func() types.List {
+				if !isImport && data.StorageStaticRoutes != nil && (data.StorageStaticRoutes.StorageRoutes.IsNull() || len(data.StorageStaticRoutes.StorageRoutes.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesModelAttrTypes})
+				}
+				if rawList, ok := blockData["storage_routes"].([]interface{}); ok && len(rawList) > 0 {
+					var StorageRoutesResult []FleetStorageStaticRoutesStorageRoutesModel
+					for _, StorageRoutesItem := range rawList {
+						if StorageRoutesItemMap, ok := StorageRoutesItem.(map[string]interface{}); ok {
+							StorageRoutesResult = append(StorageRoutesResult, FleetStorageStaticRoutesStorageRoutesModel{
+								Attrs: func() types.List {
+									if v, ok := StorageRoutesItemMap["attrs"].([]interface{}); ok && len(v) > 0 {
+										var items []string
+										for _, item := range v {
+											if s, ok := item.(string); ok {
+												items = append(items, s)
+											}
+										}
+										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										return listVal
+									}
+									return types.ListNull(types.StringType)
+								}(),
 								Labels: func() *FleetEmptyModel {
-									if _, ok := itemMap["labels"].(map[string]interface{}); ok {
+									if _, ok := StorageRoutesItemMap["labels"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
 									return nil
 								}(),
 								Nexthop: func() *FleetStorageStaticRoutesStorageRoutesNexthopModel {
-									if deepMap, ok := itemMap["nexthop"].(map[string]interface{}); ok {
+									if NexthopData, ok := StorageRoutesItemMap["nexthop"].(map[string]interface{}); ok {
 										return &FleetStorageStaticRoutesStorageRoutesNexthopModel{
+											Interface: func() types.List {
+												if rawList, ok := NexthopData["interface"].([]interface{}); ok && len(rawList) > 0 {
+													var InterfaceResult []FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModel
+													for _, InterfaceItem := range rawList {
+														if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
+															InterfaceResult = append(InterfaceResult, FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModel{
+																Kind: func() types.String {
+																	if v, ok := InterfaceItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := InterfaceItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := InterfaceItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := InterfaceItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := InterfaceItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModelAttrTypes}, InterfaceResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModelAttrTypes})
+											}(),
+											NexthopAddress: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressModel {
+												if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
+													return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressModel{
+														Ipv4: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv4Model {
+															if Ipv4Data, ok := NexthopAddressData["ipv4"].(map[string]interface{}); ok {
+																return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv4Model{
+																	Addr: func() types.String {
+																		if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Ipv6: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv6Model {
+															if Ipv6Data, ok := NexthopAddressData["ipv6"].(map[string]interface{}); ok {
+																return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv6Model{
+																	Addr: func() types.String {
+																		if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
 											Type: func() types.String {
-												if v, ok := deepMap["type"].(string); ok && v != "" {
+												if v, ok := NexthopData["type"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -5619,12 +7959,64 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									}
 									return nil
 								}(),
+								Subnets: func() []FleetStorageStaticRoutesStorageRoutesSubnetsModel {
+									if rawList, ok := StorageRoutesItemMap["subnets"].([]interface{}); ok && len(rawList) > 0 {
+										var SubnetsResult []FleetStorageStaticRoutesStorageRoutesSubnetsModel
+										for _, SubnetsItem := range rawList {
+											if SubnetsItemMap, ok := SubnetsItem.(map[string]interface{}); ok {
+												SubnetsResult = append(SubnetsResult, FleetStorageStaticRoutesStorageRoutesSubnetsModel{
+													Ipv4: func() *FleetStorageStaticRoutesStorageRoutesSubnetsIpv4Model {
+														if Ipv4Data, ok := SubnetsItemMap["ipv4"].(map[string]interface{}); ok {
+															return &FleetStorageStaticRoutesStorageRoutesSubnetsIpv4Model{
+																Plen: func() types.Int64 {
+																	if v, ok := Ipv4Data["plen"].(float64); ok && v != 0 {
+																		return types.Int64Value(int64(v))
+																	}
+																	return types.Int64Null()
+																}(),
+																Prefix: func() types.String {
+																	if v, ok := Ipv4Data["prefix"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+													Ipv6: func() *FleetStorageStaticRoutesStorageRoutesSubnetsIpv6Model {
+														if Ipv6Data, ok := SubnetsItemMap["ipv6"].(map[string]interface{}); ok {
+															return &FleetStorageStaticRoutesStorageRoutesSubnetsIpv6Model{
+																Plen: func() types.Int64 {
+																	if v, ok := Ipv6Data["plen"].(float64); ok && v != 0 {
+																		return types.Int64Value(int64(v))
+																	}
+																	return types.Int64Null()
+																}(),
+																Prefix: func() types.String {
+																	if v, ok := Ipv6Data["prefix"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+												})
+											}
+										}
+										return SubnetsResult
+									}
+									return nil
+								}(),
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesModelAttrTypes}, StorageRoutesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesModelAttrTypes})
 			}(),
 		}
 	}
@@ -5750,28 +8142,61 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 	} else {
 		data.FleetLabel = types.StringNull()
 	}
-	if _, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && isImport && data.PerformanceEnhancementMode == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.PerformanceEnhancementMode = &FleetPerformanceEnhancementModeModel{}
+	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
+		data.PerformanceEnhancementMode = &FleetPerformanceEnhancementModeModel{
+			PerfModeL3Enhanced: func() *FleetPerformanceEnhancementModePerfModeL3EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
+				}
+				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
+					return &FleetPerformanceEnhancementModePerfModeL3EnhancedModel{
+						Jumbo: func() *FleetEmptyModel {
+							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+						NoJumbo: func() *FleetEmptyModel {
+							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PerfModeL7Enhanced: func() *FleetEmptyModel {
+				if !isImport && data.PerformanceEnhancementMode != nil {
+					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
+				}
+				if _, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &FleetEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["allow_all_usb"].(map[string]interface{}); ok && isImport && data.AllowAllUsb == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.AllowAllUsb = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["blocked_services"].([]interface{}); ok && len(listData) > 0 {
-		var blocked_servicesList []FleetBlockedServicesModel
+	if !isImport && (data.BlockedServices.IsNull() || len(data.BlockedServices.Elements()) == 0) {
+		data.BlockedServices = types.ListNull(types.ObjectType{AttrTypes: FleetBlockedServicesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["blocked_services"].([]interface{}); ok && len(listData) > 0 {
+		var BlockedServicesList []FleetBlockedServicesModel
 		var existingBlockedServicesItems []FleetBlockedServicesModel
 		if !data.BlockedServices.IsNull() && !data.BlockedServices.IsUnknown() {
 			data.BlockedServices.ElementsAs(ctx, &existingBlockedServicesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				blocked_servicesList = append(blocked_servicesList, FleetBlockedServicesModel{
+				BlockedServicesList = append(BlockedServicesList, FleetBlockedServicesModel{
 					DNS: func() *FleetEmptyModel {
 						if !isImport && len(existingBlockedServicesItems) > listIdx && existingBlockedServicesItems[listIdx].DNS != nil {
+							return &FleetEmptyModel{}
+						}
+						if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 							return &FleetEmptyModel{}
 						}
 						return nil
@@ -5786,10 +8211,16 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						if !isImport && len(existingBlockedServicesItems) > listIdx && existingBlockedServicesItems[listIdx].SSH != nil {
 							return &FleetEmptyModel{}
 						}
+						if _, ok := itemMap["ssh"].(map[string]interface{}); ok {
+							return &FleetEmptyModel{}
+						}
 						return nil
 					}(),
 					WebUserInterface: func() *FleetEmptyModel {
 						if !isImport && len(existingBlockedServicesItems) > listIdx && existingBlockedServicesItems[listIdx].WebUserInterface != nil {
+							return &FleetEmptyModel{}
+						}
+						if _, ok := itemMap["web_user_interface"].(map[string]interface{}); ok {
 							return &FleetEmptyModel{}
 						}
 						return nil
@@ -5797,34 +8228,49 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetBlockedServicesModelAttrTypes}, blocked_servicesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetBlockedServicesModelAttrTypes}, BlockedServicesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.BlockedServices = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.BlockedServices = types.ListNull(types.ObjectType{AttrTypes: FleetBlockedServicesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["bond_device_list"].(map[string]interface{}); ok && (isImport || data.BondDeviceList != nil) {
 		data.BondDeviceList = &FleetBondDeviceListModel{
 			BondDevices: func() []FleetBondDeviceListBondDevicesModel {
-				if listData, ok := blockData["bond_devices"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetBondDeviceListBondDevicesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetBondDeviceListBondDevicesModel{
+				if !isImport && data.BondDeviceList != nil && len(data.BondDeviceList.BondDevices) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["bond_devices"].([]interface{}); ok && len(rawList) > 0 {
+					var BondDevicesResult []FleetBondDeviceListBondDevicesModel
+					for _, BondDevicesItem := range rawList {
+						if BondDevicesItemMap, ok := BondDevicesItem.(map[string]interface{}); ok {
+							BondDevicesResult = append(BondDevicesResult, FleetBondDeviceListBondDevicesModel{
 								ActiveBackup: func() *FleetEmptyModel {
-									if _, ok := itemMap["active_backup"].(map[string]interface{}); ok {
+									if _, ok := BondDevicesItemMap["active_backup"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
 									return nil
 								}(),
+								Devices: func() types.List {
+									if v, ok := BondDevicesItemMap["devices"].([]interface{}); ok && len(v) > 0 {
+										var items []string
+										for _, item := range v {
+											if s, ok := item.(string); ok {
+												items = append(items, s)
+											}
+										}
+										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										return listVal
+									}
+									return types.ListNull(types.StringType)
+								}(),
 								Lacp: func() *FleetBondDeviceListBondDevicesLacpModel {
-									if deepMap, ok := itemMap["lacp"].(map[string]interface{}); ok {
+									if LacpData, ok := BondDevicesItemMap["lacp"].(map[string]interface{}); ok {
 										return &FleetBondDeviceListBondDevicesLacpModel{
 											Rate: func() types.Int64 {
-												if v, ok := deepMap["rate"].(float64); ok {
+												if v, ok := LacpData["rate"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
@@ -5834,19 +8280,19 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return nil
 								}(),
 								LinkPollingInterval: func() types.Int64 {
-									if v, ok := itemMap["link_polling_interval"].(float64); ok {
+									if v, ok := BondDevicesItemMap["link_polling_interval"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								LinkUpDelay: func() types.Int64 {
-									if v, ok := itemMap["link_up_delay"].(float64); ok {
+									if v, ok := BondDevicesItemMap["link_up_delay"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := BondDevicesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -5854,7 +8300,7 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							})
 						}
 					}
-					return result
+					return BondDevicesResult
 				}
 				return nil
 			}(),
@@ -5905,44 +8351,83 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 		}
 	}
 	if _, ok := apiResource.Spec["default_config"].(map[string]interface{}); ok && isImport && data.DefaultConfig == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DefaultConfig = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["default_sriov_interface"].(map[string]interface{}); ok && isImport && data.DefaultSriovInterface == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DefaultSriovInterface = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["default_storage_class"].(map[string]interface{}); ok && isImport && data.DefaultStorageClass == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DefaultStorageClass = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["deny_all_usb"].(map[string]interface{}); ok && isImport && data.DenyAllUsb == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DenyAllUsb = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["device_list"].(map[string]interface{}); ok && (isImport || data.DeviceList != nil) {
 		data.DeviceList = &FleetDeviceListModel{
-			Devices: func() []FleetDeviceListDevicesModel {
-				if listData, ok := blockData["devices"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetDeviceListDevicesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetDeviceListDevicesModel{
+			Devices: func() types.List {
+				if !isImport && data.DeviceList != nil && (data.DeviceList.Devices.IsNull() || len(data.DeviceList.Devices.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetDeviceListDevicesModelAttrTypes})
+				}
+				if rawList, ok := blockData["devices"].([]interface{}); ok && len(rawList) > 0 {
+					var DevicesResult []FleetDeviceListDevicesModel
+					for _, DevicesItem := range rawList {
+						if DevicesItemMap, ok := DevicesItem.(map[string]interface{}); ok {
+							DevicesResult = append(DevicesResult, FleetDeviceListDevicesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := DevicesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								NetworkDevice: func() *FleetDeviceListDevicesNetworkDeviceModel {
-									if deepMap, ok := itemMap["network_device"].(map[string]interface{}); ok {
+									if NetworkDeviceData, ok := DevicesItemMap["network_device"].(map[string]interface{}); ok {
 										return &FleetDeviceListDevicesNetworkDeviceModel{
+											Interface: func() types.List {
+												if rawList, ok := NetworkDeviceData["interface"].([]interface{}); ok && len(rawList) > 0 {
+													var InterfaceResult []FleetDeviceListDevicesNetworkDeviceInterfaceModel
+													for _, InterfaceItem := range rawList {
+														if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
+															InterfaceResult = append(InterfaceResult, FleetDeviceListDevicesNetworkDeviceInterfaceModel{
+																Kind: func() types.String {
+																	if v, ok := InterfaceItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := InterfaceItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := InterfaceItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := InterfaceItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := InterfaceItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetDeviceListDevicesNetworkDeviceInterfaceModelAttrTypes}, InterfaceResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: FleetDeviceListDevicesNetworkDeviceInterfaceModelAttrTypes})
+											}(),
 											Use: func() types.String {
-												if v, ok := deepMap["use"].(string); ok && v != "" {
+												if v, ok := NetworkDeviceData["use"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -5952,7 +8437,7 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return nil
 								}(),
 								Owner: func() types.String {
-									if v, ok := itemMap["owner"].(string); ok && v != "" {
+									if v, ok := DevicesItemMap["owner"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -5960,27 +8445,22 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetDeviceListDevicesModelAttrTypes}, DevicesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FleetDeviceListDevicesModelAttrTypes})
 			}(),
 		}
 	}
 	if _, ok := apiResource.Spec["disable_gpu"].(map[string]interface{}); ok && isImport && data.DisableGPU == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableGPU = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["disable_vm"].(map[string]interface{}); ok && isImport && data.DisableVM == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableVM = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["enable_gpu"].(map[string]interface{}); ok && isImport && data.EnableGPU == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.EnableGPU = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["enable_vgpu"].(map[string]interface{}); ok && (isImport || data.EnableVgpu != nil) {
 		data.EnableVgpu = &FleetEnableVgpuModel{
 			FeatureType: func() types.String {
@@ -5997,16 +8477,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 			}(),
 			ServerPort: func() types.Int64 {
 				if !isImport && data.EnableVgpu != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.EnableVgpu.ServerPort
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["server_port"].(float64); ok {
+				if v, ok := blockData["server_port"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -6014,20 +8487,20 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 		}
 	}
 	if _, ok := apiResource.Spec["enable_vm"].(map[string]interface{}); ok && isImport && data.EnableVM == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.EnableVM = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["inside_virtual_network"].([]interface{}); ok && len(listData) > 0 {
-		var inside_virtual_networkList []FleetInsideVirtualNetworkModel
+	if !isImport && (data.InsideVirtualNetwork.IsNull() || len(data.InsideVirtualNetwork.Elements()) == 0) {
+		data.InsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetInsideVirtualNetworkModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["inside_virtual_network"].([]interface{}); ok && len(listData) > 0 {
+		var InsideVirtualNetworkList []FleetInsideVirtualNetworkModel
 		var existingInsideVirtualNetworkItems []FleetInsideVirtualNetworkModel
 		if !data.InsideVirtualNetwork.IsNull() && !data.InsideVirtualNetwork.IsUnknown() {
 			data.InsideVirtualNetwork.ElementsAs(ctx, &existingInsideVirtualNetworkItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				inside_virtual_networkList = append(inside_virtual_networkList, FleetInsideVirtualNetworkModel{
+				InsideVirtualNetworkList = append(InsideVirtualNetworkList, FleetInsideVirtualNetworkModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -6061,37 +8534,39 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetInsideVirtualNetworkModelAttrTypes}, inside_virtual_networkList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetInsideVirtualNetworkModelAttrTypes}, InsideVirtualNetworkList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.InsideVirtualNetwork = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.InsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetInsideVirtualNetworkModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["interface_list"].(map[string]interface{}); ok && (isImport || data.InterfaceList != nil) {
 		data.InterfaceList = &FleetInterfaceListModel{
-			Interfaces: func() []FleetInterfaceListInterfacesModel {
-				if listData, ok := blockData["interfaces"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetInterfaceListInterfacesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetInterfaceListInterfacesModel{
+			Interfaces: func() types.List {
+				if !isImport && data.InterfaceList != nil && (data.InterfaceList.Interfaces.IsNull() || len(data.InterfaceList.Interfaces.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetInterfaceListInterfacesModelAttrTypes})
+				}
+				if rawList, ok := blockData["interfaces"].([]interface{}); ok && len(rawList) > 0 {
+					var InterfacesResult []FleetInterfaceListInterfacesModel
+					for _, InterfacesItem := range rawList {
+						if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
+							InterfacesResult = append(InterfacesResult, FleetInterfaceListInterfacesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := InterfacesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := InterfacesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := InterfacesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -6099,17 +8574,60 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetInterfaceListInterfacesModelAttrTypes}, InterfacesResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: FleetInterfaceListInterfacesModelAttrTypes})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["kubernetes_upgrade_drain"].(map[string]interface{}); ok && (isImport || data.KubernetesUpgradeDrain != nil) {
+		data.KubernetesUpgradeDrain = &FleetKubernetesUpgradeDrainModel{
+			DisableUpgradeDrain: func() *FleetEmptyModel {
+				if !isImport && data.KubernetesUpgradeDrain != nil {
+					return data.KubernetesUpgradeDrain.DisableUpgradeDrain
+				}
+				if _, ok := blockData["disable_upgrade_drain"].(map[string]interface{}); ok {
+					return &FleetEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableUpgradeDrain: func() *FleetKubernetesUpgradeDrainEnableUpgradeDrainModel {
+				if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+					return data.KubernetesUpgradeDrain.EnableUpgradeDrain
+				}
+				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
+					return &FleetKubernetesUpgradeDrainEnableUpgradeDrainModel{
+						DisableVegaUpgradeMode: func() *FleetEmptyModel {
+							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+						DrainMaxUnavailableNodeCount: func() types.Int64 {
+							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						DrainNodeTimeout: func() types.Int64 {
+							if v, ok := EnableUpgradeDrainData["drain_node_timeout"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						EnableVegaUpgradeMode: func() *FleetEmptyModel {
+							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["kubernetes_upgrade_drain"].(map[string]interface{}); ok && isImport && data.KubernetesUpgradeDrain == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.KubernetesUpgradeDrain = &FleetKubernetesUpgradeDrainModel{}
-	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["log_receiver"].(map[string]interface{}); ok && (isImport || data.LogReceiver != nil) {
 		data.LogReceiver = &FleetLogReceiverModel{
 			Name: func() types.String {
@@ -6133,20 +8651,20 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 		}
 	}
 	if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok && isImport && data.LogsStreamingDisabled == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.LogsStreamingDisabled = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["network_connectors"].([]interface{}); ok && len(listData) > 0 {
-		var network_connectorsList []FleetNetworkConnectorsModel
+	if !isImport && (data.NetworkConnectors.IsNull() || len(data.NetworkConnectors.Elements()) == 0) {
+		data.NetworkConnectors = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkConnectorsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["network_connectors"].([]interface{}); ok && len(listData) > 0 {
+		var NetworkConnectorsList []FleetNetworkConnectorsModel
 		var existingNetworkConnectorsItems []FleetNetworkConnectorsModel
 		if !data.NetworkConnectors.IsNull() && !data.NetworkConnectors.IsUnknown() {
 			data.NetworkConnectors.ElementsAs(ctx, &existingNetworkConnectorsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				network_connectorsList = append(network_connectorsList, FleetNetworkConnectorsModel{
+				NetworkConnectorsList = append(NetworkConnectorsList, FleetNetworkConnectorsModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -6180,25 +8698,26 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetNetworkConnectorsModelAttrTypes}, network_connectorsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetNetworkConnectorsModelAttrTypes}, NetworkConnectorsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.NetworkConnectors = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.NetworkConnectors = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkConnectorsModelAttrTypes})
 	}
-	if listData, ok := apiResource.Spec["network_firewall"].([]interface{}); ok && len(listData) > 0 {
-		var network_firewallList []FleetNetworkFirewallModel
+	if !isImport && (data.NetworkFirewall.IsNull() || len(data.NetworkFirewall.Elements()) == 0) {
+		data.NetworkFirewall = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkFirewallModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["network_firewall"].([]interface{}); ok && len(listData) > 0 {
+		var NetworkFirewallList []FleetNetworkFirewallModel
 		var existingNetworkFirewallItems []FleetNetworkFirewallModel
 		if !data.NetworkFirewall.IsNull() && !data.NetworkFirewall.IsUnknown() {
 			data.NetworkFirewall.ElementsAs(ctx, &existingNetworkFirewallItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				network_firewallList = append(network_firewallList, FleetNetworkFirewallModel{
+				NetworkFirewallList = append(NetworkFirewallList, FleetNetworkFirewallModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -6232,50 +8751,41 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetNetworkFirewallModelAttrTypes}, network_firewallList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetNetworkFirewallModelAttrTypes}, NetworkFirewallList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.NetworkFirewall = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.NetworkFirewall = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkFirewallModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["no_bond_devices"].(map[string]interface{}); ok && isImport && data.NoBondDevices == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoBondDevices = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_dc_cluster_group"].(map[string]interface{}); ok && isImport && data.NoDcClusterGroup == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoDcClusterGroup = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_storage_device"].(map[string]interface{}); ok && isImport && data.NoStorageDevice == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoStorageDevice = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_storage_interfaces"].(map[string]interface{}); ok && isImport && data.NoStorageInterfaces == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoStorageInterfaces = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_storage_static_routes"].(map[string]interface{}); ok && isImport && data.NoStorageStaticRoutes == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoStorageStaticRoutes = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["outside_virtual_network"].([]interface{}); ok && len(listData) > 0 {
-		var outside_virtual_networkList []FleetOutsideVirtualNetworkModel
+	if !isImport && (data.OutsideVirtualNetwork.IsNull() || len(data.OutsideVirtualNetwork.Elements()) == 0) {
+		data.OutsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetOutsideVirtualNetworkModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["outside_virtual_network"].([]interface{}); ok && len(listData) > 0 {
+		var OutsideVirtualNetworkList []FleetOutsideVirtualNetworkModel
 		var existingOutsideVirtualNetworkItems []FleetOutsideVirtualNetworkModel
 		if !data.OutsideVirtualNetwork.IsNull() && !data.OutsideVirtualNetwork.IsUnknown() {
 			data.OutsideVirtualNetwork.ElementsAs(ctx, &existingOutsideVirtualNetworkItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				outside_virtual_networkList = append(outside_virtual_networkList, FleetOutsideVirtualNetworkModel{
+				OutsideVirtualNetworkList = append(OutsideVirtualNetworkList, FleetOutsideVirtualNetworkModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -6309,37 +8819,39 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetOutsideVirtualNetworkModelAttrTypes}, outside_virtual_networkList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetOutsideVirtualNetworkModelAttrTypes}, OutsideVirtualNetworkList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.OutsideVirtualNetwork = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.OutsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetOutsideVirtualNetworkModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["sriov_interfaces"].(map[string]interface{}); ok && (isImport || data.SriovInterfaces != nil) {
 		data.SriovInterfaces = &FleetSriovInterfacesModel{
 			SriovInterface: func() []FleetSriovInterfacesSriovInterfaceModel {
-				if listData, ok := blockData["sriov_interface"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetSriovInterfacesSriovInterfaceModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetSriovInterfacesSriovInterfaceModel{
+				if !isImport && data.SriovInterfaces != nil && len(data.SriovInterfaces.SriovInterface) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["sriov_interface"].([]interface{}); ok && len(rawList) > 0 {
+					var SriovInterfaceResult []FleetSriovInterfacesSriovInterfaceModel
+					for _, SriovInterfaceItem := range rawList {
+						if SriovInterfaceItemMap, ok := SriovInterfaceItem.(map[string]interface{}); ok {
+							SriovInterfaceResult = append(SriovInterfaceResult, FleetSriovInterfacesSriovInterfaceModel{
 								InterfaceName: func() types.String {
-									if v, ok := itemMap["interface_name"].(string); ok && v != "" {
+									if v, ok := SriovInterfaceItemMap["interface_name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								NumberOfVfioVfs: func() types.Int64 {
-									if v, ok := itemMap["number_of_vfio_vfs"].(float64); ok {
+									if v, ok := SriovInterfaceItemMap["number_of_vfio_vfs"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								NumberOfVfs: func() types.Int64 {
-									if v, ok := itemMap["number_of_vfs"].(float64); ok {
+									if v, ok := SriovInterfaceItemMap["number_of_vfs"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
@@ -6347,7 +8859,7 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							})
 						}
 					}
-					return result
+					return SriovInterfaceResult
 				}
 				return nil
 			}(),
@@ -6356,28 +8868,31 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 	if blockData, ok := apiResource.Spec["storage_class_list"].(map[string]interface{}); ok && (isImport || data.StorageClassList != nil) {
 		data.StorageClassList = &FleetStorageClassListModel{
 			StorageClasses: func() []FleetStorageClassListStorageClassesModel {
-				if listData, ok := blockData["storage_classes"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetStorageClassListStorageClassesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetStorageClassListStorageClassesModel{
+				if !isImport && data.StorageClassList != nil && len(data.StorageClassList.StorageClasses) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["storage_classes"].([]interface{}); ok && len(rawList) > 0 {
+					var StorageClassesResult []FleetStorageClassListStorageClassesModel
+					for _, StorageClassesItem := range rawList {
+						if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
+							StorageClassesResult = append(StorageClassesResult, FleetStorageClassListStorageClassesModel{
 								AdvancedStorageParameters: func() *FleetEmptyModel {
-									if _, ok := itemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
+									if _, ok := StorageClassesItemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
 									return nil
 								}(),
 								AllowVolumeExpansion: func() types.Bool {
-									if v, ok := itemMap["allow_volume_expansion"].(bool); ok {
+									if v, ok := StorageClassesItemMap["allow_volume_expansion"].(bool); ok {
 										return types.BoolValue(v)
 									}
 									return types.BoolNull()
 								}(),
 								CustomStorage: func() *FleetStorageClassListStorageClassesCustomStorageModel {
-									if deepMap, ok := itemMap["custom_storage"].(map[string]interface{}); ok {
+									if CustomStorageData, ok := StorageClassesItemMap["custom_storage"].(map[string]interface{}); ok {
 										return &FleetStorageClassListStorageClassesCustomStorageModel{
 											Yaml: func() types.String {
-												if v, ok := deepMap["yaml"].(string); ok && v != "" {
+												if v, ok := CustomStorageData["yaml"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -6387,112 +8902,112 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return nil
 								}(),
 								DefaultStorageClass: func() types.Bool {
-									if v, ok := itemMap["default_storage_class"].(bool); ok {
+									if v, ok := StorageClassesItemMap["default_storage_class"].(bool); ok {
 										return types.BoolValue(v)
 									}
 									return types.BoolNull()
 								}(),
 								DescriptionSpec: func() types.String {
-									if v, ok := itemMap["description"].(string); ok && v != "" {
+									if v, ok := StorageClassesItemMap["description"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								HpeStorage: func() *FleetStorageClassListStorageClassesHpeStorageModel {
-									if deepMap, ok := itemMap["hpe_storage"].(map[string]interface{}); ok {
+									if HpeStorageData, ok := StorageClassesItemMap["hpe_storage"].(map[string]interface{}); ok {
 										return &FleetStorageClassListStorageClassesHpeStorageModel{
 											AllowMutations: func() types.String {
-												if v, ok := deepMap["allow_mutations"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["allow_mutations"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											AllowOverrides: func() types.String {
-												if v, ok := deepMap["allow_overrides"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["allow_overrides"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											DedupeEnabled: func() types.Bool {
-												if v, ok := deepMap["dedupe_enabled"].(bool); ok {
+												if v, ok := HpeStorageData["dedupe_enabled"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											DescriptionSpec: func() types.String {
-												if v, ok := deepMap["description"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["description"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											DestroyOnDelete: func() types.Bool {
-												if v, ok := deepMap["destroy_on_delete"].(bool); ok {
+												if v, ok := HpeStorageData["destroy_on_delete"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											Encrypted: func() types.Bool {
-												if v, ok := deepMap["encrypted"].(bool); ok {
+												if v, ok := HpeStorageData["encrypted"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											Folder: func() types.String {
-												if v, ok := deepMap["folder"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["folder"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											LimitIops: func() types.String {
-												if v, ok := deepMap["limit_iops"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["limit_iops"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											LimitMbps: func() types.String {
-												if v, ok := deepMap["limit_mbps"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["limit_mbps"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											PerformancePolicy: func() types.String {
-												if v, ok := deepMap["performance_policy"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["performance_policy"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Pool: func() types.String {
-												if v, ok := deepMap["pool"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["pool"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											ProtectionTemplate: func() types.String {
-												if v, ok := deepMap["protection_template"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["protection_template"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											SecretName: func() types.String {
-												if v, ok := deepMap["secret_name"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["secret_name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											SecretNamespace: func() types.String {
-												if v, ok := deepMap["secret_namespace"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["secret_namespace"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											SyncOnDetach: func() types.Bool {
-												if v, ok := deepMap["sync_on_detach"].(bool); ok {
+												if v, ok := HpeStorageData["sync_on_detach"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											Thick: func() types.Bool {
-												if v, ok := deepMap["thick"].(bool); ok {
+												if v, ok := HpeStorageData["thick"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
@@ -6502,16 +9017,16 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return nil
 								}(),
 								NetappTrident: func() *FleetStorageClassListStorageClassesNetappTridentModel {
-									if deepMap, ok := itemMap["netapp_trident"].(map[string]interface{}); ok {
+									if NetappTridentData, ok := StorageClassesItemMap["netapp_trident"].(map[string]interface{}); ok {
 										return &FleetStorageClassListStorageClassesNetappTridentModel{
 											Selector: func() *FleetEmptyModel {
-												if _, ok := deepMap["selector"].(map[string]interface{}); ok {
+												if _, ok := NetappTridentData["selector"].(map[string]interface{}); ok {
 													return &FleetEmptyModel{}
 												}
 												return nil
 											}(),
 											StoragePools: func() types.String {
-												if v, ok := deepMap["storage_pools"].(string); ok && v != "" {
+												if v, ok := NetappTridentData["storage_pools"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -6521,22 +9036,22 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return nil
 								}(),
 								PureServiceOrchestrator: func() *FleetStorageClassListStorageClassesPureServiceOrchestratorModel {
-									if deepMap, ok := itemMap["pure_service_orchestrator"].(map[string]interface{}); ok {
+									if PureServiceOrchestratorData, ok := StorageClassesItemMap["pure_service_orchestrator"].(map[string]interface{}); ok {
 										return &FleetStorageClassListStorageClassesPureServiceOrchestratorModel{
 											Backend: func() types.String {
-												if v, ok := deepMap["backend"].(string); ok && v != "" {
+												if v, ok := PureServiceOrchestratorData["backend"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											BandwidthLimit: func() types.String {
-												if v, ok := deepMap["bandwidth_limit"].(string); ok && v != "" {
+												if v, ok := PureServiceOrchestratorData["bandwidth_limit"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											IopsLimit: func() types.Int64 {
-												if v, ok := deepMap["iops_limit"].(float64); ok {
+												if v, ok := PureServiceOrchestratorData["iops_limit"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
@@ -6546,19 +9061,19 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return nil
 								}(),
 								ReclaimPolicy: func() types.String {
-									if v, ok := itemMap["reclaim_policy"].(string); ok && v != "" {
+									if v, ok := StorageClassesItemMap["reclaim_policy"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								StorageClassName: func() types.String {
-									if v, ok := itemMap["storage_class_name"].(string); ok && v != "" {
+									if v, ok := StorageClassesItemMap["storage_class_name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								StorageDevice: func() types.String {
-									if v, ok := itemMap["storage_device"].(string); ok && v != "" {
+									if v, ok := StorageClassesItemMap["storage_device"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -6566,7 +9081,7 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							})
 						}
 					}
-					return result
+					return StorageClassesResult
 				}
 				return nil
 			}(),
@@ -6575,52 +9090,157 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 	if blockData, ok := apiResource.Spec["storage_device_list"].(map[string]interface{}); ok && (isImport || data.StorageDeviceList != nil) {
 		data.StorageDeviceList = &FleetStorageDeviceListModel{
 			StorageDevices: func() []FleetStorageDeviceListStorageDevicesModel {
-				if listData, ok := blockData["storage_devices"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetStorageDeviceListStorageDevicesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetStorageDeviceListStorageDevicesModel{
+				if !isImport && data.StorageDeviceList != nil && len(data.StorageDeviceList.StorageDevices) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["storage_devices"].([]interface{}); ok && len(rawList) > 0 {
+					var StorageDevicesResult []FleetStorageDeviceListStorageDevicesModel
+					for _, StorageDevicesItem := range rawList {
+						if StorageDevicesItemMap, ok := StorageDevicesItem.(map[string]interface{}); ok {
+							StorageDevicesResult = append(StorageDevicesResult, FleetStorageDeviceListStorageDevicesModel{
 								AdvancedAdvancedParameters: func() *FleetEmptyModel {
-									if _, ok := itemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
+									if _, ok := StorageDevicesItemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
 									return nil
 								}(),
 								CustomStorage: func() *FleetEmptyModel {
-									if _, ok := itemMap["custom_storage"].(map[string]interface{}); ok {
+									if _, ok := StorageDevicesItemMap["custom_storage"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
 									return nil
 								}(),
 								HpeStorage: func() *FleetStorageDeviceListStorageDevicesHpeStorageModel {
-									if deepMap, ok := itemMap["hpe_storage"].(map[string]interface{}); ok {
+									if HpeStorageData, ok := StorageDevicesItemMap["hpe_storage"].(map[string]interface{}); ok {
 										return &FleetStorageDeviceListStorageDevicesHpeStorageModel{
 											APIServerPort: func() types.Int64 {
-												if v, ok := deepMap["api_server_port"].(float64); ok {
+												if v, ok := HpeStorageData["api_server_port"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
 											}(),
+											IscsiChapPassword: func() *FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordModel {
+												if IscsiChapPasswordData, ok := HpeStorageData["iscsi_chap_password"].(map[string]interface{}); ok {
+													return &FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordModel{
+														BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := IscsiChapPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModel {
+															if ClearSecretInfoData, ok := IscsiChapPasswordData["clear_secret_info"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
 											IscsiChapUser: func() types.String {
-												if v, ok := deepMap["iscsi_chap_user"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["iscsi_chap_user"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
+											Password: func() *FleetStorageDeviceListStorageDevicesHpeStoragePasswordModel {
+												if PasswordData, ok := HpeStorageData["password"].(map[string]interface{}); ok {
+													return &FleetStorageDeviceListStorageDevicesHpeStoragePasswordModel{
+														BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
 											StorageServerIPAddress: func() types.String {
-												if v, ok := deepMap["storage_server_ip_address"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["storage_server_ip_address"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											StorageServerName: func() types.String {
-												if v, ok := deepMap["storage_server_name"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["storage_server_name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Username: func() types.String {
-												if v, ok := deepMap["username"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["username"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -6630,28 +9250,1228 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return nil
 								}(),
 								NetappTrident: func() *FleetStorageDeviceListStorageDevicesNetappTridentModel {
-									if _, ok := itemMap["netapp_trident"].(map[string]interface{}); ok {
-										return &FleetStorageDeviceListStorageDevicesNetappTridentModel{}
+									if NetappTridentData, ok := StorageDevicesItemMap["netapp_trident"].(map[string]interface{}); ok {
+										return &FleetStorageDeviceListStorageDevicesNetappTridentModel{
+											NetappBackendOntapNas: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasModel {
+												if NetappBackendOntapNasData, ok := NetappTridentData["netapp_backend_ontap_nas"].(map[string]interface{}); ok {
+													return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasModel{
+														AutoExportCidrs: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasAutoExportCidrsModel {
+															if AutoExportCidrsData, ok := NetappBackendOntapNasData["auto_export_cidrs"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasAutoExportCidrsModel{
+																	Prefixes: func() types.List {
+																		if v, ok := AutoExportCidrsData["prefixes"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														AutoExportPolicy: func() types.Bool {
+															if v, ok := NetappBackendOntapNasData["auto_export_policy"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														BackendName: func() types.String {
+															if v, ok := NetappBackendOntapNasData["backend_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ClientCertificate: func() types.String {
+															if v, ok := NetappBackendOntapNasData["client_certificate"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ClientPrivateKey: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel {
+															if ClientPrivateKeyData, ok := NetappBackendOntapNasData["client_private_key"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel{
+																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														DataLifDNSName: func() types.String {
+															if v, ok := NetappBackendOntapNasData["data_lif_dns_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														DataLifIP: func() types.String {
+															if v, ok := NetappBackendOntapNasData["data_lif_ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Labels: func() *FleetEmptyModel {
+															if _, ok := NetappBackendOntapNasData["labels"].(map[string]interface{}); ok {
+																return &FleetEmptyModel{}
+															}
+															return nil
+														}(),
+														LimitAggregateUsage: func() types.String {
+															if v, ok := NetappBackendOntapNasData["limit_aggregate_usage"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														LimitVolumeSize: func() types.String {
+															if v, ok := NetappBackendOntapNasData["limit_volume_size"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ManagementLifDNSName: func() types.String {
+															if v, ok := NetappBackendOntapNasData["management_lif_dns_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ManagementLifIP: func() types.String {
+															if v, ok := NetappBackendOntapNasData["management_lif_ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														NfsMountOptions: func() types.String {
+															if v, ok := NetappBackendOntapNasData["nfs_mount_options"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Password: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModel {
+															if PasswordData, ok := NetappBackendOntapNasData["password"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModel{
+																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Region: func() types.String {
+															if v, ok := NetappBackendOntapNasData["region"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Storage: func() []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel {
+															if rawList, ok := NetappBackendOntapNasData["storage"].([]interface{}); ok && len(rawList) > 0 {
+																var StorageResult []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel
+																for _, StorageItem := range rawList {
+																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
+																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel{
+																			Labels: func() *FleetEmptyModel {
+																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
+																					return &FleetEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModel {
+																				if VolumeDefaultsData, ok := StorageItemMap["volume_defaults"].(map[string]interface{}); ok {
+																					return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModel{
+																						AdaptiveQOSPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["adaptive_qos_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						Encryption: func() types.Bool {
+																							if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
+																								return types.BoolValue(v)
+																							}
+																							return types.BoolNull()
+																						}(),
+																						ExportPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["export_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						NoQOS: func() *FleetEmptyModel {
+																							if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
+																								return &FleetEmptyModel{}
+																							}
+																							return nil
+																						}(),
+																						QOSPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SecurityStyle: func() types.String {
+																							if v, ok := VolumeDefaultsData["security_style"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SnapshotDir: func() types.Bool {
+																							if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
+																								return types.BoolValue(v)
+																							}
+																							return types.BoolNull()
+																						}(),
+																						SnapshotPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["snapshot_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SnapshotReserve: func() types.String {
+																							if v, ok := VolumeDefaultsData["snapshot_reserve"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SpaceReserve: func() types.String {
+																							if v, ok := VolumeDefaultsData["space_reserve"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SplitOnClone: func() types.Bool {
+																							if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
+																								return types.BoolValue(v)
+																							}
+																							return types.BoolNull()
+																						}(),
+																						TieringPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["tiering_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						UnixPermissions: func() types.Int64 {
+																							if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
+																								return types.Int64Value(int64(v))
+																							}
+																							return types.Int64Null()
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																			Zone: func() types.String {
+																				if v, ok := StorageItemMap["zone"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																return StorageResult
+															}
+															return nil
+														}(),
+														StorageDriverName: func() types.String {
+															if v, ok := NetappBackendOntapNasData["storage_driver_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														StoragePrefix: func() types.String {
+															if v, ok := NetappBackendOntapNasData["storage_prefix"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Svm: func() types.String {
+															if v, ok := NetappBackendOntapNasData["svm"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														TrustedCACertificate: func() types.String {
+															if v, ok := NetappBackendOntapNasData["trusted_ca_certificate"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Username: func() types.String {
+															if v, ok := NetappBackendOntapNasData["username"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModel {
+															if VolumeDefaultsData, ok := NetappBackendOntapNasData["volume_defaults"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModel{
+																	AdaptiveQOSPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["adaptive_qos_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Encryption: func() types.Bool {
+																		if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	ExportPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["export_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	NoQOS: func() *FleetEmptyModel {
+																		if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
+																			return &FleetEmptyModel{}
+																		}
+																		return nil
+																	}(),
+																	QOSPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SecurityStyle: func() types.String {
+																		if v, ok := VolumeDefaultsData["security_style"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SnapshotDir: func() types.Bool {
+																		if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	SnapshotPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["snapshot_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SnapshotReserve: func() types.String {
+																		if v, ok := VolumeDefaultsData["snapshot_reserve"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SpaceReserve: func() types.String {
+																		if v, ok := VolumeDefaultsData["space_reserve"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SplitOnClone: func() types.Bool {
+																		if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	TieringPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["tiering_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	UnixPermissions: func() types.Int64 {
+																		if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		return types.Int64Null()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											NetappBackendOntapSan: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel {
+												if NetappBackendOntapSanData, ok := NetappTridentData["netapp_backend_ontap_san"].(map[string]interface{}); ok {
+													return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel{
+														ClientCertificate: func() types.String {
+															if v, ok := NetappBackendOntapSanData["client_certificate"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ClientPrivateKey: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel {
+															if ClientPrivateKeyData, ok := NetappBackendOntapSanData["client_private_key"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel{
+																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														DataLifDNSName: func() types.String {
+															if v, ok := NetappBackendOntapSanData["data_lif_dns_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														DataLifIP: func() types.String {
+															if v, ok := NetappBackendOntapSanData["data_lif_ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														IgroupName: func() types.String {
+															if v, ok := NetappBackendOntapSanData["igroup_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Labels: func() *FleetEmptyModel {
+															if _, ok := NetappBackendOntapSanData["labels"].(map[string]interface{}); ok {
+																return &FleetEmptyModel{}
+															}
+															return nil
+														}(),
+														LimitAggregateUsage: func() types.Int64 {
+															if v, ok := NetappBackendOntapSanData["limit_aggregate_usage"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														LimitVolumeSize: func() types.Int64 {
+															if v, ok := NetappBackendOntapSanData["limit_volume_size"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														ManagementLifDNSName: func() types.String {
+															if v, ok := NetappBackendOntapSanData["management_lif_dns_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ManagementLifIP: func() types.String {
+															if v, ok := NetappBackendOntapSanData["management_lif_ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														NoChap: func() *FleetEmptyModel {
+															if _, ok := NetappBackendOntapSanData["no_chap"].(map[string]interface{}); ok {
+																return &FleetEmptyModel{}
+															}
+															return nil
+														}(),
+														Password: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel {
+															if PasswordData, ok := NetappBackendOntapSanData["password"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel{
+																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Region: func() types.String {
+															if v, ok := NetappBackendOntapSanData["region"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Storage: func() []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel {
+															if rawList, ok := NetappBackendOntapSanData["storage"].([]interface{}); ok && len(rawList) > 0 {
+																var StorageResult []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel
+																for _, StorageItem := range rawList {
+																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
+																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel{
+																			Labels: func() *FleetEmptyModel {
+																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
+																					return &FleetEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModel {
+																				if VolumeDefaultsData, ok := StorageItemMap["volume_defaults"].(map[string]interface{}); ok {
+																					return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModel{
+																						AdaptiveQOSPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["adaptive_qos_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						Encryption: func() types.Bool {
+																							if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
+																								return types.BoolValue(v)
+																							}
+																							return types.BoolNull()
+																						}(),
+																						ExportPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["export_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						NoQOS: func() *FleetEmptyModel {
+																							if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
+																								return &FleetEmptyModel{}
+																							}
+																							return nil
+																						}(),
+																						QOSPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SecurityStyle: func() types.String {
+																							if v, ok := VolumeDefaultsData["security_style"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SnapshotDir: func() types.Bool {
+																							if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
+																								return types.BoolValue(v)
+																							}
+																							return types.BoolNull()
+																						}(),
+																						SnapshotPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["snapshot_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SnapshotReserve: func() types.String {
+																							if v, ok := VolumeDefaultsData["snapshot_reserve"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SpaceReserve: func() types.String {
+																							if v, ok := VolumeDefaultsData["space_reserve"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SplitOnClone: func() types.Bool {
+																							if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
+																								return types.BoolValue(v)
+																							}
+																							return types.BoolNull()
+																						}(),
+																						TieringPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["tiering_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						UnixPermissions: func() types.Int64 {
+																							if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
+																								return types.Int64Value(int64(v))
+																							}
+																							return types.Int64Null()
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																			Zone: func() types.String {
+																				if v, ok := StorageItemMap["zone"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																return StorageResult
+															}
+															return nil
+														}(),
+														StorageDriverName: func() types.String {
+															if v, ok := NetappBackendOntapSanData["storage_driver_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														StoragePrefix: func() types.String {
+															if v, ok := NetappBackendOntapSanData["storage_prefix"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Svm: func() types.String {
+															if v, ok := NetappBackendOntapSanData["svm"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														TrustedCACertificate: func() types.String {
+															if v, ok := NetappBackendOntapSanData["trusted_ca_certificate"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														UseChap: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapModel {
+															if UseChapData, ok := NetappBackendOntapSanData["use_chap"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapModel{
+																	ChapInitiatorSecret: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretModel {
+																		if ChapInitiatorSecretData, ok := UseChapData["chap_initiator_secret"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretModel{
+																				BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModel {
+																					if BlindfoldSecretInfoData, ok := ChapInitiatorSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
+																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModel{
+																							DecryptionProvider: func() types.String {
+																								if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																							Location: func() types.String {
+																								if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																							StoreProvider: func() types.String {
+																								if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
+																				ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModel {
+																					if ClearSecretInfoData, ok := ChapInitiatorSecretData["clear_secret_info"].(map[string]interface{}); ok {
+																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModel{
+																							Provider: func() types.String {
+																								if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																							URL: func() types.String {
+																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ChapTargetInitiatorSecret: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretModel {
+																		if ChapTargetInitiatorSecretData, ok := UseChapData["chap_target_initiator_secret"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretModel{
+																				BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoModel {
+																					if BlindfoldSecretInfoData, ok := ChapTargetInitiatorSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
+																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoModel{
+																							DecryptionProvider: func() types.String {
+																								if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																							Location: func() types.String {
+																								if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																							StoreProvider: func() types.String {
+																								if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
+																				ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel {
+																					if ClearSecretInfoData, ok := ChapTargetInitiatorSecretData["clear_secret_info"].(map[string]interface{}); ok {
+																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel{
+																							Provider: func() types.String {
+																								if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																							URL: func() types.String {
+																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ChapTargetUsername: func() types.String {
+																		if v, ok := UseChapData["chap_target_username"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	ChapUsername: func() types.String {
+																		if v, ok := UseChapData["chap_username"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Username: func() types.String {
+															if v, ok := NetappBackendOntapSanData["username"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModel {
+															if VolumeDefaultsData, ok := NetappBackendOntapSanData["volume_defaults"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModel{
+																	AdaptiveQOSPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["adaptive_qos_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Encryption: func() types.Bool {
+																		if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	ExportPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["export_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	NoQOS: func() *FleetEmptyModel {
+																		if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
+																			return &FleetEmptyModel{}
+																		}
+																		return nil
+																	}(),
+																	QOSPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SecurityStyle: func() types.String {
+																		if v, ok := VolumeDefaultsData["security_style"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SnapshotDir: func() types.Bool {
+																		if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	SnapshotPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["snapshot_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SnapshotReserve: func() types.String {
+																		if v, ok := VolumeDefaultsData["snapshot_reserve"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SpaceReserve: func() types.String {
+																		if v, ok := VolumeDefaultsData["space_reserve"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SplitOnClone: func() types.Bool {
+																		if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	TieringPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["tiering_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	UnixPermissions: func() types.Int64 {
+																		if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		return types.Int64Null()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
 									}
 									return nil
 								}(),
 								PureServiceOrchestrator: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorModel {
-									if deepMap, ok := itemMap["pure_service_orchestrator"].(map[string]interface{}); ok {
+									if PureServiceOrchestratorData, ok := StorageDevicesItemMap["pure_service_orchestrator"].(map[string]interface{}); ok {
 										return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorModel{
+											Arrays: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysModel {
+												if ArraysData, ok := PureServiceOrchestratorData["arrays"].(map[string]interface{}); ok {
+													return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysModel{
+														FlashArray: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayModel {
+															if FlashArrayData, ok := ArraysData["flash_array"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayModel{
+																	DefaultFsOpt: func() types.String {
+																		if v, ok := FlashArrayData["default_fs_opt"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	DefaultFsType: func() types.String {
+																		if v, ok := FlashArrayData["default_fs_type"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	DefaultMountOpts: func() types.List {
+																		if v, ok := FlashArrayData["default_mount_opts"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																	DisablePreemptAttachments: func() types.Bool {
+																		if v, ok := FlashArrayData["disable_preempt_attachments"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	FlashArrays: func() []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel {
+																		if rawList, ok := FlashArrayData["flash_arrays"].([]interface{}); ok && len(rawList) > 0 {
+																			var FlashArraysResult []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel
+																			for _, FlashArraysItem := range rawList {
+																				if FlashArraysItemMap, ok := FlashArraysItem.(map[string]interface{}); ok {
+																					FlashArraysResult = append(FlashArraysResult, FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel{
+																						APIToken: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModel {
+																							if APITokenData, ok := FlashArraysItemMap["api_token"].(map[string]interface{}); ok {
+																								return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModel{
+																									BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoModel {
+																										if BlindfoldSecretInfoData, ok := APITokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoModel{
+																												DecryptionProvider: func() types.String {
+																													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																												Location: func() types.String {
+																													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																												StoreProvider: func() types.String {
+																													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																											}
+																										}
+																										return nil
+																									}(),
+																									ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel {
+																										if ClearSecretInfoData, ok := APITokenData["clear_secret_info"].(map[string]interface{}); ok {
+																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel{
+																												Provider: func() types.String {
+																													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																												URL: func() types.String {
+																													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																											}
+																										}
+																										return nil
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																						Labels: func() *FleetEmptyModel {
+																							if _, ok := FlashArraysItemMap["labels"].(map[string]interface{}); ok {
+																								return &FleetEmptyModel{}
+																							}
+																							return nil
+																						}(),
+																						MgmtDNSName: func() types.String {
+																							if v, ok := FlashArraysItemMap["mgmt_dns_name"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						MgmtIP: func() types.String {
+																							if v, ok := FlashArraysItemMap["mgmt_ip"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																					})
+																				}
+																			}
+																			return FlashArraysResult
+																		}
+																		return nil
+																	}(),
+																	IscsiLoginTimeout: func() types.Int64 {
+																		if v, ok := FlashArrayData["iscsi_login_timeout"].(float64); ok && v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		return types.Int64Null()
+																	}(),
+																	SanType: func() types.String {
+																		if v, ok := FlashArrayData["san_type"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														FlashBlade: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeModel {
+															if FlashBladeData, ok := ArraysData["flash_blade"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeModel{
+																	EnableSnapshotDirectory: func() types.Bool {
+																		if v, ok := FlashBladeData["enable_snapshot_directory"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	ExportRules: func() types.String {
+																		if v, ok := FlashBladeData["export_rules"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	FlashBlades: func() []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel {
+																		if rawList, ok := FlashBladeData["flash_blades"].([]interface{}); ok && len(rawList) > 0 {
+																			var FlashBladesResult []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel
+																			for _, FlashBladesItem := range rawList {
+																				if FlashBladesItemMap, ok := FlashBladesItem.(map[string]interface{}); ok {
+																					FlashBladesResult = append(FlashBladesResult, FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel{
+																						APIToken: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModel {
+																							if APITokenData, ok := FlashBladesItemMap["api_token"].(map[string]interface{}); ok {
+																								return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModel{
+																									BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoModel {
+																										if BlindfoldSecretInfoData, ok := APITokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoModel{
+																												DecryptionProvider: func() types.String {
+																													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																												Location: func() types.String {
+																													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																												StoreProvider: func() types.String {
+																													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																											}
+																										}
+																										return nil
+																									}(),
+																									ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel {
+																										if ClearSecretInfoData, ok := APITokenData["clear_secret_info"].(map[string]interface{}); ok {
+																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel{
+																												Provider: func() types.String {
+																													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																												URL: func() types.String {
+																													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																											}
+																										}
+																										return nil
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																						Labels: func() *FleetEmptyModel {
+																							if _, ok := FlashBladesItemMap["labels"].(map[string]interface{}); ok {
+																								return &FleetEmptyModel{}
+																							}
+																							return nil
+																						}(),
+																						MgmtDNSName: func() types.String {
+																							if v, ok := FlashBladesItemMap["mgmt_dns_name"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						MgmtIP: func() types.String {
+																							if v, ok := FlashBladesItemMap["mgmt_ip"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						NfsEndpointDNSName: func() types.String {
+																							if v, ok := FlashBladesItemMap["nfs_endpoint_dns_name"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						NfsEndpointIP: func() types.String {
+																							if v, ok := FlashBladesItemMap["nfs_endpoint_ip"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																					})
+																				}
+																			}
+																			return FlashBladesResult
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
 											ClusterID: func() types.String {
-												if v, ok := deepMap["cluster_id"].(string); ok && v != "" {
+												if v, ok := PureServiceOrchestratorData["cluster_id"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											EnableStorageTopology: func() types.Bool {
-												if v, ok := deepMap["enable_storage_topology"].(bool); ok {
+												if v, ok := PureServiceOrchestratorData["enable_storage_topology"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											EnableStrictTopology: func() types.Bool {
-												if v, ok := deepMap["enable_strict_topology"].(bool); ok {
+												if v, ok := PureServiceOrchestratorData["enable_strict_topology"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
@@ -6661,7 +10481,7 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return nil
 								}(),
 								StorageDevice: func() types.String {
-									if v, ok := itemMap["storage_device"].(string); ok && v != "" {
+									if v, ok := StorageDevicesItemMap["storage_device"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -6669,7 +10489,7 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							})
 						}
 					}
-					return result
+					return StorageDevicesResult
 				}
 				return nil
 			}(),
@@ -6677,26 +10497,29 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 	}
 	if blockData, ok := apiResource.Spec["storage_interface_list"].(map[string]interface{}); ok && (isImport || data.StorageInterfaceList != nil) {
 		data.StorageInterfaceList = &FleetStorageInterfaceListModel{
-			Interfaces: func() []FleetStorageInterfaceListInterfacesModel {
-				if listData, ok := blockData["interfaces"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetStorageInterfaceListInterfacesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetStorageInterfaceListInterfacesModel{
+			Interfaces: func() types.List {
+				if !isImport && data.StorageInterfaceList != nil && (data.StorageInterfaceList.Interfaces.IsNull() || len(data.StorageInterfaceList.Interfaces.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageInterfaceListInterfacesModelAttrTypes})
+				}
+				if rawList, ok := blockData["interfaces"].([]interface{}); ok && len(rawList) > 0 {
+					var InterfacesResult []FleetStorageInterfaceListInterfacesModel
+					for _, InterfacesItem := range rawList {
+						if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
+							InterfacesResult = append(InterfacesResult, FleetStorageInterfaceListInterfacesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := InterfacesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := InterfacesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := InterfacesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -6704,31 +10527,125 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageInterfaceListInterfacesModelAttrTypes}, InterfacesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FleetStorageInterfaceListInterfacesModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["storage_static_routes"].(map[string]interface{}); ok && (isImport || data.StorageStaticRoutes != nil) {
 		data.StorageStaticRoutes = &FleetStorageStaticRoutesModel{
-			StorageRoutes: func() []FleetStorageStaticRoutesStorageRoutesModel {
-				if listData, ok := blockData["storage_routes"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetStorageStaticRoutesStorageRoutesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetStorageStaticRoutesStorageRoutesModel{
+			StorageRoutes: func() types.List {
+				if !isImport && data.StorageStaticRoutes != nil && (data.StorageStaticRoutes.StorageRoutes.IsNull() || len(data.StorageStaticRoutes.StorageRoutes.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesModelAttrTypes})
+				}
+				if rawList, ok := blockData["storage_routes"].([]interface{}); ok && len(rawList) > 0 {
+					var StorageRoutesResult []FleetStorageStaticRoutesStorageRoutesModel
+					for _, StorageRoutesItem := range rawList {
+						if StorageRoutesItemMap, ok := StorageRoutesItem.(map[string]interface{}); ok {
+							StorageRoutesResult = append(StorageRoutesResult, FleetStorageStaticRoutesStorageRoutesModel{
+								Attrs: func() types.List {
+									if v, ok := StorageRoutesItemMap["attrs"].([]interface{}); ok && len(v) > 0 {
+										var items []string
+										for _, item := range v {
+											if s, ok := item.(string); ok {
+												items = append(items, s)
+											}
+										}
+										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										return listVal
+									}
+									return types.ListNull(types.StringType)
+								}(),
 								Labels: func() *FleetEmptyModel {
-									if _, ok := itemMap["labels"].(map[string]interface{}); ok {
+									if _, ok := StorageRoutesItemMap["labels"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
 									return nil
 								}(),
 								Nexthop: func() *FleetStorageStaticRoutesStorageRoutesNexthopModel {
-									if deepMap, ok := itemMap["nexthop"].(map[string]interface{}); ok {
+									if NexthopData, ok := StorageRoutesItemMap["nexthop"].(map[string]interface{}); ok {
 										return &FleetStorageStaticRoutesStorageRoutesNexthopModel{
+											Interface: func() types.List {
+												if rawList, ok := NexthopData["interface"].([]interface{}); ok && len(rawList) > 0 {
+													var InterfaceResult []FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModel
+													for _, InterfaceItem := range rawList {
+														if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
+															InterfaceResult = append(InterfaceResult, FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModel{
+																Kind: func() types.String {
+																	if v, ok := InterfaceItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := InterfaceItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := InterfaceItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := InterfaceItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := InterfaceItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModelAttrTypes}, InterfaceResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModelAttrTypes})
+											}(),
+											NexthopAddress: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressModel {
+												if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
+													return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressModel{
+														Ipv4: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv4Model {
+															if Ipv4Data, ok := NexthopAddressData["ipv4"].(map[string]interface{}); ok {
+																return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv4Model{
+																	Addr: func() types.String {
+																		if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Ipv6: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv6Model {
+															if Ipv6Data, ok := NexthopAddressData["ipv6"].(map[string]interface{}); ok {
+																return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv6Model{
+																	Addr: func() types.String {
+																		if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
 											Type: func() types.String {
-												if v, ok := deepMap["type"].(string); ok && v != "" {
+												if v, ok := NexthopData["type"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -6737,12 +10654,64 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									}
 									return nil
 								}(),
+								Subnets: func() []FleetStorageStaticRoutesStorageRoutesSubnetsModel {
+									if rawList, ok := StorageRoutesItemMap["subnets"].([]interface{}); ok && len(rawList) > 0 {
+										var SubnetsResult []FleetStorageStaticRoutesStorageRoutesSubnetsModel
+										for _, SubnetsItem := range rawList {
+											if SubnetsItemMap, ok := SubnetsItem.(map[string]interface{}); ok {
+												SubnetsResult = append(SubnetsResult, FleetStorageStaticRoutesStorageRoutesSubnetsModel{
+													Ipv4: func() *FleetStorageStaticRoutesStorageRoutesSubnetsIpv4Model {
+														if Ipv4Data, ok := SubnetsItemMap["ipv4"].(map[string]interface{}); ok {
+															return &FleetStorageStaticRoutesStorageRoutesSubnetsIpv4Model{
+																Plen: func() types.Int64 {
+																	if v, ok := Ipv4Data["plen"].(float64); ok && v != 0 {
+																		return types.Int64Value(int64(v))
+																	}
+																	return types.Int64Null()
+																}(),
+																Prefix: func() types.String {
+																	if v, ok := Ipv4Data["prefix"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+													Ipv6: func() *FleetStorageStaticRoutesStorageRoutesSubnetsIpv6Model {
+														if Ipv6Data, ok := SubnetsItemMap["ipv6"].(map[string]interface{}); ok {
+															return &FleetStorageStaticRoutesStorageRoutesSubnetsIpv6Model{
+																Plen: func() types.Int64 {
+																	if v, ok := Ipv6Data["plen"].(float64); ok && v != 0 {
+																		return types.Int64Value(int64(v))
+																	}
+																	return types.Int64Null()
+																}(),
+																Prefix: func() types.String {
+																	if v, ok := Ipv6Data["prefix"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+												})
+											}
+										}
+										return SubnetsResult
+									}
+									return nil
+								}(),
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesModelAttrTypes}, StorageRoutesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesModelAttrTypes})
 			}(),
 		}
 	}
@@ -6782,6 +10751,14 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 		data.VolterraSoftwareVersion = types.StringValue(v)
 	} else {
 		data.VolterraSoftwareVersion = types.StringNull()
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -6838,607 +10815,1418 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		apiResource.Spec["fleet_label"] = data.FleetLabel.ValueString()
 	}
 	if data.PerformanceEnhancementMode != nil {
-		performance_enhancement_modeMap := make(map[string]interface{})
+		PerformanceEnhancementModeMap := make(map[string]interface{})
 		if data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-			perf_mode_l3_enhancedNestedMap := make(map[string]interface{})
-			performance_enhancement_modeMap["perf_mode_l3_enhanced"] = perf_mode_l3_enhancedNestedMap
+			PerfModeL3EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				PerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				PerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerfModeL3EnhancedMap
 		}
 		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-			performance_enhancement_modeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
 		}
-		apiResource.Spec["performance_enhancement_mode"] = performance_enhancement_modeMap
+		apiResource.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
 	}
 	if data.AllowAllUsb != nil {
-		allow_all_usbMap := make(map[string]interface{})
-		apiResource.Spec["allow_all_usb"] = allow_all_usbMap
+		apiResource.Spec["allow_all_usb"] = map[string]interface{}{}
 	}
 	if !data.BlockedServices.IsNull() && !data.BlockedServices.IsUnknown() {
-		var blocked_servicesItems []FleetBlockedServicesModel
-		diags := data.BlockedServices.ElementsAs(ctx, &blocked_servicesItems, false)
+		var BlockedServicesElems []FleetBlockedServicesModel
+		diags := data.BlockedServices.ElementsAs(ctx, &BlockedServicesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(blocked_servicesItems) > 0 {
-			var blocked_servicesList []map[string]interface{}
-			for _, item := range blocked_servicesItems {
-				itemMap := make(map[string]interface{})
-				if item.DNS != nil {
-					itemMap["dns"] = map[string]interface{}{}
+		if !resp.Diagnostics.HasError() && len(BlockedServicesElems) > 0 {
+			var BlockedServicesList []map[string]interface{}
+			for _, BlockedServicesItem := range BlockedServicesElems {
+				BlockedServicesItemMap := make(map[string]interface{})
+				if BlockedServicesItem.DNS != nil {
+					BlockedServicesItemMap["dns"] = map[string]interface{}{}
 				}
-				if !item.NetworkType.IsNull() && !item.NetworkType.IsUnknown() {
-					itemMap["network_type"] = item.NetworkType.ValueString()
+				if !BlockedServicesItem.NetworkType.IsNull() && !BlockedServicesItem.NetworkType.IsUnknown() {
+					BlockedServicesItemMap["network_type"] = BlockedServicesItem.NetworkType.ValueString()
 				}
-				if item.SSH != nil {
-					itemMap["ssh"] = map[string]interface{}{}
+				if BlockedServicesItem.SSH != nil {
+					BlockedServicesItemMap["ssh"] = map[string]interface{}{}
 				}
-				if item.WebUserInterface != nil {
-					itemMap["web_user_interface"] = map[string]interface{}{}
+				if BlockedServicesItem.WebUserInterface != nil {
+					BlockedServicesItemMap["web_user_interface"] = map[string]interface{}{}
 				}
-				blocked_servicesList = append(blocked_servicesList, itemMap)
+				BlockedServicesList = append(BlockedServicesList, BlockedServicesItemMap)
 			}
-			apiResource.Spec["blocked_services"] = blocked_servicesList
+			apiResource.Spec["blocked_services"] = BlockedServicesList
 		}
 	}
 	if data.BondDeviceList != nil {
-		bond_device_listMap := make(map[string]interface{})
+		BondDeviceListMap := make(map[string]interface{})
 		if len(data.BondDeviceList.BondDevices) > 0 {
-			var bond_devicesList []map[string]interface{}
-			for _, listItem := range data.BondDeviceList.BondDevices {
-				listItemMap := make(map[string]interface{})
-				if listItem.ActiveBackup != nil {
-					listItemMap["active_backup"] = map[string]interface{}{}
+			var BondDevicesList []map[string]interface{}
+			for _, BondDevicesItem := range data.BondDeviceList.BondDevices {
+				BondDevicesItemMap := make(map[string]interface{})
+				if BondDevicesItem.ActiveBackup != nil {
+					BondDevicesItemMap["active_backup"] = map[string]interface{}{}
 				}
-				if listItem.Lacp != nil {
-					lacpDeepMap := make(map[string]interface{})
-					if !listItem.Lacp.Rate.IsNull() && !listItem.Lacp.Rate.IsUnknown() {
-						lacpDeepMap["rate"] = listItem.Lacp.Rate.ValueInt64()
+				if !BondDevicesItem.Devices.IsNull() && !BondDevicesItem.Devices.IsUnknown() {
+					var DevicesItems []string
+					diags := BondDevicesItem.Devices.ElementsAs(ctx, &DevicesItems, false)
+					if !diags.HasError() {
+						BondDevicesItemMap["devices"] = DevicesItems
 					}
-					listItemMap["lacp"] = lacpDeepMap
 				}
-				if !listItem.LinkPollingInterval.IsNull() && !listItem.LinkPollingInterval.IsUnknown() {
-					listItemMap["link_polling_interval"] = listItem.LinkPollingInterval.ValueInt64()
+				if BondDevicesItem.Lacp != nil {
+					LacpMap := make(map[string]interface{})
+					if !BondDevicesItem.Lacp.Rate.IsNull() && !BondDevicesItem.Lacp.Rate.IsUnknown() {
+						LacpMap["rate"] = BondDevicesItem.Lacp.Rate.ValueInt64()
+					}
+					BondDevicesItemMap["lacp"] = LacpMap
 				}
-				if !listItem.LinkUpDelay.IsNull() && !listItem.LinkUpDelay.IsUnknown() {
-					listItemMap["link_up_delay"] = listItem.LinkUpDelay.ValueInt64()
+				if !BondDevicesItem.LinkPollingInterval.IsNull() && !BondDevicesItem.LinkPollingInterval.IsUnknown() {
+					BondDevicesItemMap["link_polling_interval"] = BondDevicesItem.LinkPollingInterval.ValueInt64()
 				}
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
+				if !BondDevicesItem.LinkUpDelay.IsNull() && !BondDevicesItem.LinkUpDelay.IsUnknown() {
+					BondDevicesItemMap["link_up_delay"] = BondDevicesItem.LinkUpDelay.ValueInt64()
 				}
-				bond_devicesList = append(bond_devicesList, listItemMap)
+				if !BondDevicesItem.Name.IsNull() && !BondDevicesItem.Name.IsUnknown() {
+					BondDevicesItemMap["name"] = BondDevicesItem.Name.ValueString()
+				}
+				BondDevicesList = append(BondDevicesList, BondDevicesItemMap)
 			}
-			bond_device_listMap["bond_devices"] = bond_devicesList
+			BondDeviceListMap["bond_devices"] = BondDevicesList
 		}
-		apiResource.Spec["bond_device_list"] = bond_device_listMap
+		apiResource.Spec["bond_device_list"] = BondDeviceListMap
 	}
 	if data.DcClusterGroup != nil {
-		dc_cluster_groupMap := make(map[string]interface{})
+		DcClusterGroupMap := make(map[string]interface{})
 		if !data.DcClusterGroup.Name.IsNull() && !data.DcClusterGroup.Name.IsUnknown() {
-			dc_cluster_groupMap["name"] = data.DcClusterGroup.Name.ValueString()
+			DcClusterGroupMap["name"] = data.DcClusterGroup.Name.ValueString()
 		}
 		if !data.DcClusterGroup.Namespace.IsNull() && !data.DcClusterGroup.Namespace.IsUnknown() {
-			dc_cluster_groupMap["namespace"] = data.DcClusterGroup.Namespace.ValueString()
+			DcClusterGroupMap["namespace"] = data.DcClusterGroup.Namespace.ValueString()
 		}
 		if !data.DcClusterGroup.Tenant.IsNull() && !data.DcClusterGroup.Tenant.IsUnknown() {
-			dc_cluster_groupMap["tenant"] = data.DcClusterGroup.Tenant.ValueString()
+			DcClusterGroupMap["tenant"] = data.DcClusterGroup.Tenant.ValueString()
 		}
-		apiResource.Spec["dc_cluster_group"] = dc_cluster_groupMap
+		apiResource.Spec["dc_cluster_group"] = DcClusterGroupMap
 	}
 	if data.DcClusterGroupInside != nil {
-		dc_cluster_group_insideMap := make(map[string]interface{})
+		DcClusterGroupInsideMap := make(map[string]interface{})
 		if !data.DcClusterGroupInside.Name.IsNull() && !data.DcClusterGroupInside.Name.IsUnknown() {
-			dc_cluster_group_insideMap["name"] = data.DcClusterGroupInside.Name.ValueString()
+			DcClusterGroupInsideMap["name"] = data.DcClusterGroupInside.Name.ValueString()
 		}
 		if !data.DcClusterGroupInside.Namespace.IsNull() && !data.DcClusterGroupInside.Namespace.IsUnknown() {
-			dc_cluster_group_insideMap["namespace"] = data.DcClusterGroupInside.Namespace.ValueString()
+			DcClusterGroupInsideMap["namespace"] = data.DcClusterGroupInside.Namespace.ValueString()
 		}
 		if !data.DcClusterGroupInside.Tenant.IsNull() && !data.DcClusterGroupInside.Tenant.IsUnknown() {
-			dc_cluster_group_insideMap["tenant"] = data.DcClusterGroupInside.Tenant.ValueString()
+			DcClusterGroupInsideMap["tenant"] = data.DcClusterGroupInside.Tenant.ValueString()
 		}
-		apiResource.Spec["dc_cluster_group_inside"] = dc_cluster_group_insideMap
+		apiResource.Spec["dc_cluster_group_inside"] = DcClusterGroupInsideMap
 	}
 	if data.DefaultConfig != nil {
-		default_configMap := make(map[string]interface{})
-		apiResource.Spec["default_config"] = default_configMap
+		apiResource.Spec["default_config"] = map[string]interface{}{}
 	}
 	if data.DefaultSriovInterface != nil {
-		default_sriov_interfaceMap := make(map[string]interface{})
-		apiResource.Spec["default_sriov_interface"] = default_sriov_interfaceMap
+		apiResource.Spec["default_sriov_interface"] = map[string]interface{}{}
 	}
 	if data.DefaultStorageClass != nil {
-		default_storage_classMap := make(map[string]interface{})
-		apiResource.Spec["default_storage_class"] = default_storage_classMap
+		apiResource.Spec["default_storage_class"] = map[string]interface{}{}
 	}
 	if data.DenyAllUsb != nil {
-		deny_all_usbMap := make(map[string]interface{})
-		apiResource.Spec["deny_all_usb"] = deny_all_usbMap
+		apiResource.Spec["deny_all_usb"] = map[string]interface{}{}
 	}
 	if data.DeviceList != nil {
-		device_listMap := make(map[string]interface{})
-		if len(data.DeviceList.Devices) > 0 {
-			var devicesList []map[string]interface{}
-			for _, listItem := range data.DeviceList.Devices {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
-				}
-				if listItem.NetworkDevice != nil {
-					network_deviceDeepMap := make(map[string]interface{})
-					if !listItem.NetworkDevice.Use.IsNull() && !listItem.NetworkDevice.Use.IsUnknown() {
-						network_deviceDeepMap["use"] = listItem.NetworkDevice.Use.ValueString()
+		DeviceListMap := make(map[string]interface{})
+		if !data.DeviceList.Devices.IsNull() && !data.DeviceList.Devices.IsUnknown() {
+			var DevicesElems []FleetDeviceListDevicesModel
+			diags := data.DeviceList.Devices.ElementsAs(ctx, &DevicesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(DevicesElems) > 0 {
+				var DevicesList []map[string]interface{}
+				for _, DevicesItem := range DevicesElems {
+					DevicesItemMap := make(map[string]interface{})
+					if !DevicesItem.Name.IsNull() && !DevicesItem.Name.IsUnknown() {
+						DevicesItemMap["name"] = DevicesItem.Name.ValueString()
 					}
-					listItemMap["network_device"] = network_deviceDeepMap
+					if DevicesItem.NetworkDevice != nil {
+						NetworkDeviceMap := make(map[string]interface{})
+						if !DevicesItem.NetworkDevice.Interface.IsNull() && !DevicesItem.NetworkDevice.Interface.IsUnknown() {
+							var InterfaceElems []FleetDeviceListDevicesNetworkDeviceInterfaceModel
+							diags := DevicesItem.NetworkDevice.Interface.ElementsAs(ctx, &InterfaceElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceElems) > 0 {
+								var InterfaceList []map[string]interface{}
+								for _, InterfaceItem := range InterfaceElems {
+									InterfaceItemMap := make(map[string]interface{})
+									if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
+										InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
+									}
+									if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
+										InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
+									}
+									if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
+										InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
+									}
+									if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
+										InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
+									}
+									if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
+										InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
+									}
+									InterfaceList = append(InterfaceList, InterfaceItemMap)
+								}
+								NetworkDeviceMap["interface"] = InterfaceList
+							}
+						}
+						if !DevicesItem.NetworkDevice.Use.IsNull() && !DevicesItem.NetworkDevice.Use.IsUnknown() {
+							NetworkDeviceMap["use"] = DevicesItem.NetworkDevice.Use.ValueString()
+						}
+						DevicesItemMap["network_device"] = NetworkDeviceMap
+					}
+					if !DevicesItem.Owner.IsNull() && !DevicesItem.Owner.IsUnknown() {
+						DevicesItemMap["owner"] = DevicesItem.Owner.ValueString()
+					}
+					DevicesList = append(DevicesList, DevicesItemMap)
 				}
-				if !listItem.Owner.IsNull() && !listItem.Owner.IsUnknown() {
-					listItemMap["owner"] = listItem.Owner.ValueString()
-				}
-				devicesList = append(devicesList, listItemMap)
+				DeviceListMap["devices"] = DevicesList
 			}
-			device_listMap["devices"] = devicesList
 		}
-		apiResource.Spec["device_list"] = device_listMap
+		apiResource.Spec["device_list"] = DeviceListMap
 	}
 	if data.DisableGPU != nil {
-		disable_gpuMap := make(map[string]interface{})
-		apiResource.Spec["disable_gpu"] = disable_gpuMap
+		apiResource.Spec["disable_gpu"] = map[string]interface{}{}
 	}
 	if data.DisableVM != nil {
-		disable_vmMap := make(map[string]interface{})
-		apiResource.Spec["disable_vm"] = disable_vmMap
+		apiResource.Spec["disable_vm"] = map[string]interface{}{}
 	}
 	if data.EnableGPU != nil {
-		enable_gpuMap := make(map[string]interface{})
-		apiResource.Spec["enable_gpu"] = enable_gpuMap
+		apiResource.Spec["enable_gpu"] = map[string]interface{}{}
 	}
 	if data.EnableVgpu != nil {
-		enable_vgpuMap := make(map[string]interface{})
+		EnableVgpuMap := make(map[string]interface{})
 		if !data.EnableVgpu.FeatureType.IsNull() && !data.EnableVgpu.FeatureType.IsUnknown() {
-			enable_vgpuMap["feature_type"] = data.EnableVgpu.FeatureType.ValueString()
+			EnableVgpuMap["feature_type"] = data.EnableVgpu.FeatureType.ValueString()
 		}
 		if !data.EnableVgpu.ServerAddress.IsNull() && !data.EnableVgpu.ServerAddress.IsUnknown() {
-			enable_vgpuMap["server_address"] = data.EnableVgpu.ServerAddress.ValueString()
+			EnableVgpuMap["server_address"] = data.EnableVgpu.ServerAddress.ValueString()
 		}
 		if !data.EnableVgpu.ServerPort.IsNull() && !data.EnableVgpu.ServerPort.IsUnknown() {
-			enable_vgpuMap["server_port"] = data.EnableVgpu.ServerPort.ValueInt64()
+			EnableVgpuMap["server_port"] = data.EnableVgpu.ServerPort.ValueInt64()
 		}
-		apiResource.Spec["enable_vgpu"] = enable_vgpuMap
+		apiResource.Spec["enable_vgpu"] = EnableVgpuMap
 	}
 	if data.EnableVM != nil {
-		enable_vmMap := make(map[string]interface{})
-		apiResource.Spec["enable_vm"] = enable_vmMap
+		apiResource.Spec["enable_vm"] = map[string]interface{}{}
 	}
 	if !data.InsideVirtualNetwork.IsNull() && !data.InsideVirtualNetwork.IsUnknown() {
-		var inside_virtual_networkItems []FleetInsideVirtualNetworkModel
-		diags := data.InsideVirtualNetwork.ElementsAs(ctx, &inside_virtual_networkItems, false)
+		var InsideVirtualNetworkElems []FleetInsideVirtualNetworkModel
+		diags := data.InsideVirtualNetwork.ElementsAs(ctx, &InsideVirtualNetworkElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(inside_virtual_networkItems) > 0 {
-			var inside_virtual_networkList []map[string]interface{}
-			for _, item := range inside_virtual_networkItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(InsideVirtualNetworkElems) > 0 {
+			var InsideVirtualNetworkList []map[string]interface{}
+			for _, InsideVirtualNetworkItem := range InsideVirtualNetworkElems {
+				InsideVirtualNetworkItemMap := make(map[string]interface{})
+				if !InsideVirtualNetworkItem.Kind.IsNull() && !InsideVirtualNetworkItem.Kind.IsUnknown() {
+					InsideVirtualNetworkItemMap["kind"] = InsideVirtualNetworkItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !InsideVirtualNetworkItem.Name.IsNull() && !InsideVirtualNetworkItem.Name.IsUnknown() {
+					InsideVirtualNetworkItemMap["name"] = InsideVirtualNetworkItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !InsideVirtualNetworkItem.Namespace.IsNull() && !InsideVirtualNetworkItem.Namespace.IsUnknown() {
+					InsideVirtualNetworkItemMap["namespace"] = InsideVirtualNetworkItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !InsideVirtualNetworkItem.Tenant.IsNull() && !InsideVirtualNetworkItem.Tenant.IsUnknown() {
+					InsideVirtualNetworkItemMap["tenant"] = InsideVirtualNetworkItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !InsideVirtualNetworkItem.Uid.IsNull() && !InsideVirtualNetworkItem.Uid.IsUnknown() {
+					InsideVirtualNetworkItemMap["uid"] = InsideVirtualNetworkItem.Uid.ValueString()
 				}
-				inside_virtual_networkList = append(inside_virtual_networkList, itemMap)
+				InsideVirtualNetworkList = append(InsideVirtualNetworkList, InsideVirtualNetworkItemMap)
 			}
-			apiResource.Spec["inside_virtual_network"] = inside_virtual_networkList
+			apiResource.Spec["inside_virtual_network"] = InsideVirtualNetworkList
 		}
 	}
 	if data.InterfaceList != nil {
-		interface_listMap := make(map[string]interface{})
-		if len(data.InterfaceList.Interfaces) > 0 {
-			var interfacesList []map[string]interface{}
-			for _, listItem := range data.InterfaceList.Interfaces {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
+		InterfaceListMap := make(map[string]interface{})
+		if !data.InterfaceList.Interfaces.IsNull() && !data.InterfaceList.Interfaces.IsUnknown() {
+			var InterfacesElems []FleetInterfaceListInterfacesModel
+			diags := data.InterfaceList.Interfaces.ElementsAs(ctx, &InterfacesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(InterfacesElems) > 0 {
+				var InterfacesList []map[string]interface{}
+				for _, InterfacesItem := range InterfacesElems {
+					InterfacesItemMap := make(map[string]interface{})
+					if !InterfacesItem.Name.IsNull() && !InterfacesItem.Name.IsUnknown() {
+						InterfacesItemMap["name"] = InterfacesItem.Name.ValueString()
+					}
+					if !InterfacesItem.Namespace.IsNull() && !InterfacesItem.Namespace.IsUnknown() {
+						InterfacesItemMap["namespace"] = InterfacesItem.Namespace.ValueString()
+					}
+					if !InterfacesItem.Tenant.IsNull() && !InterfacesItem.Tenant.IsUnknown() {
+						InterfacesItemMap["tenant"] = InterfacesItem.Tenant.ValueString()
+					}
+					InterfacesList = append(InterfacesList, InterfacesItemMap)
 				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				interfacesList = append(interfacesList, listItemMap)
+				InterfaceListMap["interfaces"] = InterfacesList
 			}
-			interface_listMap["interfaces"] = interfacesList
 		}
-		apiResource.Spec["interface_list"] = interface_listMap
+		apiResource.Spec["interface_list"] = InterfaceListMap
 	}
 	if data.KubernetesUpgradeDrain != nil {
-		kubernetes_upgrade_drainMap := make(map[string]interface{})
+		KubernetesUpgradeDrainMap := make(map[string]interface{})
 		if data.KubernetesUpgradeDrain.DisableUpgradeDrain != nil {
-			kubernetes_upgrade_drainMap["disable_upgrade_drain"] = map[string]interface{}{}
+			KubernetesUpgradeDrainMap["disable_upgrade_drain"] = map[string]interface{}{}
 		}
 		if data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
-			enable_upgrade_drainNestedMap := make(map[string]interface{})
+			EnableUpgradeDrainMap := make(map[string]interface{})
+			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode != nil {
+				EnableUpgradeDrainMap["disable_vega_upgrade_mode"] = map[string]interface{}{}
+			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
-				enable_upgrade_drainNestedMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
+				EnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
-				enable_upgrade_drainNestedMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
+				EnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
 			}
-			kubernetes_upgrade_drainMap["enable_upgrade_drain"] = enable_upgrade_drainNestedMap
+			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode != nil {
+				EnableUpgradeDrainMap["enable_vega_upgrade_mode"] = map[string]interface{}{}
+			}
+			KubernetesUpgradeDrainMap["enable_upgrade_drain"] = EnableUpgradeDrainMap
 		}
-		apiResource.Spec["kubernetes_upgrade_drain"] = kubernetes_upgrade_drainMap
+		apiResource.Spec["kubernetes_upgrade_drain"] = KubernetesUpgradeDrainMap
 	}
 	if data.LogReceiver != nil {
-		log_receiverMap := make(map[string]interface{})
+		LogReceiverMap := make(map[string]interface{})
 		if !data.LogReceiver.Name.IsNull() && !data.LogReceiver.Name.IsUnknown() {
-			log_receiverMap["name"] = data.LogReceiver.Name.ValueString()
+			LogReceiverMap["name"] = data.LogReceiver.Name.ValueString()
 		}
 		if !data.LogReceiver.Namespace.IsNull() && !data.LogReceiver.Namespace.IsUnknown() {
-			log_receiverMap["namespace"] = data.LogReceiver.Namespace.ValueString()
+			LogReceiverMap["namespace"] = data.LogReceiver.Namespace.ValueString()
 		}
 		if !data.LogReceiver.Tenant.IsNull() && !data.LogReceiver.Tenant.IsUnknown() {
-			log_receiverMap["tenant"] = data.LogReceiver.Tenant.ValueString()
+			LogReceiverMap["tenant"] = data.LogReceiver.Tenant.ValueString()
 		}
-		apiResource.Spec["log_receiver"] = log_receiverMap
+		apiResource.Spec["log_receiver"] = LogReceiverMap
 	}
 	if data.LogsStreamingDisabled != nil {
-		logs_streaming_disabledMap := make(map[string]interface{})
-		apiResource.Spec["logs_streaming_disabled"] = logs_streaming_disabledMap
+		apiResource.Spec["logs_streaming_disabled"] = map[string]interface{}{}
 	}
 	if !data.NetworkConnectors.IsNull() && !data.NetworkConnectors.IsUnknown() {
-		var network_connectorsItems []FleetNetworkConnectorsModel
-		diags := data.NetworkConnectors.ElementsAs(ctx, &network_connectorsItems, false)
+		var NetworkConnectorsElems []FleetNetworkConnectorsModel
+		diags := data.NetworkConnectors.ElementsAs(ctx, &NetworkConnectorsElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(network_connectorsItems) > 0 {
-			var network_connectorsList []map[string]interface{}
-			for _, item := range network_connectorsItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(NetworkConnectorsElems) > 0 {
+			var NetworkConnectorsList []map[string]interface{}
+			for _, NetworkConnectorsItem := range NetworkConnectorsElems {
+				NetworkConnectorsItemMap := make(map[string]interface{})
+				if !NetworkConnectorsItem.Kind.IsNull() && !NetworkConnectorsItem.Kind.IsUnknown() {
+					NetworkConnectorsItemMap["kind"] = NetworkConnectorsItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !NetworkConnectorsItem.Name.IsNull() && !NetworkConnectorsItem.Name.IsUnknown() {
+					NetworkConnectorsItemMap["name"] = NetworkConnectorsItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !NetworkConnectorsItem.Namespace.IsNull() && !NetworkConnectorsItem.Namespace.IsUnknown() {
+					NetworkConnectorsItemMap["namespace"] = NetworkConnectorsItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !NetworkConnectorsItem.Tenant.IsNull() && !NetworkConnectorsItem.Tenant.IsUnknown() {
+					NetworkConnectorsItemMap["tenant"] = NetworkConnectorsItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !NetworkConnectorsItem.Uid.IsNull() && !NetworkConnectorsItem.Uid.IsUnknown() {
+					NetworkConnectorsItemMap["uid"] = NetworkConnectorsItem.Uid.ValueString()
 				}
-				network_connectorsList = append(network_connectorsList, itemMap)
+				NetworkConnectorsList = append(NetworkConnectorsList, NetworkConnectorsItemMap)
 			}
-			apiResource.Spec["network_connectors"] = network_connectorsList
+			apiResource.Spec["network_connectors"] = NetworkConnectorsList
 		}
 	}
 	if !data.NetworkFirewall.IsNull() && !data.NetworkFirewall.IsUnknown() {
-		var network_firewallItems []FleetNetworkFirewallModel
-		diags := data.NetworkFirewall.ElementsAs(ctx, &network_firewallItems, false)
+		var NetworkFirewallElems []FleetNetworkFirewallModel
+		diags := data.NetworkFirewall.ElementsAs(ctx, &NetworkFirewallElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(network_firewallItems) > 0 {
-			var network_firewallList []map[string]interface{}
-			for _, item := range network_firewallItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(NetworkFirewallElems) > 0 {
+			var NetworkFirewallList []map[string]interface{}
+			for _, NetworkFirewallItem := range NetworkFirewallElems {
+				NetworkFirewallItemMap := make(map[string]interface{})
+				if !NetworkFirewallItem.Kind.IsNull() && !NetworkFirewallItem.Kind.IsUnknown() {
+					NetworkFirewallItemMap["kind"] = NetworkFirewallItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !NetworkFirewallItem.Name.IsNull() && !NetworkFirewallItem.Name.IsUnknown() {
+					NetworkFirewallItemMap["name"] = NetworkFirewallItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !NetworkFirewallItem.Namespace.IsNull() && !NetworkFirewallItem.Namespace.IsUnknown() {
+					NetworkFirewallItemMap["namespace"] = NetworkFirewallItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !NetworkFirewallItem.Tenant.IsNull() && !NetworkFirewallItem.Tenant.IsUnknown() {
+					NetworkFirewallItemMap["tenant"] = NetworkFirewallItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !NetworkFirewallItem.Uid.IsNull() && !NetworkFirewallItem.Uid.IsUnknown() {
+					NetworkFirewallItemMap["uid"] = NetworkFirewallItem.Uid.ValueString()
 				}
-				network_firewallList = append(network_firewallList, itemMap)
+				NetworkFirewallList = append(NetworkFirewallList, NetworkFirewallItemMap)
 			}
-			apiResource.Spec["network_firewall"] = network_firewallList
+			apiResource.Spec["network_firewall"] = NetworkFirewallList
 		}
 	}
 	if data.NoBondDevices != nil {
-		no_bond_devicesMap := make(map[string]interface{})
-		apiResource.Spec["no_bond_devices"] = no_bond_devicesMap
+		apiResource.Spec["no_bond_devices"] = map[string]interface{}{}
 	}
 	if data.NoDcClusterGroup != nil {
-		no_dc_cluster_groupMap := make(map[string]interface{})
-		apiResource.Spec["no_dc_cluster_group"] = no_dc_cluster_groupMap
+		apiResource.Spec["no_dc_cluster_group"] = map[string]interface{}{}
 	}
 	if data.NoStorageDevice != nil {
-		no_storage_deviceMap := make(map[string]interface{})
-		apiResource.Spec["no_storage_device"] = no_storage_deviceMap
+		apiResource.Spec["no_storage_device"] = map[string]interface{}{}
 	}
 	if data.NoStorageInterfaces != nil {
-		no_storage_interfacesMap := make(map[string]interface{})
-		apiResource.Spec["no_storage_interfaces"] = no_storage_interfacesMap
+		apiResource.Spec["no_storage_interfaces"] = map[string]interface{}{}
 	}
 	if data.NoStorageStaticRoutes != nil {
-		no_storage_static_routesMap := make(map[string]interface{})
-		apiResource.Spec["no_storage_static_routes"] = no_storage_static_routesMap
+		apiResource.Spec["no_storage_static_routes"] = map[string]interface{}{}
 	}
 	if !data.OutsideVirtualNetwork.IsNull() && !data.OutsideVirtualNetwork.IsUnknown() {
-		var outside_virtual_networkItems []FleetOutsideVirtualNetworkModel
-		diags := data.OutsideVirtualNetwork.ElementsAs(ctx, &outside_virtual_networkItems, false)
+		var OutsideVirtualNetworkElems []FleetOutsideVirtualNetworkModel
+		diags := data.OutsideVirtualNetwork.ElementsAs(ctx, &OutsideVirtualNetworkElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(outside_virtual_networkItems) > 0 {
-			var outside_virtual_networkList []map[string]interface{}
-			for _, item := range outside_virtual_networkItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(OutsideVirtualNetworkElems) > 0 {
+			var OutsideVirtualNetworkList []map[string]interface{}
+			for _, OutsideVirtualNetworkItem := range OutsideVirtualNetworkElems {
+				OutsideVirtualNetworkItemMap := make(map[string]interface{})
+				if !OutsideVirtualNetworkItem.Kind.IsNull() && !OutsideVirtualNetworkItem.Kind.IsUnknown() {
+					OutsideVirtualNetworkItemMap["kind"] = OutsideVirtualNetworkItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !OutsideVirtualNetworkItem.Name.IsNull() && !OutsideVirtualNetworkItem.Name.IsUnknown() {
+					OutsideVirtualNetworkItemMap["name"] = OutsideVirtualNetworkItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !OutsideVirtualNetworkItem.Namespace.IsNull() && !OutsideVirtualNetworkItem.Namespace.IsUnknown() {
+					OutsideVirtualNetworkItemMap["namespace"] = OutsideVirtualNetworkItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !OutsideVirtualNetworkItem.Tenant.IsNull() && !OutsideVirtualNetworkItem.Tenant.IsUnknown() {
+					OutsideVirtualNetworkItemMap["tenant"] = OutsideVirtualNetworkItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !OutsideVirtualNetworkItem.Uid.IsNull() && !OutsideVirtualNetworkItem.Uid.IsUnknown() {
+					OutsideVirtualNetworkItemMap["uid"] = OutsideVirtualNetworkItem.Uid.ValueString()
 				}
-				outside_virtual_networkList = append(outside_virtual_networkList, itemMap)
+				OutsideVirtualNetworkList = append(OutsideVirtualNetworkList, OutsideVirtualNetworkItemMap)
 			}
-			apiResource.Spec["outside_virtual_network"] = outside_virtual_networkList
+			apiResource.Spec["outside_virtual_network"] = OutsideVirtualNetworkList
 		}
 	}
 	if data.SriovInterfaces != nil {
-		sriov_interfacesMap := make(map[string]interface{})
+		SriovInterfacesMap := make(map[string]interface{})
 		if len(data.SriovInterfaces.SriovInterface) > 0 {
-			var sriov_interfaceList []map[string]interface{}
-			for _, listItem := range data.SriovInterfaces.SriovInterface {
-				listItemMap := make(map[string]interface{})
-				if !listItem.InterfaceName.IsNull() && !listItem.InterfaceName.IsUnknown() {
-					listItemMap["interface_name"] = listItem.InterfaceName.ValueString()
+			var SriovInterfaceList []map[string]interface{}
+			for _, SriovInterfaceItem := range data.SriovInterfaces.SriovInterface {
+				SriovInterfaceItemMap := make(map[string]interface{})
+				if !SriovInterfaceItem.InterfaceName.IsNull() && !SriovInterfaceItem.InterfaceName.IsUnknown() {
+					SriovInterfaceItemMap["interface_name"] = SriovInterfaceItem.InterfaceName.ValueString()
 				}
-				if !listItem.NumberOfVfioVfs.IsNull() && !listItem.NumberOfVfioVfs.IsUnknown() {
-					listItemMap["number_of_vfio_vfs"] = listItem.NumberOfVfioVfs.ValueInt64()
+				if !SriovInterfaceItem.NumberOfVfioVfs.IsNull() && !SriovInterfaceItem.NumberOfVfioVfs.IsUnknown() {
+					SriovInterfaceItemMap["number_of_vfio_vfs"] = SriovInterfaceItem.NumberOfVfioVfs.ValueInt64()
 				}
-				if !listItem.NumberOfVfs.IsNull() && !listItem.NumberOfVfs.IsUnknown() {
-					listItemMap["number_of_vfs"] = listItem.NumberOfVfs.ValueInt64()
+				if !SriovInterfaceItem.NumberOfVfs.IsNull() && !SriovInterfaceItem.NumberOfVfs.IsUnknown() {
+					SriovInterfaceItemMap["number_of_vfs"] = SriovInterfaceItem.NumberOfVfs.ValueInt64()
 				}
-				sriov_interfaceList = append(sriov_interfaceList, listItemMap)
+				SriovInterfaceList = append(SriovInterfaceList, SriovInterfaceItemMap)
 			}
-			sriov_interfacesMap["sriov_interface"] = sriov_interfaceList
+			SriovInterfacesMap["sriov_interface"] = SriovInterfaceList
 		}
-		apiResource.Spec["sriov_interfaces"] = sriov_interfacesMap
+		apiResource.Spec["sriov_interfaces"] = SriovInterfacesMap
 	}
 	if data.StorageClassList != nil {
-		storage_class_listMap := make(map[string]interface{})
+		StorageClassListMap := make(map[string]interface{})
 		if len(data.StorageClassList.StorageClasses) > 0 {
-			var storage_classesList []map[string]interface{}
-			for _, listItem := range data.StorageClassList.StorageClasses {
-				listItemMap := make(map[string]interface{})
-				if listItem.AdvancedStorageParameters != nil {
-					listItemMap["advanced_storage_parameters"] = map[string]interface{}{}
+			var StorageClassesList []map[string]interface{}
+			for _, StorageClassesItem := range data.StorageClassList.StorageClasses {
+				StorageClassesItemMap := make(map[string]interface{})
+				if StorageClassesItem.AdvancedStorageParameters != nil {
+					StorageClassesItemMap["advanced_storage_parameters"] = map[string]interface{}{}
 				}
-				if !listItem.AllowVolumeExpansion.IsNull() && !listItem.AllowVolumeExpansion.IsUnknown() {
-					listItemMap["allow_volume_expansion"] = listItem.AllowVolumeExpansion.ValueBool()
+				if !StorageClassesItem.AllowVolumeExpansion.IsNull() && !StorageClassesItem.AllowVolumeExpansion.IsUnknown() {
+					StorageClassesItemMap["allow_volume_expansion"] = StorageClassesItem.AllowVolumeExpansion.ValueBool()
 				}
-				if listItem.CustomStorage != nil {
-					custom_storageDeepMap := make(map[string]interface{})
-					if !listItem.CustomStorage.Yaml.IsNull() && !listItem.CustomStorage.Yaml.IsUnknown() {
-						custom_storageDeepMap["yaml"] = listItem.CustomStorage.Yaml.ValueString()
+				if StorageClassesItem.CustomStorage != nil {
+					CustomStorageMap := make(map[string]interface{})
+					if !StorageClassesItem.CustomStorage.Yaml.IsNull() && !StorageClassesItem.CustomStorage.Yaml.IsUnknown() {
+						CustomStorageMap["yaml"] = StorageClassesItem.CustomStorage.Yaml.ValueString()
 					}
-					listItemMap["custom_storage"] = custom_storageDeepMap
+					StorageClassesItemMap["custom_storage"] = CustomStorageMap
 				}
-				if !listItem.DefaultStorageClass.IsNull() && !listItem.DefaultStorageClass.IsUnknown() {
-					listItemMap["default_storage_class"] = listItem.DefaultStorageClass.ValueBool()
+				if !StorageClassesItem.DefaultStorageClass.IsNull() && !StorageClassesItem.DefaultStorageClass.IsUnknown() {
+					StorageClassesItemMap["default_storage_class"] = StorageClassesItem.DefaultStorageClass.ValueBool()
 				}
-				if !listItem.DescriptionSpec.IsNull() && !listItem.DescriptionSpec.IsUnknown() {
-					listItemMap["description"] = listItem.DescriptionSpec.ValueString()
+				if !StorageClassesItem.DescriptionSpec.IsNull() && !StorageClassesItem.DescriptionSpec.IsUnknown() {
+					StorageClassesItemMap["description"] = StorageClassesItem.DescriptionSpec.ValueString()
 				}
-				if listItem.HpeStorage != nil {
-					hpe_storageDeepMap := make(map[string]interface{})
-					if !listItem.HpeStorage.AllowMutations.IsNull() && !listItem.HpeStorage.AllowMutations.IsUnknown() {
-						hpe_storageDeepMap["allow_mutations"] = listItem.HpeStorage.AllowMutations.ValueString()
+				if StorageClassesItem.HpeStorage != nil {
+					HpeStorageMap := make(map[string]interface{})
+					if !StorageClassesItem.HpeStorage.AllowMutations.IsNull() && !StorageClassesItem.HpeStorage.AllowMutations.IsUnknown() {
+						HpeStorageMap["allow_mutations"] = StorageClassesItem.HpeStorage.AllowMutations.ValueString()
 					}
-					if !listItem.HpeStorage.AllowOverrides.IsNull() && !listItem.HpeStorage.AllowOverrides.IsUnknown() {
-						hpe_storageDeepMap["allow_overrides"] = listItem.HpeStorage.AllowOverrides.ValueString()
+					if !StorageClassesItem.HpeStorage.AllowOverrides.IsNull() && !StorageClassesItem.HpeStorage.AllowOverrides.IsUnknown() {
+						HpeStorageMap["allow_overrides"] = StorageClassesItem.HpeStorage.AllowOverrides.ValueString()
 					}
-					if !listItem.HpeStorage.DedupeEnabled.IsNull() && !listItem.HpeStorage.DedupeEnabled.IsUnknown() {
-						hpe_storageDeepMap["dedupe_enabled"] = listItem.HpeStorage.DedupeEnabled.ValueBool()
+					if !StorageClassesItem.HpeStorage.DedupeEnabled.IsNull() && !StorageClassesItem.HpeStorage.DedupeEnabled.IsUnknown() {
+						HpeStorageMap["dedupe_enabled"] = StorageClassesItem.HpeStorage.DedupeEnabled.ValueBool()
 					}
-					if !listItem.HpeStorage.DescriptionSpec.IsNull() && !listItem.HpeStorage.DescriptionSpec.IsUnknown() {
-						hpe_storageDeepMap["description"] = listItem.HpeStorage.DescriptionSpec.ValueString()
+					if !StorageClassesItem.HpeStorage.DescriptionSpec.IsNull() && !StorageClassesItem.HpeStorage.DescriptionSpec.IsUnknown() {
+						HpeStorageMap["description"] = StorageClassesItem.HpeStorage.DescriptionSpec.ValueString()
 					}
-					if !listItem.HpeStorage.DestroyOnDelete.IsNull() && !listItem.HpeStorage.DestroyOnDelete.IsUnknown() {
-						hpe_storageDeepMap["destroy_on_delete"] = listItem.HpeStorage.DestroyOnDelete.ValueBool()
+					if !StorageClassesItem.HpeStorage.DestroyOnDelete.IsNull() && !StorageClassesItem.HpeStorage.DestroyOnDelete.IsUnknown() {
+						HpeStorageMap["destroy_on_delete"] = StorageClassesItem.HpeStorage.DestroyOnDelete.ValueBool()
 					}
-					if !listItem.HpeStorage.Encrypted.IsNull() && !listItem.HpeStorage.Encrypted.IsUnknown() {
-						hpe_storageDeepMap["encrypted"] = listItem.HpeStorage.Encrypted.ValueBool()
+					if !StorageClassesItem.HpeStorage.Encrypted.IsNull() && !StorageClassesItem.HpeStorage.Encrypted.IsUnknown() {
+						HpeStorageMap["encrypted"] = StorageClassesItem.HpeStorage.Encrypted.ValueBool()
 					}
-					if !listItem.HpeStorage.Folder.IsNull() && !listItem.HpeStorage.Folder.IsUnknown() {
-						hpe_storageDeepMap["folder"] = listItem.HpeStorage.Folder.ValueString()
+					if !StorageClassesItem.HpeStorage.Folder.IsNull() && !StorageClassesItem.HpeStorage.Folder.IsUnknown() {
+						HpeStorageMap["folder"] = StorageClassesItem.HpeStorage.Folder.ValueString()
 					}
-					if !listItem.HpeStorage.LimitIops.IsNull() && !listItem.HpeStorage.LimitIops.IsUnknown() {
-						hpe_storageDeepMap["limit_iops"] = listItem.HpeStorage.LimitIops.ValueString()
+					if !StorageClassesItem.HpeStorage.LimitIops.IsNull() && !StorageClassesItem.HpeStorage.LimitIops.IsUnknown() {
+						HpeStorageMap["limit_iops"] = StorageClassesItem.HpeStorage.LimitIops.ValueString()
 					}
-					if !listItem.HpeStorage.LimitMbps.IsNull() && !listItem.HpeStorage.LimitMbps.IsUnknown() {
-						hpe_storageDeepMap["limit_mbps"] = listItem.HpeStorage.LimitMbps.ValueString()
+					if !StorageClassesItem.HpeStorage.LimitMbps.IsNull() && !StorageClassesItem.HpeStorage.LimitMbps.IsUnknown() {
+						HpeStorageMap["limit_mbps"] = StorageClassesItem.HpeStorage.LimitMbps.ValueString()
 					}
-					if !listItem.HpeStorage.PerformancePolicy.IsNull() && !listItem.HpeStorage.PerformancePolicy.IsUnknown() {
-						hpe_storageDeepMap["performance_policy"] = listItem.HpeStorage.PerformancePolicy.ValueString()
+					if !StorageClassesItem.HpeStorage.PerformancePolicy.IsNull() && !StorageClassesItem.HpeStorage.PerformancePolicy.IsUnknown() {
+						HpeStorageMap["performance_policy"] = StorageClassesItem.HpeStorage.PerformancePolicy.ValueString()
 					}
-					if !listItem.HpeStorage.Pool.IsNull() && !listItem.HpeStorage.Pool.IsUnknown() {
-						hpe_storageDeepMap["pool"] = listItem.HpeStorage.Pool.ValueString()
+					if !StorageClassesItem.HpeStorage.Pool.IsNull() && !StorageClassesItem.HpeStorage.Pool.IsUnknown() {
+						HpeStorageMap["pool"] = StorageClassesItem.HpeStorage.Pool.ValueString()
 					}
-					if !listItem.HpeStorage.ProtectionTemplate.IsNull() && !listItem.HpeStorage.ProtectionTemplate.IsUnknown() {
-						hpe_storageDeepMap["protection_template"] = listItem.HpeStorage.ProtectionTemplate.ValueString()
+					if !StorageClassesItem.HpeStorage.ProtectionTemplate.IsNull() && !StorageClassesItem.HpeStorage.ProtectionTemplate.IsUnknown() {
+						HpeStorageMap["protection_template"] = StorageClassesItem.HpeStorage.ProtectionTemplate.ValueString()
 					}
-					if !listItem.HpeStorage.SecretName.IsNull() && !listItem.HpeStorage.SecretName.IsUnknown() {
-						hpe_storageDeepMap["secret_name"] = listItem.HpeStorage.SecretName.ValueString()
+					if !StorageClassesItem.HpeStorage.SecretName.IsNull() && !StorageClassesItem.HpeStorage.SecretName.IsUnknown() {
+						HpeStorageMap["secret_name"] = StorageClassesItem.HpeStorage.SecretName.ValueString()
 					}
-					if !listItem.HpeStorage.SecretNamespace.IsNull() && !listItem.HpeStorage.SecretNamespace.IsUnknown() {
-						hpe_storageDeepMap["secret_namespace"] = listItem.HpeStorage.SecretNamespace.ValueString()
+					if !StorageClassesItem.HpeStorage.SecretNamespace.IsNull() && !StorageClassesItem.HpeStorage.SecretNamespace.IsUnknown() {
+						HpeStorageMap["secret_namespace"] = StorageClassesItem.HpeStorage.SecretNamespace.ValueString()
 					}
-					if !listItem.HpeStorage.SyncOnDetach.IsNull() && !listItem.HpeStorage.SyncOnDetach.IsUnknown() {
-						hpe_storageDeepMap["sync_on_detach"] = listItem.HpeStorage.SyncOnDetach.ValueBool()
+					if !StorageClassesItem.HpeStorage.SyncOnDetach.IsNull() && !StorageClassesItem.HpeStorage.SyncOnDetach.IsUnknown() {
+						HpeStorageMap["sync_on_detach"] = StorageClassesItem.HpeStorage.SyncOnDetach.ValueBool()
 					}
-					if !listItem.HpeStorage.Thick.IsNull() && !listItem.HpeStorage.Thick.IsUnknown() {
-						hpe_storageDeepMap["thick"] = listItem.HpeStorage.Thick.ValueBool()
+					if !StorageClassesItem.HpeStorage.Thick.IsNull() && !StorageClassesItem.HpeStorage.Thick.IsUnknown() {
+						HpeStorageMap["thick"] = StorageClassesItem.HpeStorage.Thick.ValueBool()
 					}
-					listItemMap["hpe_storage"] = hpe_storageDeepMap
+					StorageClassesItemMap["hpe_storage"] = HpeStorageMap
 				}
-				if listItem.NetappTrident != nil {
-					netapp_tridentDeepMap := make(map[string]interface{})
-					if listItem.NetappTrident.Selector != nil {
-						netapp_tridentDeepMap["selector"] = map[string]interface{}{}
+				if StorageClassesItem.NetappTrident != nil {
+					NetappTridentMap := make(map[string]interface{})
+					if StorageClassesItem.NetappTrident.Selector != nil {
+						NetappTridentMap["selector"] = map[string]interface{}{}
 					}
-					if !listItem.NetappTrident.StoragePools.IsNull() && !listItem.NetappTrident.StoragePools.IsUnknown() {
-						netapp_tridentDeepMap["storage_pools"] = listItem.NetappTrident.StoragePools.ValueString()
+					if !StorageClassesItem.NetappTrident.StoragePools.IsNull() && !StorageClassesItem.NetappTrident.StoragePools.IsUnknown() {
+						NetappTridentMap["storage_pools"] = StorageClassesItem.NetappTrident.StoragePools.ValueString()
 					}
-					listItemMap["netapp_trident"] = netapp_tridentDeepMap
+					StorageClassesItemMap["netapp_trident"] = NetappTridentMap
 				}
-				if listItem.PureServiceOrchestrator != nil {
-					pure_service_orchestratorDeepMap := make(map[string]interface{})
-					if !listItem.PureServiceOrchestrator.Backend.IsNull() && !listItem.PureServiceOrchestrator.Backend.IsUnknown() {
-						pure_service_orchestratorDeepMap["backend"] = listItem.PureServiceOrchestrator.Backend.ValueString()
+				if StorageClassesItem.PureServiceOrchestrator != nil {
+					PureServiceOrchestratorMap := make(map[string]interface{})
+					if !StorageClassesItem.PureServiceOrchestrator.Backend.IsNull() && !StorageClassesItem.PureServiceOrchestrator.Backend.IsUnknown() {
+						PureServiceOrchestratorMap["backend"] = StorageClassesItem.PureServiceOrchestrator.Backend.ValueString()
 					}
-					if !listItem.PureServiceOrchestrator.BandwidthLimit.IsNull() && !listItem.PureServiceOrchestrator.BandwidthLimit.IsUnknown() {
-						pure_service_orchestratorDeepMap["bandwidth_limit"] = listItem.PureServiceOrchestrator.BandwidthLimit.ValueString()
+					if !StorageClassesItem.PureServiceOrchestrator.BandwidthLimit.IsNull() && !StorageClassesItem.PureServiceOrchestrator.BandwidthLimit.IsUnknown() {
+						PureServiceOrchestratorMap["bandwidth_limit"] = StorageClassesItem.PureServiceOrchestrator.BandwidthLimit.ValueString()
 					}
-					if !listItem.PureServiceOrchestrator.IopsLimit.IsNull() && !listItem.PureServiceOrchestrator.IopsLimit.IsUnknown() {
-						pure_service_orchestratorDeepMap["iops_limit"] = listItem.PureServiceOrchestrator.IopsLimit.ValueInt64()
+					if !StorageClassesItem.PureServiceOrchestrator.IopsLimit.IsNull() && !StorageClassesItem.PureServiceOrchestrator.IopsLimit.IsUnknown() {
+						PureServiceOrchestratorMap["iops_limit"] = StorageClassesItem.PureServiceOrchestrator.IopsLimit.ValueInt64()
 					}
-					listItemMap["pure_service_orchestrator"] = pure_service_orchestratorDeepMap
+					StorageClassesItemMap["pure_service_orchestrator"] = PureServiceOrchestratorMap
 				}
-				if !listItem.ReclaimPolicy.IsNull() && !listItem.ReclaimPolicy.IsUnknown() {
-					listItemMap["reclaim_policy"] = listItem.ReclaimPolicy.ValueString()
+				if !StorageClassesItem.ReclaimPolicy.IsNull() && !StorageClassesItem.ReclaimPolicy.IsUnknown() {
+					StorageClassesItemMap["reclaim_policy"] = StorageClassesItem.ReclaimPolicy.ValueString()
 				}
-				if !listItem.StorageClassName.IsNull() && !listItem.StorageClassName.IsUnknown() {
-					listItemMap["storage_class_name"] = listItem.StorageClassName.ValueString()
+				if !StorageClassesItem.StorageClassName.IsNull() && !StorageClassesItem.StorageClassName.IsUnknown() {
+					StorageClassesItemMap["storage_class_name"] = StorageClassesItem.StorageClassName.ValueString()
 				}
-				if !listItem.StorageDevice.IsNull() && !listItem.StorageDevice.IsUnknown() {
-					listItemMap["storage_device"] = listItem.StorageDevice.ValueString()
+				if !StorageClassesItem.StorageDevice.IsNull() && !StorageClassesItem.StorageDevice.IsUnknown() {
+					StorageClassesItemMap["storage_device"] = StorageClassesItem.StorageDevice.ValueString()
 				}
-				storage_classesList = append(storage_classesList, listItemMap)
+				StorageClassesList = append(StorageClassesList, StorageClassesItemMap)
 			}
-			storage_class_listMap["storage_classes"] = storage_classesList
+			StorageClassListMap["storage_classes"] = StorageClassesList
 		}
-		apiResource.Spec["storage_class_list"] = storage_class_listMap
+		apiResource.Spec["storage_class_list"] = StorageClassListMap
 	}
 	if data.StorageDeviceList != nil {
-		storage_device_listMap := make(map[string]interface{})
+		StorageDeviceListMap := make(map[string]interface{})
 		if len(data.StorageDeviceList.StorageDevices) > 0 {
-			var storage_devicesList []map[string]interface{}
-			for _, listItem := range data.StorageDeviceList.StorageDevices {
-				listItemMap := make(map[string]interface{})
-				if listItem.AdvancedAdvancedParameters != nil {
-					listItemMap["advanced_advanced_parameters"] = map[string]interface{}{}
+			var StorageDevicesList []map[string]interface{}
+			for _, StorageDevicesItem := range data.StorageDeviceList.StorageDevices {
+				StorageDevicesItemMap := make(map[string]interface{})
+				if StorageDevicesItem.AdvancedAdvancedParameters != nil {
+					StorageDevicesItemMap["advanced_advanced_parameters"] = map[string]interface{}{}
 				}
-				if listItem.CustomStorage != nil {
-					listItemMap["custom_storage"] = map[string]interface{}{}
+				if StorageDevicesItem.CustomStorage != nil {
+					StorageDevicesItemMap["custom_storage"] = map[string]interface{}{}
 				}
-				if listItem.HpeStorage != nil {
-					hpe_storageDeepMap := make(map[string]interface{})
-					if !listItem.HpeStorage.APIServerPort.IsNull() && !listItem.HpeStorage.APIServerPort.IsUnknown() {
-						hpe_storageDeepMap["api_server_port"] = listItem.HpeStorage.APIServerPort.ValueInt64()
+				if StorageDevicesItem.HpeStorage != nil {
+					HpeStorageMap := make(map[string]interface{})
+					if !StorageDevicesItem.HpeStorage.APIServerPort.IsNull() && !StorageDevicesItem.HpeStorage.APIServerPort.IsUnknown() {
+						HpeStorageMap["api_server_port"] = StorageDevicesItem.HpeStorage.APIServerPort.ValueInt64()
 					}
-					if !listItem.HpeStorage.IscsiChapUser.IsNull() && !listItem.HpeStorage.IscsiChapUser.IsUnknown() {
-						hpe_storageDeepMap["iscsi_chap_user"] = listItem.HpeStorage.IscsiChapUser.ValueString()
+					if StorageDevicesItem.HpeStorage.IscsiChapPassword != nil {
+						IscsiChapPasswordMap := make(map[string]interface{})
+						if StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							IscsiChapPasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.Provider.ValueString()
+							}
+							if !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.URL.ValueString()
+							}
+							IscsiChapPasswordMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						HpeStorageMap["iscsi_chap_password"] = IscsiChapPasswordMap
 					}
-					if !listItem.HpeStorage.StorageServerIPAddress.IsNull() && !listItem.HpeStorage.StorageServerIPAddress.IsUnknown() {
-						hpe_storageDeepMap["storage_server_ip_address"] = listItem.HpeStorage.StorageServerIPAddress.ValueString()
+					if !StorageDevicesItem.HpeStorage.IscsiChapUser.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapUser.IsUnknown() {
+						HpeStorageMap["iscsi_chap_user"] = StorageDevicesItem.HpeStorage.IscsiChapUser.ValueString()
 					}
-					if !listItem.HpeStorage.StorageServerName.IsNull() && !listItem.HpeStorage.StorageServerName.IsUnknown() {
-						hpe_storageDeepMap["storage_server_name"] = listItem.HpeStorage.StorageServerName.ValueString()
+					if StorageDevicesItem.HpeStorage.Password != nil {
+						PasswordMap := make(map[string]interface{})
+						if StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if StorageDevicesItem.HpeStorage.Password.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.Provider.ValueString()
+							}
+							if !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.URL.ValueString()
+							}
+							PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						HpeStorageMap["password"] = PasswordMap
 					}
-					if !listItem.HpeStorage.Username.IsNull() && !listItem.HpeStorage.Username.IsUnknown() {
-						hpe_storageDeepMap["username"] = listItem.HpeStorage.Username.ValueString()
+					if !StorageDevicesItem.HpeStorage.StorageServerIPAddress.IsNull() && !StorageDevicesItem.HpeStorage.StorageServerIPAddress.IsUnknown() {
+						HpeStorageMap["storage_server_ip_address"] = StorageDevicesItem.HpeStorage.StorageServerIPAddress.ValueString()
 					}
-					listItemMap["hpe_storage"] = hpe_storageDeepMap
+					if !StorageDevicesItem.HpeStorage.StorageServerName.IsNull() && !StorageDevicesItem.HpeStorage.StorageServerName.IsUnknown() {
+						HpeStorageMap["storage_server_name"] = StorageDevicesItem.HpeStorage.StorageServerName.ValueString()
+					}
+					if !StorageDevicesItem.HpeStorage.Username.IsNull() && !StorageDevicesItem.HpeStorage.Username.IsUnknown() {
+						HpeStorageMap["username"] = StorageDevicesItem.HpeStorage.Username.ValueString()
+					}
+					StorageDevicesItemMap["hpe_storage"] = HpeStorageMap
 				}
-				if listItem.NetappTrident != nil {
-					netapp_tridentDeepMap := make(map[string]interface{})
-					listItemMap["netapp_trident"] = netapp_tridentDeepMap
-				}
-				if listItem.PureServiceOrchestrator != nil {
-					pure_service_orchestratorDeepMap := make(map[string]interface{})
-					if !listItem.PureServiceOrchestrator.ClusterID.IsNull() && !listItem.PureServiceOrchestrator.ClusterID.IsUnknown() {
-						pure_service_orchestratorDeepMap["cluster_id"] = listItem.PureServiceOrchestrator.ClusterID.ValueString()
+				if StorageDevicesItem.NetappTrident != nil {
+					NetappTridentMap := make(map[string]interface{})
+					if StorageDevicesItem.NetappTrident.NetappBackendOntapNas != nil {
+						NetappBackendOntapNasMap := make(map[string]interface{})
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs != nil {
+							AutoExportCidrsMap := make(map[string]interface{})
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.IsUnknown() {
+								var PrefixesItems []string
+								diags := StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+								if !diags.HasError() {
+									AutoExportCidrsMap["prefixes"] = PrefixesItems
+								}
+							}
+							NetappBackendOntapNasMap["auto_export_cidrs"] = AutoExportCidrsMap
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportPolicy.IsUnknown() {
+							NetappBackendOntapNasMap["auto_export_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportPolicy.ValueBool()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.BackendName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.BackendName.IsUnknown() {
+							NetappBackendOntapNasMap["backend_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.BackendName.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientCertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientCertificate.IsUnknown() {
+							NetappBackendOntapNasMap["client_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientCertificate.ValueString()
+						}
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil {
+							ClientPrivateKeyMap := make(map[string]interface{})
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								ClientPrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.Provider.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.URL.ValueString()
+								}
+								ClientPrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							NetappBackendOntapNasMap["client_private_key"] = ClientPrivateKeyMap
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifDNSName.IsUnknown() {
+							NetappBackendOntapNasMap["data_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifDNSName.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.IsUnknown() {
+							NetappBackendOntapNasMap["data_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.ValueString()
+						}
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Labels != nil {
+							NetappBackendOntapNasMap["labels"] = map[string]interface{}{}
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.IsUnknown() {
+							NetappBackendOntapNasMap["limit_aggregate_usage"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitVolumeSize.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitVolumeSize.IsUnknown() {
+							NetappBackendOntapNasMap["limit_volume_size"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitVolumeSize.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifDNSName.IsUnknown() {
+							NetappBackendOntapNasMap["management_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifDNSName.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifIP.IsUnknown() {
+							NetappBackendOntapNasMap["management_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifIP.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.NfsMountOptions.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.NfsMountOptions.IsUnknown() {
+							NetappBackendOntapNasMap["nfs_mount_options"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.NfsMountOptions.ValueString()
+						}
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password != nil {
+							PasswordMap := make(map[string]interface{})
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.Provider.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.URL.ValueString()
+								}
+								PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							NetappBackendOntapNasMap["password"] = PasswordMap
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Region.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Region.IsUnknown() {
+							NetappBackendOntapNasMap["region"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Region.ValueString()
+						}
+						if len(StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Storage) > 0 {
+							var StorageList []map[string]interface{}
+							for _, StorageItem := range StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Storage {
+								StorageItemMap := make(map[string]interface{})
+								if StorageItem.Labels != nil {
+									StorageItemMap["labels"] = map[string]interface{}{}
+								}
+								if StorageItem.VolumeDefaults != nil {
+									VolumeDefaultsMap := make(map[string]interface{})
+									if !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
+										VolumeDefaultsMap["adaptive_qos_policy"] = StorageItem.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.Encryption.IsNull() && !StorageItem.VolumeDefaults.Encryption.IsUnknown() {
+										VolumeDefaultsMap["encryption"] = StorageItem.VolumeDefaults.Encryption.ValueBool()
+									}
+									if !StorageItem.VolumeDefaults.ExportPolicy.IsNull() && !StorageItem.VolumeDefaults.ExportPolicy.IsUnknown() {
+										VolumeDefaultsMap["export_policy"] = StorageItem.VolumeDefaults.ExportPolicy.ValueString()
+									}
+									if StorageItem.VolumeDefaults.NoQOS != nil {
+										VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
+									}
+									if !StorageItem.VolumeDefaults.QOSPolicy.IsNull() && !StorageItem.VolumeDefaults.QOSPolicy.IsUnknown() {
+										VolumeDefaultsMap["qos_policy"] = StorageItem.VolumeDefaults.QOSPolicy.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.SecurityStyle.IsNull() && !StorageItem.VolumeDefaults.SecurityStyle.IsUnknown() {
+										VolumeDefaultsMap["security_style"] = StorageItem.VolumeDefaults.SecurityStyle.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.SnapshotDir.IsNull() && !StorageItem.VolumeDefaults.SnapshotDir.IsUnknown() {
+										VolumeDefaultsMap["snapshot_dir"] = StorageItem.VolumeDefaults.SnapshotDir.ValueBool()
+									}
+									if !StorageItem.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageItem.VolumeDefaults.SnapshotPolicy.IsUnknown() {
+										VolumeDefaultsMap["snapshot_policy"] = StorageItem.VolumeDefaults.SnapshotPolicy.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.SnapshotReserve.IsNull() && !StorageItem.VolumeDefaults.SnapshotReserve.IsUnknown() {
+										VolumeDefaultsMap["snapshot_reserve"] = StorageItem.VolumeDefaults.SnapshotReserve.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.SpaceReserve.IsNull() && !StorageItem.VolumeDefaults.SpaceReserve.IsUnknown() {
+										VolumeDefaultsMap["space_reserve"] = StorageItem.VolumeDefaults.SpaceReserve.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.SplitOnClone.IsNull() && !StorageItem.VolumeDefaults.SplitOnClone.IsUnknown() {
+										VolumeDefaultsMap["split_on_clone"] = StorageItem.VolumeDefaults.SplitOnClone.ValueBool()
+									}
+									if !StorageItem.VolumeDefaults.TieringPolicy.IsNull() && !StorageItem.VolumeDefaults.TieringPolicy.IsUnknown() {
+										VolumeDefaultsMap["tiering_policy"] = StorageItem.VolumeDefaults.TieringPolicy.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.UnixPermissions.IsNull() && !StorageItem.VolumeDefaults.UnixPermissions.IsUnknown() {
+										VolumeDefaultsMap["unix_permissions"] = StorageItem.VolumeDefaults.UnixPermissions.ValueInt64()
+									}
+									StorageItemMap["volume_defaults"] = VolumeDefaultsMap
+								}
+								if !StorageItem.Zone.IsNull() && !StorageItem.Zone.IsUnknown() {
+									StorageItemMap["zone"] = StorageItem.Zone.ValueString()
+								}
+								StorageList = append(StorageList, StorageItemMap)
+							}
+							NetappBackendOntapNasMap["storage"] = StorageList
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StorageDriverName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StorageDriverName.IsUnknown() {
+							NetappBackendOntapNasMap["storage_driver_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StorageDriverName.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StoragePrefix.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StoragePrefix.IsUnknown() {
+							NetappBackendOntapNasMap["storage_prefix"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StoragePrefix.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Svm.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Svm.IsUnknown() {
+							NetappBackendOntapNasMap["svm"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Svm.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.TrustedCACertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.TrustedCACertificate.IsUnknown() {
+							NetappBackendOntapNasMap["trusted_ca_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.TrustedCACertificate.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Username.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Username.IsUnknown() {
+							NetappBackendOntapNasMap["username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Username.ValueString()
+						}
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil {
+							VolumeDefaultsMap := make(map[string]interface{})
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
+								VolumeDefaultsMap["adaptive_qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.IsUnknown() {
+								VolumeDefaultsMap["encryption"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.ValueBool()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.IsUnknown() {
+								VolumeDefaultsMap["export_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.ValueString()
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS != nil {
+								VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.QOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.QOSPolicy.IsUnknown() {
+								VolumeDefaultsMap["qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.QOSPolicy.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SecurityStyle.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SecurityStyle.IsUnknown() {
+								VolumeDefaultsMap["security_style"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SecurityStyle.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.IsUnknown() {
+								VolumeDefaultsMap["snapshot_dir"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.ValueBool()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotPolicy.IsUnknown() {
+								VolumeDefaultsMap["snapshot_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotPolicy.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotReserve.IsUnknown() {
+								VolumeDefaultsMap["snapshot_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotReserve.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SpaceReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SpaceReserve.IsUnknown() {
+								VolumeDefaultsMap["space_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SpaceReserve.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.IsUnknown() {
+								VolumeDefaultsMap["split_on_clone"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.ValueBool()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.TieringPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.TieringPolicy.IsUnknown() {
+								VolumeDefaultsMap["tiering_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.TieringPolicy.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.IsUnknown() {
+								VolumeDefaultsMap["unix_permissions"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.ValueInt64()
+							}
+							NetappBackendOntapNasMap["volume_defaults"] = VolumeDefaultsMap
+						}
+						NetappTridentMap["netapp_backend_ontap_nas"] = NetappBackendOntapNasMap
 					}
-					if !listItem.PureServiceOrchestrator.EnableStorageTopology.IsNull() && !listItem.PureServiceOrchestrator.EnableStorageTopology.IsUnknown() {
-						pure_service_orchestratorDeepMap["enable_storage_topology"] = listItem.PureServiceOrchestrator.EnableStorageTopology.ValueBool()
+					if StorageDevicesItem.NetappTrident.NetappBackendOntapSan != nil {
+						NetappBackendOntapSanMap := make(map[string]interface{})
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientCertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientCertificate.IsUnknown() {
+							NetappBackendOntapSanMap["client_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientCertificate.ValueString()
+						}
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil {
+							ClientPrivateKeyMap := make(map[string]interface{})
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								ClientPrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.Provider.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.URL.ValueString()
+								}
+								ClientPrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							NetappBackendOntapSanMap["client_private_key"] = ClientPrivateKeyMap
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifDNSName.IsUnknown() {
+							NetappBackendOntapSanMap["data_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifDNSName.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifIP.IsUnknown() {
+							NetappBackendOntapSanMap["data_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifIP.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.IsUnknown() {
+							NetappBackendOntapSanMap["igroup_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.ValueString()
+						}
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Labels != nil {
+							NetappBackendOntapSanMap["labels"] = map[string]interface{}{}
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsUnknown() {
+							NetappBackendOntapSanMap["limit_aggregate_usage"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.ValueInt64()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitVolumeSize.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitVolumeSize.IsUnknown() {
+							NetappBackendOntapSanMap["limit_volume_size"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitVolumeSize.ValueInt64()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifDNSName.IsUnknown() {
+							NetappBackendOntapSanMap["management_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifDNSName.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.IsUnknown() {
+							NetappBackendOntapSanMap["management_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.ValueString()
+						}
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.NoChap != nil {
+							NetappBackendOntapSanMap["no_chap"] = map[string]interface{}{}
+						}
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password != nil {
+							PasswordMap := make(map[string]interface{})
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.Provider.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.URL.ValueString()
+								}
+								PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							NetappBackendOntapSanMap["password"] = PasswordMap
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Region.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Region.IsUnknown() {
+							NetappBackendOntapSanMap["region"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Region.ValueString()
+						}
+						if len(StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Storage) > 0 {
+							var StorageList []map[string]interface{}
+							for _, StorageItem := range StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Storage {
+								StorageItemMap := make(map[string]interface{})
+								if StorageItem.Labels != nil {
+									StorageItemMap["labels"] = map[string]interface{}{}
+								}
+								if StorageItem.VolumeDefaults != nil {
+									VolumeDefaultsMap := make(map[string]interface{})
+									if !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
+										VolumeDefaultsMap["adaptive_qos_policy"] = StorageItem.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.Encryption.IsNull() && !StorageItem.VolumeDefaults.Encryption.IsUnknown() {
+										VolumeDefaultsMap["encryption"] = StorageItem.VolumeDefaults.Encryption.ValueBool()
+									}
+									if !StorageItem.VolumeDefaults.ExportPolicy.IsNull() && !StorageItem.VolumeDefaults.ExportPolicy.IsUnknown() {
+										VolumeDefaultsMap["export_policy"] = StorageItem.VolumeDefaults.ExportPolicy.ValueString()
+									}
+									if StorageItem.VolumeDefaults.NoQOS != nil {
+										VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
+									}
+									if !StorageItem.VolumeDefaults.QOSPolicy.IsNull() && !StorageItem.VolumeDefaults.QOSPolicy.IsUnknown() {
+										VolumeDefaultsMap["qos_policy"] = StorageItem.VolumeDefaults.QOSPolicy.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.SecurityStyle.IsNull() && !StorageItem.VolumeDefaults.SecurityStyle.IsUnknown() {
+										VolumeDefaultsMap["security_style"] = StorageItem.VolumeDefaults.SecurityStyle.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.SnapshotDir.IsNull() && !StorageItem.VolumeDefaults.SnapshotDir.IsUnknown() {
+										VolumeDefaultsMap["snapshot_dir"] = StorageItem.VolumeDefaults.SnapshotDir.ValueBool()
+									}
+									if !StorageItem.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageItem.VolumeDefaults.SnapshotPolicy.IsUnknown() {
+										VolumeDefaultsMap["snapshot_policy"] = StorageItem.VolumeDefaults.SnapshotPolicy.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.SnapshotReserve.IsNull() && !StorageItem.VolumeDefaults.SnapshotReserve.IsUnknown() {
+										VolumeDefaultsMap["snapshot_reserve"] = StorageItem.VolumeDefaults.SnapshotReserve.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.SpaceReserve.IsNull() && !StorageItem.VolumeDefaults.SpaceReserve.IsUnknown() {
+										VolumeDefaultsMap["space_reserve"] = StorageItem.VolumeDefaults.SpaceReserve.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.SplitOnClone.IsNull() && !StorageItem.VolumeDefaults.SplitOnClone.IsUnknown() {
+										VolumeDefaultsMap["split_on_clone"] = StorageItem.VolumeDefaults.SplitOnClone.ValueBool()
+									}
+									if !StorageItem.VolumeDefaults.TieringPolicy.IsNull() && !StorageItem.VolumeDefaults.TieringPolicy.IsUnknown() {
+										VolumeDefaultsMap["tiering_policy"] = StorageItem.VolumeDefaults.TieringPolicy.ValueString()
+									}
+									if !StorageItem.VolumeDefaults.UnixPermissions.IsNull() && !StorageItem.VolumeDefaults.UnixPermissions.IsUnknown() {
+										VolumeDefaultsMap["unix_permissions"] = StorageItem.VolumeDefaults.UnixPermissions.ValueInt64()
+									}
+									StorageItemMap["volume_defaults"] = VolumeDefaultsMap
+								}
+								if !StorageItem.Zone.IsNull() && !StorageItem.Zone.IsUnknown() {
+									StorageItemMap["zone"] = StorageItem.Zone.ValueString()
+								}
+								StorageList = append(StorageList, StorageItemMap)
+							}
+							NetappBackendOntapSanMap["storage"] = StorageList
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StorageDriverName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StorageDriverName.IsUnknown() {
+							NetappBackendOntapSanMap["storage_driver_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StorageDriverName.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StoragePrefix.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StoragePrefix.IsUnknown() {
+							NetappBackendOntapSanMap["storage_prefix"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StoragePrefix.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Svm.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Svm.IsUnknown() {
+							NetappBackendOntapSanMap["svm"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Svm.ValueString()
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.TrustedCACertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.TrustedCACertificate.IsUnknown() {
+							NetappBackendOntapSanMap["trusted_ca_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.TrustedCACertificate.ValueString()
+						}
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap != nil {
+							UseChapMap := make(map[string]interface{})
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil {
+								ChapInitiatorSecretMap := make(map[string]interface{})
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									ChapInitiatorSecretMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.Provider.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.URL.ValueString()
+									}
+									ChapInitiatorSecretMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								UseChapMap["chap_initiator_secret"] = ChapInitiatorSecretMap
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil {
+								ChapTargetInitiatorSecretMap := make(map[string]interface{})
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									ChapTargetInitiatorSecretMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.Provider.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.URL.ValueString()
+									}
+									ChapTargetInitiatorSecretMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								UseChapMap["chap_target_initiator_secret"] = ChapTargetInitiatorSecretMap
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetUsername.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetUsername.IsUnknown() {
+								UseChapMap["chap_target_username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetUsername.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapUsername.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapUsername.IsUnknown() {
+								UseChapMap["chap_username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapUsername.ValueString()
+							}
+							NetappBackendOntapSanMap["use_chap"] = UseChapMap
+						}
+						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Username.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Username.IsUnknown() {
+							NetappBackendOntapSanMap["username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Username.ValueString()
+						}
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil {
+							VolumeDefaultsMap := make(map[string]interface{})
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
+								VolumeDefaultsMap["adaptive_qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.IsUnknown() {
+								VolumeDefaultsMap["encryption"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.ValueBool()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.IsUnknown() {
+								VolumeDefaultsMap["export_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.ValueString()
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS != nil {
+								VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.QOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.QOSPolicy.IsUnknown() {
+								VolumeDefaultsMap["qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.QOSPolicy.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SecurityStyle.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SecurityStyle.IsUnknown() {
+								VolumeDefaultsMap["security_style"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SecurityStyle.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.IsUnknown() {
+								VolumeDefaultsMap["snapshot_dir"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.ValueBool()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotPolicy.IsUnknown() {
+								VolumeDefaultsMap["snapshot_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotPolicy.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotReserve.IsUnknown() {
+								VolumeDefaultsMap["snapshot_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotReserve.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SpaceReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SpaceReserve.IsUnknown() {
+								VolumeDefaultsMap["space_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SpaceReserve.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.IsUnknown() {
+								VolumeDefaultsMap["split_on_clone"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.ValueBool()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.TieringPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.TieringPolicy.IsUnknown() {
+								VolumeDefaultsMap["tiering_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.TieringPolicy.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.IsUnknown() {
+								VolumeDefaultsMap["unix_permissions"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.ValueInt64()
+							}
+							NetappBackendOntapSanMap["volume_defaults"] = VolumeDefaultsMap
+						}
+						NetappTridentMap["netapp_backend_ontap_san"] = NetappBackendOntapSanMap
 					}
-					if !listItem.PureServiceOrchestrator.EnableStrictTopology.IsNull() && !listItem.PureServiceOrchestrator.EnableStrictTopology.IsUnknown() {
-						pure_service_orchestratorDeepMap["enable_strict_topology"] = listItem.PureServiceOrchestrator.EnableStrictTopology.ValueBool()
+					StorageDevicesItemMap["netapp_trident"] = NetappTridentMap
+				}
+				if StorageDevicesItem.PureServiceOrchestrator != nil {
+					PureServiceOrchestratorMap := make(map[string]interface{})
+					if StorageDevicesItem.PureServiceOrchestrator.Arrays != nil {
+						ArraysMap := make(map[string]interface{})
+						if StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray != nil {
+							FlashArrayMap := make(map[string]interface{})
+							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsOpt.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsOpt.IsUnknown() {
+								FlashArrayMap["default_fs_opt"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsOpt.ValueString()
+							}
+							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsType.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsType.IsUnknown() {
+								FlashArrayMap["default_fs_type"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsType.ValueString()
+							}
+							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.IsUnknown() {
+								var DefaultMountOptsItems []string
+								diags := StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.ElementsAs(ctx, &DefaultMountOptsItems, false)
+								if !diags.HasError() {
+									FlashArrayMap["default_mount_opts"] = DefaultMountOptsItems
+								}
+							}
+							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.IsUnknown() {
+								FlashArrayMap["disable_preempt_attachments"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.ValueBool()
+							}
+							if len(StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.FlashArrays) > 0 {
+								var FlashArraysList []map[string]interface{}
+								for _, FlashArraysItem := range StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.FlashArrays {
+									FlashArraysItemMap := make(map[string]interface{})
+									if FlashArraysItem.APIToken != nil {
+										APITokenMap := make(map[string]interface{})
+										if FlashArraysItem.APIToken.BlindfoldSecretInfo != nil {
+											BlindfoldSecretInfoMap := make(map[string]interface{})
+											if !FlashArraysItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+												BlindfoldSecretInfoMap["decryption_provider"] = FlashArraysItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+											}
+											if !FlashArraysItem.APIToken.BlindfoldSecretInfo.Location.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfo.Location.IsUnknown() {
+												BlindfoldSecretInfoMap["location"] = FlashArraysItem.APIToken.BlindfoldSecretInfo.Location.ValueString()
+											}
+											if !FlashArraysItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+												BlindfoldSecretInfoMap["store_provider"] = FlashArraysItem.APIToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+											}
+											APITokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+										}
+										if FlashArraysItem.APIToken.ClearSecretInfo != nil {
+											ClearSecretInfoMap := make(map[string]interface{})
+											if !FlashArraysItem.APIToken.ClearSecretInfo.Provider.IsNull() && !FlashArraysItem.APIToken.ClearSecretInfo.Provider.IsUnknown() {
+												ClearSecretInfoMap["provider"] = FlashArraysItem.APIToken.ClearSecretInfo.Provider.ValueString()
+											}
+											if !FlashArraysItem.APIToken.ClearSecretInfo.URL.IsNull() && !FlashArraysItem.APIToken.ClearSecretInfo.URL.IsUnknown() {
+												ClearSecretInfoMap["url"] = FlashArraysItem.APIToken.ClearSecretInfo.URL.ValueString()
+											}
+											APITokenMap["clear_secret_info"] = ClearSecretInfoMap
+										}
+										FlashArraysItemMap["api_token"] = APITokenMap
+									}
+									if FlashArraysItem.Labels != nil {
+										FlashArraysItemMap["labels"] = map[string]interface{}{}
+									}
+									if !FlashArraysItem.MgmtDNSName.IsNull() && !FlashArraysItem.MgmtDNSName.IsUnknown() {
+										FlashArraysItemMap["mgmt_dns_name"] = FlashArraysItem.MgmtDNSName.ValueString()
+									}
+									if !FlashArraysItem.MgmtIP.IsNull() && !FlashArraysItem.MgmtIP.IsUnknown() {
+										FlashArraysItemMap["mgmt_ip"] = FlashArraysItem.MgmtIP.ValueString()
+									}
+									FlashArraysList = append(FlashArraysList, FlashArraysItemMap)
+								}
+								FlashArrayMap["flash_arrays"] = FlashArraysList
+							}
+							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.IsUnknown() {
+								FlashArrayMap["iscsi_login_timeout"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.ValueInt64()
+							}
+							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.SanType.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.SanType.IsUnknown() {
+								FlashArrayMap["san_type"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.SanType.ValueString()
+							}
+							ArraysMap["flash_array"] = FlashArrayMap
+						}
+						if StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade != nil {
+							FlashBladeMap := make(map[string]interface{})
+							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.IsUnknown() {
+								FlashBladeMap["enable_snapshot_directory"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.ValueBool()
+							}
+							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.ExportRules.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.ExportRules.IsUnknown() {
+								FlashBladeMap["export_rules"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.ExportRules.ValueString()
+							}
+							if len(StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades) > 0 {
+								var FlashBladesList []map[string]interface{}
+								for _, FlashBladesItem := range StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades {
+									FlashBladesItemMap := make(map[string]interface{})
+									if FlashBladesItem.APIToken != nil {
+										APITokenMap := make(map[string]interface{})
+										if FlashBladesItem.APIToken.BlindfoldSecretInfo != nil {
+											BlindfoldSecretInfoMap := make(map[string]interface{})
+											if !FlashBladesItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+												BlindfoldSecretInfoMap["decryption_provider"] = FlashBladesItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+											}
+											if !FlashBladesItem.APIToken.BlindfoldSecretInfo.Location.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfo.Location.IsUnknown() {
+												BlindfoldSecretInfoMap["location"] = FlashBladesItem.APIToken.BlindfoldSecretInfo.Location.ValueString()
+											}
+											if !FlashBladesItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+												BlindfoldSecretInfoMap["store_provider"] = FlashBladesItem.APIToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+											}
+											APITokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+										}
+										if FlashBladesItem.APIToken.ClearSecretInfo != nil {
+											ClearSecretInfoMap := make(map[string]interface{})
+											if !FlashBladesItem.APIToken.ClearSecretInfo.Provider.IsNull() && !FlashBladesItem.APIToken.ClearSecretInfo.Provider.IsUnknown() {
+												ClearSecretInfoMap["provider"] = FlashBladesItem.APIToken.ClearSecretInfo.Provider.ValueString()
+											}
+											if !FlashBladesItem.APIToken.ClearSecretInfo.URL.IsNull() && !FlashBladesItem.APIToken.ClearSecretInfo.URL.IsUnknown() {
+												ClearSecretInfoMap["url"] = FlashBladesItem.APIToken.ClearSecretInfo.URL.ValueString()
+											}
+											APITokenMap["clear_secret_info"] = ClearSecretInfoMap
+										}
+										FlashBladesItemMap["api_token"] = APITokenMap
+									}
+									if FlashBladesItem.Labels != nil {
+										FlashBladesItemMap["labels"] = map[string]interface{}{}
+									}
+									if !FlashBladesItem.MgmtDNSName.IsNull() && !FlashBladesItem.MgmtDNSName.IsUnknown() {
+										FlashBladesItemMap["mgmt_dns_name"] = FlashBladesItem.MgmtDNSName.ValueString()
+									}
+									if !FlashBladesItem.MgmtIP.IsNull() && !FlashBladesItem.MgmtIP.IsUnknown() {
+										FlashBladesItemMap["mgmt_ip"] = FlashBladesItem.MgmtIP.ValueString()
+									}
+									if !FlashBladesItem.NfsEndpointDNSName.IsNull() && !FlashBladesItem.NfsEndpointDNSName.IsUnknown() {
+										FlashBladesItemMap["nfs_endpoint_dns_name"] = FlashBladesItem.NfsEndpointDNSName.ValueString()
+									}
+									if !FlashBladesItem.NfsEndpointIP.IsNull() && !FlashBladesItem.NfsEndpointIP.IsUnknown() {
+										FlashBladesItemMap["nfs_endpoint_ip"] = FlashBladesItem.NfsEndpointIP.ValueString()
+									}
+									FlashBladesList = append(FlashBladesList, FlashBladesItemMap)
+								}
+								FlashBladeMap["flash_blades"] = FlashBladesList
+							}
+							ArraysMap["flash_blade"] = FlashBladeMap
+						}
+						PureServiceOrchestratorMap["arrays"] = ArraysMap
 					}
-					listItemMap["pure_service_orchestrator"] = pure_service_orchestratorDeepMap
+					if !StorageDevicesItem.PureServiceOrchestrator.ClusterID.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.ClusterID.IsUnknown() {
+						PureServiceOrchestratorMap["cluster_id"] = StorageDevicesItem.PureServiceOrchestrator.ClusterID.ValueString()
+					}
+					if !StorageDevicesItem.PureServiceOrchestrator.EnableStorageTopology.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.EnableStorageTopology.IsUnknown() {
+						PureServiceOrchestratorMap["enable_storage_topology"] = StorageDevicesItem.PureServiceOrchestrator.EnableStorageTopology.ValueBool()
+					}
+					if !StorageDevicesItem.PureServiceOrchestrator.EnableStrictTopology.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.EnableStrictTopology.IsUnknown() {
+						PureServiceOrchestratorMap["enable_strict_topology"] = StorageDevicesItem.PureServiceOrchestrator.EnableStrictTopology.ValueBool()
+					}
+					StorageDevicesItemMap["pure_service_orchestrator"] = PureServiceOrchestratorMap
 				}
-				if !listItem.StorageDevice.IsNull() && !listItem.StorageDevice.IsUnknown() {
-					listItemMap["storage_device"] = listItem.StorageDevice.ValueString()
+				if !StorageDevicesItem.StorageDevice.IsNull() && !StorageDevicesItem.StorageDevice.IsUnknown() {
+					StorageDevicesItemMap["storage_device"] = StorageDevicesItem.StorageDevice.ValueString()
 				}
-				storage_devicesList = append(storage_devicesList, listItemMap)
+				StorageDevicesList = append(StorageDevicesList, StorageDevicesItemMap)
 			}
-			storage_device_listMap["storage_devices"] = storage_devicesList
+			StorageDeviceListMap["storage_devices"] = StorageDevicesList
 		}
-		apiResource.Spec["storage_device_list"] = storage_device_listMap
+		apiResource.Spec["storage_device_list"] = StorageDeviceListMap
 	}
 	if data.StorageInterfaceList != nil {
-		storage_interface_listMap := make(map[string]interface{})
-		if len(data.StorageInterfaceList.Interfaces) > 0 {
-			var interfacesList []map[string]interface{}
-			for _, listItem := range data.StorageInterfaceList.Interfaces {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
+		StorageInterfaceListMap := make(map[string]interface{})
+		if !data.StorageInterfaceList.Interfaces.IsNull() && !data.StorageInterfaceList.Interfaces.IsUnknown() {
+			var InterfacesElems []FleetStorageInterfaceListInterfacesModel
+			diags := data.StorageInterfaceList.Interfaces.ElementsAs(ctx, &InterfacesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(InterfacesElems) > 0 {
+				var InterfacesList []map[string]interface{}
+				for _, InterfacesItem := range InterfacesElems {
+					InterfacesItemMap := make(map[string]interface{})
+					if !InterfacesItem.Name.IsNull() && !InterfacesItem.Name.IsUnknown() {
+						InterfacesItemMap["name"] = InterfacesItem.Name.ValueString()
+					}
+					if !InterfacesItem.Namespace.IsNull() && !InterfacesItem.Namespace.IsUnknown() {
+						InterfacesItemMap["namespace"] = InterfacesItem.Namespace.ValueString()
+					}
+					if !InterfacesItem.Tenant.IsNull() && !InterfacesItem.Tenant.IsUnknown() {
+						InterfacesItemMap["tenant"] = InterfacesItem.Tenant.ValueString()
+					}
+					InterfacesList = append(InterfacesList, InterfacesItemMap)
 				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				interfacesList = append(interfacesList, listItemMap)
+				StorageInterfaceListMap["interfaces"] = InterfacesList
 			}
-			storage_interface_listMap["interfaces"] = interfacesList
 		}
-		apiResource.Spec["storage_interface_list"] = storage_interface_listMap
+		apiResource.Spec["storage_interface_list"] = StorageInterfaceListMap
 	}
 	if data.StorageStaticRoutes != nil {
-		storage_static_routesMap := make(map[string]interface{})
-		if len(data.StorageStaticRoutes.StorageRoutes) > 0 {
-			var storage_routesList []map[string]interface{}
-			for _, listItem := range data.StorageStaticRoutes.StorageRoutes {
-				listItemMap := make(map[string]interface{})
-				if listItem.Labels != nil {
-					listItemMap["labels"] = map[string]interface{}{}
-				}
-				if listItem.Nexthop != nil {
-					nexthopDeepMap := make(map[string]interface{})
-					if !listItem.Nexthop.Type.IsNull() && !listItem.Nexthop.Type.IsUnknown() {
-						nexthopDeepMap["type"] = listItem.Nexthop.Type.ValueString()
+		StorageStaticRoutesMap := make(map[string]interface{})
+		if !data.StorageStaticRoutes.StorageRoutes.IsNull() && !data.StorageStaticRoutes.StorageRoutes.IsUnknown() {
+			var StorageRoutesElems []FleetStorageStaticRoutesStorageRoutesModel
+			diags := data.StorageStaticRoutes.StorageRoutes.ElementsAs(ctx, &StorageRoutesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(StorageRoutesElems) > 0 {
+				var StorageRoutesList []map[string]interface{}
+				for _, StorageRoutesItem := range StorageRoutesElems {
+					StorageRoutesItemMap := make(map[string]interface{})
+					if !StorageRoutesItem.Attrs.IsNull() && !StorageRoutesItem.Attrs.IsUnknown() {
+						var AttrsItems []string
+						diags := StorageRoutesItem.Attrs.ElementsAs(ctx, &AttrsItems, false)
+						if !diags.HasError() {
+							StorageRoutesItemMap["attrs"] = AttrsItems
+						}
 					}
-					listItemMap["nexthop"] = nexthopDeepMap
+					if StorageRoutesItem.Labels != nil {
+						StorageRoutesItemMap["labels"] = map[string]interface{}{}
+					}
+					if StorageRoutesItem.Nexthop != nil {
+						NexthopMap := make(map[string]interface{})
+						if !StorageRoutesItem.Nexthop.Interface.IsNull() && !StorageRoutesItem.Nexthop.Interface.IsUnknown() {
+							var InterfaceElems []FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModel
+							diags := StorageRoutesItem.Nexthop.Interface.ElementsAs(ctx, &InterfaceElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceElems) > 0 {
+								var InterfaceList []map[string]interface{}
+								for _, InterfaceItem := range InterfaceElems {
+									InterfaceItemMap := make(map[string]interface{})
+									if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
+										InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
+									}
+									if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
+										InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
+									}
+									if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
+										InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
+									}
+									if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
+										InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
+									}
+									if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
+										InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
+									}
+									InterfaceList = append(InterfaceList, InterfaceItemMap)
+								}
+								NexthopMap["interface"] = InterfaceList
+							}
+						}
+						if StorageRoutesItem.Nexthop.NexthopAddress != nil {
+							NexthopAddressMap := make(map[string]interface{})
+							if StorageRoutesItem.Nexthop.NexthopAddress.Ipv4 != nil {
+								Ipv4Map := make(map[string]interface{})
+								if !StorageRoutesItem.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StorageRoutesItem.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
+									Ipv4Map["addr"] = StorageRoutesItem.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
+								}
+								NexthopAddressMap["ipv4"] = Ipv4Map
+							}
+							if StorageRoutesItem.Nexthop.NexthopAddress.Ipv6 != nil {
+								Ipv6Map := make(map[string]interface{})
+								if !StorageRoutesItem.Nexthop.NexthopAddress.Ipv6.Addr.IsNull() && !StorageRoutesItem.Nexthop.NexthopAddress.Ipv6.Addr.IsUnknown() {
+									Ipv6Map["addr"] = StorageRoutesItem.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
+								}
+								NexthopAddressMap["ipv6"] = Ipv6Map
+							}
+							NexthopMap["nexthop_address"] = NexthopAddressMap
+						}
+						if !StorageRoutesItem.Nexthop.Type.IsNull() && !StorageRoutesItem.Nexthop.Type.IsUnknown() {
+							NexthopMap["type"] = StorageRoutesItem.Nexthop.Type.ValueString()
+						}
+						StorageRoutesItemMap["nexthop"] = NexthopMap
+					}
+					if len(StorageRoutesItem.Subnets) > 0 {
+						var SubnetsList []map[string]interface{}
+						for _, SubnetsItem := range StorageRoutesItem.Subnets {
+							SubnetsItemMap := make(map[string]interface{})
+							if SubnetsItem.Ipv4 != nil {
+								Ipv4Map := make(map[string]interface{})
+								if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
+									Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+								}
+								if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
+									Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+								}
+								SubnetsItemMap["ipv4"] = Ipv4Map
+							}
+							if SubnetsItem.Ipv6 != nil {
+								Ipv6Map := make(map[string]interface{})
+								if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
+									Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+								}
+								if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
+									Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+								}
+								SubnetsItemMap["ipv6"] = Ipv6Map
+							}
+							SubnetsList = append(SubnetsList, SubnetsItemMap)
+						}
+						StorageRoutesItemMap["subnets"] = SubnetsList
+					}
+					StorageRoutesList = append(StorageRoutesList, StorageRoutesItemMap)
 				}
-				storage_routesList = append(storage_routesList, listItemMap)
+				StorageStaticRoutesMap["storage_routes"] = StorageRoutesList
 			}
-			storage_static_routesMap["storage_routes"] = storage_routesList
 		}
-		apiResource.Spec["storage_static_routes"] = storage_static_routesMap
+		apiResource.Spec["storage_static_routes"] = StorageStaticRoutesMap
 	}
 	if data.UsbPolicy != nil {
-		usb_policyMap := make(map[string]interface{})
+		UsbPolicyMap := make(map[string]interface{})
 		if !data.UsbPolicy.Name.IsNull() && !data.UsbPolicy.Name.IsUnknown() {
-			usb_policyMap["name"] = data.UsbPolicy.Name.ValueString()
+			UsbPolicyMap["name"] = data.UsbPolicy.Name.ValueString()
 		}
 		if !data.UsbPolicy.Namespace.IsNull() && !data.UsbPolicy.Namespace.IsUnknown() {
-			usb_policyMap["namespace"] = data.UsbPolicy.Namespace.ValueString()
+			UsbPolicyMap["namespace"] = data.UsbPolicy.Namespace.ValueString()
 		}
 		if !data.UsbPolicy.Tenant.IsNull() && !data.UsbPolicy.Tenant.IsUnknown() {
-			usb_policyMap["tenant"] = data.UsbPolicy.Tenant.ValueString()
+			UsbPolicyMap["tenant"] = data.UsbPolicy.Tenant.ValueString()
 		}
-		apiResource.Spec["usb_policy"] = usb_policyMap
+		apiResource.Spec["usb_policy"] = UsbPolicyMap
 	}
 	if !data.EnableDefaultFleetConfigDownload.IsNull() && !data.EnableDefaultFleetConfigDownload.IsUnknown() {
 		apiResource.Spec["enable_default_fleet_config_download"] = data.EnableDefaultFleetConfigDownload.ValueBool()
@@ -7478,28 +12266,61 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	} else {
 		data.FleetLabel = types.StringNull()
 	}
-	if _, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && isImport && data.PerformanceEnhancementMode == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.PerformanceEnhancementMode = &FleetPerformanceEnhancementModeModel{}
+	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
+		data.PerformanceEnhancementMode = &FleetPerformanceEnhancementModeModel{
+			PerfModeL3Enhanced: func() *FleetPerformanceEnhancementModePerfModeL3EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
+				}
+				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
+					return &FleetPerformanceEnhancementModePerfModeL3EnhancedModel{
+						Jumbo: func() *FleetEmptyModel {
+							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+						NoJumbo: func() *FleetEmptyModel {
+							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PerfModeL7Enhanced: func() *FleetEmptyModel {
+				if !isImport && data.PerformanceEnhancementMode != nil {
+					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
+				}
+				if _, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &FleetEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["allow_all_usb"].(map[string]interface{}); ok && isImport && data.AllowAllUsb == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.AllowAllUsb = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["blocked_services"].([]interface{}); ok && len(listData) > 0 {
-		var blocked_servicesList []FleetBlockedServicesModel
+	if !isImport && (data.BlockedServices.IsNull() || len(data.BlockedServices.Elements()) == 0) {
+		data.BlockedServices = types.ListNull(types.ObjectType{AttrTypes: FleetBlockedServicesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["blocked_services"].([]interface{}); ok && len(listData) > 0 {
+		var BlockedServicesList []FleetBlockedServicesModel
 		var existingBlockedServicesItems []FleetBlockedServicesModel
 		if !data.BlockedServices.IsNull() && !data.BlockedServices.IsUnknown() {
 			data.BlockedServices.ElementsAs(ctx, &existingBlockedServicesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				blocked_servicesList = append(blocked_servicesList, FleetBlockedServicesModel{
+				BlockedServicesList = append(BlockedServicesList, FleetBlockedServicesModel{
 					DNS: func() *FleetEmptyModel {
 						if !isImport && len(existingBlockedServicesItems) > listIdx && existingBlockedServicesItems[listIdx].DNS != nil {
+							return &FleetEmptyModel{}
+						}
+						if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 							return &FleetEmptyModel{}
 						}
 						return nil
@@ -7514,10 +12335,16 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						if !isImport && len(existingBlockedServicesItems) > listIdx && existingBlockedServicesItems[listIdx].SSH != nil {
 							return &FleetEmptyModel{}
 						}
+						if _, ok := itemMap["ssh"].(map[string]interface{}); ok {
+							return &FleetEmptyModel{}
+						}
 						return nil
 					}(),
 					WebUserInterface: func() *FleetEmptyModel {
 						if !isImport && len(existingBlockedServicesItems) > listIdx && existingBlockedServicesItems[listIdx].WebUserInterface != nil {
+							return &FleetEmptyModel{}
+						}
+						if _, ok := itemMap["web_user_interface"].(map[string]interface{}); ok {
 							return &FleetEmptyModel{}
 						}
 						return nil
@@ -7525,34 +12352,49 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetBlockedServicesModelAttrTypes}, blocked_servicesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetBlockedServicesModelAttrTypes}, BlockedServicesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.BlockedServices = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.BlockedServices = types.ListNull(types.ObjectType{AttrTypes: FleetBlockedServicesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["bond_device_list"].(map[string]interface{}); ok && (isImport || data.BondDeviceList != nil) {
 		data.BondDeviceList = &FleetBondDeviceListModel{
 			BondDevices: func() []FleetBondDeviceListBondDevicesModel {
-				if listData, ok := blockData["bond_devices"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetBondDeviceListBondDevicesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetBondDeviceListBondDevicesModel{
+				if !isImport && data.BondDeviceList != nil && len(data.BondDeviceList.BondDevices) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["bond_devices"].([]interface{}); ok && len(rawList) > 0 {
+					var BondDevicesResult []FleetBondDeviceListBondDevicesModel
+					for _, BondDevicesItem := range rawList {
+						if BondDevicesItemMap, ok := BondDevicesItem.(map[string]interface{}); ok {
+							BondDevicesResult = append(BondDevicesResult, FleetBondDeviceListBondDevicesModel{
 								ActiveBackup: func() *FleetEmptyModel {
-									if _, ok := itemMap["active_backup"].(map[string]interface{}); ok {
+									if _, ok := BondDevicesItemMap["active_backup"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
 									return nil
 								}(),
+								Devices: func() types.List {
+									if v, ok := BondDevicesItemMap["devices"].([]interface{}); ok && len(v) > 0 {
+										var items []string
+										for _, item := range v {
+											if s, ok := item.(string); ok {
+												items = append(items, s)
+											}
+										}
+										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										return listVal
+									}
+									return types.ListNull(types.StringType)
+								}(),
 								Lacp: func() *FleetBondDeviceListBondDevicesLacpModel {
-									if deepMap, ok := itemMap["lacp"].(map[string]interface{}); ok {
+									if LacpData, ok := BondDevicesItemMap["lacp"].(map[string]interface{}); ok {
 										return &FleetBondDeviceListBondDevicesLacpModel{
 											Rate: func() types.Int64 {
-												if v, ok := deepMap["rate"].(float64); ok {
+												if v, ok := LacpData["rate"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
@@ -7562,19 +12404,19 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return nil
 								}(),
 								LinkPollingInterval: func() types.Int64 {
-									if v, ok := itemMap["link_polling_interval"].(float64); ok {
+									if v, ok := BondDevicesItemMap["link_polling_interval"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								LinkUpDelay: func() types.Int64 {
-									if v, ok := itemMap["link_up_delay"].(float64); ok {
+									if v, ok := BondDevicesItemMap["link_up_delay"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := BondDevicesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -7582,7 +12424,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							})
 						}
 					}
-					return result
+					return BondDevicesResult
 				}
 				return nil
 			}(),
@@ -7633,44 +12475,83 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		}
 	}
 	if _, ok := apiResource.Spec["default_config"].(map[string]interface{}); ok && isImport && data.DefaultConfig == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DefaultConfig = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["default_sriov_interface"].(map[string]interface{}); ok && isImport && data.DefaultSriovInterface == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DefaultSriovInterface = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["default_storage_class"].(map[string]interface{}); ok && isImport && data.DefaultStorageClass == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DefaultStorageClass = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["deny_all_usb"].(map[string]interface{}); ok && isImport && data.DenyAllUsb == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DenyAllUsb = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["device_list"].(map[string]interface{}); ok && (isImport || data.DeviceList != nil) {
 		data.DeviceList = &FleetDeviceListModel{
-			Devices: func() []FleetDeviceListDevicesModel {
-				if listData, ok := blockData["devices"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetDeviceListDevicesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetDeviceListDevicesModel{
+			Devices: func() types.List {
+				if !isImport && data.DeviceList != nil && (data.DeviceList.Devices.IsNull() || len(data.DeviceList.Devices.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetDeviceListDevicesModelAttrTypes})
+				}
+				if rawList, ok := blockData["devices"].([]interface{}); ok && len(rawList) > 0 {
+					var DevicesResult []FleetDeviceListDevicesModel
+					for _, DevicesItem := range rawList {
+						if DevicesItemMap, ok := DevicesItem.(map[string]interface{}); ok {
+							DevicesResult = append(DevicesResult, FleetDeviceListDevicesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := DevicesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								NetworkDevice: func() *FleetDeviceListDevicesNetworkDeviceModel {
-									if deepMap, ok := itemMap["network_device"].(map[string]interface{}); ok {
+									if NetworkDeviceData, ok := DevicesItemMap["network_device"].(map[string]interface{}); ok {
 										return &FleetDeviceListDevicesNetworkDeviceModel{
+											Interface: func() types.List {
+												if rawList, ok := NetworkDeviceData["interface"].([]interface{}); ok && len(rawList) > 0 {
+													var InterfaceResult []FleetDeviceListDevicesNetworkDeviceInterfaceModel
+													for _, InterfaceItem := range rawList {
+														if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
+															InterfaceResult = append(InterfaceResult, FleetDeviceListDevicesNetworkDeviceInterfaceModel{
+																Kind: func() types.String {
+																	if v, ok := InterfaceItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := InterfaceItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := InterfaceItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := InterfaceItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := InterfaceItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetDeviceListDevicesNetworkDeviceInterfaceModelAttrTypes}, InterfaceResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: FleetDeviceListDevicesNetworkDeviceInterfaceModelAttrTypes})
+											}(),
 											Use: func() types.String {
-												if v, ok := deepMap["use"].(string); ok && v != "" {
+												if v, ok := NetworkDeviceData["use"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -7680,7 +12561,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return nil
 								}(),
 								Owner: func() types.String {
-									if v, ok := itemMap["owner"].(string); ok && v != "" {
+									if v, ok := DevicesItemMap["owner"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -7688,27 +12569,22 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetDeviceListDevicesModelAttrTypes}, DevicesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FleetDeviceListDevicesModelAttrTypes})
 			}(),
 		}
 	}
 	if _, ok := apiResource.Spec["disable_gpu"].(map[string]interface{}); ok && isImport && data.DisableGPU == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableGPU = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["disable_vm"].(map[string]interface{}); ok && isImport && data.DisableVM == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableVM = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["enable_gpu"].(map[string]interface{}); ok && isImport && data.EnableGPU == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.EnableGPU = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["enable_vgpu"].(map[string]interface{}); ok && (isImport || data.EnableVgpu != nil) {
 		data.EnableVgpu = &FleetEnableVgpuModel{
 			FeatureType: func() types.String {
@@ -7725,16 +12601,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			}(),
 			ServerPort: func() types.Int64 {
 				if !isImport && data.EnableVgpu != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.EnableVgpu.ServerPort
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["server_port"].(float64); ok {
+				if v, ok := blockData["server_port"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -7742,20 +12611,20 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		}
 	}
 	if _, ok := apiResource.Spec["enable_vm"].(map[string]interface{}); ok && isImport && data.EnableVM == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.EnableVM = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["inside_virtual_network"].([]interface{}); ok && len(listData) > 0 {
-		var inside_virtual_networkList []FleetInsideVirtualNetworkModel
+	if !isImport && (data.InsideVirtualNetwork.IsNull() || len(data.InsideVirtualNetwork.Elements()) == 0) {
+		data.InsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetInsideVirtualNetworkModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["inside_virtual_network"].([]interface{}); ok && len(listData) > 0 {
+		var InsideVirtualNetworkList []FleetInsideVirtualNetworkModel
 		var existingInsideVirtualNetworkItems []FleetInsideVirtualNetworkModel
 		if !data.InsideVirtualNetwork.IsNull() && !data.InsideVirtualNetwork.IsUnknown() {
 			data.InsideVirtualNetwork.ElementsAs(ctx, &existingInsideVirtualNetworkItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				inside_virtual_networkList = append(inside_virtual_networkList, FleetInsideVirtualNetworkModel{
+				InsideVirtualNetworkList = append(InsideVirtualNetworkList, FleetInsideVirtualNetworkModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -7789,37 +12658,39 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetInsideVirtualNetworkModelAttrTypes}, inside_virtual_networkList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetInsideVirtualNetworkModelAttrTypes}, InsideVirtualNetworkList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.InsideVirtualNetwork = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.InsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetInsideVirtualNetworkModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["interface_list"].(map[string]interface{}); ok && (isImport || data.InterfaceList != nil) {
 		data.InterfaceList = &FleetInterfaceListModel{
-			Interfaces: func() []FleetInterfaceListInterfacesModel {
-				if listData, ok := blockData["interfaces"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetInterfaceListInterfacesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetInterfaceListInterfacesModel{
+			Interfaces: func() types.List {
+				if !isImport && data.InterfaceList != nil && (data.InterfaceList.Interfaces.IsNull() || len(data.InterfaceList.Interfaces.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetInterfaceListInterfacesModelAttrTypes})
+				}
+				if rawList, ok := blockData["interfaces"].([]interface{}); ok && len(rawList) > 0 {
+					var InterfacesResult []FleetInterfaceListInterfacesModel
+					for _, InterfacesItem := range rawList {
+						if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
+							InterfacesResult = append(InterfacesResult, FleetInterfaceListInterfacesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := InterfacesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := InterfacesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := InterfacesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -7827,17 +12698,60 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetInterfaceListInterfacesModelAttrTypes}, InterfacesResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: FleetInterfaceListInterfacesModelAttrTypes})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["kubernetes_upgrade_drain"].(map[string]interface{}); ok && (isImport || data.KubernetesUpgradeDrain != nil) {
+		data.KubernetesUpgradeDrain = &FleetKubernetesUpgradeDrainModel{
+			DisableUpgradeDrain: func() *FleetEmptyModel {
+				if !isImport && data.KubernetesUpgradeDrain != nil {
+					return data.KubernetesUpgradeDrain.DisableUpgradeDrain
+				}
+				if _, ok := blockData["disable_upgrade_drain"].(map[string]interface{}); ok {
+					return &FleetEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableUpgradeDrain: func() *FleetKubernetesUpgradeDrainEnableUpgradeDrainModel {
+				if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+					return data.KubernetesUpgradeDrain.EnableUpgradeDrain
+				}
+				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
+					return &FleetKubernetesUpgradeDrainEnableUpgradeDrainModel{
+						DisableVegaUpgradeMode: func() *FleetEmptyModel {
+							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+						DrainMaxUnavailableNodeCount: func() types.Int64 {
+							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						DrainNodeTimeout: func() types.Int64 {
+							if v, ok := EnableUpgradeDrainData["drain_node_timeout"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						EnableVegaUpgradeMode: func() *FleetEmptyModel {
+							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["kubernetes_upgrade_drain"].(map[string]interface{}); ok && isImport && data.KubernetesUpgradeDrain == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.KubernetesUpgradeDrain = &FleetKubernetesUpgradeDrainModel{}
-	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["log_receiver"].(map[string]interface{}); ok && (isImport || data.LogReceiver != nil) {
 		data.LogReceiver = &FleetLogReceiverModel{
 			Name: func() types.String {
@@ -7861,20 +12775,20 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		}
 	}
 	if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok && isImport && data.LogsStreamingDisabled == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.LogsStreamingDisabled = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["network_connectors"].([]interface{}); ok && len(listData) > 0 {
-		var network_connectorsList []FleetNetworkConnectorsModel
+	if !isImport && (data.NetworkConnectors.IsNull() || len(data.NetworkConnectors.Elements()) == 0) {
+		data.NetworkConnectors = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkConnectorsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["network_connectors"].([]interface{}); ok && len(listData) > 0 {
+		var NetworkConnectorsList []FleetNetworkConnectorsModel
 		var existingNetworkConnectorsItems []FleetNetworkConnectorsModel
 		if !data.NetworkConnectors.IsNull() && !data.NetworkConnectors.IsUnknown() {
 			data.NetworkConnectors.ElementsAs(ctx, &existingNetworkConnectorsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				network_connectorsList = append(network_connectorsList, FleetNetworkConnectorsModel{
+				NetworkConnectorsList = append(NetworkConnectorsList, FleetNetworkConnectorsModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -7908,25 +12822,26 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetNetworkConnectorsModelAttrTypes}, network_connectorsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetNetworkConnectorsModelAttrTypes}, NetworkConnectorsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.NetworkConnectors = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.NetworkConnectors = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkConnectorsModelAttrTypes})
 	}
-	if listData, ok := apiResource.Spec["network_firewall"].([]interface{}); ok && len(listData) > 0 {
-		var network_firewallList []FleetNetworkFirewallModel
+	if !isImport && (data.NetworkFirewall.IsNull() || len(data.NetworkFirewall.Elements()) == 0) {
+		data.NetworkFirewall = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkFirewallModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["network_firewall"].([]interface{}); ok && len(listData) > 0 {
+		var NetworkFirewallList []FleetNetworkFirewallModel
 		var existingNetworkFirewallItems []FleetNetworkFirewallModel
 		if !data.NetworkFirewall.IsNull() && !data.NetworkFirewall.IsUnknown() {
 			data.NetworkFirewall.ElementsAs(ctx, &existingNetworkFirewallItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				network_firewallList = append(network_firewallList, FleetNetworkFirewallModel{
+				NetworkFirewallList = append(NetworkFirewallList, FleetNetworkFirewallModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -7960,50 +12875,41 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetNetworkFirewallModelAttrTypes}, network_firewallList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetNetworkFirewallModelAttrTypes}, NetworkFirewallList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.NetworkFirewall = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.NetworkFirewall = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkFirewallModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["no_bond_devices"].(map[string]interface{}); ok && isImport && data.NoBondDevices == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoBondDevices = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_dc_cluster_group"].(map[string]interface{}); ok && isImport && data.NoDcClusterGroup == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoDcClusterGroup = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_storage_device"].(map[string]interface{}); ok && isImport && data.NoStorageDevice == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoStorageDevice = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_storage_interfaces"].(map[string]interface{}); ok && isImport && data.NoStorageInterfaces == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoStorageInterfaces = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_storage_static_routes"].(map[string]interface{}); ok && isImport && data.NoStorageStaticRoutes == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoStorageStaticRoutes = &FleetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["outside_virtual_network"].([]interface{}); ok && len(listData) > 0 {
-		var outside_virtual_networkList []FleetOutsideVirtualNetworkModel
+	if !isImport && (data.OutsideVirtualNetwork.IsNull() || len(data.OutsideVirtualNetwork.Elements()) == 0) {
+		data.OutsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetOutsideVirtualNetworkModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["outside_virtual_network"].([]interface{}); ok && len(listData) > 0 {
+		var OutsideVirtualNetworkList []FleetOutsideVirtualNetworkModel
 		var existingOutsideVirtualNetworkItems []FleetOutsideVirtualNetworkModel
 		if !data.OutsideVirtualNetwork.IsNull() && !data.OutsideVirtualNetwork.IsUnknown() {
 			data.OutsideVirtualNetwork.ElementsAs(ctx, &existingOutsideVirtualNetworkItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				outside_virtual_networkList = append(outside_virtual_networkList, FleetOutsideVirtualNetworkModel{
+				OutsideVirtualNetworkList = append(OutsideVirtualNetworkList, FleetOutsideVirtualNetworkModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -8037,37 +12943,39 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetOutsideVirtualNetworkModelAttrTypes}, outside_virtual_networkList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetOutsideVirtualNetworkModelAttrTypes}, OutsideVirtualNetworkList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.OutsideVirtualNetwork = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.OutsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetOutsideVirtualNetworkModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["sriov_interfaces"].(map[string]interface{}); ok && (isImport || data.SriovInterfaces != nil) {
 		data.SriovInterfaces = &FleetSriovInterfacesModel{
 			SriovInterface: func() []FleetSriovInterfacesSriovInterfaceModel {
-				if listData, ok := blockData["sriov_interface"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetSriovInterfacesSriovInterfaceModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetSriovInterfacesSriovInterfaceModel{
+				if !isImport && data.SriovInterfaces != nil && len(data.SriovInterfaces.SriovInterface) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["sriov_interface"].([]interface{}); ok && len(rawList) > 0 {
+					var SriovInterfaceResult []FleetSriovInterfacesSriovInterfaceModel
+					for _, SriovInterfaceItem := range rawList {
+						if SriovInterfaceItemMap, ok := SriovInterfaceItem.(map[string]interface{}); ok {
+							SriovInterfaceResult = append(SriovInterfaceResult, FleetSriovInterfacesSriovInterfaceModel{
 								InterfaceName: func() types.String {
-									if v, ok := itemMap["interface_name"].(string); ok && v != "" {
+									if v, ok := SriovInterfaceItemMap["interface_name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								NumberOfVfioVfs: func() types.Int64 {
-									if v, ok := itemMap["number_of_vfio_vfs"].(float64); ok {
+									if v, ok := SriovInterfaceItemMap["number_of_vfio_vfs"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								NumberOfVfs: func() types.Int64 {
-									if v, ok := itemMap["number_of_vfs"].(float64); ok {
+									if v, ok := SriovInterfaceItemMap["number_of_vfs"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
@@ -8075,7 +12983,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							})
 						}
 					}
-					return result
+					return SriovInterfaceResult
 				}
 				return nil
 			}(),
@@ -8084,28 +12992,31 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	if blockData, ok := apiResource.Spec["storage_class_list"].(map[string]interface{}); ok && (isImport || data.StorageClassList != nil) {
 		data.StorageClassList = &FleetStorageClassListModel{
 			StorageClasses: func() []FleetStorageClassListStorageClassesModel {
-				if listData, ok := blockData["storage_classes"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetStorageClassListStorageClassesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetStorageClassListStorageClassesModel{
+				if !isImport && data.StorageClassList != nil && len(data.StorageClassList.StorageClasses) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["storage_classes"].([]interface{}); ok && len(rawList) > 0 {
+					var StorageClassesResult []FleetStorageClassListStorageClassesModel
+					for _, StorageClassesItem := range rawList {
+						if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
+							StorageClassesResult = append(StorageClassesResult, FleetStorageClassListStorageClassesModel{
 								AdvancedStorageParameters: func() *FleetEmptyModel {
-									if _, ok := itemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
+									if _, ok := StorageClassesItemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
 									return nil
 								}(),
 								AllowVolumeExpansion: func() types.Bool {
-									if v, ok := itemMap["allow_volume_expansion"].(bool); ok {
+									if v, ok := StorageClassesItemMap["allow_volume_expansion"].(bool); ok {
 										return types.BoolValue(v)
 									}
 									return types.BoolNull()
 								}(),
 								CustomStorage: func() *FleetStorageClassListStorageClassesCustomStorageModel {
-									if deepMap, ok := itemMap["custom_storage"].(map[string]interface{}); ok {
+									if CustomStorageData, ok := StorageClassesItemMap["custom_storage"].(map[string]interface{}); ok {
 										return &FleetStorageClassListStorageClassesCustomStorageModel{
 											Yaml: func() types.String {
-												if v, ok := deepMap["yaml"].(string); ok && v != "" {
+												if v, ok := CustomStorageData["yaml"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -8115,112 +13026,112 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return nil
 								}(),
 								DefaultStorageClass: func() types.Bool {
-									if v, ok := itemMap["default_storage_class"].(bool); ok {
+									if v, ok := StorageClassesItemMap["default_storage_class"].(bool); ok {
 										return types.BoolValue(v)
 									}
 									return types.BoolNull()
 								}(),
 								DescriptionSpec: func() types.String {
-									if v, ok := itemMap["description"].(string); ok && v != "" {
+									if v, ok := StorageClassesItemMap["description"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								HpeStorage: func() *FleetStorageClassListStorageClassesHpeStorageModel {
-									if deepMap, ok := itemMap["hpe_storage"].(map[string]interface{}); ok {
+									if HpeStorageData, ok := StorageClassesItemMap["hpe_storage"].(map[string]interface{}); ok {
 										return &FleetStorageClassListStorageClassesHpeStorageModel{
 											AllowMutations: func() types.String {
-												if v, ok := deepMap["allow_mutations"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["allow_mutations"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											AllowOverrides: func() types.String {
-												if v, ok := deepMap["allow_overrides"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["allow_overrides"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											DedupeEnabled: func() types.Bool {
-												if v, ok := deepMap["dedupe_enabled"].(bool); ok {
+												if v, ok := HpeStorageData["dedupe_enabled"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											DescriptionSpec: func() types.String {
-												if v, ok := deepMap["description"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["description"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											DestroyOnDelete: func() types.Bool {
-												if v, ok := deepMap["destroy_on_delete"].(bool); ok {
+												if v, ok := HpeStorageData["destroy_on_delete"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											Encrypted: func() types.Bool {
-												if v, ok := deepMap["encrypted"].(bool); ok {
+												if v, ok := HpeStorageData["encrypted"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											Folder: func() types.String {
-												if v, ok := deepMap["folder"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["folder"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											LimitIops: func() types.String {
-												if v, ok := deepMap["limit_iops"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["limit_iops"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											LimitMbps: func() types.String {
-												if v, ok := deepMap["limit_mbps"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["limit_mbps"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											PerformancePolicy: func() types.String {
-												if v, ok := deepMap["performance_policy"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["performance_policy"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Pool: func() types.String {
-												if v, ok := deepMap["pool"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["pool"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											ProtectionTemplate: func() types.String {
-												if v, ok := deepMap["protection_template"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["protection_template"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											SecretName: func() types.String {
-												if v, ok := deepMap["secret_name"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["secret_name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											SecretNamespace: func() types.String {
-												if v, ok := deepMap["secret_namespace"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["secret_namespace"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											SyncOnDetach: func() types.Bool {
-												if v, ok := deepMap["sync_on_detach"].(bool); ok {
+												if v, ok := HpeStorageData["sync_on_detach"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											Thick: func() types.Bool {
-												if v, ok := deepMap["thick"].(bool); ok {
+												if v, ok := HpeStorageData["thick"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
@@ -8230,16 +13141,16 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return nil
 								}(),
 								NetappTrident: func() *FleetStorageClassListStorageClassesNetappTridentModel {
-									if deepMap, ok := itemMap["netapp_trident"].(map[string]interface{}); ok {
+									if NetappTridentData, ok := StorageClassesItemMap["netapp_trident"].(map[string]interface{}); ok {
 										return &FleetStorageClassListStorageClassesNetappTridentModel{
 											Selector: func() *FleetEmptyModel {
-												if _, ok := deepMap["selector"].(map[string]interface{}); ok {
+												if _, ok := NetappTridentData["selector"].(map[string]interface{}); ok {
 													return &FleetEmptyModel{}
 												}
 												return nil
 											}(),
 											StoragePools: func() types.String {
-												if v, ok := deepMap["storage_pools"].(string); ok && v != "" {
+												if v, ok := NetappTridentData["storage_pools"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -8249,22 +13160,22 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return nil
 								}(),
 								PureServiceOrchestrator: func() *FleetStorageClassListStorageClassesPureServiceOrchestratorModel {
-									if deepMap, ok := itemMap["pure_service_orchestrator"].(map[string]interface{}); ok {
+									if PureServiceOrchestratorData, ok := StorageClassesItemMap["pure_service_orchestrator"].(map[string]interface{}); ok {
 										return &FleetStorageClassListStorageClassesPureServiceOrchestratorModel{
 											Backend: func() types.String {
-												if v, ok := deepMap["backend"].(string); ok && v != "" {
+												if v, ok := PureServiceOrchestratorData["backend"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											BandwidthLimit: func() types.String {
-												if v, ok := deepMap["bandwidth_limit"].(string); ok && v != "" {
+												if v, ok := PureServiceOrchestratorData["bandwidth_limit"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											IopsLimit: func() types.Int64 {
-												if v, ok := deepMap["iops_limit"].(float64); ok {
+												if v, ok := PureServiceOrchestratorData["iops_limit"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
@@ -8274,19 +13185,19 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return nil
 								}(),
 								ReclaimPolicy: func() types.String {
-									if v, ok := itemMap["reclaim_policy"].(string); ok && v != "" {
+									if v, ok := StorageClassesItemMap["reclaim_policy"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								StorageClassName: func() types.String {
-									if v, ok := itemMap["storage_class_name"].(string); ok && v != "" {
+									if v, ok := StorageClassesItemMap["storage_class_name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								StorageDevice: func() types.String {
-									if v, ok := itemMap["storage_device"].(string); ok && v != "" {
+									if v, ok := StorageClassesItemMap["storage_device"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -8294,7 +13205,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							})
 						}
 					}
-					return result
+					return StorageClassesResult
 				}
 				return nil
 			}(),
@@ -8303,52 +13214,157 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	if blockData, ok := apiResource.Spec["storage_device_list"].(map[string]interface{}); ok && (isImport || data.StorageDeviceList != nil) {
 		data.StorageDeviceList = &FleetStorageDeviceListModel{
 			StorageDevices: func() []FleetStorageDeviceListStorageDevicesModel {
-				if listData, ok := blockData["storage_devices"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetStorageDeviceListStorageDevicesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetStorageDeviceListStorageDevicesModel{
+				if !isImport && data.StorageDeviceList != nil && len(data.StorageDeviceList.StorageDevices) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["storage_devices"].([]interface{}); ok && len(rawList) > 0 {
+					var StorageDevicesResult []FleetStorageDeviceListStorageDevicesModel
+					for _, StorageDevicesItem := range rawList {
+						if StorageDevicesItemMap, ok := StorageDevicesItem.(map[string]interface{}); ok {
+							StorageDevicesResult = append(StorageDevicesResult, FleetStorageDeviceListStorageDevicesModel{
 								AdvancedAdvancedParameters: func() *FleetEmptyModel {
-									if _, ok := itemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
+									if _, ok := StorageDevicesItemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
 									return nil
 								}(),
 								CustomStorage: func() *FleetEmptyModel {
-									if _, ok := itemMap["custom_storage"].(map[string]interface{}); ok {
+									if _, ok := StorageDevicesItemMap["custom_storage"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
 									return nil
 								}(),
 								HpeStorage: func() *FleetStorageDeviceListStorageDevicesHpeStorageModel {
-									if deepMap, ok := itemMap["hpe_storage"].(map[string]interface{}); ok {
+									if HpeStorageData, ok := StorageDevicesItemMap["hpe_storage"].(map[string]interface{}); ok {
 										return &FleetStorageDeviceListStorageDevicesHpeStorageModel{
 											APIServerPort: func() types.Int64 {
-												if v, ok := deepMap["api_server_port"].(float64); ok {
+												if v, ok := HpeStorageData["api_server_port"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
 											}(),
+											IscsiChapPassword: func() *FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordModel {
+												if IscsiChapPasswordData, ok := HpeStorageData["iscsi_chap_password"].(map[string]interface{}); ok {
+													return &FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordModel{
+														BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := IscsiChapPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModel {
+															if ClearSecretInfoData, ok := IscsiChapPasswordData["clear_secret_info"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
 											IscsiChapUser: func() types.String {
-												if v, ok := deepMap["iscsi_chap_user"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["iscsi_chap_user"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
+											Password: func() *FleetStorageDeviceListStorageDevicesHpeStoragePasswordModel {
+												if PasswordData, ok := HpeStorageData["password"].(map[string]interface{}); ok {
+													return &FleetStorageDeviceListStorageDevicesHpeStoragePasswordModel{
+														BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
 											StorageServerIPAddress: func() types.String {
-												if v, ok := deepMap["storage_server_ip_address"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["storage_server_ip_address"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											StorageServerName: func() types.String {
-												if v, ok := deepMap["storage_server_name"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["storage_server_name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Username: func() types.String {
-												if v, ok := deepMap["username"].(string); ok && v != "" {
+												if v, ok := HpeStorageData["username"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -8358,28 +13374,1228 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return nil
 								}(),
 								NetappTrident: func() *FleetStorageDeviceListStorageDevicesNetappTridentModel {
-									if _, ok := itemMap["netapp_trident"].(map[string]interface{}); ok {
-										return &FleetStorageDeviceListStorageDevicesNetappTridentModel{}
+									if NetappTridentData, ok := StorageDevicesItemMap["netapp_trident"].(map[string]interface{}); ok {
+										return &FleetStorageDeviceListStorageDevicesNetappTridentModel{
+											NetappBackendOntapNas: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasModel {
+												if NetappBackendOntapNasData, ok := NetappTridentData["netapp_backend_ontap_nas"].(map[string]interface{}); ok {
+													return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasModel{
+														AutoExportCidrs: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasAutoExportCidrsModel {
+															if AutoExportCidrsData, ok := NetappBackendOntapNasData["auto_export_cidrs"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasAutoExportCidrsModel{
+																	Prefixes: func() types.List {
+																		if v, ok := AutoExportCidrsData["prefixes"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														AutoExportPolicy: func() types.Bool {
+															if v, ok := NetappBackendOntapNasData["auto_export_policy"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														BackendName: func() types.String {
+															if v, ok := NetappBackendOntapNasData["backend_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ClientCertificate: func() types.String {
+															if v, ok := NetappBackendOntapNasData["client_certificate"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ClientPrivateKey: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel {
+															if ClientPrivateKeyData, ok := NetappBackendOntapNasData["client_private_key"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel{
+																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														DataLifDNSName: func() types.String {
+															if v, ok := NetappBackendOntapNasData["data_lif_dns_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														DataLifIP: func() types.String {
+															if v, ok := NetappBackendOntapNasData["data_lif_ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Labels: func() *FleetEmptyModel {
+															if _, ok := NetappBackendOntapNasData["labels"].(map[string]interface{}); ok {
+																return &FleetEmptyModel{}
+															}
+															return nil
+														}(),
+														LimitAggregateUsage: func() types.String {
+															if v, ok := NetappBackendOntapNasData["limit_aggregate_usage"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														LimitVolumeSize: func() types.String {
+															if v, ok := NetappBackendOntapNasData["limit_volume_size"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ManagementLifDNSName: func() types.String {
+															if v, ok := NetappBackendOntapNasData["management_lif_dns_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ManagementLifIP: func() types.String {
+															if v, ok := NetappBackendOntapNasData["management_lif_ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														NfsMountOptions: func() types.String {
+															if v, ok := NetappBackendOntapNasData["nfs_mount_options"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Password: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModel {
+															if PasswordData, ok := NetappBackendOntapNasData["password"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModel{
+																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Region: func() types.String {
+															if v, ok := NetappBackendOntapNasData["region"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Storage: func() []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel {
+															if rawList, ok := NetappBackendOntapNasData["storage"].([]interface{}); ok && len(rawList) > 0 {
+																var StorageResult []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel
+																for _, StorageItem := range rawList {
+																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
+																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel{
+																			Labels: func() *FleetEmptyModel {
+																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
+																					return &FleetEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModel {
+																				if VolumeDefaultsData, ok := StorageItemMap["volume_defaults"].(map[string]interface{}); ok {
+																					return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModel{
+																						AdaptiveQOSPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["adaptive_qos_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						Encryption: func() types.Bool {
+																							if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
+																								return types.BoolValue(v)
+																							}
+																							return types.BoolNull()
+																						}(),
+																						ExportPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["export_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						NoQOS: func() *FleetEmptyModel {
+																							if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
+																								return &FleetEmptyModel{}
+																							}
+																							return nil
+																						}(),
+																						QOSPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SecurityStyle: func() types.String {
+																							if v, ok := VolumeDefaultsData["security_style"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SnapshotDir: func() types.Bool {
+																							if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
+																								return types.BoolValue(v)
+																							}
+																							return types.BoolNull()
+																						}(),
+																						SnapshotPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["snapshot_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SnapshotReserve: func() types.String {
+																							if v, ok := VolumeDefaultsData["snapshot_reserve"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SpaceReserve: func() types.String {
+																							if v, ok := VolumeDefaultsData["space_reserve"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SplitOnClone: func() types.Bool {
+																							if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
+																								return types.BoolValue(v)
+																							}
+																							return types.BoolNull()
+																						}(),
+																						TieringPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["tiering_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						UnixPermissions: func() types.Int64 {
+																							if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
+																								return types.Int64Value(int64(v))
+																							}
+																							return types.Int64Null()
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																			Zone: func() types.String {
+																				if v, ok := StorageItemMap["zone"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																return StorageResult
+															}
+															return nil
+														}(),
+														StorageDriverName: func() types.String {
+															if v, ok := NetappBackendOntapNasData["storage_driver_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														StoragePrefix: func() types.String {
+															if v, ok := NetappBackendOntapNasData["storage_prefix"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Svm: func() types.String {
+															if v, ok := NetappBackendOntapNasData["svm"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														TrustedCACertificate: func() types.String {
+															if v, ok := NetappBackendOntapNasData["trusted_ca_certificate"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Username: func() types.String {
+															if v, ok := NetappBackendOntapNasData["username"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModel {
+															if VolumeDefaultsData, ok := NetappBackendOntapNasData["volume_defaults"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModel{
+																	AdaptiveQOSPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["adaptive_qos_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Encryption: func() types.Bool {
+																		if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	ExportPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["export_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	NoQOS: func() *FleetEmptyModel {
+																		if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
+																			return &FleetEmptyModel{}
+																		}
+																		return nil
+																	}(),
+																	QOSPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SecurityStyle: func() types.String {
+																		if v, ok := VolumeDefaultsData["security_style"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SnapshotDir: func() types.Bool {
+																		if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	SnapshotPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["snapshot_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SnapshotReserve: func() types.String {
+																		if v, ok := VolumeDefaultsData["snapshot_reserve"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SpaceReserve: func() types.String {
+																		if v, ok := VolumeDefaultsData["space_reserve"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SplitOnClone: func() types.Bool {
+																		if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	TieringPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["tiering_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	UnixPermissions: func() types.Int64 {
+																		if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		return types.Int64Null()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											NetappBackendOntapSan: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel {
+												if NetappBackendOntapSanData, ok := NetappTridentData["netapp_backend_ontap_san"].(map[string]interface{}); ok {
+													return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel{
+														ClientCertificate: func() types.String {
+															if v, ok := NetappBackendOntapSanData["client_certificate"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ClientPrivateKey: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel {
+															if ClientPrivateKeyData, ok := NetappBackendOntapSanData["client_private_key"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel{
+																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														DataLifDNSName: func() types.String {
+															if v, ok := NetappBackendOntapSanData["data_lif_dns_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														DataLifIP: func() types.String {
+															if v, ok := NetappBackendOntapSanData["data_lif_ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														IgroupName: func() types.String {
+															if v, ok := NetappBackendOntapSanData["igroup_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Labels: func() *FleetEmptyModel {
+															if _, ok := NetappBackendOntapSanData["labels"].(map[string]interface{}); ok {
+																return &FleetEmptyModel{}
+															}
+															return nil
+														}(),
+														LimitAggregateUsage: func() types.Int64 {
+															if v, ok := NetappBackendOntapSanData["limit_aggregate_usage"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														LimitVolumeSize: func() types.Int64 {
+															if v, ok := NetappBackendOntapSanData["limit_volume_size"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														ManagementLifDNSName: func() types.String {
+															if v, ok := NetappBackendOntapSanData["management_lif_dns_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ManagementLifIP: func() types.String {
+															if v, ok := NetappBackendOntapSanData["management_lif_ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														NoChap: func() *FleetEmptyModel {
+															if _, ok := NetappBackendOntapSanData["no_chap"].(map[string]interface{}); ok {
+																return &FleetEmptyModel{}
+															}
+															return nil
+														}(),
+														Password: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel {
+															if PasswordData, ok := NetappBackendOntapSanData["password"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel{
+																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Region: func() types.String {
+															if v, ok := NetappBackendOntapSanData["region"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Storage: func() []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel {
+															if rawList, ok := NetappBackendOntapSanData["storage"].([]interface{}); ok && len(rawList) > 0 {
+																var StorageResult []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel
+																for _, StorageItem := range rawList {
+																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
+																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel{
+																			Labels: func() *FleetEmptyModel {
+																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
+																					return &FleetEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModel {
+																				if VolumeDefaultsData, ok := StorageItemMap["volume_defaults"].(map[string]interface{}); ok {
+																					return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModel{
+																						AdaptiveQOSPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["adaptive_qos_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						Encryption: func() types.Bool {
+																							if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
+																								return types.BoolValue(v)
+																							}
+																							return types.BoolNull()
+																						}(),
+																						ExportPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["export_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						NoQOS: func() *FleetEmptyModel {
+																							if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
+																								return &FleetEmptyModel{}
+																							}
+																							return nil
+																						}(),
+																						QOSPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SecurityStyle: func() types.String {
+																							if v, ok := VolumeDefaultsData["security_style"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SnapshotDir: func() types.Bool {
+																							if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
+																								return types.BoolValue(v)
+																							}
+																							return types.BoolNull()
+																						}(),
+																						SnapshotPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["snapshot_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SnapshotReserve: func() types.String {
+																							if v, ok := VolumeDefaultsData["snapshot_reserve"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SpaceReserve: func() types.String {
+																							if v, ok := VolumeDefaultsData["space_reserve"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SplitOnClone: func() types.Bool {
+																							if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
+																								return types.BoolValue(v)
+																							}
+																							return types.BoolNull()
+																						}(),
+																						TieringPolicy: func() types.String {
+																							if v, ok := VolumeDefaultsData["tiering_policy"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						UnixPermissions: func() types.Int64 {
+																							if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
+																								return types.Int64Value(int64(v))
+																							}
+																							return types.Int64Null()
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																			Zone: func() types.String {
+																				if v, ok := StorageItemMap["zone"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																return StorageResult
+															}
+															return nil
+														}(),
+														StorageDriverName: func() types.String {
+															if v, ok := NetappBackendOntapSanData["storage_driver_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														StoragePrefix: func() types.String {
+															if v, ok := NetappBackendOntapSanData["storage_prefix"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Svm: func() types.String {
+															if v, ok := NetappBackendOntapSanData["svm"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														TrustedCACertificate: func() types.String {
+															if v, ok := NetappBackendOntapSanData["trusted_ca_certificate"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														UseChap: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapModel {
+															if UseChapData, ok := NetappBackendOntapSanData["use_chap"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapModel{
+																	ChapInitiatorSecret: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretModel {
+																		if ChapInitiatorSecretData, ok := UseChapData["chap_initiator_secret"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretModel{
+																				BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModel {
+																					if BlindfoldSecretInfoData, ok := ChapInitiatorSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
+																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModel{
+																							DecryptionProvider: func() types.String {
+																								if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																							Location: func() types.String {
+																								if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																							StoreProvider: func() types.String {
+																								if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
+																				ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModel {
+																					if ClearSecretInfoData, ok := ChapInitiatorSecretData["clear_secret_info"].(map[string]interface{}); ok {
+																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModel{
+																							Provider: func() types.String {
+																								if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																							URL: func() types.String {
+																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ChapTargetInitiatorSecret: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretModel {
+																		if ChapTargetInitiatorSecretData, ok := UseChapData["chap_target_initiator_secret"].(map[string]interface{}); ok {
+																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretModel{
+																				BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoModel {
+																					if BlindfoldSecretInfoData, ok := ChapTargetInitiatorSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
+																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoModel{
+																							DecryptionProvider: func() types.String {
+																								if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																							Location: func() types.String {
+																								if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																							StoreProvider: func() types.String {
+																								if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
+																				ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel {
+																					if ClearSecretInfoData, ok := ChapTargetInitiatorSecretData["clear_secret_info"].(map[string]interface{}); ok {
+																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel{
+																							Provider: func() types.String {
+																								if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																							URL: func() types.String {
+																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ChapTargetUsername: func() types.String {
+																		if v, ok := UseChapData["chap_target_username"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	ChapUsername: func() types.String {
+																		if v, ok := UseChapData["chap_username"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Username: func() types.String {
+															if v, ok := NetappBackendOntapSanData["username"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModel {
+															if VolumeDefaultsData, ok := NetappBackendOntapSanData["volume_defaults"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModel{
+																	AdaptiveQOSPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["adaptive_qos_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Encryption: func() types.Bool {
+																		if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	ExportPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["export_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	NoQOS: func() *FleetEmptyModel {
+																		if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
+																			return &FleetEmptyModel{}
+																		}
+																		return nil
+																	}(),
+																	QOSPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SecurityStyle: func() types.String {
+																		if v, ok := VolumeDefaultsData["security_style"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SnapshotDir: func() types.Bool {
+																		if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	SnapshotPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["snapshot_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SnapshotReserve: func() types.String {
+																		if v, ok := VolumeDefaultsData["snapshot_reserve"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SpaceReserve: func() types.String {
+																		if v, ok := VolumeDefaultsData["space_reserve"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SplitOnClone: func() types.Bool {
+																		if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	TieringPolicy: func() types.String {
+																		if v, ok := VolumeDefaultsData["tiering_policy"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	UnixPermissions: func() types.Int64 {
+																		if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		return types.Int64Null()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
 									}
 									return nil
 								}(),
 								PureServiceOrchestrator: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorModel {
-									if deepMap, ok := itemMap["pure_service_orchestrator"].(map[string]interface{}); ok {
+									if PureServiceOrchestratorData, ok := StorageDevicesItemMap["pure_service_orchestrator"].(map[string]interface{}); ok {
 										return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorModel{
+											Arrays: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysModel {
+												if ArraysData, ok := PureServiceOrchestratorData["arrays"].(map[string]interface{}); ok {
+													return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysModel{
+														FlashArray: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayModel {
+															if FlashArrayData, ok := ArraysData["flash_array"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayModel{
+																	DefaultFsOpt: func() types.String {
+																		if v, ok := FlashArrayData["default_fs_opt"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	DefaultFsType: func() types.String {
+																		if v, ok := FlashArrayData["default_fs_type"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	DefaultMountOpts: func() types.List {
+																		if v, ok := FlashArrayData["default_mount_opts"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																	DisablePreemptAttachments: func() types.Bool {
+																		if v, ok := FlashArrayData["disable_preempt_attachments"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	FlashArrays: func() []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel {
+																		if rawList, ok := FlashArrayData["flash_arrays"].([]interface{}); ok && len(rawList) > 0 {
+																			var FlashArraysResult []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel
+																			for _, FlashArraysItem := range rawList {
+																				if FlashArraysItemMap, ok := FlashArraysItem.(map[string]interface{}); ok {
+																					FlashArraysResult = append(FlashArraysResult, FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel{
+																						APIToken: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModel {
+																							if APITokenData, ok := FlashArraysItemMap["api_token"].(map[string]interface{}); ok {
+																								return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModel{
+																									BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoModel {
+																										if BlindfoldSecretInfoData, ok := APITokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoModel{
+																												DecryptionProvider: func() types.String {
+																													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																												Location: func() types.String {
+																													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																												StoreProvider: func() types.String {
+																													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																											}
+																										}
+																										return nil
+																									}(),
+																									ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel {
+																										if ClearSecretInfoData, ok := APITokenData["clear_secret_info"].(map[string]interface{}); ok {
+																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel{
+																												Provider: func() types.String {
+																													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																												URL: func() types.String {
+																													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																											}
+																										}
+																										return nil
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																						Labels: func() *FleetEmptyModel {
+																							if _, ok := FlashArraysItemMap["labels"].(map[string]interface{}); ok {
+																								return &FleetEmptyModel{}
+																							}
+																							return nil
+																						}(),
+																						MgmtDNSName: func() types.String {
+																							if v, ok := FlashArraysItemMap["mgmt_dns_name"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						MgmtIP: func() types.String {
+																							if v, ok := FlashArraysItemMap["mgmt_ip"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																					})
+																				}
+																			}
+																			return FlashArraysResult
+																		}
+																		return nil
+																	}(),
+																	IscsiLoginTimeout: func() types.Int64 {
+																		if v, ok := FlashArrayData["iscsi_login_timeout"].(float64); ok && v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		return types.Int64Null()
+																	}(),
+																	SanType: func() types.String {
+																		if v, ok := FlashArrayData["san_type"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														FlashBlade: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeModel {
+															if FlashBladeData, ok := ArraysData["flash_blade"].(map[string]interface{}); ok {
+																return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeModel{
+																	EnableSnapshotDirectory: func() types.Bool {
+																		if v, ok := FlashBladeData["enable_snapshot_directory"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
+																	ExportRules: func() types.String {
+																		if v, ok := FlashBladeData["export_rules"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	FlashBlades: func() []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel {
+																		if rawList, ok := FlashBladeData["flash_blades"].([]interface{}); ok && len(rawList) > 0 {
+																			var FlashBladesResult []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel
+																			for _, FlashBladesItem := range rawList {
+																				if FlashBladesItemMap, ok := FlashBladesItem.(map[string]interface{}); ok {
+																					FlashBladesResult = append(FlashBladesResult, FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel{
+																						APIToken: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModel {
+																							if APITokenData, ok := FlashBladesItemMap["api_token"].(map[string]interface{}); ok {
+																								return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModel{
+																									BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoModel {
+																										if BlindfoldSecretInfoData, ok := APITokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoModel{
+																												DecryptionProvider: func() types.String {
+																													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																												Location: func() types.String {
+																													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																												StoreProvider: func() types.String {
+																													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																											}
+																										}
+																										return nil
+																									}(),
+																									ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel {
+																										if ClearSecretInfoData, ok := APITokenData["clear_secret_info"].(map[string]interface{}); ok {
+																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel{
+																												Provider: func() types.String {
+																													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																												URL: func() types.String {
+																													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																														return types.StringValue(v)
+																													}
+																													return types.StringNull()
+																												}(),
+																											}
+																										}
+																										return nil
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																						Labels: func() *FleetEmptyModel {
+																							if _, ok := FlashBladesItemMap["labels"].(map[string]interface{}); ok {
+																								return &FleetEmptyModel{}
+																							}
+																							return nil
+																						}(),
+																						MgmtDNSName: func() types.String {
+																							if v, ok := FlashBladesItemMap["mgmt_dns_name"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						MgmtIP: func() types.String {
+																							if v, ok := FlashBladesItemMap["mgmt_ip"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						NfsEndpointDNSName: func() types.String {
+																							if v, ok := FlashBladesItemMap["nfs_endpoint_dns_name"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						NfsEndpointIP: func() types.String {
+																							if v, ok := FlashBladesItemMap["nfs_endpoint_ip"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																					})
+																				}
+																			}
+																			return FlashBladesResult
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
 											ClusterID: func() types.String {
-												if v, ok := deepMap["cluster_id"].(string); ok && v != "" {
+												if v, ok := PureServiceOrchestratorData["cluster_id"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											EnableStorageTopology: func() types.Bool {
-												if v, ok := deepMap["enable_storage_topology"].(bool); ok {
+												if v, ok := PureServiceOrchestratorData["enable_storage_topology"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											EnableStrictTopology: func() types.Bool {
-												if v, ok := deepMap["enable_strict_topology"].(bool); ok {
+												if v, ok := PureServiceOrchestratorData["enable_strict_topology"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
@@ -8389,7 +14605,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return nil
 								}(),
 								StorageDevice: func() types.String {
-									if v, ok := itemMap["storage_device"].(string); ok && v != "" {
+									if v, ok := StorageDevicesItemMap["storage_device"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -8397,7 +14613,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							})
 						}
 					}
-					return result
+					return StorageDevicesResult
 				}
 				return nil
 			}(),
@@ -8405,26 +14621,29 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	}
 	if blockData, ok := apiResource.Spec["storage_interface_list"].(map[string]interface{}); ok && (isImport || data.StorageInterfaceList != nil) {
 		data.StorageInterfaceList = &FleetStorageInterfaceListModel{
-			Interfaces: func() []FleetStorageInterfaceListInterfacesModel {
-				if listData, ok := blockData["interfaces"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetStorageInterfaceListInterfacesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetStorageInterfaceListInterfacesModel{
+			Interfaces: func() types.List {
+				if !isImport && data.StorageInterfaceList != nil && (data.StorageInterfaceList.Interfaces.IsNull() || len(data.StorageInterfaceList.Interfaces.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageInterfaceListInterfacesModelAttrTypes})
+				}
+				if rawList, ok := blockData["interfaces"].([]interface{}); ok && len(rawList) > 0 {
+					var InterfacesResult []FleetStorageInterfaceListInterfacesModel
+					for _, InterfacesItem := range rawList {
+						if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
+							InterfacesResult = append(InterfacesResult, FleetStorageInterfaceListInterfacesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := InterfacesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := InterfacesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := InterfacesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -8432,31 +14651,125 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageInterfaceListInterfacesModelAttrTypes}, InterfacesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FleetStorageInterfaceListInterfacesModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["storage_static_routes"].(map[string]interface{}); ok && (isImport || data.StorageStaticRoutes != nil) {
 		data.StorageStaticRoutes = &FleetStorageStaticRoutesModel{
-			StorageRoutes: func() []FleetStorageStaticRoutesStorageRoutesModel {
-				if listData, ok := blockData["storage_routes"].([]interface{}); ok && len(listData) > 0 {
-					var result []FleetStorageStaticRoutesStorageRoutesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, FleetStorageStaticRoutesStorageRoutesModel{
+			StorageRoutes: func() types.List {
+				if !isImport && data.StorageStaticRoutes != nil && (data.StorageStaticRoutes.StorageRoutes.IsNull() || len(data.StorageStaticRoutes.StorageRoutes.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesModelAttrTypes})
+				}
+				if rawList, ok := blockData["storage_routes"].([]interface{}); ok && len(rawList) > 0 {
+					var StorageRoutesResult []FleetStorageStaticRoutesStorageRoutesModel
+					for _, StorageRoutesItem := range rawList {
+						if StorageRoutesItemMap, ok := StorageRoutesItem.(map[string]interface{}); ok {
+							StorageRoutesResult = append(StorageRoutesResult, FleetStorageStaticRoutesStorageRoutesModel{
+								Attrs: func() types.List {
+									if v, ok := StorageRoutesItemMap["attrs"].([]interface{}); ok && len(v) > 0 {
+										var items []string
+										for _, item := range v {
+											if s, ok := item.(string); ok {
+												items = append(items, s)
+											}
+										}
+										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										return listVal
+									}
+									return types.ListNull(types.StringType)
+								}(),
 								Labels: func() *FleetEmptyModel {
-									if _, ok := itemMap["labels"].(map[string]interface{}); ok {
+									if _, ok := StorageRoutesItemMap["labels"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
 									return nil
 								}(),
 								Nexthop: func() *FleetStorageStaticRoutesStorageRoutesNexthopModel {
-									if deepMap, ok := itemMap["nexthop"].(map[string]interface{}); ok {
+									if NexthopData, ok := StorageRoutesItemMap["nexthop"].(map[string]interface{}); ok {
 										return &FleetStorageStaticRoutesStorageRoutesNexthopModel{
+											Interface: func() types.List {
+												if rawList, ok := NexthopData["interface"].([]interface{}); ok && len(rawList) > 0 {
+													var InterfaceResult []FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModel
+													for _, InterfaceItem := range rawList {
+														if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
+															InterfaceResult = append(InterfaceResult, FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModel{
+																Kind: func() types.String {
+																	if v, ok := InterfaceItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := InterfaceItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := InterfaceItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := InterfaceItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := InterfaceItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModelAttrTypes}, InterfaceResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModelAttrTypes})
+											}(),
+											NexthopAddress: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressModel {
+												if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
+													return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressModel{
+														Ipv4: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv4Model {
+															if Ipv4Data, ok := NexthopAddressData["ipv4"].(map[string]interface{}); ok {
+																return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv4Model{
+																	Addr: func() types.String {
+																		if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Ipv6: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv6Model {
+															if Ipv6Data, ok := NexthopAddressData["ipv6"].(map[string]interface{}); ok {
+																return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv6Model{
+																	Addr: func() types.String {
+																		if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
 											Type: func() types.String {
-												if v, ok := deepMap["type"].(string); ok && v != "" {
+												if v, ok := NexthopData["type"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -8465,12 +14778,64 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									}
 									return nil
 								}(),
+								Subnets: func() []FleetStorageStaticRoutesStorageRoutesSubnetsModel {
+									if rawList, ok := StorageRoutesItemMap["subnets"].([]interface{}); ok && len(rawList) > 0 {
+										var SubnetsResult []FleetStorageStaticRoutesStorageRoutesSubnetsModel
+										for _, SubnetsItem := range rawList {
+											if SubnetsItemMap, ok := SubnetsItem.(map[string]interface{}); ok {
+												SubnetsResult = append(SubnetsResult, FleetStorageStaticRoutesStorageRoutesSubnetsModel{
+													Ipv4: func() *FleetStorageStaticRoutesStorageRoutesSubnetsIpv4Model {
+														if Ipv4Data, ok := SubnetsItemMap["ipv4"].(map[string]interface{}); ok {
+															return &FleetStorageStaticRoutesStorageRoutesSubnetsIpv4Model{
+																Plen: func() types.Int64 {
+																	if v, ok := Ipv4Data["plen"].(float64); ok && v != 0 {
+																		return types.Int64Value(int64(v))
+																	}
+																	return types.Int64Null()
+																}(),
+																Prefix: func() types.String {
+																	if v, ok := Ipv4Data["prefix"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+													Ipv6: func() *FleetStorageStaticRoutesStorageRoutesSubnetsIpv6Model {
+														if Ipv6Data, ok := SubnetsItemMap["ipv6"].(map[string]interface{}); ok {
+															return &FleetStorageStaticRoutesStorageRoutesSubnetsIpv6Model{
+																Plen: func() types.Int64 {
+																	if v, ok := Ipv6Data["plen"].(float64); ok && v != 0 {
+																		return types.Int64Value(int64(v))
+																	}
+																	return types.Int64Null()
+																}(),
+																Prefix: func() types.String {
+																	if v, ok := Ipv6Data["prefix"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+												})
+											}
+										}
+										return SubnetsResult
+									}
+									return nil
+								}(),
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesModelAttrTypes}, StorageRoutesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesModelAttrTypes})
 			}(),
 		}
 	}

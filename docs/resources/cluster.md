@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_cluster Resource - terraform-provider-f5xc"
+page_title: "xcsh_cluster Resource - xcsh"
 subcategory: "Load Balancing"
 description: |-
   Manages cluster will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_cluster (Resource)
+# xcsh_cluster (Resource)
 
 Manages cluster will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
 
@@ -15,46 +15,29 @@ Manages cluster will create the object in the storage backend for namespace meta
 
 ```terraform
 # Cluster Resource Example
-# Manages cluster will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
+# Manages cluster will create the object in the storage backend for namespace metadata.namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
 # Basic Cluster configuration
-resource "f5xc_cluster" "example" {
+resource "xcsh_cluster" "example" {
   name      = "example-cluster"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # [OneOf: auto_http_config, http1_config, http2_options] En...
-  auto_http_config {
-    # Configure auto_http_config settings
-  }
-  # CircuitBreaker provides a mechanism for watching failures...
-  circuit_breaker {
-    # Configure circuit_breaker settings
-  }
-  # List of key-value pairs that define default subset. This ...
-  default_subset {
-    # Configure default_subset settings
-  }
+  connection_timeout     = 1
+  endpoint_selection     = "DISTRIBUTED"
+  fallback_policy        = "NO_FALLBACK"
+  http_idle_timeout      = 1
+  loadbalancer_algorithm = "ROUND_ROBIN"
 }
 ```
 
@@ -476,5 +459,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_cluster.example system/example
+terraform import xcsh_cluster.example system/example
 ```

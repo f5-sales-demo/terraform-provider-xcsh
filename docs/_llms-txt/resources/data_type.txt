@@ -1,4 +1,4 @@
-# f5xc_data_type
+# xcsh_data_type
 
 Category: Security
 Data_type creates a new object in the storage backend for metadata.namespace
@@ -13,25 +13,13 @@ Data_type creates a new object in the storage backend for metadata.namespace
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_data_type" "example" {
+resource "xcsh_data_type" "example" {
   name      = "example-data-type"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  rules {
-  }
-  key_pattern {
-  }
-  exact_values {
-  }
+  compliances       = ["example-value"]
+  is_pii            = true
+  is_sensitive_data = true
 }
 ```
 

@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_user_identification Resource - terraform-provider-f5xc"
+page_title: "xcsh_user_identification Resource - xcsh"
 subcategory: "Security"
 description: |-
   Manages user_identification creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_user_identification (Resource)
+# xcsh_user_identification (Resource)
 
 Manages user_identification creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.
 
@@ -14,37 +14,24 @@ Manages user_identification creates a new object in the storage backend for meta
 ## Example Usage
 
 ```terraform
-# User Identification Resource Example
-# Manages user_identification creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.
+# UserIdentification Resource Example
+# Manages user_identification creates a new object in the storage backend for metadata.namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic User Identification configuration
-resource "f5xc_user_identification" "example" {
+# Basic UserIdentification configuration
+resource "xcsh_user_identification" "example" {
   name      = "example-user-identification"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  rules {
-    client_ip {}
-  }
 }
 ```
 
@@ -58,7 +45,7 @@ resource "f5xc_user_identification" "example" {
 ### All Attributes
 
 ```hcl
-resource "f5xc_user_identification" "test" {
+resource "xcsh_user_identification" "test" {
   name        = "example"
   namespace   = "system"
   description = "Test user identification with all attributes"
@@ -82,7 +69,7 @@ resource "f5xc_user_identification" "test" {
 ### Cookie
 
 ```hcl
-resource "f5xc_user_identification" "test" {
+resource "xcsh_user_identification" "test" {
   name      = "example"
   namespace = "system"
 
@@ -95,7 +82,7 @@ resource "f5xc_user_identification" "test" {
 ### Http Header
 
 ```hcl
-resource "f5xc_user_identification" "test" {
+resource "xcsh_user_identification" "test" {
   name      = "example"
   namespace = "system"
 
@@ -108,7 +95,7 @@ resource "f5xc_user_identification" "test" {
 ### Tls Fingerprint
 
 ```hcl
-resource "f5xc_user_identification" "test" {
+resource "xcsh_user_identification" "test" {
   name      = "example"
   namespace = "system"
 
@@ -121,7 +108,7 @@ resource "f5xc_user_identification" "test" {
 ### With Annotations
 
 ```hcl
-resource "f5xc_user_identification" "test" {
+resource "xcsh_user_identification" "test" {
   name      = "example"
   namespace = "system"
 
@@ -138,7 +125,7 @@ resource "f5xc_user_identification" "test" {
 ### With Description
 
 ```hcl
-resource "f5xc_user_identification" "test" {
+resource "xcsh_user_identification" "test" {
   name        = "example"
   namespace   = "system"
   description = "example-value"
@@ -152,7 +139,7 @@ resource "f5xc_user_identification" "test" {
 ### With Labels
 
 ```hcl
-resource "f5xc_user_identification" "test" {
+resource "xcsh_user_identification" "test" {
   name      = "example"
   namespace = "system"
 
@@ -169,7 +156,7 @@ resource "f5xc_user_identification" "test" {
 ### With Rules
 
 ```hcl
-resource "f5xc_user_identification" "test" {
+resource "xcsh_user_identification" "test" {
   name        = "example"
   namespace   = "system"
   description = "User identification with identification rules"
@@ -371,5 +358,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_user_identification.example system/example
+terraform import xcsh_user_identification.example system/example
 ```

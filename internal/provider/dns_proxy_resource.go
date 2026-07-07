@@ -21,9 +21,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -97,8 +97,8 @@ var DNSProxyLBAlgorithmModelAttrTypes = map[string]attr.Type{
 
 // DNSProxyOriginServersModel represents origin_servers block
 type DNSProxyOriginServersModel struct {
-	HealthChecks  *DNSProxyOriginServersHealthChecksModel   `tfsdk:"health_checks"`
-	OriginServers []DNSProxyOriginServersOriginServersModel `tfsdk:"origin_servers"`
+	HealthChecks  *DNSProxyOriginServersHealthChecksModel `tfsdk:"health_checks"`
+	OriginServers types.List                              `tfsdk:"origin_servers"`
 }
 
 // DNSProxyOriginServersModelAttrTypes defines the attribute types for DNSProxyOriginServersModel
@@ -297,7 +297,7 @@ var DNSProxyOriginServersOriginServersPublicNameModelAttrTypes = map[string]attr
 
 // DNSProxyOriginServersOriginServersSitePreferencesModel represents site_preferences block
 type DNSProxyOriginServersOriginServersSitePreferencesModel struct {
-	Refs []DNSProxyOriginServersOriginServersSitePreferencesRefsModel `tfsdk:"refs"`
+	Refs types.List `tfsdk:"refs"`
 }
 
 // DNSProxyOriginServersOriginServersSitePreferencesModelAttrTypes defines the attribute types for DNSProxyOriginServersOriginServersSitePreferencesModel
@@ -351,7 +351,7 @@ var DNSProxyProxyAdvertisementModelAttrTypes = map[string]attr.Type{
 
 // DNSProxyProxyAdvertisementAdvertiseCustomModel represents advertise_custom block
 type DNSProxyProxyAdvertisementAdvertiseCustomModel struct {
-	AdvertiseWhere []DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel `tfsdk:"advertise_where"`
+	AdvertiseWhere types.List `tfsdk:"advertise_where"`
 }
 
 // DNSProxyProxyAdvertisementAdvertiseCustomModelAttrTypes defines the attribute types for DNSProxyProxyAdvertisementAdvertiseCustomModel
@@ -1607,155 +1607,450 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.CacheProfile != nil {
-		cache_profileMap := make(map[string]interface{})
+		CacheProfileMap := make(map[string]interface{})
 		if !data.CacheProfile.CacheSize.IsNull() && !data.CacheProfile.CacheSize.IsUnknown() {
-			cache_profileMap["cache_size"] = data.CacheProfile.CacheSize.ValueInt64()
+			CacheProfileMap["cache_size"] = data.CacheProfile.CacheSize.ValueInt64()
 		}
 		if data.CacheProfile.DisableCacheProfile != nil {
-			cache_profileMap["disable_cache_profile"] = map[string]interface{}{}
+			CacheProfileMap["disable_cache_profile"] = map[string]interface{}{}
 		}
-		createReq.Spec["cache_profile"] = cache_profileMap
+		createReq.Spec["cache_profile"] = CacheProfileMap
 	}
 	if data.DDOSProfile != nil {
-		ddos_profileMap := make(map[string]interface{})
+		DDOSProfileMap := make(map[string]interface{})
 		if data.DDOSProfile.DisableDDOSMitigation != nil {
-			ddos_profileMap["disable_ddos_mitigation"] = map[string]interface{}{}
+			DDOSProfileMap["disable_ddos_mitigation"] = map[string]interface{}{}
 		}
 		if data.DDOSProfile.EnableDDOSMitigation != nil {
-			ddos_profileMap["enable_ddos_mitigation"] = map[string]interface{}{}
+			DDOSProfileMap["enable_ddos_mitigation"] = map[string]interface{}{}
 		}
-		createReq.Spec["ddos_profile"] = ddos_profileMap
+		createReq.Spec["ddos_profile"] = DDOSProfileMap
 	}
 	if !data.Irules.IsNull() && !data.Irules.IsUnknown() {
-		var irulesItems []DNSProxyIrulesModel
-		diags := data.Irules.ElementsAs(ctx, &irulesItems, false)
+		var IrulesElems []DNSProxyIrulesModel
+		diags := data.Irules.ElementsAs(ctx, &IrulesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(irulesItems) > 0 {
-			var irulesList []map[string]interface{}
-			for _, item := range irulesItems {
-				itemMap := make(map[string]interface{})
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+		if !resp.Diagnostics.HasError() && len(IrulesElems) > 0 {
+			var IrulesList []map[string]interface{}
+			for _, IrulesItem := range IrulesElems {
+				IrulesItemMap := make(map[string]interface{})
+				if !IrulesItem.Name.IsNull() && !IrulesItem.Name.IsUnknown() {
+					IrulesItemMap["name"] = IrulesItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !IrulesItem.Namespace.IsNull() && !IrulesItem.Namespace.IsUnknown() {
+					IrulesItemMap["namespace"] = IrulesItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !IrulesItem.Tenant.IsNull() && !IrulesItem.Tenant.IsUnknown() {
+					IrulesItemMap["tenant"] = IrulesItem.Tenant.ValueString()
 				}
-				irulesList = append(irulesList, itemMap)
+				IrulesList = append(IrulesList, IrulesItemMap)
 			}
-			createReq.Spec["irules"] = irulesList
+			createReq.Spec["irules"] = IrulesList
 		}
 	}
 	if data.LBAlgorithm != nil {
-		lb_algorithmMap := make(map[string]interface{})
+		LBAlgorithmMap := make(map[string]interface{})
 		if data.LBAlgorithm.RoundRobin != nil {
-			lb_algorithmMap["round_robin"] = map[string]interface{}{}
+			LBAlgorithmMap["round_robin"] = map[string]interface{}{}
 		}
-		createReq.Spec["lb_algorithm"] = lb_algorithmMap
+		createReq.Spec["lb_algorithm"] = LBAlgorithmMap
 	}
 	if data.OriginServers != nil {
-		origin_serversMap := make(map[string]interface{})
+		OriginServersMap := make(map[string]interface{})
 		if data.OriginServers.HealthChecks != nil {
-			health_checksNestedMap := make(map[string]interface{})
+			HealthChecksMap := make(map[string]interface{})
+			if len(data.OriginServers.HealthChecks.HealthCheck) > 0 {
+				var HealthCheckList []map[string]interface{}
+				for _, HealthCheckItem := range data.OriginServers.HealthChecks.HealthCheck {
+					HealthCheckItemMap := make(map[string]interface{})
+					if HealthCheckItem.DNSHealthCheck != nil {
+						DNSHealthCheckMap := make(map[string]interface{})
+						if !HealthCheckItem.DNSHealthCheck.ExpectedRcode.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedRcode.IsUnknown() {
+							DNSHealthCheckMap["expected_rcode"] = HealthCheckItem.DNSHealthCheck.ExpectedRcode.ValueString()
+						}
+						if !HealthCheckItem.DNSHealthCheck.ExpectedRecordType.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedRecordType.IsUnknown() {
+							DNSHealthCheckMap["expected_record_type"] = HealthCheckItem.DNSHealthCheck.ExpectedRecordType.ValueString()
+						}
+						if !HealthCheckItem.DNSHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedResponse.IsUnknown() {
+							DNSHealthCheckMap["expected_response"] = HealthCheckItem.DNSHealthCheck.ExpectedResponse.ValueString()
+						}
+						if !HealthCheckItem.DNSHealthCheck.QueryName.IsNull() && !HealthCheckItem.DNSHealthCheck.QueryName.IsUnknown() {
+							DNSHealthCheckMap["query_name"] = HealthCheckItem.DNSHealthCheck.QueryName.ValueString()
+						}
+						if !HealthCheckItem.DNSHealthCheck.QueryType.IsNull() && !HealthCheckItem.DNSHealthCheck.QueryType.IsUnknown() {
+							DNSHealthCheckMap["query_type"] = HealthCheckItem.DNSHealthCheck.QueryType.ValueString()
+						}
+						if !HealthCheckItem.DNSHealthCheck.Reverse.IsNull() && !HealthCheckItem.DNSHealthCheck.Reverse.IsUnknown() {
+							DNSHealthCheckMap["reverse"] = HealthCheckItem.DNSHealthCheck.Reverse.ValueBool()
+						}
+						HealthCheckItemMap["dns_health_check"] = DNSHealthCheckMap
+					}
+					if HealthCheckItem.ICMPHealthCheck != nil {
+						HealthCheckItemMap["icmp_health_check"] = map[string]interface{}{}
+					}
+					if HealthCheckItem.TCPHealthCheck != nil {
+						TCPHealthCheckMap := make(map[string]interface{})
+						if !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsUnknown() {
+							TCPHealthCheckMap["expected_response"] = HealthCheckItem.TCPHealthCheck.ExpectedResponse.ValueString()
+						}
+						if !HealthCheckItem.TCPHealthCheck.SendPayload.IsNull() && !HealthCheckItem.TCPHealthCheck.SendPayload.IsUnknown() {
+							TCPHealthCheckMap["send_payload"] = HealthCheckItem.TCPHealthCheck.SendPayload.ValueString()
+						}
+						HealthCheckItemMap["tcp_health_check"] = TCPHealthCheckMap
+					}
+					HealthCheckList = append(HealthCheckList, HealthCheckItemMap)
+				}
+				HealthChecksMap["health_check"] = HealthCheckList
+			}
 			if !data.OriginServers.HealthChecks.HealthyThreshold.IsNull() && !data.OriginServers.HealthChecks.HealthyThreshold.IsUnknown() {
-				health_checksNestedMap["healthy_threshold"] = data.OriginServers.HealthChecks.HealthyThreshold.ValueInt64()
+				HealthChecksMap["healthy_threshold"] = data.OriginServers.HealthChecks.HealthyThreshold.ValueInt64()
 			}
 			if !data.OriginServers.HealthChecks.Interval.IsNull() && !data.OriginServers.HealthChecks.Interval.IsUnknown() {
-				health_checksNestedMap["interval"] = data.OriginServers.HealthChecks.Interval.ValueInt64()
+				HealthChecksMap["interval"] = data.OriginServers.HealthChecks.Interval.ValueInt64()
 			}
 			if !data.OriginServers.HealthChecks.Timeout.IsNull() && !data.OriginServers.HealthChecks.Timeout.IsUnknown() {
-				health_checksNestedMap["timeout"] = data.OriginServers.HealthChecks.Timeout.ValueInt64()
+				HealthChecksMap["timeout"] = data.OriginServers.HealthChecks.Timeout.ValueInt64()
 			}
 			if !data.OriginServers.HealthChecks.UnhealthyThreshold.IsNull() && !data.OriginServers.HealthChecks.UnhealthyThreshold.IsUnknown() {
-				health_checksNestedMap["unhealthy_threshold"] = data.OriginServers.HealthChecks.UnhealthyThreshold.ValueInt64()
+				HealthChecksMap["unhealthy_threshold"] = data.OriginServers.HealthChecks.UnhealthyThreshold.ValueInt64()
 			}
-			origin_serversMap["health_checks"] = health_checksNestedMap
+			OriginServersMap["health_checks"] = HealthChecksMap
 		}
-		if len(data.OriginServers.OriginServers) > 0 {
-			var origin_serversList []map[string]interface{}
-			for _, listItem := range data.OriginServers.OriginServers {
-				listItemMap := make(map[string]interface{})
-				if listItem.K8SService != nil {
-					k8s_serviceDeepMap := make(map[string]interface{})
-					if listItem.K8SService.InsideNetwork != nil {
-						k8s_serviceDeepMap["inside_network"] = map[string]interface{}{}
+		if !data.OriginServers.OriginServers.IsNull() && !data.OriginServers.OriginServers.IsUnknown() {
+			var OriginServersElems []DNSProxyOriginServersOriginServersModel
+			diags := data.OriginServers.OriginServers.ElementsAs(ctx, &OriginServersElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(OriginServersElems) > 0 {
+				var OriginServersList []map[string]interface{}
+				for _, OriginServersItem := range OriginServersElems {
+					OriginServersItemMap := make(map[string]interface{})
+					if OriginServersItem.K8SService != nil {
+						K8SServiceMap := make(map[string]interface{})
+						if OriginServersItem.K8SService.InsideNetwork != nil {
+							K8SServiceMap["inside_network"] = map[string]interface{}{}
+						}
+						if OriginServersItem.K8SService.OutsideNetwork != nil {
+							K8SServiceMap["outside_network"] = map[string]interface{}{}
+						}
+						if !OriginServersItem.K8SService.Protocol.IsNull() && !OriginServersItem.K8SService.Protocol.IsUnknown() {
+							K8SServiceMap["protocol"] = OriginServersItem.K8SService.Protocol.ValueString()
+						}
+						if !OriginServersItem.K8SService.ServiceName.IsNull() && !OriginServersItem.K8SService.ServiceName.IsUnknown() {
+							K8SServiceMap["service_name"] = OriginServersItem.K8SService.ServiceName.ValueString()
+						}
+						if OriginServersItem.K8SService.SiteLocator != nil {
+							SiteLocatorMap := make(map[string]interface{})
+							if OriginServersItem.K8SService.SiteLocator.Site != nil {
+								SiteMap := make(map[string]interface{})
+								if !OriginServersItem.K8SService.SiteLocator.Site.Name.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Name.IsUnknown() {
+									SiteMap["name"] = OriginServersItem.K8SService.SiteLocator.Site.Name.ValueString()
+								}
+								if !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsUnknown() {
+									SiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
+								}
+								if !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsUnknown() {
+									SiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
+								}
+								SiteLocatorMap["site"] = SiteMap
+							}
+							if OriginServersItem.K8SService.SiteLocator.VirtualSite != nil {
+								VirtualSiteMap := make(map[string]interface{})
+								if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.IsUnknown() {
+									VirtualSiteMap["name"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.ValueString()
+								}
+								if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
+									VirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
+								}
+								if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
+									VirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
+								}
+								SiteLocatorMap["virtual_site"] = VirtualSiteMap
+							}
+							K8SServiceMap["site_locator"] = SiteLocatorMap
+						}
+						if OriginServersItem.K8SService.SnatPool != nil {
+							SnatPoolMap := make(map[string]interface{})
+							if OriginServersItem.K8SService.SnatPool.NoSnatPool != nil {
+								SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
+							}
+							if OriginServersItem.K8SService.SnatPool.SnatPool != nil {
+								SnatPoolMap := make(map[string]interface{})
+								if !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsUnknown() {
+									var PrefixesItems []string
+									diags := OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+									if !diags.HasError() {
+										SnatPoolMap["prefixes"] = PrefixesItems
+									}
+								}
+								SnatPoolMap["snat_pool"] = SnatPoolMap
+							}
+							K8SServiceMap["snat_pool"] = SnatPoolMap
+						}
+						if OriginServersItem.K8SService.Vk8sNetworks != nil {
+							K8SServiceMap["vk8s_networks"] = map[string]interface{}{}
+						}
+						OriginServersItemMap["k8s_service"] = K8SServiceMap
 					}
-					if listItem.K8SService.OutsideNetwork != nil {
-						k8s_serviceDeepMap["outside_network"] = map[string]interface{}{}
+					if OriginServersItem.NoPreference != nil {
+						OriginServersItemMap["no_preference"] = map[string]interface{}{}
 					}
-					if !listItem.K8SService.Protocol.IsNull() && !listItem.K8SService.Protocol.IsUnknown() {
-						k8s_serviceDeepMap["protocol"] = listItem.K8SService.Protocol.ValueString()
+					if OriginServersItem.PublicIP != nil {
+						PublicIPMap := make(map[string]interface{})
+						if !OriginServersItem.PublicIP.IP.IsNull() && !OriginServersItem.PublicIP.IP.IsUnknown() {
+							PublicIPMap["ip"] = OriginServersItem.PublicIP.IP.ValueString()
+						}
+						OriginServersItemMap["public_ip"] = PublicIPMap
 					}
-					if !listItem.K8SService.ServiceName.IsNull() && !listItem.K8SService.ServiceName.IsUnknown() {
-						k8s_serviceDeepMap["service_name"] = listItem.K8SService.ServiceName.ValueString()
+					if OriginServersItem.PublicName != nil {
+						PublicNameMap := make(map[string]interface{})
+						if !OriginServersItem.PublicName.DNSName.IsNull() && !OriginServersItem.PublicName.DNSName.IsUnknown() {
+							PublicNameMap["dns_name"] = OriginServersItem.PublicName.DNSName.ValueString()
+						}
+						if !OriginServersItem.PublicName.RefreshInterval.IsNull() && !OriginServersItem.PublicName.RefreshInterval.IsUnknown() {
+							PublicNameMap["refresh_interval"] = OriginServersItem.PublicName.RefreshInterval.ValueInt64()
+						}
+						OriginServersItemMap["public_name"] = PublicNameMap
 					}
-					if listItem.K8SService.Vk8sNetworks != nil {
-						k8s_serviceDeepMap["vk8s_networks"] = map[string]interface{}{}
+					if OriginServersItem.SitePreferences != nil {
+						SitePreferencesMap := make(map[string]interface{})
+						if !OriginServersItem.SitePreferences.Refs.IsNull() && !OriginServersItem.SitePreferences.Refs.IsUnknown() {
+							var RefsElems []DNSProxyOriginServersOriginServersSitePreferencesRefsModel
+							diags := OriginServersItem.SitePreferences.Refs.ElementsAs(ctx, &RefsElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(RefsElems) > 0 {
+								var RefsList []map[string]interface{}
+								for _, RefsItem := range RefsElems {
+									RefsItemMap := make(map[string]interface{})
+									if !RefsItem.Name.IsNull() && !RefsItem.Name.IsUnknown() {
+										RefsItemMap["name"] = RefsItem.Name.ValueString()
+									}
+									if !RefsItem.Namespace.IsNull() && !RefsItem.Namespace.IsUnknown() {
+										RefsItemMap["namespace"] = RefsItem.Namespace.ValueString()
+									}
+									if !RefsItem.Tenant.IsNull() && !RefsItem.Tenant.IsUnknown() {
+										RefsItemMap["tenant"] = RefsItem.Tenant.ValueString()
+									}
+									RefsList = append(RefsList, RefsItemMap)
+								}
+								SitePreferencesMap["refs"] = RefsList
+							}
+						}
+						OriginServersItemMap["site_preferences"] = SitePreferencesMap
 					}
-					listItemMap["k8s_service"] = k8s_serviceDeepMap
+					OriginServersList = append(OriginServersList, OriginServersItemMap)
 				}
-				if listItem.NoPreference != nil {
-					listItemMap["no_preference"] = map[string]interface{}{}
-				}
-				if listItem.PublicIP != nil {
-					public_ipDeepMap := make(map[string]interface{})
-					if !listItem.PublicIP.IP.IsNull() && !listItem.PublicIP.IP.IsUnknown() {
-						public_ipDeepMap["ip"] = listItem.PublicIP.IP.ValueString()
-					}
-					listItemMap["public_ip"] = public_ipDeepMap
-				}
-				if listItem.PublicName != nil {
-					public_nameDeepMap := make(map[string]interface{})
-					if !listItem.PublicName.DNSName.IsNull() && !listItem.PublicName.DNSName.IsUnknown() {
-						public_nameDeepMap["dns_name"] = listItem.PublicName.DNSName.ValueString()
-					}
-					if !listItem.PublicName.RefreshInterval.IsNull() && !listItem.PublicName.RefreshInterval.IsUnknown() {
-						public_nameDeepMap["refresh_interval"] = listItem.PublicName.RefreshInterval.ValueInt64()
-					}
-					listItemMap["public_name"] = public_nameDeepMap
-				}
-				if listItem.SitePreferences != nil {
-					site_preferencesDeepMap := make(map[string]interface{})
-					listItemMap["site_preferences"] = site_preferencesDeepMap
-				}
-				origin_serversList = append(origin_serversList, listItemMap)
+				OriginServersMap["origin_servers"] = OriginServersList
 			}
-			origin_serversMap["origin_servers"] = origin_serversList
 		}
-		createReq.Spec["origin_servers"] = origin_serversMap
+		createReq.Spec["origin_servers"] = OriginServersMap
 	}
 	if data.ProtocolInspection != nil {
-		protocol_inspectionMap := make(map[string]interface{})
+		ProtocolInspectionMap := make(map[string]interface{})
 		if !data.ProtocolInspection.Name.IsNull() && !data.ProtocolInspection.Name.IsUnknown() {
-			protocol_inspectionMap["name"] = data.ProtocolInspection.Name.ValueString()
+			ProtocolInspectionMap["name"] = data.ProtocolInspection.Name.ValueString()
 		}
 		if !data.ProtocolInspection.Namespace.IsNull() && !data.ProtocolInspection.Namespace.IsUnknown() {
-			protocol_inspectionMap["namespace"] = data.ProtocolInspection.Namespace.ValueString()
+			ProtocolInspectionMap["namespace"] = data.ProtocolInspection.Namespace.ValueString()
 		}
 		if !data.ProtocolInspection.Tenant.IsNull() && !data.ProtocolInspection.Tenant.IsUnknown() {
-			protocol_inspectionMap["tenant"] = data.ProtocolInspection.Tenant.ValueString()
+			ProtocolInspectionMap["tenant"] = data.ProtocolInspection.Tenant.ValueString()
 		}
-		createReq.Spec["protocol_inspection"] = protocol_inspectionMap
+		createReq.Spec["protocol_inspection"] = ProtocolInspectionMap
 	}
 	if data.ProxyAdvertisement != nil {
-		proxy_advertisementMap := make(map[string]interface{})
+		ProxyAdvertisementMap := make(map[string]interface{})
 		if data.ProxyAdvertisement.AdvertiseCustom != nil {
-			advertise_customNestedMap := make(map[string]interface{})
-			proxy_advertisementMap["advertise_custom"] = advertise_customNestedMap
+			AdvertiseCustomMap := make(map[string]interface{})
+			if !data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsNull() && !data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsUnknown() {
+				var AdvertiseWhereElems []DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel
+				diags := data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(AdvertiseWhereElems) > 0 {
+					var AdvertiseWhereList []map[string]interface{}
+					for _, AdvertiseWhereItem := range AdvertiseWhereElems {
+						AdvertiseWhereItemMap := make(map[string]interface{})
+						if AdvertiseWhereItem.AdvertiseOnPublic != nil {
+							AdvertiseOnPublicMap := make(map[string]interface{})
+							if AdvertiseWhereItem.AdvertiseOnPublic.PublicIP != nil {
+								PublicIPMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
+									PublicIPMap["name"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
+									PublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
+									PublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+								}
+								AdvertiseOnPublicMap["public_ip"] = PublicIPMap
+							}
+							AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseOnPublicMap
+						}
+						if !AdvertiseWhereItem.Port.IsNull() && !AdvertiseWhereItem.Port.IsUnknown() {
+							AdvertiseWhereItemMap["port"] = AdvertiseWhereItem.Port.ValueInt64()
+						}
+						if !AdvertiseWhereItem.PortRanges.IsNull() && !AdvertiseWhereItem.PortRanges.IsUnknown() {
+							AdvertiseWhereItemMap["port_ranges"] = AdvertiseWhereItem.PortRanges.ValueString()
+						}
+						if AdvertiseWhereItem.Site != nil {
+							SiteMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.Site.IP.IsNull() && !AdvertiseWhereItem.Site.IP.IsUnknown() {
+								SiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
+							}
+							if !AdvertiseWhereItem.Site.Network.IsNull() && !AdvertiseWhereItem.Site.Network.IsUnknown() {
+								SiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
+							}
+							if AdvertiseWhereItem.Site.Site != nil {
+								SiteMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.Site.Site.Name.IsNull() && !AdvertiseWhereItem.Site.Site.Name.IsUnknown() {
+									SiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
+									SiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
+									SiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
+								}
+								SiteMap["site"] = SiteMap
+							}
+							AdvertiseWhereItemMap["site"] = SiteMap
+						}
+						if AdvertiseWhereItem.UseDefaultPort != nil {
+							AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
+						}
+						if AdvertiseWhereItem.VirtualNetwork != nil {
+							VirtualNetworkMap := make(map[string]interface{})
+							if AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP != nil {
+								VirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
+							}
+							if AdvertiseWhereItem.VirtualNetwork.DefaultVIP != nil {
+								VirtualNetworkMap["default_vip"] = map[string]interface{}{}
+							}
+							if !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
+								VirtualNetworkMap["specific_v6_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsUnknown() {
+								VirtualNetworkMap["specific_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificVIP.ValueString()
+							}
+							if AdvertiseWhereItem.VirtualNetwork.VirtualNetwork != nil {
+								VirtualNetworkMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsUnknown() {
+									VirtualNetworkMap["name"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
+									VirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
+									VirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
+								}
+								VirtualNetworkMap["virtual_network"] = VirtualNetworkMap
+							}
+							AdvertiseWhereItemMap["virtual_network"] = VirtualNetworkMap
+						}
+						if AdvertiseWhereItem.VirtualSite != nil {
+							VirtualSiteMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.VirtualSite.Network.IsNull() && !AdvertiseWhereItem.VirtualSite.Network.IsUnknown() {
+								VirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
+							}
+							if AdvertiseWhereItem.VirtualSite.VirtualSite != nil {
+								VirtualSiteMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsUnknown() {
+									VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
+									VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
+									VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
+								}
+								VirtualSiteMap["virtual_site"] = VirtualSiteMap
+							}
+							AdvertiseWhereItemMap["virtual_site"] = VirtualSiteMap
+						}
+						if AdvertiseWhereItem.VirtualSiteWithVIP != nil {
+							VirtualSiteWithVIPMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsUnknown() {
+								VirtualSiteWithVIPMap["ip"] = AdvertiseWhereItem.VirtualSiteWithVIP.IP.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsUnknown() {
+								VirtualSiteWithVIPMap["network"] = AdvertiseWhereItem.VirtualSiteWithVIP.Network.ValueString()
+							}
+							if AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite != nil {
+								VirtualSiteMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsUnknown() {
+									VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
+									VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
+									VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
+								}
+								VirtualSiteWithVIPMap["virtual_site"] = VirtualSiteMap
+							}
+							AdvertiseWhereItemMap["virtual_site_with_vip"] = VirtualSiteWithVIPMap
+						}
+						if AdvertiseWhereItem.Vk8sService != nil {
+							Vk8sServiceMap := make(map[string]interface{})
+							if AdvertiseWhereItem.Vk8sService.Site != nil {
+								SiteMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.Vk8sService.Site.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Name.IsUnknown() {
+									SiteMap["name"] = AdvertiseWhereItem.Vk8sService.Site.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
+									SiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
+									SiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
+								}
+								Vk8sServiceMap["site"] = SiteMap
+							}
+							if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
+								VirtualSiteMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsUnknown() {
+									VirtualSiteMap["name"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
+									VirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
+									VirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
+								}
+								Vk8sServiceMap["virtual_site"] = VirtualSiteMap
+							}
+							AdvertiseWhereItemMap["vk8s_service"] = Vk8sServiceMap
+						}
+						AdvertiseWhereList = append(AdvertiseWhereList, AdvertiseWhereItemMap)
+					}
+					AdvertiseCustomMap["advertise_where"] = AdvertiseWhereList
+				}
+			}
+			ProxyAdvertisementMap["advertise_custom"] = AdvertiseCustomMap
 		}
 		if data.ProxyAdvertisement.AdvertiseOnPublic != nil {
-			advertise_on_publicNestedMap := make(map[string]interface{})
-			proxy_advertisementMap["advertise_on_public"] = advertise_on_publicNestedMap
+			AdvertiseOnPublicMap := make(map[string]interface{})
+			if data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP != nil {
+				PublicIPMap := make(map[string]interface{})
+				if !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Name.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
+					PublicIPMap["name"] = data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Name.ValueString()
+				}
+				if !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
+					PublicIPMap["namespace"] = data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+				}
+				if !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
+					PublicIPMap["tenant"] = data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+				}
+				AdvertiseOnPublicMap["public_ip"] = PublicIPMap
+			}
+			ProxyAdvertisementMap["advertise_on_public"] = AdvertiseOnPublicMap
 		}
 		if data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP != nil {
-			proxy_advertisementMap["advertise_on_public_default_vip"] = map[string]interface{}{}
+			ProxyAdvertisementMap["advertise_on_public_default_vip"] = map[string]interface{}{}
 		}
 		if data.ProxyAdvertisement.DoNotAdvertise != nil {
-			proxy_advertisementMap["do_not_advertise"] = map[string]interface{}{}
+			ProxyAdvertisementMap["do_not_advertise"] = map[string]interface{}{}
 		}
-		createReq.Spec["proxy_advertisement"] = proxy_advertisementMap
+		createReq.Spec["proxy_advertisement"] = ProxyAdvertisementMap
 	}
 	if !data.TransportType.IsNull() && !data.TransportType.IsUnknown() {
 		createReq.Spec["transport_type"] = data.TransportType.ValueString()
@@ -1777,27 +2072,17 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 		data.CacheProfile = &DNSProxyCacheProfileModel{
 			CacheSize: func() types.Int64 {
 				if !isImport && data.CacheProfile != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CacheProfile.CacheSize
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["cache_size"].(float64); ok {
+				if v, ok := blockData["cache_size"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			DisableCacheProfile: func() *DNSProxyEmptyModel {
 				if !isImport && data.CacheProfile != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.CacheProfile.DisableCacheProfile
 				}
-				// Import case: read from API
 				if _, ok := blockData["disable_cache_profile"].(map[string]interface{}); ok {
 					return &DNSProxyEmptyModel{}
 				}
@@ -1805,21 +2090,40 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && isImport && data.DDOSProfile == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.DDOSProfile = &DNSProxyDDOSProfileModel{}
+	if blockData, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && (isImport || data.DDOSProfile != nil) {
+		data.DDOSProfile = &DNSProxyDDOSProfileModel{
+			DisableDDOSMitigation: func() *DNSProxyEmptyModel {
+				if !isImport && data.DDOSProfile != nil {
+					return data.DDOSProfile.DisableDDOSMitigation
+				}
+				if _, ok := blockData["disable_ddos_mitigation"].(map[string]interface{}); ok {
+					return &DNSProxyEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableDDOSMitigation: func() *DNSProxyEmptyModel {
+				if !isImport && data.DDOSProfile != nil {
+					return data.DDOSProfile.EnableDDOSMitigation
+				}
+				if _, ok := blockData["enable_ddos_mitigation"].(map[string]interface{}); ok {
+					return &DNSProxyEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["irules"].([]interface{}); ok && len(listData) > 0 {
-		var irulesList []DNSProxyIrulesModel
+	if !isImport && (data.Irules.IsNull() || len(data.Irules.Elements()) == 0) {
+		data.Irules = types.ListNull(types.ObjectType{AttrTypes: DNSProxyIrulesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["irules"].([]interface{}); ok && len(listData) > 0 {
+		var IrulesList []DNSProxyIrulesModel
 		var existingIrulesItems []DNSProxyIrulesModel
 		if !data.Irules.IsNull() && !data.Irules.IsUnknown() {
 			data.Irules.ElementsAs(ctx, &existingIrulesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				irulesList = append(irulesList, DNSProxyIrulesModel{
+				IrulesList = append(IrulesList, DNSProxyIrulesModel{
 					Name: func() types.String {
 						if v, ok := itemMap["name"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -1841,50 +2145,136 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSProxyIrulesModelAttrTypes}, irulesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSProxyIrulesModelAttrTypes}, IrulesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Irules = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Irules = types.ListNull(types.ObjectType{AttrTypes: DNSProxyIrulesModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["lb_algorithm"].(map[string]interface{}); ok && isImport && data.LBAlgorithm == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.LBAlgorithm = &DNSProxyLBAlgorithmModel{}
+	if blockData, ok := apiResource.Spec["lb_algorithm"].(map[string]interface{}); ok && (isImport || data.LBAlgorithm != nil) {
+		data.LBAlgorithm = &DNSProxyLBAlgorithmModel{
+			RoundRobin: func() *DNSProxyEmptyModel {
+				if !isImport && data.LBAlgorithm != nil {
+					return data.LBAlgorithm.RoundRobin
+				}
+				if _, ok := blockData["round_robin"].(map[string]interface{}); ok {
+					return &DNSProxyEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["origin_servers"].(map[string]interface{}); ok && (isImport || data.OriginServers != nil) {
 		data.OriginServers = &DNSProxyOriginServersModel{
 			HealthChecks: func() *DNSProxyOriginServersHealthChecksModel {
 				if !isImport && data.OriginServers != nil && data.OriginServers.HealthChecks != nil {
-					// Normal Read: preserve existing state value
 					return data.OriginServers.HealthChecks
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["health_checks"].(map[string]interface{}); ok {
+				if HealthChecksData, ok := blockData["health_checks"].(map[string]interface{}); ok {
 					return &DNSProxyOriginServersHealthChecksModel{
+						HealthCheck: func() []DNSProxyOriginServersHealthChecksHealthCheckModel {
+							if rawList, ok := HealthChecksData["health_check"].([]interface{}); ok && len(rawList) > 0 {
+								var HealthCheckResult []DNSProxyOriginServersHealthChecksHealthCheckModel
+								for _, HealthCheckItem := range rawList {
+									if HealthCheckItemMap, ok := HealthCheckItem.(map[string]interface{}); ok {
+										HealthCheckResult = append(HealthCheckResult, DNSProxyOriginServersHealthChecksHealthCheckModel{
+											DNSHealthCheck: func() *DNSProxyOriginServersHealthChecksHealthCheckDNSHealthCheckModel {
+												if DNSHealthCheckData, ok := HealthCheckItemMap["dns_health_check"].(map[string]interface{}); ok {
+													return &DNSProxyOriginServersHealthChecksHealthCheckDNSHealthCheckModel{
+														ExpectedRcode: func() types.String {
+															if v, ok := DNSHealthCheckData["expected_rcode"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ExpectedRecordType: func() types.String {
+															if v, ok := DNSHealthCheckData["expected_record_type"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ExpectedResponse: func() types.String {
+															if v, ok := DNSHealthCheckData["expected_response"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														QueryName: func() types.String {
+															if v, ok := DNSHealthCheckData["query_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														QueryType: func() types.String {
+															if v, ok := DNSHealthCheckData["query_type"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Reverse: func() types.Bool {
+															if v, ok := DNSHealthCheckData["reverse"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											ICMPHealthCheck: func() *DNSProxyEmptyModel {
+												if _, ok := HealthCheckItemMap["icmp_health_check"].(map[string]interface{}); ok {
+													return &DNSProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											TCPHealthCheck: func() *DNSProxyOriginServersHealthChecksHealthCheckTCPHealthCheckModel {
+												if TCPHealthCheckData, ok := HealthCheckItemMap["tcp_health_check"].(map[string]interface{}); ok {
+													return &DNSProxyOriginServersHealthChecksHealthCheckTCPHealthCheckModel{
+														ExpectedResponse: func() types.String {
+															if v, ok := TCPHealthCheckData["expected_response"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SendPayload: func() types.String {
+															if v, ok := TCPHealthCheckData["send_payload"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return HealthCheckResult
+							}
+							return nil
+						}(),
 						HealthyThreshold: func() types.Int64 {
-							if v, ok := nestedBlockData["healthy_threshold"].(float64); ok {
+							if v, ok := HealthChecksData["healthy_threshold"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Interval: func() types.Int64 {
-							if v, ok := nestedBlockData["interval"].(float64); ok {
+							if v, ok := HealthChecksData["interval"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Timeout: func() types.Int64 {
-							if v, ok := nestedBlockData["timeout"].(float64); ok {
+							if v, ok := HealthChecksData["timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						UnhealthyThreshold: func() types.Int64 {
-							if v, ok := nestedBlockData["unhealthy_threshold"].(float64); ok {
+							if v, ok := HealthChecksData["unhealthy_threshold"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
@@ -1893,41 +2283,134 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 				}
 				return nil
 			}(),
-			OriginServers: func() []DNSProxyOriginServersOriginServersModel {
-				if listData, ok := blockData["origin_servers"].([]interface{}); ok && len(listData) > 0 {
-					var result []DNSProxyOriginServersOriginServersModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, DNSProxyOriginServersOriginServersModel{
+			OriginServers: func() types.List {
+				if !isImport && data.OriginServers != nil && (data.OriginServers.OriginServers.IsNull() || len(data.OriginServers.OriginServers.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersModelAttrTypes})
+				}
+				if rawList, ok := blockData["origin_servers"].([]interface{}); ok && len(rawList) > 0 {
+					var OriginServersResult []DNSProxyOriginServersOriginServersModel
+					for _, OriginServersItem := range rawList {
+						if OriginServersItemMap, ok := OriginServersItem.(map[string]interface{}); ok {
+							OriginServersResult = append(OriginServersResult, DNSProxyOriginServersOriginServersModel{
 								K8SService: func() *DNSProxyOriginServersOriginServersK8SServiceModel {
-									if deepMap, ok := itemMap["k8s_service"].(map[string]interface{}); ok {
+									if K8SServiceData, ok := OriginServersItemMap["k8s_service"].(map[string]interface{}); ok {
 										return &DNSProxyOriginServersOriginServersK8SServiceModel{
 											InsideNetwork: func() *DNSProxyEmptyModel {
-												if _, ok := deepMap["inside_network"].(map[string]interface{}); ok {
+												if _, ok := K8SServiceData["inside_network"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											OutsideNetwork: func() *DNSProxyEmptyModel {
-												if _, ok := deepMap["outside_network"].(map[string]interface{}); ok {
+												if _, ok := K8SServiceData["outside_network"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											Protocol: func() types.String {
-												if v, ok := deepMap["protocol"].(string); ok && v != "" {
+												if v, ok := K8SServiceData["protocol"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											ServiceName: func() types.String {
-												if v, ok := deepMap["service_name"].(string); ok && v != "" {
+												if v, ok := K8SServiceData["service_name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
+											SiteLocator: func() *DNSProxyOriginServersOriginServersK8SServiceSiteLocatorModel {
+												if SiteLocatorData, ok := K8SServiceData["site_locator"].(map[string]interface{}); ok {
+													return &DNSProxyOriginServersOriginServersK8SServiceSiteLocatorModel{
+														Site: func() *DNSProxyOriginServersOriginServersK8SServiceSiteLocatorSiteModel {
+															if SiteData, ok := SiteLocatorData["site"].(map[string]interface{}); ok {
+																return &DNSProxyOriginServersOriginServersK8SServiceSiteLocatorSiteModel{
+																	Name: func() types.String {
+																		if v, ok := SiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														VirtualSite: func() *DNSProxyOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteModel {
+															if VirtualSiteData, ok := SiteLocatorData["virtual_site"].(map[string]interface{}); ok {
+																return &DNSProxyOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											SnatPool: func() *DNSProxyOriginServersOriginServersK8SServiceSnatPoolModel {
+												if SnatPoolData, ok := K8SServiceData["snat_pool"].(map[string]interface{}); ok {
+													return &DNSProxyOriginServersOriginServersK8SServiceSnatPoolModel{
+														NoSnatPool: func() *DNSProxyEmptyModel {
+															if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
+																return &DNSProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SnatPool: func() *DNSProxyOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel {
+															if SnatPoolData, ok := SnatPoolData["snat_pool"].(map[string]interface{}); ok {
+																return &DNSProxyOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel{
+																	Prefixes: func() types.List {
+																		if v, ok := SnatPoolData["prefixes"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
 											Vk8sNetworks: func() *DNSProxyEmptyModel {
-												if _, ok := deepMap["vk8s_networks"].(map[string]interface{}); ok {
+												if _, ok := K8SServiceData["vk8s_networks"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
 												return nil
@@ -1937,16 +2420,16 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 									return nil
 								}(),
 								NoPreference: func() *DNSProxyEmptyModel {
-									if _, ok := itemMap["no_preference"].(map[string]interface{}); ok {
+									if _, ok := OriginServersItemMap["no_preference"].(map[string]interface{}); ok {
 										return &DNSProxyEmptyModel{}
 									}
 									return nil
 								}(),
 								PublicIP: func() *DNSProxyOriginServersOriginServersPublicIPModel {
-									if deepMap, ok := itemMap["public_ip"].(map[string]interface{}); ok {
+									if PublicIPData, ok := OriginServersItemMap["public_ip"].(map[string]interface{}); ok {
 										return &DNSProxyOriginServersOriginServersPublicIPModel{
 											IP: func() types.String {
-												if v, ok := deepMap["ip"].(string); ok && v != "" {
+												if v, ok := PublicIPData["ip"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1956,16 +2439,16 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 									return nil
 								}(),
 								PublicName: func() *DNSProxyOriginServersOriginServersPublicNameModel {
-									if deepMap, ok := itemMap["public_name"].(map[string]interface{}); ok {
+									if PublicNameData, ok := OriginServersItemMap["public_name"].(map[string]interface{}); ok {
 										return &DNSProxyOriginServersOriginServersPublicNameModel{
 											DNSName: func() types.String {
-												if v, ok := deepMap["dns_name"].(string); ok && v != "" {
+												if v, ok := PublicNameData["dns_name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											RefreshInterval: func() types.Int64 {
-												if v, ok := deepMap["refresh_interval"].(float64); ok {
+												if v, ok := PublicNameData["refresh_interval"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
@@ -1975,17 +2458,51 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 									return nil
 								}(),
 								SitePreferences: func() *DNSProxyOriginServersOriginServersSitePreferencesModel {
-									if _, ok := itemMap["site_preferences"].(map[string]interface{}); ok {
-										return &DNSProxyOriginServersOriginServersSitePreferencesModel{}
+									if SitePreferencesData, ok := OriginServersItemMap["site_preferences"].(map[string]interface{}); ok {
+										return &DNSProxyOriginServersOriginServersSitePreferencesModel{
+											Refs: func() types.List {
+												if rawList, ok := SitePreferencesData["refs"].([]interface{}); ok && len(rawList) > 0 {
+													var RefsResult []DNSProxyOriginServersOriginServersSitePreferencesRefsModel
+													for _, RefsItem := range rawList {
+														if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
+															RefsResult = append(RefsResult, DNSProxyOriginServersOriginServersSitePreferencesRefsModel{
+																Name: func() types.String {
+																	if v, ok := RefsItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefsItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefsItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersSitePreferencesRefsModelAttrTypes}, RefsResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersSitePreferencesRefsModelAttrTypes})
+											}(),
+										}
 									}
 									return nil
 								}(),
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersModelAttrTypes}, OriginServersResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersModelAttrTypes})
 			}(),
 		}
 	}
@@ -2011,11 +2528,376 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["proxy_advertisement"].(map[string]interface{}); ok && isImport && data.ProxyAdvertisement == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.ProxyAdvertisement = &DNSProxyProxyAdvertisementModel{}
+	if blockData, ok := apiResource.Spec["proxy_advertisement"].(map[string]interface{}); ok && (isImport || data.ProxyAdvertisement != nil) {
+		data.ProxyAdvertisement = &DNSProxyProxyAdvertisementModel{
+			AdvertiseCustom: func() *DNSProxyProxyAdvertisementAdvertiseCustomModel {
+				if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseCustom != nil {
+					return data.ProxyAdvertisement.AdvertiseCustom
+				}
+				if AdvertiseCustomData, ok := blockData["advertise_custom"].(map[string]interface{}); ok {
+					return &DNSProxyProxyAdvertisementAdvertiseCustomModel{
+						AdvertiseWhere: func() types.List {
+							if rawList, ok := AdvertiseCustomData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
+								var AdvertiseWhereResult []DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel
+								for _, AdvertiseWhereItem := range rawList {
+									if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
+										AdvertiseWhereResult = append(AdvertiseWhereResult, DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel{
+											AdvertiseOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
+												if AdvertiseOnPublicData, ok := AdvertiseWhereItemMap["advertise_on_public"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel{
+														PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel {
+															if PublicIPData, ok := AdvertiseOnPublicData["public_ip"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel{
+																	Name: func() types.String {
+																		if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Port: func() types.Int64 {
+												if v, ok := AdvertiseWhereItemMap["port"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+											PortRanges: func() types.String {
+												if v, ok := AdvertiseWhereItemMap["port_ranges"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Site: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteModel {
+												if SiteData, ok := AdvertiseWhereItemMap["site"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteModel{
+														IP: func() types.String {
+															if v, ok := SiteData["ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Network: func() types.String {
+															if v, ok := SiteData["network"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Site: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteModel {
+															if SiteData, ok := SiteData["site"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteModel{
+																	Name: func() types.String {
+																		if v, ok := SiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseDefaultPort: func() *DNSProxyEmptyModel {
+												if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
+													return &DNSProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											VirtualNetwork: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel {
+												if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
+														DefaultV6VIP: func() *DNSProxyEmptyModel {
+															if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
+																return &DNSProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														DefaultVIP: func() *DNSProxyEmptyModel {
+															if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
+																return &DNSProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SpecificV6VIP: func() types.String {
+															if v, ok := VirtualNetworkData["specific_v6_vip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SpecificVIP: func() types.String {
+															if v, ok := VirtualNetworkData["specific_vip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VirtualNetwork: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel {
+															if VirtualNetworkData, ok := VirtualNetworkData["virtual_network"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualNetworkData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualNetworkData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualNetworkData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											VirtualSite: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteModel {
+												if VirtualSiteData, ok := AdvertiseWhereItemMap["virtual_site"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteModel{
+														Network: func() types.String {
+															if v, ok := VirtualSiteData["network"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VirtualSite: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteModel {
+															if VirtualSiteData, ok := VirtualSiteData["virtual_site"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											VirtualSiteWithVIP: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel {
+												if VirtualSiteWithVIPData, ok := AdvertiseWhereItemMap["virtual_site_with_vip"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel{
+														IP: func() types.String {
+															if v, ok := VirtualSiteWithVIPData["ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Network: func() types.String {
+															if v, ok := VirtualSiteWithVIPData["network"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VirtualSite: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteModel {
+															if VirtualSiteData, ok := VirtualSiteWithVIPData["virtual_site"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Vk8sService: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceModel {
+												if Vk8sServiceData, ok := AdvertiseWhereItemMap["vk8s_service"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceModel{
+														Site: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteModel {
+															if SiteData, ok := Vk8sServiceData["site"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteModel{
+																	Name: func() types.String {
+																		if v, ok := SiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														VirtualSite: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteModel {
+															if VirtualSiteData, ok := Vk8sServiceData["virtual_site"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModelAttrTypes}, AdvertiseWhereResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			AdvertiseOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseOnPublicModel {
+				if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseOnPublic != nil {
+					return data.ProxyAdvertisement.AdvertiseOnPublic
+				}
+				if AdvertiseOnPublicData, ok := blockData["advertise_on_public"].(map[string]interface{}); ok {
+					return &DNSProxyProxyAdvertisementAdvertiseOnPublicModel{
+						PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseOnPublicPublicIPModel {
+							if PublicIPData, ok := AdvertiseOnPublicData["public_ip"].(map[string]interface{}); ok {
+								return &DNSProxyProxyAdvertisementAdvertiseOnPublicPublicIPModel{
+									Name: func() types.String {
+										if v, ok := PublicIPData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			AdvertiseOnPublicDefaultVIP: func() *DNSProxyEmptyModel {
+				if !isImport && data.ProxyAdvertisement != nil {
+					return data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP
+				}
+				if _, ok := blockData["advertise_on_public_default_vip"].(map[string]interface{}); ok {
+					return &DNSProxyEmptyModel{}
+				}
+				return nil
+			}(),
+			DoNotAdvertise: func() *DNSProxyEmptyModel {
+				if !isImport && data.ProxyAdvertisement != nil {
+					return data.ProxyAdvertisement.DoNotAdvertise
+				}
+				if _, ok := blockData["do_not_advertise"].(map[string]interface{}); ok {
+					return &DNSProxyEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["transport_type"].(string); ok && v != "" {
 		data.TransportType = types.StringValue(v)
 	} else {
@@ -2105,27 +2987,17 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 		data.CacheProfile = &DNSProxyCacheProfileModel{
 			CacheSize: func() types.Int64 {
 				if !isImport && data.CacheProfile != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CacheProfile.CacheSize
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["cache_size"].(float64); ok {
+				if v, ok := blockData["cache_size"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			DisableCacheProfile: func() *DNSProxyEmptyModel {
 				if !isImport && data.CacheProfile != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.CacheProfile.DisableCacheProfile
 				}
-				// Import case: read from API
 				if _, ok := blockData["disable_cache_profile"].(map[string]interface{}); ok {
 					return &DNSProxyEmptyModel{}
 				}
@@ -2133,21 +3005,40 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && isImport && data.DDOSProfile == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.DDOSProfile = &DNSProxyDDOSProfileModel{}
+	if blockData, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && (isImport || data.DDOSProfile != nil) {
+		data.DDOSProfile = &DNSProxyDDOSProfileModel{
+			DisableDDOSMitigation: func() *DNSProxyEmptyModel {
+				if !isImport && data.DDOSProfile != nil {
+					return data.DDOSProfile.DisableDDOSMitigation
+				}
+				if _, ok := blockData["disable_ddos_mitigation"].(map[string]interface{}); ok {
+					return &DNSProxyEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableDDOSMitigation: func() *DNSProxyEmptyModel {
+				if !isImport && data.DDOSProfile != nil {
+					return data.DDOSProfile.EnableDDOSMitigation
+				}
+				if _, ok := blockData["enable_ddos_mitigation"].(map[string]interface{}); ok {
+					return &DNSProxyEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["irules"].([]interface{}); ok && len(listData) > 0 {
-		var irulesList []DNSProxyIrulesModel
+	if !isImport && (data.Irules.IsNull() || len(data.Irules.Elements()) == 0) {
+		data.Irules = types.ListNull(types.ObjectType{AttrTypes: DNSProxyIrulesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["irules"].([]interface{}); ok && len(listData) > 0 {
+		var IrulesList []DNSProxyIrulesModel
 		var existingIrulesItems []DNSProxyIrulesModel
 		if !data.Irules.IsNull() && !data.Irules.IsUnknown() {
 			data.Irules.ElementsAs(ctx, &existingIrulesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				irulesList = append(irulesList, DNSProxyIrulesModel{
+				IrulesList = append(IrulesList, DNSProxyIrulesModel{
 					Name: func() types.String {
 						if v, ok := itemMap["name"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -2169,50 +3060,136 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSProxyIrulesModelAttrTypes}, irulesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSProxyIrulesModelAttrTypes}, IrulesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Irules = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Irules = types.ListNull(types.ObjectType{AttrTypes: DNSProxyIrulesModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["lb_algorithm"].(map[string]interface{}); ok && isImport && data.LBAlgorithm == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.LBAlgorithm = &DNSProxyLBAlgorithmModel{}
+	if blockData, ok := apiResource.Spec["lb_algorithm"].(map[string]interface{}); ok && (isImport || data.LBAlgorithm != nil) {
+		data.LBAlgorithm = &DNSProxyLBAlgorithmModel{
+			RoundRobin: func() *DNSProxyEmptyModel {
+				if !isImport && data.LBAlgorithm != nil {
+					return data.LBAlgorithm.RoundRobin
+				}
+				if _, ok := blockData["round_robin"].(map[string]interface{}); ok {
+					return &DNSProxyEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["origin_servers"].(map[string]interface{}); ok && (isImport || data.OriginServers != nil) {
 		data.OriginServers = &DNSProxyOriginServersModel{
 			HealthChecks: func() *DNSProxyOriginServersHealthChecksModel {
 				if !isImport && data.OriginServers != nil && data.OriginServers.HealthChecks != nil {
-					// Normal Read: preserve existing state value
 					return data.OriginServers.HealthChecks
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["health_checks"].(map[string]interface{}); ok {
+				if HealthChecksData, ok := blockData["health_checks"].(map[string]interface{}); ok {
 					return &DNSProxyOriginServersHealthChecksModel{
+						HealthCheck: func() []DNSProxyOriginServersHealthChecksHealthCheckModel {
+							if rawList, ok := HealthChecksData["health_check"].([]interface{}); ok && len(rawList) > 0 {
+								var HealthCheckResult []DNSProxyOriginServersHealthChecksHealthCheckModel
+								for _, HealthCheckItem := range rawList {
+									if HealthCheckItemMap, ok := HealthCheckItem.(map[string]interface{}); ok {
+										HealthCheckResult = append(HealthCheckResult, DNSProxyOriginServersHealthChecksHealthCheckModel{
+											DNSHealthCheck: func() *DNSProxyOriginServersHealthChecksHealthCheckDNSHealthCheckModel {
+												if DNSHealthCheckData, ok := HealthCheckItemMap["dns_health_check"].(map[string]interface{}); ok {
+													return &DNSProxyOriginServersHealthChecksHealthCheckDNSHealthCheckModel{
+														ExpectedRcode: func() types.String {
+															if v, ok := DNSHealthCheckData["expected_rcode"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ExpectedRecordType: func() types.String {
+															if v, ok := DNSHealthCheckData["expected_record_type"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ExpectedResponse: func() types.String {
+															if v, ok := DNSHealthCheckData["expected_response"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														QueryName: func() types.String {
+															if v, ok := DNSHealthCheckData["query_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														QueryType: func() types.String {
+															if v, ok := DNSHealthCheckData["query_type"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Reverse: func() types.Bool {
+															if v, ok := DNSHealthCheckData["reverse"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											ICMPHealthCheck: func() *DNSProxyEmptyModel {
+												if _, ok := HealthCheckItemMap["icmp_health_check"].(map[string]interface{}); ok {
+													return &DNSProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											TCPHealthCheck: func() *DNSProxyOriginServersHealthChecksHealthCheckTCPHealthCheckModel {
+												if TCPHealthCheckData, ok := HealthCheckItemMap["tcp_health_check"].(map[string]interface{}); ok {
+													return &DNSProxyOriginServersHealthChecksHealthCheckTCPHealthCheckModel{
+														ExpectedResponse: func() types.String {
+															if v, ok := TCPHealthCheckData["expected_response"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SendPayload: func() types.String {
+															if v, ok := TCPHealthCheckData["send_payload"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return HealthCheckResult
+							}
+							return nil
+						}(),
 						HealthyThreshold: func() types.Int64 {
-							if v, ok := nestedBlockData["healthy_threshold"].(float64); ok {
+							if v, ok := HealthChecksData["healthy_threshold"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Interval: func() types.Int64 {
-							if v, ok := nestedBlockData["interval"].(float64); ok {
+							if v, ok := HealthChecksData["interval"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Timeout: func() types.Int64 {
-							if v, ok := nestedBlockData["timeout"].(float64); ok {
+							if v, ok := HealthChecksData["timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						UnhealthyThreshold: func() types.Int64 {
-							if v, ok := nestedBlockData["unhealthy_threshold"].(float64); ok {
+							if v, ok := HealthChecksData["unhealthy_threshold"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
@@ -2221,41 +3198,134 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 				}
 				return nil
 			}(),
-			OriginServers: func() []DNSProxyOriginServersOriginServersModel {
-				if listData, ok := blockData["origin_servers"].([]interface{}); ok && len(listData) > 0 {
-					var result []DNSProxyOriginServersOriginServersModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, DNSProxyOriginServersOriginServersModel{
+			OriginServers: func() types.List {
+				if !isImport && data.OriginServers != nil && (data.OriginServers.OriginServers.IsNull() || len(data.OriginServers.OriginServers.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersModelAttrTypes})
+				}
+				if rawList, ok := blockData["origin_servers"].([]interface{}); ok && len(rawList) > 0 {
+					var OriginServersResult []DNSProxyOriginServersOriginServersModel
+					for _, OriginServersItem := range rawList {
+						if OriginServersItemMap, ok := OriginServersItem.(map[string]interface{}); ok {
+							OriginServersResult = append(OriginServersResult, DNSProxyOriginServersOriginServersModel{
 								K8SService: func() *DNSProxyOriginServersOriginServersK8SServiceModel {
-									if deepMap, ok := itemMap["k8s_service"].(map[string]interface{}); ok {
+									if K8SServiceData, ok := OriginServersItemMap["k8s_service"].(map[string]interface{}); ok {
 										return &DNSProxyOriginServersOriginServersK8SServiceModel{
 											InsideNetwork: func() *DNSProxyEmptyModel {
-												if _, ok := deepMap["inside_network"].(map[string]interface{}); ok {
+												if _, ok := K8SServiceData["inside_network"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											OutsideNetwork: func() *DNSProxyEmptyModel {
-												if _, ok := deepMap["outside_network"].(map[string]interface{}); ok {
+												if _, ok := K8SServiceData["outside_network"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											Protocol: func() types.String {
-												if v, ok := deepMap["protocol"].(string); ok && v != "" {
+												if v, ok := K8SServiceData["protocol"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											ServiceName: func() types.String {
-												if v, ok := deepMap["service_name"].(string); ok && v != "" {
+												if v, ok := K8SServiceData["service_name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
+											SiteLocator: func() *DNSProxyOriginServersOriginServersK8SServiceSiteLocatorModel {
+												if SiteLocatorData, ok := K8SServiceData["site_locator"].(map[string]interface{}); ok {
+													return &DNSProxyOriginServersOriginServersK8SServiceSiteLocatorModel{
+														Site: func() *DNSProxyOriginServersOriginServersK8SServiceSiteLocatorSiteModel {
+															if SiteData, ok := SiteLocatorData["site"].(map[string]interface{}); ok {
+																return &DNSProxyOriginServersOriginServersK8SServiceSiteLocatorSiteModel{
+																	Name: func() types.String {
+																		if v, ok := SiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														VirtualSite: func() *DNSProxyOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteModel {
+															if VirtualSiteData, ok := SiteLocatorData["virtual_site"].(map[string]interface{}); ok {
+																return &DNSProxyOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											SnatPool: func() *DNSProxyOriginServersOriginServersK8SServiceSnatPoolModel {
+												if SnatPoolData, ok := K8SServiceData["snat_pool"].(map[string]interface{}); ok {
+													return &DNSProxyOriginServersOriginServersK8SServiceSnatPoolModel{
+														NoSnatPool: func() *DNSProxyEmptyModel {
+															if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
+																return &DNSProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SnatPool: func() *DNSProxyOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel {
+															if SnatPoolData, ok := SnatPoolData["snat_pool"].(map[string]interface{}); ok {
+																return &DNSProxyOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel{
+																	Prefixes: func() types.List {
+																		if v, ok := SnatPoolData["prefixes"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
 											Vk8sNetworks: func() *DNSProxyEmptyModel {
-												if _, ok := deepMap["vk8s_networks"].(map[string]interface{}); ok {
+												if _, ok := K8SServiceData["vk8s_networks"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
 												return nil
@@ -2265,16 +3335,16 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 									return nil
 								}(),
 								NoPreference: func() *DNSProxyEmptyModel {
-									if _, ok := itemMap["no_preference"].(map[string]interface{}); ok {
+									if _, ok := OriginServersItemMap["no_preference"].(map[string]interface{}); ok {
 										return &DNSProxyEmptyModel{}
 									}
 									return nil
 								}(),
 								PublicIP: func() *DNSProxyOriginServersOriginServersPublicIPModel {
-									if deepMap, ok := itemMap["public_ip"].(map[string]interface{}); ok {
+									if PublicIPData, ok := OriginServersItemMap["public_ip"].(map[string]interface{}); ok {
 										return &DNSProxyOriginServersOriginServersPublicIPModel{
 											IP: func() types.String {
-												if v, ok := deepMap["ip"].(string); ok && v != "" {
+												if v, ok := PublicIPData["ip"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -2284,16 +3354,16 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 									return nil
 								}(),
 								PublicName: func() *DNSProxyOriginServersOriginServersPublicNameModel {
-									if deepMap, ok := itemMap["public_name"].(map[string]interface{}); ok {
+									if PublicNameData, ok := OriginServersItemMap["public_name"].(map[string]interface{}); ok {
 										return &DNSProxyOriginServersOriginServersPublicNameModel{
 											DNSName: func() types.String {
-												if v, ok := deepMap["dns_name"].(string); ok && v != "" {
+												if v, ok := PublicNameData["dns_name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											RefreshInterval: func() types.Int64 {
-												if v, ok := deepMap["refresh_interval"].(float64); ok {
+												if v, ok := PublicNameData["refresh_interval"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
@@ -2303,17 +3373,51 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 									return nil
 								}(),
 								SitePreferences: func() *DNSProxyOriginServersOriginServersSitePreferencesModel {
-									if _, ok := itemMap["site_preferences"].(map[string]interface{}); ok {
-										return &DNSProxyOriginServersOriginServersSitePreferencesModel{}
+									if SitePreferencesData, ok := OriginServersItemMap["site_preferences"].(map[string]interface{}); ok {
+										return &DNSProxyOriginServersOriginServersSitePreferencesModel{
+											Refs: func() types.List {
+												if rawList, ok := SitePreferencesData["refs"].([]interface{}); ok && len(rawList) > 0 {
+													var RefsResult []DNSProxyOriginServersOriginServersSitePreferencesRefsModel
+													for _, RefsItem := range rawList {
+														if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
+															RefsResult = append(RefsResult, DNSProxyOriginServersOriginServersSitePreferencesRefsModel{
+																Name: func() types.String {
+																	if v, ok := RefsItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefsItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefsItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersSitePreferencesRefsModelAttrTypes}, RefsResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersSitePreferencesRefsModelAttrTypes})
+											}(),
+										}
 									}
 									return nil
 								}(),
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersModelAttrTypes}, OriginServersResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersModelAttrTypes})
 			}(),
 		}
 	}
@@ -2339,15 +3443,388 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["proxy_advertisement"].(map[string]interface{}); ok && isImport && data.ProxyAdvertisement == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.ProxyAdvertisement = &DNSProxyProxyAdvertisementModel{}
+	if blockData, ok := apiResource.Spec["proxy_advertisement"].(map[string]interface{}); ok && (isImport || data.ProxyAdvertisement != nil) {
+		data.ProxyAdvertisement = &DNSProxyProxyAdvertisementModel{
+			AdvertiseCustom: func() *DNSProxyProxyAdvertisementAdvertiseCustomModel {
+				if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseCustom != nil {
+					return data.ProxyAdvertisement.AdvertiseCustom
+				}
+				if AdvertiseCustomData, ok := blockData["advertise_custom"].(map[string]interface{}); ok {
+					return &DNSProxyProxyAdvertisementAdvertiseCustomModel{
+						AdvertiseWhere: func() types.List {
+							if rawList, ok := AdvertiseCustomData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
+								var AdvertiseWhereResult []DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel
+								for _, AdvertiseWhereItem := range rawList {
+									if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
+										AdvertiseWhereResult = append(AdvertiseWhereResult, DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel{
+											AdvertiseOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
+												if AdvertiseOnPublicData, ok := AdvertiseWhereItemMap["advertise_on_public"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel{
+														PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel {
+															if PublicIPData, ok := AdvertiseOnPublicData["public_ip"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel{
+																	Name: func() types.String {
+																		if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Port: func() types.Int64 {
+												if v, ok := AdvertiseWhereItemMap["port"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+											PortRanges: func() types.String {
+												if v, ok := AdvertiseWhereItemMap["port_ranges"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Site: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteModel {
+												if SiteData, ok := AdvertiseWhereItemMap["site"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteModel{
+														IP: func() types.String {
+															if v, ok := SiteData["ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Network: func() types.String {
+															if v, ok := SiteData["network"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Site: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteModel {
+															if SiteData, ok := SiteData["site"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteModel{
+																	Name: func() types.String {
+																		if v, ok := SiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseDefaultPort: func() *DNSProxyEmptyModel {
+												if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
+													return &DNSProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											VirtualNetwork: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel {
+												if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
+														DefaultV6VIP: func() *DNSProxyEmptyModel {
+															if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
+																return &DNSProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														DefaultVIP: func() *DNSProxyEmptyModel {
+															if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
+																return &DNSProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SpecificV6VIP: func() types.String {
+															if v, ok := VirtualNetworkData["specific_v6_vip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SpecificVIP: func() types.String {
+															if v, ok := VirtualNetworkData["specific_vip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VirtualNetwork: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel {
+															if VirtualNetworkData, ok := VirtualNetworkData["virtual_network"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualNetworkData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualNetworkData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualNetworkData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											VirtualSite: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteModel {
+												if VirtualSiteData, ok := AdvertiseWhereItemMap["virtual_site"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteModel{
+														Network: func() types.String {
+															if v, ok := VirtualSiteData["network"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VirtualSite: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteModel {
+															if VirtualSiteData, ok := VirtualSiteData["virtual_site"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											VirtualSiteWithVIP: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel {
+												if VirtualSiteWithVIPData, ok := AdvertiseWhereItemMap["virtual_site_with_vip"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel{
+														IP: func() types.String {
+															if v, ok := VirtualSiteWithVIPData["ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Network: func() types.String {
+															if v, ok := VirtualSiteWithVIPData["network"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VirtualSite: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteModel {
+															if VirtualSiteData, ok := VirtualSiteWithVIPData["virtual_site"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Vk8sService: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceModel {
+												if Vk8sServiceData, ok := AdvertiseWhereItemMap["vk8s_service"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceModel{
+														Site: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteModel {
+															if SiteData, ok := Vk8sServiceData["site"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteModel{
+																	Name: func() types.String {
+																		if v, ok := SiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														VirtualSite: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteModel {
+															if VirtualSiteData, ok := Vk8sServiceData["virtual_site"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModelAttrTypes}, AdvertiseWhereResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			AdvertiseOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseOnPublicModel {
+				if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseOnPublic != nil {
+					return data.ProxyAdvertisement.AdvertiseOnPublic
+				}
+				if AdvertiseOnPublicData, ok := blockData["advertise_on_public"].(map[string]interface{}); ok {
+					return &DNSProxyProxyAdvertisementAdvertiseOnPublicModel{
+						PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseOnPublicPublicIPModel {
+							if PublicIPData, ok := AdvertiseOnPublicData["public_ip"].(map[string]interface{}); ok {
+								return &DNSProxyProxyAdvertisementAdvertiseOnPublicPublicIPModel{
+									Name: func() types.String {
+										if v, ok := PublicIPData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			AdvertiseOnPublicDefaultVIP: func() *DNSProxyEmptyModel {
+				if !isImport && data.ProxyAdvertisement != nil {
+					return data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP
+				}
+				if _, ok := blockData["advertise_on_public_default_vip"].(map[string]interface{}); ok {
+					return &DNSProxyEmptyModel{}
+				}
+				return nil
+			}(),
+			DoNotAdvertise: func() *DNSProxyEmptyModel {
+				if !isImport && data.ProxyAdvertisement != nil {
+					return data.ProxyAdvertisement.DoNotAdvertise
+				}
+				if _, ok := blockData["do_not_advertise"].(map[string]interface{}); ok {
+					return &DNSProxyEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["transport_type"].(string); ok && v != "" {
 		data.TransportType = types.StringValue(v)
 	} else {
 		data.TransportType = types.StringNull()
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -2401,155 +3878,450 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.CacheProfile != nil {
-		cache_profileMap := make(map[string]interface{})
+		CacheProfileMap := make(map[string]interface{})
 		if !data.CacheProfile.CacheSize.IsNull() && !data.CacheProfile.CacheSize.IsUnknown() {
-			cache_profileMap["cache_size"] = data.CacheProfile.CacheSize.ValueInt64()
+			CacheProfileMap["cache_size"] = data.CacheProfile.CacheSize.ValueInt64()
 		}
 		if data.CacheProfile.DisableCacheProfile != nil {
-			cache_profileMap["disable_cache_profile"] = map[string]interface{}{}
+			CacheProfileMap["disable_cache_profile"] = map[string]interface{}{}
 		}
-		apiResource.Spec["cache_profile"] = cache_profileMap
+		apiResource.Spec["cache_profile"] = CacheProfileMap
 	}
 	if data.DDOSProfile != nil {
-		ddos_profileMap := make(map[string]interface{})
+		DDOSProfileMap := make(map[string]interface{})
 		if data.DDOSProfile.DisableDDOSMitigation != nil {
-			ddos_profileMap["disable_ddos_mitigation"] = map[string]interface{}{}
+			DDOSProfileMap["disable_ddos_mitigation"] = map[string]interface{}{}
 		}
 		if data.DDOSProfile.EnableDDOSMitigation != nil {
-			ddos_profileMap["enable_ddos_mitigation"] = map[string]interface{}{}
+			DDOSProfileMap["enable_ddos_mitigation"] = map[string]interface{}{}
 		}
-		apiResource.Spec["ddos_profile"] = ddos_profileMap
+		apiResource.Spec["ddos_profile"] = DDOSProfileMap
 	}
 	if !data.Irules.IsNull() && !data.Irules.IsUnknown() {
-		var irulesItems []DNSProxyIrulesModel
-		diags := data.Irules.ElementsAs(ctx, &irulesItems, false)
+		var IrulesElems []DNSProxyIrulesModel
+		diags := data.Irules.ElementsAs(ctx, &IrulesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(irulesItems) > 0 {
-			var irulesList []map[string]interface{}
-			for _, item := range irulesItems {
-				itemMap := make(map[string]interface{})
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+		if !resp.Diagnostics.HasError() && len(IrulesElems) > 0 {
+			var IrulesList []map[string]interface{}
+			for _, IrulesItem := range IrulesElems {
+				IrulesItemMap := make(map[string]interface{})
+				if !IrulesItem.Name.IsNull() && !IrulesItem.Name.IsUnknown() {
+					IrulesItemMap["name"] = IrulesItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !IrulesItem.Namespace.IsNull() && !IrulesItem.Namespace.IsUnknown() {
+					IrulesItemMap["namespace"] = IrulesItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !IrulesItem.Tenant.IsNull() && !IrulesItem.Tenant.IsUnknown() {
+					IrulesItemMap["tenant"] = IrulesItem.Tenant.ValueString()
 				}
-				irulesList = append(irulesList, itemMap)
+				IrulesList = append(IrulesList, IrulesItemMap)
 			}
-			apiResource.Spec["irules"] = irulesList
+			apiResource.Spec["irules"] = IrulesList
 		}
 	}
 	if data.LBAlgorithm != nil {
-		lb_algorithmMap := make(map[string]interface{})
+		LBAlgorithmMap := make(map[string]interface{})
 		if data.LBAlgorithm.RoundRobin != nil {
-			lb_algorithmMap["round_robin"] = map[string]interface{}{}
+			LBAlgorithmMap["round_robin"] = map[string]interface{}{}
 		}
-		apiResource.Spec["lb_algorithm"] = lb_algorithmMap
+		apiResource.Spec["lb_algorithm"] = LBAlgorithmMap
 	}
 	if data.OriginServers != nil {
-		origin_serversMap := make(map[string]interface{})
+		OriginServersMap := make(map[string]interface{})
 		if data.OriginServers.HealthChecks != nil {
-			health_checksNestedMap := make(map[string]interface{})
+			HealthChecksMap := make(map[string]interface{})
+			if len(data.OriginServers.HealthChecks.HealthCheck) > 0 {
+				var HealthCheckList []map[string]interface{}
+				for _, HealthCheckItem := range data.OriginServers.HealthChecks.HealthCheck {
+					HealthCheckItemMap := make(map[string]interface{})
+					if HealthCheckItem.DNSHealthCheck != nil {
+						DNSHealthCheckMap := make(map[string]interface{})
+						if !HealthCheckItem.DNSHealthCheck.ExpectedRcode.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedRcode.IsUnknown() {
+							DNSHealthCheckMap["expected_rcode"] = HealthCheckItem.DNSHealthCheck.ExpectedRcode.ValueString()
+						}
+						if !HealthCheckItem.DNSHealthCheck.ExpectedRecordType.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedRecordType.IsUnknown() {
+							DNSHealthCheckMap["expected_record_type"] = HealthCheckItem.DNSHealthCheck.ExpectedRecordType.ValueString()
+						}
+						if !HealthCheckItem.DNSHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedResponse.IsUnknown() {
+							DNSHealthCheckMap["expected_response"] = HealthCheckItem.DNSHealthCheck.ExpectedResponse.ValueString()
+						}
+						if !HealthCheckItem.DNSHealthCheck.QueryName.IsNull() && !HealthCheckItem.DNSHealthCheck.QueryName.IsUnknown() {
+							DNSHealthCheckMap["query_name"] = HealthCheckItem.DNSHealthCheck.QueryName.ValueString()
+						}
+						if !HealthCheckItem.DNSHealthCheck.QueryType.IsNull() && !HealthCheckItem.DNSHealthCheck.QueryType.IsUnknown() {
+							DNSHealthCheckMap["query_type"] = HealthCheckItem.DNSHealthCheck.QueryType.ValueString()
+						}
+						if !HealthCheckItem.DNSHealthCheck.Reverse.IsNull() && !HealthCheckItem.DNSHealthCheck.Reverse.IsUnknown() {
+							DNSHealthCheckMap["reverse"] = HealthCheckItem.DNSHealthCheck.Reverse.ValueBool()
+						}
+						HealthCheckItemMap["dns_health_check"] = DNSHealthCheckMap
+					}
+					if HealthCheckItem.ICMPHealthCheck != nil {
+						HealthCheckItemMap["icmp_health_check"] = map[string]interface{}{}
+					}
+					if HealthCheckItem.TCPHealthCheck != nil {
+						TCPHealthCheckMap := make(map[string]interface{})
+						if !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsUnknown() {
+							TCPHealthCheckMap["expected_response"] = HealthCheckItem.TCPHealthCheck.ExpectedResponse.ValueString()
+						}
+						if !HealthCheckItem.TCPHealthCheck.SendPayload.IsNull() && !HealthCheckItem.TCPHealthCheck.SendPayload.IsUnknown() {
+							TCPHealthCheckMap["send_payload"] = HealthCheckItem.TCPHealthCheck.SendPayload.ValueString()
+						}
+						HealthCheckItemMap["tcp_health_check"] = TCPHealthCheckMap
+					}
+					HealthCheckList = append(HealthCheckList, HealthCheckItemMap)
+				}
+				HealthChecksMap["health_check"] = HealthCheckList
+			}
 			if !data.OriginServers.HealthChecks.HealthyThreshold.IsNull() && !data.OriginServers.HealthChecks.HealthyThreshold.IsUnknown() {
-				health_checksNestedMap["healthy_threshold"] = data.OriginServers.HealthChecks.HealthyThreshold.ValueInt64()
+				HealthChecksMap["healthy_threshold"] = data.OriginServers.HealthChecks.HealthyThreshold.ValueInt64()
 			}
 			if !data.OriginServers.HealthChecks.Interval.IsNull() && !data.OriginServers.HealthChecks.Interval.IsUnknown() {
-				health_checksNestedMap["interval"] = data.OriginServers.HealthChecks.Interval.ValueInt64()
+				HealthChecksMap["interval"] = data.OriginServers.HealthChecks.Interval.ValueInt64()
 			}
 			if !data.OriginServers.HealthChecks.Timeout.IsNull() && !data.OriginServers.HealthChecks.Timeout.IsUnknown() {
-				health_checksNestedMap["timeout"] = data.OriginServers.HealthChecks.Timeout.ValueInt64()
+				HealthChecksMap["timeout"] = data.OriginServers.HealthChecks.Timeout.ValueInt64()
 			}
 			if !data.OriginServers.HealthChecks.UnhealthyThreshold.IsNull() && !data.OriginServers.HealthChecks.UnhealthyThreshold.IsUnknown() {
-				health_checksNestedMap["unhealthy_threshold"] = data.OriginServers.HealthChecks.UnhealthyThreshold.ValueInt64()
+				HealthChecksMap["unhealthy_threshold"] = data.OriginServers.HealthChecks.UnhealthyThreshold.ValueInt64()
 			}
-			origin_serversMap["health_checks"] = health_checksNestedMap
+			OriginServersMap["health_checks"] = HealthChecksMap
 		}
-		if len(data.OriginServers.OriginServers) > 0 {
-			var origin_serversList []map[string]interface{}
-			for _, listItem := range data.OriginServers.OriginServers {
-				listItemMap := make(map[string]interface{})
-				if listItem.K8SService != nil {
-					k8s_serviceDeepMap := make(map[string]interface{})
-					if listItem.K8SService.InsideNetwork != nil {
-						k8s_serviceDeepMap["inside_network"] = map[string]interface{}{}
+		if !data.OriginServers.OriginServers.IsNull() && !data.OriginServers.OriginServers.IsUnknown() {
+			var OriginServersElems []DNSProxyOriginServersOriginServersModel
+			diags := data.OriginServers.OriginServers.ElementsAs(ctx, &OriginServersElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(OriginServersElems) > 0 {
+				var OriginServersList []map[string]interface{}
+				for _, OriginServersItem := range OriginServersElems {
+					OriginServersItemMap := make(map[string]interface{})
+					if OriginServersItem.K8SService != nil {
+						K8SServiceMap := make(map[string]interface{})
+						if OriginServersItem.K8SService.InsideNetwork != nil {
+							K8SServiceMap["inside_network"] = map[string]interface{}{}
+						}
+						if OriginServersItem.K8SService.OutsideNetwork != nil {
+							K8SServiceMap["outside_network"] = map[string]interface{}{}
+						}
+						if !OriginServersItem.K8SService.Protocol.IsNull() && !OriginServersItem.K8SService.Protocol.IsUnknown() {
+							K8SServiceMap["protocol"] = OriginServersItem.K8SService.Protocol.ValueString()
+						}
+						if !OriginServersItem.K8SService.ServiceName.IsNull() && !OriginServersItem.K8SService.ServiceName.IsUnknown() {
+							K8SServiceMap["service_name"] = OriginServersItem.K8SService.ServiceName.ValueString()
+						}
+						if OriginServersItem.K8SService.SiteLocator != nil {
+							SiteLocatorMap := make(map[string]interface{})
+							if OriginServersItem.K8SService.SiteLocator.Site != nil {
+								SiteMap := make(map[string]interface{})
+								if !OriginServersItem.K8SService.SiteLocator.Site.Name.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Name.IsUnknown() {
+									SiteMap["name"] = OriginServersItem.K8SService.SiteLocator.Site.Name.ValueString()
+								}
+								if !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsUnknown() {
+									SiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
+								}
+								if !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsUnknown() {
+									SiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
+								}
+								SiteLocatorMap["site"] = SiteMap
+							}
+							if OriginServersItem.K8SService.SiteLocator.VirtualSite != nil {
+								VirtualSiteMap := make(map[string]interface{})
+								if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.IsUnknown() {
+									VirtualSiteMap["name"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.ValueString()
+								}
+								if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
+									VirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
+								}
+								if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
+									VirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
+								}
+								SiteLocatorMap["virtual_site"] = VirtualSiteMap
+							}
+							K8SServiceMap["site_locator"] = SiteLocatorMap
+						}
+						if OriginServersItem.K8SService.SnatPool != nil {
+							SnatPoolMap := make(map[string]interface{})
+							if OriginServersItem.K8SService.SnatPool.NoSnatPool != nil {
+								SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
+							}
+							if OriginServersItem.K8SService.SnatPool.SnatPool != nil {
+								SnatPoolMap := make(map[string]interface{})
+								if !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsUnknown() {
+									var PrefixesItems []string
+									diags := OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+									if !diags.HasError() {
+										SnatPoolMap["prefixes"] = PrefixesItems
+									}
+								}
+								SnatPoolMap["snat_pool"] = SnatPoolMap
+							}
+							K8SServiceMap["snat_pool"] = SnatPoolMap
+						}
+						if OriginServersItem.K8SService.Vk8sNetworks != nil {
+							K8SServiceMap["vk8s_networks"] = map[string]interface{}{}
+						}
+						OriginServersItemMap["k8s_service"] = K8SServiceMap
 					}
-					if listItem.K8SService.OutsideNetwork != nil {
-						k8s_serviceDeepMap["outside_network"] = map[string]interface{}{}
+					if OriginServersItem.NoPreference != nil {
+						OriginServersItemMap["no_preference"] = map[string]interface{}{}
 					}
-					if !listItem.K8SService.Protocol.IsNull() && !listItem.K8SService.Protocol.IsUnknown() {
-						k8s_serviceDeepMap["protocol"] = listItem.K8SService.Protocol.ValueString()
+					if OriginServersItem.PublicIP != nil {
+						PublicIPMap := make(map[string]interface{})
+						if !OriginServersItem.PublicIP.IP.IsNull() && !OriginServersItem.PublicIP.IP.IsUnknown() {
+							PublicIPMap["ip"] = OriginServersItem.PublicIP.IP.ValueString()
+						}
+						OriginServersItemMap["public_ip"] = PublicIPMap
 					}
-					if !listItem.K8SService.ServiceName.IsNull() && !listItem.K8SService.ServiceName.IsUnknown() {
-						k8s_serviceDeepMap["service_name"] = listItem.K8SService.ServiceName.ValueString()
+					if OriginServersItem.PublicName != nil {
+						PublicNameMap := make(map[string]interface{})
+						if !OriginServersItem.PublicName.DNSName.IsNull() && !OriginServersItem.PublicName.DNSName.IsUnknown() {
+							PublicNameMap["dns_name"] = OriginServersItem.PublicName.DNSName.ValueString()
+						}
+						if !OriginServersItem.PublicName.RefreshInterval.IsNull() && !OriginServersItem.PublicName.RefreshInterval.IsUnknown() {
+							PublicNameMap["refresh_interval"] = OriginServersItem.PublicName.RefreshInterval.ValueInt64()
+						}
+						OriginServersItemMap["public_name"] = PublicNameMap
 					}
-					if listItem.K8SService.Vk8sNetworks != nil {
-						k8s_serviceDeepMap["vk8s_networks"] = map[string]interface{}{}
+					if OriginServersItem.SitePreferences != nil {
+						SitePreferencesMap := make(map[string]interface{})
+						if !OriginServersItem.SitePreferences.Refs.IsNull() && !OriginServersItem.SitePreferences.Refs.IsUnknown() {
+							var RefsElems []DNSProxyOriginServersOriginServersSitePreferencesRefsModel
+							diags := OriginServersItem.SitePreferences.Refs.ElementsAs(ctx, &RefsElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(RefsElems) > 0 {
+								var RefsList []map[string]interface{}
+								for _, RefsItem := range RefsElems {
+									RefsItemMap := make(map[string]interface{})
+									if !RefsItem.Name.IsNull() && !RefsItem.Name.IsUnknown() {
+										RefsItemMap["name"] = RefsItem.Name.ValueString()
+									}
+									if !RefsItem.Namespace.IsNull() && !RefsItem.Namespace.IsUnknown() {
+										RefsItemMap["namespace"] = RefsItem.Namespace.ValueString()
+									}
+									if !RefsItem.Tenant.IsNull() && !RefsItem.Tenant.IsUnknown() {
+										RefsItemMap["tenant"] = RefsItem.Tenant.ValueString()
+									}
+									RefsList = append(RefsList, RefsItemMap)
+								}
+								SitePreferencesMap["refs"] = RefsList
+							}
+						}
+						OriginServersItemMap["site_preferences"] = SitePreferencesMap
 					}
-					listItemMap["k8s_service"] = k8s_serviceDeepMap
+					OriginServersList = append(OriginServersList, OriginServersItemMap)
 				}
-				if listItem.NoPreference != nil {
-					listItemMap["no_preference"] = map[string]interface{}{}
-				}
-				if listItem.PublicIP != nil {
-					public_ipDeepMap := make(map[string]interface{})
-					if !listItem.PublicIP.IP.IsNull() && !listItem.PublicIP.IP.IsUnknown() {
-						public_ipDeepMap["ip"] = listItem.PublicIP.IP.ValueString()
-					}
-					listItemMap["public_ip"] = public_ipDeepMap
-				}
-				if listItem.PublicName != nil {
-					public_nameDeepMap := make(map[string]interface{})
-					if !listItem.PublicName.DNSName.IsNull() && !listItem.PublicName.DNSName.IsUnknown() {
-						public_nameDeepMap["dns_name"] = listItem.PublicName.DNSName.ValueString()
-					}
-					if !listItem.PublicName.RefreshInterval.IsNull() && !listItem.PublicName.RefreshInterval.IsUnknown() {
-						public_nameDeepMap["refresh_interval"] = listItem.PublicName.RefreshInterval.ValueInt64()
-					}
-					listItemMap["public_name"] = public_nameDeepMap
-				}
-				if listItem.SitePreferences != nil {
-					site_preferencesDeepMap := make(map[string]interface{})
-					listItemMap["site_preferences"] = site_preferencesDeepMap
-				}
-				origin_serversList = append(origin_serversList, listItemMap)
+				OriginServersMap["origin_servers"] = OriginServersList
 			}
-			origin_serversMap["origin_servers"] = origin_serversList
 		}
-		apiResource.Spec["origin_servers"] = origin_serversMap
+		apiResource.Spec["origin_servers"] = OriginServersMap
 	}
 	if data.ProtocolInspection != nil {
-		protocol_inspectionMap := make(map[string]interface{})
+		ProtocolInspectionMap := make(map[string]interface{})
 		if !data.ProtocolInspection.Name.IsNull() && !data.ProtocolInspection.Name.IsUnknown() {
-			protocol_inspectionMap["name"] = data.ProtocolInspection.Name.ValueString()
+			ProtocolInspectionMap["name"] = data.ProtocolInspection.Name.ValueString()
 		}
 		if !data.ProtocolInspection.Namespace.IsNull() && !data.ProtocolInspection.Namespace.IsUnknown() {
-			protocol_inspectionMap["namespace"] = data.ProtocolInspection.Namespace.ValueString()
+			ProtocolInspectionMap["namespace"] = data.ProtocolInspection.Namespace.ValueString()
 		}
 		if !data.ProtocolInspection.Tenant.IsNull() && !data.ProtocolInspection.Tenant.IsUnknown() {
-			protocol_inspectionMap["tenant"] = data.ProtocolInspection.Tenant.ValueString()
+			ProtocolInspectionMap["tenant"] = data.ProtocolInspection.Tenant.ValueString()
 		}
-		apiResource.Spec["protocol_inspection"] = protocol_inspectionMap
+		apiResource.Spec["protocol_inspection"] = ProtocolInspectionMap
 	}
 	if data.ProxyAdvertisement != nil {
-		proxy_advertisementMap := make(map[string]interface{})
+		ProxyAdvertisementMap := make(map[string]interface{})
 		if data.ProxyAdvertisement.AdvertiseCustom != nil {
-			advertise_customNestedMap := make(map[string]interface{})
-			proxy_advertisementMap["advertise_custom"] = advertise_customNestedMap
+			AdvertiseCustomMap := make(map[string]interface{})
+			if !data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsNull() && !data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsUnknown() {
+				var AdvertiseWhereElems []DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel
+				diags := data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(AdvertiseWhereElems) > 0 {
+					var AdvertiseWhereList []map[string]interface{}
+					for _, AdvertiseWhereItem := range AdvertiseWhereElems {
+						AdvertiseWhereItemMap := make(map[string]interface{})
+						if AdvertiseWhereItem.AdvertiseOnPublic != nil {
+							AdvertiseOnPublicMap := make(map[string]interface{})
+							if AdvertiseWhereItem.AdvertiseOnPublic.PublicIP != nil {
+								PublicIPMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
+									PublicIPMap["name"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
+									PublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
+									PublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+								}
+								AdvertiseOnPublicMap["public_ip"] = PublicIPMap
+							}
+							AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseOnPublicMap
+						}
+						if !AdvertiseWhereItem.Port.IsNull() && !AdvertiseWhereItem.Port.IsUnknown() {
+							AdvertiseWhereItemMap["port"] = AdvertiseWhereItem.Port.ValueInt64()
+						}
+						if !AdvertiseWhereItem.PortRanges.IsNull() && !AdvertiseWhereItem.PortRanges.IsUnknown() {
+							AdvertiseWhereItemMap["port_ranges"] = AdvertiseWhereItem.PortRanges.ValueString()
+						}
+						if AdvertiseWhereItem.Site != nil {
+							SiteMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.Site.IP.IsNull() && !AdvertiseWhereItem.Site.IP.IsUnknown() {
+								SiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
+							}
+							if !AdvertiseWhereItem.Site.Network.IsNull() && !AdvertiseWhereItem.Site.Network.IsUnknown() {
+								SiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
+							}
+							if AdvertiseWhereItem.Site.Site != nil {
+								SiteMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.Site.Site.Name.IsNull() && !AdvertiseWhereItem.Site.Site.Name.IsUnknown() {
+									SiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
+									SiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
+									SiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
+								}
+								SiteMap["site"] = SiteMap
+							}
+							AdvertiseWhereItemMap["site"] = SiteMap
+						}
+						if AdvertiseWhereItem.UseDefaultPort != nil {
+							AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
+						}
+						if AdvertiseWhereItem.VirtualNetwork != nil {
+							VirtualNetworkMap := make(map[string]interface{})
+							if AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP != nil {
+								VirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
+							}
+							if AdvertiseWhereItem.VirtualNetwork.DefaultVIP != nil {
+								VirtualNetworkMap["default_vip"] = map[string]interface{}{}
+							}
+							if !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
+								VirtualNetworkMap["specific_v6_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsUnknown() {
+								VirtualNetworkMap["specific_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificVIP.ValueString()
+							}
+							if AdvertiseWhereItem.VirtualNetwork.VirtualNetwork != nil {
+								VirtualNetworkMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsUnknown() {
+									VirtualNetworkMap["name"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
+									VirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
+									VirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
+								}
+								VirtualNetworkMap["virtual_network"] = VirtualNetworkMap
+							}
+							AdvertiseWhereItemMap["virtual_network"] = VirtualNetworkMap
+						}
+						if AdvertiseWhereItem.VirtualSite != nil {
+							VirtualSiteMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.VirtualSite.Network.IsNull() && !AdvertiseWhereItem.VirtualSite.Network.IsUnknown() {
+								VirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
+							}
+							if AdvertiseWhereItem.VirtualSite.VirtualSite != nil {
+								VirtualSiteMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsUnknown() {
+									VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
+									VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
+									VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
+								}
+								VirtualSiteMap["virtual_site"] = VirtualSiteMap
+							}
+							AdvertiseWhereItemMap["virtual_site"] = VirtualSiteMap
+						}
+						if AdvertiseWhereItem.VirtualSiteWithVIP != nil {
+							VirtualSiteWithVIPMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsUnknown() {
+								VirtualSiteWithVIPMap["ip"] = AdvertiseWhereItem.VirtualSiteWithVIP.IP.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsUnknown() {
+								VirtualSiteWithVIPMap["network"] = AdvertiseWhereItem.VirtualSiteWithVIP.Network.ValueString()
+							}
+							if AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite != nil {
+								VirtualSiteMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsUnknown() {
+									VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
+									VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
+									VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
+								}
+								VirtualSiteWithVIPMap["virtual_site"] = VirtualSiteMap
+							}
+							AdvertiseWhereItemMap["virtual_site_with_vip"] = VirtualSiteWithVIPMap
+						}
+						if AdvertiseWhereItem.Vk8sService != nil {
+							Vk8sServiceMap := make(map[string]interface{})
+							if AdvertiseWhereItem.Vk8sService.Site != nil {
+								SiteMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.Vk8sService.Site.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Name.IsUnknown() {
+									SiteMap["name"] = AdvertiseWhereItem.Vk8sService.Site.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
+									SiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
+									SiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
+								}
+								Vk8sServiceMap["site"] = SiteMap
+							}
+							if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
+								VirtualSiteMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsUnknown() {
+									VirtualSiteMap["name"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
+									VirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
+									VirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
+								}
+								Vk8sServiceMap["virtual_site"] = VirtualSiteMap
+							}
+							AdvertiseWhereItemMap["vk8s_service"] = Vk8sServiceMap
+						}
+						AdvertiseWhereList = append(AdvertiseWhereList, AdvertiseWhereItemMap)
+					}
+					AdvertiseCustomMap["advertise_where"] = AdvertiseWhereList
+				}
+			}
+			ProxyAdvertisementMap["advertise_custom"] = AdvertiseCustomMap
 		}
 		if data.ProxyAdvertisement.AdvertiseOnPublic != nil {
-			advertise_on_publicNestedMap := make(map[string]interface{})
-			proxy_advertisementMap["advertise_on_public"] = advertise_on_publicNestedMap
+			AdvertiseOnPublicMap := make(map[string]interface{})
+			if data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP != nil {
+				PublicIPMap := make(map[string]interface{})
+				if !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Name.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
+					PublicIPMap["name"] = data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Name.ValueString()
+				}
+				if !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
+					PublicIPMap["namespace"] = data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+				}
+				if !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
+					PublicIPMap["tenant"] = data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+				}
+				AdvertiseOnPublicMap["public_ip"] = PublicIPMap
+			}
+			ProxyAdvertisementMap["advertise_on_public"] = AdvertiseOnPublicMap
 		}
 		if data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP != nil {
-			proxy_advertisementMap["advertise_on_public_default_vip"] = map[string]interface{}{}
+			ProxyAdvertisementMap["advertise_on_public_default_vip"] = map[string]interface{}{}
 		}
 		if data.ProxyAdvertisement.DoNotAdvertise != nil {
-			proxy_advertisementMap["do_not_advertise"] = map[string]interface{}{}
+			ProxyAdvertisementMap["do_not_advertise"] = map[string]interface{}{}
 		}
-		apiResource.Spec["proxy_advertisement"] = proxy_advertisementMap
+		apiResource.Spec["proxy_advertisement"] = ProxyAdvertisementMap
 	}
 	if !data.TransportType.IsNull() && !data.TransportType.IsUnknown() {
 		apiResource.Spec["transport_type"] = data.TransportType.ValueString()
@@ -2582,27 +4354,17 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 		data.CacheProfile = &DNSProxyCacheProfileModel{
 			CacheSize: func() types.Int64 {
 				if !isImport && data.CacheProfile != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CacheProfile.CacheSize
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["cache_size"].(float64); ok {
+				if v, ok := blockData["cache_size"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			DisableCacheProfile: func() *DNSProxyEmptyModel {
 				if !isImport && data.CacheProfile != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.CacheProfile.DisableCacheProfile
 				}
-				// Import case: read from API
 				if _, ok := blockData["disable_cache_profile"].(map[string]interface{}); ok {
 					return &DNSProxyEmptyModel{}
 				}
@@ -2610,21 +4372,40 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && isImport && data.DDOSProfile == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.DDOSProfile = &DNSProxyDDOSProfileModel{}
+	if blockData, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && (isImport || data.DDOSProfile != nil) {
+		data.DDOSProfile = &DNSProxyDDOSProfileModel{
+			DisableDDOSMitigation: func() *DNSProxyEmptyModel {
+				if !isImport && data.DDOSProfile != nil {
+					return data.DDOSProfile.DisableDDOSMitigation
+				}
+				if _, ok := blockData["disable_ddos_mitigation"].(map[string]interface{}); ok {
+					return &DNSProxyEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableDDOSMitigation: func() *DNSProxyEmptyModel {
+				if !isImport && data.DDOSProfile != nil {
+					return data.DDOSProfile.EnableDDOSMitigation
+				}
+				if _, ok := blockData["enable_ddos_mitigation"].(map[string]interface{}); ok {
+					return &DNSProxyEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["irules"].([]interface{}); ok && len(listData) > 0 {
-		var irulesList []DNSProxyIrulesModel
+	if !isImport && (data.Irules.IsNull() || len(data.Irules.Elements()) == 0) {
+		data.Irules = types.ListNull(types.ObjectType{AttrTypes: DNSProxyIrulesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["irules"].([]interface{}); ok && len(listData) > 0 {
+		var IrulesList []DNSProxyIrulesModel
 		var existingIrulesItems []DNSProxyIrulesModel
 		if !data.Irules.IsNull() && !data.Irules.IsUnknown() {
 			data.Irules.ElementsAs(ctx, &existingIrulesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				irulesList = append(irulesList, DNSProxyIrulesModel{
+				IrulesList = append(IrulesList, DNSProxyIrulesModel{
 					Name: func() types.String {
 						if v, ok := itemMap["name"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -2646,50 +4427,136 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSProxyIrulesModelAttrTypes}, irulesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSProxyIrulesModelAttrTypes}, IrulesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Irules = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Irules = types.ListNull(types.ObjectType{AttrTypes: DNSProxyIrulesModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["lb_algorithm"].(map[string]interface{}); ok && isImport && data.LBAlgorithm == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.LBAlgorithm = &DNSProxyLBAlgorithmModel{}
+	if blockData, ok := apiResource.Spec["lb_algorithm"].(map[string]interface{}); ok && (isImport || data.LBAlgorithm != nil) {
+		data.LBAlgorithm = &DNSProxyLBAlgorithmModel{
+			RoundRobin: func() *DNSProxyEmptyModel {
+				if !isImport && data.LBAlgorithm != nil {
+					return data.LBAlgorithm.RoundRobin
+				}
+				if _, ok := blockData["round_robin"].(map[string]interface{}); ok {
+					return &DNSProxyEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["origin_servers"].(map[string]interface{}); ok && (isImport || data.OriginServers != nil) {
 		data.OriginServers = &DNSProxyOriginServersModel{
 			HealthChecks: func() *DNSProxyOriginServersHealthChecksModel {
 				if !isImport && data.OriginServers != nil && data.OriginServers.HealthChecks != nil {
-					// Normal Read: preserve existing state value
 					return data.OriginServers.HealthChecks
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["health_checks"].(map[string]interface{}); ok {
+				if HealthChecksData, ok := blockData["health_checks"].(map[string]interface{}); ok {
 					return &DNSProxyOriginServersHealthChecksModel{
+						HealthCheck: func() []DNSProxyOriginServersHealthChecksHealthCheckModel {
+							if rawList, ok := HealthChecksData["health_check"].([]interface{}); ok && len(rawList) > 0 {
+								var HealthCheckResult []DNSProxyOriginServersHealthChecksHealthCheckModel
+								for _, HealthCheckItem := range rawList {
+									if HealthCheckItemMap, ok := HealthCheckItem.(map[string]interface{}); ok {
+										HealthCheckResult = append(HealthCheckResult, DNSProxyOriginServersHealthChecksHealthCheckModel{
+											DNSHealthCheck: func() *DNSProxyOriginServersHealthChecksHealthCheckDNSHealthCheckModel {
+												if DNSHealthCheckData, ok := HealthCheckItemMap["dns_health_check"].(map[string]interface{}); ok {
+													return &DNSProxyOriginServersHealthChecksHealthCheckDNSHealthCheckModel{
+														ExpectedRcode: func() types.String {
+															if v, ok := DNSHealthCheckData["expected_rcode"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ExpectedRecordType: func() types.String {
+															if v, ok := DNSHealthCheckData["expected_record_type"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														ExpectedResponse: func() types.String {
+															if v, ok := DNSHealthCheckData["expected_response"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														QueryName: func() types.String {
+															if v, ok := DNSHealthCheckData["query_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														QueryType: func() types.String {
+															if v, ok := DNSHealthCheckData["query_type"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Reverse: func() types.Bool {
+															if v, ok := DNSHealthCheckData["reverse"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											ICMPHealthCheck: func() *DNSProxyEmptyModel {
+												if _, ok := HealthCheckItemMap["icmp_health_check"].(map[string]interface{}); ok {
+													return &DNSProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											TCPHealthCheck: func() *DNSProxyOriginServersHealthChecksHealthCheckTCPHealthCheckModel {
+												if TCPHealthCheckData, ok := HealthCheckItemMap["tcp_health_check"].(map[string]interface{}); ok {
+													return &DNSProxyOriginServersHealthChecksHealthCheckTCPHealthCheckModel{
+														ExpectedResponse: func() types.String {
+															if v, ok := TCPHealthCheckData["expected_response"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SendPayload: func() types.String {
+															if v, ok := TCPHealthCheckData["send_payload"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return HealthCheckResult
+							}
+							return nil
+						}(),
 						HealthyThreshold: func() types.Int64 {
-							if v, ok := nestedBlockData["healthy_threshold"].(float64); ok {
+							if v, ok := HealthChecksData["healthy_threshold"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Interval: func() types.Int64 {
-							if v, ok := nestedBlockData["interval"].(float64); ok {
+							if v, ok := HealthChecksData["interval"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Timeout: func() types.Int64 {
-							if v, ok := nestedBlockData["timeout"].(float64); ok {
+							if v, ok := HealthChecksData["timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						UnhealthyThreshold: func() types.Int64 {
-							if v, ok := nestedBlockData["unhealthy_threshold"].(float64); ok {
+							if v, ok := HealthChecksData["unhealthy_threshold"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
@@ -2698,41 +4565,134 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 				}
 				return nil
 			}(),
-			OriginServers: func() []DNSProxyOriginServersOriginServersModel {
-				if listData, ok := blockData["origin_servers"].([]interface{}); ok && len(listData) > 0 {
-					var result []DNSProxyOriginServersOriginServersModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, DNSProxyOriginServersOriginServersModel{
+			OriginServers: func() types.List {
+				if !isImport && data.OriginServers != nil && (data.OriginServers.OriginServers.IsNull() || len(data.OriginServers.OriginServers.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersModelAttrTypes})
+				}
+				if rawList, ok := blockData["origin_servers"].([]interface{}); ok && len(rawList) > 0 {
+					var OriginServersResult []DNSProxyOriginServersOriginServersModel
+					for _, OriginServersItem := range rawList {
+						if OriginServersItemMap, ok := OriginServersItem.(map[string]interface{}); ok {
+							OriginServersResult = append(OriginServersResult, DNSProxyOriginServersOriginServersModel{
 								K8SService: func() *DNSProxyOriginServersOriginServersK8SServiceModel {
-									if deepMap, ok := itemMap["k8s_service"].(map[string]interface{}); ok {
+									if K8SServiceData, ok := OriginServersItemMap["k8s_service"].(map[string]interface{}); ok {
 										return &DNSProxyOriginServersOriginServersK8SServiceModel{
 											InsideNetwork: func() *DNSProxyEmptyModel {
-												if _, ok := deepMap["inside_network"].(map[string]interface{}); ok {
+												if _, ok := K8SServiceData["inside_network"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											OutsideNetwork: func() *DNSProxyEmptyModel {
-												if _, ok := deepMap["outside_network"].(map[string]interface{}); ok {
+												if _, ok := K8SServiceData["outside_network"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											Protocol: func() types.String {
-												if v, ok := deepMap["protocol"].(string); ok && v != "" {
+												if v, ok := K8SServiceData["protocol"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											ServiceName: func() types.String {
-												if v, ok := deepMap["service_name"].(string); ok && v != "" {
+												if v, ok := K8SServiceData["service_name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
+											SiteLocator: func() *DNSProxyOriginServersOriginServersK8SServiceSiteLocatorModel {
+												if SiteLocatorData, ok := K8SServiceData["site_locator"].(map[string]interface{}); ok {
+													return &DNSProxyOriginServersOriginServersK8SServiceSiteLocatorModel{
+														Site: func() *DNSProxyOriginServersOriginServersK8SServiceSiteLocatorSiteModel {
+															if SiteData, ok := SiteLocatorData["site"].(map[string]interface{}); ok {
+																return &DNSProxyOriginServersOriginServersK8SServiceSiteLocatorSiteModel{
+																	Name: func() types.String {
+																		if v, ok := SiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														VirtualSite: func() *DNSProxyOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteModel {
+															if VirtualSiteData, ok := SiteLocatorData["virtual_site"].(map[string]interface{}); ok {
+																return &DNSProxyOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											SnatPool: func() *DNSProxyOriginServersOriginServersK8SServiceSnatPoolModel {
+												if SnatPoolData, ok := K8SServiceData["snat_pool"].(map[string]interface{}); ok {
+													return &DNSProxyOriginServersOriginServersK8SServiceSnatPoolModel{
+														NoSnatPool: func() *DNSProxyEmptyModel {
+															if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
+																return &DNSProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SnatPool: func() *DNSProxyOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel {
+															if SnatPoolData, ok := SnatPoolData["snat_pool"].(map[string]interface{}); ok {
+																return &DNSProxyOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel{
+																	Prefixes: func() types.List {
+																		if v, ok := SnatPoolData["prefixes"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
 											Vk8sNetworks: func() *DNSProxyEmptyModel {
-												if _, ok := deepMap["vk8s_networks"].(map[string]interface{}); ok {
+												if _, ok := K8SServiceData["vk8s_networks"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
 												return nil
@@ -2742,16 +4702,16 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 									return nil
 								}(),
 								NoPreference: func() *DNSProxyEmptyModel {
-									if _, ok := itemMap["no_preference"].(map[string]interface{}); ok {
+									if _, ok := OriginServersItemMap["no_preference"].(map[string]interface{}); ok {
 										return &DNSProxyEmptyModel{}
 									}
 									return nil
 								}(),
 								PublicIP: func() *DNSProxyOriginServersOriginServersPublicIPModel {
-									if deepMap, ok := itemMap["public_ip"].(map[string]interface{}); ok {
+									if PublicIPData, ok := OriginServersItemMap["public_ip"].(map[string]interface{}); ok {
 										return &DNSProxyOriginServersOriginServersPublicIPModel{
 											IP: func() types.String {
-												if v, ok := deepMap["ip"].(string); ok && v != "" {
+												if v, ok := PublicIPData["ip"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -2761,16 +4721,16 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 									return nil
 								}(),
 								PublicName: func() *DNSProxyOriginServersOriginServersPublicNameModel {
-									if deepMap, ok := itemMap["public_name"].(map[string]interface{}); ok {
+									if PublicNameData, ok := OriginServersItemMap["public_name"].(map[string]interface{}); ok {
 										return &DNSProxyOriginServersOriginServersPublicNameModel{
 											DNSName: func() types.String {
-												if v, ok := deepMap["dns_name"].(string); ok && v != "" {
+												if v, ok := PublicNameData["dns_name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											RefreshInterval: func() types.Int64 {
-												if v, ok := deepMap["refresh_interval"].(float64); ok {
+												if v, ok := PublicNameData["refresh_interval"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
@@ -2780,17 +4740,51 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 									return nil
 								}(),
 								SitePreferences: func() *DNSProxyOriginServersOriginServersSitePreferencesModel {
-									if _, ok := itemMap["site_preferences"].(map[string]interface{}); ok {
-										return &DNSProxyOriginServersOriginServersSitePreferencesModel{}
+									if SitePreferencesData, ok := OriginServersItemMap["site_preferences"].(map[string]interface{}); ok {
+										return &DNSProxyOriginServersOriginServersSitePreferencesModel{
+											Refs: func() types.List {
+												if rawList, ok := SitePreferencesData["refs"].([]interface{}); ok && len(rawList) > 0 {
+													var RefsResult []DNSProxyOriginServersOriginServersSitePreferencesRefsModel
+													for _, RefsItem := range rawList {
+														if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
+															RefsResult = append(RefsResult, DNSProxyOriginServersOriginServersSitePreferencesRefsModel{
+																Name: func() types.String {
+																	if v, ok := RefsItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefsItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefsItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersSitePreferencesRefsModelAttrTypes}, RefsResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersSitePreferencesRefsModelAttrTypes})
+											}(),
+										}
 									}
 									return nil
 								}(),
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersModelAttrTypes}, OriginServersResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersModelAttrTypes})
 			}(),
 		}
 	}
@@ -2816,11 +4810,376 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["proxy_advertisement"].(map[string]interface{}); ok && isImport && data.ProxyAdvertisement == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.ProxyAdvertisement = &DNSProxyProxyAdvertisementModel{}
+	if blockData, ok := apiResource.Spec["proxy_advertisement"].(map[string]interface{}); ok && (isImport || data.ProxyAdvertisement != nil) {
+		data.ProxyAdvertisement = &DNSProxyProxyAdvertisementModel{
+			AdvertiseCustom: func() *DNSProxyProxyAdvertisementAdvertiseCustomModel {
+				if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseCustom != nil {
+					return data.ProxyAdvertisement.AdvertiseCustom
+				}
+				if AdvertiseCustomData, ok := blockData["advertise_custom"].(map[string]interface{}); ok {
+					return &DNSProxyProxyAdvertisementAdvertiseCustomModel{
+						AdvertiseWhere: func() types.List {
+							if rawList, ok := AdvertiseCustomData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
+								var AdvertiseWhereResult []DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel
+								for _, AdvertiseWhereItem := range rawList {
+									if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
+										AdvertiseWhereResult = append(AdvertiseWhereResult, DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel{
+											AdvertiseOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
+												if AdvertiseOnPublicData, ok := AdvertiseWhereItemMap["advertise_on_public"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel{
+														PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel {
+															if PublicIPData, ok := AdvertiseOnPublicData["public_ip"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel{
+																	Name: func() types.String {
+																		if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Port: func() types.Int64 {
+												if v, ok := AdvertiseWhereItemMap["port"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+											PortRanges: func() types.String {
+												if v, ok := AdvertiseWhereItemMap["port_ranges"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Site: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteModel {
+												if SiteData, ok := AdvertiseWhereItemMap["site"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteModel{
+														IP: func() types.String {
+															if v, ok := SiteData["ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Network: func() types.String {
+															if v, ok := SiteData["network"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Site: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteModel {
+															if SiteData, ok := SiteData["site"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteModel{
+																	Name: func() types.String {
+																		if v, ok := SiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseDefaultPort: func() *DNSProxyEmptyModel {
+												if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
+													return &DNSProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											VirtualNetwork: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel {
+												if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
+														DefaultV6VIP: func() *DNSProxyEmptyModel {
+															if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
+																return &DNSProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														DefaultVIP: func() *DNSProxyEmptyModel {
+															if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
+																return &DNSProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SpecificV6VIP: func() types.String {
+															if v, ok := VirtualNetworkData["specific_v6_vip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SpecificVIP: func() types.String {
+															if v, ok := VirtualNetworkData["specific_vip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VirtualNetwork: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel {
+															if VirtualNetworkData, ok := VirtualNetworkData["virtual_network"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualNetworkData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualNetworkData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualNetworkData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											VirtualSite: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteModel {
+												if VirtualSiteData, ok := AdvertiseWhereItemMap["virtual_site"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteModel{
+														Network: func() types.String {
+															if v, ok := VirtualSiteData["network"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VirtualSite: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteModel {
+															if VirtualSiteData, ok := VirtualSiteData["virtual_site"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											VirtualSiteWithVIP: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel {
+												if VirtualSiteWithVIPData, ok := AdvertiseWhereItemMap["virtual_site_with_vip"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel{
+														IP: func() types.String {
+															if v, ok := VirtualSiteWithVIPData["ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Network: func() types.String {
+															if v, ok := VirtualSiteWithVIPData["network"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VirtualSite: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteModel {
+															if VirtualSiteData, ok := VirtualSiteWithVIPData["virtual_site"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Vk8sService: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceModel {
+												if Vk8sServiceData, ok := AdvertiseWhereItemMap["vk8s_service"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceModel{
+														Site: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteModel {
+															if SiteData, ok := Vk8sServiceData["site"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteModel{
+																	Name: func() types.String {
+																		if v, ok := SiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														VirtualSite: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteModel {
+															if VirtualSiteData, ok := Vk8sServiceData["virtual_site"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModelAttrTypes}, AdvertiseWhereResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			AdvertiseOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseOnPublicModel {
+				if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseOnPublic != nil {
+					return data.ProxyAdvertisement.AdvertiseOnPublic
+				}
+				if AdvertiseOnPublicData, ok := blockData["advertise_on_public"].(map[string]interface{}); ok {
+					return &DNSProxyProxyAdvertisementAdvertiseOnPublicModel{
+						PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseOnPublicPublicIPModel {
+							if PublicIPData, ok := AdvertiseOnPublicData["public_ip"].(map[string]interface{}); ok {
+								return &DNSProxyProxyAdvertisementAdvertiseOnPublicPublicIPModel{
+									Name: func() types.String {
+										if v, ok := PublicIPData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			AdvertiseOnPublicDefaultVIP: func() *DNSProxyEmptyModel {
+				if !isImport && data.ProxyAdvertisement != nil {
+					return data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP
+				}
+				if _, ok := blockData["advertise_on_public_default_vip"].(map[string]interface{}); ok {
+					return &DNSProxyEmptyModel{}
+				}
+				return nil
+			}(),
+			DoNotAdvertise: func() *DNSProxyEmptyModel {
+				if !isImport && data.ProxyAdvertisement != nil {
+					return data.ProxyAdvertisement.DoNotAdvertise
+				}
+				if _, ok := blockData["do_not_advertise"].(map[string]interface{}); ok {
+					return &DNSProxyEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["transport_type"].(string); ok && v != "" {
 		data.TransportType = types.StringValue(v)
 	} else {

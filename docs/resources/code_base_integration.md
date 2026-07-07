@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_code_base_integration Resource - terraform-provider-f5xc"
+page_title: "xcsh_code_base_integration Resource - xcsh"
 subcategory: "Integrations"
 description: |-
   Manages integration details. in F5 Distributed Cloud.
 ---
 
-# f5xc_code_base_integration (Resource)
+# xcsh_code_base_integration (Resource)
 
 Manages integration details. in F5 Distributed Cloud.
 
@@ -14,47 +14,24 @@ Manages integration details. in F5 Distributed Cloud.
 ## Example Usage
 
 ```terraform
-# codebase Integration Resource Example
-# Manages integration details. in F5 Distributed Cloud.
+# CodeBaseIntegration Resource Example
+# Manages integration details.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic codebase Integration configuration
-resource "f5xc_code_base_integration" "example" {
+# Basic CodeBaseIntegration configuration
+resource "xcsh_code_base_integration" "example" {
   name      = "example-code-base-integration"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # Choose your codebase (e.g. GitHub, GitLab, Bitbucket, Az...
-  code_base_integration {
-    # Configure code_base_integration settings
-  }
-  # Configuration parameter for Azure repos.
-  azure_repos {
-    # Configure azure_repos settings
-  }
-  # SecretType is used in an object to indicate a sensitive/c...
-  access_token {
-    # Configure access_token settings
-  }
+  namespace = "system"
 }
 ```
 
@@ -69,8 +46,6 @@ resource "f5xc_code_base_integration" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the codebase Integration. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the codebase Integration will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -78,6 +53,8 @@ resource "f5xc_code_base_integration" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the codebase Integration. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -384,5 +361,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_code_base_integration.example system/example
+terraform import xcsh_code_base_integration.example system/example
 ```

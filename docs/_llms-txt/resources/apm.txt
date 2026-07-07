@@ -1,4 +1,4 @@
-# f5xc_apm
+# xcsh_apm
 
 Category: Monitoring
 New APM as a service with configured parameters
@@ -11,25 +11,9 @@ New APM as a service with configured parameters
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_apm" "example" {
+resource "xcsh_apm" "example" {
   name      = "example-apm"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  aws_site_type_choice {
-  }
-  apm_aws_site {
-  }
-  admin_password {
-  }
 }
 ```
 

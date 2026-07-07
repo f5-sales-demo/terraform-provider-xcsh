@@ -16,14 +16,15 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -540,13 +541,16 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Network Interface will be created.",
-				Required:            true,
+				MarkdownDescription: "Namespace for the Network Interface. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
+				Optional:            true,
+				Computed:            true,
+				Default:             stringdefault.StaticString("system"),
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
+					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
@@ -1258,186 +1262,385 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.DedicatedInterface != nil {
-		dedicated_interfaceMap := make(map[string]interface{})
+		DedicatedInterfaceMap := make(map[string]interface{})
 		if data.DedicatedInterface.Cluster != nil {
-			dedicated_interfaceMap["cluster"] = map[string]interface{}{}
+			DedicatedInterfaceMap["cluster"] = map[string]interface{}{}
 		}
 		if !data.DedicatedInterface.Device.IsNull() && !data.DedicatedInterface.Device.IsUnknown() {
-			dedicated_interfaceMap["device"] = data.DedicatedInterface.Device.ValueString()
+			DedicatedInterfaceMap["device"] = data.DedicatedInterface.Device.ValueString()
 		}
 		if data.DedicatedInterface.IsPrimary != nil {
-			dedicated_interfaceMap["is_primary"] = map[string]interface{}{}
+			DedicatedInterfaceMap["is_primary"] = map[string]interface{}{}
 		}
 		if data.DedicatedInterface.Monitor != nil {
-			dedicated_interfaceMap["monitor"] = map[string]interface{}{}
+			DedicatedInterfaceMap["monitor"] = map[string]interface{}{}
 		}
 		if data.DedicatedInterface.MonitorDisabled != nil {
-			dedicated_interfaceMap["monitor_disabled"] = map[string]interface{}{}
+			DedicatedInterfaceMap["monitor_disabled"] = map[string]interface{}{}
 		}
 		if !data.DedicatedInterface.MTU.IsNull() && !data.DedicatedInterface.MTU.IsUnknown() {
-			dedicated_interfaceMap["mtu"] = data.DedicatedInterface.MTU.ValueInt64()
+			DedicatedInterfaceMap["mtu"] = data.DedicatedInterface.MTU.ValueInt64()
 		}
 		if !data.DedicatedInterface.Node.IsNull() && !data.DedicatedInterface.Node.IsUnknown() {
-			dedicated_interfaceMap["node"] = data.DedicatedInterface.Node.ValueString()
+			DedicatedInterfaceMap["node"] = data.DedicatedInterface.Node.ValueString()
 		}
 		if data.DedicatedInterface.NotPrimary != nil {
-			dedicated_interfaceMap["not_primary"] = map[string]interface{}{}
+			DedicatedInterfaceMap["not_primary"] = map[string]interface{}{}
 		}
 		if !data.DedicatedInterface.Priority.IsNull() && !data.DedicatedInterface.Priority.IsUnknown() {
-			dedicated_interfaceMap["priority"] = data.DedicatedInterface.Priority.ValueInt64()
+			DedicatedInterfaceMap["priority"] = data.DedicatedInterface.Priority.ValueInt64()
 		}
-		createReq.Spec["dedicated_interface"] = dedicated_interfaceMap
+		createReq.Spec["dedicated_interface"] = DedicatedInterfaceMap
 	}
 	if data.DedicatedManagementInterface != nil {
-		dedicated_management_interfaceMap := make(map[string]interface{})
+		DedicatedManagementInterfaceMap := make(map[string]interface{})
 		if data.DedicatedManagementInterface.Cluster != nil {
-			dedicated_management_interfaceMap["cluster"] = map[string]interface{}{}
+			DedicatedManagementInterfaceMap["cluster"] = map[string]interface{}{}
 		}
 		if !data.DedicatedManagementInterface.Device.IsNull() && !data.DedicatedManagementInterface.Device.IsUnknown() {
-			dedicated_management_interfaceMap["device"] = data.DedicatedManagementInterface.Device.ValueString()
+			DedicatedManagementInterfaceMap["device"] = data.DedicatedManagementInterface.Device.ValueString()
 		}
 		if !data.DedicatedManagementInterface.MTU.IsNull() && !data.DedicatedManagementInterface.MTU.IsUnknown() {
-			dedicated_management_interfaceMap["mtu"] = data.DedicatedManagementInterface.MTU.ValueInt64()
+			DedicatedManagementInterfaceMap["mtu"] = data.DedicatedManagementInterface.MTU.ValueInt64()
 		}
 		if !data.DedicatedManagementInterface.Node.IsNull() && !data.DedicatedManagementInterface.Node.IsUnknown() {
-			dedicated_management_interfaceMap["node"] = data.DedicatedManagementInterface.Node.ValueString()
+			DedicatedManagementInterfaceMap["node"] = data.DedicatedManagementInterface.Node.ValueString()
 		}
-		createReq.Spec["dedicated_management_interface"] = dedicated_management_interfaceMap
+		createReq.Spec["dedicated_management_interface"] = DedicatedManagementInterfaceMap
 	}
 	if data.EthernetInterface != nil {
-		ethernet_interfaceMap := make(map[string]interface{})
+		EthernetInterfaceMap := make(map[string]interface{})
 		if data.EthernetInterface.Cluster != nil {
-			ethernet_interfaceMap["cluster"] = map[string]interface{}{}
+			EthernetInterfaceMap["cluster"] = map[string]interface{}{}
 		}
 		if !data.EthernetInterface.Device.IsNull() && !data.EthernetInterface.Device.IsUnknown() {
-			ethernet_interfaceMap["device"] = data.EthernetInterface.Device.ValueString()
+			EthernetInterfaceMap["device"] = data.EthernetInterface.Device.ValueString()
 		}
 		if data.EthernetInterface.DHCPClient != nil {
-			ethernet_interfaceMap["dhcp_client"] = map[string]interface{}{}
+			EthernetInterfaceMap["dhcp_client"] = map[string]interface{}{}
 		}
 		if data.EthernetInterface.DHCPServer != nil {
-			dhcp_serverNestedMap := make(map[string]interface{})
-			ethernet_interfaceMap["dhcp_server"] = dhcp_serverNestedMap
+			DHCPServerMap := make(map[string]interface{})
+			if data.EthernetInterface.DHCPServer.AutomaticFromEnd != nil {
+				DHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+			}
+			if data.EthernetInterface.DHCPServer.AutomaticFromStart != nil {
+				DHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+			}
+			if len(data.EthernetInterface.DHCPServer.DHCPNetworks) > 0 {
+				var DHCPNetworksList []map[string]interface{}
+				for _, DHCPNetworksItem := range data.EthernetInterface.DHCPServer.DHCPNetworks {
+					DHCPNetworksItemMap := make(map[string]interface{})
+					if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+						DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+					}
+					if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+						DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+					}
+					if DHCPNetworksItem.FirstAddress != nil {
+						DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+					}
+					if DHCPNetworksItem.LastAddress != nil {
+						DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+					}
+					if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+						DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+					}
+					if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+						DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+					}
+					if len(DHCPNetworksItem.Pools) > 0 {
+						var PoolsList []map[string]interface{}
+						for _, PoolsItem := range DHCPNetworksItem.Pools {
+							PoolsItemMap := make(map[string]interface{})
+							if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+								PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+							}
+							if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+								PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+							}
+							PoolsList = append(PoolsList, PoolsItemMap)
+						}
+						DHCPNetworksItemMap["pools"] = PoolsList
+					}
+					if DHCPNetworksItem.SameAsDgw != nil {
+						DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+					}
+					DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+				}
+				DHCPServerMap["dhcp_networks"] = DHCPNetworksList
+			}
+			if data.EthernetInterface.DHCPServer.FixedIPMap != nil {
+				DHCPServerMap["fixed_ip_map"] = map[string]interface{}{}
+			}
+			if data.EthernetInterface.DHCPServer.InterfaceIPMap != nil {
+				InterfaceIPMapMap := make(map[string]interface{})
+				if data.EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap != nil {
+					InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+				}
+				DHCPServerMap["interface_ip_map"] = InterfaceIPMapMap
+			}
+			EthernetInterfaceMap["dhcp_server"] = DHCPServerMap
 		}
 		if data.EthernetInterface.Ipv6AutoConfig != nil {
-			ipv6_auto_configNestedMap := make(map[string]interface{})
-			ethernet_interfaceMap["ipv6_auto_config"] = ipv6_auto_configNestedMap
+			Ipv6AutoConfigMap := make(map[string]interface{})
+			if data.EthernetInterface.Ipv6AutoConfig.Host != nil {
+				Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+			}
+			if data.EthernetInterface.Ipv6AutoConfig.Router != nil {
+				RouterMap := make(map[string]interface{})
+				if data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil {
+					DNSConfigMap := make(map[string]interface{})
+					if data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+						ConfiguredListMap := make(map[string]interface{})
+						if !data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+							var DNSListItems []string
+							diags := data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+							if !diags.HasError() {
+								ConfiguredListMap["dns_list"] = DNSListItems
+							}
+						}
+						DNSConfigMap["configured_list"] = ConfiguredListMap
+					}
+					if data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+						LocalDNSMap := make(map[string]interface{})
+						if !data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+							LocalDNSMap["configured_address"] = data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+						}
+						if data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+							LocalDNSMap["first_address"] = map[string]interface{}{}
+						}
+						if data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+							LocalDNSMap["last_address"] = map[string]interface{}{}
+						}
+						DNSConfigMap["local_dns"] = LocalDNSMap
+					}
+					RouterMap["dns_config"] = DNSConfigMap
+				}
+				if !data.EthernetInterface.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !data.EthernetInterface.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+					RouterMap["network_prefix"] = data.EthernetInterface.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+				}
+				if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+					StatefulMap := make(map[string]interface{})
+					if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+						StatefulMap["automatic_from_end"] = map[string]interface{}{}
+					}
+					if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+						StatefulMap["automatic_from_start"] = map[string]interface{}{}
+					}
+					if len(data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
+						var DHCPNetworksList []map[string]interface{}
+						for _, DHCPNetworksItem := range data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
+							DHCPNetworksItemMap := make(map[string]interface{})
+							if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+								DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+							}
+							if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+								DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+							}
+							if len(DHCPNetworksItem.Pools) > 0 {
+								var PoolsList []map[string]interface{}
+								for _, PoolsItem := range DHCPNetworksItem.Pools {
+									PoolsItemMap := make(map[string]interface{})
+									if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+										PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+									}
+									if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+										PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+									}
+									PoolsList = append(PoolsList, PoolsItemMap)
+								}
+								DHCPNetworksItemMap["pools"] = PoolsList
+							}
+							DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+						}
+						StatefulMap["dhcp_networks"] = DHCPNetworksList
+					}
+					if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+						StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+					}
+					if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+						InterfaceIPMapMap := make(map[string]interface{})
+						if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+							InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+						}
+						StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+					}
+					RouterMap["stateful"] = StatefulMap
+				}
+				Ipv6AutoConfigMap["router"] = RouterMap
+			}
+			EthernetInterfaceMap["ipv6_auto_config"] = Ipv6AutoConfigMap
 		}
 		if data.EthernetInterface.IsPrimary != nil {
-			ethernet_interfaceMap["is_primary"] = map[string]interface{}{}
+			EthernetInterfaceMap["is_primary"] = map[string]interface{}{}
 		}
 		if data.EthernetInterface.Monitor != nil {
-			ethernet_interfaceMap["monitor"] = map[string]interface{}{}
+			EthernetInterfaceMap["monitor"] = map[string]interface{}{}
 		}
 		if data.EthernetInterface.MonitorDisabled != nil {
-			ethernet_interfaceMap["monitor_disabled"] = map[string]interface{}{}
+			EthernetInterfaceMap["monitor_disabled"] = map[string]interface{}{}
 		}
 		if !data.EthernetInterface.MTU.IsNull() && !data.EthernetInterface.MTU.IsUnknown() {
-			ethernet_interfaceMap["mtu"] = data.EthernetInterface.MTU.ValueInt64()
+			EthernetInterfaceMap["mtu"] = data.EthernetInterface.MTU.ValueInt64()
 		}
 		if data.EthernetInterface.NoIpv6Address != nil {
-			ethernet_interfaceMap["no_ipv6_address"] = map[string]interface{}{}
+			EthernetInterfaceMap["no_ipv6_address"] = map[string]interface{}{}
 		}
 		if !data.EthernetInterface.Node.IsNull() && !data.EthernetInterface.Node.IsUnknown() {
-			ethernet_interfaceMap["node"] = data.EthernetInterface.Node.ValueString()
+			EthernetInterfaceMap["node"] = data.EthernetInterface.Node.ValueString()
 		}
 		if data.EthernetInterface.NotPrimary != nil {
-			ethernet_interfaceMap["not_primary"] = map[string]interface{}{}
+			EthernetInterfaceMap["not_primary"] = map[string]interface{}{}
 		}
 		if !data.EthernetInterface.Priority.IsNull() && !data.EthernetInterface.Priority.IsUnknown() {
-			ethernet_interfaceMap["priority"] = data.EthernetInterface.Priority.ValueInt64()
+			EthernetInterfaceMap["priority"] = data.EthernetInterface.Priority.ValueInt64()
 		}
 		if data.EthernetInterface.SiteLocalInsideNetwork != nil {
-			ethernet_interfaceMap["site_local_inside_network"] = map[string]interface{}{}
+			EthernetInterfaceMap["site_local_inside_network"] = map[string]interface{}{}
 		}
 		if data.EthernetInterface.SiteLocalNetwork != nil {
-			ethernet_interfaceMap["site_local_network"] = map[string]interface{}{}
+			EthernetInterfaceMap["site_local_network"] = map[string]interface{}{}
 		}
 		if data.EthernetInterface.StaticIP != nil {
-			static_ipNestedMap := make(map[string]interface{})
-			ethernet_interfaceMap["static_ip"] = static_ipNestedMap
+			StaticIPMap := make(map[string]interface{})
+			if data.EthernetInterface.StaticIP.ClusterStaticIP != nil {
+				ClusterStaticIPMap := make(map[string]interface{})
+				if data.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap != nil {
+					ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+				}
+				StaticIPMap["cluster_static_ip"] = ClusterStaticIPMap
+			}
+			if data.EthernetInterface.StaticIP.NodeStaticIP != nil {
+				NodeStaticIPMap := make(map[string]interface{})
+				if !data.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.IsNull() && !data.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.IsUnknown() {
+					NodeStaticIPMap["default_gw"] = data.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.ValueString()
+				}
+				if !data.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.IsNull() && !data.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.IsUnknown() {
+					NodeStaticIPMap["ip_address"] = data.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.ValueString()
+				}
+				StaticIPMap["node_static_ip"] = NodeStaticIPMap
+			}
+			EthernetInterfaceMap["static_ip"] = StaticIPMap
 		}
 		if data.EthernetInterface.StaticIpv6Address != nil {
-			static_ipv6_addressNestedMap := make(map[string]interface{})
-			ethernet_interfaceMap["static_ipv6_address"] = static_ipv6_addressNestedMap
+			StaticIpv6AddressMap := make(map[string]interface{})
+			if data.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
+				ClusterStaticIPMap := make(map[string]interface{})
+				if data.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+					ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+				}
+				StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+			}
+			if data.EthernetInterface.StaticIpv6Address.NodeStaticIP != nil {
+				NodeStaticIPMap := make(map[string]interface{})
+				if !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+					NodeStaticIPMap["default_gw"] = data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+				}
+				if !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+					NodeStaticIPMap["ip_address"] = data.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+				}
+				StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+			}
+			EthernetInterfaceMap["static_ipv6_address"] = StaticIpv6AddressMap
 		}
 		if data.EthernetInterface.StorageNetwork != nil {
-			ethernet_interfaceMap["storage_network"] = map[string]interface{}{}
+			EthernetInterfaceMap["storage_network"] = map[string]interface{}{}
 		}
 		if data.EthernetInterface.Untagged != nil {
-			ethernet_interfaceMap["untagged"] = map[string]interface{}{}
+			EthernetInterfaceMap["untagged"] = map[string]interface{}{}
 		}
 		if !data.EthernetInterface.VLANID.IsNull() && !data.EthernetInterface.VLANID.IsUnknown() {
-			ethernet_interfaceMap["vlan_id"] = data.EthernetInterface.VLANID.ValueInt64()
+			EthernetInterfaceMap["vlan_id"] = data.EthernetInterface.VLANID.ValueInt64()
 		}
-		createReq.Spec["ethernet_interface"] = ethernet_interfaceMap
+		createReq.Spec["ethernet_interface"] = EthernetInterfaceMap
 	}
 	if data.Layer2Interface != nil {
-		layer2_interfaceMap := make(map[string]interface{})
+		Layer2InterfaceMap := make(map[string]interface{})
 		if data.Layer2Interface.L2sriovInterface != nil {
-			l2sriov_interfaceNestedMap := make(map[string]interface{})
+			L2sriovInterfaceMap := make(map[string]interface{})
 			if !data.Layer2Interface.L2sriovInterface.Device.IsNull() && !data.Layer2Interface.L2sriovInterface.Device.IsUnknown() {
-				l2sriov_interfaceNestedMap["device"] = data.Layer2Interface.L2sriovInterface.Device.ValueString()
+				L2sriovInterfaceMap["device"] = data.Layer2Interface.L2sriovInterface.Device.ValueString()
+			}
+			if data.Layer2Interface.L2sriovInterface.Untagged != nil {
+				L2sriovInterfaceMap["untagged"] = map[string]interface{}{}
 			}
 			if !data.Layer2Interface.L2sriovInterface.VLANID.IsNull() && !data.Layer2Interface.L2sriovInterface.VLANID.IsUnknown() {
-				l2sriov_interfaceNestedMap["vlan_id"] = data.Layer2Interface.L2sriovInterface.VLANID.ValueInt64()
+				L2sriovInterfaceMap["vlan_id"] = data.Layer2Interface.L2sriovInterface.VLANID.ValueInt64()
 			}
-			layer2_interfaceMap["l2sriov_interface"] = l2sriov_interfaceNestedMap
+			Layer2InterfaceMap["l2sriov_interface"] = L2sriovInterfaceMap
 		}
 		if data.Layer2Interface.L2vlanInterface != nil {
-			l2vlan_interfaceNestedMap := make(map[string]interface{})
+			L2vlanInterfaceMap := make(map[string]interface{})
 			if !data.Layer2Interface.L2vlanInterface.Device.IsNull() && !data.Layer2Interface.L2vlanInterface.Device.IsUnknown() {
-				l2vlan_interfaceNestedMap["device"] = data.Layer2Interface.L2vlanInterface.Device.ValueString()
+				L2vlanInterfaceMap["device"] = data.Layer2Interface.L2vlanInterface.Device.ValueString()
 			}
 			if !data.Layer2Interface.L2vlanInterface.VLANID.IsNull() && !data.Layer2Interface.L2vlanInterface.VLANID.IsUnknown() {
-				l2vlan_interfaceNestedMap["vlan_id"] = data.Layer2Interface.L2vlanInterface.VLANID.ValueInt64()
+				L2vlanInterfaceMap["vlan_id"] = data.Layer2Interface.L2vlanInterface.VLANID.ValueInt64()
 			}
-			layer2_interfaceMap["l2vlan_interface"] = l2vlan_interfaceNestedMap
+			Layer2InterfaceMap["l2vlan_interface"] = L2vlanInterfaceMap
 		}
 		if data.Layer2Interface.L2vlanSloInterface != nil {
-			l2vlan_slo_interfaceNestedMap := make(map[string]interface{})
+			L2vlanSloInterfaceMap := make(map[string]interface{})
 			if !data.Layer2Interface.L2vlanSloInterface.VLANID.IsNull() && !data.Layer2Interface.L2vlanSloInterface.VLANID.IsUnknown() {
-				l2vlan_slo_interfaceNestedMap["vlan_id"] = data.Layer2Interface.L2vlanSloInterface.VLANID.ValueInt64()
+				L2vlanSloInterfaceMap["vlan_id"] = data.Layer2Interface.L2vlanSloInterface.VLANID.ValueInt64()
 			}
-			layer2_interfaceMap["l2vlan_slo_interface"] = l2vlan_slo_interfaceNestedMap
+			Layer2InterfaceMap["l2vlan_slo_interface"] = L2vlanSloInterfaceMap
 		}
-		createReq.Spec["layer2_interface"] = layer2_interfaceMap
+		createReq.Spec["layer2_interface"] = Layer2InterfaceMap
 	}
 	if data.TunnelInterface != nil {
-		tunnel_interfaceMap := make(map[string]interface{})
+		TunnelInterfaceMap := make(map[string]interface{})
 		if !data.TunnelInterface.MTU.IsNull() && !data.TunnelInterface.MTU.IsUnknown() {
-			tunnel_interfaceMap["mtu"] = data.TunnelInterface.MTU.ValueInt64()
+			TunnelInterfaceMap["mtu"] = data.TunnelInterface.MTU.ValueInt64()
 		}
 		if !data.TunnelInterface.Node.IsNull() && !data.TunnelInterface.Node.IsUnknown() {
-			tunnel_interfaceMap["node"] = data.TunnelInterface.Node.ValueString()
+			TunnelInterfaceMap["node"] = data.TunnelInterface.Node.ValueString()
 		}
 		if !data.TunnelInterface.Priority.IsNull() && !data.TunnelInterface.Priority.IsUnknown() {
-			tunnel_interfaceMap["priority"] = data.TunnelInterface.Priority.ValueInt64()
+			TunnelInterfaceMap["priority"] = data.TunnelInterface.Priority.ValueInt64()
 		}
 		if data.TunnelInterface.SiteLocalInsideNetwork != nil {
-			tunnel_interfaceMap["site_local_inside_network"] = map[string]interface{}{}
+			TunnelInterfaceMap["site_local_inside_network"] = map[string]interface{}{}
 		}
 		if data.TunnelInterface.SiteLocalNetwork != nil {
-			tunnel_interfaceMap["site_local_network"] = map[string]interface{}{}
+			TunnelInterfaceMap["site_local_network"] = map[string]interface{}{}
 		}
 		if data.TunnelInterface.StaticIP != nil {
-			static_ipNestedMap := make(map[string]interface{})
-			tunnel_interfaceMap["static_ip"] = static_ipNestedMap
+			StaticIPMap := make(map[string]interface{})
+			if data.TunnelInterface.StaticIP.ClusterStaticIP != nil {
+				ClusterStaticIPMap := make(map[string]interface{})
+				if data.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap != nil {
+					ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+				}
+				StaticIPMap["cluster_static_ip"] = ClusterStaticIPMap
+			}
+			if data.TunnelInterface.StaticIP.NodeStaticIP != nil {
+				NodeStaticIPMap := make(map[string]interface{})
+				if !data.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.IsNull() && !data.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.IsUnknown() {
+					NodeStaticIPMap["default_gw"] = data.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.ValueString()
+				}
+				if !data.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.IsNull() && !data.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.IsUnknown() {
+					NodeStaticIPMap["ip_address"] = data.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.ValueString()
+				}
+				StaticIPMap["node_static_ip"] = NodeStaticIPMap
+			}
+			TunnelInterfaceMap["static_ip"] = StaticIPMap
 		}
 		if data.TunnelInterface.Tunnel != nil {
-			tunnelNestedMap := make(map[string]interface{})
+			TunnelMap := make(map[string]interface{})
 			if !data.TunnelInterface.Tunnel.Name.IsNull() && !data.TunnelInterface.Tunnel.Name.IsUnknown() {
-				tunnelNestedMap["name"] = data.TunnelInterface.Tunnel.Name.ValueString()
+				TunnelMap["name"] = data.TunnelInterface.Tunnel.Name.ValueString()
 			}
 			if !data.TunnelInterface.Tunnel.Namespace.IsNull() && !data.TunnelInterface.Tunnel.Namespace.IsUnknown() {
-				tunnelNestedMap["namespace"] = data.TunnelInterface.Tunnel.Namespace.ValueString()
+				TunnelMap["namespace"] = data.TunnelInterface.Tunnel.Namespace.ValueString()
 			}
 			if !data.TunnelInterface.Tunnel.Tenant.IsNull() && !data.TunnelInterface.Tunnel.Tenant.IsUnknown() {
-				tunnelNestedMap["tenant"] = data.TunnelInterface.Tunnel.Tenant.ValueString()
+				TunnelMap["tenant"] = data.TunnelInterface.Tunnel.Tenant.ValueString()
 			}
-			tunnel_interfaceMap["tunnel"] = tunnelNestedMap
+			TunnelInterfaceMap["tunnel"] = TunnelMap
 		}
-		createReq.Spec["tunnel_interface"] = tunnel_interfaceMap
+		createReq.Spec["tunnel_interface"] = TunnelInterfaceMap
 	}
 
 	apiResource, err := r.client.CreateNetworkInterface(ctx, createReq)
@@ -1456,11 +1659,8 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 		data.DedicatedInterface = &NetworkInterfaceDedicatedInterfaceModel{
 			Cluster: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.DedicatedInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DedicatedInterface.Cluster
 				}
-				// Import case: read from API
 				if _, ok := blockData["cluster"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -1474,11 +1674,8 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			IsPrimary: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.DedicatedInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DedicatedInterface.IsPrimary
 				}
-				// Import case: read from API
 				if _, ok := blockData["is_primary"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -1486,11 +1683,8 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			Monitor: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.DedicatedInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DedicatedInterface.Monitor
 				}
-				// Import case: read from API
 				if _, ok := blockData["monitor"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -1498,11 +1692,8 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			MonitorDisabled: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.DedicatedInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DedicatedInterface.MonitorDisabled
 				}
-				// Import case: read from API
 				if _, ok := blockData["monitor_disabled"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -1510,16 +1701,9 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			MTU: func() types.Int64 {
 				if !isImport && data.DedicatedInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.DedicatedInterface.MTU
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["mtu"].(float64); ok {
+				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -1532,11 +1716,8 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			NotPrimary: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.DedicatedInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DedicatedInterface.NotPrimary
 				}
-				// Import case: read from API
 				if _, ok := blockData["not_primary"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -1544,16 +1725,9 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			Priority: func() types.Int64 {
 				if !isImport && data.DedicatedInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.DedicatedInterface.Priority
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["priority"].(float64); ok {
+				if v, ok := blockData["priority"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -1564,11 +1738,8 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 		data.DedicatedManagementInterface = &NetworkInterfaceDedicatedManagementInterfaceModel{
 			Cluster: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.DedicatedManagementInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DedicatedManagementInterface.Cluster
 				}
-				// Import case: read from API
 				if _, ok := blockData["cluster"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -1582,16 +1753,9 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			MTU: func() types.Int64 {
 				if !isImport && data.DedicatedManagementInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.DedicatedManagementInterface.MTU
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["mtu"].(float64); ok {
+				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -1608,11 +1772,8 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 		data.EthernetInterface = &NetworkInterfaceEthernetInterfaceModel{
 			Cluster: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.Cluster
 				}
-				// Import case: read from API
 				if _, ok := blockData["cluster"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -1626,11 +1787,8 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			DHCPClient: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.DHCPClient
 				}
-				// Import case: read from API
 				if _, ok := blockData["dhcp_client"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -1638,33 +1796,298 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			DHCPServer: func() *NetworkInterfaceEthernetInterfaceDHCPServerModel {
 				if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil {
-					// Normal Read: preserve existing state value
 					return data.EthernetInterface.DHCPServer
 				}
-				// Import case: read from API
-				if _, ok := blockData["dhcp_server"].(map[string]interface{}); ok {
-					return &NetworkInterfaceEthernetInterfaceDHCPServerModel{}
+				if DHCPServerData, ok := blockData["dhcp_server"].(map[string]interface{}); ok {
+					return &NetworkInterfaceEthernetInterfaceDHCPServerModel{
+						AutomaticFromEnd: func() *NetworkInterfaceEmptyModel {
+							if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEmptyModel{}
+							}
+							return nil
+						}(),
+						AutomaticFromStart: func() *NetworkInterfaceEmptyModel {
+							if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEmptyModel{}
+							}
+							return nil
+						}(),
+						DHCPNetworks: func() []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModel {
+							if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+								var DHCPNetworksResult []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModel
+								for _, DHCPNetworksItem := range rawList {
+									if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+										DHCPNetworksResult = append(DHCPNetworksResult, NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModel{
+											DgwAddress: func() types.String {
+												if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DNSAddress: func() types.String {
+												if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											FirstAddress: func() *NetworkInterfaceEmptyModel {
+												if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+													return &NetworkInterfaceEmptyModel{}
+												}
+												return nil
+											}(),
+											LastAddress: func() *NetworkInterfaceEmptyModel {
+												if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+													return &NetworkInterfaceEmptyModel{}
+												}
+												return nil
+											}(),
+											NetworkPrefix: func() types.String {
+												if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											PoolSettings: func() types.String {
+												if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Pools: func() []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModel {
+												if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+													var PoolsResult []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
+													for _, PoolsItem := range rawList {
+														if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+															PoolsResult = append(PoolsResult, NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModel{
+																EndIP: func() types.String {
+																	if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																StartIP: func() types.String {
+																	if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													return PoolsResult
+												}
+												return nil
+											}(),
+											SameAsDgw: func() *NetworkInterfaceEmptyModel {
+												if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+													return &NetworkInterfaceEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return DHCPNetworksResult
+							}
+							return nil
+						}(),
+						FixedIPMap: func() *NetworkInterfaceEmptyModel {
+							if _, ok := DHCPServerData["fixed_ip_map"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEmptyModel{}
+							}
+							return nil
+						}(),
+						InterfaceIPMap: func() *NetworkInterfaceEthernetInterfaceDHCPServerInterfaceIPMapModel {
+							if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEthernetInterfaceDHCPServerInterfaceIPMapModel{
+									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
+											return &NetworkInterfaceEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			Ipv6AutoConfig: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigModel {
 				if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil {
-					// Normal Read: preserve existing state value
 					return data.EthernetInterface.Ipv6AutoConfig
 				}
-				// Import case: read from API
-				if _, ok := blockData["ipv6_auto_config"].(map[string]interface{}); ok {
-					return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigModel{}
+				if Ipv6AutoConfigData, ok := blockData["ipv6_auto_config"].(map[string]interface{}); ok {
+					return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigModel{
+						Host: func() *NetworkInterfaceEmptyModel {
+							if _, ok := Ipv6AutoConfigData["host"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEmptyModel{}
+							}
+							return nil
+						}(),
+						Router: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterModel {
+							if RouterData, ok := Ipv6AutoConfigData["router"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterModel{
+									DNSConfig: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigModel {
+										if DNSConfigData, ok := RouterData["dns_config"].(map[string]interface{}); ok {
+											return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigModel{
+												ConfiguredList: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel {
+													if ConfiguredListData, ok := DNSConfigData["configured_list"].(map[string]interface{}); ok {
+														return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel{
+															DNSList: func() types.List {
+																if v, ok := ConfiguredListData["dns_list"].([]interface{}); ok && len(v) > 0 {
+																	var items []string
+																	for _, item := range v {
+																		if s, ok := item.(string); ok {
+																			items = append(items, s)
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	return listVal
+																}
+																return types.ListNull(types.StringType)
+															}(),
+														}
+													}
+													return nil
+												}(),
+												LocalDNS: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel {
+													if LocalDNSData, ok := DNSConfigData["local_dns"].(map[string]interface{}); ok {
+														return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel{
+															ConfiguredAddress: func() types.String {
+																if v, ok := LocalDNSData["configured_address"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															FirstAddress: func() *NetworkInterfaceEmptyModel {
+																if _, ok := LocalDNSData["first_address"].(map[string]interface{}); ok {
+																	return &NetworkInterfaceEmptyModel{}
+																}
+																return nil
+															}(),
+															LastAddress: func() *NetworkInterfaceEmptyModel {
+																if _, ok := LocalDNSData["last_address"].(map[string]interface{}); ok {
+																	return &NetworkInterfaceEmptyModel{}
+																}
+																return nil
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NetworkPrefix: func() types.String {
+										if v, ok := RouterData["network_prefix"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Stateful: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulModel {
+										if StatefulData, ok := RouterData["stateful"].(map[string]interface{}); ok {
+											return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulModel{
+												AutomaticFromEnd: func() *NetworkInterfaceEmptyModel {
+													if _, ok := StatefulData["automatic_from_end"].(map[string]interface{}); ok {
+														return &NetworkInterfaceEmptyModel{}
+													}
+													return nil
+												}(),
+												AutomaticFromStart: func() *NetworkInterfaceEmptyModel {
+													if _, ok := StatefulData["automatic_from_start"].(map[string]interface{}); ok {
+														return &NetworkInterfaceEmptyModel{}
+													}
+													return nil
+												}(),
+												DHCPNetworks: func() []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+													if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+														var DHCPNetworksResult []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
+														for _, DHCPNetworksItem := range rawList {
+															if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																DHCPNetworksResult = append(DHCPNetworksResult, NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel{
+																	NetworkPrefix: func() types.String {
+																		if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	PoolSettings: func() types.String {
+																		if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Pools: func() []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																		if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																			var PoolsResult []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																			for _, PoolsItem := range rawList {
+																				if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																					PoolsResult = append(PoolsResult, NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel{
+																						EndIP: func() types.String {
+																							if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						StartIP: func() types.String {
+																							if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																					})
+																				}
+																			}
+																			return PoolsResult
+																		}
+																		return nil
+																	}(),
+																})
+															}
+														}
+														return DHCPNetworksResult
+													}
+													return nil
+												}(),
+												FixedIPMap: func() *NetworkInterfaceEmptyModel {
+													if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
+														return &NetworkInterfaceEmptyModel{}
+													}
+													return nil
+												}(),
+												InterfaceIPMap: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
+													if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
+														return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
+															InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+																if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
+																	return &NetworkInterfaceEmptyModel{}
+																}
+																return nil
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			IsPrimary: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.IsPrimary
 				}
-				// Import case: read from API
 				if _, ok := blockData["is_primary"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -1672,11 +2095,8 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			Monitor: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.Monitor
 				}
-				// Import case: read from API
 				if _, ok := blockData["monitor"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -1684,11 +2104,8 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			MonitorDisabled: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.MonitorDisabled
 				}
-				// Import case: read from API
 				if _, ok := blockData["monitor_disabled"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -1696,27 +2113,17 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			MTU: func() types.Int64 {
 				if !isImport && data.EthernetInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.EthernetInterface.MTU
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["mtu"].(float64); ok {
+				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			NoIpv6Address: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.NoIpv6Address
 				}
-				// Import case: read from API
 				if _, ok := blockData["no_ipv6_address"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -1730,11 +2137,8 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			NotPrimary: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.NotPrimary
 				}
-				// Import case: read from API
 				if _, ok := blockData["not_primary"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -1742,27 +2146,17 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			Priority: func() types.Int64 {
 				if !isImport && data.EthernetInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.EthernetInterface.Priority
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["priority"].(float64); ok {
+				if v, ok := blockData["priority"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			SiteLocalInsideNetwork: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.SiteLocalInsideNetwork
 				}
-				// Import case: read from API
 				if _, ok := blockData["site_local_inside_network"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -1770,11 +2164,8 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			SiteLocalNetwork: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.SiteLocalNetwork
 				}
-				// Import case: read from API
 				if _, ok := blockData["site_local_network"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -1782,33 +2173,92 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			StaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIPModel {
 				if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIP != nil {
-					// Normal Read: preserve existing state value
 					return data.EthernetInterface.StaticIP
 				}
-				// Import case: read from API
-				if _, ok := blockData["static_ip"].(map[string]interface{}); ok {
-					return &NetworkInterfaceEthernetInterfaceStaticIPModel{}
+				if StaticIPData, ok := blockData["static_ip"].(map[string]interface{}); ok {
+					return &NetworkInterfaceEthernetInterfaceStaticIPModel{
+						ClusterStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModel {
+							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModel{
+									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+											return &NetworkInterfaceEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						NodeStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIPNodeStaticIPModel {
+							if NodeStaticIPData, ok := StaticIPData["node_static_ip"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEthernetInterfaceStaticIPNodeStaticIPModel{
+									DefaultGw: func() types.String {
+										if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									IPAddress: func() types.String {
+										if v, ok := NodeStaticIPData["ip_address"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			StaticIpv6Address: func() *NetworkInterfaceEthernetInterfaceStaticIpv6AddressModel {
 				if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIpv6Address != nil {
-					// Normal Read: preserve existing state value
 					return data.EthernetInterface.StaticIpv6Address
 				}
-				// Import case: read from API
-				if _, ok := blockData["static_ipv6_address"].(map[string]interface{}); ok {
-					return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressModel{}
+				if StaticIpv6AddressData, ok := blockData["static_ipv6_address"].(map[string]interface{}); ok {
+					return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressModel{
+						ClusterStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModel {
+							if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModel{
+									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+											return &NetworkInterfaceEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						NodeStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIpv6AddressNodeStaticIPModel {
+							if NodeStaticIPData, ok := StaticIpv6AddressData["node_static_ip"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressNodeStaticIPModel{
+									DefaultGw: func() types.String {
+										if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									IPAddress: func() types.String {
+										if v, ok := NodeStaticIPData["ip_address"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			StorageNetwork: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.StorageNetwork
 				}
-				// Import case: read from API
 				if _, ok := blockData["storage_network"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -1816,11 +2266,8 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			Untagged: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.Untagged
 				}
-				// Import case: read from API
 				if _, ok := blockData["untagged"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -1828,41 +2275,92 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			VLANID: func() types.Int64 {
 				if !isImport && data.EthernetInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.EthernetInterface.VLANID
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["vlan_id"].(float64); ok {
+				if v, ok := blockData["vlan_id"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["layer2_interface"].(map[string]interface{}); ok && isImport && data.Layer2Interface == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Layer2Interface = &NetworkInterfaceLayer2InterfaceModel{}
+	if blockData, ok := apiResource.Spec["layer2_interface"].(map[string]interface{}); ok && (isImport || data.Layer2Interface != nil) {
+		data.Layer2Interface = &NetworkInterfaceLayer2InterfaceModel{
+			L2sriovInterface: func() *NetworkInterfaceLayer2InterfaceL2sriovInterfaceModel {
+				if !isImport && data.Layer2Interface != nil && data.Layer2Interface.L2sriovInterface != nil {
+					return data.Layer2Interface.L2sriovInterface
+				}
+				if L2sriovInterfaceData, ok := blockData["l2sriov_interface"].(map[string]interface{}); ok {
+					return &NetworkInterfaceLayer2InterfaceL2sriovInterfaceModel{
+						Device: func() types.String {
+							if v, ok := L2sriovInterfaceData["device"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Untagged: func() *NetworkInterfaceEmptyModel {
+							if _, ok := L2sriovInterfaceData["untagged"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEmptyModel{}
+							}
+							return nil
+						}(),
+						VLANID: func() types.Int64 {
+							if v, ok := L2sriovInterfaceData["vlan_id"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			L2vlanInterface: func() *NetworkInterfaceLayer2InterfaceL2vlanInterfaceModel {
+				if !isImport && data.Layer2Interface != nil && data.Layer2Interface.L2vlanInterface != nil {
+					return data.Layer2Interface.L2vlanInterface
+				}
+				if L2vlanInterfaceData, ok := blockData["l2vlan_interface"].(map[string]interface{}); ok {
+					return &NetworkInterfaceLayer2InterfaceL2vlanInterfaceModel{
+						Device: func() types.String {
+							if v, ok := L2vlanInterfaceData["device"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						VLANID: func() types.Int64 {
+							if v, ok := L2vlanInterfaceData["vlan_id"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			L2vlanSloInterface: func() *NetworkInterfaceLayer2InterfaceL2vlanSloInterfaceModel {
+				if !isImport && data.Layer2Interface != nil && data.Layer2Interface.L2vlanSloInterface != nil {
+					return data.Layer2Interface.L2vlanSloInterface
+				}
+				if L2vlanSloInterfaceData, ok := blockData["l2vlan_slo_interface"].(map[string]interface{}); ok {
+					return &NetworkInterfaceLayer2InterfaceL2vlanSloInterfaceModel{
+						VLANID: func() types.Int64 {
+							if v, ok := L2vlanSloInterfaceData["vlan_id"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["tunnel_interface"].(map[string]interface{}); ok && (isImport || data.TunnelInterface != nil) {
 		data.TunnelInterface = &NetworkInterfaceTunnelInterfaceModel{
 			MTU: func() types.Int64 {
 				if !isImport && data.TunnelInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.TunnelInterface.MTU
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["mtu"].(float64); ok {
+				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -1875,27 +2373,17 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			Priority: func() types.Int64 {
 				if !isImport && data.TunnelInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.TunnelInterface.Priority
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["priority"].(float64); ok {
+				if v, ok := blockData["priority"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			SiteLocalInsideNetwork: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.TunnelInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TunnelInterface.SiteLocalInsideNetwork
 				}
-				// Import case: read from API
 				if _, ok := blockData["site_local_inside_network"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -1903,11 +2391,8 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			SiteLocalNetwork: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.TunnelInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TunnelInterface.SiteLocalNetwork
 				}
-				// Import case: read from API
 				if _, ok := blockData["site_local_network"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -1915,37 +2400,66 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			StaticIP: func() *NetworkInterfaceTunnelInterfaceStaticIPModel {
 				if !isImport && data.TunnelInterface != nil && data.TunnelInterface.StaticIP != nil {
-					// Normal Read: preserve existing state value
 					return data.TunnelInterface.StaticIP
 				}
-				// Import case: read from API
-				if _, ok := blockData["static_ip"].(map[string]interface{}); ok {
-					return &NetworkInterfaceTunnelInterfaceStaticIPModel{}
+				if StaticIPData, ok := blockData["static_ip"].(map[string]interface{}); ok {
+					return &NetworkInterfaceTunnelInterfaceStaticIPModel{
+						ClusterStaticIP: func() *NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModel {
+							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
+								return &NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModel{
+									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+											return &NetworkInterfaceEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						NodeStaticIP: func() *NetworkInterfaceTunnelInterfaceStaticIPNodeStaticIPModel {
+							if NodeStaticIPData, ok := StaticIPData["node_static_ip"].(map[string]interface{}); ok {
+								return &NetworkInterfaceTunnelInterfaceStaticIPNodeStaticIPModel{
+									DefaultGw: func() types.String {
+										if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									IPAddress: func() types.String {
+										if v, ok := NodeStaticIPData["ip_address"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			Tunnel: func() *NetworkInterfaceTunnelInterfaceTunnelModel {
 				if !isImport && data.TunnelInterface != nil && data.TunnelInterface.Tunnel != nil {
-					// Normal Read: preserve existing state value
 					return data.TunnelInterface.Tunnel
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["tunnel"].(map[string]interface{}); ok {
+				if TunnelData, ok := blockData["tunnel"].(map[string]interface{}); ok {
 					return &NetworkInterfaceTunnelInterfaceTunnelModel{
 						Name: func() types.String {
-							if v, ok := nestedBlockData["name"].(string); ok && v != "" {
+							if v, ok := TunnelData["name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						Namespace: func() types.String {
-							if v, ok := nestedBlockData["namespace"].(string); ok && v != "" {
+							if v, ok := TunnelData["namespace"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						Tenant: func() types.String {
-							if v, ok := nestedBlockData["tenant"].(string); ok && v != "" {
+							if v, ok := TunnelData["tenant"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -2040,11 +2554,8 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 		data.DedicatedInterface = &NetworkInterfaceDedicatedInterfaceModel{
 			Cluster: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.DedicatedInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DedicatedInterface.Cluster
 				}
-				// Import case: read from API
 				if _, ok := blockData["cluster"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2058,11 +2569,8 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			IsPrimary: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.DedicatedInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DedicatedInterface.IsPrimary
 				}
-				// Import case: read from API
 				if _, ok := blockData["is_primary"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2070,11 +2578,8 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			Monitor: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.DedicatedInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DedicatedInterface.Monitor
 				}
-				// Import case: read from API
 				if _, ok := blockData["monitor"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2082,11 +2587,8 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			MonitorDisabled: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.DedicatedInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DedicatedInterface.MonitorDisabled
 				}
-				// Import case: read from API
 				if _, ok := blockData["monitor_disabled"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2094,16 +2596,9 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			MTU: func() types.Int64 {
 				if !isImport && data.DedicatedInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.DedicatedInterface.MTU
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["mtu"].(float64); ok {
+				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -2116,11 +2611,8 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			NotPrimary: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.DedicatedInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DedicatedInterface.NotPrimary
 				}
-				// Import case: read from API
 				if _, ok := blockData["not_primary"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2128,16 +2620,9 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			Priority: func() types.Int64 {
 				if !isImport && data.DedicatedInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.DedicatedInterface.Priority
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["priority"].(float64); ok {
+				if v, ok := blockData["priority"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -2148,11 +2633,8 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 		data.DedicatedManagementInterface = &NetworkInterfaceDedicatedManagementInterfaceModel{
 			Cluster: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.DedicatedManagementInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DedicatedManagementInterface.Cluster
 				}
-				// Import case: read from API
 				if _, ok := blockData["cluster"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2166,16 +2648,9 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			MTU: func() types.Int64 {
 				if !isImport && data.DedicatedManagementInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.DedicatedManagementInterface.MTU
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["mtu"].(float64); ok {
+				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -2192,11 +2667,8 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 		data.EthernetInterface = &NetworkInterfaceEthernetInterfaceModel{
 			Cluster: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.Cluster
 				}
-				// Import case: read from API
 				if _, ok := blockData["cluster"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2210,11 +2682,8 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			DHCPClient: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.DHCPClient
 				}
-				// Import case: read from API
 				if _, ok := blockData["dhcp_client"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2222,33 +2691,298 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			DHCPServer: func() *NetworkInterfaceEthernetInterfaceDHCPServerModel {
 				if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil {
-					// Normal Read: preserve existing state value
 					return data.EthernetInterface.DHCPServer
 				}
-				// Import case: read from API
-				if _, ok := blockData["dhcp_server"].(map[string]interface{}); ok {
-					return &NetworkInterfaceEthernetInterfaceDHCPServerModel{}
+				if DHCPServerData, ok := blockData["dhcp_server"].(map[string]interface{}); ok {
+					return &NetworkInterfaceEthernetInterfaceDHCPServerModel{
+						AutomaticFromEnd: func() *NetworkInterfaceEmptyModel {
+							if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEmptyModel{}
+							}
+							return nil
+						}(),
+						AutomaticFromStart: func() *NetworkInterfaceEmptyModel {
+							if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEmptyModel{}
+							}
+							return nil
+						}(),
+						DHCPNetworks: func() []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModel {
+							if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+								var DHCPNetworksResult []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModel
+								for _, DHCPNetworksItem := range rawList {
+									if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+										DHCPNetworksResult = append(DHCPNetworksResult, NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModel{
+											DgwAddress: func() types.String {
+												if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DNSAddress: func() types.String {
+												if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											FirstAddress: func() *NetworkInterfaceEmptyModel {
+												if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+													return &NetworkInterfaceEmptyModel{}
+												}
+												return nil
+											}(),
+											LastAddress: func() *NetworkInterfaceEmptyModel {
+												if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+													return &NetworkInterfaceEmptyModel{}
+												}
+												return nil
+											}(),
+											NetworkPrefix: func() types.String {
+												if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											PoolSettings: func() types.String {
+												if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Pools: func() []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModel {
+												if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+													var PoolsResult []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
+													for _, PoolsItem := range rawList {
+														if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+															PoolsResult = append(PoolsResult, NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModel{
+																EndIP: func() types.String {
+																	if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																StartIP: func() types.String {
+																	if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													return PoolsResult
+												}
+												return nil
+											}(),
+											SameAsDgw: func() *NetworkInterfaceEmptyModel {
+												if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+													return &NetworkInterfaceEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return DHCPNetworksResult
+							}
+							return nil
+						}(),
+						FixedIPMap: func() *NetworkInterfaceEmptyModel {
+							if _, ok := DHCPServerData["fixed_ip_map"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEmptyModel{}
+							}
+							return nil
+						}(),
+						InterfaceIPMap: func() *NetworkInterfaceEthernetInterfaceDHCPServerInterfaceIPMapModel {
+							if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEthernetInterfaceDHCPServerInterfaceIPMapModel{
+									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
+											return &NetworkInterfaceEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			Ipv6AutoConfig: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigModel {
 				if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil {
-					// Normal Read: preserve existing state value
 					return data.EthernetInterface.Ipv6AutoConfig
 				}
-				// Import case: read from API
-				if _, ok := blockData["ipv6_auto_config"].(map[string]interface{}); ok {
-					return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigModel{}
+				if Ipv6AutoConfigData, ok := blockData["ipv6_auto_config"].(map[string]interface{}); ok {
+					return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigModel{
+						Host: func() *NetworkInterfaceEmptyModel {
+							if _, ok := Ipv6AutoConfigData["host"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEmptyModel{}
+							}
+							return nil
+						}(),
+						Router: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterModel {
+							if RouterData, ok := Ipv6AutoConfigData["router"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterModel{
+									DNSConfig: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigModel {
+										if DNSConfigData, ok := RouterData["dns_config"].(map[string]interface{}); ok {
+											return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigModel{
+												ConfiguredList: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel {
+													if ConfiguredListData, ok := DNSConfigData["configured_list"].(map[string]interface{}); ok {
+														return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel{
+															DNSList: func() types.List {
+																if v, ok := ConfiguredListData["dns_list"].([]interface{}); ok && len(v) > 0 {
+																	var items []string
+																	for _, item := range v {
+																		if s, ok := item.(string); ok {
+																			items = append(items, s)
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	return listVal
+																}
+																return types.ListNull(types.StringType)
+															}(),
+														}
+													}
+													return nil
+												}(),
+												LocalDNS: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel {
+													if LocalDNSData, ok := DNSConfigData["local_dns"].(map[string]interface{}); ok {
+														return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel{
+															ConfiguredAddress: func() types.String {
+																if v, ok := LocalDNSData["configured_address"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															FirstAddress: func() *NetworkInterfaceEmptyModel {
+																if _, ok := LocalDNSData["first_address"].(map[string]interface{}); ok {
+																	return &NetworkInterfaceEmptyModel{}
+																}
+																return nil
+															}(),
+															LastAddress: func() *NetworkInterfaceEmptyModel {
+																if _, ok := LocalDNSData["last_address"].(map[string]interface{}); ok {
+																	return &NetworkInterfaceEmptyModel{}
+																}
+																return nil
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NetworkPrefix: func() types.String {
+										if v, ok := RouterData["network_prefix"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Stateful: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulModel {
+										if StatefulData, ok := RouterData["stateful"].(map[string]interface{}); ok {
+											return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulModel{
+												AutomaticFromEnd: func() *NetworkInterfaceEmptyModel {
+													if _, ok := StatefulData["automatic_from_end"].(map[string]interface{}); ok {
+														return &NetworkInterfaceEmptyModel{}
+													}
+													return nil
+												}(),
+												AutomaticFromStart: func() *NetworkInterfaceEmptyModel {
+													if _, ok := StatefulData["automatic_from_start"].(map[string]interface{}); ok {
+														return &NetworkInterfaceEmptyModel{}
+													}
+													return nil
+												}(),
+												DHCPNetworks: func() []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+													if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+														var DHCPNetworksResult []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
+														for _, DHCPNetworksItem := range rawList {
+															if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																DHCPNetworksResult = append(DHCPNetworksResult, NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel{
+																	NetworkPrefix: func() types.String {
+																		if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	PoolSettings: func() types.String {
+																		if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Pools: func() []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																		if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																			var PoolsResult []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																			for _, PoolsItem := range rawList {
+																				if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																					PoolsResult = append(PoolsResult, NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel{
+																						EndIP: func() types.String {
+																							if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						StartIP: func() types.String {
+																							if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																					})
+																				}
+																			}
+																			return PoolsResult
+																		}
+																		return nil
+																	}(),
+																})
+															}
+														}
+														return DHCPNetworksResult
+													}
+													return nil
+												}(),
+												FixedIPMap: func() *NetworkInterfaceEmptyModel {
+													if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
+														return &NetworkInterfaceEmptyModel{}
+													}
+													return nil
+												}(),
+												InterfaceIPMap: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
+													if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
+														return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
+															InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+																if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
+																	return &NetworkInterfaceEmptyModel{}
+																}
+																return nil
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			IsPrimary: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.IsPrimary
 				}
-				// Import case: read from API
 				if _, ok := blockData["is_primary"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2256,11 +2990,8 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			Monitor: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.Monitor
 				}
-				// Import case: read from API
 				if _, ok := blockData["monitor"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2268,11 +2999,8 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			MonitorDisabled: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.MonitorDisabled
 				}
-				// Import case: read from API
 				if _, ok := blockData["monitor_disabled"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2280,27 +3008,17 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			MTU: func() types.Int64 {
 				if !isImport && data.EthernetInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.EthernetInterface.MTU
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["mtu"].(float64); ok {
+				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			NoIpv6Address: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.NoIpv6Address
 				}
-				// Import case: read from API
 				if _, ok := blockData["no_ipv6_address"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2314,11 +3032,8 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			NotPrimary: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.NotPrimary
 				}
-				// Import case: read from API
 				if _, ok := blockData["not_primary"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2326,27 +3041,17 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			Priority: func() types.Int64 {
 				if !isImport && data.EthernetInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.EthernetInterface.Priority
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["priority"].(float64); ok {
+				if v, ok := blockData["priority"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			SiteLocalInsideNetwork: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.SiteLocalInsideNetwork
 				}
-				// Import case: read from API
 				if _, ok := blockData["site_local_inside_network"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2354,11 +3059,8 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			SiteLocalNetwork: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.SiteLocalNetwork
 				}
-				// Import case: read from API
 				if _, ok := blockData["site_local_network"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2366,33 +3068,92 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			StaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIPModel {
 				if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIP != nil {
-					// Normal Read: preserve existing state value
 					return data.EthernetInterface.StaticIP
 				}
-				// Import case: read from API
-				if _, ok := blockData["static_ip"].(map[string]interface{}); ok {
-					return &NetworkInterfaceEthernetInterfaceStaticIPModel{}
+				if StaticIPData, ok := blockData["static_ip"].(map[string]interface{}); ok {
+					return &NetworkInterfaceEthernetInterfaceStaticIPModel{
+						ClusterStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModel {
+							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModel{
+									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+											return &NetworkInterfaceEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						NodeStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIPNodeStaticIPModel {
+							if NodeStaticIPData, ok := StaticIPData["node_static_ip"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEthernetInterfaceStaticIPNodeStaticIPModel{
+									DefaultGw: func() types.String {
+										if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									IPAddress: func() types.String {
+										if v, ok := NodeStaticIPData["ip_address"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			StaticIpv6Address: func() *NetworkInterfaceEthernetInterfaceStaticIpv6AddressModel {
 				if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIpv6Address != nil {
-					// Normal Read: preserve existing state value
 					return data.EthernetInterface.StaticIpv6Address
 				}
-				// Import case: read from API
-				if _, ok := blockData["static_ipv6_address"].(map[string]interface{}); ok {
-					return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressModel{}
+				if StaticIpv6AddressData, ok := blockData["static_ipv6_address"].(map[string]interface{}); ok {
+					return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressModel{
+						ClusterStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModel {
+							if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModel{
+									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+											return &NetworkInterfaceEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						NodeStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIpv6AddressNodeStaticIPModel {
+							if NodeStaticIPData, ok := StaticIpv6AddressData["node_static_ip"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressNodeStaticIPModel{
+									DefaultGw: func() types.String {
+										if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									IPAddress: func() types.String {
+										if v, ok := NodeStaticIPData["ip_address"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			StorageNetwork: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.StorageNetwork
 				}
-				// Import case: read from API
 				if _, ok := blockData["storage_network"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2400,11 +3161,8 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			Untagged: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.Untagged
 				}
-				// Import case: read from API
 				if _, ok := blockData["untagged"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2412,41 +3170,92 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			VLANID: func() types.Int64 {
 				if !isImport && data.EthernetInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.EthernetInterface.VLANID
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["vlan_id"].(float64); ok {
+				if v, ok := blockData["vlan_id"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["layer2_interface"].(map[string]interface{}); ok && isImport && data.Layer2Interface == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Layer2Interface = &NetworkInterfaceLayer2InterfaceModel{}
+	if blockData, ok := apiResource.Spec["layer2_interface"].(map[string]interface{}); ok && (isImport || data.Layer2Interface != nil) {
+		data.Layer2Interface = &NetworkInterfaceLayer2InterfaceModel{
+			L2sriovInterface: func() *NetworkInterfaceLayer2InterfaceL2sriovInterfaceModel {
+				if !isImport && data.Layer2Interface != nil && data.Layer2Interface.L2sriovInterface != nil {
+					return data.Layer2Interface.L2sriovInterface
+				}
+				if L2sriovInterfaceData, ok := blockData["l2sriov_interface"].(map[string]interface{}); ok {
+					return &NetworkInterfaceLayer2InterfaceL2sriovInterfaceModel{
+						Device: func() types.String {
+							if v, ok := L2sriovInterfaceData["device"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Untagged: func() *NetworkInterfaceEmptyModel {
+							if _, ok := L2sriovInterfaceData["untagged"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEmptyModel{}
+							}
+							return nil
+						}(),
+						VLANID: func() types.Int64 {
+							if v, ok := L2sriovInterfaceData["vlan_id"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			L2vlanInterface: func() *NetworkInterfaceLayer2InterfaceL2vlanInterfaceModel {
+				if !isImport && data.Layer2Interface != nil && data.Layer2Interface.L2vlanInterface != nil {
+					return data.Layer2Interface.L2vlanInterface
+				}
+				if L2vlanInterfaceData, ok := blockData["l2vlan_interface"].(map[string]interface{}); ok {
+					return &NetworkInterfaceLayer2InterfaceL2vlanInterfaceModel{
+						Device: func() types.String {
+							if v, ok := L2vlanInterfaceData["device"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						VLANID: func() types.Int64 {
+							if v, ok := L2vlanInterfaceData["vlan_id"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			L2vlanSloInterface: func() *NetworkInterfaceLayer2InterfaceL2vlanSloInterfaceModel {
+				if !isImport && data.Layer2Interface != nil && data.Layer2Interface.L2vlanSloInterface != nil {
+					return data.Layer2Interface.L2vlanSloInterface
+				}
+				if L2vlanSloInterfaceData, ok := blockData["l2vlan_slo_interface"].(map[string]interface{}); ok {
+					return &NetworkInterfaceLayer2InterfaceL2vlanSloInterfaceModel{
+						VLANID: func() types.Int64 {
+							if v, ok := L2vlanSloInterfaceData["vlan_id"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["tunnel_interface"].(map[string]interface{}); ok && (isImport || data.TunnelInterface != nil) {
 		data.TunnelInterface = &NetworkInterfaceTunnelInterfaceModel{
 			MTU: func() types.Int64 {
 				if !isImport && data.TunnelInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.TunnelInterface.MTU
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["mtu"].(float64); ok {
+				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -2459,27 +3268,17 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			Priority: func() types.Int64 {
 				if !isImport && data.TunnelInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.TunnelInterface.Priority
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["priority"].(float64); ok {
+				if v, ok := blockData["priority"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			SiteLocalInsideNetwork: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.TunnelInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TunnelInterface.SiteLocalInsideNetwork
 				}
-				// Import case: read from API
 				if _, ok := blockData["site_local_inside_network"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2487,11 +3286,8 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			SiteLocalNetwork: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.TunnelInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TunnelInterface.SiteLocalNetwork
 				}
-				// Import case: read from API
 				if _, ok := blockData["site_local_network"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2499,37 +3295,66 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			StaticIP: func() *NetworkInterfaceTunnelInterfaceStaticIPModel {
 				if !isImport && data.TunnelInterface != nil && data.TunnelInterface.StaticIP != nil {
-					// Normal Read: preserve existing state value
 					return data.TunnelInterface.StaticIP
 				}
-				// Import case: read from API
-				if _, ok := blockData["static_ip"].(map[string]interface{}); ok {
-					return &NetworkInterfaceTunnelInterfaceStaticIPModel{}
+				if StaticIPData, ok := blockData["static_ip"].(map[string]interface{}); ok {
+					return &NetworkInterfaceTunnelInterfaceStaticIPModel{
+						ClusterStaticIP: func() *NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModel {
+							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
+								return &NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModel{
+									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+											return &NetworkInterfaceEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						NodeStaticIP: func() *NetworkInterfaceTunnelInterfaceStaticIPNodeStaticIPModel {
+							if NodeStaticIPData, ok := StaticIPData["node_static_ip"].(map[string]interface{}); ok {
+								return &NetworkInterfaceTunnelInterfaceStaticIPNodeStaticIPModel{
+									DefaultGw: func() types.String {
+										if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									IPAddress: func() types.String {
+										if v, ok := NodeStaticIPData["ip_address"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			Tunnel: func() *NetworkInterfaceTunnelInterfaceTunnelModel {
 				if !isImport && data.TunnelInterface != nil && data.TunnelInterface.Tunnel != nil {
-					// Normal Read: preserve existing state value
 					return data.TunnelInterface.Tunnel
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["tunnel"].(map[string]interface{}); ok {
+				if TunnelData, ok := blockData["tunnel"].(map[string]interface{}); ok {
 					return &NetworkInterfaceTunnelInterfaceTunnelModel{
 						Name: func() types.String {
-							if v, ok := nestedBlockData["name"].(string); ok && v != "" {
+							if v, ok := TunnelData["name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						Namespace: func() types.String {
-							if v, ok := nestedBlockData["namespace"].(string); ok && v != "" {
+							if v, ok := TunnelData["namespace"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						Tenant: func() types.String {
-							if v, ok := nestedBlockData["tenant"].(string); ok && v != "" {
+							if v, ok := TunnelData["tenant"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -2539,6 +3364,14 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 				return nil
 			}(),
 		}
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -2592,186 +3425,385 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.DedicatedInterface != nil {
-		dedicated_interfaceMap := make(map[string]interface{})
+		DedicatedInterfaceMap := make(map[string]interface{})
 		if data.DedicatedInterface.Cluster != nil {
-			dedicated_interfaceMap["cluster"] = map[string]interface{}{}
+			DedicatedInterfaceMap["cluster"] = map[string]interface{}{}
 		}
 		if !data.DedicatedInterface.Device.IsNull() && !data.DedicatedInterface.Device.IsUnknown() {
-			dedicated_interfaceMap["device"] = data.DedicatedInterface.Device.ValueString()
+			DedicatedInterfaceMap["device"] = data.DedicatedInterface.Device.ValueString()
 		}
 		if data.DedicatedInterface.IsPrimary != nil {
-			dedicated_interfaceMap["is_primary"] = map[string]interface{}{}
+			DedicatedInterfaceMap["is_primary"] = map[string]interface{}{}
 		}
 		if data.DedicatedInterface.Monitor != nil {
-			dedicated_interfaceMap["monitor"] = map[string]interface{}{}
+			DedicatedInterfaceMap["monitor"] = map[string]interface{}{}
 		}
 		if data.DedicatedInterface.MonitorDisabled != nil {
-			dedicated_interfaceMap["monitor_disabled"] = map[string]interface{}{}
+			DedicatedInterfaceMap["monitor_disabled"] = map[string]interface{}{}
 		}
 		if !data.DedicatedInterface.MTU.IsNull() && !data.DedicatedInterface.MTU.IsUnknown() {
-			dedicated_interfaceMap["mtu"] = data.DedicatedInterface.MTU.ValueInt64()
+			DedicatedInterfaceMap["mtu"] = data.DedicatedInterface.MTU.ValueInt64()
 		}
 		if !data.DedicatedInterface.Node.IsNull() && !data.DedicatedInterface.Node.IsUnknown() {
-			dedicated_interfaceMap["node"] = data.DedicatedInterface.Node.ValueString()
+			DedicatedInterfaceMap["node"] = data.DedicatedInterface.Node.ValueString()
 		}
 		if data.DedicatedInterface.NotPrimary != nil {
-			dedicated_interfaceMap["not_primary"] = map[string]interface{}{}
+			DedicatedInterfaceMap["not_primary"] = map[string]interface{}{}
 		}
 		if !data.DedicatedInterface.Priority.IsNull() && !data.DedicatedInterface.Priority.IsUnknown() {
-			dedicated_interfaceMap["priority"] = data.DedicatedInterface.Priority.ValueInt64()
+			DedicatedInterfaceMap["priority"] = data.DedicatedInterface.Priority.ValueInt64()
 		}
-		apiResource.Spec["dedicated_interface"] = dedicated_interfaceMap
+		apiResource.Spec["dedicated_interface"] = DedicatedInterfaceMap
 	}
 	if data.DedicatedManagementInterface != nil {
-		dedicated_management_interfaceMap := make(map[string]interface{})
+		DedicatedManagementInterfaceMap := make(map[string]interface{})
 		if data.DedicatedManagementInterface.Cluster != nil {
-			dedicated_management_interfaceMap["cluster"] = map[string]interface{}{}
+			DedicatedManagementInterfaceMap["cluster"] = map[string]interface{}{}
 		}
 		if !data.DedicatedManagementInterface.Device.IsNull() && !data.DedicatedManagementInterface.Device.IsUnknown() {
-			dedicated_management_interfaceMap["device"] = data.DedicatedManagementInterface.Device.ValueString()
+			DedicatedManagementInterfaceMap["device"] = data.DedicatedManagementInterface.Device.ValueString()
 		}
 		if !data.DedicatedManagementInterface.MTU.IsNull() && !data.DedicatedManagementInterface.MTU.IsUnknown() {
-			dedicated_management_interfaceMap["mtu"] = data.DedicatedManagementInterface.MTU.ValueInt64()
+			DedicatedManagementInterfaceMap["mtu"] = data.DedicatedManagementInterface.MTU.ValueInt64()
 		}
 		if !data.DedicatedManagementInterface.Node.IsNull() && !data.DedicatedManagementInterface.Node.IsUnknown() {
-			dedicated_management_interfaceMap["node"] = data.DedicatedManagementInterface.Node.ValueString()
+			DedicatedManagementInterfaceMap["node"] = data.DedicatedManagementInterface.Node.ValueString()
 		}
-		apiResource.Spec["dedicated_management_interface"] = dedicated_management_interfaceMap
+		apiResource.Spec["dedicated_management_interface"] = DedicatedManagementInterfaceMap
 	}
 	if data.EthernetInterface != nil {
-		ethernet_interfaceMap := make(map[string]interface{})
+		EthernetInterfaceMap := make(map[string]interface{})
 		if data.EthernetInterface.Cluster != nil {
-			ethernet_interfaceMap["cluster"] = map[string]interface{}{}
+			EthernetInterfaceMap["cluster"] = map[string]interface{}{}
 		}
 		if !data.EthernetInterface.Device.IsNull() && !data.EthernetInterface.Device.IsUnknown() {
-			ethernet_interfaceMap["device"] = data.EthernetInterface.Device.ValueString()
+			EthernetInterfaceMap["device"] = data.EthernetInterface.Device.ValueString()
 		}
 		if data.EthernetInterface.DHCPClient != nil {
-			ethernet_interfaceMap["dhcp_client"] = map[string]interface{}{}
+			EthernetInterfaceMap["dhcp_client"] = map[string]interface{}{}
 		}
 		if data.EthernetInterface.DHCPServer != nil {
-			dhcp_serverNestedMap := make(map[string]interface{})
-			ethernet_interfaceMap["dhcp_server"] = dhcp_serverNestedMap
+			DHCPServerMap := make(map[string]interface{})
+			if data.EthernetInterface.DHCPServer.AutomaticFromEnd != nil {
+				DHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+			}
+			if data.EthernetInterface.DHCPServer.AutomaticFromStart != nil {
+				DHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+			}
+			if len(data.EthernetInterface.DHCPServer.DHCPNetworks) > 0 {
+				var DHCPNetworksList []map[string]interface{}
+				for _, DHCPNetworksItem := range data.EthernetInterface.DHCPServer.DHCPNetworks {
+					DHCPNetworksItemMap := make(map[string]interface{})
+					if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+						DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+					}
+					if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+						DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+					}
+					if DHCPNetworksItem.FirstAddress != nil {
+						DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+					}
+					if DHCPNetworksItem.LastAddress != nil {
+						DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+					}
+					if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+						DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+					}
+					if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+						DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+					}
+					if len(DHCPNetworksItem.Pools) > 0 {
+						var PoolsList []map[string]interface{}
+						for _, PoolsItem := range DHCPNetworksItem.Pools {
+							PoolsItemMap := make(map[string]interface{})
+							if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+								PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+							}
+							if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+								PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+							}
+							PoolsList = append(PoolsList, PoolsItemMap)
+						}
+						DHCPNetworksItemMap["pools"] = PoolsList
+					}
+					if DHCPNetworksItem.SameAsDgw != nil {
+						DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+					}
+					DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+				}
+				DHCPServerMap["dhcp_networks"] = DHCPNetworksList
+			}
+			if data.EthernetInterface.DHCPServer.FixedIPMap != nil {
+				DHCPServerMap["fixed_ip_map"] = map[string]interface{}{}
+			}
+			if data.EthernetInterface.DHCPServer.InterfaceIPMap != nil {
+				InterfaceIPMapMap := make(map[string]interface{})
+				if data.EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap != nil {
+					InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+				}
+				DHCPServerMap["interface_ip_map"] = InterfaceIPMapMap
+			}
+			EthernetInterfaceMap["dhcp_server"] = DHCPServerMap
 		}
 		if data.EthernetInterface.Ipv6AutoConfig != nil {
-			ipv6_auto_configNestedMap := make(map[string]interface{})
-			ethernet_interfaceMap["ipv6_auto_config"] = ipv6_auto_configNestedMap
+			Ipv6AutoConfigMap := make(map[string]interface{})
+			if data.EthernetInterface.Ipv6AutoConfig.Host != nil {
+				Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+			}
+			if data.EthernetInterface.Ipv6AutoConfig.Router != nil {
+				RouterMap := make(map[string]interface{})
+				if data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil {
+					DNSConfigMap := make(map[string]interface{})
+					if data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+						ConfiguredListMap := make(map[string]interface{})
+						if !data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+							var DNSListItems []string
+							diags := data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+							if !diags.HasError() {
+								ConfiguredListMap["dns_list"] = DNSListItems
+							}
+						}
+						DNSConfigMap["configured_list"] = ConfiguredListMap
+					}
+					if data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+						LocalDNSMap := make(map[string]interface{})
+						if !data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+							LocalDNSMap["configured_address"] = data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+						}
+						if data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+							LocalDNSMap["first_address"] = map[string]interface{}{}
+						}
+						if data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+							LocalDNSMap["last_address"] = map[string]interface{}{}
+						}
+						DNSConfigMap["local_dns"] = LocalDNSMap
+					}
+					RouterMap["dns_config"] = DNSConfigMap
+				}
+				if !data.EthernetInterface.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !data.EthernetInterface.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+					RouterMap["network_prefix"] = data.EthernetInterface.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+				}
+				if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+					StatefulMap := make(map[string]interface{})
+					if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+						StatefulMap["automatic_from_end"] = map[string]interface{}{}
+					}
+					if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+						StatefulMap["automatic_from_start"] = map[string]interface{}{}
+					}
+					if len(data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
+						var DHCPNetworksList []map[string]interface{}
+						for _, DHCPNetworksItem := range data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
+							DHCPNetworksItemMap := make(map[string]interface{})
+							if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+								DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+							}
+							if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+								DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+							}
+							if len(DHCPNetworksItem.Pools) > 0 {
+								var PoolsList []map[string]interface{}
+								for _, PoolsItem := range DHCPNetworksItem.Pools {
+									PoolsItemMap := make(map[string]interface{})
+									if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+										PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+									}
+									if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+										PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+									}
+									PoolsList = append(PoolsList, PoolsItemMap)
+								}
+								DHCPNetworksItemMap["pools"] = PoolsList
+							}
+							DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+						}
+						StatefulMap["dhcp_networks"] = DHCPNetworksList
+					}
+					if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+						StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+					}
+					if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+						InterfaceIPMapMap := make(map[string]interface{})
+						if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+							InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+						}
+						StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+					}
+					RouterMap["stateful"] = StatefulMap
+				}
+				Ipv6AutoConfigMap["router"] = RouterMap
+			}
+			EthernetInterfaceMap["ipv6_auto_config"] = Ipv6AutoConfigMap
 		}
 		if data.EthernetInterface.IsPrimary != nil {
-			ethernet_interfaceMap["is_primary"] = map[string]interface{}{}
+			EthernetInterfaceMap["is_primary"] = map[string]interface{}{}
 		}
 		if data.EthernetInterface.Monitor != nil {
-			ethernet_interfaceMap["monitor"] = map[string]interface{}{}
+			EthernetInterfaceMap["monitor"] = map[string]interface{}{}
 		}
 		if data.EthernetInterface.MonitorDisabled != nil {
-			ethernet_interfaceMap["monitor_disabled"] = map[string]interface{}{}
+			EthernetInterfaceMap["monitor_disabled"] = map[string]interface{}{}
 		}
 		if !data.EthernetInterface.MTU.IsNull() && !data.EthernetInterface.MTU.IsUnknown() {
-			ethernet_interfaceMap["mtu"] = data.EthernetInterface.MTU.ValueInt64()
+			EthernetInterfaceMap["mtu"] = data.EthernetInterface.MTU.ValueInt64()
 		}
 		if data.EthernetInterface.NoIpv6Address != nil {
-			ethernet_interfaceMap["no_ipv6_address"] = map[string]interface{}{}
+			EthernetInterfaceMap["no_ipv6_address"] = map[string]interface{}{}
 		}
 		if !data.EthernetInterface.Node.IsNull() && !data.EthernetInterface.Node.IsUnknown() {
-			ethernet_interfaceMap["node"] = data.EthernetInterface.Node.ValueString()
+			EthernetInterfaceMap["node"] = data.EthernetInterface.Node.ValueString()
 		}
 		if data.EthernetInterface.NotPrimary != nil {
-			ethernet_interfaceMap["not_primary"] = map[string]interface{}{}
+			EthernetInterfaceMap["not_primary"] = map[string]interface{}{}
 		}
 		if !data.EthernetInterface.Priority.IsNull() && !data.EthernetInterface.Priority.IsUnknown() {
-			ethernet_interfaceMap["priority"] = data.EthernetInterface.Priority.ValueInt64()
+			EthernetInterfaceMap["priority"] = data.EthernetInterface.Priority.ValueInt64()
 		}
 		if data.EthernetInterface.SiteLocalInsideNetwork != nil {
-			ethernet_interfaceMap["site_local_inside_network"] = map[string]interface{}{}
+			EthernetInterfaceMap["site_local_inside_network"] = map[string]interface{}{}
 		}
 		if data.EthernetInterface.SiteLocalNetwork != nil {
-			ethernet_interfaceMap["site_local_network"] = map[string]interface{}{}
+			EthernetInterfaceMap["site_local_network"] = map[string]interface{}{}
 		}
 		if data.EthernetInterface.StaticIP != nil {
-			static_ipNestedMap := make(map[string]interface{})
-			ethernet_interfaceMap["static_ip"] = static_ipNestedMap
+			StaticIPMap := make(map[string]interface{})
+			if data.EthernetInterface.StaticIP.ClusterStaticIP != nil {
+				ClusterStaticIPMap := make(map[string]interface{})
+				if data.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap != nil {
+					ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+				}
+				StaticIPMap["cluster_static_ip"] = ClusterStaticIPMap
+			}
+			if data.EthernetInterface.StaticIP.NodeStaticIP != nil {
+				NodeStaticIPMap := make(map[string]interface{})
+				if !data.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.IsNull() && !data.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.IsUnknown() {
+					NodeStaticIPMap["default_gw"] = data.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.ValueString()
+				}
+				if !data.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.IsNull() && !data.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.IsUnknown() {
+					NodeStaticIPMap["ip_address"] = data.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.ValueString()
+				}
+				StaticIPMap["node_static_ip"] = NodeStaticIPMap
+			}
+			EthernetInterfaceMap["static_ip"] = StaticIPMap
 		}
 		if data.EthernetInterface.StaticIpv6Address != nil {
-			static_ipv6_addressNestedMap := make(map[string]interface{})
-			ethernet_interfaceMap["static_ipv6_address"] = static_ipv6_addressNestedMap
+			StaticIpv6AddressMap := make(map[string]interface{})
+			if data.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
+				ClusterStaticIPMap := make(map[string]interface{})
+				if data.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+					ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+				}
+				StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+			}
+			if data.EthernetInterface.StaticIpv6Address.NodeStaticIP != nil {
+				NodeStaticIPMap := make(map[string]interface{})
+				if !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+					NodeStaticIPMap["default_gw"] = data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+				}
+				if !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+					NodeStaticIPMap["ip_address"] = data.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+				}
+				StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+			}
+			EthernetInterfaceMap["static_ipv6_address"] = StaticIpv6AddressMap
 		}
 		if data.EthernetInterface.StorageNetwork != nil {
-			ethernet_interfaceMap["storage_network"] = map[string]interface{}{}
+			EthernetInterfaceMap["storage_network"] = map[string]interface{}{}
 		}
 		if data.EthernetInterface.Untagged != nil {
-			ethernet_interfaceMap["untagged"] = map[string]interface{}{}
+			EthernetInterfaceMap["untagged"] = map[string]interface{}{}
 		}
 		if !data.EthernetInterface.VLANID.IsNull() && !data.EthernetInterface.VLANID.IsUnknown() {
-			ethernet_interfaceMap["vlan_id"] = data.EthernetInterface.VLANID.ValueInt64()
+			EthernetInterfaceMap["vlan_id"] = data.EthernetInterface.VLANID.ValueInt64()
 		}
-		apiResource.Spec["ethernet_interface"] = ethernet_interfaceMap
+		apiResource.Spec["ethernet_interface"] = EthernetInterfaceMap
 	}
 	if data.Layer2Interface != nil {
-		layer2_interfaceMap := make(map[string]interface{})
+		Layer2InterfaceMap := make(map[string]interface{})
 		if data.Layer2Interface.L2sriovInterface != nil {
-			l2sriov_interfaceNestedMap := make(map[string]interface{})
+			L2sriovInterfaceMap := make(map[string]interface{})
 			if !data.Layer2Interface.L2sriovInterface.Device.IsNull() && !data.Layer2Interface.L2sriovInterface.Device.IsUnknown() {
-				l2sriov_interfaceNestedMap["device"] = data.Layer2Interface.L2sriovInterface.Device.ValueString()
+				L2sriovInterfaceMap["device"] = data.Layer2Interface.L2sriovInterface.Device.ValueString()
+			}
+			if data.Layer2Interface.L2sriovInterface.Untagged != nil {
+				L2sriovInterfaceMap["untagged"] = map[string]interface{}{}
 			}
 			if !data.Layer2Interface.L2sriovInterface.VLANID.IsNull() && !data.Layer2Interface.L2sriovInterface.VLANID.IsUnknown() {
-				l2sriov_interfaceNestedMap["vlan_id"] = data.Layer2Interface.L2sriovInterface.VLANID.ValueInt64()
+				L2sriovInterfaceMap["vlan_id"] = data.Layer2Interface.L2sriovInterface.VLANID.ValueInt64()
 			}
-			layer2_interfaceMap["l2sriov_interface"] = l2sriov_interfaceNestedMap
+			Layer2InterfaceMap["l2sriov_interface"] = L2sriovInterfaceMap
 		}
 		if data.Layer2Interface.L2vlanInterface != nil {
-			l2vlan_interfaceNestedMap := make(map[string]interface{})
+			L2vlanInterfaceMap := make(map[string]interface{})
 			if !data.Layer2Interface.L2vlanInterface.Device.IsNull() && !data.Layer2Interface.L2vlanInterface.Device.IsUnknown() {
-				l2vlan_interfaceNestedMap["device"] = data.Layer2Interface.L2vlanInterface.Device.ValueString()
+				L2vlanInterfaceMap["device"] = data.Layer2Interface.L2vlanInterface.Device.ValueString()
 			}
 			if !data.Layer2Interface.L2vlanInterface.VLANID.IsNull() && !data.Layer2Interface.L2vlanInterface.VLANID.IsUnknown() {
-				l2vlan_interfaceNestedMap["vlan_id"] = data.Layer2Interface.L2vlanInterface.VLANID.ValueInt64()
+				L2vlanInterfaceMap["vlan_id"] = data.Layer2Interface.L2vlanInterface.VLANID.ValueInt64()
 			}
-			layer2_interfaceMap["l2vlan_interface"] = l2vlan_interfaceNestedMap
+			Layer2InterfaceMap["l2vlan_interface"] = L2vlanInterfaceMap
 		}
 		if data.Layer2Interface.L2vlanSloInterface != nil {
-			l2vlan_slo_interfaceNestedMap := make(map[string]interface{})
+			L2vlanSloInterfaceMap := make(map[string]interface{})
 			if !data.Layer2Interface.L2vlanSloInterface.VLANID.IsNull() && !data.Layer2Interface.L2vlanSloInterface.VLANID.IsUnknown() {
-				l2vlan_slo_interfaceNestedMap["vlan_id"] = data.Layer2Interface.L2vlanSloInterface.VLANID.ValueInt64()
+				L2vlanSloInterfaceMap["vlan_id"] = data.Layer2Interface.L2vlanSloInterface.VLANID.ValueInt64()
 			}
-			layer2_interfaceMap["l2vlan_slo_interface"] = l2vlan_slo_interfaceNestedMap
+			Layer2InterfaceMap["l2vlan_slo_interface"] = L2vlanSloInterfaceMap
 		}
-		apiResource.Spec["layer2_interface"] = layer2_interfaceMap
+		apiResource.Spec["layer2_interface"] = Layer2InterfaceMap
 	}
 	if data.TunnelInterface != nil {
-		tunnel_interfaceMap := make(map[string]interface{})
+		TunnelInterfaceMap := make(map[string]interface{})
 		if !data.TunnelInterface.MTU.IsNull() && !data.TunnelInterface.MTU.IsUnknown() {
-			tunnel_interfaceMap["mtu"] = data.TunnelInterface.MTU.ValueInt64()
+			TunnelInterfaceMap["mtu"] = data.TunnelInterface.MTU.ValueInt64()
 		}
 		if !data.TunnelInterface.Node.IsNull() && !data.TunnelInterface.Node.IsUnknown() {
-			tunnel_interfaceMap["node"] = data.TunnelInterface.Node.ValueString()
+			TunnelInterfaceMap["node"] = data.TunnelInterface.Node.ValueString()
 		}
 		if !data.TunnelInterface.Priority.IsNull() && !data.TunnelInterface.Priority.IsUnknown() {
-			tunnel_interfaceMap["priority"] = data.TunnelInterface.Priority.ValueInt64()
+			TunnelInterfaceMap["priority"] = data.TunnelInterface.Priority.ValueInt64()
 		}
 		if data.TunnelInterface.SiteLocalInsideNetwork != nil {
-			tunnel_interfaceMap["site_local_inside_network"] = map[string]interface{}{}
+			TunnelInterfaceMap["site_local_inside_network"] = map[string]interface{}{}
 		}
 		if data.TunnelInterface.SiteLocalNetwork != nil {
-			tunnel_interfaceMap["site_local_network"] = map[string]interface{}{}
+			TunnelInterfaceMap["site_local_network"] = map[string]interface{}{}
 		}
 		if data.TunnelInterface.StaticIP != nil {
-			static_ipNestedMap := make(map[string]interface{})
-			tunnel_interfaceMap["static_ip"] = static_ipNestedMap
+			StaticIPMap := make(map[string]interface{})
+			if data.TunnelInterface.StaticIP.ClusterStaticIP != nil {
+				ClusterStaticIPMap := make(map[string]interface{})
+				if data.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap != nil {
+					ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+				}
+				StaticIPMap["cluster_static_ip"] = ClusterStaticIPMap
+			}
+			if data.TunnelInterface.StaticIP.NodeStaticIP != nil {
+				NodeStaticIPMap := make(map[string]interface{})
+				if !data.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.IsNull() && !data.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.IsUnknown() {
+					NodeStaticIPMap["default_gw"] = data.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.ValueString()
+				}
+				if !data.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.IsNull() && !data.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.IsUnknown() {
+					NodeStaticIPMap["ip_address"] = data.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.ValueString()
+				}
+				StaticIPMap["node_static_ip"] = NodeStaticIPMap
+			}
+			TunnelInterfaceMap["static_ip"] = StaticIPMap
 		}
 		if data.TunnelInterface.Tunnel != nil {
-			tunnelNestedMap := make(map[string]interface{})
+			TunnelMap := make(map[string]interface{})
 			if !data.TunnelInterface.Tunnel.Name.IsNull() && !data.TunnelInterface.Tunnel.Name.IsUnknown() {
-				tunnelNestedMap["name"] = data.TunnelInterface.Tunnel.Name.ValueString()
+				TunnelMap["name"] = data.TunnelInterface.Tunnel.Name.ValueString()
 			}
 			if !data.TunnelInterface.Tunnel.Namespace.IsNull() && !data.TunnelInterface.Tunnel.Namespace.IsUnknown() {
-				tunnelNestedMap["namespace"] = data.TunnelInterface.Tunnel.Namespace.ValueString()
+				TunnelMap["namespace"] = data.TunnelInterface.Tunnel.Namespace.ValueString()
 			}
 			if !data.TunnelInterface.Tunnel.Tenant.IsNull() && !data.TunnelInterface.Tunnel.Tenant.IsUnknown() {
-				tunnelNestedMap["tenant"] = data.TunnelInterface.Tunnel.Tenant.ValueString()
+				TunnelMap["tenant"] = data.TunnelInterface.Tunnel.Tenant.ValueString()
 			}
-			tunnel_interfaceMap["tunnel"] = tunnelNestedMap
+			TunnelInterfaceMap["tunnel"] = TunnelMap
 		}
-		apiResource.Spec["tunnel_interface"] = tunnel_interfaceMap
+		apiResource.Spec["tunnel_interface"] = TunnelInterfaceMap
 	}
 
 	_, err := r.client.UpdateNetworkInterface(ctx, apiResource)
@@ -2801,11 +3833,8 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 		data.DedicatedInterface = &NetworkInterfaceDedicatedInterfaceModel{
 			Cluster: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.DedicatedInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DedicatedInterface.Cluster
 				}
-				// Import case: read from API
 				if _, ok := blockData["cluster"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2819,11 +3848,8 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			IsPrimary: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.DedicatedInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DedicatedInterface.IsPrimary
 				}
-				// Import case: read from API
 				if _, ok := blockData["is_primary"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2831,11 +3857,8 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			Monitor: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.DedicatedInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DedicatedInterface.Monitor
 				}
-				// Import case: read from API
 				if _, ok := blockData["monitor"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2843,11 +3866,8 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			MonitorDisabled: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.DedicatedInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DedicatedInterface.MonitorDisabled
 				}
-				// Import case: read from API
 				if _, ok := blockData["monitor_disabled"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2855,16 +3875,9 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			MTU: func() types.Int64 {
 				if !isImport && data.DedicatedInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.DedicatedInterface.MTU
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["mtu"].(float64); ok {
+				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -2877,11 +3890,8 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			NotPrimary: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.DedicatedInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DedicatedInterface.NotPrimary
 				}
-				// Import case: read from API
 				if _, ok := blockData["not_primary"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2889,16 +3899,9 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			Priority: func() types.Int64 {
 				if !isImport && data.DedicatedInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.DedicatedInterface.Priority
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["priority"].(float64); ok {
+				if v, ok := blockData["priority"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -2909,11 +3912,8 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 		data.DedicatedManagementInterface = &NetworkInterfaceDedicatedManagementInterfaceModel{
 			Cluster: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.DedicatedManagementInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DedicatedManagementInterface.Cluster
 				}
-				// Import case: read from API
 				if _, ok := blockData["cluster"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2927,16 +3927,9 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			MTU: func() types.Int64 {
 				if !isImport && data.DedicatedManagementInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.DedicatedManagementInterface.MTU
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["mtu"].(float64); ok {
+				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -2953,11 +3946,8 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 		data.EthernetInterface = &NetworkInterfaceEthernetInterfaceModel{
 			Cluster: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.Cluster
 				}
-				// Import case: read from API
 				if _, ok := blockData["cluster"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2971,11 +3961,8 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			DHCPClient: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.DHCPClient
 				}
-				// Import case: read from API
 				if _, ok := blockData["dhcp_client"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -2983,33 +3970,298 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			DHCPServer: func() *NetworkInterfaceEthernetInterfaceDHCPServerModel {
 				if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil {
-					// Normal Read: preserve existing state value
 					return data.EthernetInterface.DHCPServer
 				}
-				// Import case: read from API
-				if _, ok := blockData["dhcp_server"].(map[string]interface{}); ok {
-					return &NetworkInterfaceEthernetInterfaceDHCPServerModel{}
+				if DHCPServerData, ok := blockData["dhcp_server"].(map[string]interface{}); ok {
+					return &NetworkInterfaceEthernetInterfaceDHCPServerModel{
+						AutomaticFromEnd: func() *NetworkInterfaceEmptyModel {
+							if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEmptyModel{}
+							}
+							return nil
+						}(),
+						AutomaticFromStart: func() *NetworkInterfaceEmptyModel {
+							if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEmptyModel{}
+							}
+							return nil
+						}(),
+						DHCPNetworks: func() []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModel {
+							if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+								var DHCPNetworksResult []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModel
+								for _, DHCPNetworksItem := range rawList {
+									if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+										DHCPNetworksResult = append(DHCPNetworksResult, NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModel{
+											DgwAddress: func() types.String {
+												if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DNSAddress: func() types.String {
+												if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											FirstAddress: func() *NetworkInterfaceEmptyModel {
+												if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+													return &NetworkInterfaceEmptyModel{}
+												}
+												return nil
+											}(),
+											LastAddress: func() *NetworkInterfaceEmptyModel {
+												if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+													return &NetworkInterfaceEmptyModel{}
+												}
+												return nil
+											}(),
+											NetworkPrefix: func() types.String {
+												if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											PoolSettings: func() types.String {
+												if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Pools: func() []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModel {
+												if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+													var PoolsResult []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
+													for _, PoolsItem := range rawList {
+														if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+															PoolsResult = append(PoolsResult, NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModel{
+																EndIP: func() types.String {
+																	if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																StartIP: func() types.String {
+																	if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													return PoolsResult
+												}
+												return nil
+											}(),
+											SameAsDgw: func() *NetworkInterfaceEmptyModel {
+												if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+													return &NetworkInterfaceEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return DHCPNetworksResult
+							}
+							return nil
+						}(),
+						FixedIPMap: func() *NetworkInterfaceEmptyModel {
+							if _, ok := DHCPServerData["fixed_ip_map"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEmptyModel{}
+							}
+							return nil
+						}(),
+						InterfaceIPMap: func() *NetworkInterfaceEthernetInterfaceDHCPServerInterfaceIPMapModel {
+							if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEthernetInterfaceDHCPServerInterfaceIPMapModel{
+									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
+											return &NetworkInterfaceEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			Ipv6AutoConfig: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigModel {
 				if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil {
-					// Normal Read: preserve existing state value
 					return data.EthernetInterface.Ipv6AutoConfig
 				}
-				// Import case: read from API
-				if _, ok := blockData["ipv6_auto_config"].(map[string]interface{}); ok {
-					return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigModel{}
+				if Ipv6AutoConfigData, ok := blockData["ipv6_auto_config"].(map[string]interface{}); ok {
+					return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigModel{
+						Host: func() *NetworkInterfaceEmptyModel {
+							if _, ok := Ipv6AutoConfigData["host"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEmptyModel{}
+							}
+							return nil
+						}(),
+						Router: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterModel {
+							if RouterData, ok := Ipv6AutoConfigData["router"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterModel{
+									DNSConfig: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigModel {
+										if DNSConfigData, ok := RouterData["dns_config"].(map[string]interface{}); ok {
+											return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigModel{
+												ConfiguredList: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel {
+													if ConfiguredListData, ok := DNSConfigData["configured_list"].(map[string]interface{}); ok {
+														return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel{
+															DNSList: func() types.List {
+																if v, ok := ConfiguredListData["dns_list"].([]interface{}); ok && len(v) > 0 {
+																	var items []string
+																	for _, item := range v {
+																		if s, ok := item.(string); ok {
+																			items = append(items, s)
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	return listVal
+																}
+																return types.ListNull(types.StringType)
+															}(),
+														}
+													}
+													return nil
+												}(),
+												LocalDNS: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel {
+													if LocalDNSData, ok := DNSConfigData["local_dns"].(map[string]interface{}); ok {
+														return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel{
+															ConfiguredAddress: func() types.String {
+																if v, ok := LocalDNSData["configured_address"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															FirstAddress: func() *NetworkInterfaceEmptyModel {
+																if _, ok := LocalDNSData["first_address"].(map[string]interface{}); ok {
+																	return &NetworkInterfaceEmptyModel{}
+																}
+																return nil
+															}(),
+															LastAddress: func() *NetworkInterfaceEmptyModel {
+																if _, ok := LocalDNSData["last_address"].(map[string]interface{}); ok {
+																	return &NetworkInterfaceEmptyModel{}
+																}
+																return nil
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NetworkPrefix: func() types.String {
+										if v, ok := RouterData["network_prefix"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Stateful: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulModel {
+										if StatefulData, ok := RouterData["stateful"].(map[string]interface{}); ok {
+											return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulModel{
+												AutomaticFromEnd: func() *NetworkInterfaceEmptyModel {
+													if _, ok := StatefulData["automatic_from_end"].(map[string]interface{}); ok {
+														return &NetworkInterfaceEmptyModel{}
+													}
+													return nil
+												}(),
+												AutomaticFromStart: func() *NetworkInterfaceEmptyModel {
+													if _, ok := StatefulData["automatic_from_start"].(map[string]interface{}); ok {
+														return &NetworkInterfaceEmptyModel{}
+													}
+													return nil
+												}(),
+												DHCPNetworks: func() []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+													if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+														var DHCPNetworksResult []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
+														for _, DHCPNetworksItem := range rawList {
+															if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																DHCPNetworksResult = append(DHCPNetworksResult, NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel{
+																	NetworkPrefix: func() types.String {
+																		if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	PoolSettings: func() types.String {
+																		if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Pools: func() []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																		if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																			var PoolsResult []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																			for _, PoolsItem := range rawList {
+																				if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																					PoolsResult = append(PoolsResult, NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel{
+																						EndIP: func() types.String {
+																							if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						StartIP: func() types.String {
+																							if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																					})
+																				}
+																			}
+																			return PoolsResult
+																		}
+																		return nil
+																	}(),
+																})
+															}
+														}
+														return DHCPNetworksResult
+													}
+													return nil
+												}(),
+												FixedIPMap: func() *NetworkInterfaceEmptyModel {
+													if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
+														return &NetworkInterfaceEmptyModel{}
+													}
+													return nil
+												}(),
+												InterfaceIPMap: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
+													if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
+														return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
+															InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+																if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
+																	return &NetworkInterfaceEmptyModel{}
+																}
+																return nil
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			IsPrimary: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.IsPrimary
 				}
-				// Import case: read from API
 				if _, ok := blockData["is_primary"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -3017,11 +4269,8 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			Monitor: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.Monitor
 				}
-				// Import case: read from API
 				if _, ok := blockData["monitor"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -3029,11 +4278,8 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			MonitorDisabled: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.MonitorDisabled
 				}
-				// Import case: read from API
 				if _, ok := blockData["monitor_disabled"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -3041,27 +4287,17 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			MTU: func() types.Int64 {
 				if !isImport && data.EthernetInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.EthernetInterface.MTU
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["mtu"].(float64); ok {
+				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			NoIpv6Address: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.NoIpv6Address
 				}
-				// Import case: read from API
 				if _, ok := blockData["no_ipv6_address"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -3075,11 +4311,8 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			NotPrimary: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.NotPrimary
 				}
-				// Import case: read from API
 				if _, ok := blockData["not_primary"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -3087,27 +4320,17 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			Priority: func() types.Int64 {
 				if !isImport && data.EthernetInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.EthernetInterface.Priority
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["priority"].(float64); ok {
+				if v, ok := blockData["priority"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			SiteLocalInsideNetwork: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.SiteLocalInsideNetwork
 				}
-				// Import case: read from API
 				if _, ok := blockData["site_local_inside_network"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -3115,11 +4338,8 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			SiteLocalNetwork: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.SiteLocalNetwork
 				}
-				// Import case: read from API
 				if _, ok := blockData["site_local_network"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -3127,33 +4347,92 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			StaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIPModel {
 				if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIP != nil {
-					// Normal Read: preserve existing state value
 					return data.EthernetInterface.StaticIP
 				}
-				// Import case: read from API
-				if _, ok := blockData["static_ip"].(map[string]interface{}); ok {
-					return &NetworkInterfaceEthernetInterfaceStaticIPModel{}
+				if StaticIPData, ok := blockData["static_ip"].(map[string]interface{}); ok {
+					return &NetworkInterfaceEthernetInterfaceStaticIPModel{
+						ClusterStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModel {
+							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModel{
+									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+											return &NetworkInterfaceEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						NodeStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIPNodeStaticIPModel {
+							if NodeStaticIPData, ok := StaticIPData["node_static_ip"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEthernetInterfaceStaticIPNodeStaticIPModel{
+									DefaultGw: func() types.String {
+										if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									IPAddress: func() types.String {
+										if v, ok := NodeStaticIPData["ip_address"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			StaticIpv6Address: func() *NetworkInterfaceEthernetInterfaceStaticIpv6AddressModel {
 				if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIpv6Address != nil {
-					// Normal Read: preserve existing state value
 					return data.EthernetInterface.StaticIpv6Address
 				}
-				// Import case: read from API
-				if _, ok := blockData["static_ipv6_address"].(map[string]interface{}); ok {
-					return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressModel{}
+				if StaticIpv6AddressData, ok := blockData["static_ipv6_address"].(map[string]interface{}); ok {
+					return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressModel{
+						ClusterStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModel {
+							if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModel{
+									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+											return &NetworkInterfaceEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						NodeStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIpv6AddressNodeStaticIPModel {
+							if NodeStaticIPData, ok := StaticIpv6AddressData["node_static_ip"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressNodeStaticIPModel{
+									DefaultGw: func() types.String {
+										if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									IPAddress: func() types.String {
+										if v, ok := NodeStaticIPData["ip_address"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			StorageNetwork: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.StorageNetwork
 				}
-				// Import case: read from API
 				if _, ok := blockData["storage_network"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -3161,11 +4440,8 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			Untagged: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.EthernetInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EthernetInterface.Untagged
 				}
-				// Import case: read from API
 				if _, ok := blockData["untagged"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -3173,41 +4449,92 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			VLANID: func() types.Int64 {
 				if !isImport && data.EthernetInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.EthernetInterface.VLANID
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["vlan_id"].(float64); ok {
+				if v, ok := blockData["vlan_id"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["layer2_interface"].(map[string]interface{}); ok && isImport && data.Layer2Interface == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Layer2Interface = &NetworkInterfaceLayer2InterfaceModel{}
+	if blockData, ok := apiResource.Spec["layer2_interface"].(map[string]interface{}); ok && (isImport || data.Layer2Interface != nil) {
+		data.Layer2Interface = &NetworkInterfaceLayer2InterfaceModel{
+			L2sriovInterface: func() *NetworkInterfaceLayer2InterfaceL2sriovInterfaceModel {
+				if !isImport && data.Layer2Interface != nil && data.Layer2Interface.L2sriovInterface != nil {
+					return data.Layer2Interface.L2sriovInterface
+				}
+				if L2sriovInterfaceData, ok := blockData["l2sriov_interface"].(map[string]interface{}); ok {
+					return &NetworkInterfaceLayer2InterfaceL2sriovInterfaceModel{
+						Device: func() types.String {
+							if v, ok := L2sriovInterfaceData["device"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Untagged: func() *NetworkInterfaceEmptyModel {
+							if _, ok := L2sriovInterfaceData["untagged"].(map[string]interface{}); ok {
+								return &NetworkInterfaceEmptyModel{}
+							}
+							return nil
+						}(),
+						VLANID: func() types.Int64 {
+							if v, ok := L2sriovInterfaceData["vlan_id"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			L2vlanInterface: func() *NetworkInterfaceLayer2InterfaceL2vlanInterfaceModel {
+				if !isImport && data.Layer2Interface != nil && data.Layer2Interface.L2vlanInterface != nil {
+					return data.Layer2Interface.L2vlanInterface
+				}
+				if L2vlanInterfaceData, ok := blockData["l2vlan_interface"].(map[string]interface{}); ok {
+					return &NetworkInterfaceLayer2InterfaceL2vlanInterfaceModel{
+						Device: func() types.String {
+							if v, ok := L2vlanInterfaceData["device"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						VLANID: func() types.Int64 {
+							if v, ok := L2vlanInterfaceData["vlan_id"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			L2vlanSloInterface: func() *NetworkInterfaceLayer2InterfaceL2vlanSloInterfaceModel {
+				if !isImport && data.Layer2Interface != nil && data.Layer2Interface.L2vlanSloInterface != nil {
+					return data.Layer2Interface.L2vlanSloInterface
+				}
+				if L2vlanSloInterfaceData, ok := blockData["l2vlan_slo_interface"].(map[string]interface{}); ok {
+					return &NetworkInterfaceLayer2InterfaceL2vlanSloInterfaceModel{
+						VLANID: func() types.Int64 {
+							if v, ok := L2vlanSloInterfaceData["vlan_id"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["tunnel_interface"].(map[string]interface{}); ok && (isImport || data.TunnelInterface != nil) {
 		data.TunnelInterface = &NetworkInterfaceTunnelInterfaceModel{
 			MTU: func() types.Int64 {
 				if !isImport && data.TunnelInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.TunnelInterface.MTU
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["mtu"].(float64); ok {
+				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -3220,27 +4547,17 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			Priority: func() types.Int64 {
 				if !isImport && data.TunnelInterface != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.TunnelInterface.Priority
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["priority"].(float64); ok {
+				if v, ok := blockData["priority"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			SiteLocalInsideNetwork: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.TunnelInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TunnelInterface.SiteLocalInsideNetwork
 				}
-				// Import case: read from API
 				if _, ok := blockData["site_local_inside_network"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -3248,11 +4565,8 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			SiteLocalNetwork: func() *NetworkInterfaceEmptyModel {
 				if !isImport && data.TunnelInterface != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TunnelInterface.SiteLocalNetwork
 				}
-				// Import case: read from API
 				if _, ok := blockData["site_local_network"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEmptyModel{}
 				}
@@ -3260,37 +4574,66 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			StaticIP: func() *NetworkInterfaceTunnelInterfaceStaticIPModel {
 				if !isImport && data.TunnelInterface != nil && data.TunnelInterface.StaticIP != nil {
-					// Normal Read: preserve existing state value
 					return data.TunnelInterface.StaticIP
 				}
-				// Import case: read from API
-				if _, ok := blockData["static_ip"].(map[string]interface{}); ok {
-					return &NetworkInterfaceTunnelInterfaceStaticIPModel{}
+				if StaticIPData, ok := blockData["static_ip"].(map[string]interface{}); ok {
+					return &NetworkInterfaceTunnelInterfaceStaticIPModel{
+						ClusterStaticIP: func() *NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModel {
+							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
+								return &NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModel{
+									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+											return &NetworkInterfaceEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						NodeStaticIP: func() *NetworkInterfaceTunnelInterfaceStaticIPNodeStaticIPModel {
+							if NodeStaticIPData, ok := StaticIPData["node_static_ip"].(map[string]interface{}); ok {
+								return &NetworkInterfaceTunnelInterfaceStaticIPNodeStaticIPModel{
+									DefaultGw: func() types.String {
+										if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									IPAddress: func() types.String {
+										if v, ok := NodeStaticIPData["ip_address"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			Tunnel: func() *NetworkInterfaceTunnelInterfaceTunnelModel {
 				if !isImport && data.TunnelInterface != nil && data.TunnelInterface.Tunnel != nil {
-					// Normal Read: preserve existing state value
 					return data.TunnelInterface.Tunnel
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["tunnel"].(map[string]interface{}); ok {
+				if TunnelData, ok := blockData["tunnel"].(map[string]interface{}); ok {
 					return &NetworkInterfaceTunnelInterfaceTunnelModel{
 						Name: func() types.String {
-							if v, ok := nestedBlockData["name"].(string); ok && v != "" {
+							if v, ok := TunnelData["name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						Namespace: func() types.String {
-							if v, ok := nestedBlockData["namespace"].(string); ok && v != "" {
+							if v, ok := TunnelData["namespace"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						Tenant: func() types.String {
-							if v, ok := nestedBlockData["tenant"].(string); ok && v != "" {
+							if v, ok := TunnelData["tenant"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()

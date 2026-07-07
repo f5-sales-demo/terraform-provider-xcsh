@@ -1,41 +1,36 @@
 ---
-page_title: "f5xc_virtual_k8s Data Source - terraform-provider-f5xc"
+page_title: "xcsh_virtual_k8s Data Source - xcsh"
 subcategory: "Kubernetes"
 description: |-
   Retrieves information about virtual_k8s will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_virtual_k8s (Data Source)
+# xcsh_virtual_k8s (Data Source)
 
 Manages virtual_k8s will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
 
-~> **Note** Please refer to [Virtual K8S API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/container_services/) to learn more.
+~> **Note** Please refer to [Virtual K8S API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/container_services/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# Virtual K8S Data Source Example
-# Retrieves information about an existing Virtual K8S
+# VirtualK8S Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Virtual K8S by name
-data "f5xc_virtual_k8s" "example" {
+# Look up an existing VirtualK8S by name
+data "xcsh_virtual_k8s" "example" {
   name      = "example-virtual-k8s"
   namespace = "staging"
-}
-
-output "virtual_k8s_id" {
-  value = data.f5xc_virtual_k8s.example.id
 }
 ```
 

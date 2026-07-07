@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_filter_set Data Source - terraform-provider-f5xc"
+page_title: "xcsh_filter_set Data Source - xcsh"
 subcategory: "Applications"
 description: |-
   Retrieves information about specification. in F5 Distributed Cloud.
 ---
 
-# f5xc_filter_set (Data Source)
+# xcsh_filter_set (Data Source)
 
 Manages specification. in F5 Distributed Cloud. This is a read-only data source.
 
@@ -14,28 +14,23 @@ Manages specification. in F5 Distributed Cloud. This is a read-only data source.
 ## Example Usage
 
 ```terraform
-# Filter Set Data Source Example
-# Retrieves information about an existing Filter Set
+# FilterSet Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Filter Set by name
-data "f5xc_filter_set" "example" {
+# Look up an existing FilterSet by name
+data "xcsh_filter_set" "example" {
   name      = "example-filter-set"
   namespace = "staging"
-}
-
-output "filter_set_id" {
-  value = data.f5xc_filter_set.example.id
 }
 ```
 

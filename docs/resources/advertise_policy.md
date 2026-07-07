@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_advertise_policy Resource - terraform-provider-f5xc"
+page_title: "xcsh_advertise_policy Resource - xcsh"
 subcategory: "Load Balancing"
 description: |-
   Manages a Advertise Policy resource in F5 Distributed Cloud for advertise_policy object controls how and where a service represented by a given virtual_host object is advertised to consumers. configuration.
 ---
 
-# f5xc_advertise_policy (Resource)
+# xcsh_advertise_policy (Resource)
 
 Manages a Advertise Policy resource in F5 Distributed Cloud for advertise_policy object controls how and where a service represented by a given virtual_host object is advertised to consumers. configuration.
 
@@ -14,47 +14,28 @@ Manages a Advertise Policy resource in F5 Distributed Cloud for advertise_policy
 ## Example Usage
 
 ```terraform
-# Advertise Policy Resource Example
-# Manages a Advertise Policy resource in F5 Distributed Cloud for advertise_policy object controls how and where a service represented by a given virtual_host object is advertised to consumers. configuration.
+# AdvertisePolicy Resource Example
+# Manages a Advertise Policy resource in F5 Distributed Cloud for advertise_policy object controls how and where a service represented by a given virtual_host object is advertised to consumers.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Advertise Policy configuration
-resource "f5xc_advertise_policy" "example" {
+# Basic AdvertisePolicy configuration
+resource "xcsh_advertise_policy" "example" {
   name      = "example-advertise-policy"
-  namespace = "staging"
+  namespace = "system"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # Optional. Public VIP to advertise This field is mutually ...
-  public_ip {
-    # Configure public_ip settings
-  }
-  # TLS configuration for downstream connections.
-  tls_parameters {
-    # Configure tls_parameters settings
-  }
-  # Enable this option
-  client_certificate_optional {
-    # Configure client_certificate_optional settings
-  }
+  address         = "example-value"
+  protocol        = "example-value"
+  skip_xff_append = true
 }
 ```
 
@@ -69,8 +50,6 @@ resource "f5xc_advertise_policy" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Advertise Policy. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Advertise Policy will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -78,6 +57,8 @@ resource "f5xc_advertise_policy" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Advertise Policy. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -392,5 +373,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_advertise_policy.example system/example
+terraform import xcsh_advertise_policy.example system/example
 ```

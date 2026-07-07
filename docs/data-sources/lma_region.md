@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_lma_region Data Source - terraform-provider-f5xc"
+page_title: "xcsh_lma_region Data Source - xcsh"
 subcategory: "Uncategorized"
 description: |-
   Retrieves information about an existing Lma Region resource in F5 Distributed Cloud for lma region specification. configuration. (read-only data source)
 ---
 
-# f5xc_lma_region (Data Source)
+# xcsh_lma_region (Data Source)
 
 Retrieves information about a Lma Region resource in F5 Distributed Cloud for lma region specification. configuration. (read-only data source)
 
@@ -14,28 +14,23 @@ Retrieves information about a Lma Region resource in F5 Distributed Cloud for lm
 ## Example Usage
 
 ```terraform
-# Lma Region Data Source Example
-# Retrieves information about an existing Lma Region
+# LmaRegion Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Lma Region by name
-data "f5xc_lma_region" "example" {
+# Look up an existing LmaRegion by name
+data "xcsh_lma_region" "example" {
   name      = "example-lma-region"
   namespace = "staging"
-}
-
-output "lma_region_id" {
-  value = data.f5xc_lma_region.example.id
 }
 ```
 

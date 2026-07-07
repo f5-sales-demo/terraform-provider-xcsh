@@ -1,4 +1,4 @@
-# f5xc_external_connector
+# xcsh_external_connector
 
 Category: Networking
 External_connector configuration specification. configuration
@@ -11,25 +11,9 @@ External_connector configuration specification. configuration
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_external_connector" "example" {
+resource "xcsh_external_connector" "example" {
   name      = "example-external-connector"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  ce_site_reference {
-  }
-  gre {
-  }
-  gre_parameters {
-  }
 }
 ```
 

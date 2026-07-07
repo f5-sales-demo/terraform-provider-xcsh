@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_securemesh_site Resource - terraform-provider-f5xc"
+page_title: "xcsh_securemesh_site Resource - xcsh"
 subcategory: "Sites"
 description: |-
   Manages a Securemesh Site resource in F5 Distributed Cloud for deploying secure mesh edge sites with distributed security capabilities.
 ---
 
-# f5xc_securemesh_site (Resource)
+# xcsh_securemesh_site (Resource)
 
 Manages a Securemesh Site resource in F5 Distributed Cloud for deploying secure mesh edge sites with distributed security capabilities.
 
@@ -14,54 +14,28 @@ Manages a Securemesh Site resource in F5 Distributed Cloud for deploying secure 
 ## Example Usage
 
 ```terraform
-# Securemesh Site Resource Example
+# SecuremeshSite Resource Example
 # Manages a Securemesh Site resource in F5 Distributed Cloud for deploying secure mesh edge sites with distributed security capabilities.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Securemesh Site configuration
-resource "f5xc_securemesh_site" "example" {
+# Basic SecuremeshSite configuration
+resource "xcsh_securemesh_site" "example" {
   name      = "example-securemesh-site"
-  namespace = "staging"
+  namespace = "system"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Secure Mesh Site configuration
-  # Generic provider
-  generic {
-    not_managed {
-      node_list {
-        hostname  = "node1.example.com"
-        public_ip = "203.0.113.10"
-        type      = "Control"
-      }
-    }
-  }
-
-  # Master nodes
-  master_nodes_count = 1
-
-  # Default fleet config
-  default_fleet_config {}
-
-  # Disable HA
-  disable_ha {}
+  volterra_certified_hw = "example-value"
+  worker_nodes          = ["example-value"]
+  address               = "example-value"
 }
 ```
 
@@ -76,8 +50,6 @@ resource "f5xc_securemesh_site" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Securemesh Site. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Securemesh Site will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -85,6 +57,8 @@ resource "f5xc_securemesh_site" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Securemesh Site. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -722,5 +696,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_securemesh_site.example system/example
+terraform import xcsh_securemesh_site.example system/example
 ```

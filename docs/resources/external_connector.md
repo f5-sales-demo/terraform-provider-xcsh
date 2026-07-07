@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_external_connector Resource - terraform-provider-f5xc"
+page_title: "xcsh_external_connector Resource - xcsh"
 subcategory: "Networking"
 description: |-
   Manages an External Connector resource in F5 Distributed Cloud for external_connector configuration specification. configuration.
 ---
 
-# f5xc_external_connector (Resource)
+# xcsh_external_connector (Resource)
 
 Manages an External Connector resource in F5 Distributed Cloud for external_connector configuration specification. configuration.
 
@@ -14,47 +14,24 @@ Manages an External Connector resource in F5 Distributed Cloud for external_conn
 ## Example Usage
 
 ```terraform
-# External Connector Resource Example
-# Manages an External Connector resource in F5 Distributed Cloud for external_connector configuration specification. configuration.
+# ExternalConnector Resource Example
+# Manages an External Connector resource in F5 Distributed Cloud for external_connector configuration specification.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic External Connector configuration
-resource "f5xc_external_connector" "example" {
+# Basic ExternalConnector configuration
+resource "xcsh_external_connector" "example" {
   name      = "example-external-connector"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # Type establishes a direct reference from one object(the r...
-  ce_site_reference {
-    # Configure ce_site_reference settings
-  }
-  # GRE. External Connector with GRE tunnel.
-  gre {
-    # Configure gre settings
-  }
-  # X-displayName: 'GRE Tunnel Parameters' GRE configuration ...
-  gre_parameters {
-    # Configure gre_parameters settings
-  }
 }
 ```
 
@@ -402,5 +379,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_external_connector.example system/example
+terraform import xcsh_external_connector.example system/example
 ```

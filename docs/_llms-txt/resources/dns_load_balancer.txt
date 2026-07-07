@@ -1,0 +1,22 @@
+# xcsh_dns_load_balancer
+
+Category: DNS
+DNS Load Balancer in a given namespace. If one already exist it will give a error
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_dns_load_balancer" "example" {
+  name      = "example-dns-load-balancer"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

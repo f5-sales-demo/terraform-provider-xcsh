@@ -1,4 +1,4 @@
-# f5xc_global_log_receiver
+# xcsh_global_log_receiver
 
 Category: Monitoring
 New Global Log Receiver object
@@ -10,32 +10,12 @@ New Global Log Receiver object
 - log_type
 - receiver_choice
 
-## Server Defaults (safe to omit)
-
-- ns_current
-
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_global_log_receiver" "example" {
+resource "xcsh_global_log_receiver" "example" {
   name      = "example-global-log-receiver"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  audit_logs {
-  }
-  aws_cloud_watch_receiver {
-  }
-  aws_cred {
-  }
+  namespace = "system"
 }
 ```
 

@@ -1,54 +1,39 @@
 ---
-page_title: "f5xc_virtual_site Resource - terraform-provider-f5xc"
+page_title: "xcsh_virtual_site Resource - xcsh"
 subcategory: "Sites"
 description: |-
   Manages virtual site object in given namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_virtual_site (Resource)
+# xcsh_virtual_site (Resource)
 
 Manages virtual site object in given namespace. in F5 Distributed Cloud.
 
-~> **Note** Please refer to [Virtual Site API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/sites/) to learn more.
+~> **Note** Please refer to [Virtual Site API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/sites/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# Virtual Site Resource Example
-# Manages virtual site object in given namespace. in F5 Distributed Cloud.
+# VirtualSite Resource Example
+# Manages virtual site object in given namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Virtual Site configuration
-resource "f5xc_virtual_site" "example" {
+# Basic VirtualSite configuration
+resource "xcsh_virtual_site" "example" {
   name      = "example-virtual-site"
-  namespace = "staging"
+  namespace = "system"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Virtual Site configuration
-  site_type = "CUSTOMER_EDGE"
-
-  # Site selector expression
-  site_selector {
-    expressions = ["region in (us-west-2, us-east-1)"]
-  }
+  site_type = "INVALID"
 }
 ```
 
@@ -85,8 +70,6 @@ spec:
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Virtual Site. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Virtual Site will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -94,6 +77,8 @@ spec:
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Virtual Site. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -219,5 +204,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_virtual_site.example system/example
+terraform import xcsh_virtual_site.example system/example
 ```

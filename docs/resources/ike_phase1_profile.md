@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_ike_phase1_profile Resource - terraform-provider-f5xc"
+page_title: "xcsh_ike_phase1_profile Resource - xcsh"
 subcategory: "VPN"
 description: |-
   Manages a IKE Phase1 Profile resource in F5 Distributed Cloud for ike phase1 profile specification. configuration.
 ---
 
-# f5xc_ike_phase1_profile (Resource)
+# xcsh_ike_phase1_profile (Resource)
 
 Manages a IKE Phase1 Profile resource in F5 Distributed Cloud for ike phase1 profile specification. configuration.
 
@@ -14,47 +14,29 @@ Manages a IKE Phase1 Profile resource in F5 Distributed Cloud for ike phase1 pro
 ## Example Usage
 
 ```terraform
-# IKE Phase1 Profile Resource Example
-# Manages a IKE Phase1 Profile resource in F5 Distributed Cloud for ike phase1 profile specification. configuration.
+# IKEPhase1Profile Resource Example
+# Manages a IKE Phase1 Profile resource in F5 Distributed Cloud for ike phase1 profile specification.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic IKE Phase1 Profile configuration
-resource "f5xc_ike_phase1_profile" "example" {
+# Basic IKEPhase1Profile configuration
+resource "xcsh_ike_phase1_profile" "example" {
   name      = "example-ike-phase1-profile"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # [OneOf: ike_keylifetime_hours, ike_keylifetime_minutes, u...
-  ike_keylifetime_hours {
-    # Configure ike_keylifetime_hours settings
-  }
-  # Configuration parameter for ike keylifetime minutes.
-  ike_keylifetime_minutes {
-    # Configure ike_keylifetime_minutes settings
-  }
-  # [OneOf: reauth_disabled, reauth_timeout_days, reauth_time...
-  reauth_disabled {
-    # Configure reauth_disabled settings
-  }
+  authentication_algos = ["example-value"]
+  dh_group             = ["example-value"]
+  encryption_algos     = ["example-value"]
+  prf                  = ["example-value"]
 }
 ```
 
@@ -238,5 +220,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_ike_phase1_profile.example system/example
+terraform import xcsh_ike_phase1_profile.example system/example
 ```

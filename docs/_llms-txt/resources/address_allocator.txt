@@ -1,4 +1,4 @@
-# f5xc_address_allocator
+# xcsh_address_allocator
 
 Category: Cloud Resources
 Address Allocator will create an address allocator object in 'system' namespace of the user
@@ -12,21 +12,12 @@ Address Allocator will create an address allocator object in 'system' namespace 
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_address_allocator" "example" {
+resource "xcsh_address_allocator" "example" {
   name      = "example-address-allocator"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  address_allocation_scheme {
-  }
+  address_pool = ["example-value"]
+  mode         = "LOCAL"
 }
 ```
 

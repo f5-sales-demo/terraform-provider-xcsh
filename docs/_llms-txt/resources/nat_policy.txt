@@ -1,4 +1,4 @@
-# f5xc_nat_policy
+# xcsh_nat_policy
 
 Category: Security
 Nat policy create specification configures nat policy with multiple rules,. configuration
@@ -6,30 +6,13 @@ Nat policy create specification configures nat policy with multiple rules,. conf
 ## Required
 
 - name
-- namespace
 
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_nat_policy" "example" {
+resource "xcsh_nat_policy" "example" {
   name      = "example-nat-policy"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  rules {
-  }
-  action {
-  }
-  dynamic {
-  }
+  namespace = "system"
 }
 ```
 

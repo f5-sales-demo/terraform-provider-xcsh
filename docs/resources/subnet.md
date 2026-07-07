@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_subnet Resource - terraform-provider-f5xc"
+page_title: "xcsh_subnet Resource - xcsh"
 subcategory: "Networking"
 description: |-
   Manages a Subnet resource in F5 Distributed Cloud for subnet object contains configuration for an interface of a vm/pod. it is created in user or shared namespace. configuration.
 ---
 
-# f5xc_subnet (Resource)
+# xcsh_subnet (Resource)
 
 Manages a Subnet resource in F5 Distributed Cloud for subnet object contains configuration for an interface of a vm/pod. it is created in user or shared namespace. configuration.
 
@@ -15,46 +15,23 @@ Manages a Subnet resource in F5 Distributed Cloud for subnet object contains con
 
 ```terraform
 # Subnet Resource Example
-# Manages a Subnet resource in F5 Distributed Cloud for subnet object contains configuration for an interface of a vm/pod. it is created in user or shared namespace. configuration.
+# Manages a Subnet resource in F5 Distributed Cloud for subnet object contains configuration for an interface of a vm/pod.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
 # Basic Subnet configuration
-resource "f5xc_subnet" "example" {
+resource "xcsh_subnet" "example" {
   name      = "example-subnet"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # Configure subnet parameters per site .
-  site_subnet_params {
-    # Configure site_subnet_params settings
-  }
-  # Enable this option
-  dhcp {
-    # Configure dhcp settings
-  }
-  # Type establishes a direct reference from one object(the r...
-  site {
-    # Configure site settings
-  }
 }
 ```
 
@@ -247,5 +224,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_subnet.example system/example
+terraform import xcsh_subnet.example system/example
 ```

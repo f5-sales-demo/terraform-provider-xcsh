@@ -17,14 +17,15 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -338,7 +339,7 @@ var DiscoveryDiscoveryK8SAccessInfoKubeconfigURLClearSecretInfoModelAttrTypes = 
 
 // DiscoveryDiscoveryK8SNamespaceMappingModel represents namespace_mapping block
 type DiscoveryDiscoveryK8SNamespaceMappingModel struct {
-	Items []DiscoveryDiscoveryK8SNamespaceMappingItemsModel `tfsdk:"items"`
+	Items types.List `tfsdk:"items"`
 }
 
 // DiscoveryDiscoveryK8SNamespaceMappingModelAttrTypes defines the attribute types for DiscoveryDiscoveryK8SNamespaceMappingModel
@@ -412,10 +413,10 @@ var DiscoveryWhereModelAttrTypes = map[string]attr.Type{
 
 // DiscoveryWhereSiteModel represents site block
 type DiscoveryWhereSiteModel struct {
-	NetworkType        types.String                 `tfsdk:"network_type"`
-	DisableInternetVIP *DiscoveryEmptyModel         `tfsdk:"disable_internet_vip"`
-	EnableInternetVIP  *DiscoveryEmptyModel         `tfsdk:"enable_internet_vip"`
-	Ref                []DiscoveryWhereSiteRefModel `tfsdk:"ref"`
+	NetworkType        types.String         `tfsdk:"network_type"`
+	DisableInternetVIP *DiscoveryEmptyModel `tfsdk:"disable_internet_vip"`
+	EnableInternetVIP  *DiscoveryEmptyModel `tfsdk:"enable_internet_vip"`
+	Ref                types.List           `tfsdk:"ref"`
 }
 
 // DiscoveryWhereSiteModelAttrTypes defines the attribute types for DiscoveryWhereSiteModel
@@ -446,7 +447,7 @@ var DiscoveryWhereSiteRefModelAttrTypes = map[string]attr.Type{
 
 // DiscoveryWhereVirtualNetworkModel represents virtual_network block
 type DiscoveryWhereVirtualNetworkModel struct {
-	Ref []DiscoveryWhereVirtualNetworkRefModel `tfsdk:"ref"`
+	Ref types.List `tfsdk:"ref"`
 }
 
 // DiscoveryWhereVirtualNetworkModelAttrTypes defines the attribute types for DiscoveryWhereVirtualNetworkModel
@@ -474,10 +475,10 @@ var DiscoveryWhereVirtualNetworkRefModelAttrTypes = map[string]attr.Type{
 
 // DiscoveryWhereVirtualSiteModel represents virtual_site block
 type DiscoveryWhereVirtualSiteModel struct {
-	NetworkType        types.String                        `tfsdk:"network_type"`
-	DisableInternetVIP *DiscoveryEmptyModel                `tfsdk:"disable_internet_vip"`
-	EnableInternetVIP  *DiscoveryEmptyModel                `tfsdk:"enable_internet_vip"`
-	Ref                []DiscoveryWhereVirtualSiteRefModel `tfsdk:"ref"`
+	NetworkType        types.String         `tfsdk:"network_type"`
+	DisableInternetVIP *DiscoveryEmptyModel `tfsdk:"disable_internet_vip"`
+	EnableInternetVIP  *DiscoveryEmptyModel `tfsdk:"enable_internet_vip"`
+	Ref                types.List           `tfsdk:"ref"`
 }
 
 // DiscoveryWhereVirtualSiteModelAttrTypes defines the attribute types for DiscoveryWhereVirtualSiteModel
@@ -541,13 +542,16 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Discovery will be created.",
-				Required:            true,
+				MarkdownDescription: "Namespace for the Discovery. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
+				Optional:            true,
+				Computed:            true,
+				Default:             stringdefault.StaticString("system"),
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
+					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
@@ -988,7 +992,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 				MarkdownDescription: "Enable this option",
 			},
 			"where": schema.SingleNestedBlock{
-				MarkdownDescription: "NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules * Direct reference to virtual_network object * Site local network when refering to site object * All site local..",
+				MarkdownDescription: "NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules * Direct reference to virtual_network object * Site local network when referring to site object * All site local..",
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"site": schema.SingleNestedBlock{
@@ -1299,61 +1303,365 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.DiscoveryConsul != nil {
-		discovery_consulMap := make(map[string]interface{})
+		DiscoveryConsulMap := make(map[string]interface{})
 		if data.DiscoveryConsul.AccessInfo != nil {
-			access_infoNestedMap := make(map[string]interface{})
-			discovery_consulMap["access_info"] = access_infoNestedMap
+			AccessInfoMap := make(map[string]interface{})
+			if data.DiscoveryConsul.AccessInfo.ConnectionInfo != nil {
+				ConnectionInfoMap := make(map[string]interface{})
+				if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.APIServer.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.APIServer.IsUnknown() {
+					ConnectionInfoMap["api_server"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.APIServer.ValueString()
+				}
+				if data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo != nil {
+					TLSInfoMap := make(map[string]interface{})
+					if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.Certificate.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.Certificate.IsUnknown() {
+						TLSInfoMap["certificate"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.Certificate.ValueString()
+					}
+					if data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil {
+						KeyURLMap := make(map[string]interface{})
+						if data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							KeyURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.ValueString()
+							}
+							if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.ValueString()
+							}
+							KeyURLMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						TLSInfoMap["key_url"] = KeyURLMap
+					}
+					if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.ServerName.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.ServerName.IsUnknown() {
+						TLSInfoMap["server_name"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.ServerName.ValueString()
+					}
+					if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.IsUnknown() {
+						TLSInfoMap["trusted_ca_url"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.ValueString()
+					}
+					ConnectionInfoMap["tls_info"] = TLSInfoMap
+				}
+				AccessInfoMap["connection_info"] = ConnectionInfoMap
+			}
+			if data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo != nil {
+				HTTPBasicAuthInfoMap := make(map[string]interface{})
+				if data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL != nil {
+					PasswdURLMap := make(map[string]interface{})
+					if data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo != nil {
+						BlindfoldSecretInfoMap := make(map[string]interface{})
+						if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						}
+						if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.Location.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.Location.IsUnknown() {
+							BlindfoldSecretInfoMap["location"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.Location.ValueString()
+						}
+						if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["store_provider"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+						}
+						PasswdURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					}
+					if data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo != nil {
+						ClearSecretInfoMap := make(map[string]interface{})
+						if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.Provider.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.Provider.IsUnknown() {
+							ClearSecretInfoMap["provider"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.Provider.ValueString()
+						}
+						if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.URL.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.URL.IsUnknown() {
+							ClearSecretInfoMap["url"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.URL.ValueString()
+						}
+						PasswdURLMap["clear_secret_info"] = ClearSecretInfoMap
+					}
+					HTTPBasicAuthInfoMap["passwd_url"] = PasswdURLMap
+				}
+				if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.UserName.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.UserName.IsUnknown() {
+					HTTPBasicAuthInfoMap["user_name"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.UserName.ValueString()
+				}
+				AccessInfoMap["http_basic_auth_info"] = HTTPBasicAuthInfoMap
+			}
+			DiscoveryConsulMap["access_info"] = AccessInfoMap
 		}
 		if data.DiscoveryConsul.PublishInfo != nil {
-			publish_infoNestedMap := make(map[string]interface{})
-			discovery_consulMap["publish_info"] = publish_infoNestedMap
+			PublishInfoMap := make(map[string]interface{})
+			if data.DiscoveryConsul.PublishInfo.DisableSpec != nil {
+				PublishInfoMap["disable"] = map[string]interface{}{}
+			}
+			if data.DiscoveryConsul.PublishInfo.Publish != nil {
+				PublishInfoMap["publish"] = map[string]interface{}{}
+			}
+			DiscoveryConsulMap["publish_info"] = PublishInfoMap
 		}
-		createReq.Spec["discovery_consul"] = discovery_consulMap
+		createReq.Spec["discovery_consul"] = DiscoveryConsulMap
 	}
 	if data.DiscoveryK8S != nil {
-		discovery_k8sMap := make(map[string]interface{})
+		DiscoveryK8SMap := make(map[string]interface{})
 		if data.DiscoveryK8S.AccessInfo != nil {
-			access_infoNestedMap := make(map[string]interface{})
-			discovery_k8sMap["access_info"] = access_infoNestedMap
+			AccessInfoMap := make(map[string]interface{})
+			if data.DiscoveryK8S.AccessInfo.ConnectionInfo != nil {
+				ConnectionInfoMap := make(map[string]interface{})
+				if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.APIServer.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.APIServer.IsUnknown() {
+					ConnectionInfoMap["api_server"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.APIServer.ValueString()
+				}
+				if data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo != nil {
+					TLSInfoMap := make(map[string]interface{})
+					if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.Certificate.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.Certificate.IsUnknown() {
+						TLSInfoMap["certificate"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.Certificate.ValueString()
+					}
+					if data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil {
+						KeyURLMap := make(map[string]interface{})
+						if data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							KeyURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.ValueString()
+							}
+							if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.ValueString()
+							}
+							KeyURLMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						TLSInfoMap["key_url"] = KeyURLMap
+					}
+					if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.ServerName.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.ServerName.IsUnknown() {
+						TLSInfoMap["server_name"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.ServerName.ValueString()
+					}
+					if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.IsUnknown() {
+						TLSInfoMap["trusted_ca_url"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.ValueString()
+					}
+					ConnectionInfoMap["tls_info"] = TLSInfoMap
+				}
+				AccessInfoMap["connection_info"] = ConnectionInfoMap
+			}
+			if data.DiscoveryK8S.AccessInfo.Isolated != nil {
+				AccessInfoMap["isolated"] = map[string]interface{}{}
+			}
+			if data.DiscoveryK8S.AccessInfo.KubeconfigURL != nil {
+				KubeconfigURLMap := make(map[string]interface{})
+				if data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.Location.IsNull() && !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					KubeconfigURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.Provider.IsNull() && !data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.URL.IsNull() && !data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.URL.ValueString()
+					}
+					KubeconfigURLMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				AccessInfoMap["kubeconfig_url"] = KubeconfigURLMap
+			}
+			if data.DiscoveryK8S.AccessInfo.Reachable != nil {
+				AccessInfoMap["reachable"] = map[string]interface{}{}
+			}
+			DiscoveryK8SMap["access_info"] = AccessInfoMap
 		}
 		if data.DiscoveryK8S.DefaultAll != nil {
-			discovery_k8sMap["default_all"] = map[string]interface{}{}
+			DiscoveryK8SMap["default_all"] = map[string]interface{}{}
 		}
 		if data.DiscoveryK8S.NamespaceMapping != nil {
-			namespace_mappingNestedMap := make(map[string]interface{})
-			discovery_k8sMap["namespace_mapping"] = namespace_mappingNestedMap
+			NamespaceMappingMap := make(map[string]interface{})
+			if !data.DiscoveryK8S.NamespaceMapping.Items.IsNull() && !data.DiscoveryK8S.NamespaceMapping.Items.IsUnknown() {
+				var ItemsElems []DiscoveryDiscoveryK8SNamespaceMappingItemsModel
+				diags := data.DiscoveryK8S.NamespaceMapping.Items.ElementsAs(ctx, &ItemsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ItemsElems) > 0 {
+					var ItemsList []map[string]interface{}
+					for _, ItemsItem := range ItemsElems {
+						ItemsItemMap := make(map[string]interface{})
+						if !ItemsItem.Namespace.IsNull() && !ItemsItem.Namespace.IsUnknown() {
+							ItemsItemMap["namespace"] = ItemsItem.Namespace.ValueString()
+						}
+						if !ItemsItem.NamespaceRegex.IsNull() && !ItemsItem.NamespaceRegex.IsUnknown() {
+							ItemsItemMap["namespace_regex"] = ItemsItem.NamespaceRegex.ValueString()
+						}
+						ItemsList = append(ItemsList, ItemsItemMap)
+					}
+					NamespaceMappingMap["items"] = ItemsList
+				}
+			}
+			DiscoveryK8SMap["namespace_mapping"] = NamespaceMappingMap
 		}
 		if data.DiscoveryK8S.PublishInfo != nil {
-			publish_infoNestedMap := make(map[string]interface{})
-			discovery_k8sMap["publish_info"] = publish_infoNestedMap
+			PublishInfoMap := make(map[string]interface{})
+			if data.DiscoveryK8S.PublishInfo.DisableSpec != nil {
+				PublishInfoMap["disable"] = map[string]interface{}{}
+			}
+			if data.DiscoveryK8S.PublishInfo.DNSDelegation != nil {
+				DNSDelegationMap := make(map[string]interface{})
+				if !data.DiscoveryK8S.PublishInfo.DNSDelegation.DNSMode.IsNull() && !data.DiscoveryK8S.PublishInfo.DNSDelegation.DNSMode.IsUnknown() {
+					DNSDelegationMap["dns_mode"] = data.DiscoveryK8S.PublishInfo.DNSDelegation.DNSMode.ValueString()
+				}
+				if !data.DiscoveryK8S.PublishInfo.DNSDelegation.Subdomain.IsNull() && !data.DiscoveryK8S.PublishInfo.DNSDelegation.Subdomain.IsUnknown() {
+					DNSDelegationMap["subdomain"] = data.DiscoveryK8S.PublishInfo.DNSDelegation.Subdomain.ValueString()
+				}
+				PublishInfoMap["dns_delegation"] = DNSDelegationMap
+			}
+			if data.DiscoveryK8S.PublishInfo.Publish != nil {
+				PublishMap := make(map[string]interface{})
+				if !data.DiscoveryK8S.PublishInfo.Publish.Namespace.IsNull() && !data.DiscoveryK8S.PublishInfo.Publish.Namespace.IsUnknown() {
+					PublishMap["namespace"] = data.DiscoveryK8S.PublishInfo.Publish.Namespace.ValueString()
+				}
+				PublishInfoMap["publish"] = PublishMap
+			}
+			if data.DiscoveryK8S.PublishInfo.PublishFqdns != nil {
+				PublishInfoMap["publish_fqdns"] = map[string]interface{}{}
+			}
+			DiscoveryK8SMap["publish_info"] = PublishInfoMap
 		}
-		createReq.Spec["discovery_k8s"] = discovery_k8sMap
+		createReq.Spec["discovery_k8s"] = DiscoveryK8SMap
 	}
 	if data.NoClusterID != nil {
-		no_cluster_idMap := make(map[string]interface{})
-		createReq.Spec["no_cluster_id"] = no_cluster_idMap
+		createReq.Spec["no_cluster_id"] = map[string]interface{}{}
 	}
 	if data.Where != nil {
-		whereMap := make(map[string]interface{})
+		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
-			siteNestedMap := make(map[string]interface{})
-			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
-				siteNestedMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+			SiteMap := make(map[string]interface{})
+			if data.Where.Site.DisableInternetVIP != nil {
+				SiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			whereMap["site"] = siteNestedMap
+			if data.Where.Site.EnableInternetVIP != nil {
+				SiteMap["enable_internet_vip"] = map[string]interface{}{}
+			}
+			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
+				SiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+			}
+			if !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
+				var RefElems []DiscoveryWhereSiteRefModel
+				diags := data.Where.Site.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					SiteMap["ref"] = RefList
+				}
+			}
+			WhereMap["site"] = SiteMap
 		}
 		if data.Where.VirtualNetwork != nil {
-			virtual_networkNestedMap := make(map[string]interface{})
-			whereMap["virtual_network"] = virtual_networkNestedMap
+			VirtualNetworkMap := make(map[string]interface{})
+			if !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
+				var RefElems []DiscoveryWhereVirtualNetworkRefModel
+				diags := data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					VirtualNetworkMap["ref"] = RefList
+				}
+			}
+			WhereMap["virtual_network"] = VirtualNetworkMap
 		}
 		if data.Where.VirtualSite != nil {
-			virtual_siteNestedMap := make(map[string]interface{})
-			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
-				virtual_siteNestedMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+			VirtualSiteMap := make(map[string]interface{})
+			if data.Where.VirtualSite.DisableInternetVIP != nil {
+				VirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			whereMap["virtual_site"] = virtual_siteNestedMap
+			if data.Where.VirtualSite.EnableInternetVIP != nil {
+				VirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
+			}
+			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
+				VirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+			}
+			if !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
+				var RefElems []DiscoveryWhereVirtualSiteRefModel
+				diags := data.Where.VirtualSite.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					VirtualSiteMap["ref"] = RefList
+				}
+			}
+			WhereMap["virtual_site"] = VirtualSiteMap
 		}
-		createReq.Spec["where"] = whereMap
+		createReq.Spec["where"] = WhereMap
 	}
 	if !data.ClusterID.IsNull() && !data.ClusterID.IsUnknown() {
 		createReq.Spec["cluster_id"] = data.ClusterID.ValueString()
@@ -1371,26 +1679,665 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["discovery_consul"].(map[string]interface{}); ok && isImport && data.DiscoveryConsul == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.DiscoveryConsul = &DiscoveryDiscoveryConsulModel{}
+	if blockData, ok := apiResource.Spec["discovery_consul"].(map[string]interface{}); ok && (isImport || data.DiscoveryConsul != nil) {
+		data.DiscoveryConsul = &DiscoveryDiscoveryConsulModel{
+			AccessInfo: func() *DiscoveryDiscoveryConsulAccessInfoModel {
+				if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil {
+					return data.DiscoveryConsul.AccessInfo
+				}
+				if AccessInfoData, ok := blockData["access_info"].(map[string]interface{}); ok {
+					return &DiscoveryDiscoveryConsulAccessInfoModel{
+						ConnectionInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoModel {
+							if ConnectionInfoData, ok := AccessInfoData["connection_info"].(map[string]interface{}); ok {
+								return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoModel{
+									APIServer: func() types.String {
+										if v, ok := ConnectionInfoData["api_server"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									TLSInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoModel {
+										if TLSInfoData, ok := ConnectionInfoData["tls_info"].(map[string]interface{}); ok {
+											return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoModel{
+												Certificate: func() types.String {
+													if v, ok := TLSInfoData["certificate"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												KeyURL: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLModel {
+													if KeyURLData, ok := TLSInfoData["key_url"].(map[string]interface{}); ok {
+														return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLModel{
+															BlindfoldSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel {
+																if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
+																	return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel{
+																		DecryptionProvider: func() types.String {
+																			if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Location: func() types.String {
+																			if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		StoreProvider: func() types.String {
+																			if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																	}
+																}
+																return nil
+															}(),
+															ClearSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel {
+																if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
+																	return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel{
+																		Provider: func() types.String {
+																			if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		URL: func() types.String {
+																			if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																	}
+																}
+																return nil
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ServerName: func() types.String {
+													if v, ok := TLSInfoData["server_name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												TrustedCAURL: func() types.String {
+													if v, ok := TLSInfoData["trusted_ca_url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						HTTPBasicAuthInfo: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoModel {
+							if HTTPBasicAuthInfoData, ok := AccessInfoData["http_basic_auth_info"].(map[string]interface{}); ok {
+								return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoModel{
+									PasswdURL: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLModel {
+										if PasswdURLData, ok := HTTPBasicAuthInfoData["passwd_url"].(map[string]interface{}); ok {
+											return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLModel{
+												BlindfoldSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := PasswdURLData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLClearSecretInfoModel {
+													if ClearSecretInfoData, ok := PasswdURLData["clear_secret_info"].(map[string]interface{}); ok {
+														return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									UserName: func() types.String {
+										if v, ok := HTTPBasicAuthInfoData["user_name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PublishInfo: func() *DiscoveryDiscoveryConsulPublishInfoModel {
+				if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.PublishInfo != nil {
+					return data.DiscoveryConsul.PublishInfo
+				}
+				if PublishInfoData, ok := blockData["publish_info"].(map[string]interface{}); ok {
+					return &DiscoveryDiscoveryConsulPublishInfoModel{
+						DisableSpec: func() *DiscoveryEmptyModel {
+							if _, ok := PublishInfoData["disable"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						Publish: func() *DiscoveryEmptyModel {
+							if _, ok := PublishInfoData["publish"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["discovery_k8s"].(map[string]interface{}); ok && isImport && data.DiscoveryK8S == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.DiscoveryK8S = &DiscoveryDiscoveryK8SModel{}
+	if blockData, ok := apiResource.Spec["discovery_k8s"].(map[string]interface{}); ok && (isImport || data.DiscoveryK8S != nil) {
+		data.DiscoveryK8S = &DiscoveryDiscoveryK8SModel{
+			AccessInfo: func() *DiscoveryDiscoveryK8SAccessInfoModel {
+				if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil {
+					return data.DiscoveryK8S.AccessInfo
+				}
+				if AccessInfoData, ok := blockData["access_info"].(map[string]interface{}); ok {
+					return &DiscoveryDiscoveryK8SAccessInfoModel{
+						ConnectionInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoModel {
+							if ConnectionInfoData, ok := AccessInfoData["connection_info"].(map[string]interface{}); ok {
+								return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoModel{
+									APIServer: func() types.String {
+										if v, ok := ConnectionInfoData["api_server"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									TLSInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoModel {
+										if TLSInfoData, ok := ConnectionInfoData["tls_info"].(map[string]interface{}); ok {
+											return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoModel{
+												Certificate: func() types.String {
+													if v, ok := TLSInfoData["certificate"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												KeyURL: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLModel {
+													if KeyURLData, ok := TLSInfoData["key_url"].(map[string]interface{}); ok {
+														return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLModel{
+															BlindfoldSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel {
+																if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
+																	return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel{
+																		DecryptionProvider: func() types.String {
+																			if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Location: func() types.String {
+																			if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		StoreProvider: func() types.String {
+																			if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																	}
+																}
+																return nil
+															}(),
+															ClearSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel {
+																if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
+																	return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel{
+																		Provider: func() types.String {
+																			if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		URL: func() types.String {
+																			if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																	}
+																}
+																return nil
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ServerName: func() types.String {
+													if v, ok := TLSInfoData["server_name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												TrustedCAURL: func() types.String {
+													if v, ok := TLSInfoData["trusted_ca_url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Isolated: func() *DiscoveryEmptyModel {
+							if _, ok := AccessInfoData["isolated"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						KubeconfigURL: func() *DiscoveryDiscoveryK8SAccessInfoKubeconfigURLModel {
+							if KubeconfigURLData, ok := AccessInfoData["kubeconfig_url"].(map[string]interface{}); ok {
+								return &DiscoveryDiscoveryK8SAccessInfoKubeconfigURLModel{
+									BlindfoldSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoKubeconfigURLBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := KubeconfigURLData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &DiscoveryDiscoveryK8SAccessInfoKubeconfigURLBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoKubeconfigURLClearSecretInfoModel {
+										if ClearSecretInfoData, ok := KubeconfigURLData["clear_secret_info"].(map[string]interface{}); ok {
+											return &DiscoveryDiscoveryK8SAccessInfoKubeconfigURLClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Reachable: func() *DiscoveryEmptyModel {
+							if _, ok := AccessInfoData["reachable"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			DefaultAll: func() *DiscoveryEmptyModel {
+				if !isImport && data.DiscoveryK8S != nil {
+					return data.DiscoveryK8S.DefaultAll
+				}
+				if _, ok := blockData["default_all"].(map[string]interface{}); ok {
+					return &DiscoveryEmptyModel{}
+				}
+				return nil
+			}(),
+			NamespaceMapping: func() *DiscoveryDiscoveryK8SNamespaceMappingModel {
+				if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.NamespaceMapping != nil {
+					return data.DiscoveryK8S.NamespaceMapping
+				}
+				if NamespaceMappingData, ok := blockData["namespace_mapping"].(map[string]interface{}); ok {
+					return &DiscoveryDiscoveryK8SNamespaceMappingModel{
+						Items: func() types.List {
+							if rawList, ok := NamespaceMappingData["items"].([]interface{}); ok && len(rawList) > 0 {
+								var ItemsResult []DiscoveryDiscoveryK8SNamespaceMappingItemsModel
+								for _, ItemsItem := range rawList {
+									if ItemsItemMap, ok := ItemsItem.(map[string]interface{}); ok {
+										ItemsResult = append(ItemsResult, DiscoveryDiscoveryK8SNamespaceMappingItemsModel{
+											Namespace: func() types.String {
+												if v, ok := ItemsItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											NamespaceRegex: func() types.String {
+												if v, ok := ItemsItemMap["namespace_regex"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DiscoveryDiscoveryK8SNamespaceMappingItemsModelAttrTypes}, ItemsResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: DiscoveryDiscoveryK8SNamespaceMappingItemsModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PublishInfo: func() *DiscoveryDiscoveryK8SPublishInfoModel {
+				if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil {
+					return data.DiscoveryK8S.PublishInfo
+				}
+				if PublishInfoData, ok := blockData["publish_info"].(map[string]interface{}); ok {
+					return &DiscoveryDiscoveryK8SPublishInfoModel{
+						DisableSpec: func() *DiscoveryEmptyModel {
+							if _, ok := PublishInfoData["disable"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						DNSDelegation: func() *DiscoveryDiscoveryK8SPublishInfoDNSDelegationModel {
+							if DNSDelegationData, ok := PublishInfoData["dns_delegation"].(map[string]interface{}); ok {
+								return &DiscoveryDiscoveryK8SPublishInfoDNSDelegationModel{
+									DNSMode: func() types.String {
+										if v, ok := DNSDelegationData["dns_mode"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Subdomain: func() types.String {
+										if v, ok := DNSDelegationData["subdomain"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Publish: func() *DiscoveryDiscoveryK8SPublishInfoPublishModel {
+							if PublishData, ok := PublishInfoData["publish"].(map[string]interface{}); ok {
+								return &DiscoveryDiscoveryK8SPublishInfoPublishModel{
+									Namespace: func() types.String {
+										if v, ok := PublishData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						PublishFqdns: func() *DiscoveryEmptyModel {
+							if _, ok := PublishInfoData["publish_fqdns"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_cluster_id"].(map[string]interface{}); ok && isImport && data.NoClusterID == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoClusterID = &DiscoveryEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["where"].(map[string]interface{}); ok && isImport && data.Where == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Where = &DiscoveryWhereModel{}
+	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
+		data.Where = &DiscoveryWhereModel{
+			Site: func() *DiscoveryWhereSiteModel {
+				if !isImport && data.Where != nil && data.Where.Site != nil {
+					return data.Where.Site
+				}
+				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
+					return &DiscoveryWhereSiteModel{
+						DisableInternetVIP: func() *DiscoveryEmptyModel {
+							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *DiscoveryEmptyModel {
+							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := SiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []DiscoveryWhereSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, DiscoveryWhereSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DiscoveryWhereSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: DiscoveryWhereSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualNetwork: func() *DiscoveryWhereVirtualNetworkModel {
+				if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil {
+					return data.Where.VirtualNetwork
+				}
+				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
+					return &DiscoveryWhereVirtualNetworkModel{
+						Ref: func() types.List {
+							if rawList, ok := VirtualNetworkData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []DiscoveryWhereVirtualNetworkRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, DiscoveryWhereVirtualNetworkRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DiscoveryWhereVirtualNetworkRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: DiscoveryWhereVirtualNetworkRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualSite: func() *DiscoveryWhereVirtualSiteModel {
+				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+					return data.Where.VirtualSite
+				}
+				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
+					return &DiscoveryWhereVirtualSiteModel{
+						DisableInternetVIP: func() *DiscoveryEmptyModel {
+							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *DiscoveryEmptyModel {
+							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []DiscoveryWhereVirtualSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, DiscoveryWhereVirtualSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DiscoveryWhereVirtualSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: DiscoveryWhereVirtualSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["cluster_id"].(string); ok && v != "" {
 		data.ClusterID = types.StringValue(v)
 	} else {
@@ -1476,30 +2423,677 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["discovery_consul"].(map[string]interface{}); ok && isImport && data.DiscoveryConsul == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.DiscoveryConsul = &DiscoveryDiscoveryConsulModel{}
+	if blockData, ok := apiResource.Spec["discovery_consul"].(map[string]interface{}); ok && (isImport || data.DiscoveryConsul != nil) {
+		data.DiscoveryConsul = &DiscoveryDiscoveryConsulModel{
+			AccessInfo: func() *DiscoveryDiscoveryConsulAccessInfoModel {
+				if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil {
+					return data.DiscoveryConsul.AccessInfo
+				}
+				if AccessInfoData, ok := blockData["access_info"].(map[string]interface{}); ok {
+					return &DiscoveryDiscoveryConsulAccessInfoModel{
+						ConnectionInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoModel {
+							if ConnectionInfoData, ok := AccessInfoData["connection_info"].(map[string]interface{}); ok {
+								return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoModel{
+									APIServer: func() types.String {
+										if v, ok := ConnectionInfoData["api_server"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									TLSInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoModel {
+										if TLSInfoData, ok := ConnectionInfoData["tls_info"].(map[string]interface{}); ok {
+											return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoModel{
+												Certificate: func() types.String {
+													if v, ok := TLSInfoData["certificate"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												KeyURL: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLModel {
+													if KeyURLData, ok := TLSInfoData["key_url"].(map[string]interface{}); ok {
+														return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLModel{
+															BlindfoldSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel {
+																if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
+																	return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel{
+																		DecryptionProvider: func() types.String {
+																			if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Location: func() types.String {
+																			if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		StoreProvider: func() types.String {
+																			if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																	}
+																}
+																return nil
+															}(),
+															ClearSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel {
+																if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
+																	return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel{
+																		Provider: func() types.String {
+																			if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		URL: func() types.String {
+																			if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																	}
+																}
+																return nil
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ServerName: func() types.String {
+													if v, ok := TLSInfoData["server_name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												TrustedCAURL: func() types.String {
+													if v, ok := TLSInfoData["trusted_ca_url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						HTTPBasicAuthInfo: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoModel {
+							if HTTPBasicAuthInfoData, ok := AccessInfoData["http_basic_auth_info"].(map[string]interface{}); ok {
+								return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoModel{
+									PasswdURL: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLModel {
+										if PasswdURLData, ok := HTTPBasicAuthInfoData["passwd_url"].(map[string]interface{}); ok {
+											return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLModel{
+												BlindfoldSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := PasswdURLData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLClearSecretInfoModel {
+													if ClearSecretInfoData, ok := PasswdURLData["clear_secret_info"].(map[string]interface{}); ok {
+														return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									UserName: func() types.String {
+										if v, ok := HTTPBasicAuthInfoData["user_name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PublishInfo: func() *DiscoveryDiscoveryConsulPublishInfoModel {
+				if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.PublishInfo != nil {
+					return data.DiscoveryConsul.PublishInfo
+				}
+				if PublishInfoData, ok := blockData["publish_info"].(map[string]interface{}); ok {
+					return &DiscoveryDiscoveryConsulPublishInfoModel{
+						DisableSpec: func() *DiscoveryEmptyModel {
+							if _, ok := PublishInfoData["disable"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						Publish: func() *DiscoveryEmptyModel {
+							if _, ok := PublishInfoData["publish"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["discovery_k8s"].(map[string]interface{}); ok && isImport && data.DiscoveryK8S == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.DiscoveryK8S = &DiscoveryDiscoveryK8SModel{}
+	if blockData, ok := apiResource.Spec["discovery_k8s"].(map[string]interface{}); ok && (isImport || data.DiscoveryK8S != nil) {
+		data.DiscoveryK8S = &DiscoveryDiscoveryK8SModel{
+			AccessInfo: func() *DiscoveryDiscoveryK8SAccessInfoModel {
+				if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil {
+					return data.DiscoveryK8S.AccessInfo
+				}
+				if AccessInfoData, ok := blockData["access_info"].(map[string]interface{}); ok {
+					return &DiscoveryDiscoveryK8SAccessInfoModel{
+						ConnectionInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoModel {
+							if ConnectionInfoData, ok := AccessInfoData["connection_info"].(map[string]interface{}); ok {
+								return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoModel{
+									APIServer: func() types.String {
+										if v, ok := ConnectionInfoData["api_server"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									TLSInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoModel {
+										if TLSInfoData, ok := ConnectionInfoData["tls_info"].(map[string]interface{}); ok {
+											return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoModel{
+												Certificate: func() types.String {
+													if v, ok := TLSInfoData["certificate"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												KeyURL: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLModel {
+													if KeyURLData, ok := TLSInfoData["key_url"].(map[string]interface{}); ok {
+														return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLModel{
+															BlindfoldSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel {
+																if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
+																	return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel{
+																		DecryptionProvider: func() types.String {
+																			if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Location: func() types.String {
+																			if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		StoreProvider: func() types.String {
+																			if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																	}
+																}
+																return nil
+															}(),
+															ClearSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel {
+																if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
+																	return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel{
+																		Provider: func() types.String {
+																			if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		URL: func() types.String {
+																			if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																	}
+																}
+																return nil
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ServerName: func() types.String {
+													if v, ok := TLSInfoData["server_name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												TrustedCAURL: func() types.String {
+													if v, ok := TLSInfoData["trusted_ca_url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Isolated: func() *DiscoveryEmptyModel {
+							if _, ok := AccessInfoData["isolated"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						KubeconfigURL: func() *DiscoveryDiscoveryK8SAccessInfoKubeconfigURLModel {
+							if KubeconfigURLData, ok := AccessInfoData["kubeconfig_url"].(map[string]interface{}); ok {
+								return &DiscoveryDiscoveryK8SAccessInfoKubeconfigURLModel{
+									BlindfoldSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoKubeconfigURLBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := KubeconfigURLData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &DiscoveryDiscoveryK8SAccessInfoKubeconfigURLBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoKubeconfigURLClearSecretInfoModel {
+										if ClearSecretInfoData, ok := KubeconfigURLData["clear_secret_info"].(map[string]interface{}); ok {
+											return &DiscoveryDiscoveryK8SAccessInfoKubeconfigURLClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Reachable: func() *DiscoveryEmptyModel {
+							if _, ok := AccessInfoData["reachable"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			DefaultAll: func() *DiscoveryEmptyModel {
+				if !isImport && data.DiscoveryK8S != nil {
+					return data.DiscoveryK8S.DefaultAll
+				}
+				if _, ok := blockData["default_all"].(map[string]interface{}); ok {
+					return &DiscoveryEmptyModel{}
+				}
+				return nil
+			}(),
+			NamespaceMapping: func() *DiscoveryDiscoveryK8SNamespaceMappingModel {
+				if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.NamespaceMapping != nil {
+					return data.DiscoveryK8S.NamespaceMapping
+				}
+				if NamespaceMappingData, ok := blockData["namespace_mapping"].(map[string]interface{}); ok {
+					return &DiscoveryDiscoveryK8SNamespaceMappingModel{
+						Items: func() types.List {
+							if rawList, ok := NamespaceMappingData["items"].([]interface{}); ok && len(rawList) > 0 {
+								var ItemsResult []DiscoveryDiscoveryK8SNamespaceMappingItemsModel
+								for _, ItemsItem := range rawList {
+									if ItemsItemMap, ok := ItemsItem.(map[string]interface{}); ok {
+										ItemsResult = append(ItemsResult, DiscoveryDiscoveryK8SNamespaceMappingItemsModel{
+											Namespace: func() types.String {
+												if v, ok := ItemsItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											NamespaceRegex: func() types.String {
+												if v, ok := ItemsItemMap["namespace_regex"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DiscoveryDiscoveryK8SNamespaceMappingItemsModelAttrTypes}, ItemsResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: DiscoveryDiscoveryK8SNamespaceMappingItemsModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PublishInfo: func() *DiscoveryDiscoveryK8SPublishInfoModel {
+				if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil {
+					return data.DiscoveryK8S.PublishInfo
+				}
+				if PublishInfoData, ok := blockData["publish_info"].(map[string]interface{}); ok {
+					return &DiscoveryDiscoveryK8SPublishInfoModel{
+						DisableSpec: func() *DiscoveryEmptyModel {
+							if _, ok := PublishInfoData["disable"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						DNSDelegation: func() *DiscoveryDiscoveryK8SPublishInfoDNSDelegationModel {
+							if DNSDelegationData, ok := PublishInfoData["dns_delegation"].(map[string]interface{}); ok {
+								return &DiscoveryDiscoveryK8SPublishInfoDNSDelegationModel{
+									DNSMode: func() types.String {
+										if v, ok := DNSDelegationData["dns_mode"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Subdomain: func() types.String {
+										if v, ok := DNSDelegationData["subdomain"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Publish: func() *DiscoveryDiscoveryK8SPublishInfoPublishModel {
+							if PublishData, ok := PublishInfoData["publish"].(map[string]interface{}); ok {
+								return &DiscoveryDiscoveryK8SPublishInfoPublishModel{
+									Namespace: func() types.String {
+										if v, ok := PublishData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						PublishFqdns: func() *DiscoveryEmptyModel {
+							if _, ok := PublishInfoData["publish_fqdns"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_cluster_id"].(map[string]interface{}); ok && isImport && data.NoClusterID == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoClusterID = &DiscoveryEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["where"].(map[string]interface{}); ok && isImport && data.Where == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Where = &DiscoveryWhereModel{}
+	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
+		data.Where = &DiscoveryWhereModel{
+			Site: func() *DiscoveryWhereSiteModel {
+				if !isImport && data.Where != nil && data.Where.Site != nil {
+					return data.Where.Site
+				}
+				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
+					return &DiscoveryWhereSiteModel{
+						DisableInternetVIP: func() *DiscoveryEmptyModel {
+							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *DiscoveryEmptyModel {
+							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := SiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []DiscoveryWhereSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, DiscoveryWhereSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DiscoveryWhereSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: DiscoveryWhereSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualNetwork: func() *DiscoveryWhereVirtualNetworkModel {
+				if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil {
+					return data.Where.VirtualNetwork
+				}
+				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
+					return &DiscoveryWhereVirtualNetworkModel{
+						Ref: func() types.List {
+							if rawList, ok := VirtualNetworkData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []DiscoveryWhereVirtualNetworkRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, DiscoveryWhereVirtualNetworkRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DiscoveryWhereVirtualNetworkRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: DiscoveryWhereVirtualNetworkRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualSite: func() *DiscoveryWhereVirtualSiteModel {
+				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+					return data.Where.VirtualSite
+				}
+				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
+					return &DiscoveryWhereVirtualSiteModel{
+						DisableInternetVIP: func() *DiscoveryEmptyModel {
+							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *DiscoveryEmptyModel {
+							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []DiscoveryWhereVirtualSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, DiscoveryWhereVirtualSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DiscoveryWhereVirtualSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: DiscoveryWhereVirtualSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["cluster_id"].(string); ok && v != "" {
 		data.ClusterID = types.StringValue(v)
 	} else {
 		data.ClusterID = types.StringNull()
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -1553,61 +3147,365 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.DiscoveryConsul != nil {
-		discovery_consulMap := make(map[string]interface{})
+		DiscoveryConsulMap := make(map[string]interface{})
 		if data.DiscoveryConsul.AccessInfo != nil {
-			access_infoNestedMap := make(map[string]interface{})
-			discovery_consulMap["access_info"] = access_infoNestedMap
+			AccessInfoMap := make(map[string]interface{})
+			if data.DiscoveryConsul.AccessInfo.ConnectionInfo != nil {
+				ConnectionInfoMap := make(map[string]interface{})
+				if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.APIServer.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.APIServer.IsUnknown() {
+					ConnectionInfoMap["api_server"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.APIServer.ValueString()
+				}
+				if data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo != nil {
+					TLSInfoMap := make(map[string]interface{})
+					if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.Certificate.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.Certificate.IsUnknown() {
+						TLSInfoMap["certificate"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.Certificate.ValueString()
+					}
+					if data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil {
+						KeyURLMap := make(map[string]interface{})
+						if data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							KeyURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.ValueString()
+							}
+							if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.ValueString()
+							}
+							KeyURLMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						TLSInfoMap["key_url"] = KeyURLMap
+					}
+					if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.ServerName.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.ServerName.IsUnknown() {
+						TLSInfoMap["server_name"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.ServerName.ValueString()
+					}
+					if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.IsUnknown() {
+						TLSInfoMap["trusted_ca_url"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.ValueString()
+					}
+					ConnectionInfoMap["tls_info"] = TLSInfoMap
+				}
+				AccessInfoMap["connection_info"] = ConnectionInfoMap
+			}
+			if data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo != nil {
+				HTTPBasicAuthInfoMap := make(map[string]interface{})
+				if data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL != nil {
+					PasswdURLMap := make(map[string]interface{})
+					if data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo != nil {
+						BlindfoldSecretInfoMap := make(map[string]interface{})
+						if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						}
+						if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.Location.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.Location.IsUnknown() {
+							BlindfoldSecretInfoMap["location"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.Location.ValueString()
+						}
+						if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["store_provider"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+						}
+						PasswdURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					}
+					if data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo != nil {
+						ClearSecretInfoMap := make(map[string]interface{})
+						if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.Provider.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.Provider.IsUnknown() {
+							ClearSecretInfoMap["provider"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.Provider.ValueString()
+						}
+						if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.URL.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.URL.IsUnknown() {
+							ClearSecretInfoMap["url"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.URL.ValueString()
+						}
+						PasswdURLMap["clear_secret_info"] = ClearSecretInfoMap
+					}
+					HTTPBasicAuthInfoMap["passwd_url"] = PasswdURLMap
+				}
+				if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.UserName.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.UserName.IsUnknown() {
+					HTTPBasicAuthInfoMap["user_name"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.UserName.ValueString()
+				}
+				AccessInfoMap["http_basic_auth_info"] = HTTPBasicAuthInfoMap
+			}
+			DiscoveryConsulMap["access_info"] = AccessInfoMap
 		}
 		if data.DiscoveryConsul.PublishInfo != nil {
-			publish_infoNestedMap := make(map[string]interface{})
-			discovery_consulMap["publish_info"] = publish_infoNestedMap
+			PublishInfoMap := make(map[string]interface{})
+			if data.DiscoveryConsul.PublishInfo.DisableSpec != nil {
+				PublishInfoMap["disable"] = map[string]interface{}{}
+			}
+			if data.DiscoveryConsul.PublishInfo.Publish != nil {
+				PublishInfoMap["publish"] = map[string]interface{}{}
+			}
+			DiscoveryConsulMap["publish_info"] = PublishInfoMap
 		}
-		apiResource.Spec["discovery_consul"] = discovery_consulMap
+		apiResource.Spec["discovery_consul"] = DiscoveryConsulMap
 	}
 	if data.DiscoveryK8S != nil {
-		discovery_k8sMap := make(map[string]interface{})
+		DiscoveryK8SMap := make(map[string]interface{})
 		if data.DiscoveryK8S.AccessInfo != nil {
-			access_infoNestedMap := make(map[string]interface{})
-			discovery_k8sMap["access_info"] = access_infoNestedMap
+			AccessInfoMap := make(map[string]interface{})
+			if data.DiscoveryK8S.AccessInfo.ConnectionInfo != nil {
+				ConnectionInfoMap := make(map[string]interface{})
+				if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.APIServer.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.APIServer.IsUnknown() {
+					ConnectionInfoMap["api_server"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.APIServer.ValueString()
+				}
+				if data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo != nil {
+					TLSInfoMap := make(map[string]interface{})
+					if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.Certificate.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.Certificate.IsUnknown() {
+						TLSInfoMap["certificate"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.Certificate.ValueString()
+					}
+					if data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil {
+						KeyURLMap := make(map[string]interface{})
+						if data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							KeyURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.ValueString()
+							}
+							if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.ValueString()
+							}
+							KeyURLMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						TLSInfoMap["key_url"] = KeyURLMap
+					}
+					if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.ServerName.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.ServerName.IsUnknown() {
+						TLSInfoMap["server_name"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.ServerName.ValueString()
+					}
+					if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.IsUnknown() {
+						TLSInfoMap["trusted_ca_url"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.ValueString()
+					}
+					ConnectionInfoMap["tls_info"] = TLSInfoMap
+				}
+				AccessInfoMap["connection_info"] = ConnectionInfoMap
+			}
+			if data.DiscoveryK8S.AccessInfo.Isolated != nil {
+				AccessInfoMap["isolated"] = map[string]interface{}{}
+			}
+			if data.DiscoveryK8S.AccessInfo.KubeconfigURL != nil {
+				KubeconfigURLMap := make(map[string]interface{})
+				if data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.Location.IsNull() && !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					KubeconfigURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.Provider.IsNull() && !data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.URL.IsNull() && !data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.URL.ValueString()
+					}
+					KubeconfigURLMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				AccessInfoMap["kubeconfig_url"] = KubeconfigURLMap
+			}
+			if data.DiscoveryK8S.AccessInfo.Reachable != nil {
+				AccessInfoMap["reachable"] = map[string]interface{}{}
+			}
+			DiscoveryK8SMap["access_info"] = AccessInfoMap
 		}
 		if data.DiscoveryK8S.DefaultAll != nil {
-			discovery_k8sMap["default_all"] = map[string]interface{}{}
+			DiscoveryK8SMap["default_all"] = map[string]interface{}{}
 		}
 		if data.DiscoveryK8S.NamespaceMapping != nil {
-			namespace_mappingNestedMap := make(map[string]interface{})
-			discovery_k8sMap["namespace_mapping"] = namespace_mappingNestedMap
+			NamespaceMappingMap := make(map[string]interface{})
+			if !data.DiscoveryK8S.NamespaceMapping.Items.IsNull() && !data.DiscoveryK8S.NamespaceMapping.Items.IsUnknown() {
+				var ItemsElems []DiscoveryDiscoveryK8SNamespaceMappingItemsModel
+				diags := data.DiscoveryK8S.NamespaceMapping.Items.ElementsAs(ctx, &ItemsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ItemsElems) > 0 {
+					var ItemsList []map[string]interface{}
+					for _, ItemsItem := range ItemsElems {
+						ItemsItemMap := make(map[string]interface{})
+						if !ItemsItem.Namespace.IsNull() && !ItemsItem.Namespace.IsUnknown() {
+							ItemsItemMap["namespace"] = ItemsItem.Namespace.ValueString()
+						}
+						if !ItemsItem.NamespaceRegex.IsNull() && !ItemsItem.NamespaceRegex.IsUnknown() {
+							ItemsItemMap["namespace_regex"] = ItemsItem.NamespaceRegex.ValueString()
+						}
+						ItemsList = append(ItemsList, ItemsItemMap)
+					}
+					NamespaceMappingMap["items"] = ItemsList
+				}
+			}
+			DiscoveryK8SMap["namespace_mapping"] = NamespaceMappingMap
 		}
 		if data.DiscoveryK8S.PublishInfo != nil {
-			publish_infoNestedMap := make(map[string]interface{})
-			discovery_k8sMap["publish_info"] = publish_infoNestedMap
+			PublishInfoMap := make(map[string]interface{})
+			if data.DiscoveryK8S.PublishInfo.DisableSpec != nil {
+				PublishInfoMap["disable"] = map[string]interface{}{}
+			}
+			if data.DiscoveryK8S.PublishInfo.DNSDelegation != nil {
+				DNSDelegationMap := make(map[string]interface{})
+				if !data.DiscoveryK8S.PublishInfo.DNSDelegation.DNSMode.IsNull() && !data.DiscoveryK8S.PublishInfo.DNSDelegation.DNSMode.IsUnknown() {
+					DNSDelegationMap["dns_mode"] = data.DiscoveryK8S.PublishInfo.DNSDelegation.DNSMode.ValueString()
+				}
+				if !data.DiscoveryK8S.PublishInfo.DNSDelegation.Subdomain.IsNull() && !data.DiscoveryK8S.PublishInfo.DNSDelegation.Subdomain.IsUnknown() {
+					DNSDelegationMap["subdomain"] = data.DiscoveryK8S.PublishInfo.DNSDelegation.Subdomain.ValueString()
+				}
+				PublishInfoMap["dns_delegation"] = DNSDelegationMap
+			}
+			if data.DiscoveryK8S.PublishInfo.Publish != nil {
+				PublishMap := make(map[string]interface{})
+				if !data.DiscoveryK8S.PublishInfo.Publish.Namespace.IsNull() && !data.DiscoveryK8S.PublishInfo.Publish.Namespace.IsUnknown() {
+					PublishMap["namespace"] = data.DiscoveryK8S.PublishInfo.Publish.Namespace.ValueString()
+				}
+				PublishInfoMap["publish"] = PublishMap
+			}
+			if data.DiscoveryK8S.PublishInfo.PublishFqdns != nil {
+				PublishInfoMap["publish_fqdns"] = map[string]interface{}{}
+			}
+			DiscoveryK8SMap["publish_info"] = PublishInfoMap
 		}
-		apiResource.Spec["discovery_k8s"] = discovery_k8sMap
+		apiResource.Spec["discovery_k8s"] = DiscoveryK8SMap
 	}
 	if data.NoClusterID != nil {
-		no_cluster_idMap := make(map[string]interface{})
-		apiResource.Spec["no_cluster_id"] = no_cluster_idMap
+		apiResource.Spec["no_cluster_id"] = map[string]interface{}{}
 	}
 	if data.Where != nil {
-		whereMap := make(map[string]interface{})
+		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
-			siteNestedMap := make(map[string]interface{})
-			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
-				siteNestedMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+			SiteMap := make(map[string]interface{})
+			if data.Where.Site.DisableInternetVIP != nil {
+				SiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			whereMap["site"] = siteNestedMap
+			if data.Where.Site.EnableInternetVIP != nil {
+				SiteMap["enable_internet_vip"] = map[string]interface{}{}
+			}
+			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
+				SiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+			}
+			if !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
+				var RefElems []DiscoveryWhereSiteRefModel
+				diags := data.Where.Site.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					SiteMap["ref"] = RefList
+				}
+			}
+			WhereMap["site"] = SiteMap
 		}
 		if data.Where.VirtualNetwork != nil {
-			virtual_networkNestedMap := make(map[string]interface{})
-			whereMap["virtual_network"] = virtual_networkNestedMap
+			VirtualNetworkMap := make(map[string]interface{})
+			if !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
+				var RefElems []DiscoveryWhereVirtualNetworkRefModel
+				diags := data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					VirtualNetworkMap["ref"] = RefList
+				}
+			}
+			WhereMap["virtual_network"] = VirtualNetworkMap
 		}
 		if data.Where.VirtualSite != nil {
-			virtual_siteNestedMap := make(map[string]interface{})
-			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
-				virtual_siteNestedMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+			VirtualSiteMap := make(map[string]interface{})
+			if data.Where.VirtualSite.DisableInternetVIP != nil {
+				VirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			whereMap["virtual_site"] = virtual_siteNestedMap
+			if data.Where.VirtualSite.EnableInternetVIP != nil {
+				VirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
+			}
+			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
+				VirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+			}
+			if !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
+				var RefElems []DiscoveryWhereVirtualSiteRefModel
+				diags := data.Where.VirtualSite.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					VirtualSiteMap["ref"] = RefList
+				}
+			}
+			WhereMap["virtual_site"] = VirtualSiteMap
 		}
-		apiResource.Spec["where"] = whereMap
+		apiResource.Spec["where"] = WhereMap
 	}
 	if !data.ClusterID.IsNull() && !data.ClusterID.IsUnknown() {
 		apiResource.Spec["cluster_id"] = data.ClusterID.ValueString()
@@ -1643,26 +3541,665 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["discovery_consul"].(map[string]interface{}); ok && isImport && data.DiscoveryConsul == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.DiscoveryConsul = &DiscoveryDiscoveryConsulModel{}
+	if blockData, ok := apiResource.Spec["discovery_consul"].(map[string]interface{}); ok && (isImport || data.DiscoveryConsul != nil) {
+		data.DiscoveryConsul = &DiscoveryDiscoveryConsulModel{
+			AccessInfo: func() *DiscoveryDiscoveryConsulAccessInfoModel {
+				if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil {
+					return data.DiscoveryConsul.AccessInfo
+				}
+				if AccessInfoData, ok := blockData["access_info"].(map[string]interface{}); ok {
+					return &DiscoveryDiscoveryConsulAccessInfoModel{
+						ConnectionInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoModel {
+							if ConnectionInfoData, ok := AccessInfoData["connection_info"].(map[string]interface{}); ok {
+								return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoModel{
+									APIServer: func() types.String {
+										if v, ok := ConnectionInfoData["api_server"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									TLSInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoModel {
+										if TLSInfoData, ok := ConnectionInfoData["tls_info"].(map[string]interface{}); ok {
+											return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoModel{
+												Certificate: func() types.String {
+													if v, ok := TLSInfoData["certificate"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												KeyURL: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLModel {
+													if KeyURLData, ok := TLSInfoData["key_url"].(map[string]interface{}); ok {
+														return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLModel{
+															BlindfoldSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel {
+																if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
+																	return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel{
+																		DecryptionProvider: func() types.String {
+																			if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Location: func() types.String {
+																			if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		StoreProvider: func() types.String {
+																			if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																	}
+																}
+																return nil
+															}(),
+															ClearSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel {
+																if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
+																	return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel{
+																		Provider: func() types.String {
+																			if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		URL: func() types.String {
+																			if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																	}
+																}
+																return nil
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ServerName: func() types.String {
+													if v, ok := TLSInfoData["server_name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												TrustedCAURL: func() types.String {
+													if v, ok := TLSInfoData["trusted_ca_url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						HTTPBasicAuthInfo: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoModel {
+							if HTTPBasicAuthInfoData, ok := AccessInfoData["http_basic_auth_info"].(map[string]interface{}); ok {
+								return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoModel{
+									PasswdURL: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLModel {
+										if PasswdURLData, ok := HTTPBasicAuthInfoData["passwd_url"].(map[string]interface{}); ok {
+											return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLModel{
+												BlindfoldSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := PasswdURLData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLClearSecretInfoModel {
+													if ClearSecretInfoData, ok := PasswdURLData["clear_secret_info"].(map[string]interface{}); ok {
+														return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									UserName: func() types.String {
+										if v, ok := HTTPBasicAuthInfoData["user_name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PublishInfo: func() *DiscoveryDiscoveryConsulPublishInfoModel {
+				if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.PublishInfo != nil {
+					return data.DiscoveryConsul.PublishInfo
+				}
+				if PublishInfoData, ok := blockData["publish_info"].(map[string]interface{}); ok {
+					return &DiscoveryDiscoveryConsulPublishInfoModel{
+						DisableSpec: func() *DiscoveryEmptyModel {
+							if _, ok := PublishInfoData["disable"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						Publish: func() *DiscoveryEmptyModel {
+							if _, ok := PublishInfoData["publish"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["discovery_k8s"].(map[string]interface{}); ok && isImport && data.DiscoveryK8S == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.DiscoveryK8S = &DiscoveryDiscoveryK8SModel{}
+	if blockData, ok := apiResource.Spec["discovery_k8s"].(map[string]interface{}); ok && (isImport || data.DiscoveryK8S != nil) {
+		data.DiscoveryK8S = &DiscoveryDiscoveryK8SModel{
+			AccessInfo: func() *DiscoveryDiscoveryK8SAccessInfoModel {
+				if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil {
+					return data.DiscoveryK8S.AccessInfo
+				}
+				if AccessInfoData, ok := blockData["access_info"].(map[string]interface{}); ok {
+					return &DiscoveryDiscoveryK8SAccessInfoModel{
+						ConnectionInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoModel {
+							if ConnectionInfoData, ok := AccessInfoData["connection_info"].(map[string]interface{}); ok {
+								return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoModel{
+									APIServer: func() types.String {
+										if v, ok := ConnectionInfoData["api_server"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									TLSInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoModel {
+										if TLSInfoData, ok := ConnectionInfoData["tls_info"].(map[string]interface{}); ok {
+											return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoModel{
+												Certificate: func() types.String {
+													if v, ok := TLSInfoData["certificate"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												KeyURL: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLModel {
+													if KeyURLData, ok := TLSInfoData["key_url"].(map[string]interface{}); ok {
+														return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLModel{
+															BlindfoldSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel {
+																if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
+																	return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel{
+																		DecryptionProvider: func() types.String {
+																			if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Location: func() types.String {
+																			if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		StoreProvider: func() types.String {
+																			if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																	}
+																}
+																return nil
+															}(),
+															ClearSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel {
+																if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
+																	return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel{
+																		Provider: func() types.String {
+																			if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		URL: func() types.String {
+																			if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																	}
+																}
+																return nil
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ServerName: func() types.String {
+													if v, ok := TLSInfoData["server_name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												TrustedCAURL: func() types.String {
+													if v, ok := TLSInfoData["trusted_ca_url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Isolated: func() *DiscoveryEmptyModel {
+							if _, ok := AccessInfoData["isolated"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						KubeconfigURL: func() *DiscoveryDiscoveryK8SAccessInfoKubeconfigURLModel {
+							if KubeconfigURLData, ok := AccessInfoData["kubeconfig_url"].(map[string]interface{}); ok {
+								return &DiscoveryDiscoveryK8SAccessInfoKubeconfigURLModel{
+									BlindfoldSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoKubeconfigURLBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := KubeconfigURLData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &DiscoveryDiscoveryK8SAccessInfoKubeconfigURLBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoKubeconfigURLClearSecretInfoModel {
+										if ClearSecretInfoData, ok := KubeconfigURLData["clear_secret_info"].(map[string]interface{}); ok {
+											return &DiscoveryDiscoveryK8SAccessInfoKubeconfigURLClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Reachable: func() *DiscoveryEmptyModel {
+							if _, ok := AccessInfoData["reachable"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			DefaultAll: func() *DiscoveryEmptyModel {
+				if !isImport && data.DiscoveryK8S != nil {
+					return data.DiscoveryK8S.DefaultAll
+				}
+				if _, ok := blockData["default_all"].(map[string]interface{}); ok {
+					return &DiscoveryEmptyModel{}
+				}
+				return nil
+			}(),
+			NamespaceMapping: func() *DiscoveryDiscoveryK8SNamespaceMappingModel {
+				if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.NamespaceMapping != nil {
+					return data.DiscoveryK8S.NamespaceMapping
+				}
+				if NamespaceMappingData, ok := blockData["namespace_mapping"].(map[string]interface{}); ok {
+					return &DiscoveryDiscoveryK8SNamespaceMappingModel{
+						Items: func() types.List {
+							if rawList, ok := NamespaceMappingData["items"].([]interface{}); ok && len(rawList) > 0 {
+								var ItemsResult []DiscoveryDiscoveryK8SNamespaceMappingItemsModel
+								for _, ItemsItem := range rawList {
+									if ItemsItemMap, ok := ItemsItem.(map[string]interface{}); ok {
+										ItemsResult = append(ItemsResult, DiscoveryDiscoveryK8SNamespaceMappingItemsModel{
+											Namespace: func() types.String {
+												if v, ok := ItemsItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											NamespaceRegex: func() types.String {
+												if v, ok := ItemsItemMap["namespace_regex"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DiscoveryDiscoveryK8SNamespaceMappingItemsModelAttrTypes}, ItemsResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: DiscoveryDiscoveryK8SNamespaceMappingItemsModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PublishInfo: func() *DiscoveryDiscoveryK8SPublishInfoModel {
+				if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil {
+					return data.DiscoveryK8S.PublishInfo
+				}
+				if PublishInfoData, ok := blockData["publish_info"].(map[string]interface{}); ok {
+					return &DiscoveryDiscoveryK8SPublishInfoModel{
+						DisableSpec: func() *DiscoveryEmptyModel {
+							if _, ok := PublishInfoData["disable"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						DNSDelegation: func() *DiscoveryDiscoveryK8SPublishInfoDNSDelegationModel {
+							if DNSDelegationData, ok := PublishInfoData["dns_delegation"].(map[string]interface{}); ok {
+								return &DiscoveryDiscoveryK8SPublishInfoDNSDelegationModel{
+									DNSMode: func() types.String {
+										if v, ok := DNSDelegationData["dns_mode"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Subdomain: func() types.String {
+										if v, ok := DNSDelegationData["subdomain"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Publish: func() *DiscoveryDiscoveryK8SPublishInfoPublishModel {
+							if PublishData, ok := PublishInfoData["publish"].(map[string]interface{}); ok {
+								return &DiscoveryDiscoveryK8SPublishInfoPublishModel{
+									Namespace: func() types.String {
+										if v, ok := PublishData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						PublishFqdns: func() *DiscoveryEmptyModel {
+							if _, ok := PublishInfoData["publish_fqdns"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_cluster_id"].(map[string]interface{}); ok && isImport && data.NoClusterID == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoClusterID = &DiscoveryEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["where"].(map[string]interface{}); ok && isImport && data.Where == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Where = &DiscoveryWhereModel{}
+	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
+		data.Where = &DiscoveryWhereModel{
+			Site: func() *DiscoveryWhereSiteModel {
+				if !isImport && data.Where != nil && data.Where.Site != nil {
+					return data.Where.Site
+				}
+				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
+					return &DiscoveryWhereSiteModel{
+						DisableInternetVIP: func() *DiscoveryEmptyModel {
+							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *DiscoveryEmptyModel {
+							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := SiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []DiscoveryWhereSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, DiscoveryWhereSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DiscoveryWhereSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: DiscoveryWhereSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualNetwork: func() *DiscoveryWhereVirtualNetworkModel {
+				if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil {
+					return data.Where.VirtualNetwork
+				}
+				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
+					return &DiscoveryWhereVirtualNetworkModel{
+						Ref: func() types.List {
+							if rawList, ok := VirtualNetworkData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []DiscoveryWhereVirtualNetworkRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, DiscoveryWhereVirtualNetworkRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DiscoveryWhereVirtualNetworkRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: DiscoveryWhereVirtualNetworkRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualSite: func() *DiscoveryWhereVirtualSiteModel {
+				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+					return data.Where.VirtualSite
+				}
+				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
+					return &DiscoveryWhereVirtualSiteModel{
+						DisableInternetVIP: func() *DiscoveryEmptyModel {
+							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *DiscoveryEmptyModel {
+							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &DiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []DiscoveryWhereVirtualSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, DiscoveryWhereVirtualSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DiscoveryWhereVirtualSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: DiscoveryWhereVirtualSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["cluster_id"].(string); ok && v != "" {
 		data.ClusterID = types.StringValue(v)
 	} else {

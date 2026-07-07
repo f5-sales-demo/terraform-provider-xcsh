@@ -21,9 +21,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -1042,80 +1042,284 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.AWSProvider != nil {
-		aws_providerMap := make(map[string]interface{})
+		AWSProviderMap := make(map[string]interface{})
 		if data.AWSProvider.AWSTGWSite != nil {
-			aws_tgw_siteNestedMap := make(map[string]interface{})
-			aws_providerMap["aws_tgw_site"] = aws_tgw_siteNestedMap
+			AWSTGWSiteMap := make(map[string]interface{})
+			if data.AWSProvider.AWSTGWSite.Cred != nil {
+				CredMap := make(map[string]interface{})
+				if !data.AWSProvider.AWSTGWSite.Cred.Name.IsNull() && !data.AWSProvider.AWSTGWSite.Cred.Name.IsUnknown() {
+					CredMap["name"] = data.AWSProvider.AWSTGWSite.Cred.Name.ValueString()
+				}
+				if !data.AWSProvider.AWSTGWSite.Cred.Namespace.IsNull() && !data.AWSProvider.AWSTGWSite.Cred.Namespace.IsUnknown() {
+					CredMap["namespace"] = data.AWSProvider.AWSTGWSite.Cred.Namespace.ValueString()
+				}
+				if !data.AWSProvider.AWSTGWSite.Cred.Tenant.IsNull() && !data.AWSProvider.AWSTGWSite.Cred.Tenant.IsUnknown() {
+					CredMap["tenant"] = data.AWSProvider.AWSTGWSite.Cred.Tenant.ValueString()
+				}
+				AWSTGWSiteMap["cred"] = CredMap
+			}
+			if data.AWSProvider.AWSTGWSite.Site != nil {
+				SiteMap := make(map[string]interface{})
+				if !data.AWSProvider.AWSTGWSite.Site.Name.IsNull() && !data.AWSProvider.AWSTGWSite.Site.Name.IsUnknown() {
+					SiteMap["name"] = data.AWSProvider.AWSTGWSite.Site.Name.ValueString()
+				}
+				if !data.AWSProvider.AWSTGWSite.Site.Namespace.IsNull() && !data.AWSProvider.AWSTGWSite.Site.Namespace.IsUnknown() {
+					SiteMap["namespace"] = data.AWSProvider.AWSTGWSite.Site.Namespace.ValueString()
+				}
+				if !data.AWSProvider.AWSTGWSite.Site.Tenant.IsNull() && !data.AWSProvider.AWSTGWSite.Site.Tenant.IsUnknown() {
+					SiteMap["tenant"] = data.AWSProvider.AWSTGWSite.Site.Tenant.ValueString()
+				}
+				AWSTGWSiteMap["site"] = SiteMap
+			}
+			if data.AWSProvider.AWSTGWSite.VPCAttachments != nil {
+				VPCAttachmentsMap := make(map[string]interface{})
+				if len(data.AWSProvider.AWSTGWSite.VPCAttachments.VPCList) > 0 {
+					var VPCListList []map[string]interface{}
+					for _, VPCListItem := range data.AWSProvider.AWSTGWSite.VPCAttachments.VPCList {
+						VPCListItemMap := make(map[string]interface{})
+						if VPCListItem.CustomRouting != nil {
+							CustomRoutingMap := make(map[string]interface{})
+							if len(VPCListItem.CustomRouting.RouteTables) > 0 {
+								var RouteTablesList []map[string]interface{}
+								for _, RouteTablesItem := range VPCListItem.CustomRouting.RouteTables {
+									RouteTablesItemMap := make(map[string]interface{})
+									if !RouteTablesItem.RouteTableID.IsNull() && !RouteTablesItem.RouteTableID.IsUnknown() {
+										RouteTablesItemMap["route_table_id"] = RouteTablesItem.RouteTableID.ValueString()
+									}
+									if !RouteTablesItem.StaticRoutes.IsNull() && !RouteTablesItem.StaticRoutes.IsUnknown() {
+										var StaticRoutesItems []string
+										diags := RouteTablesItem.StaticRoutes.ElementsAs(ctx, &StaticRoutesItems, false)
+										if !diags.HasError() {
+											RouteTablesItemMap["static_routes"] = StaticRoutesItems
+										}
+									}
+									RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
+								}
+								CustomRoutingMap["route_tables"] = RouteTablesList
+							}
+							VPCListItemMap["custom_routing"] = CustomRoutingMap
+						}
+						if VPCListItem.DefaultRoute != nil {
+							DefaultRouteMap := make(map[string]interface{})
+							if VPCListItem.DefaultRoute.AllRouteTables != nil {
+								DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+							}
+							if VPCListItem.DefaultRoute.SelectiveRouteTables != nil {
+								SelectiveRouteTablesMap := make(map[string]interface{})
+								if !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
+									var RouteTableIDItems []string
+									diags := VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
+									if !diags.HasError() {
+										SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
+									}
+								}
+								DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
+							}
+							VPCListItemMap["default_route"] = DefaultRouteMap
+						}
+						if VPCListItem.Labels != nil {
+							VPCListItemMap["labels"] = map[string]interface{}{}
+						}
+						if VPCListItem.ManualRouting != nil {
+							VPCListItemMap["manual_routing"] = map[string]interface{}{}
+						}
+						if !VPCListItem.VPCID.IsNull() && !VPCListItem.VPCID.IsUnknown() {
+							VPCListItemMap["vpc_id"] = VPCListItem.VPCID.ValueString()
+						}
+						VPCListList = append(VPCListList, VPCListItemMap)
+					}
+					VPCAttachmentsMap["vpc_list"] = VPCListList
+				}
+				AWSTGWSiteMap["vpc_attachments"] = VPCAttachmentsMap
+			}
+			AWSProviderMap["aws_tgw_site"] = AWSTGWSiteMap
 		}
-		createReq.Spec["aws_provider"] = aws_providerMap
+		createReq.Spec["aws_provider"] = AWSProviderMap
 	}
 	if data.AWSTGWSite != nil {
-		aws_tgw_siteMap := make(map[string]interface{})
+		AWSTGWSiteMap := make(map[string]interface{})
 		if data.AWSTGWSite.Cred != nil {
-			credNestedMap := make(map[string]interface{})
+			CredMap := make(map[string]interface{})
 			if !data.AWSTGWSite.Cred.Name.IsNull() && !data.AWSTGWSite.Cred.Name.IsUnknown() {
-				credNestedMap["name"] = data.AWSTGWSite.Cred.Name.ValueString()
+				CredMap["name"] = data.AWSTGWSite.Cred.Name.ValueString()
 			}
 			if !data.AWSTGWSite.Cred.Namespace.IsNull() && !data.AWSTGWSite.Cred.Namespace.IsUnknown() {
-				credNestedMap["namespace"] = data.AWSTGWSite.Cred.Namespace.ValueString()
+				CredMap["namespace"] = data.AWSTGWSite.Cred.Namespace.ValueString()
 			}
 			if !data.AWSTGWSite.Cred.Tenant.IsNull() && !data.AWSTGWSite.Cred.Tenant.IsUnknown() {
-				credNestedMap["tenant"] = data.AWSTGWSite.Cred.Tenant.ValueString()
+				CredMap["tenant"] = data.AWSTGWSite.Cred.Tenant.ValueString()
 			}
-			aws_tgw_siteMap["cred"] = credNestedMap
+			AWSTGWSiteMap["cred"] = CredMap
 		}
 		if data.AWSTGWSite.Site != nil {
-			siteNestedMap := make(map[string]interface{})
+			SiteMap := make(map[string]interface{})
 			if !data.AWSTGWSite.Site.Name.IsNull() && !data.AWSTGWSite.Site.Name.IsUnknown() {
-				siteNestedMap["name"] = data.AWSTGWSite.Site.Name.ValueString()
+				SiteMap["name"] = data.AWSTGWSite.Site.Name.ValueString()
 			}
 			if !data.AWSTGWSite.Site.Namespace.IsNull() && !data.AWSTGWSite.Site.Namespace.IsUnknown() {
-				siteNestedMap["namespace"] = data.AWSTGWSite.Site.Namespace.ValueString()
+				SiteMap["namespace"] = data.AWSTGWSite.Site.Namespace.ValueString()
 			}
 			if !data.AWSTGWSite.Site.Tenant.IsNull() && !data.AWSTGWSite.Site.Tenant.IsUnknown() {
-				siteNestedMap["tenant"] = data.AWSTGWSite.Site.Tenant.ValueString()
+				SiteMap["tenant"] = data.AWSTGWSite.Site.Tenant.ValueString()
 			}
-			aws_tgw_siteMap["site"] = siteNestedMap
+			AWSTGWSiteMap["site"] = SiteMap
 		}
 		if data.AWSTGWSite.VPCAttachments != nil {
-			vpc_attachmentsNestedMap := make(map[string]interface{})
-			aws_tgw_siteMap["vpc_attachments"] = vpc_attachmentsNestedMap
+			VPCAttachmentsMap := make(map[string]interface{})
+			if len(data.AWSTGWSite.VPCAttachments.VPCList) > 0 {
+				var VPCListList []map[string]interface{}
+				for _, VPCListItem := range data.AWSTGWSite.VPCAttachments.VPCList {
+					VPCListItemMap := make(map[string]interface{})
+					if VPCListItem.CustomRouting != nil {
+						CustomRoutingMap := make(map[string]interface{})
+						if len(VPCListItem.CustomRouting.RouteTables) > 0 {
+							var RouteTablesList []map[string]interface{}
+							for _, RouteTablesItem := range VPCListItem.CustomRouting.RouteTables {
+								RouteTablesItemMap := make(map[string]interface{})
+								if !RouteTablesItem.RouteTableID.IsNull() && !RouteTablesItem.RouteTableID.IsUnknown() {
+									RouteTablesItemMap["route_table_id"] = RouteTablesItem.RouteTableID.ValueString()
+								}
+								if !RouteTablesItem.StaticRoutes.IsNull() && !RouteTablesItem.StaticRoutes.IsUnknown() {
+									var StaticRoutesItems []string
+									diags := RouteTablesItem.StaticRoutes.ElementsAs(ctx, &StaticRoutesItems, false)
+									if !diags.HasError() {
+										RouteTablesItemMap["static_routes"] = StaticRoutesItems
+									}
+								}
+								RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
+							}
+							CustomRoutingMap["route_tables"] = RouteTablesList
+						}
+						VPCListItemMap["custom_routing"] = CustomRoutingMap
+					}
+					if VPCListItem.DefaultRoute != nil {
+						DefaultRouteMap := make(map[string]interface{})
+						if VPCListItem.DefaultRoute.AllRouteTables != nil {
+							DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+						}
+						if VPCListItem.DefaultRoute.SelectiveRouteTables != nil {
+							SelectiveRouteTablesMap := make(map[string]interface{})
+							if !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
+								var RouteTableIDItems []string
+								diags := VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
+								if !diags.HasError() {
+									SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
+								}
+							}
+							DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
+						}
+						VPCListItemMap["default_route"] = DefaultRouteMap
+					}
+					if VPCListItem.Labels != nil {
+						VPCListItemMap["labels"] = map[string]interface{}{}
+					}
+					if VPCListItem.ManualRouting != nil {
+						VPCListItemMap["manual_routing"] = map[string]interface{}{}
+					}
+					if !VPCListItem.VPCID.IsNull() && !VPCListItem.VPCID.IsUnknown() {
+						VPCListItemMap["vpc_id"] = VPCListItem.VPCID.ValueString()
+					}
+					VPCListList = append(VPCListList, VPCListItemMap)
+				}
+				VPCAttachmentsMap["vpc_list"] = VPCListList
+			}
+			AWSTGWSiteMap["vpc_attachments"] = VPCAttachmentsMap
 		}
-		createReq.Spec["aws_tgw_site"] = aws_tgw_siteMap
+		createReq.Spec["aws_tgw_site"] = AWSTGWSiteMap
 	}
 	if data.AzureVNETSite != nil {
-		azure_vnet_siteMap := make(map[string]interface{})
+		AzureVNETSiteMap := make(map[string]interface{})
 		if data.AzureVNETSite.Site != nil {
-			siteNestedMap := make(map[string]interface{})
+			SiteMap := make(map[string]interface{})
 			if !data.AzureVNETSite.Site.Name.IsNull() && !data.AzureVNETSite.Site.Name.IsUnknown() {
-				siteNestedMap["name"] = data.AzureVNETSite.Site.Name.ValueString()
+				SiteMap["name"] = data.AzureVNETSite.Site.Name.ValueString()
 			}
 			if !data.AzureVNETSite.Site.Namespace.IsNull() && !data.AzureVNETSite.Site.Namespace.IsUnknown() {
-				siteNestedMap["namespace"] = data.AzureVNETSite.Site.Namespace.ValueString()
+				SiteMap["namespace"] = data.AzureVNETSite.Site.Namespace.ValueString()
 			}
 			if !data.AzureVNETSite.Site.Tenant.IsNull() && !data.AzureVNETSite.Site.Tenant.IsUnknown() {
-				siteNestedMap["tenant"] = data.AzureVNETSite.Site.Tenant.ValueString()
+				SiteMap["tenant"] = data.AzureVNETSite.Site.Tenant.ValueString()
 			}
-			azure_vnet_siteMap["site"] = siteNestedMap
+			AzureVNETSiteMap["site"] = SiteMap
 		}
 		if data.AzureVNETSite.VNETAttachments != nil {
-			vnet_attachmentsNestedMap := make(map[string]interface{})
-			azure_vnet_siteMap["vnet_attachments"] = vnet_attachmentsNestedMap
+			VNETAttachmentsMap := make(map[string]interface{})
+			if len(data.AzureVNETSite.VNETAttachments.VNETList) > 0 {
+				var VNETListList []map[string]interface{}
+				for _, VNETListItem := range data.AzureVNETSite.VNETAttachments.VNETList {
+					VNETListItemMap := make(map[string]interface{})
+					if VNETListItem.CustomRouting != nil {
+						CustomRoutingMap := make(map[string]interface{})
+						if len(VNETListItem.CustomRouting.RouteTables) > 0 {
+							var RouteTablesList []map[string]interface{}
+							for _, RouteTablesItem := range VNETListItem.CustomRouting.RouteTables {
+								RouteTablesItemMap := make(map[string]interface{})
+								if !RouteTablesItem.RouteTableID.IsNull() && !RouteTablesItem.RouteTableID.IsUnknown() {
+									RouteTablesItemMap["route_table_id"] = RouteTablesItem.RouteTableID.ValueString()
+								}
+								if !RouteTablesItem.StaticRoutes.IsNull() && !RouteTablesItem.StaticRoutes.IsUnknown() {
+									var StaticRoutesItems []string
+									diags := RouteTablesItem.StaticRoutes.ElementsAs(ctx, &StaticRoutesItems, false)
+									if !diags.HasError() {
+										RouteTablesItemMap["static_routes"] = StaticRoutesItems
+									}
+								}
+								RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
+							}
+							CustomRoutingMap["route_tables"] = RouteTablesList
+						}
+						VNETListItemMap["custom_routing"] = CustomRoutingMap
+					}
+					if VNETListItem.DefaultRoute != nil {
+						DefaultRouteMap := make(map[string]interface{})
+						if VNETListItem.DefaultRoute.AllRouteTables != nil {
+							DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+						}
+						if VNETListItem.DefaultRoute.SelectiveRouteTables != nil {
+							SelectiveRouteTablesMap := make(map[string]interface{})
+							if !VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
+								var RouteTableIDItems []string
+								diags := VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
+								if !diags.HasError() {
+									SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
+								}
+							}
+							DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
+						}
+						VNETListItemMap["default_route"] = DefaultRouteMap
+					}
+					if VNETListItem.Labels != nil {
+						VNETListItemMap["labels"] = map[string]interface{}{}
+					}
+					if VNETListItem.ManualRouting != nil {
+						VNETListItemMap["manual_routing"] = map[string]interface{}{}
+					}
+					if !VNETListItem.SubscriptionID.IsNull() && !VNETListItem.SubscriptionID.IsUnknown() {
+						VNETListItemMap["subscription_id"] = VNETListItem.SubscriptionID.ValueString()
+					}
+					if !VNETListItem.VNETID.IsNull() && !VNETListItem.VNETID.IsUnknown() {
+						VNETListItemMap["vnet_id"] = VNETListItem.VNETID.ValueString()
+					}
+					VNETListList = append(VNETListList, VNETListItemMap)
+				}
+				VNETAttachmentsMap["vnet_list"] = VNETListList
+			}
+			AzureVNETSiteMap["vnet_attachments"] = VNETAttachmentsMap
 		}
-		createReq.Spec["azure_vnet_site"] = azure_vnet_siteMap
+		createReq.Spec["azure_vnet_site"] = AzureVNETSiteMap
 	}
 	if data.Segment != nil {
-		segmentMap := make(map[string]interface{})
+		SegmentMap := make(map[string]interface{})
 		if !data.Segment.Name.IsNull() && !data.Segment.Name.IsUnknown() {
-			segmentMap["name"] = data.Segment.Name.ValueString()
+			SegmentMap["name"] = data.Segment.Name.ValueString()
 		}
 		if !data.Segment.Namespace.IsNull() && !data.Segment.Namespace.IsUnknown() {
-			segmentMap["namespace"] = data.Segment.Namespace.ValueString()
+			SegmentMap["namespace"] = data.Segment.Namespace.ValueString()
 		}
 		if !data.Segment.Tenant.IsNull() && !data.Segment.Tenant.IsUnknown() {
-			segmentMap["tenant"] = data.Segment.Tenant.ValueString()
+			SegmentMap["tenant"] = data.Segment.Tenant.ValueString()
 		}
-		createReq.Spec["segment"] = segmentMap
+		createReq.Spec["segment"] = SegmentMap
 	}
 
 	apiResource, err := r.client.CreateCloudConnect(ctx, createReq)
@@ -1130,21 +1334,504 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["aws_provider"].(map[string]interface{}); ok && isImport && data.AWSProvider == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AWSProvider = &CloudConnectAWSProviderModel{}
+	if blockData, ok := apiResource.Spec["aws_provider"].(map[string]interface{}); ok && (isImport || data.AWSProvider != nil) {
+		data.AWSProvider = &CloudConnectAWSProviderModel{
+			AWSTGWSite: func() *CloudConnectAWSProviderAWSTGWSiteModel {
+				if !isImport && data.AWSProvider != nil && data.AWSProvider.AWSTGWSite != nil {
+					return data.AWSProvider.AWSTGWSite
+				}
+				if AWSTGWSiteData, ok := blockData["aws_tgw_site"].(map[string]interface{}); ok {
+					return &CloudConnectAWSProviderAWSTGWSiteModel{
+						Cred: func() *CloudConnectAWSProviderAWSTGWSiteCredModel {
+							if CredData, ok := AWSTGWSiteData["cred"].(map[string]interface{}); ok {
+								return &CloudConnectAWSProviderAWSTGWSiteCredModel{
+									Name: func() types.String {
+										if v, ok := CredData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := CredData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := CredData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Site: func() *CloudConnectAWSProviderAWSTGWSiteSiteModel {
+							if SiteData, ok := AWSTGWSiteData["site"].(map[string]interface{}); ok {
+								return &CloudConnectAWSProviderAWSTGWSiteSiteModel{
+									Name: func() types.String {
+										if v, ok := SiteData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := SiteData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := SiteData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						VPCAttachments: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsModel {
+							if VPCAttachmentsData, ok := AWSTGWSiteData["vpc_attachments"].(map[string]interface{}); ok {
+								return &CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsModel{
+									VPCList: func() []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel {
+										if rawList, ok := VPCAttachmentsData["vpc_list"].([]interface{}); ok && len(rawList) > 0 {
+											var VPCListResult []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel
+											for _, VPCListItem := range rawList {
+												if VPCListItemMap, ok := VPCListItem.(map[string]interface{}); ok {
+													VPCListResult = append(VPCListResult, CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel{
+														CustomRouting: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel {
+															if CustomRoutingData, ok := VPCListItemMap["custom_routing"].(map[string]interface{}); ok {
+																return &CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel{
+																	RouteTables: func() []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel {
+																		if rawList, ok := CustomRoutingData["route_tables"].([]interface{}); ok && len(rawList) > 0 {
+																			var RouteTablesResult []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel
+																			for _, RouteTablesItem := range rawList {
+																				if RouteTablesItemMap, ok := RouteTablesItem.(map[string]interface{}); ok {
+																					RouteTablesResult = append(RouteTablesResult, CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel{
+																						RouteTableID: func() types.String {
+																							if v, ok := RouteTablesItemMap["route_table_id"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						StaticRoutes: func() types.List {
+																							if v, ok := RouteTablesItemMap["static_routes"].([]interface{}); ok && len(v) > 0 {
+																								var items []string
+																								for _, item := range v {
+																									if s, ok := item.(string); ok {
+																										items = append(items, s)
+																									}
+																								}
+																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								return listVal
+																							}
+																							return types.ListNull(types.StringType)
+																						}(),
+																					})
+																				}
+																			}
+																			return RouteTablesResult
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														DefaultRoute: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModel {
+															if DefaultRouteData, ok := VPCListItemMap["default_route"].(map[string]interface{}); ok {
+																return &CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModel{
+																	AllRouteTables: func() *CloudConnectEmptyModel {
+																		if _, ok := DefaultRouteData["all_route_tables"].(map[string]interface{}); ok {
+																			return &CloudConnectEmptyModel{}
+																		}
+																		return nil
+																	}(),
+																	SelectiveRouteTables: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesModel {
+																		if SelectiveRouteTablesData, ok := DefaultRouteData["selective_route_tables"].(map[string]interface{}); ok {
+																			return &CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesModel{
+																				RouteTableID: func() types.List {
+																					if v, ok := SelectiveRouteTablesData["route_table_id"].([]interface{}); ok && len(v) > 0 {
+																						var items []string
+																						for _, item := range v {
+																							if s, ok := item.(string); ok {
+																								items = append(items, s)
+																							}
+																						}
+																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						return listVal
+																					}
+																					return types.ListNull(types.StringType)
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Labels: func() *CloudConnectEmptyModel {
+															if _, ok := VPCListItemMap["labels"].(map[string]interface{}); ok {
+																return &CloudConnectEmptyModel{}
+															}
+															return nil
+														}(),
+														ManualRouting: func() *CloudConnectEmptyModel {
+															if _, ok := VPCListItemMap["manual_routing"].(map[string]interface{}); ok {
+																return &CloudConnectEmptyModel{}
+															}
+															return nil
+														}(),
+														VPCID: func() types.String {
+															if v, ok := VPCListItemMap["vpc_id"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return VPCListResult
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["aws_tgw_site"].(map[string]interface{}); ok && isImport && data.AWSTGWSite == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AWSTGWSite = &CloudConnectAWSTGWSiteModel{}
+	if blockData, ok := apiResource.Spec["aws_tgw_site"].(map[string]interface{}); ok && (isImport || data.AWSTGWSite != nil) {
+		data.AWSTGWSite = &CloudConnectAWSTGWSiteModel{
+			Cred: func() *CloudConnectAWSTGWSiteCredModel {
+				if !isImport && data.AWSTGWSite != nil && data.AWSTGWSite.Cred != nil {
+					return data.AWSTGWSite.Cred
+				}
+				if CredData, ok := blockData["cred"].(map[string]interface{}); ok {
+					return &CloudConnectAWSTGWSiteCredModel{
+						Name: func() types.String {
+							if v, ok := CredData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := CredData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := CredData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Site: func() *CloudConnectAWSTGWSiteSiteModel {
+				if !isImport && data.AWSTGWSite != nil && data.AWSTGWSite.Site != nil {
+					return data.AWSTGWSite.Site
+				}
+				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
+					return &CloudConnectAWSTGWSiteSiteModel{
+						Name: func() types.String {
+							if v, ok := SiteData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := SiteData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := SiteData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VPCAttachments: func() *CloudConnectAWSTGWSiteVPCAttachmentsModel {
+				if !isImport && data.AWSTGWSite != nil && data.AWSTGWSite.VPCAttachments != nil {
+					return data.AWSTGWSite.VPCAttachments
+				}
+				if VPCAttachmentsData, ok := blockData["vpc_attachments"].(map[string]interface{}); ok {
+					return &CloudConnectAWSTGWSiteVPCAttachmentsModel{
+						VPCList: func() []CloudConnectAWSTGWSiteVPCAttachmentsVPCListModel {
+							if rawList, ok := VPCAttachmentsData["vpc_list"].([]interface{}); ok && len(rawList) > 0 {
+								var VPCListResult []CloudConnectAWSTGWSiteVPCAttachmentsVPCListModel
+								for _, VPCListItem := range rawList {
+									if VPCListItemMap, ok := VPCListItem.(map[string]interface{}); ok {
+										VPCListResult = append(VPCListResult, CloudConnectAWSTGWSiteVPCAttachmentsVPCListModel{
+											CustomRouting: func() *CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel {
+												if CustomRoutingData, ok := VPCListItemMap["custom_routing"].(map[string]interface{}); ok {
+													return &CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel{
+														RouteTables: func() []CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel {
+															if rawList, ok := CustomRoutingData["route_tables"].([]interface{}); ok && len(rawList) > 0 {
+																var RouteTablesResult []CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel
+																for _, RouteTablesItem := range rawList {
+																	if RouteTablesItemMap, ok := RouteTablesItem.(map[string]interface{}); ok {
+																		RouteTablesResult = append(RouteTablesResult, CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel{
+																			RouteTableID: func() types.String {
+																				if v, ok := RouteTablesItemMap["route_table_id"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			StaticRoutes: func() types.List {
+																				if v, ok := RouteTablesItemMap["static_routes"].([]interface{}); ok && len(v) > 0 {
+																					var items []string
+																					for _, item := range v {
+																						if s, ok := item.(string); ok {
+																							items = append(items, s)
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					return listVal
+																				}
+																				return types.ListNull(types.StringType)
+																			}(),
+																		})
+																	}
+																}
+																return RouteTablesResult
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DefaultRoute: func() *CloudConnectAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModel {
+												if DefaultRouteData, ok := VPCListItemMap["default_route"].(map[string]interface{}); ok {
+													return &CloudConnectAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModel{
+														AllRouteTables: func() *CloudConnectEmptyModel {
+															if _, ok := DefaultRouteData["all_route_tables"].(map[string]interface{}); ok {
+																return &CloudConnectEmptyModel{}
+															}
+															return nil
+														}(),
+														SelectiveRouteTables: func() *CloudConnectAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesModel {
+															if SelectiveRouteTablesData, ok := DefaultRouteData["selective_route_tables"].(map[string]interface{}); ok {
+																return &CloudConnectAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesModel{
+																	RouteTableID: func() types.List {
+																		if v, ok := SelectiveRouteTablesData["route_table_id"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Labels: func() *CloudConnectEmptyModel {
+												if _, ok := VPCListItemMap["labels"].(map[string]interface{}); ok {
+													return &CloudConnectEmptyModel{}
+												}
+												return nil
+											}(),
+											ManualRouting: func() *CloudConnectEmptyModel {
+												if _, ok := VPCListItemMap["manual_routing"].(map[string]interface{}); ok {
+													return &CloudConnectEmptyModel{}
+												}
+												return nil
+											}(),
+											VPCID: func() types.String {
+												if v, ok := VPCListItemMap["vpc_id"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return VPCListResult
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["azure_vnet_site"].(map[string]interface{}); ok && isImport && data.AzureVNETSite == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AzureVNETSite = &CloudConnectAzureVNETSiteModel{}
+	if blockData, ok := apiResource.Spec["azure_vnet_site"].(map[string]interface{}); ok && (isImport || data.AzureVNETSite != nil) {
+		data.AzureVNETSite = &CloudConnectAzureVNETSiteModel{
+			Site: func() *CloudConnectAzureVNETSiteSiteModel {
+				if !isImport && data.AzureVNETSite != nil && data.AzureVNETSite.Site != nil {
+					return data.AzureVNETSite.Site
+				}
+				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
+					return &CloudConnectAzureVNETSiteSiteModel{
+						Name: func() types.String {
+							if v, ok := SiteData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := SiteData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := SiteData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VNETAttachments: func() *CloudConnectAzureVNETSiteVNETAttachmentsModel {
+				if !isImport && data.AzureVNETSite != nil && data.AzureVNETSite.VNETAttachments != nil {
+					return data.AzureVNETSite.VNETAttachments
+				}
+				if VNETAttachmentsData, ok := blockData["vnet_attachments"].(map[string]interface{}); ok {
+					return &CloudConnectAzureVNETSiteVNETAttachmentsModel{
+						VNETList: func() []CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel {
+							if rawList, ok := VNETAttachmentsData["vnet_list"].([]interface{}); ok && len(rawList) > 0 {
+								var VNETListResult []CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel
+								for _, VNETListItem := range rawList {
+									if VNETListItemMap, ok := VNETListItem.(map[string]interface{}); ok {
+										VNETListResult = append(VNETListResult, CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel{
+											CustomRouting: func() *CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingModel {
+												if CustomRoutingData, ok := VNETListItemMap["custom_routing"].(map[string]interface{}); ok {
+													return &CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingModel{
+														RouteTables: func() []CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModel {
+															if rawList, ok := CustomRoutingData["route_tables"].([]interface{}); ok && len(rawList) > 0 {
+																var RouteTablesResult []CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModel
+																for _, RouteTablesItem := range rawList {
+																	if RouteTablesItemMap, ok := RouteTablesItem.(map[string]interface{}); ok {
+																		RouteTablesResult = append(RouteTablesResult, CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModel{
+																			RouteTableID: func() types.String {
+																				if v, ok := RouteTablesItemMap["route_table_id"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			StaticRoutes: func() types.List {
+																				if v, ok := RouteTablesItemMap["static_routes"].([]interface{}); ok && len(v) > 0 {
+																					var items []string
+																					for _, item := range v {
+																						if s, ok := item.(string); ok {
+																							items = append(items, s)
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					return listVal
+																				}
+																				return types.ListNull(types.StringType)
+																			}(),
+																		})
+																	}
+																}
+																return RouteTablesResult
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DefaultRoute: func() *CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteModel {
+												if DefaultRouteData, ok := VNETListItemMap["default_route"].(map[string]interface{}); ok {
+													return &CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteModel{
+														AllRouteTables: func() *CloudConnectEmptyModel {
+															if _, ok := DefaultRouteData["all_route_tables"].(map[string]interface{}); ok {
+																return &CloudConnectEmptyModel{}
+															}
+															return nil
+														}(),
+														SelectiveRouteTables: func() *CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteSelectiveRouteTablesModel {
+															if SelectiveRouteTablesData, ok := DefaultRouteData["selective_route_tables"].(map[string]interface{}); ok {
+																return &CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteSelectiveRouteTablesModel{
+																	RouteTableID: func() types.List {
+																		if v, ok := SelectiveRouteTablesData["route_table_id"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Labels: func() *CloudConnectEmptyModel {
+												if _, ok := VNETListItemMap["labels"].(map[string]interface{}); ok {
+													return &CloudConnectEmptyModel{}
+												}
+												return nil
+											}(),
+											ManualRouting: func() *CloudConnectEmptyModel {
+												if _, ok := VNETListItemMap["manual_routing"].(map[string]interface{}); ok {
+													return &CloudConnectEmptyModel{}
+												}
+												return nil
+											}(),
+											SubscriptionID: func() types.String {
+												if v, ok := VNETListItemMap["subscription_id"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											VNETID: func() types.String {
+												if v, ok := VNETListItemMap["vnet_id"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return VNETListResult
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["segment"].(map[string]interface{}); ok && (isImport || data.Segment != nil) {
 		data.Segment = &CloudConnectSegmentModel{
 			Name: func() types.String {
@@ -1247,21 +1934,504 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["aws_provider"].(map[string]interface{}); ok && isImport && data.AWSProvider == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AWSProvider = &CloudConnectAWSProviderModel{}
+	if blockData, ok := apiResource.Spec["aws_provider"].(map[string]interface{}); ok && (isImport || data.AWSProvider != nil) {
+		data.AWSProvider = &CloudConnectAWSProviderModel{
+			AWSTGWSite: func() *CloudConnectAWSProviderAWSTGWSiteModel {
+				if !isImport && data.AWSProvider != nil && data.AWSProvider.AWSTGWSite != nil {
+					return data.AWSProvider.AWSTGWSite
+				}
+				if AWSTGWSiteData, ok := blockData["aws_tgw_site"].(map[string]interface{}); ok {
+					return &CloudConnectAWSProviderAWSTGWSiteModel{
+						Cred: func() *CloudConnectAWSProviderAWSTGWSiteCredModel {
+							if CredData, ok := AWSTGWSiteData["cred"].(map[string]interface{}); ok {
+								return &CloudConnectAWSProviderAWSTGWSiteCredModel{
+									Name: func() types.String {
+										if v, ok := CredData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := CredData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := CredData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Site: func() *CloudConnectAWSProviderAWSTGWSiteSiteModel {
+							if SiteData, ok := AWSTGWSiteData["site"].(map[string]interface{}); ok {
+								return &CloudConnectAWSProviderAWSTGWSiteSiteModel{
+									Name: func() types.String {
+										if v, ok := SiteData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := SiteData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := SiteData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						VPCAttachments: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsModel {
+							if VPCAttachmentsData, ok := AWSTGWSiteData["vpc_attachments"].(map[string]interface{}); ok {
+								return &CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsModel{
+									VPCList: func() []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel {
+										if rawList, ok := VPCAttachmentsData["vpc_list"].([]interface{}); ok && len(rawList) > 0 {
+											var VPCListResult []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel
+											for _, VPCListItem := range rawList {
+												if VPCListItemMap, ok := VPCListItem.(map[string]interface{}); ok {
+													VPCListResult = append(VPCListResult, CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel{
+														CustomRouting: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel {
+															if CustomRoutingData, ok := VPCListItemMap["custom_routing"].(map[string]interface{}); ok {
+																return &CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel{
+																	RouteTables: func() []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel {
+																		if rawList, ok := CustomRoutingData["route_tables"].([]interface{}); ok && len(rawList) > 0 {
+																			var RouteTablesResult []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel
+																			for _, RouteTablesItem := range rawList {
+																				if RouteTablesItemMap, ok := RouteTablesItem.(map[string]interface{}); ok {
+																					RouteTablesResult = append(RouteTablesResult, CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel{
+																						RouteTableID: func() types.String {
+																							if v, ok := RouteTablesItemMap["route_table_id"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						StaticRoutes: func() types.List {
+																							if v, ok := RouteTablesItemMap["static_routes"].([]interface{}); ok && len(v) > 0 {
+																								var items []string
+																								for _, item := range v {
+																									if s, ok := item.(string); ok {
+																										items = append(items, s)
+																									}
+																								}
+																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								return listVal
+																							}
+																							return types.ListNull(types.StringType)
+																						}(),
+																					})
+																				}
+																			}
+																			return RouteTablesResult
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														DefaultRoute: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModel {
+															if DefaultRouteData, ok := VPCListItemMap["default_route"].(map[string]interface{}); ok {
+																return &CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModel{
+																	AllRouteTables: func() *CloudConnectEmptyModel {
+																		if _, ok := DefaultRouteData["all_route_tables"].(map[string]interface{}); ok {
+																			return &CloudConnectEmptyModel{}
+																		}
+																		return nil
+																	}(),
+																	SelectiveRouteTables: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesModel {
+																		if SelectiveRouteTablesData, ok := DefaultRouteData["selective_route_tables"].(map[string]interface{}); ok {
+																			return &CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesModel{
+																				RouteTableID: func() types.List {
+																					if v, ok := SelectiveRouteTablesData["route_table_id"].([]interface{}); ok && len(v) > 0 {
+																						var items []string
+																						for _, item := range v {
+																							if s, ok := item.(string); ok {
+																								items = append(items, s)
+																							}
+																						}
+																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						return listVal
+																					}
+																					return types.ListNull(types.StringType)
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Labels: func() *CloudConnectEmptyModel {
+															if _, ok := VPCListItemMap["labels"].(map[string]interface{}); ok {
+																return &CloudConnectEmptyModel{}
+															}
+															return nil
+														}(),
+														ManualRouting: func() *CloudConnectEmptyModel {
+															if _, ok := VPCListItemMap["manual_routing"].(map[string]interface{}); ok {
+																return &CloudConnectEmptyModel{}
+															}
+															return nil
+														}(),
+														VPCID: func() types.String {
+															if v, ok := VPCListItemMap["vpc_id"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return VPCListResult
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["aws_tgw_site"].(map[string]interface{}); ok && isImport && data.AWSTGWSite == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AWSTGWSite = &CloudConnectAWSTGWSiteModel{}
+	if blockData, ok := apiResource.Spec["aws_tgw_site"].(map[string]interface{}); ok && (isImport || data.AWSTGWSite != nil) {
+		data.AWSTGWSite = &CloudConnectAWSTGWSiteModel{
+			Cred: func() *CloudConnectAWSTGWSiteCredModel {
+				if !isImport && data.AWSTGWSite != nil && data.AWSTGWSite.Cred != nil {
+					return data.AWSTGWSite.Cred
+				}
+				if CredData, ok := blockData["cred"].(map[string]interface{}); ok {
+					return &CloudConnectAWSTGWSiteCredModel{
+						Name: func() types.String {
+							if v, ok := CredData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := CredData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := CredData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Site: func() *CloudConnectAWSTGWSiteSiteModel {
+				if !isImport && data.AWSTGWSite != nil && data.AWSTGWSite.Site != nil {
+					return data.AWSTGWSite.Site
+				}
+				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
+					return &CloudConnectAWSTGWSiteSiteModel{
+						Name: func() types.String {
+							if v, ok := SiteData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := SiteData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := SiteData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VPCAttachments: func() *CloudConnectAWSTGWSiteVPCAttachmentsModel {
+				if !isImport && data.AWSTGWSite != nil && data.AWSTGWSite.VPCAttachments != nil {
+					return data.AWSTGWSite.VPCAttachments
+				}
+				if VPCAttachmentsData, ok := blockData["vpc_attachments"].(map[string]interface{}); ok {
+					return &CloudConnectAWSTGWSiteVPCAttachmentsModel{
+						VPCList: func() []CloudConnectAWSTGWSiteVPCAttachmentsVPCListModel {
+							if rawList, ok := VPCAttachmentsData["vpc_list"].([]interface{}); ok && len(rawList) > 0 {
+								var VPCListResult []CloudConnectAWSTGWSiteVPCAttachmentsVPCListModel
+								for _, VPCListItem := range rawList {
+									if VPCListItemMap, ok := VPCListItem.(map[string]interface{}); ok {
+										VPCListResult = append(VPCListResult, CloudConnectAWSTGWSiteVPCAttachmentsVPCListModel{
+											CustomRouting: func() *CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel {
+												if CustomRoutingData, ok := VPCListItemMap["custom_routing"].(map[string]interface{}); ok {
+													return &CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel{
+														RouteTables: func() []CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel {
+															if rawList, ok := CustomRoutingData["route_tables"].([]interface{}); ok && len(rawList) > 0 {
+																var RouteTablesResult []CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel
+																for _, RouteTablesItem := range rawList {
+																	if RouteTablesItemMap, ok := RouteTablesItem.(map[string]interface{}); ok {
+																		RouteTablesResult = append(RouteTablesResult, CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel{
+																			RouteTableID: func() types.String {
+																				if v, ok := RouteTablesItemMap["route_table_id"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			StaticRoutes: func() types.List {
+																				if v, ok := RouteTablesItemMap["static_routes"].([]interface{}); ok && len(v) > 0 {
+																					var items []string
+																					for _, item := range v {
+																						if s, ok := item.(string); ok {
+																							items = append(items, s)
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					return listVal
+																				}
+																				return types.ListNull(types.StringType)
+																			}(),
+																		})
+																	}
+																}
+																return RouteTablesResult
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DefaultRoute: func() *CloudConnectAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModel {
+												if DefaultRouteData, ok := VPCListItemMap["default_route"].(map[string]interface{}); ok {
+													return &CloudConnectAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModel{
+														AllRouteTables: func() *CloudConnectEmptyModel {
+															if _, ok := DefaultRouteData["all_route_tables"].(map[string]interface{}); ok {
+																return &CloudConnectEmptyModel{}
+															}
+															return nil
+														}(),
+														SelectiveRouteTables: func() *CloudConnectAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesModel {
+															if SelectiveRouteTablesData, ok := DefaultRouteData["selective_route_tables"].(map[string]interface{}); ok {
+																return &CloudConnectAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesModel{
+																	RouteTableID: func() types.List {
+																		if v, ok := SelectiveRouteTablesData["route_table_id"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Labels: func() *CloudConnectEmptyModel {
+												if _, ok := VPCListItemMap["labels"].(map[string]interface{}); ok {
+													return &CloudConnectEmptyModel{}
+												}
+												return nil
+											}(),
+											ManualRouting: func() *CloudConnectEmptyModel {
+												if _, ok := VPCListItemMap["manual_routing"].(map[string]interface{}); ok {
+													return &CloudConnectEmptyModel{}
+												}
+												return nil
+											}(),
+											VPCID: func() types.String {
+												if v, ok := VPCListItemMap["vpc_id"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return VPCListResult
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["azure_vnet_site"].(map[string]interface{}); ok && isImport && data.AzureVNETSite == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AzureVNETSite = &CloudConnectAzureVNETSiteModel{}
+	if blockData, ok := apiResource.Spec["azure_vnet_site"].(map[string]interface{}); ok && (isImport || data.AzureVNETSite != nil) {
+		data.AzureVNETSite = &CloudConnectAzureVNETSiteModel{
+			Site: func() *CloudConnectAzureVNETSiteSiteModel {
+				if !isImport && data.AzureVNETSite != nil && data.AzureVNETSite.Site != nil {
+					return data.AzureVNETSite.Site
+				}
+				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
+					return &CloudConnectAzureVNETSiteSiteModel{
+						Name: func() types.String {
+							if v, ok := SiteData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := SiteData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := SiteData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VNETAttachments: func() *CloudConnectAzureVNETSiteVNETAttachmentsModel {
+				if !isImport && data.AzureVNETSite != nil && data.AzureVNETSite.VNETAttachments != nil {
+					return data.AzureVNETSite.VNETAttachments
+				}
+				if VNETAttachmentsData, ok := blockData["vnet_attachments"].(map[string]interface{}); ok {
+					return &CloudConnectAzureVNETSiteVNETAttachmentsModel{
+						VNETList: func() []CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel {
+							if rawList, ok := VNETAttachmentsData["vnet_list"].([]interface{}); ok && len(rawList) > 0 {
+								var VNETListResult []CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel
+								for _, VNETListItem := range rawList {
+									if VNETListItemMap, ok := VNETListItem.(map[string]interface{}); ok {
+										VNETListResult = append(VNETListResult, CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel{
+											CustomRouting: func() *CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingModel {
+												if CustomRoutingData, ok := VNETListItemMap["custom_routing"].(map[string]interface{}); ok {
+													return &CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingModel{
+														RouteTables: func() []CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModel {
+															if rawList, ok := CustomRoutingData["route_tables"].([]interface{}); ok && len(rawList) > 0 {
+																var RouteTablesResult []CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModel
+																for _, RouteTablesItem := range rawList {
+																	if RouteTablesItemMap, ok := RouteTablesItem.(map[string]interface{}); ok {
+																		RouteTablesResult = append(RouteTablesResult, CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModel{
+																			RouteTableID: func() types.String {
+																				if v, ok := RouteTablesItemMap["route_table_id"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			StaticRoutes: func() types.List {
+																				if v, ok := RouteTablesItemMap["static_routes"].([]interface{}); ok && len(v) > 0 {
+																					var items []string
+																					for _, item := range v {
+																						if s, ok := item.(string); ok {
+																							items = append(items, s)
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					return listVal
+																				}
+																				return types.ListNull(types.StringType)
+																			}(),
+																		})
+																	}
+																}
+																return RouteTablesResult
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DefaultRoute: func() *CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteModel {
+												if DefaultRouteData, ok := VNETListItemMap["default_route"].(map[string]interface{}); ok {
+													return &CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteModel{
+														AllRouteTables: func() *CloudConnectEmptyModel {
+															if _, ok := DefaultRouteData["all_route_tables"].(map[string]interface{}); ok {
+																return &CloudConnectEmptyModel{}
+															}
+															return nil
+														}(),
+														SelectiveRouteTables: func() *CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteSelectiveRouteTablesModel {
+															if SelectiveRouteTablesData, ok := DefaultRouteData["selective_route_tables"].(map[string]interface{}); ok {
+																return &CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteSelectiveRouteTablesModel{
+																	RouteTableID: func() types.List {
+																		if v, ok := SelectiveRouteTablesData["route_table_id"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Labels: func() *CloudConnectEmptyModel {
+												if _, ok := VNETListItemMap["labels"].(map[string]interface{}); ok {
+													return &CloudConnectEmptyModel{}
+												}
+												return nil
+											}(),
+											ManualRouting: func() *CloudConnectEmptyModel {
+												if _, ok := VNETListItemMap["manual_routing"].(map[string]interface{}); ok {
+													return &CloudConnectEmptyModel{}
+												}
+												return nil
+											}(),
+											SubscriptionID: func() types.String {
+												if v, ok := VNETListItemMap["subscription_id"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											VNETID: func() types.String {
+												if v, ok := VNETListItemMap["vnet_id"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return VNETListResult
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["segment"].(map[string]interface{}); ok && (isImport || data.Segment != nil) {
 		data.Segment = &CloudConnectSegmentModel{
 			Name: func() types.String {
@@ -1283,6 +2453,14 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 				return types.StringNull()
 			}(),
 		}
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -1336,80 +2514,284 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.AWSProvider != nil {
-		aws_providerMap := make(map[string]interface{})
+		AWSProviderMap := make(map[string]interface{})
 		if data.AWSProvider.AWSTGWSite != nil {
-			aws_tgw_siteNestedMap := make(map[string]interface{})
-			aws_providerMap["aws_tgw_site"] = aws_tgw_siteNestedMap
+			AWSTGWSiteMap := make(map[string]interface{})
+			if data.AWSProvider.AWSTGWSite.Cred != nil {
+				CredMap := make(map[string]interface{})
+				if !data.AWSProvider.AWSTGWSite.Cred.Name.IsNull() && !data.AWSProvider.AWSTGWSite.Cred.Name.IsUnknown() {
+					CredMap["name"] = data.AWSProvider.AWSTGWSite.Cred.Name.ValueString()
+				}
+				if !data.AWSProvider.AWSTGWSite.Cred.Namespace.IsNull() && !data.AWSProvider.AWSTGWSite.Cred.Namespace.IsUnknown() {
+					CredMap["namespace"] = data.AWSProvider.AWSTGWSite.Cred.Namespace.ValueString()
+				}
+				if !data.AWSProvider.AWSTGWSite.Cred.Tenant.IsNull() && !data.AWSProvider.AWSTGWSite.Cred.Tenant.IsUnknown() {
+					CredMap["tenant"] = data.AWSProvider.AWSTGWSite.Cred.Tenant.ValueString()
+				}
+				AWSTGWSiteMap["cred"] = CredMap
+			}
+			if data.AWSProvider.AWSTGWSite.Site != nil {
+				SiteMap := make(map[string]interface{})
+				if !data.AWSProvider.AWSTGWSite.Site.Name.IsNull() && !data.AWSProvider.AWSTGWSite.Site.Name.IsUnknown() {
+					SiteMap["name"] = data.AWSProvider.AWSTGWSite.Site.Name.ValueString()
+				}
+				if !data.AWSProvider.AWSTGWSite.Site.Namespace.IsNull() && !data.AWSProvider.AWSTGWSite.Site.Namespace.IsUnknown() {
+					SiteMap["namespace"] = data.AWSProvider.AWSTGWSite.Site.Namespace.ValueString()
+				}
+				if !data.AWSProvider.AWSTGWSite.Site.Tenant.IsNull() && !data.AWSProvider.AWSTGWSite.Site.Tenant.IsUnknown() {
+					SiteMap["tenant"] = data.AWSProvider.AWSTGWSite.Site.Tenant.ValueString()
+				}
+				AWSTGWSiteMap["site"] = SiteMap
+			}
+			if data.AWSProvider.AWSTGWSite.VPCAttachments != nil {
+				VPCAttachmentsMap := make(map[string]interface{})
+				if len(data.AWSProvider.AWSTGWSite.VPCAttachments.VPCList) > 0 {
+					var VPCListList []map[string]interface{}
+					for _, VPCListItem := range data.AWSProvider.AWSTGWSite.VPCAttachments.VPCList {
+						VPCListItemMap := make(map[string]interface{})
+						if VPCListItem.CustomRouting != nil {
+							CustomRoutingMap := make(map[string]interface{})
+							if len(VPCListItem.CustomRouting.RouteTables) > 0 {
+								var RouteTablesList []map[string]interface{}
+								for _, RouteTablesItem := range VPCListItem.CustomRouting.RouteTables {
+									RouteTablesItemMap := make(map[string]interface{})
+									if !RouteTablesItem.RouteTableID.IsNull() && !RouteTablesItem.RouteTableID.IsUnknown() {
+										RouteTablesItemMap["route_table_id"] = RouteTablesItem.RouteTableID.ValueString()
+									}
+									if !RouteTablesItem.StaticRoutes.IsNull() && !RouteTablesItem.StaticRoutes.IsUnknown() {
+										var StaticRoutesItems []string
+										diags := RouteTablesItem.StaticRoutes.ElementsAs(ctx, &StaticRoutesItems, false)
+										if !diags.HasError() {
+											RouteTablesItemMap["static_routes"] = StaticRoutesItems
+										}
+									}
+									RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
+								}
+								CustomRoutingMap["route_tables"] = RouteTablesList
+							}
+							VPCListItemMap["custom_routing"] = CustomRoutingMap
+						}
+						if VPCListItem.DefaultRoute != nil {
+							DefaultRouteMap := make(map[string]interface{})
+							if VPCListItem.DefaultRoute.AllRouteTables != nil {
+								DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+							}
+							if VPCListItem.DefaultRoute.SelectiveRouteTables != nil {
+								SelectiveRouteTablesMap := make(map[string]interface{})
+								if !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
+									var RouteTableIDItems []string
+									diags := VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
+									if !diags.HasError() {
+										SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
+									}
+								}
+								DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
+							}
+							VPCListItemMap["default_route"] = DefaultRouteMap
+						}
+						if VPCListItem.Labels != nil {
+							VPCListItemMap["labels"] = map[string]interface{}{}
+						}
+						if VPCListItem.ManualRouting != nil {
+							VPCListItemMap["manual_routing"] = map[string]interface{}{}
+						}
+						if !VPCListItem.VPCID.IsNull() && !VPCListItem.VPCID.IsUnknown() {
+							VPCListItemMap["vpc_id"] = VPCListItem.VPCID.ValueString()
+						}
+						VPCListList = append(VPCListList, VPCListItemMap)
+					}
+					VPCAttachmentsMap["vpc_list"] = VPCListList
+				}
+				AWSTGWSiteMap["vpc_attachments"] = VPCAttachmentsMap
+			}
+			AWSProviderMap["aws_tgw_site"] = AWSTGWSiteMap
 		}
-		apiResource.Spec["aws_provider"] = aws_providerMap
+		apiResource.Spec["aws_provider"] = AWSProviderMap
 	}
 	if data.AWSTGWSite != nil {
-		aws_tgw_siteMap := make(map[string]interface{})
+		AWSTGWSiteMap := make(map[string]interface{})
 		if data.AWSTGWSite.Cred != nil {
-			credNestedMap := make(map[string]interface{})
+			CredMap := make(map[string]interface{})
 			if !data.AWSTGWSite.Cred.Name.IsNull() && !data.AWSTGWSite.Cred.Name.IsUnknown() {
-				credNestedMap["name"] = data.AWSTGWSite.Cred.Name.ValueString()
+				CredMap["name"] = data.AWSTGWSite.Cred.Name.ValueString()
 			}
 			if !data.AWSTGWSite.Cred.Namespace.IsNull() && !data.AWSTGWSite.Cred.Namespace.IsUnknown() {
-				credNestedMap["namespace"] = data.AWSTGWSite.Cred.Namespace.ValueString()
+				CredMap["namespace"] = data.AWSTGWSite.Cred.Namespace.ValueString()
 			}
 			if !data.AWSTGWSite.Cred.Tenant.IsNull() && !data.AWSTGWSite.Cred.Tenant.IsUnknown() {
-				credNestedMap["tenant"] = data.AWSTGWSite.Cred.Tenant.ValueString()
+				CredMap["tenant"] = data.AWSTGWSite.Cred.Tenant.ValueString()
 			}
-			aws_tgw_siteMap["cred"] = credNestedMap
+			AWSTGWSiteMap["cred"] = CredMap
 		}
 		if data.AWSTGWSite.Site != nil {
-			siteNestedMap := make(map[string]interface{})
+			SiteMap := make(map[string]interface{})
 			if !data.AWSTGWSite.Site.Name.IsNull() && !data.AWSTGWSite.Site.Name.IsUnknown() {
-				siteNestedMap["name"] = data.AWSTGWSite.Site.Name.ValueString()
+				SiteMap["name"] = data.AWSTGWSite.Site.Name.ValueString()
 			}
 			if !data.AWSTGWSite.Site.Namespace.IsNull() && !data.AWSTGWSite.Site.Namespace.IsUnknown() {
-				siteNestedMap["namespace"] = data.AWSTGWSite.Site.Namespace.ValueString()
+				SiteMap["namespace"] = data.AWSTGWSite.Site.Namespace.ValueString()
 			}
 			if !data.AWSTGWSite.Site.Tenant.IsNull() && !data.AWSTGWSite.Site.Tenant.IsUnknown() {
-				siteNestedMap["tenant"] = data.AWSTGWSite.Site.Tenant.ValueString()
+				SiteMap["tenant"] = data.AWSTGWSite.Site.Tenant.ValueString()
 			}
-			aws_tgw_siteMap["site"] = siteNestedMap
+			AWSTGWSiteMap["site"] = SiteMap
 		}
 		if data.AWSTGWSite.VPCAttachments != nil {
-			vpc_attachmentsNestedMap := make(map[string]interface{})
-			aws_tgw_siteMap["vpc_attachments"] = vpc_attachmentsNestedMap
+			VPCAttachmentsMap := make(map[string]interface{})
+			if len(data.AWSTGWSite.VPCAttachments.VPCList) > 0 {
+				var VPCListList []map[string]interface{}
+				for _, VPCListItem := range data.AWSTGWSite.VPCAttachments.VPCList {
+					VPCListItemMap := make(map[string]interface{})
+					if VPCListItem.CustomRouting != nil {
+						CustomRoutingMap := make(map[string]interface{})
+						if len(VPCListItem.CustomRouting.RouteTables) > 0 {
+							var RouteTablesList []map[string]interface{}
+							for _, RouteTablesItem := range VPCListItem.CustomRouting.RouteTables {
+								RouteTablesItemMap := make(map[string]interface{})
+								if !RouteTablesItem.RouteTableID.IsNull() && !RouteTablesItem.RouteTableID.IsUnknown() {
+									RouteTablesItemMap["route_table_id"] = RouteTablesItem.RouteTableID.ValueString()
+								}
+								if !RouteTablesItem.StaticRoutes.IsNull() && !RouteTablesItem.StaticRoutes.IsUnknown() {
+									var StaticRoutesItems []string
+									diags := RouteTablesItem.StaticRoutes.ElementsAs(ctx, &StaticRoutesItems, false)
+									if !diags.HasError() {
+										RouteTablesItemMap["static_routes"] = StaticRoutesItems
+									}
+								}
+								RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
+							}
+							CustomRoutingMap["route_tables"] = RouteTablesList
+						}
+						VPCListItemMap["custom_routing"] = CustomRoutingMap
+					}
+					if VPCListItem.DefaultRoute != nil {
+						DefaultRouteMap := make(map[string]interface{})
+						if VPCListItem.DefaultRoute.AllRouteTables != nil {
+							DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+						}
+						if VPCListItem.DefaultRoute.SelectiveRouteTables != nil {
+							SelectiveRouteTablesMap := make(map[string]interface{})
+							if !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
+								var RouteTableIDItems []string
+								diags := VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
+								if !diags.HasError() {
+									SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
+								}
+							}
+							DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
+						}
+						VPCListItemMap["default_route"] = DefaultRouteMap
+					}
+					if VPCListItem.Labels != nil {
+						VPCListItemMap["labels"] = map[string]interface{}{}
+					}
+					if VPCListItem.ManualRouting != nil {
+						VPCListItemMap["manual_routing"] = map[string]interface{}{}
+					}
+					if !VPCListItem.VPCID.IsNull() && !VPCListItem.VPCID.IsUnknown() {
+						VPCListItemMap["vpc_id"] = VPCListItem.VPCID.ValueString()
+					}
+					VPCListList = append(VPCListList, VPCListItemMap)
+				}
+				VPCAttachmentsMap["vpc_list"] = VPCListList
+			}
+			AWSTGWSiteMap["vpc_attachments"] = VPCAttachmentsMap
 		}
-		apiResource.Spec["aws_tgw_site"] = aws_tgw_siteMap
+		apiResource.Spec["aws_tgw_site"] = AWSTGWSiteMap
 	}
 	if data.AzureVNETSite != nil {
-		azure_vnet_siteMap := make(map[string]interface{})
+		AzureVNETSiteMap := make(map[string]interface{})
 		if data.AzureVNETSite.Site != nil {
-			siteNestedMap := make(map[string]interface{})
+			SiteMap := make(map[string]interface{})
 			if !data.AzureVNETSite.Site.Name.IsNull() && !data.AzureVNETSite.Site.Name.IsUnknown() {
-				siteNestedMap["name"] = data.AzureVNETSite.Site.Name.ValueString()
+				SiteMap["name"] = data.AzureVNETSite.Site.Name.ValueString()
 			}
 			if !data.AzureVNETSite.Site.Namespace.IsNull() && !data.AzureVNETSite.Site.Namespace.IsUnknown() {
-				siteNestedMap["namespace"] = data.AzureVNETSite.Site.Namespace.ValueString()
+				SiteMap["namespace"] = data.AzureVNETSite.Site.Namespace.ValueString()
 			}
 			if !data.AzureVNETSite.Site.Tenant.IsNull() && !data.AzureVNETSite.Site.Tenant.IsUnknown() {
-				siteNestedMap["tenant"] = data.AzureVNETSite.Site.Tenant.ValueString()
+				SiteMap["tenant"] = data.AzureVNETSite.Site.Tenant.ValueString()
 			}
-			azure_vnet_siteMap["site"] = siteNestedMap
+			AzureVNETSiteMap["site"] = SiteMap
 		}
 		if data.AzureVNETSite.VNETAttachments != nil {
-			vnet_attachmentsNestedMap := make(map[string]interface{})
-			azure_vnet_siteMap["vnet_attachments"] = vnet_attachmentsNestedMap
+			VNETAttachmentsMap := make(map[string]interface{})
+			if len(data.AzureVNETSite.VNETAttachments.VNETList) > 0 {
+				var VNETListList []map[string]interface{}
+				for _, VNETListItem := range data.AzureVNETSite.VNETAttachments.VNETList {
+					VNETListItemMap := make(map[string]interface{})
+					if VNETListItem.CustomRouting != nil {
+						CustomRoutingMap := make(map[string]interface{})
+						if len(VNETListItem.CustomRouting.RouteTables) > 0 {
+							var RouteTablesList []map[string]interface{}
+							for _, RouteTablesItem := range VNETListItem.CustomRouting.RouteTables {
+								RouteTablesItemMap := make(map[string]interface{})
+								if !RouteTablesItem.RouteTableID.IsNull() && !RouteTablesItem.RouteTableID.IsUnknown() {
+									RouteTablesItemMap["route_table_id"] = RouteTablesItem.RouteTableID.ValueString()
+								}
+								if !RouteTablesItem.StaticRoutes.IsNull() && !RouteTablesItem.StaticRoutes.IsUnknown() {
+									var StaticRoutesItems []string
+									diags := RouteTablesItem.StaticRoutes.ElementsAs(ctx, &StaticRoutesItems, false)
+									if !diags.HasError() {
+										RouteTablesItemMap["static_routes"] = StaticRoutesItems
+									}
+								}
+								RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
+							}
+							CustomRoutingMap["route_tables"] = RouteTablesList
+						}
+						VNETListItemMap["custom_routing"] = CustomRoutingMap
+					}
+					if VNETListItem.DefaultRoute != nil {
+						DefaultRouteMap := make(map[string]interface{})
+						if VNETListItem.DefaultRoute.AllRouteTables != nil {
+							DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+						}
+						if VNETListItem.DefaultRoute.SelectiveRouteTables != nil {
+							SelectiveRouteTablesMap := make(map[string]interface{})
+							if !VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
+								var RouteTableIDItems []string
+								diags := VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
+								if !diags.HasError() {
+									SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
+								}
+							}
+							DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
+						}
+						VNETListItemMap["default_route"] = DefaultRouteMap
+					}
+					if VNETListItem.Labels != nil {
+						VNETListItemMap["labels"] = map[string]interface{}{}
+					}
+					if VNETListItem.ManualRouting != nil {
+						VNETListItemMap["manual_routing"] = map[string]interface{}{}
+					}
+					if !VNETListItem.SubscriptionID.IsNull() && !VNETListItem.SubscriptionID.IsUnknown() {
+						VNETListItemMap["subscription_id"] = VNETListItem.SubscriptionID.ValueString()
+					}
+					if !VNETListItem.VNETID.IsNull() && !VNETListItem.VNETID.IsUnknown() {
+						VNETListItemMap["vnet_id"] = VNETListItem.VNETID.ValueString()
+					}
+					VNETListList = append(VNETListList, VNETListItemMap)
+				}
+				VNETAttachmentsMap["vnet_list"] = VNETListList
+			}
+			AzureVNETSiteMap["vnet_attachments"] = VNETAttachmentsMap
 		}
-		apiResource.Spec["azure_vnet_site"] = azure_vnet_siteMap
+		apiResource.Spec["azure_vnet_site"] = AzureVNETSiteMap
 	}
 	if data.Segment != nil {
-		segmentMap := make(map[string]interface{})
+		SegmentMap := make(map[string]interface{})
 		if !data.Segment.Name.IsNull() && !data.Segment.Name.IsUnknown() {
-			segmentMap["name"] = data.Segment.Name.ValueString()
+			SegmentMap["name"] = data.Segment.Name.ValueString()
 		}
 		if !data.Segment.Namespace.IsNull() && !data.Segment.Namespace.IsUnknown() {
-			segmentMap["namespace"] = data.Segment.Namespace.ValueString()
+			SegmentMap["namespace"] = data.Segment.Namespace.ValueString()
 		}
 		if !data.Segment.Tenant.IsNull() && !data.Segment.Tenant.IsUnknown() {
-			segmentMap["tenant"] = data.Segment.Tenant.ValueString()
+			SegmentMap["tenant"] = data.Segment.Tenant.ValueString()
 		}
-		apiResource.Spec["segment"] = segmentMap
+		apiResource.Spec["segment"] = SegmentMap
 	}
 
 	_, err := r.client.UpdateCloudConnect(ctx, apiResource)
@@ -1435,21 +2817,504 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["aws_provider"].(map[string]interface{}); ok && isImport && data.AWSProvider == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AWSProvider = &CloudConnectAWSProviderModel{}
+	if blockData, ok := apiResource.Spec["aws_provider"].(map[string]interface{}); ok && (isImport || data.AWSProvider != nil) {
+		data.AWSProvider = &CloudConnectAWSProviderModel{
+			AWSTGWSite: func() *CloudConnectAWSProviderAWSTGWSiteModel {
+				if !isImport && data.AWSProvider != nil && data.AWSProvider.AWSTGWSite != nil {
+					return data.AWSProvider.AWSTGWSite
+				}
+				if AWSTGWSiteData, ok := blockData["aws_tgw_site"].(map[string]interface{}); ok {
+					return &CloudConnectAWSProviderAWSTGWSiteModel{
+						Cred: func() *CloudConnectAWSProviderAWSTGWSiteCredModel {
+							if CredData, ok := AWSTGWSiteData["cred"].(map[string]interface{}); ok {
+								return &CloudConnectAWSProviderAWSTGWSiteCredModel{
+									Name: func() types.String {
+										if v, ok := CredData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := CredData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := CredData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Site: func() *CloudConnectAWSProviderAWSTGWSiteSiteModel {
+							if SiteData, ok := AWSTGWSiteData["site"].(map[string]interface{}); ok {
+								return &CloudConnectAWSProviderAWSTGWSiteSiteModel{
+									Name: func() types.String {
+										if v, ok := SiteData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := SiteData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := SiteData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						VPCAttachments: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsModel {
+							if VPCAttachmentsData, ok := AWSTGWSiteData["vpc_attachments"].(map[string]interface{}); ok {
+								return &CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsModel{
+									VPCList: func() []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel {
+										if rawList, ok := VPCAttachmentsData["vpc_list"].([]interface{}); ok && len(rawList) > 0 {
+											var VPCListResult []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel
+											for _, VPCListItem := range rawList {
+												if VPCListItemMap, ok := VPCListItem.(map[string]interface{}); ok {
+													VPCListResult = append(VPCListResult, CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel{
+														CustomRouting: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel {
+															if CustomRoutingData, ok := VPCListItemMap["custom_routing"].(map[string]interface{}); ok {
+																return &CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel{
+																	RouteTables: func() []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel {
+																		if rawList, ok := CustomRoutingData["route_tables"].([]interface{}); ok && len(rawList) > 0 {
+																			var RouteTablesResult []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel
+																			for _, RouteTablesItem := range rawList {
+																				if RouteTablesItemMap, ok := RouteTablesItem.(map[string]interface{}); ok {
+																					RouteTablesResult = append(RouteTablesResult, CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel{
+																						RouteTableID: func() types.String {
+																							if v, ok := RouteTablesItemMap["route_table_id"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						StaticRoutes: func() types.List {
+																							if v, ok := RouteTablesItemMap["static_routes"].([]interface{}); ok && len(v) > 0 {
+																								var items []string
+																								for _, item := range v {
+																									if s, ok := item.(string); ok {
+																										items = append(items, s)
+																									}
+																								}
+																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								return listVal
+																							}
+																							return types.ListNull(types.StringType)
+																						}(),
+																					})
+																				}
+																			}
+																			return RouteTablesResult
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														DefaultRoute: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModel {
+															if DefaultRouteData, ok := VPCListItemMap["default_route"].(map[string]interface{}); ok {
+																return &CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModel{
+																	AllRouteTables: func() *CloudConnectEmptyModel {
+																		if _, ok := DefaultRouteData["all_route_tables"].(map[string]interface{}); ok {
+																			return &CloudConnectEmptyModel{}
+																		}
+																		return nil
+																	}(),
+																	SelectiveRouteTables: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesModel {
+																		if SelectiveRouteTablesData, ok := DefaultRouteData["selective_route_tables"].(map[string]interface{}); ok {
+																			return &CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesModel{
+																				RouteTableID: func() types.List {
+																					if v, ok := SelectiveRouteTablesData["route_table_id"].([]interface{}); ok && len(v) > 0 {
+																						var items []string
+																						for _, item := range v {
+																							if s, ok := item.(string); ok {
+																								items = append(items, s)
+																							}
+																						}
+																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						return listVal
+																					}
+																					return types.ListNull(types.StringType)
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Labels: func() *CloudConnectEmptyModel {
+															if _, ok := VPCListItemMap["labels"].(map[string]interface{}); ok {
+																return &CloudConnectEmptyModel{}
+															}
+															return nil
+														}(),
+														ManualRouting: func() *CloudConnectEmptyModel {
+															if _, ok := VPCListItemMap["manual_routing"].(map[string]interface{}); ok {
+																return &CloudConnectEmptyModel{}
+															}
+															return nil
+														}(),
+														VPCID: func() types.String {
+															if v, ok := VPCListItemMap["vpc_id"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return VPCListResult
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["aws_tgw_site"].(map[string]interface{}); ok && isImport && data.AWSTGWSite == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AWSTGWSite = &CloudConnectAWSTGWSiteModel{}
+	if blockData, ok := apiResource.Spec["aws_tgw_site"].(map[string]interface{}); ok && (isImport || data.AWSTGWSite != nil) {
+		data.AWSTGWSite = &CloudConnectAWSTGWSiteModel{
+			Cred: func() *CloudConnectAWSTGWSiteCredModel {
+				if !isImport && data.AWSTGWSite != nil && data.AWSTGWSite.Cred != nil {
+					return data.AWSTGWSite.Cred
+				}
+				if CredData, ok := blockData["cred"].(map[string]interface{}); ok {
+					return &CloudConnectAWSTGWSiteCredModel{
+						Name: func() types.String {
+							if v, ok := CredData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := CredData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := CredData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Site: func() *CloudConnectAWSTGWSiteSiteModel {
+				if !isImport && data.AWSTGWSite != nil && data.AWSTGWSite.Site != nil {
+					return data.AWSTGWSite.Site
+				}
+				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
+					return &CloudConnectAWSTGWSiteSiteModel{
+						Name: func() types.String {
+							if v, ok := SiteData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := SiteData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := SiteData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VPCAttachments: func() *CloudConnectAWSTGWSiteVPCAttachmentsModel {
+				if !isImport && data.AWSTGWSite != nil && data.AWSTGWSite.VPCAttachments != nil {
+					return data.AWSTGWSite.VPCAttachments
+				}
+				if VPCAttachmentsData, ok := blockData["vpc_attachments"].(map[string]interface{}); ok {
+					return &CloudConnectAWSTGWSiteVPCAttachmentsModel{
+						VPCList: func() []CloudConnectAWSTGWSiteVPCAttachmentsVPCListModel {
+							if rawList, ok := VPCAttachmentsData["vpc_list"].([]interface{}); ok && len(rawList) > 0 {
+								var VPCListResult []CloudConnectAWSTGWSiteVPCAttachmentsVPCListModel
+								for _, VPCListItem := range rawList {
+									if VPCListItemMap, ok := VPCListItem.(map[string]interface{}); ok {
+										VPCListResult = append(VPCListResult, CloudConnectAWSTGWSiteVPCAttachmentsVPCListModel{
+											CustomRouting: func() *CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel {
+												if CustomRoutingData, ok := VPCListItemMap["custom_routing"].(map[string]interface{}); ok {
+													return &CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel{
+														RouteTables: func() []CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel {
+															if rawList, ok := CustomRoutingData["route_tables"].([]interface{}); ok && len(rawList) > 0 {
+																var RouteTablesResult []CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel
+																for _, RouteTablesItem := range rawList {
+																	if RouteTablesItemMap, ok := RouteTablesItem.(map[string]interface{}); ok {
+																		RouteTablesResult = append(RouteTablesResult, CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel{
+																			RouteTableID: func() types.String {
+																				if v, ok := RouteTablesItemMap["route_table_id"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			StaticRoutes: func() types.List {
+																				if v, ok := RouteTablesItemMap["static_routes"].([]interface{}); ok && len(v) > 0 {
+																					var items []string
+																					for _, item := range v {
+																						if s, ok := item.(string); ok {
+																							items = append(items, s)
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					return listVal
+																				}
+																				return types.ListNull(types.StringType)
+																			}(),
+																		})
+																	}
+																}
+																return RouteTablesResult
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DefaultRoute: func() *CloudConnectAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModel {
+												if DefaultRouteData, ok := VPCListItemMap["default_route"].(map[string]interface{}); ok {
+													return &CloudConnectAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModel{
+														AllRouteTables: func() *CloudConnectEmptyModel {
+															if _, ok := DefaultRouteData["all_route_tables"].(map[string]interface{}); ok {
+																return &CloudConnectEmptyModel{}
+															}
+															return nil
+														}(),
+														SelectiveRouteTables: func() *CloudConnectAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesModel {
+															if SelectiveRouteTablesData, ok := DefaultRouteData["selective_route_tables"].(map[string]interface{}); ok {
+																return &CloudConnectAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesModel{
+																	RouteTableID: func() types.List {
+																		if v, ok := SelectiveRouteTablesData["route_table_id"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Labels: func() *CloudConnectEmptyModel {
+												if _, ok := VPCListItemMap["labels"].(map[string]interface{}); ok {
+													return &CloudConnectEmptyModel{}
+												}
+												return nil
+											}(),
+											ManualRouting: func() *CloudConnectEmptyModel {
+												if _, ok := VPCListItemMap["manual_routing"].(map[string]interface{}); ok {
+													return &CloudConnectEmptyModel{}
+												}
+												return nil
+											}(),
+											VPCID: func() types.String {
+												if v, ok := VPCListItemMap["vpc_id"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return VPCListResult
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["azure_vnet_site"].(map[string]interface{}); ok && isImport && data.AzureVNETSite == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AzureVNETSite = &CloudConnectAzureVNETSiteModel{}
+	if blockData, ok := apiResource.Spec["azure_vnet_site"].(map[string]interface{}); ok && (isImport || data.AzureVNETSite != nil) {
+		data.AzureVNETSite = &CloudConnectAzureVNETSiteModel{
+			Site: func() *CloudConnectAzureVNETSiteSiteModel {
+				if !isImport && data.AzureVNETSite != nil && data.AzureVNETSite.Site != nil {
+					return data.AzureVNETSite.Site
+				}
+				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
+					return &CloudConnectAzureVNETSiteSiteModel{
+						Name: func() types.String {
+							if v, ok := SiteData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := SiteData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := SiteData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VNETAttachments: func() *CloudConnectAzureVNETSiteVNETAttachmentsModel {
+				if !isImport && data.AzureVNETSite != nil && data.AzureVNETSite.VNETAttachments != nil {
+					return data.AzureVNETSite.VNETAttachments
+				}
+				if VNETAttachmentsData, ok := blockData["vnet_attachments"].(map[string]interface{}); ok {
+					return &CloudConnectAzureVNETSiteVNETAttachmentsModel{
+						VNETList: func() []CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel {
+							if rawList, ok := VNETAttachmentsData["vnet_list"].([]interface{}); ok && len(rawList) > 0 {
+								var VNETListResult []CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel
+								for _, VNETListItem := range rawList {
+									if VNETListItemMap, ok := VNETListItem.(map[string]interface{}); ok {
+										VNETListResult = append(VNETListResult, CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel{
+											CustomRouting: func() *CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingModel {
+												if CustomRoutingData, ok := VNETListItemMap["custom_routing"].(map[string]interface{}); ok {
+													return &CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingModel{
+														RouteTables: func() []CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModel {
+															if rawList, ok := CustomRoutingData["route_tables"].([]interface{}); ok && len(rawList) > 0 {
+																var RouteTablesResult []CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModel
+																for _, RouteTablesItem := range rawList {
+																	if RouteTablesItemMap, ok := RouteTablesItem.(map[string]interface{}); ok {
+																		RouteTablesResult = append(RouteTablesResult, CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModel{
+																			RouteTableID: func() types.String {
+																				if v, ok := RouteTablesItemMap["route_table_id"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			StaticRoutes: func() types.List {
+																				if v, ok := RouteTablesItemMap["static_routes"].([]interface{}); ok && len(v) > 0 {
+																					var items []string
+																					for _, item := range v {
+																						if s, ok := item.(string); ok {
+																							items = append(items, s)
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					return listVal
+																				}
+																				return types.ListNull(types.StringType)
+																			}(),
+																		})
+																	}
+																}
+																return RouteTablesResult
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DefaultRoute: func() *CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteModel {
+												if DefaultRouteData, ok := VNETListItemMap["default_route"].(map[string]interface{}); ok {
+													return &CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteModel{
+														AllRouteTables: func() *CloudConnectEmptyModel {
+															if _, ok := DefaultRouteData["all_route_tables"].(map[string]interface{}); ok {
+																return &CloudConnectEmptyModel{}
+															}
+															return nil
+														}(),
+														SelectiveRouteTables: func() *CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteSelectiveRouteTablesModel {
+															if SelectiveRouteTablesData, ok := DefaultRouteData["selective_route_tables"].(map[string]interface{}); ok {
+																return &CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteSelectiveRouteTablesModel{
+																	RouteTableID: func() types.List {
+																		if v, ok := SelectiveRouteTablesData["route_table_id"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Labels: func() *CloudConnectEmptyModel {
+												if _, ok := VNETListItemMap["labels"].(map[string]interface{}); ok {
+													return &CloudConnectEmptyModel{}
+												}
+												return nil
+											}(),
+											ManualRouting: func() *CloudConnectEmptyModel {
+												if _, ok := VNETListItemMap["manual_routing"].(map[string]interface{}); ok {
+													return &CloudConnectEmptyModel{}
+												}
+												return nil
+											}(),
+											SubscriptionID: func() types.String {
+												if v, ok := VNETListItemMap["subscription_id"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											VNETID: func() types.String {
+												if v, ok := VNETListItemMap["vnet_id"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return VNETListResult
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["segment"].(map[string]interface{}); ok && (isImport || data.Segment != nil) {
 		data.Segment = &CloudConnectSegmentModel{
 			Name: func() types.String {

@@ -1,41 +1,36 @@
 ---
-page_title: "f5xc_api_definition Data Source - terraform-provider-f5xc"
+page_title: "xcsh_api_definition Data Source - xcsh"
 subcategory: "API Security"
 description: |-
   Retrieves information about API Definition. in F5 Distributed Cloud.
 ---
 
-# f5xc_api_definition (Data Source)
+# xcsh_api_definition (Data Source)
 
 Manages API Definition. in F5 Distributed Cloud. This is a read-only data source.
 
-~> **Note** Please refer to [API Definition API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/api/) to learn more.
+~> **Note** Please refer to [API Definition API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/api/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# API Definition Data Source Example
-# Retrieves information about an existing API Definition
+# APIDefinition Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing API Definition by name
-data "f5xc_api_definition" "example" {
+# Look up an existing APIDefinition by name
+data "xcsh_api_definition" "example" {
   name      = "example-api-definition"
   namespace = "staging"
-}
-
-output "api_definition_id" {
-  value = data.f5xc_api_definition.example.id
 }
 ```
 

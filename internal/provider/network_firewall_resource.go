@@ -15,14 +15,15 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -48,7 +49,7 @@ type NetworkFirewallEmptyModel struct {
 
 // NetworkFirewallActiveEnhancedFirewallPoliciesModel represents active_enhanced_firewall_policies block
 type NetworkFirewallActiveEnhancedFirewallPoliciesModel struct {
-	EnhancedFirewallPolicies []NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel `tfsdk:"enhanced_firewall_policies"`
+	EnhancedFirewallPolicies types.List `tfsdk:"enhanced_firewall_policies"`
 }
 
 // NetworkFirewallActiveEnhancedFirewallPoliciesModelAttrTypes defines the attribute types for NetworkFirewallActiveEnhancedFirewallPoliciesModel
@@ -72,7 +73,7 @@ var NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModelAt
 
 // NetworkFirewallActiveFastAclsModel represents active_fast_acls block
 type NetworkFirewallActiveFastAclsModel struct {
-	FastAcls []NetworkFirewallActiveFastAclsFastAclsModel `tfsdk:"fast_acls"`
+	FastAcls types.List `tfsdk:"fast_acls"`
 }
 
 // NetworkFirewallActiveFastAclsModelAttrTypes defines the attribute types for NetworkFirewallActiveFastAclsModel
@@ -96,7 +97,7 @@ var NetworkFirewallActiveFastAclsFastAclsModelAttrTypes = map[string]attr.Type{
 
 // NetworkFirewallActiveForwardProxyPoliciesModel represents active_forward_proxy_policies block
 type NetworkFirewallActiveForwardProxyPoliciesModel struct {
-	ForwardProxyPolicies []NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel `tfsdk:"forward_proxy_policies"`
+	ForwardProxyPolicies types.List `tfsdk:"forward_proxy_policies"`
 }
 
 // NetworkFirewallActiveForwardProxyPoliciesModelAttrTypes defines the attribute types for NetworkFirewallActiveForwardProxyPoliciesModel
@@ -120,7 +121,7 @@ var NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes 
 
 // NetworkFirewallActiveNetworkPoliciesModel represents active_network_policies block
 type NetworkFirewallActiveNetworkPoliciesModel struct {
-	NetworkPolicies []NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel `tfsdk:"network_policies"`
+	NetworkPolicies types.List `tfsdk:"network_policies"`
 }
 
 // NetworkFirewallActiveNetworkPoliciesModelAttrTypes defines the attribute types for NetworkFirewallActiveNetworkPoliciesModel
@@ -179,13 +180,16 @@ func (r *NetworkFirewallResource) Schema(ctx context.Context, req resource.Schem
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Network Firewall will be created.",
-				Required:            true,
+				MarkdownDescription: "Namespace for the Network Firewall. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
+				Optional:            true,
+				Computed:            true,
+				Default:             stringdefault.StaticString("system"),
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
+					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
@@ -505,100 +509,117 @@ func (r *NetworkFirewallResource) Create(ctx context.Context, req resource.Creat
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.ActiveEnhancedFirewallPolicies != nil {
-		active_enhanced_firewall_policiesMap := make(map[string]interface{})
-		if len(data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies) > 0 {
-			var enhanced_firewall_policiesList []map[string]interface{}
-			for _, listItem := range data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
+		ActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
+		if !data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
+			var EnhancedFirewallPoliciesElems []NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
+			diags := data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(EnhancedFirewallPoliciesElems) > 0 {
+				var EnhancedFirewallPoliciesList []map[string]interface{}
+				for _, EnhancedFirewallPoliciesItem := range EnhancedFirewallPoliciesElems {
+					EnhancedFirewallPoliciesItemMap := make(map[string]interface{})
+					if !EnhancedFirewallPoliciesItem.Name.IsNull() && !EnhancedFirewallPoliciesItem.Name.IsUnknown() {
+						EnhancedFirewallPoliciesItemMap["name"] = EnhancedFirewallPoliciesItem.Name.ValueString()
+					}
+					if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
+						EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
+					}
+					if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
+						EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
+					}
+					EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				enhanced_firewall_policiesList = append(enhanced_firewall_policiesList, listItemMap)
+				ActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
 			}
-			active_enhanced_firewall_policiesMap["enhanced_firewall_policies"] = enhanced_firewall_policiesList
 		}
-		createReq.Spec["active_enhanced_firewall_policies"] = active_enhanced_firewall_policiesMap
+		createReq.Spec["active_enhanced_firewall_policies"] = ActiveEnhancedFirewallPoliciesMap
 	}
 	if data.ActiveFastAcls != nil {
-		active_fast_aclsMap := make(map[string]interface{})
-		if len(data.ActiveFastAcls.FastAcls) > 0 {
-			var fast_aclsList []map[string]interface{}
-			for _, listItem := range data.ActiveFastAcls.FastAcls {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
+		ActiveFastAclsMap := make(map[string]interface{})
+		if !data.ActiveFastAcls.FastAcls.IsNull() && !data.ActiveFastAcls.FastAcls.IsUnknown() {
+			var FastAclsElems []NetworkFirewallActiveFastAclsFastAclsModel
+			diags := data.ActiveFastAcls.FastAcls.ElementsAs(ctx, &FastAclsElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(FastAclsElems) > 0 {
+				var FastAclsList []map[string]interface{}
+				for _, FastAclsItem := range FastAclsElems {
+					FastAclsItemMap := make(map[string]interface{})
+					if !FastAclsItem.Name.IsNull() && !FastAclsItem.Name.IsUnknown() {
+						FastAclsItemMap["name"] = FastAclsItem.Name.ValueString()
+					}
+					if !FastAclsItem.Namespace.IsNull() && !FastAclsItem.Namespace.IsUnknown() {
+						FastAclsItemMap["namespace"] = FastAclsItem.Namespace.ValueString()
+					}
+					if !FastAclsItem.Tenant.IsNull() && !FastAclsItem.Tenant.IsUnknown() {
+						FastAclsItemMap["tenant"] = FastAclsItem.Tenant.ValueString()
+					}
+					FastAclsList = append(FastAclsList, FastAclsItemMap)
 				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				fast_aclsList = append(fast_aclsList, listItemMap)
+				ActiveFastAclsMap["fast_acls"] = FastAclsList
 			}
-			active_fast_aclsMap["fast_acls"] = fast_aclsList
 		}
-		createReq.Spec["active_fast_acls"] = active_fast_aclsMap
+		createReq.Spec["active_fast_acls"] = ActiveFastAclsMap
 	}
 	if data.ActiveForwardProxyPolicies != nil {
-		active_forward_proxy_policiesMap := make(map[string]interface{})
-		if len(data.ActiveForwardProxyPolicies.ForwardProxyPolicies) > 0 {
-			var forward_proxy_policiesList []map[string]interface{}
-			for _, listItem := range data.ActiveForwardProxyPolicies.ForwardProxyPolicies {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
+		ActiveForwardProxyPoliciesMap := make(map[string]interface{})
+		if !data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
+			var ForwardProxyPoliciesElems []NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel
+			diags := data.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(ForwardProxyPoliciesElems) > 0 {
+				var ForwardProxyPoliciesList []map[string]interface{}
+				for _, ForwardProxyPoliciesItem := range ForwardProxyPoliciesElems {
+					ForwardProxyPoliciesItemMap := make(map[string]interface{})
+					if !ForwardProxyPoliciesItem.Name.IsNull() && !ForwardProxyPoliciesItem.Name.IsUnknown() {
+						ForwardProxyPoliciesItemMap["name"] = ForwardProxyPoliciesItem.Name.ValueString()
+					}
+					if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
+						ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
+					}
+					if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
+						ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
+					}
+					ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				forward_proxy_policiesList = append(forward_proxy_policiesList, listItemMap)
+				ActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
 			}
-			active_forward_proxy_policiesMap["forward_proxy_policies"] = forward_proxy_policiesList
 		}
-		createReq.Spec["active_forward_proxy_policies"] = active_forward_proxy_policiesMap
+		createReq.Spec["active_forward_proxy_policies"] = ActiveForwardProxyPoliciesMap
 	}
 	if data.ActiveNetworkPolicies != nil {
-		active_network_policiesMap := make(map[string]interface{})
-		if len(data.ActiveNetworkPolicies.NetworkPolicies) > 0 {
-			var network_policiesList []map[string]interface{}
-			for _, listItem := range data.ActiveNetworkPolicies.NetworkPolicies {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
+		ActiveNetworkPoliciesMap := make(map[string]interface{})
+		if !data.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
+			var NetworkPoliciesElems []NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel
+			diags := data.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(NetworkPoliciesElems) > 0 {
+				var NetworkPoliciesList []map[string]interface{}
+				for _, NetworkPoliciesItem := range NetworkPoliciesElems {
+					NetworkPoliciesItemMap := make(map[string]interface{})
+					if !NetworkPoliciesItem.Name.IsNull() && !NetworkPoliciesItem.Name.IsUnknown() {
+						NetworkPoliciesItemMap["name"] = NetworkPoliciesItem.Name.ValueString()
+					}
+					if !NetworkPoliciesItem.Namespace.IsNull() && !NetworkPoliciesItem.Namespace.IsUnknown() {
+						NetworkPoliciesItemMap["namespace"] = NetworkPoliciesItem.Namespace.ValueString()
+					}
+					if !NetworkPoliciesItem.Tenant.IsNull() && !NetworkPoliciesItem.Tenant.IsUnknown() {
+						NetworkPoliciesItemMap["tenant"] = NetworkPoliciesItem.Tenant.ValueString()
+					}
+					NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				network_policiesList = append(network_policiesList, listItemMap)
+				ActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
 			}
-			active_network_policiesMap["network_policies"] = network_policiesList
 		}
-		createReq.Spec["active_network_policies"] = active_network_policiesMap
+		createReq.Spec["active_network_policies"] = ActiveNetworkPoliciesMap
 	}
 	if data.DisableFastACL != nil {
-		disable_fast_aclMap := make(map[string]interface{})
-		createReq.Spec["disable_fast_acl"] = disable_fast_aclMap
+		createReq.Spec["disable_fast_acl"] = map[string]interface{}{}
 	}
 	if data.DisableForwardProxyPolicy != nil {
-		disable_forward_proxy_policyMap := make(map[string]interface{})
-		createReq.Spec["disable_forward_proxy_policy"] = disable_forward_proxy_policyMap
+		createReq.Spec["disable_forward_proxy_policy"] = map[string]interface{}{}
 	}
 	if data.DisableNetworkPolicy != nil {
-		disable_network_policyMap := make(map[string]interface{})
-		createReq.Spec["disable_network_policy"] = disable_network_policyMap
+		createReq.Spec["disable_network_policy"] = map[string]interface{}{}
 	}
 
 	apiResource, err := r.client.CreateNetworkFirewall(ctx, createReq)
@@ -615,26 +636,29 @@ func (r *NetworkFirewallResource) Create(ctx context.Context, req resource.Creat
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["active_enhanced_firewall_policies"].(map[string]interface{}); ok && (isImport || data.ActiveEnhancedFirewallPolicies != nil) {
 		data.ActiveEnhancedFirewallPolicies = &NetworkFirewallActiveEnhancedFirewallPoliciesModel{
-			EnhancedFirewallPolicies: func() []NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel {
-				if listData, ok := blockData["enhanced_firewall_policies"].([]interface{}); ok && len(listData) > 0 {
-					var result []NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel{
+			EnhancedFirewallPolicies: func() types.List {
+				if !isImport && data.ActiveEnhancedFirewallPolicies != nil && (data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() || len(data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModelAttrTypes})
+				}
+				if rawList, ok := blockData["enhanced_firewall_policies"].([]interface{}); ok && len(rawList) > 0 {
+					var EnhancedFirewallPoliciesResult []NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
+					for _, EnhancedFirewallPoliciesItem := range rawList {
+						if EnhancedFirewallPoliciesItemMap, ok := EnhancedFirewallPoliciesItem.(map[string]interface{}); ok {
+							EnhancedFirewallPoliciesResult = append(EnhancedFirewallPoliciesResult, NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := EnhancedFirewallPoliciesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := EnhancedFirewallPoliciesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := EnhancedFirewallPoliciesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -642,34 +666,38 @@ func (r *NetworkFirewallResource) Create(ctx context.Context, req resource.Creat
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModelAttrTypes}, EnhancedFirewallPoliciesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["active_fast_acls"].(map[string]interface{}); ok && (isImport || data.ActiveFastAcls != nil) {
 		data.ActiveFastAcls = &NetworkFirewallActiveFastAclsModel{
-			FastAcls: func() []NetworkFirewallActiveFastAclsFastAclsModel {
-				if listData, ok := blockData["fast_acls"].([]interface{}); ok && len(listData) > 0 {
-					var result []NetworkFirewallActiveFastAclsFastAclsModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, NetworkFirewallActiveFastAclsFastAclsModel{
+			FastAcls: func() types.List {
+				if !isImport && data.ActiveFastAcls != nil && (data.ActiveFastAcls.FastAcls.IsNull() || len(data.ActiveFastAcls.FastAcls.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveFastAclsFastAclsModelAttrTypes})
+				}
+				if rawList, ok := blockData["fast_acls"].([]interface{}); ok && len(rawList) > 0 {
+					var FastAclsResult []NetworkFirewallActiveFastAclsFastAclsModel
+					for _, FastAclsItem := range rawList {
+						if FastAclsItemMap, ok := FastAclsItem.(map[string]interface{}); ok {
+							FastAclsResult = append(FastAclsResult, NetworkFirewallActiveFastAclsFastAclsModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := FastAclsItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := FastAclsItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := FastAclsItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -677,34 +705,38 @@ func (r *NetworkFirewallResource) Create(ctx context.Context, req resource.Creat
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkFirewallActiveFastAclsFastAclsModelAttrTypes}, FastAclsResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveFastAclsFastAclsModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["active_forward_proxy_policies"].(map[string]interface{}); ok && (isImport || data.ActiveForwardProxyPolicies != nil) {
 		data.ActiveForwardProxyPolicies = &NetworkFirewallActiveForwardProxyPoliciesModel{
-			ForwardProxyPolicies: func() []NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel {
-				if listData, ok := blockData["forward_proxy_policies"].([]interface{}); ok && len(listData) > 0 {
-					var result []NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel{
+			ForwardProxyPolicies: func() types.List {
+				if !isImport && data.ActiveForwardProxyPolicies != nil && (data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() || len(data.ActiveForwardProxyPolicies.ForwardProxyPolicies.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
+				}
+				if rawList, ok := blockData["forward_proxy_policies"].([]interface{}); ok && len(rawList) > 0 {
+					var ForwardProxyPoliciesResult []NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel
+					for _, ForwardProxyPoliciesItem := range rawList {
+						if ForwardProxyPoliciesItemMap, ok := ForwardProxyPoliciesItem.(map[string]interface{}); ok {
+							ForwardProxyPoliciesResult = append(ForwardProxyPoliciesResult, NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := ForwardProxyPoliciesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := ForwardProxyPoliciesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := ForwardProxyPoliciesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -712,34 +744,38 @@ func (r *NetworkFirewallResource) Create(ctx context.Context, req resource.Creat
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes}, ForwardProxyPoliciesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["active_network_policies"].(map[string]interface{}); ok && (isImport || data.ActiveNetworkPolicies != nil) {
 		data.ActiveNetworkPolicies = &NetworkFirewallActiveNetworkPoliciesModel{
-			NetworkPolicies: func() []NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel {
-				if listData, ok := blockData["network_policies"].([]interface{}); ok && len(listData) > 0 {
-					var result []NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel{
+			NetworkPolicies: func() types.List {
+				if !isImport && data.ActiveNetworkPolicies != nil && (data.ActiveNetworkPolicies.NetworkPolicies.IsNull() || len(data.ActiveNetworkPolicies.NetworkPolicies.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModelAttrTypes})
+				}
+				if rawList, ok := blockData["network_policies"].([]interface{}); ok && len(rawList) > 0 {
+					var NetworkPoliciesResult []NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel
+					for _, NetworkPoliciesItem := range rawList {
+						if NetworkPoliciesItemMap, ok := NetworkPoliciesItem.(map[string]interface{}); ok {
+							NetworkPoliciesResult = append(NetworkPoliciesResult, NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := NetworkPoliciesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := NetworkPoliciesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := NetworkPoliciesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -747,27 +783,22 @@ func (r *NetworkFirewallResource) Create(ctx context.Context, req resource.Creat
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModelAttrTypes}, NetworkPoliciesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModelAttrTypes})
 			}(),
 		}
 	}
 	if _, ok := apiResource.Spec["disable_fast_acl"].(map[string]interface{}); ok && isImport && data.DisableFastACL == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableFastACL = &NetworkFirewallEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["disable_forward_proxy_policy"].(map[string]interface{}); ok && isImport && data.DisableForwardProxyPolicy == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableForwardProxyPolicy = &NetworkFirewallEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["disable_network_policy"].(map[string]interface{}); ok && isImport && data.DisableNetworkPolicy == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableNetworkPolicy = &NetworkFirewallEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 
 	tflog.Trace(ctx, "created NetworkFirewall resource")
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -850,26 +881,29 @@ func (r *NetworkFirewallResource) Read(ctx context.Context, req resource.ReadReq
 	_ = isImport // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["active_enhanced_firewall_policies"].(map[string]interface{}); ok && (isImport || data.ActiveEnhancedFirewallPolicies != nil) {
 		data.ActiveEnhancedFirewallPolicies = &NetworkFirewallActiveEnhancedFirewallPoliciesModel{
-			EnhancedFirewallPolicies: func() []NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel {
-				if listData, ok := blockData["enhanced_firewall_policies"].([]interface{}); ok && len(listData) > 0 {
-					var result []NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel{
+			EnhancedFirewallPolicies: func() types.List {
+				if !isImport && data.ActiveEnhancedFirewallPolicies != nil && (data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() || len(data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModelAttrTypes})
+				}
+				if rawList, ok := blockData["enhanced_firewall_policies"].([]interface{}); ok && len(rawList) > 0 {
+					var EnhancedFirewallPoliciesResult []NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
+					for _, EnhancedFirewallPoliciesItem := range rawList {
+						if EnhancedFirewallPoliciesItemMap, ok := EnhancedFirewallPoliciesItem.(map[string]interface{}); ok {
+							EnhancedFirewallPoliciesResult = append(EnhancedFirewallPoliciesResult, NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := EnhancedFirewallPoliciesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := EnhancedFirewallPoliciesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := EnhancedFirewallPoliciesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -877,34 +911,38 @@ func (r *NetworkFirewallResource) Read(ctx context.Context, req resource.ReadReq
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModelAttrTypes}, EnhancedFirewallPoliciesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["active_fast_acls"].(map[string]interface{}); ok && (isImport || data.ActiveFastAcls != nil) {
 		data.ActiveFastAcls = &NetworkFirewallActiveFastAclsModel{
-			FastAcls: func() []NetworkFirewallActiveFastAclsFastAclsModel {
-				if listData, ok := blockData["fast_acls"].([]interface{}); ok && len(listData) > 0 {
-					var result []NetworkFirewallActiveFastAclsFastAclsModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, NetworkFirewallActiveFastAclsFastAclsModel{
+			FastAcls: func() types.List {
+				if !isImport && data.ActiveFastAcls != nil && (data.ActiveFastAcls.FastAcls.IsNull() || len(data.ActiveFastAcls.FastAcls.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveFastAclsFastAclsModelAttrTypes})
+				}
+				if rawList, ok := blockData["fast_acls"].([]interface{}); ok && len(rawList) > 0 {
+					var FastAclsResult []NetworkFirewallActiveFastAclsFastAclsModel
+					for _, FastAclsItem := range rawList {
+						if FastAclsItemMap, ok := FastAclsItem.(map[string]interface{}); ok {
+							FastAclsResult = append(FastAclsResult, NetworkFirewallActiveFastAclsFastAclsModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := FastAclsItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := FastAclsItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := FastAclsItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -912,34 +950,38 @@ func (r *NetworkFirewallResource) Read(ctx context.Context, req resource.ReadReq
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkFirewallActiveFastAclsFastAclsModelAttrTypes}, FastAclsResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveFastAclsFastAclsModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["active_forward_proxy_policies"].(map[string]interface{}); ok && (isImport || data.ActiveForwardProxyPolicies != nil) {
 		data.ActiveForwardProxyPolicies = &NetworkFirewallActiveForwardProxyPoliciesModel{
-			ForwardProxyPolicies: func() []NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel {
-				if listData, ok := blockData["forward_proxy_policies"].([]interface{}); ok && len(listData) > 0 {
-					var result []NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel{
+			ForwardProxyPolicies: func() types.List {
+				if !isImport && data.ActiveForwardProxyPolicies != nil && (data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() || len(data.ActiveForwardProxyPolicies.ForwardProxyPolicies.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
+				}
+				if rawList, ok := blockData["forward_proxy_policies"].([]interface{}); ok && len(rawList) > 0 {
+					var ForwardProxyPoliciesResult []NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel
+					for _, ForwardProxyPoliciesItem := range rawList {
+						if ForwardProxyPoliciesItemMap, ok := ForwardProxyPoliciesItem.(map[string]interface{}); ok {
+							ForwardProxyPoliciesResult = append(ForwardProxyPoliciesResult, NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := ForwardProxyPoliciesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := ForwardProxyPoliciesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := ForwardProxyPoliciesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -947,34 +989,38 @@ func (r *NetworkFirewallResource) Read(ctx context.Context, req resource.ReadReq
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes}, ForwardProxyPoliciesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["active_network_policies"].(map[string]interface{}); ok && (isImport || data.ActiveNetworkPolicies != nil) {
 		data.ActiveNetworkPolicies = &NetworkFirewallActiveNetworkPoliciesModel{
-			NetworkPolicies: func() []NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel {
-				if listData, ok := blockData["network_policies"].([]interface{}); ok && len(listData) > 0 {
-					var result []NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel{
+			NetworkPolicies: func() types.List {
+				if !isImport && data.ActiveNetworkPolicies != nil && (data.ActiveNetworkPolicies.NetworkPolicies.IsNull() || len(data.ActiveNetworkPolicies.NetworkPolicies.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModelAttrTypes})
+				}
+				if rawList, ok := blockData["network_policies"].([]interface{}); ok && len(rawList) > 0 {
+					var NetworkPoliciesResult []NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel
+					for _, NetworkPoliciesItem := range rawList {
+						if NetworkPoliciesItemMap, ok := NetworkPoliciesItem.(map[string]interface{}); ok {
+							NetworkPoliciesResult = append(NetworkPoliciesResult, NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := NetworkPoliciesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := NetworkPoliciesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := NetworkPoliciesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -982,27 +1028,30 @@ func (r *NetworkFirewallResource) Read(ctx context.Context, req resource.ReadReq
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModelAttrTypes}, NetworkPoliciesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModelAttrTypes})
 			}(),
 		}
 	}
 	if _, ok := apiResource.Spec["disable_fast_acl"].(map[string]interface{}); ok && isImport && data.DisableFastACL == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableFastACL = &NetworkFirewallEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["disable_forward_proxy_policy"].(map[string]interface{}); ok && isImport && data.DisableForwardProxyPolicy == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableForwardProxyPolicy = &NetworkFirewallEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["disable_network_policy"].(map[string]interface{}); ok && isImport && data.DisableNetworkPolicy == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableNetworkPolicy = &NetworkFirewallEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
+	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
@@ -1055,100 +1104,117 @@ func (r *NetworkFirewallResource) Update(ctx context.Context, req resource.Updat
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.ActiveEnhancedFirewallPolicies != nil {
-		active_enhanced_firewall_policiesMap := make(map[string]interface{})
-		if len(data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies) > 0 {
-			var enhanced_firewall_policiesList []map[string]interface{}
-			for _, listItem := range data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
+		ActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
+		if !data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
+			var EnhancedFirewallPoliciesElems []NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
+			diags := data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(EnhancedFirewallPoliciesElems) > 0 {
+				var EnhancedFirewallPoliciesList []map[string]interface{}
+				for _, EnhancedFirewallPoliciesItem := range EnhancedFirewallPoliciesElems {
+					EnhancedFirewallPoliciesItemMap := make(map[string]interface{})
+					if !EnhancedFirewallPoliciesItem.Name.IsNull() && !EnhancedFirewallPoliciesItem.Name.IsUnknown() {
+						EnhancedFirewallPoliciesItemMap["name"] = EnhancedFirewallPoliciesItem.Name.ValueString()
+					}
+					if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
+						EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
+					}
+					if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
+						EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
+					}
+					EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				enhanced_firewall_policiesList = append(enhanced_firewall_policiesList, listItemMap)
+				ActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
 			}
-			active_enhanced_firewall_policiesMap["enhanced_firewall_policies"] = enhanced_firewall_policiesList
 		}
-		apiResource.Spec["active_enhanced_firewall_policies"] = active_enhanced_firewall_policiesMap
+		apiResource.Spec["active_enhanced_firewall_policies"] = ActiveEnhancedFirewallPoliciesMap
 	}
 	if data.ActiveFastAcls != nil {
-		active_fast_aclsMap := make(map[string]interface{})
-		if len(data.ActiveFastAcls.FastAcls) > 0 {
-			var fast_aclsList []map[string]interface{}
-			for _, listItem := range data.ActiveFastAcls.FastAcls {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
+		ActiveFastAclsMap := make(map[string]interface{})
+		if !data.ActiveFastAcls.FastAcls.IsNull() && !data.ActiveFastAcls.FastAcls.IsUnknown() {
+			var FastAclsElems []NetworkFirewallActiveFastAclsFastAclsModel
+			diags := data.ActiveFastAcls.FastAcls.ElementsAs(ctx, &FastAclsElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(FastAclsElems) > 0 {
+				var FastAclsList []map[string]interface{}
+				for _, FastAclsItem := range FastAclsElems {
+					FastAclsItemMap := make(map[string]interface{})
+					if !FastAclsItem.Name.IsNull() && !FastAclsItem.Name.IsUnknown() {
+						FastAclsItemMap["name"] = FastAclsItem.Name.ValueString()
+					}
+					if !FastAclsItem.Namespace.IsNull() && !FastAclsItem.Namespace.IsUnknown() {
+						FastAclsItemMap["namespace"] = FastAclsItem.Namespace.ValueString()
+					}
+					if !FastAclsItem.Tenant.IsNull() && !FastAclsItem.Tenant.IsUnknown() {
+						FastAclsItemMap["tenant"] = FastAclsItem.Tenant.ValueString()
+					}
+					FastAclsList = append(FastAclsList, FastAclsItemMap)
 				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				fast_aclsList = append(fast_aclsList, listItemMap)
+				ActiveFastAclsMap["fast_acls"] = FastAclsList
 			}
-			active_fast_aclsMap["fast_acls"] = fast_aclsList
 		}
-		apiResource.Spec["active_fast_acls"] = active_fast_aclsMap
+		apiResource.Spec["active_fast_acls"] = ActiveFastAclsMap
 	}
 	if data.ActiveForwardProxyPolicies != nil {
-		active_forward_proxy_policiesMap := make(map[string]interface{})
-		if len(data.ActiveForwardProxyPolicies.ForwardProxyPolicies) > 0 {
-			var forward_proxy_policiesList []map[string]interface{}
-			for _, listItem := range data.ActiveForwardProxyPolicies.ForwardProxyPolicies {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
+		ActiveForwardProxyPoliciesMap := make(map[string]interface{})
+		if !data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
+			var ForwardProxyPoliciesElems []NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel
+			diags := data.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(ForwardProxyPoliciesElems) > 0 {
+				var ForwardProxyPoliciesList []map[string]interface{}
+				for _, ForwardProxyPoliciesItem := range ForwardProxyPoliciesElems {
+					ForwardProxyPoliciesItemMap := make(map[string]interface{})
+					if !ForwardProxyPoliciesItem.Name.IsNull() && !ForwardProxyPoliciesItem.Name.IsUnknown() {
+						ForwardProxyPoliciesItemMap["name"] = ForwardProxyPoliciesItem.Name.ValueString()
+					}
+					if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
+						ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
+					}
+					if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
+						ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
+					}
+					ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				forward_proxy_policiesList = append(forward_proxy_policiesList, listItemMap)
+				ActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
 			}
-			active_forward_proxy_policiesMap["forward_proxy_policies"] = forward_proxy_policiesList
 		}
-		apiResource.Spec["active_forward_proxy_policies"] = active_forward_proxy_policiesMap
+		apiResource.Spec["active_forward_proxy_policies"] = ActiveForwardProxyPoliciesMap
 	}
 	if data.ActiveNetworkPolicies != nil {
-		active_network_policiesMap := make(map[string]interface{})
-		if len(data.ActiveNetworkPolicies.NetworkPolicies) > 0 {
-			var network_policiesList []map[string]interface{}
-			for _, listItem := range data.ActiveNetworkPolicies.NetworkPolicies {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
+		ActiveNetworkPoliciesMap := make(map[string]interface{})
+		if !data.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
+			var NetworkPoliciesElems []NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel
+			diags := data.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(NetworkPoliciesElems) > 0 {
+				var NetworkPoliciesList []map[string]interface{}
+				for _, NetworkPoliciesItem := range NetworkPoliciesElems {
+					NetworkPoliciesItemMap := make(map[string]interface{})
+					if !NetworkPoliciesItem.Name.IsNull() && !NetworkPoliciesItem.Name.IsUnknown() {
+						NetworkPoliciesItemMap["name"] = NetworkPoliciesItem.Name.ValueString()
+					}
+					if !NetworkPoliciesItem.Namespace.IsNull() && !NetworkPoliciesItem.Namespace.IsUnknown() {
+						NetworkPoliciesItemMap["namespace"] = NetworkPoliciesItem.Namespace.ValueString()
+					}
+					if !NetworkPoliciesItem.Tenant.IsNull() && !NetworkPoliciesItem.Tenant.IsUnknown() {
+						NetworkPoliciesItemMap["tenant"] = NetworkPoliciesItem.Tenant.ValueString()
+					}
+					NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				network_policiesList = append(network_policiesList, listItemMap)
+				ActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
 			}
-			active_network_policiesMap["network_policies"] = network_policiesList
 		}
-		apiResource.Spec["active_network_policies"] = active_network_policiesMap
+		apiResource.Spec["active_network_policies"] = ActiveNetworkPoliciesMap
 	}
 	if data.DisableFastACL != nil {
-		disable_fast_aclMap := make(map[string]interface{})
-		apiResource.Spec["disable_fast_acl"] = disable_fast_aclMap
+		apiResource.Spec["disable_fast_acl"] = map[string]interface{}{}
 	}
 	if data.DisableForwardProxyPolicy != nil {
-		disable_forward_proxy_policyMap := make(map[string]interface{})
-		apiResource.Spec["disable_forward_proxy_policy"] = disable_forward_proxy_policyMap
+		apiResource.Spec["disable_forward_proxy_policy"] = map[string]interface{}{}
 	}
 	if data.DisableNetworkPolicy != nil {
-		disable_network_policyMap := make(map[string]interface{})
-		apiResource.Spec["disable_network_policy"] = disable_network_policyMap
+		apiResource.Spec["disable_network_policy"] = map[string]interface{}{}
 	}
 
 	_, err := r.client.UpdateNetworkFirewall(ctx, apiResource)
@@ -1176,26 +1242,29 @@ func (r *NetworkFirewallResource) Update(ctx context.Context, req resource.Updat
 	_ = isImport          // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["active_enhanced_firewall_policies"].(map[string]interface{}); ok && (isImport || data.ActiveEnhancedFirewallPolicies != nil) {
 		data.ActiveEnhancedFirewallPolicies = &NetworkFirewallActiveEnhancedFirewallPoliciesModel{
-			EnhancedFirewallPolicies: func() []NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel {
-				if listData, ok := blockData["enhanced_firewall_policies"].([]interface{}); ok && len(listData) > 0 {
-					var result []NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel{
+			EnhancedFirewallPolicies: func() types.List {
+				if !isImport && data.ActiveEnhancedFirewallPolicies != nil && (data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() || len(data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModelAttrTypes})
+				}
+				if rawList, ok := blockData["enhanced_firewall_policies"].([]interface{}); ok && len(rawList) > 0 {
+					var EnhancedFirewallPoliciesResult []NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
+					for _, EnhancedFirewallPoliciesItem := range rawList {
+						if EnhancedFirewallPoliciesItemMap, ok := EnhancedFirewallPoliciesItem.(map[string]interface{}); ok {
+							EnhancedFirewallPoliciesResult = append(EnhancedFirewallPoliciesResult, NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := EnhancedFirewallPoliciesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := EnhancedFirewallPoliciesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := EnhancedFirewallPoliciesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -1203,34 +1272,38 @@ func (r *NetworkFirewallResource) Update(ctx context.Context, req resource.Updat
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModelAttrTypes}, EnhancedFirewallPoliciesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["active_fast_acls"].(map[string]interface{}); ok && (isImport || data.ActiveFastAcls != nil) {
 		data.ActiveFastAcls = &NetworkFirewallActiveFastAclsModel{
-			FastAcls: func() []NetworkFirewallActiveFastAclsFastAclsModel {
-				if listData, ok := blockData["fast_acls"].([]interface{}); ok && len(listData) > 0 {
-					var result []NetworkFirewallActiveFastAclsFastAclsModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, NetworkFirewallActiveFastAclsFastAclsModel{
+			FastAcls: func() types.List {
+				if !isImport && data.ActiveFastAcls != nil && (data.ActiveFastAcls.FastAcls.IsNull() || len(data.ActiveFastAcls.FastAcls.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveFastAclsFastAclsModelAttrTypes})
+				}
+				if rawList, ok := blockData["fast_acls"].([]interface{}); ok && len(rawList) > 0 {
+					var FastAclsResult []NetworkFirewallActiveFastAclsFastAclsModel
+					for _, FastAclsItem := range rawList {
+						if FastAclsItemMap, ok := FastAclsItem.(map[string]interface{}); ok {
+							FastAclsResult = append(FastAclsResult, NetworkFirewallActiveFastAclsFastAclsModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := FastAclsItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := FastAclsItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := FastAclsItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -1238,34 +1311,38 @@ func (r *NetworkFirewallResource) Update(ctx context.Context, req resource.Updat
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkFirewallActiveFastAclsFastAclsModelAttrTypes}, FastAclsResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveFastAclsFastAclsModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["active_forward_proxy_policies"].(map[string]interface{}); ok && (isImport || data.ActiveForwardProxyPolicies != nil) {
 		data.ActiveForwardProxyPolicies = &NetworkFirewallActiveForwardProxyPoliciesModel{
-			ForwardProxyPolicies: func() []NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel {
-				if listData, ok := blockData["forward_proxy_policies"].([]interface{}); ok && len(listData) > 0 {
-					var result []NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel{
+			ForwardProxyPolicies: func() types.List {
+				if !isImport && data.ActiveForwardProxyPolicies != nil && (data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() || len(data.ActiveForwardProxyPolicies.ForwardProxyPolicies.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
+				}
+				if rawList, ok := blockData["forward_proxy_policies"].([]interface{}); ok && len(rawList) > 0 {
+					var ForwardProxyPoliciesResult []NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel
+					for _, ForwardProxyPoliciesItem := range rawList {
+						if ForwardProxyPoliciesItemMap, ok := ForwardProxyPoliciesItem.(map[string]interface{}); ok {
+							ForwardProxyPoliciesResult = append(ForwardProxyPoliciesResult, NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := ForwardProxyPoliciesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := ForwardProxyPoliciesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := ForwardProxyPoliciesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -1273,34 +1350,38 @@ func (r *NetworkFirewallResource) Update(ctx context.Context, req resource.Updat
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes}, ForwardProxyPoliciesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["active_network_policies"].(map[string]interface{}); ok && (isImport || data.ActiveNetworkPolicies != nil) {
 		data.ActiveNetworkPolicies = &NetworkFirewallActiveNetworkPoliciesModel{
-			NetworkPolicies: func() []NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel {
-				if listData, ok := blockData["network_policies"].([]interface{}); ok && len(listData) > 0 {
-					var result []NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel{
+			NetworkPolicies: func() types.List {
+				if !isImport && data.ActiveNetworkPolicies != nil && (data.ActiveNetworkPolicies.NetworkPolicies.IsNull() || len(data.ActiveNetworkPolicies.NetworkPolicies.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModelAttrTypes})
+				}
+				if rawList, ok := blockData["network_policies"].([]interface{}); ok && len(rawList) > 0 {
+					var NetworkPoliciesResult []NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel
+					for _, NetworkPoliciesItem := range rawList {
+						if NetworkPoliciesItemMap, ok := NetworkPoliciesItem.(map[string]interface{}); ok {
+							NetworkPoliciesResult = append(NetworkPoliciesResult, NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := NetworkPoliciesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := NetworkPoliciesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := NetworkPoliciesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -1308,27 +1389,22 @@ func (r *NetworkFirewallResource) Update(ctx context.Context, req resource.Updat
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModelAttrTypes}, NetworkPoliciesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModelAttrTypes})
 			}(),
 		}
 	}
 	if _, ok := apiResource.Spec["disable_fast_acl"].(map[string]interface{}); ok && isImport && data.DisableFastACL == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableFastACL = &NetworkFirewallEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["disable_forward_proxy_policy"].(map[string]interface{}); ok && isImport && data.DisableForwardProxyPolicy == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableForwardProxyPolicy = &NetworkFirewallEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["disable_network_policy"].(map[string]interface{}); ok && isImport && data.DisableNetworkPolicy == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableNetworkPolicy = &NetworkFirewallEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }

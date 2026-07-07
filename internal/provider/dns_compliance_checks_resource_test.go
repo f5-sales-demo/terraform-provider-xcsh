@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/acctest"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/acctest"
 )
 
 func TestAccDNSComplianceChecksResource_basic(t *testing.T) {
@@ -18,7 +18,7 @@ func TestAccDNSComplianceChecksResource_basic(t *testing.T) {
 
 	rName := acctest.RandomName("tf-acc-test-dcc")
 	nsName := acctest.RandomName("tf-acc-test-ns")
-	resourceName := "f5xc_dns_compliance_checks.test"
+	resourceName := "xcsh_dns_compliance_checks.test"
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -26,7 +26,7 @@ func TestAccDNSComplianceChecksResource_basic(t *testing.T) {
 		ExternalProviders: map[string]resource.ExternalProvider{
 			"time": {Source: "hashicorp/time"},
 		},
-		CheckDestroy: acctest.CheckResourceDestroyed("f5xc_dns_compliance_checks"),
+		CheckDestroy: acctest.CheckResourceDestroyed("xcsh_dns_compliance_checks"),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDNSComplianceChecksConfig_basic(nsName, rName),
@@ -64,19 +64,19 @@ func testAccDNSComplianceChecksConfig_basic(nsName, name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "f5xc_namespace" "test" {
+resource "xcsh_namespace" "test" {
   name = %[1]q
 }
 
 resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [f5xc_namespace.test]
+  depends_on      = [xcsh_namespace.test]
   create_duration = "5s"
 }
 
-resource "f5xc_dns_compliance_checks" "test" {
+resource "xcsh_dns_compliance_checks" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
-  namespace  = f5xc_namespace.test.name
+  namespace  = xcsh_namespace.test.name
 }
 `, nsName, name))
 }

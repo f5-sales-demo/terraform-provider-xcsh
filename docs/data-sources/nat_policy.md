@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_nat_policy Data Source - terraform-provider-f5xc"
+page_title: "xcsh_nat_policy Data Source - xcsh"
 subcategory: "Security"
 description: |-
   Retrieves information about an existing NAT Policy resource in F5 Distributed Cloud for nat policy create specification configures nat policy with multiple rules,. configuration.
 ---
 
-# f5xc_nat_policy (Data Source)
+# xcsh_nat_policy (Data Source)
 
 Retrieves information about a NAT Policy resource in F5 Distributed Cloud for nat policy create specification configures nat policy with multiple rules,. configuration. This is a read-only data source.
 
@@ -14,28 +14,23 @@ Retrieves information about a NAT Policy resource in F5 Distributed Cloud for na
 ## Example Usage
 
 ```terraform
-# NAT Policy Data Source Example
-# Retrieves information about an existing NAT Policy
+# NATPolicy Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing NAT Policy by name
-data "f5xc_nat_policy" "example" {
+# Look up an existing NATPolicy by name
+data "xcsh_nat_policy" "example" {
   name      = "example-nat-policy"
   namespace = "staging"
-}
-
-output "nat_policy_id" {
-  value = data.f5xc_nat_policy.example.id
 }
 ```
 

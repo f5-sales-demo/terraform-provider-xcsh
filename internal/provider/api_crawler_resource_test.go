@@ -9,20 +9,20 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/acctest"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/acctest"
 )
 
 func TestAccAPICrawlerResource_basic(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	resourceName := "f5xc_api_crawler.test"
+	resourceName := "xcsh_api_crawler.test"
 	rName := acctest.RandomName("tf-test-crawler")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy:             acctest.CheckResourceDestroyed("f5xc_api_crawler"),
+		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_api_crawler"),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAPICrawlerConfig_basic(rName),
@@ -58,7 +58,7 @@ func testAccAPICrawlerImportStateIdFunc(resourceName string) resource.ImportStat
 
 func testAccAPICrawlerConfig_basic(name string) string {
 	return fmt.Sprintf(`
-resource "f5xc_api_crawler" "test" {
+resource "xcsh_api_crawler" "test" {
   name      = %[1]q
   namespace = "system"
 

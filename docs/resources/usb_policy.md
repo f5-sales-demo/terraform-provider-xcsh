@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_usb_policy Resource - terraform-provider-f5xc"
+page_title: "xcsh_usb_policy Resource - xcsh"
 subcategory: "Security"
 description: |-
   Manages new USB policy object. in F5 Distributed Cloud.
 ---
 
-# f5xc_usb_policy (Resource)
+# xcsh_usb_policy (Resource)
 
 Manages new USB policy object. in F5 Distributed Cloud.
 
@@ -14,39 +14,24 @@ Manages new USB policy object. in F5 Distributed Cloud.
 ## Example Usage
 
 ```terraform
-# Usb Policy Resource Example
-# Manages new USB policy object. in F5 Distributed Cloud.
+# UsbPolicy Resource Example
+# Manages new USB policy object.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Usb Policy configuration
-resource "f5xc_usb_policy" "example" {
+# Basic UsbPolicy configuration
+resource "xcsh_usb_policy" "example" {
   name      = "example-usb-policy"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # List of allowed USB devices .
-  allowed_devices {
-    # Configure allowed_devices settings
-  }
+  namespace = "system"
 }
 ```
 
@@ -61,8 +46,6 @@ resource "f5xc_usb_policy" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Usb Policy. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Usb Policy will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -70,6 +53,8 @@ resource "f5xc_usb_policy" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Usb Policy. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -202,5 +187,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_usb_policy.example system/example
+terraform import xcsh_usb_policy.example system/example
 ```

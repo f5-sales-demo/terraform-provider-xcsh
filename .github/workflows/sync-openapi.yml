@@ -44,7 +44,7 @@ env:
   SPEC_DIR: docs/specifications/api
   PR_TITLE: "feat: update F5 Distributed Cloud OpenAPI specifications"
   # V2 spec source configuration
-  ENRICHED_REPO: f5xc-salesdemos/api-specs-enriched
+  ENRICHED_REPO: f5-sales-demo/api-specs-enriched
   # Default to v2 specs unless overridden
   SPEC_SOURCE: ${{ inputs.spec_source || 'v2' }}
   SPEC_VERSION: ${{ inputs.spec_version || 'latest' }}
@@ -55,7 +55,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -131,7 +131,7 @@ jobs:
             # V2: Download via gh api (supports private repos)
             echo "Downloading v2 specs via gh api..."
             ASSET_ID=$(gh api "repos/${{ env.ENRICHED_REPO }}/releases" --jq \
-              '[.[0].assets[] | select(.name | startswith("f5xc-api-specs"))] | .[0].id')
+              '[.[0].assets[] | select(.name | startswith("xcsh-api-specs") or startswith("f5xc-api-specs"))] | .[0].id')
             gh api "repos/${{ env.ENRICHED_REPO }}/releases/assets/${ASSET_ID}" \
               -H "Accept: application/octet-stream" > openapi.zip
             echo "Download successful"

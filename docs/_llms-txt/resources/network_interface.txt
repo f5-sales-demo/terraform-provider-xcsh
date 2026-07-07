@@ -1,4 +1,4 @@
-# f5xc_network_interface
+# xcsh_network_interface
 
 Category: Networking
 Network interface represents configuration of a network device. it is created by users in system namespace. configuration
@@ -6,30 +6,13 @@ Network interface represents configuration of a network device. it is created by
 ## Required
 
 - name
-- namespace
 
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_network_interface" "example" {
+resource "xcsh_network_interface" "example" {
   name      = "example-network-interface"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  dedicated_interface {
-  }
-  cluster {
-  }
-  is_primary {
-  }
+  namespace = "system"
 }
 ```
 

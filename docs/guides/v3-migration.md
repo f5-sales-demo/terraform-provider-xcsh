@@ -63,8 +63,8 @@ Update your Terraform configuration to use v3.0.0:
 ```hcl
 terraform {
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = "~> 3.0"
     }
   }
@@ -138,8 +138,8 @@ If you have automation relying on resource subcategories:
 
 ## Getting Help
 
-- **Documentation**: [Provider Documentation](https://registry.terraform.io/providers/f5xc-salesdemos/f5xc/latest/docs)
-- **Issues**: [GitHub Issues](https://GitHub.com/f5xc-salesdemos/terraform-provider-f5xc/issues)
+- **Documentation**: [Provider Documentation](https://registry.terraform.io/providers/f5-sales-demo/xcsh/latest/docs)
+- **Issues**: [GitHub Issues](https://GitHub.com/f5-sales-demo/terraform-provider-xcsh/issues)
 - **F5 Support**: [F5 Distributed Cloud Console](https://console.ves.volterra.io)
 
 ## Related Guides

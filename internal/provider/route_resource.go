@@ -23,9 +23,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -473,7 +473,7 @@ type RouteRoutesRouteDestinationModel struct {
 	BufferPolicy        *RouteRoutesRouteDestinationBufferPolicyModel    `tfsdk:"buffer_policy"`
 	CORSPolicy          *RouteRoutesRouteDestinationCORSPolicyModel      `tfsdk:"cors_policy"`
 	CSRFPolicy          *RouteRoutesRouteDestinationCSRFPolicyModel      `tfsdk:"csrf_policy"`
-	Destinations        []RouteRoutesRouteDestinationDestinationsModel   `tfsdk:"destinations"`
+	Destinations        types.List                                       `tfsdk:"destinations"`
 	DoNotRetractCluster *RouteEmptyModel                                 `tfsdk:"do_not_retract_cluster"`
 	EndpointSubsets     *RouteEmptyModel                                 `tfsdk:"endpoint_subsets"`
 	HashPolicy          []RouteRoutesRouteDestinationHashPolicyModel     `tfsdk:"hash_policy"`
@@ -571,10 +571,10 @@ var RouteRoutesRouteDestinationCSRFPolicyCustomDomainListModelAttrTypes = map[st
 
 // RouteRoutesRouteDestinationDestinationsModel represents destinations block
 type RouteRoutesRouteDestinationDestinationsModel struct {
-	Priority        types.Int64                                           `tfsdk:"priority"`
-	Weight          types.Int64                                           `tfsdk:"weight"`
-	Cluster         []RouteRoutesRouteDestinationDestinationsClusterModel `tfsdk:"cluster"`
-	EndpointSubsets *RouteEmptyModel                                      `tfsdk:"endpoint_subsets"`
+	Priority        types.Int64      `tfsdk:"priority"`
+	Weight          types.Int64      `tfsdk:"weight"`
+	Cluster         types.List       `tfsdk:"cluster"`
+	EndpointSubsets *RouteEmptyModel `tfsdk:"endpoint_subsets"`
 }
 
 // RouteRoutesRouteDestinationDestinationsModelAttrTypes defines the attribute types for RouteRoutesRouteDestinationDestinationsModel
@@ -651,8 +651,8 @@ var RouteRoutesRouteDestinationHashPolicyCookieModelAttrTypes = map[string]attr.
 
 // RouteRoutesRouteDestinationMirrorPolicyModel represents mirror_policy block
 type RouteRoutesRouteDestinationMirrorPolicyModel struct {
-	Cluster []RouteRoutesRouteDestinationMirrorPolicyClusterModel `tfsdk:"cluster"`
-	Percent *RouteRoutesRouteDestinationMirrorPolicyPercentModel  `tfsdk:"percent"`
+	Cluster types.List                                           `tfsdk:"cluster"`
+	Percent *RouteRoutesRouteDestinationMirrorPolicyPercentModel `tfsdk:"percent"`
 }
 
 // RouteRoutesRouteDestinationMirrorPolicyModelAttrTypes defines the attribute types for RouteRoutesRouteDestinationMirrorPolicyModel
@@ -843,7 +843,7 @@ var RouteRoutesWAFTypeModelAttrTypes = map[string]attr.Type{
 
 // RouteRoutesWAFTypeAppFirewallModel represents app_firewall block
 type RouteRoutesWAFTypeAppFirewallModel struct {
-	AppFirewall []RouteRoutesWAFTypeAppFirewallAppFirewallModel `tfsdk:"app_firewall"`
+	AppFirewall types.List `tfsdk:"app_firewall"`
 }
 
 // RouteRoutesWAFTypeAppFirewallModelAttrTypes defines the attribute types for RouteRoutesWAFTypeAppFirewallModel
@@ -2238,382 +2238,807 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.Routes.IsNull() && !data.Routes.IsUnknown() {
-		var routesItems []RouteRoutesModel
-		diags := data.Routes.ElementsAs(ctx, &routesItems, false)
+		var RoutesElems []RouteRoutesModel
+		diags := data.Routes.ElementsAs(ctx, &RoutesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(routesItems) > 0 {
-			var routesList []map[string]interface{}
-			for _, item := range routesItems {
-				itemMap := make(map[string]interface{})
-				if item.BotDefenseJavascriptInjection != nil {
-					bot_defense_javascript_injectionNestedMap := make(map[string]interface{})
-					if !item.BotDefenseJavascriptInjection.JavascriptLocation.IsNull() && !item.BotDefenseJavascriptInjection.JavascriptLocation.IsUnknown() {
-						bot_defense_javascript_injectionNestedMap["javascript_location"] = item.BotDefenseJavascriptInjection.JavascriptLocation.ValueString()
+		if !resp.Diagnostics.HasError() && len(RoutesElems) > 0 {
+			var RoutesList []map[string]interface{}
+			for _, RoutesItem := range RoutesElems {
+				RoutesItemMap := make(map[string]interface{})
+				if RoutesItem.BotDefenseJavascriptInjection != nil {
+					BotDefenseJavascriptInjectionMap := make(map[string]interface{})
+					if !RoutesItem.BotDefenseJavascriptInjection.JavascriptLocation.IsNull() && !RoutesItem.BotDefenseJavascriptInjection.JavascriptLocation.IsUnknown() {
+						BotDefenseJavascriptInjectionMap["javascript_location"] = RoutesItem.BotDefenseJavascriptInjection.JavascriptLocation.ValueString()
 					}
-					if len(item.BotDefenseJavascriptInjection.JavascriptTags) > 0 {
-						var javascript_tagsDeepList []map[string]interface{}
-						for _, deepListItem := range item.BotDefenseJavascriptInjection.JavascriptTags {
-							deepListItemMap := make(map[string]interface{})
-							if !deepListItem.JavascriptURL.IsNull() && !deepListItem.JavascriptURL.IsUnknown() {
-								deepListItemMap["javascript_url"] = deepListItem.JavascriptURL.ValueString()
+					if len(RoutesItem.BotDefenseJavascriptInjection.JavascriptTags) > 0 {
+						var JavascriptTagsList []map[string]interface{}
+						for _, JavascriptTagsItem := range RoutesItem.BotDefenseJavascriptInjection.JavascriptTags {
+							JavascriptTagsItemMap := make(map[string]interface{})
+							if !JavascriptTagsItem.JavascriptURL.IsNull() && !JavascriptTagsItem.JavascriptURL.IsUnknown() {
+								JavascriptTagsItemMap["javascript_url"] = JavascriptTagsItem.JavascriptURL.ValueString()
 							}
-							javascript_tagsDeepList = append(javascript_tagsDeepList, deepListItemMap)
+							if len(JavascriptTagsItem.TagAttributes) > 0 {
+								var TagAttributesList []map[string]interface{}
+								for _, TagAttributesItem := range JavascriptTagsItem.TagAttributes {
+									TagAttributesItemMap := make(map[string]interface{})
+									if !TagAttributesItem.JavascriptTag.IsNull() && !TagAttributesItem.JavascriptTag.IsUnknown() {
+										TagAttributesItemMap["javascript_tag"] = TagAttributesItem.JavascriptTag.ValueString()
+									}
+									if !TagAttributesItem.TagValue.IsNull() && !TagAttributesItem.TagValue.IsUnknown() {
+										TagAttributesItemMap["tag_value"] = TagAttributesItem.TagValue.ValueString()
+									}
+									TagAttributesList = append(TagAttributesList, TagAttributesItemMap)
+								}
+								JavascriptTagsItemMap["tag_attributes"] = TagAttributesList
+							}
+							JavascriptTagsList = append(JavascriptTagsList, JavascriptTagsItemMap)
 						}
-						bot_defense_javascript_injectionNestedMap["javascript_tags"] = javascript_tagsDeepList
+						BotDefenseJavascriptInjectionMap["javascript_tags"] = JavascriptTagsList
 					}
-					itemMap["bot_defense_javascript_injection"] = bot_defense_javascript_injectionNestedMap
+					RoutesItemMap["bot_defense_javascript_injection"] = BotDefenseJavascriptInjectionMap
 				}
-				if !item.DisableLocationAdd.IsNull() && !item.DisableLocationAdd.IsUnknown() {
-					itemMap["disable_location_add"] = item.DisableLocationAdd.ValueBool()
+				if !RoutesItem.DisableLocationAdd.IsNull() && !RoutesItem.DisableLocationAdd.IsUnknown() {
+					RoutesItemMap["disable_location_add"] = RoutesItem.DisableLocationAdd.ValueBool()
 				}
-				if item.InheritedBotDefenseJavascriptInjection != nil {
-					itemMap["inherited_bot_defense_javascript_injection"] = map[string]interface{}{}
+				if RoutesItem.InheritedBotDefenseJavascriptInjection != nil {
+					RoutesItemMap["inherited_bot_defense_javascript_injection"] = map[string]interface{}{}
 				}
-				if item.InheritedWAFExclusion != nil {
-					itemMap["inherited_waf_exclusion"] = map[string]interface{}{}
+				if RoutesItem.InheritedWAFExclusion != nil {
+					RoutesItemMap["inherited_waf_exclusion"] = map[string]interface{}{}
 				}
-				if len(item.Match) > 0 {
-					var matchNestedList []map[string]interface{}
-					for _, nestedItem := range item.Match {
-						nestedItemMap := make(map[string]interface{})
-						if !nestedItem.HTTPMethod.IsNull() && !nestedItem.HTTPMethod.IsUnknown() {
-							nestedItemMap["http_method"] = nestedItem.HTTPMethod.ValueString()
+				if len(RoutesItem.Match) > 0 {
+					var MatchList []map[string]interface{}
+					for _, MatchItem := range RoutesItem.Match {
+						MatchItemMap := make(map[string]interface{})
+						if len(MatchItem.Headers) > 0 {
+							var HeadersList []map[string]interface{}
+							for _, HeadersItem := range MatchItem.Headers {
+								HeadersItemMap := make(map[string]interface{})
+								if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
+									HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
+								}
+								if !HeadersItem.InvertMatch.IsNull() && !HeadersItem.InvertMatch.IsUnknown() {
+									HeadersItemMap["invert_match"] = HeadersItem.InvertMatch.ValueBool()
+								}
+								if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+									HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+								}
+								if !HeadersItem.Presence.IsNull() && !HeadersItem.Presence.IsUnknown() {
+									HeadersItemMap["presence"] = HeadersItem.Presence.ValueBool()
+								}
+								if !HeadersItem.Regex.IsNull() && !HeadersItem.Regex.IsUnknown() {
+									HeadersItemMap["regex"] = HeadersItem.Regex.ValueString()
+								}
+								HeadersList = append(HeadersList, HeadersItemMap)
+							}
+							MatchItemMap["headers"] = HeadersList
 						}
-						matchNestedList = append(matchNestedList, nestedItemMap)
+						if !MatchItem.HTTPMethod.IsNull() && !MatchItem.HTTPMethod.IsUnknown() {
+							MatchItemMap["http_method"] = MatchItem.HTTPMethod.ValueString()
+						}
+						if MatchItem.IncomingPort != nil {
+							IncomingPortMap := make(map[string]interface{})
+							if MatchItem.IncomingPort.NoPortMatch != nil {
+								IncomingPortMap["no_port_match"] = map[string]interface{}{}
+							}
+							if !MatchItem.IncomingPort.Port.IsNull() && !MatchItem.IncomingPort.Port.IsUnknown() {
+								IncomingPortMap["port"] = MatchItem.IncomingPort.Port.ValueInt64()
+							}
+							if !MatchItem.IncomingPort.PortRanges.IsNull() && !MatchItem.IncomingPort.PortRanges.IsUnknown() {
+								IncomingPortMap["port_ranges"] = MatchItem.IncomingPort.PortRanges.ValueString()
+							}
+							MatchItemMap["incoming_port"] = IncomingPortMap
+						}
+						if MatchItem.Path != nil {
+							PathMap := make(map[string]interface{})
+							if !MatchItem.Path.Path.IsNull() && !MatchItem.Path.Path.IsUnknown() {
+								PathMap["path"] = MatchItem.Path.Path.ValueString()
+							}
+							if !MatchItem.Path.Prefix.IsNull() && !MatchItem.Path.Prefix.IsUnknown() {
+								PathMap["prefix"] = MatchItem.Path.Prefix.ValueString()
+							}
+							if !MatchItem.Path.Regex.IsNull() && !MatchItem.Path.Regex.IsUnknown() {
+								PathMap["regex"] = MatchItem.Path.Regex.ValueString()
+							}
+							MatchItemMap["path"] = PathMap
+						}
+						if len(MatchItem.QueryParams) > 0 {
+							var QueryParamsList []map[string]interface{}
+							for _, QueryParamsItem := range MatchItem.QueryParams {
+								QueryParamsItemMap := make(map[string]interface{})
+								if !QueryParamsItem.Exact.IsNull() && !QueryParamsItem.Exact.IsUnknown() {
+									QueryParamsItemMap["exact"] = QueryParamsItem.Exact.ValueString()
+								}
+								if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
+									QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
+								}
+								if !QueryParamsItem.Regex.IsNull() && !QueryParamsItem.Regex.IsUnknown() {
+									QueryParamsItemMap["regex"] = QueryParamsItem.Regex.ValueString()
+								}
+								QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
+							}
+							MatchItemMap["query_params"] = QueryParamsList
+						}
+						MatchList = append(MatchList, MatchItemMap)
 					}
-					itemMap["match"] = matchNestedList
+					RoutesItemMap["match"] = MatchList
 				}
-				if len(item.RequestCookiesToAdd) > 0 {
-					var request_cookies_to_addNestedList []map[string]interface{}
-					for _, nestedItem := range item.RequestCookiesToAdd {
-						nestedItemMap := make(map[string]interface{})
-						if !nestedItem.Name.IsNull() && !nestedItem.Name.IsUnknown() {
-							nestedItemMap["name"] = nestedItem.Name.ValueString()
+				if len(RoutesItem.RequestCookiesToAdd) > 0 {
+					var RequestCookiesToAddList []map[string]interface{}
+					for _, RequestCookiesToAddItem := range RoutesItem.RequestCookiesToAdd {
+						RequestCookiesToAddItemMap := make(map[string]interface{})
+						if !RequestCookiesToAddItem.Name.IsNull() && !RequestCookiesToAddItem.Name.IsUnknown() {
+							RequestCookiesToAddItemMap["name"] = RequestCookiesToAddItem.Name.ValueString()
 						}
-						if !nestedItem.Overwrite.IsNull() && !nestedItem.Overwrite.IsUnknown() {
-							nestedItemMap["overwrite"] = nestedItem.Overwrite.ValueBool()
+						if !RequestCookiesToAddItem.Overwrite.IsNull() && !RequestCookiesToAddItem.Overwrite.IsUnknown() {
+							RequestCookiesToAddItemMap["overwrite"] = RequestCookiesToAddItem.Overwrite.ValueBool()
 						}
-						if !nestedItem.Value.IsNull() && !nestedItem.Value.IsUnknown() {
-							nestedItemMap["value"] = nestedItem.Value.ValueString()
+						if RequestCookiesToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if RequestCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							RequestCookiesToAddItemMap["secret_value"] = SecretValueMap
 						}
-						request_cookies_to_addNestedList = append(request_cookies_to_addNestedList, nestedItemMap)
+						if !RequestCookiesToAddItem.Value.IsNull() && !RequestCookiesToAddItem.Value.IsUnknown() {
+							RequestCookiesToAddItemMap["value"] = RequestCookiesToAddItem.Value.ValueString()
+						}
+						RequestCookiesToAddList = append(RequestCookiesToAddList, RequestCookiesToAddItemMap)
 					}
-					itemMap["request_cookies_to_add"] = request_cookies_to_addNestedList
+					RoutesItemMap["request_cookies_to_add"] = RequestCookiesToAddList
 				}
-				if len(item.RequestHeadersToAdd) > 0 {
-					var request_headers_to_addNestedList []map[string]interface{}
-					for _, nestedItem := range item.RequestHeadersToAdd {
-						nestedItemMap := make(map[string]interface{})
-						if !nestedItem.Append.IsNull() && !nestedItem.Append.IsUnknown() {
-							nestedItemMap["append"] = nestedItem.Append.ValueBool()
-						}
-						if !nestedItem.Name.IsNull() && !nestedItem.Name.IsUnknown() {
-							nestedItemMap["name"] = nestedItem.Name.ValueString()
-						}
-						if !nestedItem.Value.IsNull() && !nestedItem.Value.IsUnknown() {
-							nestedItemMap["value"] = nestedItem.Value.ValueString()
-						}
-						request_headers_to_addNestedList = append(request_headers_to_addNestedList, nestedItemMap)
+				if !RoutesItem.RequestCookiesToRemove.IsNull() && !RoutesItem.RequestCookiesToRemove.IsUnknown() {
+					var RequestCookiesToRemoveItems []string
+					diags := RoutesItem.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+					if !diags.HasError() {
+						RoutesItemMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
 					}
-					itemMap["request_headers_to_add"] = request_headers_to_addNestedList
 				}
-				if len(item.ResponseCookiesToAdd) > 0 {
-					var response_cookies_to_addNestedList []map[string]interface{}
-					for _, nestedItem := range item.ResponseCookiesToAdd {
-						nestedItemMap := make(map[string]interface{})
-						if !nestedItem.AddDomain.IsNull() && !nestedItem.AddDomain.IsUnknown() {
-							nestedItemMap["add_domain"] = nestedItem.AddDomain.ValueString()
+				if len(RoutesItem.RequestHeadersToAdd) > 0 {
+					var RequestHeadersToAddList []map[string]interface{}
+					for _, RequestHeadersToAddItem := range RoutesItem.RequestHeadersToAdd {
+						RequestHeadersToAddItemMap := make(map[string]interface{})
+						if !RequestHeadersToAddItem.Append.IsNull() && !RequestHeadersToAddItem.Append.IsUnknown() {
+							RequestHeadersToAddItemMap["append"] = RequestHeadersToAddItem.Append.ValueBool()
 						}
-						if !nestedItem.AddExpiry.IsNull() && !nestedItem.AddExpiry.IsUnknown() {
-							nestedItemMap["add_expiry"] = nestedItem.AddExpiry.ValueString()
+						if !RequestHeadersToAddItem.Name.IsNull() && !RequestHeadersToAddItem.Name.IsUnknown() {
+							RequestHeadersToAddItemMap["name"] = RequestHeadersToAddItem.Name.ValueString()
 						}
-						if !nestedItem.AddPath.IsNull() && !nestedItem.AddPath.IsUnknown() {
-							nestedItemMap["add_path"] = nestedItem.AddPath.ValueString()
+						if RequestHeadersToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if RequestHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							RequestHeadersToAddItemMap["secret_value"] = SecretValueMap
 						}
-						if !nestedItem.MaxAgeValue.IsNull() && !nestedItem.MaxAgeValue.IsUnknown() {
-							nestedItemMap["max_age_value"] = nestedItem.MaxAgeValue.ValueInt64()
+						if !RequestHeadersToAddItem.Value.IsNull() && !RequestHeadersToAddItem.Value.IsUnknown() {
+							RequestHeadersToAddItemMap["value"] = RequestHeadersToAddItem.Value.ValueString()
 						}
-						if !nestedItem.Name.IsNull() && !nestedItem.Name.IsUnknown() {
-							nestedItemMap["name"] = nestedItem.Name.ValueString()
-						}
-						if !nestedItem.Overwrite.IsNull() && !nestedItem.Overwrite.IsUnknown() {
-							nestedItemMap["overwrite"] = nestedItem.Overwrite.ValueBool()
-						}
-						if !nestedItem.Value.IsNull() && !nestedItem.Value.IsUnknown() {
-							nestedItemMap["value"] = nestedItem.Value.ValueString()
-						}
-						response_cookies_to_addNestedList = append(response_cookies_to_addNestedList, nestedItemMap)
+						RequestHeadersToAddList = append(RequestHeadersToAddList, RequestHeadersToAddItemMap)
 					}
-					itemMap["response_cookies_to_add"] = response_cookies_to_addNestedList
+					RoutesItemMap["request_headers_to_add"] = RequestHeadersToAddList
 				}
-				if len(item.ResponseHeadersToAdd) > 0 {
-					var response_headers_to_addNestedList []map[string]interface{}
-					for _, nestedItem := range item.ResponseHeadersToAdd {
-						nestedItemMap := make(map[string]interface{})
-						if !nestedItem.Append.IsNull() && !nestedItem.Append.IsUnknown() {
-							nestedItemMap["append"] = nestedItem.Append.ValueBool()
-						}
-						if !nestedItem.Name.IsNull() && !nestedItem.Name.IsUnknown() {
-							nestedItemMap["name"] = nestedItem.Name.ValueString()
-						}
-						if !nestedItem.Value.IsNull() && !nestedItem.Value.IsUnknown() {
-							nestedItemMap["value"] = nestedItem.Value.ValueString()
-						}
-						response_headers_to_addNestedList = append(response_headers_to_addNestedList, nestedItemMap)
+				if !RoutesItem.RequestHeadersToRemove.IsNull() && !RoutesItem.RequestHeadersToRemove.IsUnknown() {
+					var RequestHeadersToRemoveItems []string
+					diags := RoutesItem.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+					if !diags.HasError() {
+						RoutesItemMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 					}
-					itemMap["response_headers_to_add"] = response_headers_to_addNestedList
 				}
-				if item.RouteDestination != nil {
-					route_destinationNestedMap := make(map[string]interface{})
-					if !item.RouteDestination.AutoHostRewrite.IsNull() && !item.RouteDestination.AutoHostRewrite.IsUnknown() {
-						route_destinationNestedMap["auto_host_rewrite"] = item.RouteDestination.AutoHostRewrite.ValueBool()
+				if len(RoutesItem.ResponseCookiesToAdd) > 0 {
+					var ResponseCookiesToAddList []map[string]interface{}
+					for _, ResponseCookiesToAddItem := range RoutesItem.ResponseCookiesToAdd {
+						ResponseCookiesToAddItemMap := make(map[string]interface{})
+						if !ResponseCookiesToAddItem.AddDomain.IsNull() && !ResponseCookiesToAddItem.AddDomain.IsUnknown() {
+							ResponseCookiesToAddItemMap["add_domain"] = ResponseCookiesToAddItem.AddDomain.ValueString()
+						}
+						if !ResponseCookiesToAddItem.AddExpiry.IsNull() && !ResponseCookiesToAddItem.AddExpiry.IsUnknown() {
+							ResponseCookiesToAddItemMap["add_expiry"] = ResponseCookiesToAddItem.AddExpiry.ValueString()
+						}
+						if ResponseCookiesToAddItem.AddHttponly != nil {
+							ResponseCookiesToAddItemMap["add_httponly"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.AddPartitioned != nil {
+							ResponseCookiesToAddItemMap["add_partitioned"] = map[string]interface{}{}
+						}
+						if !ResponseCookiesToAddItem.AddPath.IsNull() && !ResponseCookiesToAddItem.AddPath.IsUnknown() {
+							ResponseCookiesToAddItemMap["add_path"] = ResponseCookiesToAddItem.AddPath.ValueString()
+						}
+						if ResponseCookiesToAddItem.AddSecure != nil {
+							ResponseCookiesToAddItemMap["add_secure"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreDomain != nil {
+							ResponseCookiesToAddItemMap["ignore_domain"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreExpiry != nil {
+							ResponseCookiesToAddItemMap["ignore_expiry"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreHttponly != nil {
+							ResponseCookiesToAddItemMap["ignore_httponly"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreMaxAge != nil {
+							ResponseCookiesToAddItemMap["ignore_max_age"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnorePartitioned != nil {
+							ResponseCookiesToAddItemMap["ignore_partitioned"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnorePath != nil {
+							ResponseCookiesToAddItemMap["ignore_path"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreSamesite != nil {
+							ResponseCookiesToAddItemMap["ignore_samesite"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreSecure != nil {
+							ResponseCookiesToAddItemMap["ignore_secure"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreValue != nil {
+							ResponseCookiesToAddItemMap["ignore_value"] = map[string]interface{}{}
+						}
+						if !ResponseCookiesToAddItem.MaxAgeValue.IsNull() && !ResponseCookiesToAddItem.MaxAgeValue.IsUnknown() {
+							ResponseCookiesToAddItemMap["max_age_value"] = ResponseCookiesToAddItem.MaxAgeValue.ValueInt64()
+						}
+						if !ResponseCookiesToAddItem.Name.IsNull() && !ResponseCookiesToAddItem.Name.IsUnknown() {
+							ResponseCookiesToAddItemMap["name"] = ResponseCookiesToAddItem.Name.ValueString()
+						}
+						if !ResponseCookiesToAddItem.Overwrite.IsNull() && !ResponseCookiesToAddItem.Overwrite.IsUnknown() {
+							ResponseCookiesToAddItemMap["overwrite"] = ResponseCookiesToAddItem.Overwrite.ValueBool()
+						}
+						if ResponseCookiesToAddItem.SamesiteLax != nil {
+							ResponseCookiesToAddItemMap["samesite_lax"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.SamesiteNone != nil {
+							ResponseCookiesToAddItemMap["samesite_none"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.SamesiteStrict != nil {
+							ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if ResponseCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							ResponseCookiesToAddItemMap["secret_value"] = SecretValueMap
+						}
+						if !ResponseCookiesToAddItem.Value.IsNull() && !ResponseCookiesToAddItem.Value.IsUnknown() {
+							ResponseCookiesToAddItemMap["value"] = ResponseCookiesToAddItem.Value.ValueString()
+						}
+						ResponseCookiesToAddList = append(ResponseCookiesToAddList, ResponseCookiesToAddItemMap)
 					}
-					if item.RouteDestination.BufferPolicy != nil {
-						buffer_policyDeepMap := make(map[string]interface{})
-						if !item.RouteDestination.BufferPolicy.Disabled.IsNull() && !item.RouteDestination.BufferPolicy.Disabled.IsUnknown() {
-							buffer_policyDeepMap["disabled"] = item.RouteDestination.BufferPolicy.Disabled.ValueBool()
-						}
-						if !item.RouteDestination.BufferPolicy.MaxRequestBytes.IsNull() && !item.RouteDestination.BufferPolicy.MaxRequestBytes.IsUnknown() {
-							buffer_policyDeepMap["max_request_bytes"] = item.RouteDestination.BufferPolicy.MaxRequestBytes.ValueInt64()
-						}
-						route_destinationNestedMap["buffer_policy"] = buffer_policyDeepMap
+					RoutesItemMap["response_cookies_to_add"] = ResponseCookiesToAddList
+				}
+				if !RoutesItem.ResponseCookiesToRemove.IsNull() && !RoutesItem.ResponseCookiesToRemove.IsUnknown() {
+					var ResponseCookiesToRemoveItems []string
+					diags := RoutesItem.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+					if !diags.HasError() {
+						RoutesItemMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
 					}
-					if item.RouteDestination.CORSPolicy != nil {
-						cors_policyDeepMap := make(map[string]interface{})
-						if !item.RouteDestination.CORSPolicy.AllowCredentials.IsNull() && !item.RouteDestination.CORSPolicy.AllowCredentials.IsUnknown() {
-							cors_policyDeepMap["allow_credentials"] = item.RouteDestination.CORSPolicy.AllowCredentials.ValueBool()
+				}
+				if len(RoutesItem.ResponseHeadersToAdd) > 0 {
+					var ResponseHeadersToAddList []map[string]interface{}
+					for _, ResponseHeadersToAddItem := range RoutesItem.ResponseHeadersToAdd {
+						ResponseHeadersToAddItemMap := make(map[string]interface{})
+						if !ResponseHeadersToAddItem.Append.IsNull() && !ResponseHeadersToAddItem.Append.IsUnknown() {
+							ResponseHeadersToAddItemMap["append"] = ResponseHeadersToAddItem.Append.ValueBool()
 						}
-						if !item.RouteDestination.CORSPolicy.AllowHeaders.IsNull() && !item.RouteDestination.CORSPolicy.AllowHeaders.IsUnknown() {
-							cors_policyDeepMap["allow_headers"] = item.RouteDestination.CORSPolicy.AllowHeaders.ValueString()
+						if !ResponseHeadersToAddItem.Name.IsNull() && !ResponseHeadersToAddItem.Name.IsUnknown() {
+							ResponseHeadersToAddItemMap["name"] = ResponseHeadersToAddItem.Name.ValueString()
 						}
-						if !item.RouteDestination.CORSPolicy.AllowMethods.IsNull() && !item.RouteDestination.CORSPolicy.AllowMethods.IsUnknown() {
-							cors_policyDeepMap["allow_methods"] = item.RouteDestination.CORSPolicy.AllowMethods.ValueString()
+						if ResponseHeadersToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if ResponseHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							ResponseHeadersToAddItemMap["secret_value"] = SecretValueMap
 						}
-						if !item.RouteDestination.CORSPolicy.AllowOrigin.IsNull() && !item.RouteDestination.CORSPolicy.AllowOrigin.IsUnknown() {
+						if !ResponseHeadersToAddItem.Value.IsNull() && !ResponseHeadersToAddItem.Value.IsUnknown() {
+							ResponseHeadersToAddItemMap["value"] = ResponseHeadersToAddItem.Value.ValueString()
+						}
+						ResponseHeadersToAddList = append(ResponseHeadersToAddList, ResponseHeadersToAddItemMap)
+					}
+					RoutesItemMap["response_headers_to_add"] = ResponseHeadersToAddList
+				}
+				if !RoutesItem.ResponseHeadersToRemove.IsNull() && !RoutesItem.ResponseHeadersToRemove.IsUnknown() {
+					var ResponseHeadersToRemoveItems []string
+					diags := RoutesItem.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+					if !diags.HasError() {
+						RoutesItemMap["response_headers_to_remove"] = ResponseHeadersToRemoveItems
+					}
+				}
+				if RoutesItem.RouteDestination != nil {
+					RouteDestinationMap := make(map[string]interface{})
+					if !RoutesItem.RouteDestination.AutoHostRewrite.IsNull() && !RoutesItem.RouteDestination.AutoHostRewrite.IsUnknown() {
+						RouteDestinationMap["auto_host_rewrite"] = RoutesItem.RouteDestination.AutoHostRewrite.ValueBool()
+					}
+					if RoutesItem.RouteDestination.BufferPolicy != nil {
+						BufferPolicyMap := make(map[string]interface{})
+						if !RoutesItem.RouteDestination.BufferPolicy.Disabled.IsNull() && !RoutesItem.RouteDestination.BufferPolicy.Disabled.IsUnknown() {
+							BufferPolicyMap["disabled"] = RoutesItem.RouteDestination.BufferPolicy.Disabled.ValueBool()
+						}
+						if !RoutesItem.RouteDestination.BufferPolicy.MaxRequestBytes.IsNull() && !RoutesItem.RouteDestination.BufferPolicy.MaxRequestBytes.IsUnknown() {
+							BufferPolicyMap["max_request_bytes"] = RoutesItem.RouteDestination.BufferPolicy.MaxRequestBytes.ValueInt64()
+						}
+						RouteDestinationMap["buffer_policy"] = BufferPolicyMap
+					}
+					if RoutesItem.RouteDestination.CORSPolicy != nil {
+						CORSPolicyMap := make(map[string]interface{})
+						if !RoutesItem.RouteDestination.CORSPolicy.AllowCredentials.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.AllowCredentials.IsUnknown() {
+							CORSPolicyMap["allow_credentials"] = RoutesItem.RouteDestination.CORSPolicy.AllowCredentials.ValueBool()
+						}
+						if !RoutesItem.RouteDestination.CORSPolicy.AllowHeaders.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.AllowHeaders.IsUnknown() {
+							CORSPolicyMap["allow_headers"] = RoutesItem.RouteDestination.CORSPolicy.AllowHeaders.ValueString()
+						}
+						if !RoutesItem.RouteDestination.CORSPolicy.AllowMethods.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.AllowMethods.IsUnknown() {
+							CORSPolicyMap["allow_methods"] = RoutesItem.RouteDestination.CORSPolicy.AllowMethods.ValueString()
+						}
+						if !RoutesItem.RouteDestination.CORSPolicy.AllowOrigin.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.AllowOrigin.IsUnknown() {
 							var AllowOriginItems []string
-							diags := item.RouteDestination.CORSPolicy.AllowOrigin.ElementsAs(ctx, &AllowOriginItems, false)
+							diags := RoutesItem.RouteDestination.CORSPolicy.AllowOrigin.ElementsAs(ctx, &AllowOriginItems, false)
 							if !diags.HasError() {
-								cors_policyDeepMap["allow_origin"] = AllowOriginItems
+								CORSPolicyMap["allow_origin"] = AllowOriginItems
 							}
 						}
-						if !item.RouteDestination.CORSPolicy.AllowOriginRegex.IsNull() && !item.RouteDestination.CORSPolicy.AllowOriginRegex.IsUnknown() {
+						if !RoutesItem.RouteDestination.CORSPolicy.AllowOriginRegex.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.AllowOriginRegex.IsUnknown() {
 							var AllowOriginRegexItems []string
-							diags := item.RouteDestination.CORSPolicy.AllowOriginRegex.ElementsAs(ctx, &AllowOriginRegexItems, false)
+							diags := RoutesItem.RouteDestination.CORSPolicy.AllowOriginRegex.ElementsAs(ctx, &AllowOriginRegexItems, false)
 							if !diags.HasError() {
-								cors_policyDeepMap["allow_origin_regex"] = AllowOriginRegexItems
+								CORSPolicyMap["allow_origin_regex"] = AllowOriginRegexItems
 							}
 						}
-						if !item.RouteDestination.CORSPolicy.Disabled.IsNull() && !item.RouteDestination.CORSPolicy.Disabled.IsUnknown() {
-							cors_policyDeepMap["disabled"] = item.RouteDestination.CORSPolicy.Disabled.ValueBool()
+						if !RoutesItem.RouteDestination.CORSPolicy.Disabled.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.Disabled.IsUnknown() {
+							CORSPolicyMap["disabled"] = RoutesItem.RouteDestination.CORSPolicy.Disabled.ValueBool()
 						}
-						if !item.RouteDestination.CORSPolicy.ExposeHeaders.IsNull() && !item.RouteDestination.CORSPolicy.ExposeHeaders.IsUnknown() {
-							cors_policyDeepMap["expose_headers"] = item.RouteDestination.CORSPolicy.ExposeHeaders.ValueString()
+						if !RoutesItem.RouteDestination.CORSPolicy.ExposeHeaders.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.ExposeHeaders.IsUnknown() {
+							CORSPolicyMap["expose_headers"] = RoutesItem.RouteDestination.CORSPolicy.ExposeHeaders.ValueString()
 						}
-						if !item.RouteDestination.CORSPolicy.MaximumAge.IsNull() && !item.RouteDestination.CORSPolicy.MaximumAge.IsUnknown() {
-							cors_policyDeepMap["maximum_age"] = item.RouteDestination.CORSPolicy.MaximumAge.ValueInt64()
+						if !RoutesItem.RouteDestination.CORSPolicy.MaximumAge.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.MaximumAge.IsUnknown() {
+							CORSPolicyMap["maximum_age"] = RoutesItem.RouteDestination.CORSPolicy.MaximumAge.ValueInt64()
 						}
-						route_destinationNestedMap["cors_policy"] = cors_policyDeepMap
+						RouteDestinationMap["cors_policy"] = CORSPolicyMap
 					}
-					if item.RouteDestination.CSRFPolicy != nil {
-						csrf_policyDeepMap := make(map[string]interface{})
-						if item.RouteDestination.CSRFPolicy.AllLoadBalancerDomains != nil {
-							csrf_policyDeepMap["all_load_balancer_domains"] = map[string]interface{}{}
+					if RoutesItem.RouteDestination.CSRFPolicy != nil {
+						CSRFPolicyMap := make(map[string]interface{})
+						if RoutesItem.RouteDestination.CSRFPolicy.AllLoadBalancerDomains != nil {
+							CSRFPolicyMap["all_load_balancer_domains"] = map[string]interface{}{}
 						}
-						if item.RouteDestination.CSRFPolicy.Disabled != nil {
-							csrf_policyDeepMap["disabled"] = map[string]interface{}{}
-						}
-						route_destinationNestedMap["csrf_policy"] = csrf_policyDeepMap
-					}
-					if len(item.RouteDestination.Destinations) > 0 {
-						var destinationsDeepList []map[string]interface{}
-						for _, deepListItem := range item.RouteDestination.Destinations {
-							deepListItemMap := make(map[string]interface{})
-							if deepListItem.EndpointSubsets != nil {
-								deepListItemMap["endpoint_subsets"] = map[string]interface{}{}
+						if RoutesItem.RouteDestination.CSRFPolicy.CustomDomainList != nil {
+							CustomDomainListMap := make(map[string]interface{})
+							if !RoutesItem.RouteDestination.CSRFPolicy.CustomDomainList.Domains.IsNull() && !RoutesItem.RouteDestination.CSRFPolicy.CustomDomainList.Domains.IsUnknown() {
+								var DomainsItems []string
+								diags := RoutesItem.RouteDestination.CSRFPolicy.CustomDomainList.Domains.ElementsAs(ctx, &DomainsItems, false)
+								if !diags.HasError() {
+									CustomDomainListMap["domains"] = DomainsItems
+								}
 							}
-							if !deepListItem.Priority.IsNull() && !deepListItem.Priority.IsUnknown() {
-								deepListItemMap["priority"] = deepListItem.Priority.ValueInt64()
+							CSRFPolicyMap["custom_domain_list"] = CustomDomainListMap
+						}
+						if RoutesItem.RouteDestination.CSRFPolicy.Disabled != nil {
+							CSRFPolicyMap["disabled"] = map[string]interface{}{}
+						}
+						RouteDestinationMap["csrf_policy"] = CSRFPolicyMap
+					}
+					if !RoutesItem.RouteDestination.Destinations.IsNull() && !RoutesItem.RouteDestination.Destinations.IsUnknown() {
+						var DestinationsElems []RouteRoutesRouteDestinationDestinationsModel
+						diags := RoutesItem.RouteDestination.Destinations.ElementsAs(ctx, &DestinationsElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(DestinationsElems) > 0 {
+							var DestinationsList []map[string]interface{}
+							for _, DestinationsItem := range DestinationsElems {
+								DestinationsItemMap := make(map[string]interface{})
+								if !DestinationsItem.Cluster.IsNull() && !DestinationsItem.Cluster.IsUnknown() {
+									var ClusterElems []RouteRoutesRouteDestinationDestinationsClusterModel
+									diags := DestinationsItem.Cluster.ElementsAs(ctx, &ClusterElems, false)
+									resp.Diagnostics.Append(diags...)
+									if !resp.Diagnostics.HasError() && len(ClusterElems) > 0 {
+										var ClusterList []map[string]interface{}
+										for _, ClusterItem := range ClusterElems {
+											ClusterItemMap := make(map[string]interface{})
+											if !ClusterItem.Kind.IsNull() && !ClusterItem.Kind.IsUnknown() {
+												ClusterItemMap["kind"] = ClusterItem.Kind.ValueString()
+											}
+											if !ClusterItem.Name.IsNull() && !ClusterItem.Name.IsUnknown() {
+												ClusterItemMap["name"] = ClusterItem.Name.ValueString()
+											}
+											if !ClusterItem.Namespace.IsNull() && !ClusterItem.Namespace.IsUnknown() {
+												ClusterItemMap["namespace"] = ClusterItem.Namespace.ValueString()
+											}
+											if !ClusterItem.Tenant.IsNull() && !ClusterItem.Tenant.IsUnknown() {
+												ClusterItemMap["tenant"] = ClusterItem.Tenant.ValueString()
+											}
+											if !ClusterItem.Uid.IsNull() && !ClusterItem.Uid.IsUnknown() {
+												ClusterItemMap["uid"] = ClusterItem.Uid.ValueString()
+											}
+											ClusterList = append(ClusterList, ClusterItemMap)
+										}
+										DestinationsItemMap["cluster"] = ClusterList
+									}
+								}
+								if DestinationsItem.EndpointSubsets != nil {
+									DestinationsItemMap["endpoint_subsets"] = map[string]interface{}{}
+								}
+								if !DestinationsItem.Priority.IsNull() && !DestinationsItem.Priority.IsUnknown() {
+									DestinationsItemMap["priority"] = DestinationsItem.Priority.ValueInt64()
+								}
+								if !DestinationsItem.Weight.IsNull() && !DestinationsItem.Weight.IsUnknown() {
+									DestinationsItemMap["weight"] = DestinationsItem.Weight.ValueInt64()
+								}
+								DestinationsList = append(DestinationsList, DestinationsItemMap)
 							}
-							if !deepListItem.Weight.IsNull() && !deepListItem.Weight.IsUnknown() {
-								deepListItemMap["weight"] = deepListItem.Weight.ValueInt64()
+							RouteDestinationMap["destinations"] = DestinationsList
+						}
+					}
+					if RoutesItem.RouteDestination.DoNotRetractCluster != nil {
+						RouteDestinationMap["do_not_retract_cluster"] = map[string]interface{}{}
+					}
+					if RoutesItem.RouteDestination.EndpointSubsets != nil {
+						RouteDestinationMap["endpoint_subsets"] = map[string]interface{}{}
+					}
+					if len(RoutesItem.RouteDestination.HashPolicy) > 0 {
+						var HashPolicyList []map[string]interface{}
+						for _, HashPolicyItem := range RoutesItem.RouteDestination.HashPolicy {
+							HashPolicyItemMap := make(map[string]interface{})
+							if HashPolicyItem.Cookie != nil {
+								CookieMap := make(map[string]interface{})
+								if HashPolicyItem.Cookie.AddHttponly != nil {
+									CookieMap["add_httponly"] = map[string]interface{}{}
+								}
+								if HashPolicyItem.Cookie.AddSecure != nil {
+									CookieMap["add_secure"] = map[string]interface{}{}
+								}
+								if HashPolicyItem.Cookie.IgnoreHttponly != nil {
+									CookieMap["ignore_httponly"] = map[string]interface{}{}
+								}
+								if HashPolicyItem.Cookie.IgnoreSamesite != nil {
+									CookieMap["ignore_samesite"] = map[string]interface{}{}
+								}
+								if HashPolicyItem.Cookie.IgnoreSecure != nil {
+									CookieMap["ignore_secure"] = map[string]interface{}{}
+								}
+								if !HashPolicyItem.Cookie.Name.IsNull() && !HashPolicyItem.Cookie.Name.IsUnknown() {
+									CookieMap["name"] = HashPolicyItem.Cookie.Name.ValueString()
+								}
+								if !HashPolicyItem.Cookie.Path.IsNull() && !HashPolicyItem.Cookie.Path.IsUnknown() {
+									CookieMap["path"] = HashPolicyItem.Cookie.Path.ValueString()
+								}
+								if HashPolicyItem.Cookie.SamesiteLax != nil {
+									CookieMap["samesite_lax"] = map[string]interface{}{}
+								}
+								if HashPolicyItem.Cookie.SamesiteNone != nil {
+									CookieMap["samesite_none"] = map[string]interface{}{}
+								}
+								if HashPolicyItem.Cookie.SamesiteStrict != nil {
+									CookieMap["samesite_strict"] = map[string]interface{}{}
+								}
+								if !HashPolicyItem.Cookie.TTL.IsNull() && !HashPolicyItem.Cookie.TTL.IsUnknown() {
+									CookieMap["ttl"] = HashPolicyItem.Cookie.TTL.ValueInt64()
+								}
+								HashPolicyItemMap["cookie"] = CookieMap
 							}
-							destinationsDeepList = append(destinationsDeepList, deepListItemMap)
-						}
-						route_destinationNestedMap["destinations"] = destinationsDeepList
-					}
-					if item.RouteDestination.DoNotRetractCluster != nil {
-						route_destinationNestedMap["do_not_retract_cluster"] = map[string]interface{}{}
-					}
-					if item.RouteDestination.EndpointSubsets != nil {
-						route_destinationNestedMap["endpoint_subsets"] = map[string]interface{}{}
-					}
-					if len(item.RouteDestination.HashPolicy) > 0 {
-						var hash_policyDeepList []map[string]interface{}
-						for _, deepListItem := range item.RouteDestination.HashPolicy {
-							deepListItemMap := make(map[string]interface{})
-							if !deepListItem.HeaderName.IsNull() && !deepListItem.HeaderName.IsUnknown() {
-								deepListItemMap["header_name"] = deepListItem.HeaderName.ValueString()
+							if !HashPolicyItem.HeaderName.IsNull() && !HashPolicyItem.HeaderName.IsUnknown() {
+								HashPolicyItemMap["header_name"] = HashPolicyItem.HeaderName.ValueString()
 							}
-							if !deepListItem.SourceIP.IsNull() && !deepListItem.SourceIP.IsUnknown() {
-								deepListItemMap["source_ip"] = deepListItem.SourceIP.ValueBool()
+							if !HashPolicyItem.SourceIP.IsNull() && !HashPolicyItem.SourceIP.IsUnknown() {
+								HashPolicyItemMap["source_ip"] = HashPolicyItem.SourceIP.ValueBool()
 							}
-							if !deepListItem.Terminal.IsNull() && !deepListItem.Terminal.IsUnknown() {
-								deepListItemMap["terminal"] = deepListItem.Terminal.ValueBool()
+							if !HashPolicyItem.Terminal.IsNull() && !HashPolicyItem.Terminal.IsUnknown() {
+								HashPolicyItemMap["terminal"] = HashPolicyItem.Terminal.ValueBool()
 							}
-							hash_policyDeepList = append(hash_policyDeepList, deepListItemMap)
+							HashPolicyList = append(HashPolicyList, HashPolicyItemMap)
 						}
-						route_destinationNestedMap["hash_policy"] = hash_policyDeepList
+						RouteDestinationMap["hash_policy"] = HashPolicyList
 					}
-					if !item.RouteDestination.HostRewrite.IsNull() && !item.RouteDestination.HostRewrite.IsUnknown() {
-						route_destinationNestedMap["host_rewrite"] = item.RouteDestination.HostRewrite.ValueString()
+					if !RoutesItem.RouteDestination.HostRewrite.IsNull() && !RoutesItem.RouteDestination.HostRewrite.IsUnknown() {
+						RouteDestinationMap["host_rewrite"] = RoutesItem.RouteDestination.HostRewrite.ValueString()
 					}
-					if item.RouteDestination.MirrorPolicy != nil {
-						mirror_policyDeepMap := make(map[string]interface{})
-						route_destinationNestedMap["mirror_policy"] = mirror_policyDeepMap
-					}
-					if !item.RouteDestination.PrefixRewrite.IsNull() && !item.RouteDestination.PrefixRewrite.IsUnknown() {
-						route_destinationNestedMap["prefix_rewrite"] = item.RouteDestination.PrefixRewrite.ValueString()
-					}
-					if !item.RouteDestination.Priority.IsNull() && !item.RouteDestination.Priority.IsUnknown() {
-						route_destinationNestedMap["priority"] = item.RouteDestination.Priority.ValueString()
-					}
-					if item.RouteDestination.QueryParams != nil {
-						query_paramsDeepMap := make(map[string]interface{})
-						if item.RouteDestination.QueryParams.RemoveAllParams != nil {
-							query_paramsDeepMap["remove_all_params"] = map[string]interface{}{}
+					if RoutesItem.RouteDestination.MirrorPolicy != nil {
+						MirrorPolicyMap := make(map[string]interface{})
+						if !RoutesItem.RouteDestination.MirrorPolicy.Cluster.IsNull() && !RoutesItem.RouteDestination.MirrorPolicy.Cluster.IsUnknown() {
+							var ClusterElems []RouteRoutesRouteDestinationMirrorPolicyClusterModel
+							diags := RoutesItem.RouteDestination.MirrorPolicy.Cluster.ElementsAs(ctx, &ClusterElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ClusterElems) > 0 {
+								var ClusterList []map[string]interface{}
+								for _, ClusterItem := range ClusterElems {
+									ClusterItemMap := make(map[string]interface{})
+									if !ClusterItem.Kind.IsNull() && !ClusterItem.Kind.IsUnknown() {
+										ClusterItemMap["kind"] = ClusterItem.Kind.ValueString()
+									}
+									if !ClusterItem.Name.IsNull() && !ClusterItem.Name.IsUnknown() {
+										ClusterItemMap["name"] = ClusterItem.Name.ValueString()
+									}
+									if !ClusterItem.Namespace.IsNull() && !ClusterItem.Namespace.IsUnknown() {
+										ClusterItemMap["namespace"] = ClusterItem.Namespace.ValueString()
+									}
+									if !ClusterItem.Tenant.IsNull() && !ClusterItem.Tenant.IsUnknown() {
+										ClusterItemMap["tenant"] = ClusterItem.Tenant.ValueString()
+									}
+									if !ClusterItem.Uid.IsNull() && !ClusterItem.Uid.IsUnknown() {
+										ClusterItemMap["uid"] = ClusterItem.Uid.ValueString()
+									}
+									ClusterList = append(ClusterList, ClusterItemMap)
+								}
+								MirrorPolicyMap["cluster"] = ClusterList
+							}
 						}
-						if !item.RouteDestination.QueryParams.ReplaceParams.IsNull() && !item.RouteDestination.QueryParams.ReplaceParams.IsUnknown() {
-							query_paramsDeepMap["replace_params"] = item.RouteDestination.QueryParams.ReplaceParams.ValueString()
+						if RoutesItem.RouteDestination.MirrorPolicy.Percent != nil {
+							PercentMap := make(map[string]interface{})
+							if !RoutesItem.RouteDestination.MirrorPolicy.Percent.Denominator.IsNull() && !RoutesItem.RouteDestination.MirrorPolicy.Percent.Denominator.IsUnknown() {
+								PercentMap["denominator"] = RoutesItem.RouteDestination.MirrorPolicy.Percent.Denominator.ValueString()
+							}
+							if !RoutesItem.RouteDestination.MirrorPolicy.Percent.Numerator.IsNull() && !RoutesItem.RouteDestination.MirrorPolicy.Percent.Numerator.IsUnknown() {
+								PercentMap["numerator"] = RoutesItem.RouteDestination.MirrorPolicy.Percent.Numerator.ValueInt64()
+							}
+							MirrorPolicyMap["percent"] = PercentMap
 						}
-						if item.RouteDestination.QueryParams.RetainAllParams != nil {
-							query_paramsDeepMap["retain_all_params"] = map[string]interface{}{}
-						}
-						route_destinationNestedMap["query_params"] = query_paramsDeepMap
+						RouteDestinationMap["mirror_policy"] = MirrorPolicyMap
 					}
-					if item.RouteDestination.RegexRewrite != nil {
-						regex_rewriteDeepMap := make(map[string]interface{})
-						if !item.RouteDestination.RegexRewrite.Pattern.IsNull() && !item.RouteDestination.RegexRewrite.Pattern.IsUnknown() {
-							regex_rewriteDeepMap["pattern"] = item.RouteDestination.RegexRewrite.Pattern.ValueString()
-						}
-						if !item.RouteDestination.RegexRewrite.Substitution.IsNull() && !item.RouteDestination.RegexRewrite.Substitution.IsUnknown() {
-							regex_rewriteDeepMap["substitution"] = item.RouteDestination.RegexRewrite.Substitution.ValueString()
-						}
-						route_destinationNestedMap["regex_rewrite"] = regex_rewriteDeepMap
+					if !RoutesItem.RouteDestination.PrefixRewrite.IsNull() && !RoutesItem.RouteDestination.PrefixRewrite.IsUnknown() {
+						RouteDestinationMap["prefix_rewrite"] = RoutesItem.RouteDestination.PrefixRewrite.ValueString()
 					}
-					if item.RouteDestination.RetractCluster != nil {
-						route_destinationNestedMap["retract_cluster"] = map[string]interface{}{}
+					if !RoutesItem.RouteDestination.Priority.IsNull() && !RoutesItem.RouteDestination.Priority.IsUnknown() {
+						RouteDestinationMap["priority"] = RoutesItem.RouteDestination.Priority.ValueString()
 					}
-					if item.RouteDestination.RetryPolicy != nil {
-						retry_policyDeepMap := make(map[string]interface{})
-						if !item.RouteDestination.RetryPolicy.NumRetries.IsNull() && !item.RouteDestination.RetryPolicy.NumRetries.IsUnknown() {
-							retry_policyDeepMap["num_retries"] = item.RouteDestination.RetryPolicy.NumRetries.ValueInt64()
+					if RoutesItem.RouteDestination.QueryParams != nil {
+						QueryParamsMap := make(map[string]interface{})
+						if RoutesItem.RouteDestination.QueryParams.RemoveAllParams != nil {
+							QueryParamsMap["remove_all_params"] = map[string]interface{}{}
 						}
-						if !item.RouteDestination.RetryPolicy.PerTryTimeout.IsNull() && !item.RouteDestination.RetryPolicy.PerTryTimeout.IsUnknown() {
-							retry_policyDeepMap["per_try_timeout"] = item.RouteDestination.RetryPolicy.PerTryTimeout.ValueInt64()
+						if !RoutesItem.RouteDestination.QueryParams.ReplaceParams.IsNull() && !RoutesItem.RouteDestination.QueryParams.ReplaceParams.IsUnknown() {
+							QueryParamsMap["replace_params"] = RoutesItem.RouteDestination.QueryParams.ReplaceParams.ValueString()
 						}
-						if !item.RouteDestination.RetryPolicy.RetryCondition.IsNull() && !item.RouteDestination.RetryPolicy.RetryCondition.IsUnknown() {
+						if RoutesItem.RouteDestination.QueryParams.RetainAllParams != nil {
+							QueryParamsMap["retain_all_params"] = map[string]interface{}{}
+						}
+						RouteDestinationMap["query_params"] = QueryParamsMap
+					}
+					if RoutesItem.RouteDestination.RegexRewrite != nil {
+						RegexRewriteMap := make(map[string]interface{})
+						if !RoutesItem.RouteDestination.RegexRewrite.Pattern.IsNull() && !RoutesItem.RouteDestination.RegexRewrite.Pattern.IsUnknown() {
+							RegexRewriteMap["pattern"] = RoutesItem.RouteDestination.RegexRewrite.Pattern.ValueString()
+						}
+						if !RoutesItem.RouteDestination.RegexRewrite.Substitution.IsNull() && !RoutesItem.RouteDestination.RegexRewrite.Substitution.IsUnknown() {
+							RegexRewriteMap["substitution"] = RoutesItem.RouteDestination.RegexRewrite.Substitution.ValueString()
+						}
+						RouteDestinationMap["regex_rewrite"] = RegexRewriteMap
+					}
+					if RoutesItem.RouteDestination.RetractCluster != nil {
+						RouteDestinationMap["retract_cluster"] = map[string]interface{}{}
+					}
+					if RoutesItem.RouteDestination.RetryPolicy != nil {
+						RetryPolicyMap := make(map[string]interface{})
+						if RoutesItem.RouteDestination.RetryPolicy.BackOff != nil {
+							BackOffMap := make(map[string]interface{})
+							if !RoutesItem.RouteDestination.RetryPolicy.BackOff.BaseInterval.IsNull() && !RoutesItem.RouteDestination.RetryPolicy.BackOff.BaseInterval.IsUnknown() {
+								BackOffMap["base_interval"] = RoutesItem.RouteDestination.RetryPolicy.BackOff.BaseInterval.ValueInt64()
+							}
+							if !RoutesItem.RouteDestination.RetryPolicy.BackOff.MaxInterval.IsNull() && !RoutesItem.RouteDestination.RetryPolicy.BackOff.MaxInterval.IsUnknown() {
+								BackOffMap["max_interval"] = RoutesItem.RouteDestination.RetryPolicy.BackOff.MaxInterval.ValueInt64()
+							}
+							RetryPolicyMap["back_off"] = BackOffMap
+						}
+						if !RoutesItem.RouteDestination.RetryPolicy.NumRetries.IsNull() && !RoutesItem.RouteDestination.RetryPolicy.NumRetries.IsUnknown() {
+							RetryPolicyMap["num_retries"] = RoutesItem.RouteDestination.RetryPolicy.NumRetries.ValueInt64()
+						}
+						if !RoutesItem.RouteDestination.RetryPolicy.PerTryTimeout.IsNull() && !RoutesItem.RouteDestination.RetryPolicy.PerTryTimeout.IsUnknown() {
+							RetryPolicyMap["per_try_timeout"] = RoutesItem.RouteDestination.RetryPolicy.PerTryTimeout.ValueInt64()
+						}
+						if !RoutesItem.RouteDestination.RetryPolicy.RetriableStatusCodes.IsNull() && !RoutesItem.RouteDestination.RetryPolicy.RetriableStatusCodes.IsUnknown() {
+							var RetriableStatusCodesItems []int64
+							diags := RoutesItem.RouteDestination.RetryPolicy.RetriableStatusCodes.ElementsAs(ctx, &RetriableStatusCodesItems, false)
+							if !diags.HasError() {
+								RetryPolicyMap["retriable_status_codes"] = RetriableStatusCodesItems
+							}
+						}
+						if !RoutesItem.RouteDestination.RetryPolicy.RetryCondition.IsNull() && !RoutesItem.RouteDestination.RetryPolicy.RetryCondition.IsUnknown() {
 							var RetryConditionItems []string
-							diags := item.RouteDestination.RetryPolicy.RetryCondition.ElementsAs(ctx, &RetryConditionItems, false)
+							diags := RoutesItem.RouteDestination.RetryPolicy.RetryCondition.ElementsAs(ctx, &RetryConditionItems, false)
 							if !diags.HasError() {
-								retry_policyDeepMap["retry_condition"] = RetryConditionItems
+								RetryPolicyMap["retry_condition"] = RetryConditionItems
 							}
 						}
-						route_destinationNestedMap["retry_policy"] = retry_policyDeepMap
+						RouteDestinationMap["retry_policy"] = RetryPolicyMap
 					}
-					if item.RouteDestination.SpdyConfig != nil {
-						spdy_configDeepMap := make(map[string]interface{})
-						if !item.RouteDestination.SpdyConfig.UseSpdy.IsNull() && !item.RouteDestination.SpdyConfig.UseSpdy.IsUnknown() {
-							spdy_configDeepMap["use_spdy"] = item.RouteDestination.SpdyConfig.UseSpdy.ValueBool()
+					if RoutesItem.RouteDestination.SpdyConfig != nil {
+						SpdyConfigMap := make(map[string]interface{})
+						if !RoutesItem.RouteDestination.SpdyConfig.UseSpdy.IsNull() && !RoutesItem.RouteDestination.SpdyConfig.UseSpdy.IsUnknown() {
+							SpdyConfigMap["use_spdy"] = RoutesItem.RouteDestination.SpdyConfig.UseSpdy.ValueBool()
 						}
-						route_destinationNestedMap["spdy_config"] = spdy_configDeepMap
+						RouteDestinationMap["spdy_config"] = SpdyConfigMap
 					}
-					if !item.RouteDestination.Timeout.IsNull() && !item.RouteDestination.Timeout.IsUnknown() {
-						route_destinationNestedMap["timeout"] = item.RouteDestination.Timeout.ValueInt64()
+					if !RoutesItem.RouteDestination.Timeout.IsNull() && !RoutesItem.RouteDestination.Timeout.IsUnknown() {
+						RouteDestinationMap["timeout"] = RoutesItem.RouteDestination.Timeout.ValueInt64()
 					}
-					if item.RouteDestination.WebSocketConfig != nil {
-						web_socket_configDeepMap := make(map[string]interface{})
-						if !item.RouteDestination.WebSocketConfig.UseWebSocket.IsNull() && !item.RouteDestination.WebSocketConfig.UseWebSocket.IsUnknown() {
-							web_socket_configDeepMap["use_websocket"] = item.RouteDestination.WebSocketConfig.UseWebSocket.ValueBool()
+					if RoutesItem.RouteDestination.WebSocketConfig != nil {
+						WebSocketConfigMap := make(map[string]interface{})
+						if !RoutesItem.RouteDestination.WebSocketConfig.UseWebSocket.IsNull() && !RoutesItem.RouteDestination.WebSocketConfig.UseWebSocket.IsUnknown() {
+							WebSocketConfigMap["use_websocket"] = RoutesItem.RouteDestination.WebSocketConfig.UseWebSocket.ValueBool()
 						}
-						route_destinationNestedMap["web_socket_config"] = web_socket_configDeepMap
+						RouteDestinationMap["web_socket_config"] = WebSocketConfigMap
 					}
-					itemMap["route_destination"] = route_destinationNestedMap
+					RoutesItemMap["route_destination"] = RouteDestinationMap
 				}
-				if item.RouteDirectResponse != nil {
-					route_direct_responseNestedMap := make(map[string]interface{})
-					if !item.RouteDirectResponse.ResponseBodyEncoded.IsNull() && !item.RouteDirectResponse.ResponseBodyEncoded.IsUnknown() {
-						route_direct_responseNestedMap["response_body_encoded"] = item.RouteDirectResponse.ResponseBodyEncoded.ValueString()
+				if RoutesItem.RouteDirectResponse != nil {
+					RouteDirectResponseMap := make(map[string]interface{})
+					if !RoutesItem.RouteDirectResponse.ResponseBodyEncoded.IsNull() && !RoutesItem.RouteDirectResponse.ResponseBodyEncoded.IsUnknown() {
+						RouteDirectResponseMap["response_body_encoded"] = RoutesItem.RouteDirectResponse.ResponseBodyEncoded.ValueString()
 					}
-					if !item.RouteDirectResponse.ResponseCode.IsNull() && !item.RouteDirectResponse.ResponseCode.IsUnknown() {
-						route_direct_responseNestedMap["response_code"] = item.RouteDirectResponse.ResponseCode.ValueInt64()
+					if !RoutesItem.RouteDirectResponse.ResponseCode.IsNull() && !RoutesItem.RouteDirectResponse.ResponseCode.IsUnknown() {
+						RouteDirectResponseMap["response_code"] = RoutesItem.RouteDirectResponse.ResponseCode.ValueInt64()
 					}
-					itemMap["route_direct_response"] = route_direct_responseNestedMap
+					RoutesItemMap["route_direct_response"] = RouteDirectResponseMap
 				}
-				if item.RouteRedirect != nil {
-					route_redirectNestedMap := make(map[string]interface{})
-					if !item.RouteRedirect.HostRedirect.IsNull() && !item.RouteRedirect.HostRedirect.IsUnknown() {
-						route_redirectNestedMap["host_redirect"] = item.RouteRedirect.HostRedirect.ValueString()
+				if RoutesItem.RouteRedirect != nil {
+					RouteRedirectMap := make(map[string]interface{})
+					if !RoutesItem.RouteRedirect.HostRedirect.IsNull() && !RoutesItem.RouteRedirect.HostRedirect.IsUnknown() {
+						RouteRedirectMap["host_redirect"] = RoutesItem.RouteRedirect.HostRedirect.ValueString()
 					}
-					if !item.RouteRedirect.PathRedirect.IsNull() && !item.RouteRedirect.PathRedirect.IsUnknown() {
-						route_redirectNestedMap["path_redirect"] = item.RouteRedirect.PathRedirect.ValueString()
+					if !RoutesItem.RouteRedirect.PathRedirect.IsNull() && !RoutesItem.RouteRedirect.PathRedirect.IsUnknown() {
+						RouteRedirectMap["path_redirect"] = RoutesItem.RouteRedirect.PathRedirect.ValueString()
 					}
-					if !item.RouteRedirect.PrefixRewrite.IsNull() && !item.RouteRedirect.PrefixRewrite.IsUnknown() {
-						route_redirectNestedMap["prefix_rewrite"] = item.RouteRedirect.PrefixRewrite.ValueString()
+					if !RoutesItem.RouteRedirect.PrefixRewrite.IsNull() && !RoutesItem.RouteRedirect.PrefixRewrite.IsUnknown() {
+						RouteRedirectMap["prefix_rewrite"] = RoutesItem.RouteRedirect.PrefixRewrite.ValueString()
 					}
-					if !item.RouteRedirect.ProtoRedirect.IsNull() && !item.RouteRedirect.ProtoRedirect.IsUnknown() {
-						route_redirectNestedMap["proto_redirect"] = item.RouteRedirect.ProtoRedirect.ValueString()
+					if !RoutesItem.RouteRedirect.ProtoRedirect.IsNull() && !RoutesItem.RouteRedirect.ProtoRedirect.IsUnknown() {
+						RouteRedirectMap["proto_redirect"] = RoutesItem.RouteRedirect.ProtoRedirect.ValueString()
 					}
-					if item.RouteRedirect.RemoveAllParams != nil {
-						route_redirectNestedMap["remove_all_params"] = map[string]interface{}{}
+					if RoutesItem.RouteRedirect.RemoveAllParams != nil {
+						RouteRedirectMap["remove_all_params"] = map[string]interface{}{}
 					}
-					if !item.RouteRedirect.ReplaceParams.IsNull() && !item.RouteRedirect.ReplaceParams.IsUnknown() {
-						route_redirectNestedMap["replace_params"] = item.RouteRedirect.ReplaceParams.ValueString()
+					if !RoutesItem.RouteRedirect.ReplaceParams.IsNull() && !RoutesItem.RouteRedirect.ReplaceParams.IsUnknown() {
+						RouteRedirectMap["replace_params"] = RoutesItem.RouteRedirect.ReplaceParams.ValueString()
 					}
-					if !item.RouteRedirect.ResponseCode.IsNull() && !item.RouteRedirect.ResponseCode.IsUnknown() {
-						route_redirectNestedMap["response_code"] = item.RouteRedirect.ResponseCode.ValueInt64()
+					if !RoutesItem.RouteRedirect.ResponseCode.IsNull() && !RoutesItem.RouteRedirect.ResponseCode.IsUnknown() {
+						RouteRedirectMap["response_code"] = RoutesItem.RouteRedirect.ResponseCode.ValueInt64()
 					}
-					if item.RouteRedirect.RetainAllParams != nil {
-						route_redirectNestedMap["retain_all_params"] = map[string]interface{}{}
+					if RoutesItem.RouteRedirect.RetainAllParams != nil {
+						RouteRedirectMap["retain_all_params"] = map[string]interface{}{}
 					}
-					itemMap["route_redirect"] = route_redirectNestedMap
+					RoutesItemMap["route_redirect"] = RouteRedirectMap
 				}
-				if item.ServicePolicy != nil {
-					service_policyNestedMap := make(map[string]interface{})
-					if !item.ServicePolicy.DisableSpec.IsNull() && !item.ServicePolicy.DisableSpec.IsUnknown() {
-						service_policyNestedMap["disable"] = item.ServicePolicy.DisableSpec.ValueBool()
+				if RoutesItem.ServicePolicy != nil {
+					ServicePolicyMap := make(map[string]interface{})
+					if !RoutesItem.ServicePolicy.DisableSpec.IsNull() && !RoutesItem.ServicePolicy.DisableSpec.IsUnknown() {
+						ServicePolicyMap["disable"] = RoutesItem.ServicePolicy.DisableSpec.ValueBool()
 					}
-					itemMap["service_policy"] = service_policyNestedMap
+					RoutesItemMap["service_policy"] = ServicePolicyMap
 				}
-				if item.WAFExclusionPolicy != nil {
-					waf_exclusion_policyNestedMap := make(map[string]interface{})
-					if !item.WAFExclusionPolicy.Name.IsNull() && !item.WAFExclusionPolicy.Name.IsUnknown() {
-						waf_exclusion_policyNestedMap["name"] = item.WAFExclusionPolicy.Name.ValueString()
+				if RoutesItem.WAFExclusionPolicy != nil {
+					WAFExclusionPolicyMap := make(map[string]interface{})
+					if !RoutesItem.WAFExclusionPolicy.Name.IsNull() && !RoutesItem.WAFExclusionPolicy.Name.IsUnknown() {
+						WAFExclusionPolicyMap["name"] = RoutesItem.WAFExclusionPolicy.Name.ValueString()
 					}
-					if !item.WAFExclusionPolicy.Namespace.IsNull() && !item.WAFExclusionPolicy.Namespace.IsUnknown() {
-						waf_exclusion_policyNestedMap["namespace"] = item.WAFExclusionPolicy.Namespace.ValueString()
+					if !RoutesItem.WAFExclusionPolicy.Namespace.IsNull() && !RoutesItem.WAFExclusionPolicy.Namespace.IsUnknown() {
+						WAFExclusionPolicyMap["namespace"] = RoutesItem.WAFExclusionPolicy.Namespace.ValueString()
 					}
-					if !item.WAFExclusionPolicy.Tenant.IsNull() && !item.WAFExclusionPolicy.Tenant.IsUnknown() {
-						waf_exclusion_policyNestedMap["tenant"] = item.WAFExclusionPolicy.Tenant.ValueString()
+					if !RoutesItem.WAFExclusionPolicy.Tenant.IsNull() && !RoutesItem.WAFExclusionPolicy.Tenant.IsUnknown() {
+						WAFExclusionPolicyMap["tenant"] = RoutesItem.WAFExclusionPolicy.Tenant.ValueString()
 					}
-					itemMap["waf_exclusion_policy"] = waf_exclusion_policyNestedMap
+					RoutesItemMap["waf_exclusion_policy"] = WAFExclusionPolicyMap
 				}
-				if item.WAFType != nil {
-					waf_typeNestedMap := make(map[string]interface{})
-					if item.WAFType.AppFirewall != nil {
-						app_firewallDeepMap := make(map[string]interface{})
-						waf_typeNestedMap["app_firewall"] = app_firewallDeepMap
+				if RoutesItem.WAFType != nil {
+					WAFTypeMap := make(map[string]interface{})
+					if RoutesItem.WAFType.AppFirewall != nil {
+						AppFirewallMap := make(map[string]interface{})
+						if !RoutesItem.WAFType.AppFirewall.AppFirewall.IsNull() && !RoutesItem.WAFType.AppFirewall.AppFirewall.IsUnknown() {
+							var AppFirewallElems []RouteRoutesWAFTypeAppFirewallAppFirewallModel
+							diags := RoutesItem.WAFType.AppFirewall.AppFirewall.ElementsAs(ctx, &AppFirewallElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(AppFirewallElems) > 0 {
+								var AppFirewallList []map[string]interface{}
+								for _, AppFirewallItem := range AppFirewallElems {
+									AppFirewallItemMap := make(map[string]interface{})
+									if !AppFirewallItem.Kind.IsNull() && !AppFirewallItem.Kind.IsUnknown() {
+										AppFirewallItemMap["kind"] = AppFirewallItem.Kind.ValueString()
+									}
+									if !AppFirewallItem.Name.IsNull() && !AppFirewallItem.Name.IsUnknown() {
+										AppFirewallItemMap["name"] = AppFirewallItem.Name.ValueString()
+									}
+									if !AppFirewallItem.Namespace.IsNull() && !AppFirewallItem.Namespace.IsUnknown() {
+										AppFirewallItemMap["namespace"] = AppFirewallItem.Namespace.ValueString()
+									}
+									if !AppFirewallItem.Tenant.IsNull() && !AppFirewallItem.Tenant.IsUnknown() {
+										AppFirewallItemMap["tenant"] = AppFirewallItem.Tenant.ValueString()
+									}
+									if !AppFirewallItem.Uid.IsNull() && !AppFirewallItem.Uid.IsUnknown() {
+										AppFirewallItemMap["uid"] = AppFirewallItem.Uid.ValueString()
+									}
+									AppFirewallList = append(AppFirewallList, AppFirewallItemMap)
+								}
+								AppFirewallMap["app_firewall"] = AppFirewallList
+							}
+						}
+						WAFTypeMap["app_firewall"] = AppFirewallMap
 					}
-					if item.WAFType.DisableWAF != nil {
-						waf_typeNestedMap["disable_waf"] = map[string]interface{}{}
+					if RoutesItem.WAFType.DisableWAF != nil {
+						WAFTypeMap["disable_waf"] = map[string]interface{}{}
 					}
-					if item.WAFType.InheritWAF != nil {
-						waf_typeNestedMap["inherit_waf"] = map[string]interface{}{}
+					if RoutesItem.WAFType.InheritWAF != nil {
+						WAFTypeMap["inherit_waf"] = map[string]interface{}{}
 					}
-					itemMap["waf_type"] = waf_typeNestedMap
+					RoutesItemMap["waf_type"] = WAFTypeMap
 				}
-				routesList = append(routesList, itemMap)
+				RoutesList = append(RoutesList, RoutesItemMap)
 			}
-			createReq.Spec["routes"] = routesList
+			createReq.Spec["routes"] = RoutesList
 		}
 	}
 
@@ -2629,24 +3054,70 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["routes"].([]interface{}); ok && len(listData) > 0 {
-		var routesList []RouteRoutesModel
+	if !isImport && (data.Routes.IsNull() || len(data.Routes.Elements()) == 0) {
+		data.Routes = types.ListNull(types.ObjectType{AttrTypes: RouteRoutesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["routes"].([]interface{}); ok && len(listData) > 0 {
+		var RoutesList []RouteRoutesModel
 		var existingRoutesItems []RouteRoutesModel
 		if !data.Routes.IsNull() && !data.Routes.IsUnknown() {
 			data.Routes.ElementsAs(ctx, &existingRoutesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				routesList = append(routesList, RouteRoutesModel{
+				RoutesList = append(RoutesList, RouteRoutesModel{
 					BotDefenseJavascriptInjection: func() *RouteRoutesBotDefenseJavascriptInjectionModel {
-						if nestedMap, ok := itemMap["bot_defense_javascript_injection"].(map[string]interface{}); ok {
+						if BotDefenseJavascriptInjectionData, ok := itemMap["bot_defense_javascript_injection"].(map[string]interface{}); ok {
 							return &RouteRoutesBotDefenseJavascriptInjectionModel{
 								JavascriptLocation: func() types.String {
-									if v, ok := nestedMap["javascript_location"].(string); ok && v != "" {
+									if v, ok := BotDefenseJavascriptInjectionData["javascript_location"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
+								}(),
+								JavascriptTags: func() []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel {
+									if rawList, ok := BotDefenseJavascriptInjectionData["javascript_tags"].([]interface{}); ok && len(rawList) > 0 {
+										var JavascriptTagsResult []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel
+										for _, JavascriptTagsItem := range rawList {
+											if JavascriptTagsItemMap, ok := JavascriptTagsItem.(map[string]interface{}); ok {
+												JavascriptTagsResult = append(JavascriptTagsResult, RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel{
+													JavascriptURL: func() types.String {
+														if v, ok := JavascriptTagsItemMap["javascript_url"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													TagAttributes: func() []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel {
+														if rawList, ok := JavascriptTagsItemMap["tag_attributes"].([]interface{}); ok && len(rawList) > 0 {
+															var TagAttributesResult []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel
+															for _, TagAttributesItem := range rawList {
+																if TagAttributesItemMap, ok := TagAttributesItem.(map[string]interface{}); ok {
+																	TagAttributesResult = append(TagAttributesResult, RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel{
+																		JavascriptTag: func() types.String {
+																			if v, ok := TagAttributesItemMap["javascript_tag"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		TagValue: func() types.String {
+																			if v, ok := TagAttributesItemMap["tag_value"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																	})
+																}
+															}
+															return TagAttributesResult
+														}
+														return nil
+													}(),
+												})
+											}
+										}
+										return JavascriptTagsResult
+									}
+									return nil
 								}(),
 							}
 						}
@@ -2662,53 +3133,234 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].InheritedBotDefenseJavascriptInjection != nil {
 							return &RouteEmptyModel{}
 						}
+						if _, ok := itemMap["inherited_bot_defense_javascript_injection"].(map[string]interface{}); ok {
+							return &RouteEmptyModel{}
+						}
 						return nil
 					}(),
 					InheritedWAFExclusion: func() *RouteEmptyModel {
 						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].InheritedWAFExclusion != nil {
 							return &RouteEmptyModel{}
 						}
+						if _, ok := itemMap["inherited_waf_exclusion"].(map[string]interface{}); ok {
+							return &RouteEmptyModel{}
+						}
 						return nil
 					}(),
 					Match: func() []RouteRoutesMatchModel {
-						if nestedListData, ok := itemMap["match"].([]interface{}); ok && len(nestedListData) > 0 {
-							var result []RouteRoutesMatchModel
-							for _, nestedItem := range nestedListData {
-								if nestedItemMap, ok := nestedItem.(map[string]interface{}); ok {
-									result = append(result, RouteRoutesMatchModel{
+						if rawList, ok := itemMap["match"].([]interface{}); ok && len(rawList) > 0 {
+							var MatchResult []RouteRoutesMatchModel
+							for _, MatchItem := range rawList {
+								if MatchItemMap, ok := MatchItem.(map[string]interface{}); ok {
+									MatchResult = append(MatchResult, RouteRoutesMatchModel{
+										Headers: func() []RouteRoutesMatchHeadersModel {
+											if rawList, ok := MatchItemMap["headers"].([]interface{}); ok && len(rawList) > 0 {
+												var HeadersResult []RouteRoutesMatchHeadersModel
+												for _, HeadersItem := range rawList {
+													if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
+														HeadersResult = append(HeadersResult, RouteRoutesMatchHeadersModel{
+															Exact: func() types.String {
+																if v, ok := HeadersItemMap["exact"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															InvertMatch: func() types.Bool {
+																if v, ok := HeadersItemMap["invert_match"].(bool); ok {
+																	return types.BoolValue(v)
+																}
+																return types.BoolNull()
+															}(),
+															Name: func() types.String {
+																if v, ok := HeadersItemMap["name"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Presence: func() types.Bool {
+																if v, ok := HeadersItemMap["presence"].(bool); ok {
+																	return types.BoolValue(v)
+																}
+																return types.BoolNull()
+															}(),
+															Regex: func() types.String {
+																if v, ok := HeadersItemMap["regex"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														})
+													}
+												}
+												return HeadersResult
+											}
+											return nil
+										}(),
 										HTTPMethod: func() types.String {
-											if v, ok := nestedItemMap["http_method"].(string); ok && v != "" {
+											if v, ok := MatchItemMap["http_method"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
+										IncomingPort: func() *RouteRoutesMatchIncomingPortModel {
+											if IncomingPortData, ok := MatchItemMap["incoming_port"].(map[string]interface{}); ok {
+												return &RouteRoutesMatchIncomingPortModel{
+													NoPortMatch: func() *RouteEmptyModel {
+														if _, ok := IncomingPortData["no_port_match"].(map[string]interface{}); ok {
+															return &RouteEmptyModel{}
+														}
+														return nil
+													}(),
+													Port: func() types.Int64 {
+														if v, ok := IncomingPortData["port"].(float64); ok && v != 0 {
+															return types.Int64Value(int64(v))
+														}
+														return types.Int64Null()
+													}(),
+													PortRanges: func() types.String {
+														if v, ok := IncomingPortData["port_ranges"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												}
+											}
+											return nil
+										}(),
+										Path: func() *RouteRoutesMatchPathModel {
+											if PathData, ok := MatchItemMap["path"].(map[string]interface{}); ok {
+												return &RouteRoutesMatchPathModel{
+													Path: func() types.String {
+														if v, ok := PathData["path"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													Prefix: func() types.String {
+														if v, ok := PathData["prefix"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													Regex: func() types.String {
+														if v, ok := PathData["regex"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												}
+											}
+											return nil
+										}(),
+										QueryParams: func() []RouteRoutesMatchQueryParamsModel {
+											if rawList, ok := MatchItemMap["query_params"].([]interface{}); ok && len(rawList) > 0 {
+												var QueryParamsResult []RouteRoutesMatchQueryParamsModel
+												for _, QueryParamsItem := range rawList {
+													if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
+														QueryParamsResult = append(QueryParamsResult, RouteRoutesMatchQueryParamsModel{
+															Exact: func() types.String {
+																if v, ok := QueryParamsItemMap["exact"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Key: func() types.String {
+																if v, ok := QueryParamsItemMap["key"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Regex: func() types.String {
+																if v, ok := QueryParamsItemMap["regex"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														})
+													}
+												}
+												return QueryParamsResult
+											}
+											return nil
+										}(),
 									})
 								}
 							}
-							return result
+							return MatchResult
 						}
 						return nil
 					}(),
 					RequestCookiesToAdd: func() []RouteRoutesRequestCookiesToAddModel {
-						if nestedListData, ok := itemMap["request_cookies_to_add"].([]interface{}); ok && len(nestedListData) > 0 {
-							var result []RouteRoutesRequestCookiesToAddModel
-							for _, nestedItem := range nestedListData {
-								if nestedItemMap, ok := nestedItem.(map[string]interface{}); ok {
-									result = append(result, RouteRoutesRequestCookiesToAddModel{
+						if rawList, ok := itemMap["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+							var RequestCookiesToAddResult []RouteRoutesRequestCookiesToAddModel
+							for _, RequestCookiesToAddItem := range rawList {
+								if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
+									RequestCookiesToAddResult = append(RequestCookiesToAddResult, RouteRoutesRequestCookiesToAddModel{
 										Name: func() types.String {
-											if v, ok := nestedItemMap["name"].(string); ok && v != "" {
+											if v, ok := RequestCookiesToAddItemMap["name"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
 										Overwrite: func() types.Bool {
-											if v, ok := nestedItemMap["overwrite"].(bool); ok {
+											if v, ok := RequestCookiesToAddItemMap["overwrite"].(bool); ok {
 												return types.BoolValue(v)
 											}
 											return types.BoolNull()
 										}(),
+										SecretValue: func() *RouteRoutesRequestCookiesToAddSecretValueModel {
+											if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+												return &RouteRoutesRequestCookiesToAddSecretValueModel{
+													BlindfoldSecretInfo: func() *RouteRoutesRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																DecryptionProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Location: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																StoreProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+													ClearSecretInfo: func() *RouteRoutesRequestCookiesToAddSecretValueClearSecretInfoModel {
+														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesRequestCookiesToAddSecretValueClearSecretInfoModel{
+																Provider: func() types.String {
+																	if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																URL: func() types.String {
+																	if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+												}
+											}
+											return nil
+										}(),
 										Value: func() types.String {
-											if v, ok := nestedItemMap["value"].(string); ok && v != "" {
+											if v, ok := RequestCookiesToAddItemMap["value"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
@@ -2716,7 +3368,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									})
 								}
 							}
-							return result
+							return RequestCookiesToAddResult
 						}
 						return nil
 					}(),
@@ -2734,25 +3386,76 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						return types.ListNull(types.StringType)
 					}(),
 					RequestHeadersToAdd: func() []RouteRoutesRequestHeadersToAddModel {
-						if nestedListData, ok := itemMap["request_headers_to_add"].([]interface{}); ok && len(nestedListData) > 0 {
-							var result []RouteRoutesRequestHeadersToAddModel
-							for _, nestedItem := range nestedListData {
-								if nestedItemMap, ok := nestedItem.(map[string]interface{}); ok {
-									result = append(result, RouteRoutesRequestHeadersToAddModel{
+						if rawList, ok := itemMap["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+							var RequestHeadersToAddResult []RouteRoutesRequestHeadersToAddModel
+							for _, RequestHeadersToAddItem := range rawList {
+								if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
+									RequestHeadersToAddResult = append(RequestHeadersToAddResult, RouteRoutesRequestHeadersToAddModel{
 										Append: func() types.Bool {
-											if v, ok := nestedItemMap["append"].(bool); ok {
+											if v, ok := RequestHeadersToAddItemMap["append"].(bool); ok {
 												return types.BoolValue(v)
 											}
 											return types.BoolNull()
 										}(),
 										Name: func() types.String {
-											if v, ok := nestedItemMap["name"].(string); ok && v != "" {
+											if v, ok := RequestHeadersToAddItemMap["name"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
+										SecretValue: func() *RouteRoutesRequestHeadersToAddSecretValueModel {
+											if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+												return &RouteRoutesRequestHeadersToAddSecretValueModel{
+													BlindfoldSecretInfo: func() *RouteRoutesRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																DecryptionProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Location: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																StoreProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+													ClearSecretInfo: func() *RouteRoutesRequestHeadersToAddSecretValueClearSecretInfoModel {
+														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesRequestHeadersToAddSecretValueClearSecretInfoModel{
+																Provider: func() types.String {
+																	if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																URL: func() types.String {
+																	if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+												}
+											}
+											return nil
+										}(),
 										Value: func() types.String {
-											if v, ok := nestedItemMap["value"].(string); ok && v != "" {
+											if v, ok := RequestHeadersToAddItemMap["value"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
@@ -2760,7 +3463,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									})
 								}
 							}
-							return result
+							return RequestHeadersToAddResult
 						}
 						return nil
 					}(),
@@ -2778,49 +3481,190 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						return types.ListNull(types.StringType)
 					}(),
 					ResponseCookiesToAdd: func() []RouteRoutesResponseCookiesToAddModel {
-						if nestedListData, ok := itemMap["response_cookies_to_add"].([]interface{}); ok && len(nestedListData) > 0 {
-							var result []RouteRoutesResponseCookiesToAddModel
-							for _, nestedItem := range nestedListData {
-								if nestedItemMap, ok := nestedItem.(map[string]interface{}); ok {
-									result = append(result, RouteRoutesResponseCookiesToAddModel{
+						if rawList, ok := itemMap["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+							var ResponseCookiesToAddResult []RouteRoutesResponseCookiesToAddModel
+							for _, ResponseCookiesToAddItem := range rawList {
+								if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
+									ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, RouteRoutesResponseCookiesToAddModel{
 										AddDomain: func() types.String {
-											if v, ok := nestedItemMap["add_domain"].(string); ok && v != "" {
+											if v, ok := ResponseCookiesToAddItemMap["add_domain"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
 										AddExpiry: func() types.String {
-											if v, ok := nestedItemMap["add_expiry"].(string); ok && v != "" {
+											if v, ok := ResponseCookiesToAddItemMap["add_expiry"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
+										}(),
+										AddHttponly: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										AddPartitioned: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
 										}(),
 										AddPath: func() types.String {
-											if v, ok := nestedItemMap["add_path"].(string); ok && v != "" {
+											if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
+										AddSecure: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnoreDomain: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnoreExpiry: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnoreHttponly: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnoreMaxAge: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnorePartitioned: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnorePath: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnoreSamesite: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnoreSecure: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnoreValue: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
 										MaxAgeValue: func() types.Int64 {
-											if v, ok := nestedItemMap["max_age_value"].(float64); ok && v != 0 {
+											if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
 												return types.Int64Value(int64(v))
 											}
 											return types.Int64Null()
 										}(),
 										Name: func() types.String {
-											if v, ok := nestedItemMap["name"].(string); ok && v != "" {
+											if v, ok := ResponseCookiesToAddItemMap["name"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
 										Overwrite: func() types.Bool {
-											if v, ok := nestedItemMap["overwrite"].(bool); ok {
+											if v, ok := ResponseCookiesToAddItemMap["overwrite"].(bool); ok {
 												return types.BoolValue(v)
 											}
 											return types.BoolNull()
 										}(),
+										SamesiteLax: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										SamesiteNone: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										SamesiteStrict: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										SecretValue: func() *RouteRoutesResponseCookiesToAddSecretValueModel {
+											if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+												return &RouteRoutesResponseCookiesToAddSecretValueModel{
+													BlindfoldSecretInfo: func() *RouteRoutesResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																DecryptionProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Location: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																StoreProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+													ClearSecretInfo: func() *RouteRoutesResponseCookiesToAddSecretValueClearSecretInfoModel {
+														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesResponseCookiesToAddSecretValueClearSecretInfoModel{
+																Provider: func() types.String {
+																	if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																URL: func() types.String {
+																	if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+												}
+											}
+											return nil
+										}(),
 										Value: func() types.String {
-											if v, ok := nestedItemMap["value"].(string); ok && v != "" {
+											if v, ok := ResponseCookiesToAddItemMap["value"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
@@ -2828,7 +3672,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									})
 								}
 							}
-							return result
+							return ResponseCookiesToAddResult
 						}
 						return nil
 					}(),
@@ -2846,25 +3690,76 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						return types.ListNull(types.StringType)
 					}(),
 					ResponseHeadersToAdd: func() []RouteRoutesResponseHeadersToAddModel {
-						if nestedListData, ok := itemMap["response_headers_to_add"].([]interface{}); ok && len(nestedListData) > 0 {
-							var result []RouteRoutesResponseHeadersToAddModel
-							for _, nestedItem := range nestedListData {
-								if nestedItemMap, ok := nestedItem.(map[string]interface{}); ok {
-									result = append(result, RouteRoutesResponseHeadersToAddModel{
+						if rawList, ok := itemMap["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+							var ResponseHeadersToAddResult []RouteRoutesResponseHeadersToAddModel
+							for _, ResponseHeadersToAddItem := range rawList {
+								if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
+									ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, RouteRoutesResponseHeadersToAddModel{
 										Append: func() types.Bool {
-											if v, ok := nestedItemMap["append"].(bool); ok {
+											if v, ok := ResponseHeadersToAddItemMap["append"].(bool); ok {
 												return types.BoolValue(v)
 											}
 											return types.BoolNull()
 										}(),
 										Name: func() types.String {
-											if v, ok := nestedItemMap["name"].(string); ok && v != "" {
+											if v, ok := ResponseHeadersToAddItemMap["name"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
+										SecretValue: func() *RouteRoutesResponseHeadersToAddSecretValueModel {
+											if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+												return &RouteRoutesResponseHeadersToAddSecretValueModel{
+													BlindfoldSecretInfo: func() *RouteRoutesResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																DecryptionProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Location: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																StoreProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+													ClearSecretInfo: func() *RouteRoutesResponseHeadersToAddSecretValueClearSecretInfoModel {
+														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesResponseHeadersToAddSecretValueClearSecretInfoModel{
+																Provider: func() types.String {
+																	if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																URL: func() types.String {
+																	if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+												}
+											}
+											return nil
+										}(),
 										Value: func() types.String {
-											if v, ok := nestedItemMap["value"].(string); ok && v != "" {
+											if v, ok := ResponseHeadersToAddItemMap["value"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
@@ -2872,7 +3767,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									})
 								}
 							}
-							return result
+							return ResponseHeadersToAddResult
 						}
 						return nil
 					}(),
@@ -2890,71 +3785,582 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						return types.ListNull(types.StringType)
 					}(),
 					RouteDestination: func() *RouteRoutesRouteDestinationModel {
-						if nestedMap, ok := itemMap["route_destination"].(map[string]interface{}); ok {
+						if RouteDestinationData, ok := itemMap["route_destination"].(map[string]interface{}); ok {
 							return &RouteRoutesRouteDestinationModel{
 								AutoHostRewrite: func() types.Bool {
-									if v, ok := nestedMap["auto_host_rewrite"].(bool); ok {
+									if v, ok := RouteDestinationData["auto_host_rewrite"].(bool); ok {
 										return types.BoolValue(v)
 									}
 									return types.BoolNull()
 								}(),
+								BufferPolicy: func() *RouteRoutesRouteDestinationBufferPolicyModel {
+									if BufferPolicyData, ok := RouteDestinationData["buffer_policy"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationBufferPolicyModel{
+											Disabled: func() types.Bool {
+												if v, ok := BufferPolicyData["disabled"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											MaxRequestBytes: func() types.Int64 {
+												if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								CORSPolicy: func() *RouteRoutesRouteDestinationCORSPolicyModel {
+									if CORSPolicyData, ok := RouteDestinationData["cors_policy"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationCORSPolicyModel{
+											AllowCredentials: func() types.Bool {
+												if v, ok := CORSPolicyData["allow_credentials"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											AllowHeaders: func() types.String {
+												if v, ok := CORSPolicyData["allow_headers"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											AllowMethods: func() types.String {
+												if v, ok := CORSPolicyData["allow_methods"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											AllowOrigin: func() types.List {
+												if v, ok := CORSPolicyData["allow_origin"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											AllowOriginRegex: func() types.List {
+												if v, ok := CORSPolicyData["allow_origin_regex"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											Disabled: func() types.Bool {
+												if v, ok := CORSPolicyData["disabled"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											ExposeHeaders: func() types.String {
+												if v, ok := CORSPolicyData["expose_headers"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											MaximumAge: func() types.Int64 {
+												if v, ok := CORSPolicyData["maximum_age"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								CSRFPolicy: func() *RouteRoutesRouteDestinationCSRFPolicyModel {
+									if CSRFPolicyData, ok := RouteDestinationData["csrf_policy"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationCSRFPolicyModel{
+											AllLoadBalancerDomains: func() *RouteEmptyModel {
+												if _, ok := CSRFPolicyData["all_load_balancer_domains"].(map[string]interface{}); ok {
+													return &RouteEmptyModel{}
+												}
+												return nil
+											}(),
+											CustomDomainList: func() *RouteRoutesRouteDestinationCSRFPolicyCustomDomainListModel {
+												if CustomDomainListData, ok := CSRFPolicyData["custom_domain_list"].(map[string]interface{}); ok {
+													return &RouteRoutesRouteDestinationCSRFPolicyCustomDomainListModel{
+														Domains: func() types.List {
+															if v, ok := CustomDomainListData["domains"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Disabled: func() *RouteEmptyModel {
+												if _, ok := CSRFPolicyData["disabled"].(map[string]interface{}); ok {
+													return &RouteEmptyModel{}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Destinations: func() types.List {
+									if rawList, ok := RouteDestinationData["destinations"].([]interface{}); ok && len(rawList) > 0 {
+										var DestinationsResult []RouteRoutesRouteDestinationDestinationsModel
+										for _, DestinationsItem := range rawList {
+											if DestinationsItemMap, ok := DestinationsItem.(map[string]interface{}); ok {
+												DestinationsResult = append(DestinationsResult, RouteRoutesRouteDestinationDestinationsModel{
+													Cluster: func() types.List {
+														if rawList, ok := DestinationsItemMap["cluster"].([]interface{}); ok && len(rawList) > 0 {
+															var ClusterResult []RouteRoutesRouteDestinationDestinationsClusterModel
+															for _, ClusterItem := range rawList {
+																if ClusterItemMap, ok := ClusterItem.(map[string]interface{}); ok {
+																	ClusterResult = append(ClusterResult, RouteRoutesRouteDestinationDestinationsClusterModel{
+																		Kind: func() types.String {
+																			if v, ok := ClusterItemMap["kind"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Name: func() types.String {
+																			if v, ok := ClusterItemMap["name"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Namespace: func() types.String {
+																			if v, ok := ClusterItemMap["namespace"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Tenant: func() types.String {
+																			if v, ok := ClusterItemMap["tenant"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Uid: func() types.String {
+																			if v, ok := ClusterItemMap["uid"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																	})
+																}
+															}
+															listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsClusterModelAttrTypes}, ClusterResult)
+															return listVal
+														}
+														return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsClusterModelAttrTypes})
+													}(),
+													EndpointSubsets: func() *RouteEmptyModel {
+														if _, ok := DestinationsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
+															return &RouteEmptyModel{}
+														}
+														return nil
+													}(),
+													Priority: func() types.Int64 {
+														if v, ok := DestinationsItemMap["priority"].(float64); ok && v != 0 {
+															return types.Int64Value(int64(v))
+														}
+														return types.Int64Null()
+													}(),
+													Weight: func() types.Int64 {
+														if v, ok := DestinationsItemMap["weight"].(float64); ok && v != 0 {
+															return types.Int64Value(int64(v))
+														}
+														return types.Int64Null()
+													}(),
+												})
+											}
+										}
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsModelAttrTypes}, DestinationsResult)
+										return listVal
+									}
+									return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsModelAttrTypes})
+								}(),
 								DoNotRetractCluster: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.DoNotRetractCluster != nil {
+									if _, ok := RouteDestinationData["do_not_retract_cluster"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
 								EndpointSubsets: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.EndpointSubsets != nil {
+									if _, ok := RouteDestinationData["endpoint_subsets"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
+								HashPolicy: func() []RouteRoutesRouteDestinationHashPolicyModel {
+									if rawList, ok := RouteDestinationData["hash_policy"].([]interface{}); ok && len(rawList) > 0 {
+										var HashPolicyResult []RouteRoutesRouteDestinationHashPolicyModel
+										for _, HashPolicyItem := range rawList {
+											if HashPolicyItemMap, ok := HashPolicyItem.(map[string]interface{}); ok {
+												HashPolicyResult = append(HashPolicyResult, RouteRoutesRouteDestinationHashPolicyModel{
+													Cookie: func() *RouteRoutesRouteDestinationHashPolicyCookieModel {
+														if CookieData, ok := HashPolicyItemMap["cookie"].(map[string]interface{}); ok {
+															return &RouteRoutesRouteDestinationHashPolicyCookieModel{
+																AddHttponly: func() *RouteEmptyModel {
+																	if _, ok := CookieData["add_httponly"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																AddSecure: func() *RouteEmptyModel {
+																	if _, ok := CookieData["add_secure"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																IgnoreHttponly: func() *RouteEmptyModel {
+																	if _, ok := CookieData["ignore_httponly"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																IgnoreSamesite: func() *RouteEmptyModel {
+																	if _, ok := CookieData["ignore_samesite"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																IgnoreSecure: func() *RouteEmptyModel {
+																	if _, ok := CookieData["ignore_secure"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																Name: func() types.String {
+																	if v, ok := CookieData["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Path: func() types.String {
+																	if v, ok := CookieData["path"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																SamesiteLax: func() *RouteEmptyModel {
+																	if _, ok := CookieData["samesite_lax"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																SamesiteNone: func() *RouteEmptyModel {
+																	if _, ok := CookieData["samesite_none"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																SamesiteStrict: func() *RouteEmptyModel {
+																	if _, ok := CookieData["samesite_strict"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																TTL: func() types.Int64 {
+																	if v, ok := CookieData["ttl"].(float64); ok && v != 0 {
+																		return types.Int64Value(int64(v))
+																	}
+																	return types.Int64Null()
+																}(),
+															}
+														}
+														return nil
+													}(),
+													HeaderName: func() types.String {
+														if v, ok := HashPolicyItemMap["header_name"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													SourceIP: func() types.Bool {
+														if v, ok := HashPolicyItemMap["source_ip"].(bool); ok {
+															return types.BoolValue(v)
+														}
+														return types.BoolNull()
+													}(),
+													Terminal: func() types.Bool {
+														if v, ok := HashPolicyItemMap["terminal"].(bool); ok {
+															return types.BoolValue(v)
+														}
+														return types.BoolNull()
+													}(),
+												})
+											}
+										}
+										return HashPolicyResult
+									}
+									return nil
+								}(),
 								HostRewrite: func() types.String {
-									if v, ok := nestedMap["host_rewrite"].(string); ok && v != "" {
+									if v, ok := RouteDestinationData["host_rewrite"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
+								MirrorPolicy: func() *RouteRoutesRouteDestinationMirrorPolicyModel {
+									if MirrorPolicyData, ok := RouteDestinationData["mirror_policy"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationMirrorPolicyModel{
+											Cluster: func() types.List {
+												if rawList, ok := MirrorPolicyData["cluster"].([]interface{}); ok && len(rawList) > 0 {
+													var ClusterResult []RouteRoutesRouteDestinationMirrorPolicyClusterModel
+													for _, ClusterItem := range rawList {
+														if ClusterItemMap, ok := ClusterItem.(map[string]interface{}); ok {
+															ClusterResult = append(ClusterResult, RouteRoutesRouteDestinationMirrorPolicyClusterModel{
+																Kind: func() types.String {
+																	if v, ok := ClusterItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := ClusterItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := ClusterItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := ClusterItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := ClusterItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesRouteDestinationMirrorPolicyClusterModelAttrTypes}, ClusterResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationMirrorPolicyClusterModelAttrTypes})
+											}(),
+											Percent: func() *RouteRoutesRouteDestinationMirrorPolicyPercentModel {
+												if PercentData, ok := MirrorPolicyData["percent"].(map[string]interface{}); ok {
+													return &RouteRoutesRouteDestinationMirrorPolicyPercentModel{
+														Denominator: func() types.String {
+															if v, ok := PercentData["denominator"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Numerator: func() types.Int64 {
+															if v, ok := PercentData["numerator"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
 								PrefixRewrite: func() types.String {
-									if v, ok := nestedMap["prefix_rewrite"].(string); ok && v != "" {
+									if v, ok := RouteDestinationData["prefix_rewrite"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Priority: func() types.String {
-									if v, ok := nestedMap["priority"].(string); ok && v != "" {
+									if v, ok := RouteDestinationData["priority"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
+								QueryParams: func() *RouteRoutesRouteDestinationQueryParamsModel {
+									if QueryParamsData, ok := RouteDestinationData["query_params"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationQueryParamsModel{
+											RemoveAllParams: func() *RouteEmptyModel {
+												if _, ok := QueryParamsData["remove_all_params"].(map[string]interface{}); ok {
+													return &RouteEmptyModel{}
+												}
+												return nil
+											}(),
+											ReplaceParams: func() types.String {
+												if v, ok := QueryParamsData["replace_params"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											RetainAllParams: func() *RouteEmptyModel {
+												if _, ok := QueryParamsData["retain_all_params"].(map[string]interface{}); ok {
+													return &RouteEmptyModel{}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								RegexRewrite: func() *RouteRoutesRouteDestinationRegexRewriteModel {
+									if RegexRewriteData, ok := RouteDestinationData["regex_rewrite"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationRegexRewriteModel{
+											Pattern: func() types.String {
+												if v, ok := RegexRewriteData["pattern"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Substitution: func() types.String {
+												if v, ok := RegexRewriteData["substitution"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
 								RetractCluster: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetractCluster != nil {
+									if _, ok := RouteDestinationData["retract_cluster"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
+								RetryPolicy: func() *RouteRoutesRouteDestinationRetryPolicyModel {
+									if RetryPolicyData, ok := RouteDestinationData["retry_policy"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationRetryPolicyModel{
+											BackOff: func() *RouteRoutesRouteDestinationRetryPolicyBackOffModel {
+												if BackOffData, ok := RetryPolicyData["back_off"].(map[string]interface{}); ok {
+													return &RouteRoutesRouteDestinationRetryPolicyBackOffModel{
+														BaseInterval: func() types.Int64 {
+															if v, ok := BackOffData["base_interval"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														MaxInterval: func() types.Int64 {
+															if v, ok := BackOffData["max_interval"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											NumRetries: func() types.Int64 {
+												if v, ok := RetryPolicyData["num_retries"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+											PerTryTimeout: func() types.Int64 {
+												if v, ok := RetryPolicyData["per_try_timeout"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+											RetriableStatusCodes: func() types.List {
+												if v, ok := RetryPolicyData["retriable_status_codes"].([]interface{}); ok && len(v) > 0 {
+													var items []int64
+													for _, item := range v {
+														if s, ok := item.(float64); ok {
+															items = append(items, int64(s))
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													return listVal
+												}
+												return types.ListNull(types.Int64Type)
+											}(),
+											RetryCondition: func() types.List {
+												if v, ok := RetryPolicyData["retry_condition"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								SpdyConfig: func() *RouteRoutesRouteDestinationSpdyConfigModel {
+									if SpdyConfigData, ok := RouteDestinationData["spdy_config"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationSpdyConfigModel{
+											UseSpdy: func() types.Bool {
+												if v, ok := SpdyConfigData["use_spdy"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
 								Timeout: func() types.Int64 {
-									if v, ok := nestedMap["timeout"].(float64); ok && v != 0 {
+									if v, ok := RouteDestinationData["timeout"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
+								}(),
+								WebSocketConfig: func() *RouteRoutesRouteDestinationWebSocketConfigModel {
+									if WebSocketConfigData, ok := RouteDestinationData["web_socket_config"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationWebSocketConfigModel{
+											UseWebSocket: func() types.Bool {
+												if v, ok := WebSocketConfigData["use_websocket"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+										}
+									}
+									return nil
 								}(),
 							}
 						}
 						return nil
 					}(),
 					RouteDirectResponse: func() *RouteRoutesRouteDirectResponseModel {
-						if nestedMap, ok := itemMap["route_direct_response"].(map[string]interface{}); ok {
+						if RouteDirectResponseData, ok := itemMap["route_direct_response"].(map[string]interface{}); ok {
 							return &RouteRoutesRouteDirectResponseModel{
 								ResponseBodyEncoded: func() types.String {
-									if v, ok := nestedMap["response_body_encoded"].(string); ok && v != "" {
+									if v, ok := RouteDirectResponseData["response_body_encoded"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								ResponseCode: func() types.Int64 {
-									if v, ok := nestedMap["response_code"].(float64); ok && v != 0 {
+									if v, ok := RouteDirectResponseData["response_code"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
@@ -2964,52 +4370,52 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						return nil
 					}(),
 					RouteRedirect: func() *RouteRoutesRouteRedirectModel {
-						if nestedMap, ok := itemMap["route_redirect"].(map[string]interface{}); ok {
+						if RouteRedirectData, ok := itemMap["route_redirect"].(map[string]interface{}); ok {
 							return &RouteRoutesRouteRedirectModel{
 								HostRedirect: func() types.String {
-									if v, ok := nestedMap["host_redirect"].(string); ok && v != "" {
+									if v, ok := RouteRedirectData["host_redirect"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								PathRedirect: func() types.String {
-									if v, ok := nestedMap["path_redirect"].(string); ok && v != "" {
+									if v, ok := RouteRedirectData["path_redirect"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								PrefixRewrite: func() types.String {
-									if v, ok := nestedMap["prefix_rewrite"].(string); ok && v != "" {
+									if v, ok := RouteRedirectData["prefix_rewrite"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								ProtoRedirect: func() types.String {
-									if v, ok := nestedMap["proto_redirect"].(string); ok && v != "" {
+									if v, ok := RouteRedirectData["proto_redirect"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								RemoveAllParams: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil && existingRoutesItems[listIdx].RouteRedirect.RemoveAllParams != nil {
+									if _, ok := RouteRedirectData["remove_all_params"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
 								ReplaceParams: func() types.String {
-									if v, ok := nestedMap["replace_params"].(string); ok && v != "" {
+									if v, ok := RouteRedirectData["replace_params"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								ResponseCode: func() types.Int64 {
-									if v, ok := nestedMap["response_code"].(float64); ok && v != 0 {
+									if v, ok := RouteRedirectData["response_code"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								RetainAllParams: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil && existingRoutesItems[listIdx].RouteRedirect.RetainAllParams != nil {
+									if _, ok := RouteRedirectData["retain_all_params"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
@@ -3019,10 +4425,10 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						return nil
 					}(),
 					ServicePolicy: func() *RouteRoutesServicePolicyModel {
-						if nestedMap, ok := itemMap["service_policy"].(map[string]interface{}); ok {
+						if ServicePolicyData, ok := itemMap["service_policy"].(map[string]interface{}); ok {
 							return &RouteRoutesServicePolicyModel{
 								DisableSpec: func() types.Bool {
-									if v, ok := nestedMap["disable"].(bool); ok {
+									if v, ok := ServicePolicyData["disable"].(bool); ok {
 										return types.BoolValue(v)
 									}
 									return types.BoolNull()
@@ -3032,22 +4438,22 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						return nil
 					}(),
 					WAFExclusionPolicy: func() *RouteRoutesWAFExclusionPolicyModel {
-						if nestedMap, ok := itemMap["waf_exclusion_policy"].(map[string]interface{}); ok {
+						if WAFExclusionPolicyData, ok := itemMap["waf_exclusion_policy"].(map[string]interface{}); ok {
 							return &RouteRoutesWAFExclusionPolicyModel{
 								Name: func() types.String {
-									if v, ok := nestedMap["name"].(string); ok && v != "" {
+									if v, ok := WAFExclusionPolicyData["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := nestedMap["namespace"].(string); ok && v != "" {
+									if v, ok := WAFExclusionPolicyData["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := nestedMap["tenant"].(string); ok && v != "" {
+									if v, ok := WAFExclusionPolicyData["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -3057,16 +4463,67 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						return nil
 					}(),
 					WAFType: func() *RouteRoutesWAFTypeModel {
-						if _, ok := itemMap["waf_type"].(map[string]interface{}); ok {
+						if WAFTypeData, ok := itemMap["waf_type"].(map[string]interface{}); ok {
 							return &RouteRoutesWAFTypeModel{
+								AppFirewall: func() *RouteRoutesWAFTypeAppFirewallModel {
+									if AppFirewallData, ok := WAFTypeData["app_firewall"].(map[string]interface{}); ok {
+										return &RouteRoutesWAFTypeAppFirewallModel{
+											AppFirewall: func() types.List {
+												if rawList, ok := AppFirewallData["app_firewall"].([]interface{}); ok && len(rawList) > 0 {
+													var AppFirewallResult []RouteRoutesWAFTypeAppFirewallAppFirewallModel
+													for _, AppFirewallItem := range rawList {
+														if AppFirewallItemMap, ok := AppFirewallItem.(map[string]interface{}); ok {
+															AppFirewallResult = append(AppFirewallResult, RouteRoutesWAFTypeAppFirewallAppFirewallModel{
+																Kind: func() types.String {
+																	if v, ok := AppFirewallItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := AppFirewallItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := AppFirewallItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := AppFirewallItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := AppFirewallItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesWAFTypeAppFirewallAppFirewallModelAttrTypes}, AppFirewallResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesWAFTypeAppFirewallAppFirewallModelAttrTypes})
+											}(),
+										}
+									}
+									return nil
+								}(),
 								DisableWAF: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil && existingRoutesItems[listIdx].WAFType.DisableWAF != nil {
+									if _, ok := WAFTypeData["disable_waf"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
 								InheritWAF: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil && existingRoutesItems[listIdx].WAFType.InheritWAF != nil {
+									if _, ok := WAFTypeData["inherit_waf"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
@@ -3078,13 +4535,12 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesModelAttrTypes}, routesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesModelAttrTypes}, RoutesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Routes = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Routes = types.ListNull(types.ObjectType{AttrTypes: RouteRoutesModelAttrTypes})
 	}
 
@@ -3167,24 +4623,70 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["routes"].([]interface{}); ok && len(listData) > 0 {
-		var routesList []RouteRoutesModel
+	if !isImport && (data.Routes.IsNull() || len(data.Routes.Elements()) == 0) {
+		data.Routes = types.ListNull(types.ObjectType{AttrTypes: RouteRoutesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["routes"].([]interface{}); ok && len(listData) > 0 {
+		var RoutesList []RouteRoutesModel
 		var existingRoutesItems []RouteRoutesModel
 		if !data.Routes.IsNull() && !data.Routes.IsUnknown() {
 			data.Routes.ElementsAs(ctx, &existingRoutesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				routesList = append(routesList, RouteRoutesModel{
+				RoutesList = append(RoutesList, RouteRoutesModel{
 					BotDefenseJavascriptInjection: func() *RouteRoutesBotDefenseJavascriptInjectionModel {
-						if nestedMap, ok := itemMap["bot_defense_javascript_injection"].(map[string]interface{}); ok {
+						if BotDefenseJavascriptInjectionData, ok := itemMap["bot_defense_javascript_injection"].(map[string]interface{}); ok {
 							return &RouteRoutesBotDefenseJavascriptInjectionModel{
 								JavascriptLocation: func() types.String {
-									if v, ok := nestedMap["javascript_location"].(string); ok && v != "" {
+									if v, ok := BotDefenseJavascriptInjectionData["javascript_location"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
+								}(),
+								JavascriptTags: func() []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel {
+									if rawList, ok := BotDefenseJavascriptInjectionData["javascript_tags"].([]interface{}); ok && len(rawList) > 0 {
+										var JavascriptTagsResult []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel
+										for _, JavascriptTagsItem := range rawList {
+											if JavascriptTagsItemMap, ok := JavascriptTagsItem.(map[string]interface{}); ok {
+												JavascriptTagsResult = append(JavascriptTagsResult, RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel{
+													JavascriptURL: func() types.String {
+														if v, ok := JavascriptTagsItemMap["javascript_url"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													TagAttributes: func() []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel {
+														if rawList, ok := JavascriptTagsItemMap["tag_attributes"].([]interface{}); ok && len(rawList) > 0 {
+															var TagAttributesResult []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel
+															for _, TagAttributesItem := range rawList {
+																if TagAttributesItemMap, ok := TagAttributesItem.(map[string]interface{}); ok {
+																	TagAttributesResult = append(TagAttributesResult, RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel{
+																		JavascriptTag: func() types.String {
+																			if v, ok := TagAttributesItemMap["javascript_tag"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		TagValue: func() types.String {
+																			if v, ok := TagAttributesItemMap["tag_value"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																	})
+																}
+															}
+															return TagAttributesResult
+														}
+														return nil
+													}(),
+												})
+											}
+										}
+										return JavascriptTagsResult
+									}
+									return nil
 								}(),
 							}
 						}
@@ -3200,53 +4702,234 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].InheritedBotDefenseJavascriptInjection != nil {
 							return &RouteEmptyModel{}
 						}
+						if _, ok := itemMap["inherited_bot_defense_javascript_injection"].(map[string]interface{}); ok {
+							return &RouteEmptyModel{}
+						}
 						return nil
 					}(),
 					InheritedWAFExclusion: func() *RouteEmptyModel {
 						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].InheritedWAFExclusion != nil {
 							return &RouteEmptyModel{}
 						}
+						if _, ok := itemMap["inherited_waf_exclusion"].(map[string]interface{}); ok {
+							return &RouteEmptyModel{}
+						}
 						return nil
 					}(),
 					Match: func() []RouteRoutesMatchModel {
-						if nestedListData, ok := itemMap["match"].([]interface{}); ok && len(nestedListData) > 0 {
-							var result []RouteRoutesMatchModel
-							for _, nestedItem := range nestedListData {
-								if nestedItemMap, ok := nestedItem.(map[string]interface{}); ok {
-									result = append(result, RouteRoutesMatchModel{
+						if rawList, ok := itemMap["match"].([]interface{}); ok && len(rawList) > 0 {
+							var MatchResult []RouteRoutesMatchModel
+							for _, MatchItem := range rawList {
+								if MatchItemMap, ok := MatchItem.(map[string]interface{}); ok {
+									MatchResult = append(MatchResult, RouteRoutesMatchModel{
+										Headers: func() []RouteRoutesMatchHeadersModel {
+											if rawList, ok := MatchItemMap["headers"].([]interface{}); ok && len(rawList) > 0 {
+												var HeadersResult []RouteRoutesMatchHeadersModel
+												for _, HeadersItem := range rawList {
+													if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
+														HeadersResult = append(HeadersResult, RouteRoutesMatchHeadersModel{
+															Exact: func() types.String {
+																if v, ok := HeadersItemMap["exact"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															InvertMatch: func() types.Bool {
+																if v, ok := HeadersItemMap["invert_match"].(bool); ok {
+																	return types.BoolValue(v)
+																}
+																return types.BoolNull()
+															}(),
+															Name: func() types.String {
+																if v, ok := HeadersItemMap["name"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Presence: func() types.Bool {
+																if v, ok := HeadersItemMap["presence"].(bool); ok {
+																	return types.BoolValue(v)
+																}
+																return types.BoolNull()
+															}(),
+															Regex: func() types.String {
+																if v, ok := HeadersItemMap["regex"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														})
+													}
+												}
+												return HeadersResult
+											}
+											return nil
+										}(),
 										HTTPMethod: func() types.String {
-											if v, ok := nestedItemMap["http_method"].(string); ok && v != "" {
+											if v, ok := MatchItemMap["http_method"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
+										IncomingPort: func() *RouteRoutesMatchIncomingPortModel {
+											if IncomingPortData, ok := MatchItemMap["incoming_port"].(map[string]interface{}); ok {
+												return &RouteRoutesMatchIncomingPortModel{
+													NoPortMatch: func() *RouteEmptyModel {
+														if _, ok := IncomingPortData["no_port_match"].(map[string]interface{}); ok {
+															return &RouteEmptyModel{}
+														}
+														return nil
+													}(),
+													Port: func() types.Int64 {
+														if v, ok := IncomingPortData["port"].(float64); ok && v != 0 {
+															return types.Int64Value(int64(v))
+														}
+														return types.Int64Null()
+													}(),
+													PortRanges: func() types.String {
+														if v, ok := IncomingPortData["port_ranges"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												}
+											}
+											return nil
+										}(),
+										Path: func() *RouteRoutesMatchPathModel {
+											if PathData, ok := MatchItemMap["path"].(map[string]interface{}); ok {
+												return &RouteRoutesMatchPathModel{
+													Path: func() types.String {
+														if v, ok := PathData["path"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													Prefix: func() types.String {
+														if v, ok := PathData["prefix"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													Regex: func() types.String {
+														if v, ok := PathData["regex"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												}
+											}
+											return nil
+										}(),
+										QueryParams: func() []RouteRoutesMatchQueryParamsModel {
+											if rawList, ok := MatchItemMap["query_params"].([]interface{}); ok && len(rawList) > 0 {
+												var QueryParamsResult []RouteRoutesMatchQueryParamsModel
+												for _, QueryParamsItem := range rawList {
+													if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
+														QueryParamsResult = append(QueryParamsResult, RouteRoutesMatchQueryParamsModel{
+															Exact: func() types.String {
+																if v, ok := QueryParamsItemMap["exact"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Key: func() types.String {
+																if v, ok := QueryParamsItemMap["key"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Regex: func() types.String {
+																if v, ok := QueryParamsItemMap["regex"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														})
+													}
+												}
+												return QueryParamsResult
+											}
+											return nil
+										}(),
 									})
 								}
 							}
-							return result
+							return MatchResult
 						}
 						return nil
 					}(),
 					RequestCookiesToAdd: func() []RouteRoutesRequestCookiesToAddModel {
-						if nestedListData, ok := itemMap["request_cookies_to_add"].([]interface{}); ok && len(nestedListData) > 0 {
-							var result []RouteRoutesRequestCookiesToAddModel
-							for _, nestedItem := range nestedListData {
-								if nestedItemMap, ok := nestedItem.(map[string]interface{}); ok {
-									result = append(result, RouteRoutesRequestCookiesToAddModel{
+						if rawList, ok := itemMap["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+							var RequestCookiesToAddResult []RouteRoutesRequestCookiesToAddModel
+							for _, RequestCookiesToAddItem := range rawList {
+								if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
+									RequestCookiesToAddResult = append(RequestCookiesToAddResult, RouteRoutesRequestCookiesToAddModel{
 										Name: func() types.String {
-											if v, ok := nestedItemMap["name"].(string); ok && v != "" {
+											if v, ok := RequestCookiesToAddItemMap["name"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
 										Overwrite: func() types.Bool {
-											if v, ok := nestedItemMap["overwrite"].(bool); ok {
+											if v, ok := RequestCookiesToAddItemMap["overwrite"].(bool); ok {
 												return types.BoolValue(v)
 											}
 											return types.BoolNull()
 										}(),
+										SecretValue: func() *RouteRoutesRequestCookiesToAddSecretValueModel {
+											if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+												return &RouteRoutesRequestCookiesToAddSecretValueModel{
+													BlindfoldSecretInfo: func() *RouteRoutesRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																DecryptionProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Location: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																StoreProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+													ClearSecretInfo: func() *RouteRoutesRequestCookiesToAddSecretValueClearSecretInfoModel {
+														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesRequestCookiesToAddSecretValueClearSecretInfoModel{
+																Provider: func() types.String {
+																	if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																URL: func() types.String {
+																	if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+												}
+											}
+											return nil
+										}(),
 										Value: func() types.String {
-											if v, ok := nestedItemMap["value"].(string); ok && v != "" {
+											if v, ok := RequestCookiesToAddItemMap["value"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
@@ -3254,7 +4937,7 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									})
 								}
 							}
-							return result
+							return RequestCookiesToAddResult
 						}
 						return nil
 					}(),
@@ -3272,25 +4955,76 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						return types.ListNull(types.StringType)
 					}(),
 					RequestHeadersToAdd: func() []RouteRoutesRequestHeadersToAddModel {
-						if nestedListData, ok := itemMap["request_headers_to_add"].([]interface{}); ok && len(nestedListData) > 0 {
-							var result []RouteRoutesRequestHeadersToAddModel
-							for _, nestedItem := range nestedListData {
-								if nestedItemMap, ok := nestedItem.(map[string]interface{}); ok {
-									result = append(result, RouteRoutesRequestHeadersToAddModel{
+						if rawList, ok := itemMap["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+							var RequestHeadersToAddResult []RouteRoutesRequestHeadersToAddModel
+							for _, RequestHeadersToAddItem := range rawList {
+								if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
+									RequestHeadersToAddResult = append(RequestHeadersToAddResult, RouteRoutesRequestHeadersToAddModel{
 										Append: func() types.Bool {
-											if v, ok := nestedItemMap["append"].(bool); ok {
+											if v, ok := RequestHeadersToAddItemMap["append"].(bool); ok {
 												return types.BoolValue(v)
 											}
 											return types.BoolNull()
 										}(),
 										Name: func() types.String {
-											if v, ok := nestedItemMap["name"].(string); ok && v != "" {
+											if v, ok := RequestHeadersToAddItemMap["name"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
+										SecretValue: func() *RouteRoutesRequestHeadersToAddSecretValueModel {
+											if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+												return &RouteRoutesRequestHeadersToAddSecretValueModel{
+													BlindfoldSecretInfo: func() *RouteRoutesRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																DecryptionProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Location: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																StoreProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+													ClearSecretInfo: func() *RouteRoutesRequestHeadersToAddSecretValueClearSecretInfoModel {
+														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesRequestHeadersToAddSecretValueClearSecretInfoModel{
+																Provider: func() types.String {
+																	if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																URL: func() types.String {
+																	if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+												}
+											}
+											return nil
+										}(),
 										Value: func() types.String {
-											if v, ok := nestedItemMap["value"].(string); ok && v != "" {
+											if v, ok := RequestHeadersToAddItemMap["value"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
@@ -3298,7 +5032,7 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									})
 								}
 							}
-							return result
+							return RequestHeadersToAddResult
 						}
 						return nil
 					}(),
@@ -3316,49 +5050,190 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						return types.ListNull(types.StringType)
 					}(),
 					ResponseCookiesToAdd: func() []RouteRoutesResponseCookiesToAddModel {
-						if nestedListData, ok := itemMap["response_cookies_to_add"].([]interface{}); ok && len(nestedListData) > 0 {
-							var result []RouteRoutesResponseCookiesToAddModel
-							for _, nestedItem := range nestedListData {
-								if nestedItemMap, ok := nestedItem.(map[string]interface{}); ok {
-									result = append(result, RouteRoutesResponseCookiesToAddModel{
+						if rawList, ok := itemMap["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+							var ResponseCookiesToAddResult []RouteRoutesResponseCookiesToAddModel
+							for _, ResponseCookiesToAddItem := range rawList {
+								if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
+									ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, RouteRoutesResponseCookiesToAddModel{
 										AddDomain: func() types.String {
-											if v, ok := nestedItemMap["add_domain"].(string); ok && v != "" {
+											if v, ok := ResponseCookiesToAddItemMap["add_domain"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
 										AddExpiry: func() types.String {
-											if v, ok := nestedItemMap["add_expiry"].(string); ok && v != "" {
+											if v, ok := ResponseCookiesToAddItemMap["add_expiry"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
+										}(),
+										AddHttponly: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										AddPartitioned: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
 										}(),
 										AddPath: func() types.String {
-											if v, ok := nestedItemMap["add_path"].(string); ok && v != "" {
+											if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
+										AddSecure: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnoreDomain: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnoreExpiry: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnoreHttponly: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnoreMaxAge: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnorePartitioned: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnorePath: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnoreSamesite: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnoreSecure: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnoreValue: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
 										MaxAgeValue: func() types.Int64 {
-											if v, ok := nestedItemMap["max_age_value"].(float64); ok && v != 0 {
+											if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
 												return types.Int64Value(int64(v))
 											}
 											return types.Int64Null()
 										}(),
 										Name: func() types.String {
-											if v, ok := nestedItemMap["name"].(string); ok && v != "" {
+											if v, ok := ResponseCookiesToAddItemMap["name"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
 										Overwrite: func() types.Bool {
-											if v, ok := nestedItemMap["overwrite"].(bool); ok {
+											if v, ok := ResponseCookiesToAddItemMap["overwrite"].(bool); ok {
 												return types.BoolValue(v)
 											}
 											return types.BoolNull()
 										}(),
+										SamesiteLax: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										SamesiteNone: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										SamesiteStrict: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										SecretValue: func() *RouteRoutesResponseCookiesToAddSecretValueModel {
+											if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+												return &RouteRoutesResponseCookiesToAddSecretValueModel{
+													BlindfoldSecretInfo: func() *RouteRoutesResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																DecryptionProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Location: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																StoreProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+													ClearSecretInfo: func() *RouteRoutesResponseCookiesToAddSecretValueClearSecretInfoModel {
+														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesResponseCookiesToAddSecretValueClearSecretInfoModel{
+																Provider: func() types.String {
+																	if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																URL: func() types.String {
+																	if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+												}
+											}
+											return nil
+										}(),
 										Value: func() types.String {
-											if v, ok := nestedItemMap["value"].(string); ok && v != "" {
+											if v, ok := ResponseCookiesToAddItemMap["value"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
@@ -3366,7 +5241,7 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									})
 								}
 							}
-							return result
+							return ResponseCookiesToAddResult
 						}
 						return nil
 					}(),
@@ -3384,25 +5259,76 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						return types.ListNull(types.StringType)
 					}(),
 					ResponseHeadersToAdd: func() []RouteRoutesResponseHeadersToAddModel {
-						if nestedListData, ok := itemMap["response_headers_to_add"].([]interface{}); ok && len(nestedListData) > 0 {
-							var result []RouteRoutesResponseHeadersToAddModel
-							for _, nestedItem := range nestedListData {
-								if nestedItemMap, ok := nestedItem.(map[string]interface{}); ok {
-									result = append(result, RouteRoutesResponseHeadersToAddModel{
+						if rawList, ok := itemMap["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+							var ResponseHeadersToAddResult []RouteRoutesResponseHeadersToAddModel
+							for _, ResponseHeadersToAddItem := range rawList {
+								if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
+									ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, RouteRoutesResponseHeadersToAddModel{
 										Append: func() types.Bool {
-											if v, ok := nestedItemMap["append"].(bool); ok {
+											if v, ok := ResponseHeadersToAddItemMap["append"].(bool); ok {
 												return types.BoolValue(v)
 											}
 											return types.BoolNull()
 										}(),
 										Name: func() types.String {
-											if v, ok := nestedItemMap["name"].(string); ok && v != "" {
+											if v, ok := ResponseHeadersToAddItemMap["name"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
+										SecretValue: func() *RouteRoutesResponseHeadersToAddSecretValueModel {
+											if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+												return &RouteRoutesResponseHeadersToAddSecretValueModel{
+													BlindfoldSecretInfo: func() *RouteRoutesResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																DecryptionProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Location: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																StoreProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+													ClearSecretInfo: func() *RouteRoutesResponseHeadersToAddSecretValueClearSecretInfoModel {
+														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesResponseHeadersToAddSecretValueClearSecretInfoModel{
+																Provider: func() types.String {
+																	if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																URL: func() types.String {
+																	if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+												}
+											}
+											return nil
+										}(),
 										Value: func() types.String {
-											if v, ok := nestedItemMap["value"].(string); ok && v != "" {
+											if v, ok := ResponseHeadersToAddItemMap["value"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
@@ -3410,7 +5336,7 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									})
 								}
 							}
-							return result
+							return ResponseHeadersToAddResult
 						}
 						return nil
 					}(),
@@ -3428,71 +5354,582 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						return types.ListNull(types.StringType)
 					}(),
 					RouteDestination: func() *RouteRoutesRouteDestinationModel {
-						if nestedMap, ok := itemMap["route_destination"].(map[string]interface{}); ok {
+						if RouteDestinationData, ok := itemMap["route_destination"].(map[string]interface{}); ok {
 							return &RouteRoutesRouteDestinationModel{
 								AutoHostRewrite: func() types.Bool {
-									if v, ok := nestedMap["auto_host_rewrite"].(bool); ok {
+									if v, ok := RouteDestinationData["auto_host_rewrite"].(bool); ok {
 										return types.BoolValue(v)
 									}
 									return types.BoolNull()
 								}(),
+								BufferPolicy: func() *RouteRoutesRouteDestinationBufferPolicyModel {
+									if BufferPolicyData, ok := RouteDestinationData["buffer_policy"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationBufferPolicyModel{
+											Disabled: func() types.Bool {
+												if v, ok := BufferPolicyData["disabled"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											MaxRequestBytes: func() types.Int64 {
+												if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								CORSPolicy: func() *RouteRoutesRouteDestinationCORSPolicyModel {
+									if CORSPolicyData, ok := RouteDestinationData["cors_policy"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationCORSPolicyModel{
+											AllowCredentials: func() types.Bool {
+												if v, ok := CORSPolicyData["allow_credentials"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											AllowHeaders: func() types.String {
+												if v, ok := CORSPolicyData["allow_headers"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											AllowMethods: func() types.String {
+												if v, ok := CORSPolicyData["allow_methods"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											AllowOrigin: func() types.List {
+												if v, ok := CORSPolicyData["allow_origin"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											AllowOriginRegex: func() types.List {
+												if v, ok := CORSPolicyData["allow_origin_regex"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											Disabled: func() types.Bool {
+												if v, ok := CORSPolicyData["disabled"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											ExposeHeaders: func() types.String {
+												if v, ok := CORSPolicyData["expose_headers"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											MaximumAge: func() types.Int64 {
+												if v, ok := CORSPolicyData["maximum_age"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								CSRFPolicy: func() *RouteRoutesRouteDestinationCSRFPolicyModel {
+									if CSRFPolicyData, ok := RouteDestinationData["csrf_policy"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationCSRFPolicyModel{
+											AllLoadBalancerDomains: func() *RouteEmptyModel {
+												if _, ok := CSRFPolicyData["all_load_balancer_domains"].(map[string]interface{}); ok {
+													return &RouteEmptyModel{}
+												}
+												return nil
+											}(),
+											CustomDomainList: func() *RouteRoutesRouteDestinationCSRFPolicyCustomDomainListModel {
+												if CustomDomainListData, ok := CSRFPolicyData["custom_domain_list"].(map[string]interface{}); ok {
+													return &RouteRoutesRouteDestinationCSRFPolicyCustomDomainListModel{
+														Domains: func() types.List {
+															if v, ok := CustomDomainListData["domains"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Disabled: func() *RouteEmptyModel {
+												if _, ok := CSRFPolicyData["disabled"].(map[string]interface{}); ok {
+													return &RouteEmptyModel{}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Destinations: func() types.List {
+									if rawList, ok := RouteDestinationData["destinations"].([]interface{}); ok && len(rawList) > 0 {
+										var DestinationsResult []RouteRoutesRouteDestinationDestinationsModel
+										for _, DestinationsItem := range rawList {
+											if DestinationsItemMap, ok := DestinationsItem.(map[string]interface{}); ok {
+												DestinationsResult = append(DestinationsResult, RouteRoutesRouteDestinationDestinationsModel{
+													Cluster: func() types.List {
+														if rawList, ok := DestinationsItemMap["cluster"].([]interface{}); ok && len(rawList) > 0 {
+															var ClusterResult []RouteRoutesRouteDestinationDestinationsClusterModel
+															for _, ClusterItem := range rawList {
+																if ClusterItemMap, ok := ClusterItem.(map[string]interface{}); ok {
+																	ClusterResult = append(ClusterResult, RouteRoutesRouteDestinationDestinationsClusterModel{
+																		Kind: func() types.String {
+																			if v, ok := ClusterItemMap["kind"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Name: func() types.String {
+																			if v, ok := ClusterItemMap["name"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Namespace: func() types.String {
+																			if v, ok := ClusterItemMap["namespace"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Tenant: func() types.String {
+																			if v, ok := ClusterItemMap["tenant"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Uid: func() types.String {
+																			if v, ok := ClusterItemMap["uid"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																	})
+																}
+															}
+															listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsClusterModelAttrTypes}, ClusterResult)
+															return listVal
+														}
+														return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsClusterModelAttrTypes})
+													}(),
+													EndpointSubsets: func() *RouteEmptyModel {
+														if _, ok := DestinationsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
+															return &RouteEmptyModel{}
+														}
+														return nil
+													}(),
+													Priority: func() types.Int64 {
+														if v, ok := DestinationsItemMap["priority"].(float64); ok && v != 0 {
+															return types.Int64Value(int64(v))
+														}
+														return types.Int64Null()
+													}(),
+													Weight: func() types.Int64 {
+														if v, ok := DestinationsItemMap["weight"].(float64); ok && v != 0 {
+															return types.Int64Value(int64(v))
+														}
+														return types.Int64Null()
+													}(),
+												})
+											}
+										}
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsModelAttrTypes}, DestinationsResult)
+										return listVal
+									}
+									return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsModelAttrTypes})
+								}(),
 								DoNotRetractCluster: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.DoNotRetractCluster != nil {
+									if _, ok := RouteDestinationData["do_not_retract_cluster"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
 								EndpointSubsets: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.EndpointSubsets != nil {
+									if _, ok := RouteDestinationData["endpoint_subsets"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
+								HashPolicy: func() []RouteRoutesRouteDestinationHashPolicyModel {
+									if rawList, ok := RouteDestinationData["hash_policy"].([]interface{}); ok && len(rawList) > 0 {
+										var HashPolicyResult []RouteRoutesRouteDestinationHashPolicyModel
+										for _, HashPolicyItem := range rawList {
+											if HashPolicyItemMap, ok := HashPolicyItem.(map[string]interface{}); ok {
+												HashPolicyResult = append(HashPolicyResult, RouteRoutesRouteDestinationHashPolicyModel{
+													Cookie: func() *RouteRoutesRouteDestinationHashPolicyCookieModel {
+														if CookieData, ok := HashPolicyItemMap["cookie"].(map[string]interface{}); ok {
+															return &RouteRoutesRouteDestinationHashPolicyCookieModel{
+																AddHttponly: func() *RouteEmptyModel {
+																	if _, ok := CookieData["add_httponly"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																AddSecure: func() *RouteEmptyModel {
+																	if _, ok := CookieData["add_secure"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																IgnoreHttponly: func() *RouteEmptyModel {
+																	if _, ok := CookieData["ignore_httponly"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																IgnoreSamesite: func() *RouteEmptyModel {
+																	if _, ok := CookieData["ignore_samesite"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																IgnoreSecure: func() *RouteEmptyModel {
+																	if _, ok := CookieData["ignore_secure"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																Name: func() types.String {
+																	if v, ok := CookieData["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Path: func() types.String {
+																	if v, ok := CookieData["path"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																SamesiteLax: func() *RouteEmptyModel {
+																	if _, ok := CookieData["samesite_lax"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																SamesiteNone: func() *RouteEmptyModel {
+																	if _, ok := CookieData["samesite_none"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																SamesiteStrict: func() *RouteEmptyModel {
+																	if _, ok := CookieData["samesite_strict"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																TTL: func() types.Int64 {
+																	if v, ok := CookieData["ttl"].(float64); ok && v != 0 {
+																		return types.Int64Value(int64(v))
+																	}
+																	return types.Int64Null()
+																}(),
+															}
+														}
+														return nil
+													}(),
+													HeaderName: func() types.String {
+														if v, ok := HashPolicyItemMap["header_name"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													SourceIP: func() types.Bool {
+														if v, ok := HashPolicyItemMap["source_ip"].(bool); ok {
+															return types.BoolValue(v)
+														}
+														return types.BoolNull()
+													}(),
+													Terminal: func() types.Bool {
+														if v, ok := HashPolicyItemMap["terminal"].(bool); ok {
+															return types.BoolValue(v)
+														}
+														return types.BoolNull()
+													}(),
+												})
+											}
+										}
+										return HashPolicyResult
+									}
+									return nil
+								}(),
 								HostRewrite: func() types.String {
-									if v, ok := nestedMap["host_rewrite"].(string); ok && v != "" {
+									if v, ok := RouteDestinationData["host_rewrite"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
+								MirrorPolicy: func() *RouteRoutesRouteDestinationMirrorPolicyModel {
+									if MirrorPolicyData, ok := RouteDestinationData["mirror_policy"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationMirrorPolicyModel{
+											Cluster: func() types.List {
+												if rawList, ok := MirrorPolicyData["cluster"].([]interface{}); ok && len(rawList) > 0 {
+													var ClusterResult []RouteRoutesRouteDestinationMirrorPolicyClusterModel
+													for _, ClusterItem := range rawList {
+														if ClusterItemMap, ok := ClusterItem.(map[string]interface{}); ok {
+															ClusterResult = append(ClusterResult, RouteRoutesRouteDestinationMirrorPolicyClusterModel{
+																Kind: func() types.String {
+																	if v, ok := ClusterItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := ClusterItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := ClusterItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := ClusterItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := ClusterItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesRouteDestinationMirrorPolicyClusterModelAttrTypes}, ClusterResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationMirrorPolicyClusterModelAttrTypes})
+											}(),
+											Percent: func() *RouteRoutesRouteDestinationMirrorPolicyPercentModel {
+												if PercentData, ok := MirrorPolicyData["percent"].(map[string]interface{}); ok {
+													return &RouteRoutesRouteDestinationMirrorPolicyPercentModel{
+														Denominator: func() types.String {
+															if v, ok := PercentData["denominator"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Numerator: func() types.Int64 {
+															if v, ok := PercentData["numerator"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
 								PrefixRewrite: func() types.String {
-									if v, ok := nestedMap["prefix_rewrite"].(string); ok && v != "" {
+									if v, ok := RouteDestinationData["prefix_rewrite"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Priority: func() types.String {
-									if v, ok := nestedMap["priority"].(string); ok && v != "" {
+									if v, ok := RouteDestinationData["priority"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
+								QueryParams: func() *RouteRoutesRouteDestinationQueryParamsModel {
+									if QueryParamsData, ok := RouteDestinationData["query_params"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationQueryParamsModel{
+											RemoveAllParams: func() *RouteEmptyModel {
+												if _, ok := QueryParamsData["remove_all_params"].(map[string]interface{}); ok {
+													return &RouteEmptyModel{}
+												}
+												return nil
+											}(),
+											ReplaceParams: func() types.String {
+												if v, ok := QueryParamsData["replace_params"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											RetainAllParams: func() *RouteEmptyModel {
+												if _, ok := QueryParamsData["retain_all_params"].(map[string]interface{}); ok {
+													return &RouteEmptyModel{}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								RegexRewrite: func() *RouteRoutesRouteDestinationRegexRewriteModel {
+									if RegexRewriteData, ok := RouteDestinationData["regex_rewrite"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationRegexRewriteModel{
+											Pattern: func() types.String {
+												if v, ok := RegexRewriteData["pattern"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Substitution: func() types.String {
+												if v, ok := RegexRewriteData["substitution"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
 								RetractCluster: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetractCluster != nil {
+									if _, ok := RouteDestinationData["retract_cluster"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
+								RetryPolicy: func() *RouteRoutesRouteDestinationRetryPolicyModel {
+									if RetryPolicyData, ok := RouteDestinationData["retry_policy"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationRetryPolicyModel{
+											BackOff: func() *RouteRoutesRouteDestinationRetryPolicyBackOffModel {
+												if BackOffData, ok := RetryPolicyData["back_off"].(map[string]interface{}); ok {
+													return &RouteRoutesRouteDestinationRetryPolicyBackOffModel{
+														BaseInterval: func() types.Int64 {
+															if v, ok := BackOffData["base_interval"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														MaxInterval: func() types.Int64 {
+															if v, ok := BackOffData["max_interval"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											NumRetries: func() types.Int64 {
+												if v, ok := RetryPolicyData["num_retries"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+											PerTryTimeout: func() types.Int64 {
+												if v, ok := RetryPolicyData["per_try_timeout"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+											RetriableStatusCodes: func() types.List {
+												if v, ok := RetryPolicyData["retriable_status_codes"].([]interface{}); ok && len(v) > 0 {
+													var items []int64
+													for _, item := range v {
+														if s, ok := item.(float64); ok {
+															items = append(items, int64(s))
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													return listVal
+												}
+												return types.ListNull(types.Int64Type)
+											}(),
+											RetryCondition: func() types.List {
+												if v, ok := RetryPolicyData["retry_condition"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								SpdyConfig: func() *RouteRoutesRouteDestinationSpdyConfigModel {
+									if SpdyConfigData, ok := RouteDestinationData["spdy_config"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationSpdyConfigModel{
+											UseSpdy: func() types.Bool {
+												if v, ok := SpdyConfigData["use_spdy"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
 								Timeout: func() types.Int64 {
-									if v, ok := nestedMap["timeout"].(float64); ok && v != 0 {
+									if v, ok := RouteDestinationData["timeout"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
+								}(),
+								WebSocketConfig: func() *RouteRoutesRouteDestinationWebSocketConfigModel {
+									if WebSocketConfigData, ok := RouteDestinationData["web_socket_config"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationWebSocketConfigModel{
+											UseWebSocket: func() types.Bool {
+												if v, ok := WebSocketConfigData["use_websocket"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+										}
+									}
+									return nil
 								}(),
 							}
 						}
 						return nil
 					}(),
 					RouteDirectResponse: func() *RouteRoutesRouteDirectResponseModel {
-						if nestedMap, ok := itemMap["route_direct_response"].(map[string]interface{}); ok {
+						if RouteDirectResponseData, ok := itemMap["route_direct_response"].(map[string]interface{}); ok {
 							return &RouteRoutesRouteDirectResponseModel{
 								ResponseBodyEncoded: func() types.String {
-									if v, ok := nestedMap["response_body_encoded"].(string); ok && v != "" {
+									if v, ok := RouteDirectResponseData["response_body_encoded"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								ResponseCode: func() types.Int64 {
-									if v, ok := nestedMap["response_code"].(float64); ok && v != 0 {
+									if v, ok := RouteDirectResponseData["response_code"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
@@ -3502,52 +5939,52 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						return nil
 					}(),
 					RouteRedirect: func() *RouteRoutesRouteRedirectModel {
-						if nestedMap, ok := itemMap["route_redirect"].(map[string]interface{}); ok {
+						if RouteRedirectData, ok := itemMap["route_redirect"].(map[string]interface{}); ok {
 							return &RouteRoutesRouteRedirectModel{
 								HostRedirect: func() types.String {
-									if v, ok := nestedMap["host_redirect"].(string); ok && v != "" {
+									if v, ok := RouteRedirectData["host_redirect"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								PathRedirect: func() types.String {
-									if v, ok := nestedMap["path_redirect"].(string); ok && v != "" {
+									if v, ok := RouteRedirectData["path_redirect"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								PrefixRewrite: func() types.String {
-									if v, ok := nestedMap["prefix_rewrite"].(string); ok && v != "" {
+									if v, ok := RouteRedirectData["prefix_rewrite"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								ProtoRedirect: func() types.String {
-									if v, ok := nestedMap["proto_redirect"].(string); ok && v != "" {
+									if v, ok := RouteRedirectData["proto_redirect"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								RemoveAllParams: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil && existingRoutesItems[listIdx].RouteRedirect.RemoveAllParams != nil {
+									if _, ok := RouteRedirectData["remove_all_params"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
 								ReplaceParams: func() types.String {
-									if v, ok := nestedMap["replace_params"].(string); ok && v != "" {
+									if v, ok := RouteRedirectData["replace_params"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								ResponseCode: func() types.Int64 {
-									if v, ok := nestedMap["response_code"].(float64); ok && v != 0 {
+									if v, ok := RouteRedirectData["response_code"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								RetainAllParams: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil && existingRoutesItems[listIdx].RouteRedirect.RetainAllParams != nil {
+									if _, ok := RouteRedirectData["retain_all_params"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
@@ -3557,10 +5994,10 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						return nil
 					}(),
 					ServicePolicy: func() *RouteRoutesServicePolicyModel {
-						if nestedMap, ok := itemMap["service_policy"].(map[string]interface{}); ok {
+						if ServicePolicyData, ok := itemMap["service_policy"].(map[string]interface{}); ok {
 							return &RouteRoutesServicePolicyModel{
 								DisableSpec: func() types.Bool {
-									if v, ok := nestedMap["disable"].(bool); ok {
+									if v, ok := ServicePolicyData["disable"].(bool); ok {
 										return types.BoolValue(v)
 									}
 									return types.BoolNull()
@@ -3570,22 +6007,22 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						return nil
 					}(),
 					WAFExclusionPolicy: func() *RouteRoutesWAFExclusionPolicyModel {
-						if nestedMap, ok := itemMap["waf_exclusion_policy"].(map[string]interface{}); ok {
+						if WAFExclusionPolicyData, ok := itemMap["waf_exclusion_policy"].(map[string]interface{}); ok {
 							return &RouteRoutesWAFExclusionPolicyModel{
 								Name: func() types.String {
-									if v, ok := nestedMap["name"].(string); ok && v != "" {
+									if v, ok := WAFExclusionPolicyData["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := nestedMap["namespace"].(string); ok && v != "" {
+									if v, ok := WAFExclusionPolicyData["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := nestedMap["tenant"].(string); ok && v != "" {
+									if v, ok := WAFExclusionPolicyData["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -3595,16 +6032,67 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						return nil
 					}(),
 					WAFType: func() *RouteRoutesWAFTypeModel {
-						if _, ok := itemMap["waf_type"].(map[string]interface{}); ok {
+						if WAFTypeData, ok := itemMap["waf_type"].(map[string]interface{}); ok {
 							return &RouteRoutesWAFTypeModel{
+								AppFirewall: func() *RouteRoutesWAFTypeAppFirewallModel {
+									if AppFirewallData, ok := WAFTypeData["app_firewall"].(map[string]interface{}); ok {
+										return &RouteRoutesWAFTypeAppFirewallModel{
+											AppFirewall: func() types.List {
+												if rawList, ok := AppFirewallData["app_firewall"].([]interface{}); ok && len(rawList) > 0 {
+													var AppFirewallResult []RouteRoutesWAFTypeAppFirewallAppFirewallModel
+													for _, AppFirewallItem := range rawList {
+														if AppFirewallItemMap, ok := AppFirewallItem.(map[string]interface{}); ok {
+															AppFirewallResult = append(AppFirewallResult, RouteRoutesWAFTypeAppFirewallAppFirewallModel{
+																Kind: func() types.String {
+																	if v, ok := AppFirewallItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := AppFirewallItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := AppFirewallItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := AppFirewallItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := AppFirewallItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesWAFTypeAppFirewallAppFirewallModelAttrTypes}, AppFirewallResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesWAFTypeAppFirewallAppFirewallModelAttrTypes})
+											}(),
+										}
+									}
+									return nil
+								}(),
 								DisableWAF: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil && existingRoutesItems[listIdx].WAFType.DisableWAF != nil {
+									if _, ok := WAFTypeData["disable_waf"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
 								InheritWAF: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil && existingRoutesItems[listIdx].WAFType.InheritWAF != nil {
+									if _, ok := WAFTypeData["inherit_waf"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
@@ -3616,14 +6104,21 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesModelAttrTypes}, routesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesModelAttrTypes}, RoutesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Routes = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Routes = types.ListNull(types.ObjectType{AttrTypes: RouteRoutesModelAttrTypes})
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -3677,382 +6172,807 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.Routes.IsNull() && !data.Routes.IsUnknown() {
-		var routesItems []RouteRoutesModel
-		diags := data.Routes.ElementsAs(ctx, &routesItems, false)
+		var RoutesElems []RouteRoutesModel
+		diags := data.Routes.ElementsAs(ctx, &RoutesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(routesItems) > 0 {
-			var routesList []map[string]interface{}
-			for _, item := range routesItems {
-				itemMap := make(map[string]interface{})
-				if item.BotDefenseJavascriptInjection != nil {
-					bot_defense_javascript_injectionNestedMap := make(map[string]interface{})
-					if !item.BotDefenseJavascriptInjection.JavascriptLocation.IsNull() && !item.BotDefenseJavascriptInjection.JavascriptLocation.IsUnknown() {
-						bot_defense_javascript_injectionNestedMap["javascript_location"] = item.BotDefenseJavascriptInjection.JavascriptLocation.ValueString()
+		if !resp.Diagnostics.HasError() && len(RoutesElems) > 0 {
+			var RoutesList []map[string]interface{}
+			for _, RoutesItem := range RoutesElems {
+				RoutesItemMap := make(map[string]interface{})
+				if RoutesItem.BotDefenseJavascriptInjection != nil {
+					BotDefenseJavascriptInjectionMap := make(map[string]interface{})
+					if !RoutesItem.BotDefenseJavascriptInjection.JavascriptLocation.IsNull() && !RoutesItem.BotDefenseJavascriptInjection.JavascriptLocation.IsUnknown() {
+						BotDefenseJavascriptInjectionMap["javascript_location"] = RoutesItem.BotDefenseJavascriptInjection.JavascriptLocation.ValueString()
 					}
-					if len(item.BotDefenseJavascriptInjection.JavascriptTags) > 0 {
-						var javascript_tagsDeepList []map[string]interface{}
-						for _, deepListItem := range item.BotDefenseJavascriptInjection.JavascriptTags {
-							deepListItemMap := make(map[string]interface{})
-							if !deepListItem.JavascriptURL.IsNull() && !deepListItem.JavascriptURL.IsUnknown() {
-								deepListItemMap["javascript_url"] = deepListItem.JavascriptURL.ValueString()
+					if len(RoutesItem.BotDefenseJavascriptInjection.JavascriptTags) > 0 {
+						var JavascriptTagsList []map[string]interface{}
+						for _, JavascriptTagsItem := range RoutesItem.BotDefenseJavascriptInjection.JavascriptTags {
+							JavascriptTagsItemMap := make(map[string]interface{})
+							if !JavascriptTagsItem.JavascriptURL.IsNull() && !JavascriptTagsItem.JavascriptURL.IsUnknown() {
+								JavascriptTagsItemMap["javascript_url"] = JavascriptTagsItem.JavascriptURL.ValueString()
 							}
-							javascript_tagsDeepList = append(javascript_tagsDeepList, deepListItemMap)
+							if len(JavascriptTagsItem.TagAttributes) > 0 {
+								var TagAttributesList []map[string]interface{}
+								for _, TagAttributesItem := range JavascriptTagsItem.TagAttributes {
+									TagAttributesItemMap := make(map[string]interface{})
+									if !TagAttributesItem.JavascriptTag.IsNull() && !TagAttributesItem.JavascriptTag.IsUnknown() {
+										TagAttributesItemMap["javascript_tag"] = TagAttributesItem.JavascriptTag.ValueString()
+									}
+									if !TagAttributesItem.TagValue.IsNull() && !TagAttributesItem.TagValue.IsUnknown() {
+										TagAttributesItemMap["tag_value"] = TagAttributesItem.TagValue.ValueString()
+									}
+									TagAttributesList = append(TagAttributesList, TagAttributesItemMap)
+								}
+								JavascriptTagsItemMap["tag_attributes"] = TagAttributesList
+							}
+							JavascriptTagsList = append(JavascriptTagsList, JavascriptTagsItemMap)
 						}
-						bot_defense_javascript_injectionNestedMap["javascript_tags"] = javascript_tagsDeepList
+						BotDefenseJavascriptInjectionMap["javascript_tags"] = JavascriptTagsList
 					}
-					itemMap["bot_defense_javascript_injection"] = bot_defense_javascript_injectionNestedMap
+					RoutesItemMap["bot_defense_javascript_injection"] = BotDefenseJavascriptInjectionMap
 				}
-				if !item.DisableLocationAdd.IsNull() && !item.DisableLocationAdd.IsUnknown() {
-					itemMap["disable_location_add"] = item.DisableLocationAdd.ValueBool()
+				if !RoutesItem.DisableLocationAdd.IsNull() && !RoutesItem.DisableLocationAdd.IsUnknown() {
+					RoutesItemMap["disable_location_add"] = RoutesItem.DisableLocationAdd.ValueBool()
 				}
-				if item.InheritedBotDefenseJavascriptInjection != nil {
-					itemMap["inherited_bot_defense_javascript_injection"] = map[string]interface{}{}
+				if RoutesItem.InheritedBotDefenseJavascriptInjection != nil {
+					RoutesItemMap["inherited_bot_defense_javascript_injection"] = map[string]interface{}{}
 				}
-				if item.InheritedWAFExclusion != nil {
-					itemMap["inherited_waf_exclusion"] = map[string]interface{}{}
+				if RoutesItem.InheritedWAFExclusion != nil {
+					RoutesItemMap["inherited_waf_exclusion"] = map[string]interface{}{}
 				}
-				if len(item.Match) > 0 {
-					var matchNestedList []map[string]interface{}
-					for _, nestedItem := range item.Match {
-						nestedItemMap := make(map[string]interface{})
-						if !nestedItem.HTTPMethod.IsNull() && !nestedItem.HTTPMethod.IsUnknown() {
-							nestedItemMap["http_method"] = nestedItem.HTTPMethod.ValueString()
+				if len(RoutesItem.Match) > 0 {
+					var MatchList []map[string]interface{}
+					for _, MatchItem := range RoutesItem.Match {
+						MatchItemMap := make(map[string]interface{})
+						if len(MatchItem.Headers) > 0 {
+							var HeadersList []map[string]interface{}
+							for _, HeadersItem := range MatchItem.Headers {
+								HeadersItemMap := make(map[string]interface{})
+								if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
+									HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
+								}
+								if !HeadersItem.InvertMatch.IsNull() && !HeadersItem.InvertMatch.IsUnknown() {
+									HeadersItemMap["invert_match"] = HeadersItem.InvertMatch.ValueBool()
+								}
+								if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+									HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+								}
+								if !HeadersItem.Presence.IsNull() && !HeadersItem.Presence.IsUnknown() {
+									HeadersItemMap["presence"] = HeadersItem.Presence.ValueBool()
+								}
+								if !HeadersItem.Regex.IsNull() && !HeadersItem.Regex.IsUnknown() {
+									HeadersItemMap["regex"] = HeadersItem.Regex.ValueString()
+								}
+								HeadersList = append(HeadersList, HeadersItemMap)
+							}
+							MatchItemMap["headers"] = HeadersList
 						}
-						matchNestedList = append(matchNestedList, nestedItemMap)
+						if !MatchItem.HTTPMethod.IsNull() && !MatchItem.HTTPMethod.IsUnknown() {
+							MatchItemMap["http_method"] = MatchItem.HTTPMethod.ValueString()
+						}
+						if MatchItem.IncomingPort != nil {
+							IncomingPortMap := make(map[string]interface{})
+							if MatchItem.IncomingPort.NoPortMatch != nil {
+								IncomingPortMap["no_port_match"] = map[string]interface{}{}
+							}
+							if !MatchItem.IncomingPort.Port.IsNull() && !MatchItem.IncomingPort.Port.IsUnknown() {
+								IncomingPortMap["port"] = MatchItem.IncomingPort.Port.ValueInt64()
+							}
+							if !MatchItem.IncomingPort.PortRanges.IsNull() && !MatchItem.IncomingPort.PortRanges.IsUnknown() {
+								IncomingPortMap["port_ranges"] = MatchItem.IncomingPort.PortRanges.ValueString()
+							}
+							MatchItemMap["incoming_port"] = IncomingPortMap
+						}
+						if MatchItem.Path != nil {
+							PathMap := make(map[string]interface{})
+							if !MatchItem.Path.Path.IsNull() && !MatchItem.Path.Path.IsUnknown() {
+								PathMap["path"] = MatchItem.Path.Path.ValueString()
+							}
+							if !MatchItem.Path.Prefix.IsNull() && !MatchItem.Path.Prefix.IsUnknown() {
+								PathMap["prefix"] = MatchItem.Path.Prefix.ValueString()
+							}
+							if !MatchItem.Path.Regex.IsNull() && !MatchItem.Path.Regex.IsUnknown() {
+								PathMap["regex"] = MatchItem.Path.Regex.ValueString()
+							}
+							MatchItemMap["path"] = PathMap
+						}
+						if len(MatchItem.QueryParams) > 0 {
+							var QueryParamsList []map[string]interface{}
+							for _, QueryParamsItem := range MatchItem.QueryParams {
+								QueryParamsItemMap := make(map[string]interface{})
+								if !QueryParamsItem.Exact.IsNull() && !QueryParamsItem.Exact.IsUnknown() {
+									QueryParamsItemMap["exact"] = QueryParamsItem.Exact.ValueString()
+								}
+								if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
+									QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
+								}
+								if !QueryParamsItem.Regex.IsNull() && !QueryParamsItem.Regex.IsUnknown() {
+									QueryParamsItemMap["regex"] = QueryParamsItem.Regex.ValueString()
+								}
+								QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
+							}
+							MatchItemMap["query_params"] = QueryParamsList
+						}
+						MatchList = append(MatchList, MatchItemMap)
 					}
-					itemMap["match"] = matchNestedList
+					RoutesItemMap["match"] = MatchList
 				}
-				if len(item.RequestCookiesToAdd) > 0 {
-					var request_cookies_to_addNestedList []map[string]interface{}
-					for _, nestedItem := range item.RequestCookiesToAdd {
-						nestedItemMap := make(map[string]interface{})
-						if !nestedItem.Name.IsNull() && !nestedItem.Name.IsUnknown() {
-							nestedItemMap["name"] = nestedItem.Name.ValueString()
+				if len(RoutesItem.RequestCookiesToAdd) > 0 {
+					var RequestCookiesToAddList []map[string]interface{}
+					for _, RequestCookiesToAddItem := range RoutesItem.RequestCookiesToAdd {
+						RequestCookiesToAddItemMap := make(map[string]interface{})
+						if !RequestCookiesToAddItem.Name.IsNull() && !RequestCookiesToAddItem.Name.IsUnknown() {
+							RequestCookiesToAddItemMap["name"] = RequestCookiesToAddItem.Name.ValueString()
 						}
-						if !nestedItem.Overwrite.IsNull() && !nestedItem.Overwrite.IsUnknown() {
-							nestedItemMap["overwrite"] = nestedItem.Overwrite.ValueBool()
+						if !RequestCookiesToAddItem.Overwrite.IsNull() && !RequestCookiesToAddItem.Overwrite.IsUnknown() {
+							RequestCookiesToAddItemMap["overwrite"] = RequestCookiesToAddItem.Overwrite.ValueBool()
 						}
-						if !nestedItem.Value.IsNull() && !nestedItem.Value.IsUnknown() {
-							nestedItemMap["value"] = nestedItem.Value.ValueString()
+						if RequestCookiesToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if RequestCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							RequestCookiesToAddItemMap["secret_value"] = SecretValueMap
 						}
-						request_cookies_to_addNestedList = append(request_cookies_to_addNestedList, nestedItemMap)
+						if !RequestCookiesToAddItem.Value.IsNull() && !RequestCookiesToAddItem.Value.IsUnknown() {
+							RequestCookiesToAddItemMap["value"] = RequestCookiesToAddItem.Value.ValueString()
+						}
+						RequestCookiesToAddList = append(RequestCookiesToAddList, RequestCookiesToAddItemMap)
 					}
-					itemMap["request_cookies_to_add"] = request_cookies_to_addNestedList
+					RoutesItemMap["request_cookies_to_add"] = RequestCookiesToAddList
 				}
-				if len(item.RequestHeadersToAdd) > 0 {
-					var request_headers_to_addNestedList []map[string]interface{}
-					for _, nestedItem := range item.RequestHeadersToAdd {
-						nestedItemMap := make(map[string]interface{})
-						if !nestedItem.Append.IsNull() && !nestedItem.Append.IsUnknown() {
-							nestedItemMap["append"] = nestedItem.Append.ValueBool()
-						}
-						if !nestedItem.Name.IsNull() && !nestedItem.Name.IsUnknown() {
-							nestedItemMap["name"] = nestedItem.Name.ValueString()
-						}
-						if !nestedItem.Value.IsNull() && !nestedItem.Value.IsUnknown() {
-							nestedItemMap["value"] = nestedItem.Value.ValueString()
-						}
-						request_headers_to_addNestedList = append(request_headers_to_addNestedList, nestedItemMap)
+				if !RoutesItem.RequestCookiesToRemove.IsNull() && !RoutesItem.RequestCookiesToRemove.IsUnknown() {
+					var RequestCookiesToRemoveItems []string
+					diags := RoutesItem.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+					if !diags.HasError() {
+						RoutesItemMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
 					}
-					itemMap["request_headers_to_add"] = request_headers_to_addNestedList
 				}
-				if len(item.ResponseCookiesToAdd) > 0 {
-					var response_cookies_to_addNestedList []map[string]interface{}
-					for _, nestedItem := range item.ResponseCookiesToAdd {
-						nestedItemMap := make(map[string]interface{})
-						if !nestedItem.AddDomain.IsNull() && !nestedItem.AddDomain.IsUnknown() {
-							nestedItemMap["add_domain"] = nestedItem.AddDomain.ValueString()
+				if len(RoutesItem.RequestHeadersToAdd) > 0 {
+					var RequestHeadersToAddList []map[string]interface{}
+					for _, RequestHeadersToAddItem := range RoutesItem.RequestHeadersToAdd {
+						RequestHeadersToAddItemMap := make(map[string]interface{})
+						if !RequestHeadersToAddItem.Append.IsNull() && !RequestHeadersToAddItem.Append.IsUnknown() {
+							RequestHeadersToAddItemMap["append"] = RequestHeadersToAddItem.Append.ValueBool()
 						}
-						if !nestedItem.AddExpiry.IsNull() && !nestedItem.AddExpiry.IsUnknown() {
-							nestedItemMap["add_expiry"] = nestedItem.AddExpiry.ValueString()
+						if !RequestHeadersToAddItem.Name.IsNull() && !RequestHeadersToAddItem.Name.IsUnknown() {
+							RequestHeadersToAddItemMap["name"] = RequestHeadersToAddItem.Name.ValueString()
 						}
-						if !nestedItem.AddPath.IsNull() && !nestedItem.AddPath.IsUnknown() {
-							nestedItemMap["add_path"] = nestedItem.AddPath.ValueString()
+						if RequestHeadersToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if RequestHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							RequestHeadersToAddItemMap["secret_value"] = SecretValueMap
 						}
-						if !nestedItem.MaxAgeValue.IsNull() && !nestedItem.MaxAgeValue.IsUnknown() {
-							nestedItemMap["max_age_value"] = nestedItem.MaxAgeValue.ValueInt64()
+						if !RequestHeadersToAddItem.Value.IsNull() && !RequestHeadersToAddItem.Value.IsUnknown() {
+							RequestHeadersToAddItemMap["value"] = RequestHeadersToAddItem.Value.ValueString()
 						}
-						if !nestedItem.Name.IsNull() && !nestedItem.Name.IsUnknown() {
-							nestedItemMap["name"] = nestedItem.Name.ValueString()
-						}
-						if !nestedItem.Overwrite.IsNull() && !nestedItem.Overwrite.IsUnknown() {
-							nestedItemMap["overwrite"] = nestedItem.Overwrite.ValueBool()
-						}
-						if !nestedItem.Value.IsNull() && !nestedItem.Value.IsUnknown() {
-							nestedItemMap["value"] = nestedItem.Value.ValueString()
-						}
-						response_cookies_to_addNestedList = append(response_cookies_to_addNestedList, nestedItemMap)
+						RequestHeadersToAddList = append(RequestHeadersToAddList, RequestHeadersToAddItemMap)
 					}
-					itemMap["response_cookies_to_add"] = response_cookies_to_addNestedList
+					RoutesItemMap["request_headers_to_add"] = RequestHeadersToAddList
 				}
-				if len(item.ResponseHeadersToAdd) > 0 {
-					var response_headers_to_addNestedList []map[string]interface{}
-					for _, nestedItem := range item.ResponseHeadersToAdd {
-						nestedItemMap := make(map[string]interface{})
-						if !nestedItem.Append.IsNull() && !nestedItem.Append.IsUnknown() {
-							nestedItemMap["append"] = nestedItem.Append.ValueBool()
-						}
-						if !nestedItem.Name.IsNull() && !nestedItem.Name.IsUnknown() {
-							nestedItemMap["name"] = nestedItem.Name.ValueString()
-						}
-						if !nestedItem.Value.IsNull() && !nestedItem.Value.IsUnknown() {
-							nestedItemMap["value"] = nestedItem.Value.ValueString()
-						}
-						response_headers_to_addNestedList = append(response_headers_to_addNestedList, nestedItemMap)
+				if !RoutesItem.RequestHeadersToRemove.IsNull() && !RoutesItem.RequestHeadersToRemove.IsUnknown() {
+					var RequestHeadersToRemoveItems []string
+					diags := RoutesItem.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+					if !diags.HasError() {
+						RoutesItemMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 					}
-					itemMap["response_headers_to_add"] = response_headers_to_addNestedList
 				}
-				if item.RouteDestination != nil {
-					route_destinationNestedMap := make(map[string]interface{})
-					if !item.RouteDestination.AutoHostRewrite.IsNull() && !item.RouteDestination.AutoHostRewrite.IsUnknown() {
-						route_destinationNestedMap["auto_host_rewrite"] = item.RouteDestination.AutoHostRewrite.ValueBool()
+				if len(RoutesItem.ResponseCookiesToAdd) > 0 {
+					var ResponseCookiesToAddList []map[string]interface{}
+					for _, ResponseCookiesToAddItem := range RoutesItem.ResponseCookiesToAdd {
+						ResponseCookiesToAddItemMap := make(map[string]interface{})
+						if !ResponseCookiesToAddItem.AddDomain.IsNull() && !ResponseCookiesToAddItem.AddDomain.IsUnknown() {
+							ResponseCookiesToAddItemMap["add_domain"] = ResponseCookiesToAddItem.AddDomain.ValueString()
+						}
+						if !ResponseCookiesToAddItem.AddExpiry.IsNull() && !ResponseCookiesToAddItem.AddExpiry.IsUnknown() {
+							ResponseCookiesToAddItemMap["add_expiry"] = ResponseCookiesToAddItem.AddExpiry.ValueString()
+						}
+						if ResponseCookiesToAddItem.AddHttponly != nil {
+							ResponseCookiesToAddItemMap["add_httponly"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.AddPartitioned != nil {
+							ResponseCookiesToAddItemMap["add_partitioned"] = map[string]interface{}{}
+						}
+						if !ResponseCookiesToAddItem.AddPath.IsNull() && !ResponseCookiesToAddItem.AddPath.IsUnknown() {
+							ResponseCookiesToAddItemMap["add_path"] = ResponseCookiesToAddItem.AddPath.ValueString()
+						}
+						if ResponseCookiesToAddItem.AddSecure != nil {
+							ResponseCookiesToAddItemMap["add_secure"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreDomain != nil {
+							ResponseCookiesToAddItemMap["ignore_domain"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreExpiry != nil {
+							ResponseCookiesToAddItemMap["ignore_expiry"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreHttponly != nil {
+							ResponseCookiesToAddItemMap["ignore_httponly"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreMaxAge != nil {
+							ResponseCookiesToAddItemMap["ignore_max_age"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnorePartitioned != nil {
+							ResponseCookiesToAddItemMap["ignore_partitioned"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnorePath != nil {
+							ResponseCookiesToAddItemMap["ignore_path"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreSamesite != nil {
+							ResponseCookiesToAddItemMap["ignore_samesite"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreSecure != nil {
+							ResponseCookiesToAddItemMap["ignore_secure"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreValue != nil {
+							ResponseCookiesToAddItemMap["ignore_value"] = map[string]interface{}{}
+						}
+						if !ResponseCookiesToAddItem.MaxAgeValue.IsNull() && !ResponseCookiesToAddItem.MaxAgeValue.IsUnknown() {
+							ResponseCookiesToAddItemMap["max_age_value"] = ResponseCookiesToAddItem.MaxAgeValue.ValueInt64()
+						}
+						if !ResponseCookiesToAddItem.Name.IsNull() && !ResponseCookiesToAddItem.Name.IsUnknown() {
+							ResponseCookiesToAddItemMap["name"] = ResponseCookiesToAddItem.Name.ValueString()
+						}
+						if !ResponseCookiesToAddItem.Overwrite.IsNull() && !ResponseCookiesToAddItem.Overwrite.IsUnknown() {
+							ResponseCookiesToAddItemMap["overwrite"] = ResponseCookiesToAddItem.Overwrite.ValueBool()
+						}
+						if ResponseCookiesToAddItem.SamesiteLax != nil {
+							ResponseCookiesToAddItemMap["samesite_lax"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.SamesiteNone != nil {
+							ResponseCookiesToAddItemMap["samesite_none"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.SamesiteStrict != nil {
+							ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if ResponseCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							ResponseCookiesToAddItemMap["secret_value"] = SecretValueMap
+						}
+						if !ResponseCookiesToAddItem.Value.IsNull() && !ResponseCookiesToAddItem.Value.IsUnknown() {
+							ResponseCookiesToAddItemMap["value"] = ResponseCookiesToAddItem.Value.ValueString()
+						}
+						ResponseCookiesToAddList = append(ResponseCookiesToAddList, ResponseCookiesToAddItemMap)
 					}
-					if item.RouteDestination.BufferPolicy != nil {
-						buffer_policyDeepMap := make(map[string]interface{})
-						if !item.RouteDestination.BufferPolicy.Disabled.IsNull() && !item.RouteDestination.BufferPolicy.Disabled.IsUnknown() {
-							buffer_policyDeepMap["disabled"] = item.RouteDestination.BufferPolicy.Disabled.ValueBool()
-						}
-						if !item.RouteDestination.BufferPolicy.MaxRequestBytes.IsNull() && !item.RouteDestination.BufferPolicy.MaxRequestBytes.IsUnknown() {
-							buffer_policyDeepMap["max_request_bytes"] = item.RouteDestination.BufferPolicy.MaxRequestBytes.ValueInt64()
-						}
-						route_destinationNestedMap["buffer_policy"] = buffer_policyDeepMap
+					RoutesItemMap["response_cookies_to_add"] = ResponseCookiesToAddList
+				}
+				if !RoutesItem.ResponseCookiesToRemove.IsNull() && !RoutesItem.ResponseCookiesToRemove.IsUnknown() {
+					var ResponseCookiesToRemoveItems []string
+					diags := RoutesItem.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+					if !diags.HasError() {
+						RoutesItemMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
 					}
-					if item.RouteDestination.CORSPolicy != nil {
-						cors_policyDeepMap := make(map[string]interface{})
-						if !item.RouteDestination.CORSPolicy.AllowCredentials.IsNull() && !item.RouteDestination.CORSPolicy.AllowCredentials.IsUnknown() {
-							cors_policyDeepMap["allow_credentials"] = item.RouteDestination.CORSPolicy.AllowCredentials.ValueBool()
+				}
+				if len(RoutesItem.ResponseHeadersToAdd) > 0 {
+					var ResponseHeadersToAddList []map[string]interface{}
+					for _, ResponseHeadersToAddItem := range RoutesItem.ResponseHeadersToAdd {
+						ResponseHeadersToAddItemMap := make(map[string]interface{})
+						if !ResponseHeadersToAddItem.Append.IsNull() && !ResponseHeadersToAddItem.Append.IsUnknown() {
+							ResponseHeadersToAddItemMap["append"] = ResponseHeadersToAddItem.Append.ValueBool()
 						}
-						if !item.RouteDestination.CORSPolicy.AllowHeaders.IsNull() && !item.RouteDestination.CORSPolicy.AllowHeaders.IsUnknown() {
-							cors_policyDeepMap["allow_headers"] = item.RouteDestination.CORSPolicy.AllowHeaders.ValueString()
+						if !ResponseHeadersToAddItem.Name.IsNull() && !ResponseHeadersToAddItem.Name.IsUnknown() {
+							ResponseHeadersToAddItemMap["name"] = ResponseHeadersToAddItem.Name.ValueString()
 						}
-						if !item.RouteDestination.CORSPolicy.AllowMethods.IsNull() && !item.RouteDestination.CORSPolicy.AllowMethods.IsUnknown() {
-							cors_policyDeepMap["allow_methods"] = item.RouteDestination.CORSPolicy.AllowMethods.ValueString()
+						if ResponseHeadersToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if ResponseHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							ResponseHeadersToAddItemMap["secret_value"] = SecretValueMap
 						}
-						if !item.RouteDestination.CORSPolicy.AllowOrigin.IsNull() && !item.RouteDestination.CORSPolicy.AllowOrigin.IsUnknown() {
+						if !ResponseHeadersToAddItem.Value.IsNull() && !ResponseHeadersToAddItem.Value.IsUnknown() {
+							ResponseHeadersToAddItemMap["value"] = ResponseHeadersToAddItem.Value.ValueString()
+						}
+						ResponseHeadersToAddList = append(ResponseHeadersToAddList, ResponseHeadersToAddItemMap)
+					}
+					RoutesItemMap["response_headers_to_add"] = ResponseHeadersToAddList
+				}
+				if !RoutesItem.ResponseHeadersToRemove.IsNull() && !RoutesItem.ResponseHeadersToRemove.IsUnknown() {
+					var ResponseHeadersToRemoveItems []string
+					diags := RoutesItem.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+					if !diags.HasError() {
+						RoutesItemMap["response_headers_to_remove"] = ResponseHeadersToRemoveItems
+					}
+				}
+				if RoutesItem.RouteDestination != nil {
+					RouteDestinationMap := make(map[string]interface{})
+					if !RoutesItem.RouteDestination.AutoHostRewrite.IsNull() && !RoutesItem.RouteDestination.AutoHostRewrite.IsUnknown() {
+						RouteDestinationMap["auto_host_rewrite"] = RoutesItem.RouteDestination.AutoHostRewrite.ValueBool()
+					}
+					if RoutesItem.RouteDestination.BufferPolicy != nil {
+						BufferPolicyMap := make(map[string]interface{})
+						if !RoutesItem.RouteDestination.BufferPolicy.Disabled.IsNull() && !RoutesItem.RouteDestination.BufferPolicy.Disabled.IsUnknown() {
+							BufferPolicyMap["disabled"] = RoutesItem.RouteDestination.BufferPolicy.Disabled.ValueBool()
+						}
+						if !RoutesItem.RouteDestination.BufferPolicy.MaxRequestBytes.IsNull() && !RoutesItem.RouteDestination.BufferPolicy.MaxRequestBytes.IsUnknown() {
+							BufferPolicyMap["max_request_bytes"] = RoutesItem.RouteDestination.BufferPolicy.MaxRequestBytes.ValueInt64()
+						}
+						RouteDestinationMap["buffer_policy"] = BufferPolicyMap
+					}
+					if RoutesItem.RouteDestination.CORSPolicy != nil {
+						CORSPolicyMap := make(map[string]interface{})
+						if !RoutesItem.RouteDestination.CORSPolicy.AllowCredentials.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.AllowCredentials.IsUnknown() {
+							CORSPolicyMap["allow_credentials"] = RoutesItem.RouteDestination.CORSPolicy.AllowCredentials.ValueBool()
+						}
+						if !RoutesItem.RouteDestination.CORSPolicy.AllowHeaders.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.AllowHeaders.IsUnknown() {
+							CORSPolicyMap["allow_headers"] = RoutesItem.RouteDestination.CORSPolicy.AllowHeaders.ValueString()
+						}
+						if !RoutesItem.RouteDestination.CORSPolicy.AllowMethods.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.AllowMethods.IsUnknown() {
+							CORSPolicyMap["allow_methods"] = RoutesItem.RouteDestination.CORSPolicy.AllowMethods.ValueString()
+						}
+						if !RoutesItem.RouteDestination.CORSPolicy.AllowOrigin.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.AllowOrigin.IsUnknown() {
 							var AllowOriginItems []string
-							diags := item.RouteDestination.CORSPolicy.AllowOrigin.ElementsAs(ctx, &AllowOriginItems, false)
+							diags := RoutesItem.RouteDestination.CORSPolicy.AllowOrigin.ElementsAs(ctx, &AllowOriginItems, false)
 							if !diags.HasError() {
-								cors_policyDeepMap["allow_origin"] = AllowOriginItems
+								CORSPolicyMap["allow_origin"] = AllowOriginItems
 							}
 						}
-						if !item.RouteDestination.CORSPolicy.AllowOriginRegex.IsNull() && !item.RouteDestination.CORSPolicy.AllowOriginRegex.IsUnknown() {
+						if !RoutesItem.RouteDestination.CORSPolicy.AllowOriginRegex.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.AllowOriginRegex.IsUnknown() {
 							var AllowOriginRegexItems []string
-							diags := item.RouteDestination.CORSPolicy.AllowOriginRegex.ElementsAs(ctx, &AllowOriginRegexItems, false)
+							diags := RoutesItem.RouteDestination.CORSPolicy.AllowOriginRegex.ElementsAs(ctx, &AllowOriginRegexItems, false)
 							if !diags.HasError() {
-								cors_policyDeepMap["allow_origin_regex"] = AllowOriginRegexItems
+								CORSPolicyMap["allow_origin_regex"] = AllowOriginRegexItems
 							}
 						}
-						if !item.RouteDestination.CORSPolicy.Disabled.IsNull() && !item.RouteDestination.CORSPolicy.Disabled.IsUnknown() {
-							cors_policyDeepMap["disabled"] = item.RouteDestination.CORSPolicy.Disabled.ValueBool()
+						if !RoutesItem.RouteDestination.CORSPolicy.Disabled.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.Disabled.IsUnknown() {
+							CORSPolicyMap["disabled"] = RoutesItem.RouteDestination.CORSPolicy.Disabled.ValueBool()
 						}
-						if !item.RouteDestination.CORSPolicy.ExposeHeaders.IsNull() && !item.RouteDestination.CORSPolicy.ExposeHeaders.IsUnknown() {
-							cors_policyDeepMap["expose_headers"] = item.RouteDestination.CORSPolicy.ExposeHeaders.ValueString()
+						if !RoutesItem.RouteDestination.CORSPolicy.ExposeHeaders.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.ExposeHeaders.IsUnknown() {
+							CORSPolicyMap["expose_headers"] = RoutesItem.RouteDestination.CORSPolicy.ExposeHeaders.ValueString()
 						}
-						if !item.RouteDestination.CORSPolicy.MaximumAge.IsNull() && !item.RouteDestination.CORSPolicy.MaximumAge.IsUnknown() {
-							cors_policyDeepMap["maximum_age"] = item.RouteDestination.CORSPolicy.MaximumAge.ValueInt64()
+						if !RoutesItem.RouteDestination.CORSPolicy.MaximumAge.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.MaximumAge.IsUnknown() {
+							CORSPolicyMap["maximum_age"] = RoutesItem.RouteDestination.CORSPolicy.MaximumAge.ValueInt64()
 						}
-						route_destinationNestedMap["cors_policy"] = cors_policyDeepMap
+						RouteDestinationMap["cors_policy"] = CORSPolicyMap
 					}
-					if item.RouteDestination.CSRFPolicy != nil {
-						csrf_policyDeepMap := make(map[string]interface{})
-						if item.RouteDestination.CSRFPolicy.AllLoadBalancerDomains != nil {
-							csrf_policyDeepMap["all_load_balancer_domains"] = map[string]interface{}{}
+					if RoutesItem.RouteDestination.CSRFPolicy != nil {
+						CSRFPolicyMap := make(map[string]interface{})
+						if RoutesItem.RouteDestination.CSRFPolicy.AllLoadBalancerDomains != nil {
+							CSRFPolicyMap["all_load_balancer_domains"] = map[string]interface{}{}
 						}
-						if item.RouteDestination.CSRFPolicy.Disabled != nil {
-							csrf_policyDeepMap["disabled"] = map[string]interface{}{}
-						}
-						route_destinationNestedMap["csrf_policy"] = csrf_policyDeepMap
-					}
-					if len(item.RouteDestination.Destinations) > 0 {
-						var destinationsDeepList []map[string]interface{}
-						for _, deepListItem := range item.RouteDestination.Destinations {
-							deepListItemMap := make(map[string]interface{})
-							if deepListItem.EndpointSubsets != nil {
-								deepListItemMap["endpoint_subsets"] = map[string]interface{}{}
+						if RoutesItem.RouteDestination.CSRFPolicy.CustomDomainList != nil {
+							CustomDomainListMap := make(map[string]interface{})
+							if !RoutesItem.RouteDestination.CSRFPolicy.CustomDomainList.Domains.IsNull() && !RoutesItem.RouteDestination.CSRFPolicy.CustomDomainList.Domains.IsUnknown() {
+								var DomainsItems []string
+								diags := RoutesItem.RouteDestination.CSRFPolicy.CustomDomainList.Domains.ElementsAs(ctx, &DomainsItems, false)
+								if !diags.HasError() {
+									CustomDomainListMap["domains"] = DomainsItems
+								}
 							}
-							if !deepListItem.Priority.IsNull() && !deepListItem.Priority.IsUnknown() {
-								deepListItemMap["priority"] = deepListItem.Priority.ValueInt64()
+							CSRFPolicyMap["custom_domain_list"] = CustomDomainListMap
+						}
+						if RoutesItem.RouteDestination.CSRFPolicy.Disabled != nil {
+							CSRFPolicyMap["disabled"] = map[string]interface{}{}
+						}
+						RouteDestinationMap["csrf_policy"] = CSRFPolicyMap
+					}
+					if !RoutesItem.RouteDestination.Destinations.IsNull() && !RoutesItem.RouteDestination.Destinations.IsUnknown() {
+						var DestinationsElems []RouteRoutesRouteDestinationDestinationsModel
+						diags := RoutesItem.RouteDestination.Destinations.ElementsAs(ctx, &DestinationsElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(DestinationsElems) > 0 {
+							var DestinationsList []map[string]interface{}
+							for _, DestinationsItem := range DestinationsElems {
+								DestinationsItemMap := make(map[string]interface{})
+								if !DestinationsItem.Cluster.IsNull() && !DestinationsItem.Cluster.IsUnknown() {
+									var ClusterElems []RouteRoutesRouteDestinationDestinationsClusterModel
+									diags := DestinationsItem.Cluster.ElementsAs(ctx, &ClusterElems, false)
+									resp.Diagnostics.Append(diags...)
+									if !resp.Diagnostics.HasError() && len(ClusterElems) > 0 {
+										var ClusterList []map[string]interface{}
+										for _, ClusterItem := range ClusterElems {
+											ClusterItemMap := make(map[string]interface{})
+											if !ClusterItem.Kind.IsNull() && !ClusterItem.Kind.IsUnknown() {
+												ClusterItemMap["kind"] = ClusterItem.Kind.ValueString()
+											}
+											if !ClusterItem.Name.IsNull() && !ClusterItem.Name.IsUnknown() {
+												ClusterItemMap["name"] = ClusterItem.Name.ValueString()
+											}
+											if !ClusterItem.Namespace.IsNull() && !ClusterItem.Namespace.IsUnknown() {
+												ClusterItemMap["namespace"] = ClusterItem.Namespace.ValueString()
+											}
+											if !ClusterItem.Tenant.IsNull() && !ClusterItem.Tenant.IsUnknown() {
+												ClusterItemMap["tenant"] = ClusterItem.Tenant.ValueString()
+											}
+											if !ClusterItem.Uid.IsNull() && !ClusterItem.Uid.IsUnknown() {
+												ClusterItemMap["uid"] = ClusterItem.Uid.ValueString()
+											}
+											ClusterList = append(ClusterList, ClusterItemMap)
+										}
+										DestinationsItemMap["cluster"] = ClusterList
+									}
+								}
+								if DestinationsItem.EndpointSubsets != nil {
+									DestinationsItemMap["endpoint_subsets"] = map[string]interface{}{}
+								}
+								if !DestinationsItem.Priority.IsNull() && !DestinationsItem.Priority.IsUnknown() {
+									DestinationsItemMap["priority"] = DestinationsItem.Priority.ValueInt64()
+								}
+								if !DestinationsItem.Weight.IsNull() && !DestinationsItem.Weight.IsUnknown() {
+									DestinationsItemMap["weight"] = DestinationsItem.Weight.ValueInt64()
+								}
+								DestinationsList = append(DestinationsList, DestinationsItemMap)
 							}
-							if !deepListItem.Weight.IsNull() && !deepListItem.Weight.IsUnknown() {
-								deepListItemMap["weight"] = deepListItem.Weight.ValueInt64()
+							RouteDestinationMap["destinations"] = DestinationsList
+						}
+					}
+					if RoutesItem.RouteDestination.DoNotRetractCluster != nil {
+						RouteDestinationMap["do_not_retract_cluster"] = map[string]interface{}{}
+					}
+					if RoutesItem.RouteDestination.EndpointSubsets != nil {
+						RouteDestinationMap["endpoint_subsets"] = map[string]interface{}{}
+					}
+					if len(RoutesItem.RouteDestination.HashPolicy) > 0 {
+						var HashPolicyList []map[string]interface{}
+						for _, HashPolicyItem := range RoutesItem.RouteDestination.HashPolicy {
+							HashPolicyItemMap := make(map[string]interface{})
+							if HashPolicyItem.Cookie != nil {
+								CookieMap := make(map[string]interface{})
+								if HashPolicyItem.Cookie.AddHttponly != nil {
+									CookieMap["add_httponly"] = map[string]interface{}{}
+								}
+								if HashPolicyItem.Cookie.AddSecure != nil {
+									CookieMap["add_secure"] = map[string]interface{}{}
+								}
+								if HashPolicyItem.Cookie.IgnoreHttponly != nil {
+									CookieMap["ignore_httponly"] = map[string]interface{}{}
+								}
+								if HashPolicyItem.Cookie.IgnoreSamesite != nil {
+									CookieMap["ignore_samesite"] = map[string]interface{}{}
+								}
+								if HashPolicyItem.Cookie.IgnoreSecure != nil {
+									CookieMap["ignore_secure"] = map[string]interface{}{}
+								}
+								if !HashPolicyItem.Cookie.Name.IsNull() && !HashPolicyItem.Cookie.Name.IsUnknown() {
+									CookieMap["name"] = HashPolicyItem.Cookie.Name.ValueString()
+								}
+								if !HashPolicyItem.Cookie.Path.IsNull() && !HashPolicyItem.Cookie.Path.IsUnknown() {
+									CookieMap["path"] = HashPolicyItem.Cookie.Path.ValueString()
+								}
+								if HashPolicyItem.Cookie.SamesiteLax != nil {
+									CookieMap["samesite_lax"] = map[string]interface{}{}
+								}
+								if HashPolicyItem.Cookie.SamesiteNone != nil {
+									CookieMap["samesite_none"] = map[string]interface{}{}
+								}
+								if HashPolicyItem.Cookie.SamesiteStrict != nil {
+									CookieMap["samesite_strict"] = map[string]interface{}{}
+								}
+								if !HashPolicyItem.Cookie.TTL.IsNull() && !HashPolicyItem.Cookie.TTL.IsUnknown() {
+									CookieMap["ttl"] = HashPolicyItem.Cookie.TTL.ValueInt64()
+								}
+								HashPolicyItemMap["cookie"] = CookieMap
 							}
-							destinationsDeepList = append(destinationsDeepList, deepListItemMap)
-						}
-						route_destinationNestedMap["destinations"] = destinationsDeepList
-					}
-					if item.RouteDestination.DoNotRetractCluster != nil {
-						route_destinationNestedMap["do_not_retract_cluster"] = map[string]interface{}{}
-					}
-					if item.RouteDestination.EndpointSubsets != nil {
-						route_destinationNestedMap["endpoint_subsets"] = map[string]interface{}{}
-					}
-					if len(item.RouteDestination.HashPolicy) > 0 {
-						var hash_policyDeepList []map[string]interface{}
-						for _, deepListItem := range item.RouteDestination.HashPolicy {
-							deepListItemMap := make(map[string]interface{})
-							if !deepListItem.HeaderName.IsNull() && !deepListItem.HeaderName.IsUnknown() {
-								deepListItemMap["header_name"] = deepListItem.HeaderName.ValueString()
+							if !HashPolicyItem.HeaderName.IsNull() && !HashPolicyItem.HeaderName.IsUnknown() {
+								HashPolicyItemMap["header_name"] = HashPolicyItem.HeaderName.ValueString()
 							}
-							if !deepListItem.SourceIP.IsNull() && !deepListItem.SourceIP.IsUnknown() {
-								deepListItemMap["source_ip"] = deepListItem.SourceIP.ValueBool()
+							if !HashPolicyItem.SourceIP.IsNull() && !HashPolicyItem.SourceIP.IsUnknown() {
+								HashPolicyItemMap["source_ip"] = HashPolicyItem.SourceIP.ValueBool()
 							}
-							if !deepListItem.Terminal.IsNull() && !deepListItem.Terminal.IsUnknown() {
-								deepListItemMap["terminal"] = deepListItem.Terminal.ValueBool()
+							if !HashPolicyItem.Terminal.IsNull() && !HashPolicyItem.Terminal.IsUnknown() {
+								HashPolicyItemMap["terminal"] = HashPolicyItem.Terminal.ValueBool()
 							}
-							hash_policyDeepList = append(hash_policyDeepList, deepListItemMap)
+							HashPolicyList = append(HashPolicyList, HashPolicyItemMap)
 						}
-						route_destinationNestedMap["hash_policy"] = hash_policyDeepList
+						RouteDestinationMap["hash_policy"] = HashPolicyList
 					}
-					if !item.RouteDestination.HostRewrite.IsNull() && !item.RouteDestination.HostRewrite.IsUnknown() {
-						route_destinationNestedMap["host_rewrite"] = item.RouteDestination.HostRewrite.ValueString()
+					if !RoutesItem.RouteDestination.HostRewrite.IsNull() && !RoutesItem.RouteDestination.HostRewrite.IsUnknown() {
+						RouteDestinationMap["host_rewrite"] = RoutesItem.RouteDestination.HostRewrite.ValueString()
 					}
-					if item.RouteDestination.MirrorPolicy != nil {
-						mirror_policyDeepMap := make(map[string]interface{})
-						route_destinationNestedMap["mirror_policy"] = mirror_policyDeepMap
-					}
-					if !item.RouteDestination.PrefixRewrite.IsNull() && !item.RouteDestination.PrefixRewrite.IsUnknown() {
-						route_destinationNestedMap["prefix_rewrite"] = item.RouteDestination.PrefixRewrite.ValueString()
-					}
-					if !item.RouteDestination.Priority.IsNull() && !item.RouteDestination.Priority.IsUnknown() {
-						route_destinationNestedMap["priority"] = item.RouteDestination.Priority.ValueString()
-					}
-					if item.RouteDestination.QueryParams != nil {
-						query_paramsDeepMap := make(map[string]interface{})
-						if item.RouteDestination.QueryParams.RemoveAllParams != nil {
-							query_paramsDeepMap["remove_all_params"] = map[string]interface{}{}
+					if RoutesItem.RouteDestination.MirrorPolicy != nil {
+						MirrorPolicyMap := make(map[string]interface{})
+						if !RoutesItem.RouteDestination.MirrorPolicy.Cluster.IsNull() && !RoutesItem.RouteDestination.MirrorPolicy.Cluster.IsUnknown() {
+							var ClusterElems []RouteRoutesRouteDestinationMirrorPolicyClusterModel
+							diags := RoutesItem.RouteDestination.MirrorPolicy.Cluster.ElementsAs(ctx, &ClusterElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ClusterElems) > 0 {
+								var ClusterList []map[string]interface{}
+								for _, ClusterItem := range ClusterElems {
+									ClusterItemMap := make(map[string]interface{})
+									if !ClusterItem.Kind.IsNull() && !ClusterItem.Kind.IsUnknown() {
+										ClusterItemMap["kind"] = ClusterItem.Kind.ValueString()
+									}
+									if !ClusterItem.Name.IsNull() && !ClusterItem.Name.IsUnknown() {
+										ClusterItemMap["name"] = ClusterItem.Name.ValueString()
+									}
+									if !ClusterItem.Namespace.IsNull() && !ClusterItem.Namespace.IsUnknown() {
+										ClusterItemMap["namespace"] = ClusterItem.Namespace.ValueString()
+									}
+									if !ClusterItem.Tenant.IsNull() && !ClusterItem.Tenant.IsUnknown() {
+										ClusterItemMap["tenant"] = ClusterItem.Tenant.ValueString()
+									}
+									if !ClusterItem.Uid.IsNull() && !ClusterItem.Uid.IsUnknown() {
+										ClusterItemMap["uid"] = ClusterItem.Uid.ValueString()
+									}
+									ClusterList = append(ClusterList, ClusterItemMap)
+								}
+								MirrorPolicyMap["cluster"] = ClusterList
+							}
 						}
-						if !item.RouteDestination.QueryParams.ReplaceParams.IsNull() && !item.RouteDestination.QueryParams.ReplaceParams.IsUnknown() {
-							query_paramsDeepMap["replace_params"] = item.RouteDestination.QueryParams.ReplaceParams.ValueString()
+						if RoutesItem.RouteDestination.MirrorPolicy.Percent != nil {
+							PercentMap := make(map[string]interface{})
+							if !RoutesItem.RouteDestination.MirrorPolicy.Percent.Denominator.IsNull() && !RoutesItem.RouteDestination.MirrorPolicy.Percent.Denominator.IsUnknown() {
+								PercentMap["denominator"] = RoutesItem.RouteDestination.MirrorPolicy.Percent.Denominator.ValueString()
+							}
+							if !RoutesItem.RouteDestination.MirrorPolicy.Percent.Numerator.IsNull() && !RoutesItem.RouteDestination.MirrorPolicy.Percent.Numerator.IsUnknown() {
+								PercentMap["numerator"] = RoutesItem.RouteDestination.MirrorPolicy.Percent.Numerator.ValueInt64()
+							}
+							MirrorPolicyMap["percent"] = PercentMap
 						}
-						if item.RouteDestination.QueryParams.RetainAllParams != nil {
-							query_paramsDeepMap["retain_all_params"] = map[string]interface{}{}
-						}
-						route_destinationNestedMap["query_params"] = query_paramsDeepMap
+						RouteDestinationMap["mirror_policy"] = MirrorPolicyMap
 					}
-					if item.RouteDestination.RegexRewrite != nil {
-						regex_rewriteDeepMap := make(map[string]interface{})
-						if !item.RouteDestination.RegexRewrite.Pattern.IsNull() && !item.RouteDestination.RegexRewrite.Pattern.IsUnknown() {
-							regex_rewriteDeepMap["pattern"] = item.RouteDestination.RegexRewrite.Pattern.ValueString()
-						}
-						if !item.RouteDestination.RegexRewrite.Substitution.IsNull() && !item.RouteDestination.RegexRewrite.Substitution.IsUnknown() {
-							regex_rewriteDeepMap["substitution"] = item.RouteDestination.RegexRewrite.Substitution.ValueString()
-						}
-						route_destinationNestedMap["regex_rewrite"] = regex_rewriteDeepMap
+					if !RoutesItem.RouteDestination.PrefixRewrite.IsNull() && !RoutesItem.RouteDestination.PrefixRewrite.IsUnknown() {
+						RouteDestinationMap["prefix_rewrite"] = RoutesItem.RouteDestination.PrefixRewrite.ValueString()
 					}
-					if item.RouteDestination.RetractCluster != nil {
-						route_destinationNestedMap["retract_cluster"] = map[string]interface{}{}
+					if !RoutesItem.RouteDestination.Priority.IsNull() && !RoutesItem.RouteDestination.Priority.IsUnknown() {
+						RouteDestinationMap["priority"] = RoutesItem.RouteDestination.Priority.ValueString()
 					}
-					if item.RouteDestination.RetryPolicy != nil {
-						retry_policyDeepMap := make(map[string]interface{})
-						if !item.RouteDestination.RetryPolicy.NumRetries.IsNull() && !item.RouteDestination.RetryPolicy.NumRetries.IsUnknown() {
-							retry_policyDeepMap["num_retries"] = item.RouteDestination.RetryPolicy.NumRetries.ValueInt64()
+					if RoutesItem.RouteDestination.QueryParams != nil {
+						QueryParamsMap := make(map[string]interface{})
+						if RoutesItem.RouteDestination.QueryParams.RemoveAllParams != nil {
+							QueryParamsMap["remove_all_params"] = map[string]interface{}{}
 						}
-						if !item.RouteDestination.RetryPolicy.PerTryTimeout.IsNull() && !item.RouteDestination.RetryPolicy.PerTryTimeout.IsUnknown() {
-							retry_policyDeepMap["per_try_timeout"] = item.RouteDestination.RetryPolicy.PerTryTimeout.ValueInt64()
+						if !RoutesItem.RouteDestination.QueryParams.ReplaceParams.IsNull() && !RoutesItem.RouteDestination.QueryParams.ReplaceParams.IsUnknown() {
+							QueryParamsMap["replace_params"] = RoutesItem.RouteDestination.QueryParams.ReplaceParams.ValueString()
 						}
-						if !item.RouteDestination.RetryPolicy.RetryCondition.IsNull() && !item.RouteDestination.RetryPolicy.RetryCondition.IsUnknown() {
+						if RoutesItem.RouteDestination.QueryParams.RetainAllParams != nil {
+							QueryParamsMap["retain_all_params"] = map[string]interface{}{}
+						}
+						RouteDestinationMap["query_params"] = QueryParamsMap
+					}
+					if RoutesItem.RouteDestination.RegexRewrite != nil {
+						RegexRewriteMap := make(map[string]interface{})
+						if !RoutesItem.RouteDestination.RegexRewrite.Pattern.IsNull() && !RoutesItem.RouteDestination.RegexRewrite.Pattern.IsUnknown() {
+							RegexRewriteMap["pattern"] = RoutesItem.RouteDestination.RegexRewrite.Pattern.ValueString()
+						}
+						if !RoutesItem.RouteDestination.RegexRewrite.Substitution.IsNull() && !RoutesItem.RouteDestination.RegexRewrite.Substitution.IsUnknown() {
+							RegexRewriteMap["substitution"] = RoutesItem.RouteDestination.RegexRewrite.Substitution.ValueString()
+						}
+						RouteDestinationMap["regex_rewrite"] = RegexRewriteMap
+					}
+					if RoutesItem.RouteDestination.RetractCluster != nil {
+						RouteDestinationMap["retract_cluster"] = map[string]interface{}{}
+					}
+					if RoutesItem.RouteDestination.RetryPolicy != nil {
+						RetryPolicyMap := make(map[string]interface{})
+						if RoutesItem.RouteDestination.RetryPolicy.BackOff != nil {
+							BackOffMap := make(map[string]interface{})
+							if !RoutesItem.RouteDestination.RetryPolicy.BackOff.BaseInterval.IsNull() && !RoutesItem.RouteDestination.RetryPolicy.BackOff.BaseInterval.IsUnknown() {
+								BackOffMap["base_interval"] = RoutesItem.RouteDestination.RetryPolicy.BackOff.BaseInterval.ValueInt64()
+							}
+							if !RoutesItem.RouteDestination.RetryPolicy.BackOff.MaxInterval.IsNull() && !RoutesItem.RouteDestination.RetryPolicy.BackOff.MaxInterval.IsUnknown() {
+								BackOffMap["max_interval"] = RoutesItem.RouteDestination.RetryPolicy.BackOff.MaxInterval.ValueInt64()
+							}
+							RetryPolicyMap["back_off"] = BackOffMap
+						}
+						if !RoutesItem.RouteDestination.RetryPolicy.NumRetries.IsNull() && !RoutesItem.RouteDestination.RetryPolicy.NumRetries.IsUnknown() {
+							RetryPolicyMap["num_retries"] = RoutesItem.RouteDestination.RetryPolicy.NumRetries.ValueInt64()
+						}
+						if !RoutesItem.RouteDestination.RetryPolicy.PerTryTimeout.IsNull() && !RoutesItem.RouteDestination.RetryPolicy.PerTryTimeout.IsUnknown() {
+							RetryPolicyMap["per_try_timeout"] = RoutesItem.RouteDestination.RetryPolicy.PerTryTimeout.ValueInt64()
+						}
+						if !RoutesItem.RouteDestination.RetryPolicy.RetriableStatusCodes.IsNull() && !RoutesItem.RouteDestination.RetryPolicy.RetriableStatusCodes.IsUnknown() {
+							var RetriableStatusCodesItems []int64
+							diags := RoutesItem.RouteDestination.RetryPolicy.RetriableStatusCodes.ElementsAs(ctx, &RetriableStatusCodesItems, false)
+							if !diags.HasError() {
+								RetryPolicyMap["retriable_status_codes"] = RetriableStatusCodesItems
+							}
+						}
+						if !RoutesItem.RouteDestination.RetryPolicy.RetryCondition.IsNull() && !RoutesItem.RouteDestination.RetryPolicy.RetryCondition.IsUnknown() {
 							var RetryConditionItems []string
-							diags := item.RouteDestination.RetryPolicy.RetryCondition.ElementsAs(ctx, &RetryConditionItems, false)
+							diags := RoutesItem.RouteDestination.RetryPolicy.RetryCondition.ElementsAs(ctx, &RetryConditionItems, false)
 							if !diags.HasError() {
-								retry_policyDeepMap["retry_condition"] = RetryConditionItems
+								RetryPolicyMap["retry_condition"] = RetryConditionItems
 							}
 						}
-						route_destinationNestedMap["retry_policy"] = retry_policyDeepMap
+						RouteDestinationMap["retry_policy"] = RetryPolicyMap
 					}
-					if item.RouteDestination.SpdyConfig != nil {
-						spdy_configDeepMap := make(map[string]interface{})
-						if !item.RouteDestination.SpdyConfig.UseSpdy.IsNull() && !item.RouteDestination.SpdyConfig.UseSpdy.IsUnknown() {
-							spdy_configDeepMap["use_spdy"] = item.RouteDestination.SpdyConfig.UseSpdy.ValueBool()
+					if RoutesItem.RouteDestination.SpdyConfig != nil {
+						SpdyConfigMap := make(map[string]interface{})
+						if !RoutesItem.RouteDestination.SpdyConfig.UseSpdy.IsNull() && !RoutesItem.RouteDestination.SpdyConfig.UseSpdy.IsUnknown() {
+							SpdyConfigMap["use_spdy"] = RoutesItem.RouteDestination.SpdyConfig.UseSpdy.ValueBool()
 						}
-						route_destinationNestedMap["spdy_config"] = spdy_configDeepMap
+						RouteDestinationMap["spdy_config"] = SpdyConfigMap
 					}
-					if !item.RouteDestination.Timeout.IsNull() && !item.RouteDestination.Timeout.IsUnknown() {
-						route_destinationNestedMap["timeout"] = item.RouteDestination.Timeout.ValueInt64()
+					if !RoutesItem.RouteDestination.Timeout.IsNull() && !RoutesItem.RouteDestination.Timeout.IsUnknown() {
+						RouteDestinationMap["timeout"] = RoutesItem.RouteDestination.Timeout.ValueInt64()
 					}
-					if item.RouteDestination.WebSocketConfig != nil {
-						web_socket_configDeepMap := make(map[string]interface{})
-						if !item.RouteDestination.WebSocketConfig.UseWebSocket.IsNull() && !item.RouteDestination.WebSocketConfig.UseWebSocket.IsUnknown() {
-							web_socket_configDeepMap["use_websocket"] = item.RouteDestination.WebSocketConfig.UseWebSocket.ValueBool()
+					if RoutesItem.RouteDestination.WebSocketConfig != nil {
+						WebSocketConfigMap := make(map[string]interface{})
+						if !RoutesItem.RouteDestination.WebSocketConfig.UseWebSocket.IsNull() && !RoutesItem.RouteDestination.WebSocketConfig.UseWebSocket.IsUnknown() {
+							WebSocketConfigMap["use_websocket"] = RoutesItem.RouteDestination.WebSocketConfig.UseWebSocket.ValueBool()
 						}
-						route_destinationNestedMap["web_socket_config"] = web_socket_configDeepMap
+						RouteDestinationMap["web_socket_config"] = WebSocketConfigMap
 					}
-					itemMap["route_destination"] = route_destinationNestedMap
+					RoutesItemMap["route_destination"] = RouteDestinationMap
 				}
-				if item.RouteDirectResponse != nil {
-					route_direct_responseNestedMap := make(map[string]interface{})
-					if !item.RouteDirectResponse.ResponseBodyEncoded.IsNull() && !item.RouteDirectResponse.ResponseBodyEncoded.IsUnknown() {
-						route_direct_responseNestedMap["response_body_encoded"] = item.RouteDirectResponse.ResponseBodyEncoded.ValueString()
+				if RoutesItem.RouteDirectResponse != nil {
+					RouteDirectResponseMap := make(map[string]interface{})
+					if !RoutesItem.RouteDirectResponse.ResponseBodyEncoded.IsNull() && !RoutesItem.RouteDirectResponse.ResponseBodyEncoded.IsUnknown() {
+						RouteDirectResponseMap["response_body_encoded"] = RoutesItem.RouteDirectResponse.ResponseBodyEncoded.ValueString()
 					}
-					if !item.RouteDirectResponse.ResponseCode.IsNull() && !item.RouteDirectResponse.ResponseCode.IsUnknown() {
-						route_direct_responseNestedMap["response_code"] = item.RouteDirectResponse.ResponseCode.ValueInt64()
+					if !RoutesItem.RouteDirectResponse.ResponseCode.IsNull() && !RoutesItem.RouteDirectResponse.ResponseCode.IsUnknown() {
+						RouteDirectResponseMap["response_code"] = RoutesItem.RouteDirectResponse.ResponseCode.ValueInt64()
 					}
-					itemMap["route_direct_response"] = route_direct_responseNestedMap
+					RoutesItemMap["route_direct_response"] = RouteDirectResponseMap
 				}
-				if item.RouteRedirect != nil {
-					route_redirectNestedMap := make(map[string]interface{})
-					if !item.RouteRedirect.HostRedirect.IsNull() && !item.RouteRedirect.HostRedirect.IsUnknown() {
-						route_redirectNestedMap["host_redirect"] = item.RouteRedirect.HostRedirect.ValueString()
+				if RoutesItem.RouteRedirect != nil {
+					RouteRedirectMap := make(map[string]interface{})
+					if !RoutesItem.RouteRedirect.HostRedirect.IsNull() && !RoutesItem.RouteRedirect.HostRedirect.IsUnknown() {
+						RouteRedirectMap["host_redirect"] = RoutesItem.RouteRedirect.HostRedirect.ValueString()
 					}
-					if !item.RouteRedirect.PathRedirect.IsNull() && !item.RouteRedirect.PathRedirect.IsUnknown() {
-						route_redirectNestedMap["path_redirect"] = item.RouteRedirect.PathRedirect.ValueString()
+					if !RoutesItem.RouteRedirect.PathRedirect.IsNull() && !RoutesItem.RouteRedirect.PathRedirect.IsUnknown() {
+						RouteRedirectMap["path_redirect"] = RoutesItem.RouteRedirect.PathRedirect.ValueString()
 					}
-					if !item.RouteRedirect.PrefixRewrite.IsNull() && !item.RouteRedirect.PrefixRewrite.IsUnknown() {
-						route_redirectNestedMap["prefix_rewrite"] = item.RouteRedirect.PrefixRewrite.ValueString()
+					if !RoutesItem.RouteRedirect.PrefixRewrite.IsNull() && !RoutesItem.RouteRedirect.PrefixRewrite.IsUnknown() {
+						RouteRedirectMap["prefix_rewrite"] = RoutesItem.RouteRedirect.PrefixRewrite.ValueString()
 					}
-					if !item.RouteRedirect.ProtoRedirect.IsNull() && !item.RouteRedirect.ProtoRedirect.IsUnknown() {
-						route_redirectNestedMap["proto_redirect"] = item.RouteRedirect.ProtoRedirect.ValueString()
+					if !RoutesItem.RouteRedirect.ProtoRedirect.IsNull() && !RoutesItem.RouteRedirect.ProtoRedirect.IsUnknown() {
+						RouteRedirectMap["proto_redirect"] = RoutesItem.RouteRedirect.ProtoRedirect.ValueString()
 					}
-					if item.RouteRedirect.RemoveAllParams != nil {
-						route_redirectNestedMap["remove_all_params"] = map[string]interface{}{}
+					if RoutesItem.RouteRedirect.RemoveAllParams != nil {
+						RouteRedirectMap["remove_all_params"] = map[string]interface{}{}
 					}
-					if !item.RouteRedirect.ReplaceParams.IsNull() && !item.RouteRedirect.ReplaceParams.IsUnknown() {
-						route_redirectNestedMap["replace_params"] = item.RouteRedirect.ReplaceParams.ValueString()
+					if !RoutesItem.RouteRedirect.ReplaceParams.IsNull() && !RoutesItem.RouteRedirect.ReplaceParams.IsUnknown() {
+						RouteRedirectMap["replace_params"] = RoutesItem.RouteRedirect.ReplaceParams.ValueString()
 					}
-					if !item.RouteRedirect.ResponseCode.IsNull() && !item.RouteRedirect.ResponseCode.IsUnknown() {
-						route_redirectNestedMap["response_code"] = item.RouteRedirect.ResponseCode.ValueInt64()
+					if !RoutesItem.RouteRedirect.ResponseCode.IsNull() && !RoutesItem.RouteRedirect.ResponseCode.IsUnknown() {
+						RouteRedirectMap["response_code"] = RoutesItem.RouteRedirect.ResponseCode.ValueInt64()
 					}
-					if item.RouteRedirect.RetainAllParams != nil {
-						route_redirectNestedMap["retain_all_params"] = map[string]interface{}{}
+					if RoutesItem.RouteRedirect.RetainAllParams != nil {
+						RouteRedirectMap["retain_all_params"] = map[string]interface{}{}
 					}
-					itemMap["route_redirect"] = route_redirectNestedMap
+					RoutesItemMap["route_redirect"] = RouteRedirectMap
 				}
-				if item.ServicePolicy != nil {
-					service_policyNestedMap := make(map[string]interface{})
-					if !item.ServicePolicy.DisableSpec.IsNull() && !item.ServicePolicy.DisableSpec.IsUnknown() {
-						service_policyNestedMap["disable"] = item.ServicePolicy.DisableSpec.ValueBool()
+				if RoutesItem.ServicePolicy != nil {
+					ServicePolicyMap := make(map[string]interface{})
+					if !RoutesItem.ServicePolicy.DisableSpec.IsNull() && !RoutesItem.ServicePolicy.DisableSpec.IsUnknown() {
+						ServicePolicyMap["disable"] = RoutesItem.ServicePolicy.DisableSpec.ValueBool()
 					}
-					itemMap["service_policy"] = service_policyNestedMap
+					RoutesItemMap["service_policy"] = ServicePolicyMap
 				}
-				if item.WAFExclusionPolicy != nil {
-					waf_exclusion_policyNestedMap := make(map[string]interface{})
-					if !item.WAFExclusionPolicy.Name.IsNull() && !item.WAFExclusionPolicy.Name.IsUnknown() {
-						waf_exclusion_policyNestedMap["name"] = item.WAFExclusionPolicy.Name.ValueString()
+				if RoutesItem.WAFExclusionPolicy != nil {
+					WAFExclusionPolicyMap := make(map[string]interface{})
+					if !RoutesItem.WAFExclusionPolicy.Name.IsNull() && !RoutesItem.WAFExclusionPolicy.Name.IsUnknown() {
+						WAFExclusionPolicyMap["name"] = RoutesItem.WAFExclusionPolicy.Name.ValueString()
 					}
-					if !item.WAFExclusionPolicy.Namespace.IsNull() && !item.WAFExclusionPolicy.Namespace.IsUnknown() {
-						waf_exclusion_policyNestedMap["namespace"] = item.WAFExclusionPolicy.Namespace.ValueString()
+					if !RoutesItem.WAFExclusionPolicy.Namespace.IsNull() && !RoutesItem.WAFExclusionPolicy.Namespace.IsUnknown() {
+						WAFExclusionPolicyMap["namespace"] = RoutesItem.WAFExclusionPolicy.Namespace.ValueString()
 					}
-					if !item.WAFExclusionPolicy.Tenant.IsNull() && !item.WAFExclusionPolicy.Tenant.IsUnknown() {
-						waf_exclusion_policyNestedMap["tenant"] = item.WAFExclusionPolicy.Tenant.ValueString()
+					if !RoutesItem.WAFExclusionPolicy.Tenant.IsNull() && !RoutesItem.WAFExclusionPolicy.Tenant.IsUnknown() {
+						WAFExclusionPolicyMap["tenant"] = RoutesItem.WAFExclusionPolicy.Tenant.ValueString()
 					}
-					itemMap["waf_exclusion_policy"] = waf_exclusion_policyNestedMap
+					RoutesItemMap["waf_exclusion_policy"] = WAFExclusionPolicyMap
 				}
-				if item.WAFType != nil {
-					waf_typeNestedMap := make(map[string]interface{})
-					if item.WAFType.AppFirewall != nil {
-						app_firewallDeepMap := make(map[string]interface{})
-						waf_typeNestedMap["app_firewall"] = app_firewallDeepMap
+				if RoutesItem.WAFType != nil {
+					WAFTypeMap := make(map[string]interface{})
+					if RoutesItem.WAFType.AppFirewall != nil {
+						AppFirewallMap := make(map[string]interface{})
+						if !RoutesItem.WAFType.AppFirewall.AppFirewall.IsNull() && !RoutesItem.WAFType.AppFirewall.AppFirewall.IsUnknown() {
+							var AppFirewallElems []RouteRoutesWAFTypeAppFirewallAppFirewallModel
+							diags := RoutesItem.WAFType.AppFirewall.AppFirewall.ElementsAs(ctx, &AppFirewallElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(AppFirewallElems) > 0 {
+								var AppFirewallList []map[string]interface{}
+								for _, AppFirewallItem := range AppFirewallElems {
+									AppFirewallItemMap := make(map[string]interface{})
+									if !AppFirewallItem.Kind.IsNull() && !AppFirewallItem.Kind.IsUnknown() {
+										AppFirewallItemMap["kind"] = AppFirewallItem.Kind.ValueString()
+									}
+									if !AppFirewallItem.Name.IsNull() && !AppFirewallItem.Name.IsUnknown() {
+										AppFirewallItemMap["name"] = AppFirewallItem.Name.ValueString()
+									}
+									if !AppFirewallItem.Namespace.IsNull() && !AppFirewallItem.Namespace.IsUnknown() {
+										AppFirewallItemMap["namespace"] = AppFirewallItem.Namespace.ValueString()
+									}
+									if !AppFirewallItem.Tenant.IsNull() && !AppFirewallItem.Tenant.IsUnknown() {
+										AppFirewallItemMap["tenant"] = AppFirewallItem.Tenant.ValueString()
+									}
+									if !AppFirewallItem.Uid.IsNull() && !AppFirewallItem.Uid.IsUnknown() {
+										AppFirewallItemMap["uid"] = AppFirewallItem.Uid.ValueString()
+									}
+									AppFirewallList = append(AppFirewallList, AppFirewallItemMap)
+								}
+								AppFirewallMap["app_firewall"] = AppFirewallList
+							}
+						}
+						WAFTypeMap["app_firewall"] = AppFirewallMap
 					}
-					if item.WAFType.DisableWAF != nil {
-						waf_typeNestedMap["disable_waf"] = map[string]interface{}{}
+					if RoutesItem.WAFType.DisableWAF != nil {
+						WAFTypeMap["disable_waf"] = map[string]interface{}{}
 					}
-					if item.WAFType.InheritWAF != nil {
-						waf_typeNestedMap["inherit_waf"] = map[string]interface{}{}
+					if RoutesItem.WAFType.InheritWAF != nil {
+						WAFTypeMap["inherit_waf"] = map[string]interface{}{}
 					}
-					itemMap["waf_type"] = waf_typeNestedMap
+					RoutesItemMap["waf_type"] = WAFTypeMap
 				}
-				routesList = append(routesList, itemMap)
+				RoutesList = append(RoutesList, RoutesItemMap)
 			}
-			apiResource.Spec["routes"] = routesList
+			apiResource.Spec["routes"] = RoutesList
 		}
 	}
 
@@ -4079,24 +6999,70 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["routes"].([]interface{}); ok && len(listData) > 0 {
-		var routesList []RouteRoutesModel
+	if !isImport && (data.Routes.IsNull() || len(data.Routes.Elements()) == 0) {
+		data.Routes = types.ListNull(types.ObjectType{AttrTypes: RouteRoutesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["routes"].([]interface{}); ok && len(listData) > 0 {
+		var RoutesList []RouteRoutesModel
 		var existingRoutesItems []RouteRoutesModel
 		if !data.Routes.IsNull() && !data.Routes.IsUnknown() {
 			data.Routes.ElementsAs(ctx, &existingRoutesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				routesList = append(routesList, RouteRoutesModel{
+				RoutesList = append(RoutesList, RouteRoutesModel{
 					BotDefenseJavascriptInjection: func() *RouteRoutesBotDefenseJavascriptInjectionModel {
-						if nestedMap, ok := itemMap["bot_defense_javascript_injection"].(map[string]interface{}); ok {
+						if BotDefenseJavascriptInjectionData, ok := itemMap["bot_defense_javascript_injection"].(map[string]interface{}); ok {
 							return &RouteRoutesBotDefenseJavascriptInjectionModel{
 								JavascriptLocation: func() types.String {
-									if v, ok := nestedMap["javascript_location"].(string); ok && v != "" {
+									if v, ok := BotDefenseJavascriptInjectionData["javascript_location"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
+								}(),
+								JavascriptTags: func() []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel {
+									if rawList, ok := BotDefenseJavascriptInjectionData["javascript_tags"].([]interface{}); ok && len(rawList) > 0 {
+										var JavascriptTagsResult []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel
+										for _, JavascriptTagsItem := range rawList {
+											if JavascriptTagsItemMap, ok := JavascriptTagsItem.(map[string]interface{}); ok {
+												JavascriptTagsResult = append(JavascriptTagsResult, RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel{
+													JavascriptURL: func() types.String {
+														if v, ok := JavascriptTagsItemMap["javascript_url"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													TagAttributes: func() []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel {
+														if rawList, ok := JavascriptTagsItemMap["tag_attributes"].([]interface{}); ok && len(rawList) > 0 {
+															var TagAttributesResult []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel
+															for _, TagAttributesItem := range rawList {
+																if TagAttributesItemMap, ok := TagAttributesItem.(map[string]interface{}); ok {
+																	TagAttributesResult = append(TagAttributesResult, RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel{
+																		JavascriptTag: func() types.String {
+																			if v, ok := TagAttributesItemMap["javascript_tag"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		TagValue: func() types.String {
+																			if v, ok := TagAttributesItemMap["tag_value"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																	})
+																}
+															}
+															return TagAttributesResult
+														}
+														return nil
+													}(),
+												})
+											}
+										}
+										return JavascriptTagsResult
+									}
+									return nil
 								}(),
 							}
 						}
@@ -4112,53 +7078,234 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].InheritedBotDefenseJavascriptInjection != nil {
 							return &RouteEmptyModel{}
 						}
+						if _, ok := itemMap["inherited_bot_defense_javascript_injection"].(map[string]interface{}); ok {
+							return &RouteEmptyModel{}
+						}
 						return nil
 					}(),
 					InheritedWAFExclusion: func() *RouteEmptyModel {
 						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].InheritedWAFExclusion != nil {
 							return &RouteEmptyModel{}
 						}
+						if _, ok := itemMap["inherited_waf_exclusion"].(map[string]interface{}); ok {
+							return &RouteEmptyModel{}
+						}
 						return nil
 					}(),
 					Match: func() []RouteRoutesMatchModel {
-						if nestedListData, ok := itemMap["match"].([]interface{}); ok && len(nestedListData) > 0 {
-							var result []RouteRoutesMatchModel
-							for _, nestedItem := range nestedListData {
-								if nestedItemMap, ok := nestedItem.(map[string]interface{}); ok {
-									result = append(result, RouteRoutesMatchModel{
+						if rawList, ok := itemMap["match"].([]interface{}); ok && len(rawList) > 0 {
+							var MatchResult []RouteRoutesMatchModel
+							for _, MatchItem := range rawList {
+								if MatchItemMap, ok := MatchItem.(map[string]interface{}); ok {
+									MatchResult = append(MatchResult, RouteRoutesMatchModel{
+										Headers: func() []RouteRoutesMatchHeadersModel {
+											if rawList, ok := MatchItemMap["headers"].([]interface{}); ok && len(rawList) > 0 {
+												var HeadersResult []RouteRoutesMatchHeadersModel
+												for _, HeadersItem := range rawList {
+													if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
+														HeadersResult = append(HeadersResult, RouteRoutesMatchHeadersModel{
+															Exact: func() types.String {
+																if v, ok := HeadersItemMap["exact"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															InvertMatch: func() types.Bool {
+																if v, ok := HeadersItemMap["invert_match"].(bool); ok {
+																	return types.BoolValue(v)
+																}
+																return types.BoolNull()
+															}(),
+															Name: func() types.String {
+																if v, ok := HeadersItemMap["name"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Presence: func() types.Bool {
+																if v, ok := HeadersItemMap["presence"].(bool); ok {
+																	return types.BoolValue(v)
+																}
+																return types.BoolNull()
+															}(),
+															Regex: func() types.String {
+																if v, ok := HeadersItemMap["regex"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														})
+													}
+												}
+												return HeadersResult
+											}
+											return nil
+										}(),
 										HTTPMethod: func() types.String {
-											if v, ok := nestedItemMap["http_method"].(string); ok && v != "" {
+											if v, ok := MatchItemMap["http_method"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
+										IncomingPort: func() *RouteRoutesMatchIncomingPortModel {
+											if IncomingPortData, ok := MatchItemMap["incoming_port"].(map[string]interface{}); ok {
+												return &RouteRoutesMatchIncomingPortModel{
+													NoPortMatch: func() *RouteEmptyModel {
+														if _, ok := IncomingPortData["no_port_match"].(map[string]interface{}); ok {
+															return &RouteEmptyModel{}
+														}
+														return nil
+													}(),
+													Port: func() types.Int64 {
+														if v, ok := IncomingPortData["port"].(float64); ok && v != 0 {
+															return types.Int64Value(int64(v))
+														}
+														return types.Int64Null()
+													}(),
+													PortRanges: func() types.String {
+														if v, ok := IncomingPortData["port_ranges"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												}
+											}
+											return nil
+										}(),
+										Path: func() *RouteRoutesMatchPathModel {
+											if PathData, ok := MatchItemMap["path"].(map[string]interface{}); ok {
+												return &RouteRoutesMatchPathModel{
+													Path: func() types.String {
+														if v, ok := PathData["path"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													Prefix: func() types.String {
+														if v, ok := PathData["prefix"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													Regex: func() types.String {
+														if v, ok := PathData["regex"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												}
+											}
+											return nil
+										}(),
+										QueryParams: func() []RouteRoutesMatchQueryParamsModel {
+											if rawList, ok := MatchItemMap["query_params"].([]interface{}); ok && len(rawList) > 0 {
+												var QueryParamsResult []RouteRoutesMatchQueryParamsModel
+												for _, QueryParamsItem := range rawList {
+													if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
+														QueryParamsResult = append(QueryParamsResult, RouteRoutesMatchQueryParamsModel{
+															Exact: func() types.String {
+																if v, ok := QueryParamsItemMap["exact"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Key: func() types.String {
+																if v, ok := QueryParamsItemMap["key"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Regex: func() types.String {
+																if v, ok := QueryParamsItemMap["regex"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														})
+													}
+												}
+												return QueryParamsResult
+											}
+											return nil
+										}(),
 									})
 								}
 							}
-							return result
+							return MatchResult
 						}
 						return nil
 					}(),
 					RequestCookiesToAdd: func() []RouteRoutesRequestCookiesToAddModel {
-						if nestedListData, ok := itemMap["request_cookies_to_add"].([]interface{}); ok && len(nestedListData) > 0 {
-							var result []RouteRoutesRequestCookiesToAddModel
-							for _, nestedItem := range nestedListData {
-								if nestedItemMap, ok := nestedItem.(map[string]interface{}); ok {
-									result = append(result, RouteRoutesRequestCookiesToAddModel{
+						if rawList, ok := itemMap["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+							var RequestCookiesToAddResult []RouteRoutesRequestCookiesToAddModel
+							for _, RequestCookiesToAddItem := range rawList {
+								if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
+									RequestCookiesToAddResult = append(RequestCookiesToAddResult, RouteRoutesRequestCookiesToAddModel{
 										Name: func() types.String {
-											if v, ok := nestedItemMap["name"].(string); ok && v != "" {
+											if v, ok := RequestCookiesToAddItemMap["name"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
 										Overwrite: func() types.Bool {
-											if v, ok := nestedItemMap["overwrite"].(bool); ok {
+											if v, ok := RequestCookiesToAddItemMap["overwrite"].(bool); ok {
 												return types.BoolValue(v)
 											}
 											return types.BoolNull()
 										}(),
+										SecretValue: func() *RouteRoutesRequestCookiesToAddSecretValueModel {
+											if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+												return &RouteRoutesRequestCookiesToAddSecretValueModel{
+													BlindfoldSecretInfo: func() *RouteRoutesRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																DecryptionProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Location: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																StoreProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+													ClearSecretInfo: func() *RouteRoutesRequestCookiesToAddSecretValueClearSecretInfoModel {
+														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesRequestCookiesToAddSecretValueClearSecretInfoModel{
+																Provider: func() types.String {
+																	if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																URL: func() types.String {
+																	if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+												}
+											}
+											return nil
+										}(),
 										Value: func() types.String {
-											if v, ok := nestedItemMap["value"].(string); ok && v != "" {
+											if v, ok := RequestCookiesToAddItemMap["value"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
@@ -4166,7 +7313,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									})
 								}
 							}
-							return result
+							return RequestCookiesToAddResult
 						}
 						return nil
 					}(),
@@ -4184,25 +7331,76 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						return types.ListNull(types.StringType)
 					}(),
 					RequestHeadersToAdd: func() []RouteRoutesRequestHeadersToAddModel {
-						if nestedListData, ok := itemMap["request_headers_to_add"].([]interface{}); ok && len(nestedListData) > 0 {
-							var result []RouteRoutesRequestHeadersToAddModel
-							for _, nestedItem := range nestedListData {
-								if nestedItemMap, ok := nestedItem.(map[string]interface{}); ok {
-									result = append(result, RouteRoutesRequestHeadersToAddModel{
+						if rawList, ok := itemMap["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+							var RequestHeadersToAddResult []RouteRoutesRequestHeadersToAddModel
+							for _, RequestHeadersToAddItem := range rawList {
+								if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
+									RequestHeadersToAddResult = append(RequestHeadersToAddResult, RouteRoutesRequestHeadersToAddModel{
 										Append: func() types.Bool {
-											if v, ok := nestedItemMap["append"].(bool); ok {
+											if v, ok := RequestHeadersToAddItemMap["append"].(bool); ok {
 												return types.BoolValue(v)
 											}
 											return types.BoolNull()
 										}(),
 										Name: func() types.String {
-											if v, ok := nestedItemMap["name"].(string); ok && v != "" {
+											if v, ok := RequestHeadersToAddItemMap["name"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
+										SecretValue: func() *RouteRoutesRequestHeadersToAddSecretValueModel {
+											if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+												return &RouteRoutesRequestHeadersToAddSecretValueModel{
+													BlindfoldSecretInfo: func() *RouteRoutesRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																DecryptionProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Location: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																StoreProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+													ClearSecretInfo: func() *RouteRoutesRequestHeadersToAddSecretValueClearSecretInfoModel {
+														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesRequestHeadersToAddSecretValueClearSecretInfoModel{
+																Provider: func() types.String {
+																	if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																URL: func() types.String {
+																	if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+												}
+											}
+											return nil
+										}(),
 										Value: func() types.String {
-											if v, ok := nestedItemMap["value"].(string); ok && v != "" {
+											if v, ok := RequestHeadersToAddItemMap["value"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
@@ -4210,7 +7408,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									})
 								}
 							}
-							return result
+							return RequestHeadersToAddResult
 						}
 						return nil
 					}(),
@@ -4228,49 +7426,190 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						return types.ListNull(types.StringType)
 					}(),
 					ResponseCookiesToAdd: func() []RouteRoutesResponseCookiesToAddModel {
-						if nestedListData, ok := itemMap["response_cookies_to_add"].([]interface{}); ok && len(nestedListData) > 0 {
-							var result []RouteRoutesResponseCookiesToAddModel
-							for _, nestedItem := range nestedListData {
-								if nestedItemMap, ok := nestedItem.(map[string]interface{}); ok {
-									result = append(result, RouteRoutesResponseCookiesToAddModel{
+						if rawList, ok := itemMap["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+							var ResponseCookiesToAddResult []RouteRoutesResponseCookiesToAddModel
+							for _, ResponseCookiesToAddItem := range rawList {
+								if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
+									ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, RouteRoutesResponseCookiesToAddModel{
 										AddDomain: func() types.String {
-											if v, ok := nestedItemMap["add_domain"].(string); ok && v != "" {
+											if v, ok := ResponseCookiesToAddItemMap["add_domain"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
 										AddExpiry: func() types.String {
-											if v, ok := nestedItemMap["add_expiry"].(string); ok && v != "" {
+											if v, ok := ResponseCookiesToAddItemMap["add_expiry"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
+										}(),
+										AddHttponly: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										AddPartitioned: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
 										}(),
 										AddPath: func() types.String {
-											if v, ok := nestedItemMap["add_path"].(string); ok && v != "" {
+											if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
+										AddSecure: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnoreDomain: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnoreExpiry: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnoreHttponly: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnoreMaxAge: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnorePartitioned: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnorePath: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnoreSamesite: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnoreSecure: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										IgnoreValue: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
 										MaxAgeValue: func() types.Int64 {
-											if v, ok := nestedItemMap["max_age_value"].(float64); ok && v != 0 {
+											if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
 												return types.Int64Value(int64(v))
 											}
 											return types.Int64Null()
 										}(),
 										Name: func() types.String {
-											if v, ok := nestedItemMap["name"].(string); ok && v != "" {
+											if v, ok := ResponseCookiesToAddItemMap["name"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
 										Overwrite: func() types.Bool {
-											if v, ok := nestedItemMap["overwrite"].(bool); ok {
+											if v, ok := ResponseCookiesToAddItemMap["overwrite"].(bool); ok {
 												return types.BoolValue(v)
 											}
 											return types.BoolNull()
 										}(),
+										SamesiteLax: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										SamesiteNone: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										SamesiteStrict: func() *RouteEmptyModel {
+											if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
+												return &RouteEmptyModel{}
+											}
+											return nil
+										}(),
+										SecretValue: func() *RouteRoutesResponseCookiesToAddSecretValueModel {
+											if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+												return &RouteRoutesResponseCookiesToAddSecretValueModel{
+													BlindfoldSecretInfo: func() *RouteRoutesResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																DecryptionProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Location: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																StoreProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+													ClearSecretInfo: func() *RouteRoutesResponseCookiesToAddSecretValueClearSecretInfoModel {
+														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesResponseCookiesToAddSecretValueClearSecretInfoModel{
+																Provider: func() types.String {
+																	if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																URL: func() types.String {
+																	if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+												}
+											}
+											return nil
+										}(),
 										Value: func() types.String {
-											if v, ok := nestedItemMap["value"].(string); ok && v != "" {
+											if v, ok := ResponseCookiesToAddItemMap["value"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
@@ -4278,7 +7617,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									})
 								}
 							}
-							return result
+							return ResponseCookiesToAddResult
 						}
 						return nil
 					}(),
@@ -4296,25 +7635,76 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						return types.ListNull(types.StringType)
 					}(),
 					ResponseHeadersToAdd: func() []RouteRoutesResponseHeadersToAddModel {
-						if nestedListData, ok := itemMap["response_headers_to_add"].([]interface{}); ok && len(nestedListData) > 0 {
-							var result []RouteRoutesResponseHeadersToAddModel
-							for _, nestedItem := range nestedListData {
-								if nestedItemMap, ok := nestedItem.(map[string]interface{}); ok {
-									result = append(result, RouteRoutesResponseHeadersToAddModel{
+						if rawList, ok := itemMap["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+							var ResponseHeadersToAddResult []RouteRoutesResponseHeadersToAddModel
+							for _, ResponseHeadersToAddItem := range rawList {
+								if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
+									ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, RouteRoutesResponseHeadersToAddModel{
 										Append: func() types.Bool {
-											if v, ok := nestedItemMap["append"].(bool); ok {
+											if v, ok := ResponseHeadersToAddItemMap["append"].(bool); ok {
 												return types.BoolValue(v)
 											}
 											return types.BoolNull()
 										}(),
 										Name: func() types.String {
-											if v, ok := nestedItemMap["name"].(string); ok && v != "" {
+											if v, ok := ResponseHeadersToAddItemMap["name"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
+										SecretValue: func() *RouteRoutesResponseHeadersToAddSecretValueModel {
+											if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+												return &RouteRoutesResponseHeadersToAddSecretValueModel{
+													BlindfoldSecretInfo: func() *RouteRoutesResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																DecryptionProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Location: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																StoreProvider: func() types.String {
+																	if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+													ClearSecretInfo: func() *RouteRoutesResponseHeadersToAddSecretValueClearSecretInfoModel {
+														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+															return &RouteRoutesResponseHeadersToAddSecretValueClearSecretInfoModel{
+																Provider: func() types.String {
+																	if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																URL: func() types.String {
+																	if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															}
+														}
+														return nil
+													}(),
+												}
+											}
+											return nil
+										}(),
 										Value: func() types.String {
-											if v, ok := nestedItemMap["value"].(string); ok && v != "" {
+											if v, ok := ResponseHeadersToAddItemMap["value"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
@@ -4322,7 +7712,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									})
 								}
 							}
-							return result
+							return ResponseHeadersToAddResult
 						}
 						return nil
 					}(),
@@ -4340,71 +7730,582 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						return types.ListNull(types.StringType)
 					}(),
 					RouteDestination: func() *RouteRoutesRouteDestinationModel {
-						if nestedMap, ok := itemMap["route_destination"].(map[string]interface{}); ok {
+						if RouteDestinationData, ok := itemMap["route_destination"].(map[string]interface{}); ok {
 							return &RouteRoutesRouteDestinationModel{
 								AutoHostRewrite: func() types.Bool {
-									if v, ok := nestedMap["auto_host_rewrite"].(bool); ok {
+									if v, ok := RouteDestinationData["auto_host_rewrite"].(bool); ok {
 										return types.BoolValue(v)
 									}
 									return types.BoolNull()
 								}(),
+								BufferPolicy: func() *RouteRoutesRouteDestinationBufferPolicyModel {
+									if BufferPolicyData, ok := RouteDestinationData["buffer_policy"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationBufferPolicyModel{
+											Disabled: func() types.Bool {
+												if v, ok := BufferPolicyData["disabled"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											MaxRequestBytes: func() types.Int64 {
+												if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								CORSPolicy: func() *RouteRoutesRouteDestinationCORSPolicyModel {
+									if CORSPolicyData, ok := RouteDestinationData["cors_policy"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationCORSPolicyModel{
+											AllowCredentials: func() types.Bool {
+												if v, ok := CORSPolicyData["allow_credentials"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											AllowHeaders: func() types.String {
+												if v, ok := CORSPolicyData["allow_headers"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											AllowMethods: func() types.String {
+												if v, ok := CORSPolicyData["allow_methods"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											AllowOrigin: func() types.List {
+												if v, ok := CORSPolicyData["allow_origin"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											AllowOriginRegex: func() types.List {
+												if v, ok := CORSPolicyData["allow_origin_regex"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											Disabled: func() types.Bool {
+												if v, ok := CORSPolicyData["disabled"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											ExposeHeaders: func() types.String {
+												if v, ok := CORSPolicyData["expose_headers"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											MaximumAge: func() types.Int64 {
+												if v, ok := CORSPolicyData["maximum_age"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								CSRFPolicy: func() *RouteRoutesRouteDestinationCSRFPolicyModel {
+									if CSRFPolicyData, ok := RouteDestinationData["csrf_policy"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationCSRFPolicyModel{
+											AllLoadBalancerDomains: func() *RouteEmptyModel {
+												if _, ok := CSRFPolicyData["all_load_balancer_domains"].(map[string]interface{}); ok {
+													return &RouteEmptyModel{}
+												}
+												return nil
+											}(),
+											CustomDomainList: func() *RouteRoutesRouteDestinationCSRFPolicyCustomDomainListModel {
+												if CustomDomainListData, ok := CSRFPolicyData["custom_domain_list"].(map[string]interface{}); ok {
+													return &RouteRoutesRouteDestinationCSRFPolicyCustomDomainListModel{
+														Domains: func() types.List {
+															if v, ok := CustomDomainListData["domains"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Disabled: func() *RouteEmptyModel {
+												if _, ok := CSRFPolicyData["disabled"].(map[string]interface{}); ok {
+													return &RouteEmptyModel{}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Destinations: func() types.List {
+									if rawList, ok := RouteDestinationData["destinations"].([]interface{}); ok && len(rawList) > 0 {
+										var DestinationsResult []RouteRoutesRouteDestinationDestinationsModel
+										for _, DestinationsItem := range rawList {
+											if DestinationsItemMap, ok := DestinationsItem.(map[string]interface{}); ok {
+												DestinationsResult = append(DestinationsResult, RouteRoutesRouteDestinationDestinationsModel{
+													Cluster: func() types.List {
+														if rawList, ok := DestinationsItemMap["cluster"].([]interface{}); ok && len(rawList) > 0 {
+															var ClusterResult []RouteRoutesRouteDestinationDestinationsClusterModel
+															for _, ClusterItem := range rawList {
+																if ClusterItemMap, ok := ClusterItem.(map[string]interface{}); ok {
+																	ClusterResult = append(ClusterResult, RouteRoutesRouteDestinationDestinationsClusterModel{
+																		Kind: func() types.String {
+																			if v, ok := ClusterItemMap["kind"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Name: func() types.String {
+																			if v, ok := ClusterItemMap["name"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Namespace: func() types.String {
+																			if v, ok := ClusterItemMap["namespace"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Tenant: func() types.String {
+																			if v, ok := ClusterItemMap["tenant"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Uid: func() types.String {
+																			if v, ok := ClusterItemMap["uid"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																	})
+																}
+															}
+															listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsClusterModelAttrTypes}, ClusterResult)
+															return listVal
+														}
+														return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsClusterModelAttrTypes})
+													}(),
+													EndpointSubsets: func() *RouteEmptyModel {
+														if _, ok := DestinationsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
+															return &RouteEmptyModel{}
+														}
+														return nil
+													}(),
+													Priority: func() types.Int64 {
+														if v, ok := DestinationsItemMap["priority"].(float64); ok && v != 0 {
+															return types.Int64Value(int64(v))
+														}
+														return types.Int64Null()
+													}(),
+													Weight: func() types.Int64 {
+														if v, ok := DestinationsItemMap["weight"].(float64); ok && v != 0 {
+															return types.Int64Value(int64(v))
+														}
+														return types.Int64Null()
+													}(),
+												})
+											}
+										}
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsModelAttrTypes}, DestinationsResult)
+										return listVal
+									}
+									return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsModelAttrTypes})
+								}(),
 								DoNotRetractCluster: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.DoNotRetractCluster != nil {
+									if _, ok := RouteDestinationData["do_not_retract_cluster"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
 								EndpointSubsets: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.EndpointSubsets != nil {
+									if _, ok := RouteDestinationData["endpoint_subsets"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
+								HashPolicy: func() []RouteRoutesRouteDestinationHashPolicyModel {
+									if rawList, ok := RouteDestinationData["hash_policy"].([]interface{}); ok && len(rawList) > 0 {
+										var HashPolicyResult []RouteRoutesRouteDestinationHashPolicyModel
+										for _, HashPolicyItem := range rawList {
+											if HashPolicyItemMap, ok := HashPolicyItem.(map[string]interface{}); ok {
+												HashPolicyResult = append(HashPolicyResult, RouteRoutesRouteDestinationHashPolicyModel{
+													Cookie: func() *RouteRoutesRouteDestinationHashPolicyCookieModel {
+														if CookieData, ok := HashPolicyItemMap["cookie"].(map[string]interface{}); ok {
+															return &RouteRoutesRouteDestinationHashPolicyCookieModel{
+																AddHttponly: func() *RouteEmptyModel {
+																	if _, ok := CookieData["add_httponly"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																AddSecure: func() *RouteEmptyModel {
+																	if _, ok := CookieData["add_secure"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																IgnoreHttponly: func() *RouteEmptyModel {
+																	if _, ok := CookieData["ignore_httponly"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																IgnoreSamesite: func() *RouteEmptyModel {
+																	if _, ok := CookieData["ignore_samesite"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																IgnoreSecure: func() *RouteEmptyModel {
+																	if _, ok := CookieData["ignore_secure"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																Name: func() types.String {
+																	if v, ok := CookieData["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Path: func() types.String {
+																	if v, ok := CookieData["path"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																SamesiteLax: func() *RouteEmptyModel {
+																	if _, ok := CookieData["samesite_lax"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																SamesiteNone: func() *RouteEmptyModel {
+																	if _, ok := CookieData["samesite_none"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																SamesiteStrict: func() *RouteEmptyModel {
+																	if _, ok := CookieData["samesite_strict"].(map[string]interface{}); ok {
+																		return &RouteEmptyModel{}
+																	}
+																	return nil
+																}(),
+																TTL: func() types.Int64 {
+																	if v, ok := CookieData["ttl"].(float64); ok && v != 0 {
+																		return types.Int64Value(int64(v))
+																	}
+																	return types.Int64Null()
+																}(),
+															}
+														}
+														return nil
+													}(),
+													HeaderName: func() types.String {
+														if v, ok := HashPolicyItemMap["header_name"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													SourceIP: func() types.Bool {
+														if v, ok := HashPolicyItemMap["source_ip"].(bool); ok {
+															return types.BoolValue(v)
+														}
+														return types.BoolNull()
+													}(),
+													Terminal: func() types.Bool {
+														if v, ok := HashPolicyItemMap["terminal"].(bool); ok {
+															return types.BoolValue(v)
+														}
+														return types.BoolNull()
+													}(),
+												})
+											}
+										}
+										return HashPolicyResult
+									}
+									return nil
+								}(),
 								HostRewrite: func() types.String {
-									if v, ok := nestedMap["host_rewrite"].(string); ok && v != "" {
+									if v, ok := RouteDestinationData["host_rewrite"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
+								MirrorPolicy: func() *RouteRoutesRouteDestinationMirrorPolicyModel {
+									if MirrorPolicyData, ok := RouteDestinationData["mirror_policy"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationMirrorPolicyModel{
+											Cluster: func() types.List {
+												if rawList, ok := MirrorPolicyData["cluster"].([]interface{}); ok && len(rawList) > 0 {
+													var ClusterResult []RouteRoutesRouteDestinationMirrorPolicyClusterModel
+													for _, ClusterItem := range rawList {
+														if ClusterItemMap, ok := ClusterItem.(map[string]interface{}); ok {
+															ClusterResult = append(ClusterResult, RouteRoutesRouteDestinationMirrorPolicyClusterModel{
+																Kind: func() types.String {
+																	if v, ok := ClusterItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := ClusterItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := ClusterItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := ClusterItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := ClusterItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesRouteDestinationMirrorPolicyClusterModelAttrTypes}, ClusterResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationMirrorPolicyClusterModelAttrTypes})
+											}(),
+											Percent: func() *RouteRoutesRouteDestinationMirrorPolicyPercentModel {
+												if PercentData, ok := MirrorPolicyData["percent"].(map[string]interface{}); ok {
+													return &RouteRoutesRouteDestinationMirrorPolicyPercentModel{
+														Denominator: func() types.String {
+															if v, ok := PercentData["denominator"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Numerator: func() types.Int64 {
+															if v, ok := PercentData["numerator"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
 								PrefixRewrite: func() types.String {
-									if v, ok := nestedMap["prefix_rewrite"].(string); ok && v != "" {
+									if v, ok := RouteDestinationData["prefix_rewrite"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Priority: func() types.String {
-									if v, ok := nestedMap["priority"].(string); ok && v != "" {
+									if v, ok := RouteDestinationData["priority"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
+								QueryParams: func() *RouteRoutesRouteDestinationQueryParamsModel {
+									if QueryParamsData, ok := RouteDestinationData["query_params"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationQueryParamsModel{
+											RemoveAllParams: func() *RouteEmptyModel {
+												if _, ok := QueryParamsData["remove_all_params"].(map[string]interface{}); ok {
+													return &RouteEmptyModel{}
+												}
+												return nil
+											}(),
+											ReplaceParams: func() types.String {
+												if v, ok := QueryParamsData["replace_params"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											RetainAllParams: func() *RouteEmptyModel {
+												if _, ok := QueryParamsData["retain_all_params"].(map[string]interface{}); ok {
+													return &RouteEmptyModel{}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								RegexRewrite: func() *RouteRoutesRouteDestinationRegexRewriteModel {
+									if RegexRewriteData, ok := RouteDestinationData["regex_rewrite"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationRegexRewriteModel{
+											Pattern: func() types.String {
+												if v, ok := RegexRewriteData["pattern"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Substitution: func() types.String {
+												if v, ok := RegexRewriteData["substitution"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
 								RetractCluster: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetractCluster != nil {
+									if _, ok := RouteDestinationData["retract_cluster"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
+								RetryPolicy: func() *RouteRoutesRouteDestinationRetryPolicyModel {
+									if RetryPolicyData, ok := RouteDestinationData["retry_policy"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationRetryPolicyModel{
+											BackOff: func() *RouteRoutesRouteDestinationRetryPolicyBackOffModel {
+												if BackOffData, ok := RetryPolicyData["back_off"].(map[string]interface{}); ok {
+													return &RouteRoutesRouteDestinationRetryPolicyBackOffModel{
+														BaseInterval: func() types.Int64 {
+															if v, ok := BackOffData["base_interval"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														MaxInterval: func() types.Int64 {
+															if v, ok := BackOffData["max_interval"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											NumRetries: func() types.Int64 {
+												if v, ok := RetryPolicyData["num_retries"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+											PerTryTimeout: func() types.Int64 {
+												if v, ok := RetryPolicyData["per_try_timeout"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+											RetriableStatusCodes: func() types.List {
+												if v, ok := RetryPolicyData["retriable_status_codes"].([]interface{}); ok && len(v) > 0 {
+													var items []int64
+													for _, item := range v {
+														if s, ok := item.(float64); ok {
+															items = append(items, int64(s))
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													return listVal
+												}
+												return types.ListNull(types.Int64Type)
+											}(),
+											RetryCondition: func() types.List {
+												if v, ok := RetryPolicyData["retry_condition"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								SpdyConfig: func() *RouteRoutesRouteDestinationSpdyConfigModel {
+									if SpdyConfigData, ok := RouteDestinationData["spdy_config"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationSpdyConfigModel{
+											UseSpdy: func() types.Bool {
+												if v, ok := SpdyConfigData["use_spdy"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
 								Timeout: func() types.Int64 {
-									if v, ok := nestedMap["timeout"].(float64); ok && v != 0 {
+									if v, ok := RouteDestinationData["timeout"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
+								}(),
+								WebSocketConfig: func() *RouteRoutesRouteDestinationWebSocketConfigModel {
+									if WebSocketConfigData, ok := RouteDestinationData["web_socket_config"].(map[string]interface{}); ok {
+										return &RouteRoutesRouteDestinationWebSocketConfigModel{
+											UseWebSocket: func() types.Bool {
+												if v, ok := WebSocketConfigData["use_websocket"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+										}
+									}
+									return nil
 								}(),
 							}
 						}
 						return nil
 					}(),
 					RouteDirectResponse: func() *RouteRoutesRouteDirectResponseModel {
-						if nestedMap, ok := itemMap["route_direct_response"].(map[string]interface{}); ok {
+						if RouteDirectResponseData, ok := itemMap["route_direct_response"].(map[string]interface{}); ok {
 							return &RouteRoutesRouteDirectResponseModel{
 								ResponseBodyEncoded: func() types.String {
-									if v, ok := nestedMap["response_body_encoded"].(string); ok && v != "" {
+									if v, ok := RouteDirectResponseData["response_body_encoded"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								ResponseCode: func() types.Int64 {
-									if v, ok := nestedMap["response_code"].(float64); ok && v != 0 {
+									if v, ok := RouteDirectResponseData["response_code"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
@@ -4414,52 +8315,52 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						return nil
 					}(),
 					RouteRedirect: func() *RouteRoutesRouteRedirectModel {
-						if nestedMap, ok := itemMap["route_redirect"].(map[string]interface{}); ok {
+						if RouteRedirectData, ok := itemMap["route_redirect"].(map[string]interface{}); ok {
 							return &RouteRoutesRouteRedirectModel{
 								HostRedirect: func() types.String {
-									if v, ok := nestedMap["host_redirect"].(string); ok && v != "" {
+									if v, ok := RouteRedirectData["host_redirect"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								PathRedirect: func() types.String {
-									if v, ok := nestedMap["path_redirect"].(string); ok && v != "" {
+									if v, ok := RouteRedirectData["path_redirect"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								PrefixRewrite: func() types.String {
-									if v, ok := nestedMap["prefix_rewrite"].(string); ok && v != "" {
+									if v, ok := RouteRedirectData["prefix_rewrite"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								ProtoRedirect: func() types.String {
-									if v, ok := nestedMap["proto_redirect"].(string); ok && v != "" {
+									if v, ok := RouteRedirectData["proto_redirect"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								RemoveAllParams: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil && existingRoutesItems[listIdx].RouteRedirect.RemoveAllParams != nil {
+									if _, ok := RouteRedirectData["remove_all_params"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
 								ReplaceParams: func() types.String {
-									if v, ok := nestedMap["replace_params"].(string); ok && v != "" {
+									if v, ok := RouteRedirectData["replace_params"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								ResponseCode: func() types.Int64 {
-									if v, ok := nestedMap["response_code"].(float64); ok && v != 0 {
+									if v, ok := RouteRedirectData["response_code"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								RetainAllParams: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil && existingRoutesItems[listIdx].RouteRedirect.RetainAllParams != nil {
+									if _, ok := RouteRedirectData["retain_all_params"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
@@ -4469,10 +8370,10 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						return nil
 					}(),
 					ServicePolicy: func() *RouteRoutesServicePolicyModel {
-						if nestedMap, ok := itemMap["service_policy"].(map[string]interface{}); ok {
+						if ServicePolicyData, ok := itemMap["service_policy"].(map[string]interface{}); ok {
 							return &RouteRoutesServicePolicyModel{
 								DisableSpec: func() types.Bool {
-									if v, ok := nestedMap["disable"].(bool); ok {
+									if v, ok := ServicePolicyData["disable"].(bool); ok {
 										return types.BoolValue(v)
 									}
 									return types.BoolNull()
@@ -4482,22 +8383,22 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						return nil
 					}(),
 					WAFExclusionPolicy: func() *RouteRoutesWAFExclusionPolicyModel {
-						if nestedMap, ok := itemMap["waf_exclusion_policy"].(map[string]interface{}); ok {
+						if WAFExclusionPolicyData, ok := itemMap["waf_exclusion_policy"].(map[string]interface{}); ok {
 							return &RouteRoutesWAFExclusionPolicyModel{
 								Name: func() types.String {
-									if v, ok := nestedMap["name"].(string); ok && v != "" {
+									if v, ok := WAFExclusionPolicyData["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := nestedMap["namespace"].(string); ok && v != "" {
+									if v, ok := WAFExclusionPolicyData["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := nestedMap["tenant"].(string); ok && v != "" {
+									if v, ok := WAFExclusionPolicyData["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -4507,16 +8408,67 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						return nil
 					}(),
 					WAFType: func() *RouteRoutesWAFTypeModel {
-						if _, ok := itemMap["waf_type"].(map[string]interface{}); ok {
+						if WAFTypeData, ok := itemMap["waf_type"].(map[string]interface{}); ok {
 							return &RouteRoutesWAFTypeModel{
+								AppFirewall: func() *RouteRoutesWAFTypeAppFirewallModel {
+									if AppFirewallData, ok := WAFTypeData["app_firewall"].(map[string]interface{}); ok {
+										return &RouteRoutesWAFTypeAppFirewallModel{
+											AppFirewall: func() types.List {
+												if rawList, ok := AppFirewallData["app_firewall"].([]interface{}); ok && len(rawList) > 0 {
+													var AppFirewallResult []RouteRoutesWAFTypeAppFirewallAppFirewallModel
+													for _, AppFirewallItem := range rawList {
+														if AppFirewallItemMap, ok := AppFirewallItem.(map[string]interface{}); ok {
+															AppFirewallResult = append(AppFirewallResult, RouteRoutesWAFTypeAppFirewallAppFirewallModel{
+																Kind: func() types.String {
+																	if v, ok := AppFirewallItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := AppFirewallItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := AppFirewallItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := AppFirewallItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := AppFirewallItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesWAFTypeAppFirewallAppFirewallModelAttrTypes}, AppFirewallResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesWAFTypeAppFirewallAppFirewallModelAttrTypes})
+											}(),
+										}
+									}
+									return nil
+								}(),
 								DisableWAF: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil && existingRoutesItems[listIdx].WAFType.DisableWAF != nil {
+									if _, ok := WAFTypeData["disable_waf"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
 								InheritWAF: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil && existingRoutesItems[listIdx].WAFType.InheritWAF != nil {
+									if _, ok := WAFTypeData["inherit_waf"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
@@ -4528,13 +8480,12 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesModelAttrTypes}, routesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesModelAttrTypes}, RoutesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Routes = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Routes = types.ListNull(types.ObjectType{AttrTypes: RouteRoutesModelAttrTypes})
 	}
 

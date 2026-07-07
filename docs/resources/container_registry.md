@@ -1,60 +1,41 @@
 ---
-page_title: "f5xc_container_registry Resource - terraform-provider-f5xc"
+page_title: "xcsh_container_registry Resource - xcsh"
 subcategory: "Kubernetes"
 description: |-
   Manages a Container Registry resource in F5 Distributed Cloud for container image registry configuration.
 ---
 
-# f5xc_container_registry (Resource)
+# xcsh_container_registry (Resource)
 
 Manages a Container Registry resource in F5 Distributed Cloud for container image registry configuration.
 
-~> **Note** Please refer to [Container Registry API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/managed_kubernetes/) to learn more.
+~> **Note** Please refer to [Container Registry API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/managed_kubernetes/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# Container Registry Resource Example
+# ContainerRegistry Resource Example
 # Manages a Container Registry resource in F5 Distributed Cloud for container image registry configuration.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Container Registry configuration
-resource "f5xc_container_registry" "example" {
+# Basic ContainerRegistry configuration
+resource "xcsh_container_registry" "example" {
   name      = "example-container-registry"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # SecretType is used in an object to indicate a sensitive/c...
-  password {
-    # Configure password settings
-  }
-  # BlindfoldSecretInfoType specifies information about the S...
-  blindfold_secret_info {
-    # Configure blindfold_secret_info settings
-  }
-  # ClearSecretInfoType specifies information about the Secre...
-  clear_secret_info {
-    # Configure clear_secret_info settings
-  }
+  registry  = "example-value"
+  user_name = "example-value"
+  email     = "example-value"
 }
 ```
 
@@ -226,5 +207,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_container_registry.example system/example
+terraform import xcsh_container_registry.example system/example
 ```

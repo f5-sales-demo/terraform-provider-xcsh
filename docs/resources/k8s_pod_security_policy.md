@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_k8s_pod_security_policy Resource - terraform-provider-f5xc"
+page_title: "xcsh_k8s_pod_security_policy Resource - xcsh"
 subcategory: "Security"
 description: |-
   Manages k8s_pod_security_policy will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_k8s_pod_security_policy (Resource)
+# xcsh_k8s_pod_security_policy (Resource)
 
 Manages k8s_pod_security_policy will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
 
@@ -14,47 +14,24 @@ Manages k8s_pod_security_policy will create the object in the storage backend fo
 ## Example Usage
 
 ```terraform
-# K8S Pod Security Policy Resource Example
-# Manages k8s_pod_security_policy will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
+# K8SPodSecurityPolicy Resource Example
+# Manages k8s_pod_security_policy will create the object in the storage backend for namespace metadata.namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic K8S Pod Security Policy configuration
-resource "f5xc_k8s_pod_security_policy" "example" {
+# Basic K8SPodSecurityPolicy configuration
+resource "xcsh_k8s_pod_security_policy" "example" {
   name      = "example-k8s-pod-security-policy"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # [OneOf: psp_spec, yaml] Pod Security Policy Specification...
-  psp_spec {
-    # Configure psp_spec settings
-  }
-  # List of capabilities that Docker container has.
-  allowed_capabilities {
-    # Configure allowed_capabilities settings
-  }
-  # Restrict list of host paths, default all host paths are a...
-  allowed_host_paths {
-    # Configure allowed_host_paths settings
-  }
 }
 ```
 
@@ -348,5 +325,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_k8s_pod_security_policy.example system/example
+terraform import xcsh_k8s_pod_security_policy.example system/example
 ```

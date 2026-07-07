@@ -5,8 +5,143 @@ package schema
 import (
 	"testing"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/openapi"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/namespace"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 )
+
+// findAttr returns the attribute with the given tfsdk tag, or nil.
+func findAttr(attrs []openapi.TerraformAttribute, tag string) *openapi.TerraformAttribute {
+	for i := range attrs {
+		if attrs[i].TfsdkTag == tag {
+			return &attrs[i]
+		}
+	}
+	return nil
+}
+
+// systemOnlySpec builds a minimal spec + namespaced path for a resource.
+func systemOnlySpec(resourceName string) (*openapi.Spec, func(*openapi.Spec, string) (string, string, bool)) {
+	spec := &openapi.Spec{
+		Components: openapi.Components{
+			Schemas: map[string]openapi.Schema{
+				resourceName + "CreateSpecType": {
+					Type:       "object",
+					Properties: map[string]openapi.Schema{"port": {Type: "integer"}},
+				},
+			},
+		},
+	}
+	extractAPIPath := func(_ *openapi.Spec, _ string) (string, string, bool) {
+		return "/api/config/dns/namespaces/%s/" + resourceName + "s", "/api/config/dns/namespaces/%s/" + resourceName + "s/%s", true
+	}
+	return spec, extractAPIPath
+}
+
+// A resource whose spec profile restricts it to a single namespace ("system")
+// must emit namespace as Optional+Computed with a static default and a OneOf
+// validator — not Required — so it can be omitted and cannot be set wrong.
+func TestExtractResourceSchema_SingleAllowedNamespaceIsDefaulted(t *testing.T) {
+	namespace.ClearProfiles()
+	namespace.SetProfile("sys_res", namespace.Profile{Allowed: []namespace.NamespaceType{namespace.System}, Enforced: true})
+	defer namespace.ClearProfiles()
+
+	spec, extractAPIPath := systemOnlySpec("sys_res")
+	result, err := ExtractResourceSchema(spec, "sys_res", extractAPIPath)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	ns := findAttr(result.Attributes, "namespace")
+	if ns == nil {
+		t.Fatal("namespace attribute missing")
+	}
+	if ns.Required {
+		t.Error("namespace must not be Required for a single-allowed-namespace resource")
+	}
+	if !ns.Optional || !ns.Computed {
+		t.Errorf("namespace should be Optional+Computed, got Optional=%v Computed=%v", ns.Optional, ns.Computed)
+	}
+	if ns.StringDefault != "system" {
+		t.Errorf("StringDefault = %q, want %q", ns.StringDefault, "system")
+	}
+	if len(ns.EnumValues) != 1 || ns.EnumValues[0] != "system" {
+		t.Errorf("EnumValues = %v, want [system]", ns.EnumValues)
+	}
+	if !result.HasStringDefaults {
+		t.Error("ResourceTemplate.HasStringDefaults should be true")
+	}
+}
+
+// A resource whose spec profile allows multiple namespaces keeps namespace
+// Required with no default — the user must choose.
+func TestExtractResourceSchema_MultiAllowedNamespaceStaysRequired(t *testing.T) {
+	namespace.ClearProfiles()
+	namespace.SetProfile("app_res", namespace.Profile{Allowed: []namespace.NamespaceType{namespace.Custom, namespace.Default, namespace.Shared}})
+	defer namespace.ClearProfiles()
+
+	spec, extractAPIPath := systemOnlySpec("app_res")
+	result, err := ExtractResourceSchema(spec, "app_res", extractAPIPath)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	ns := findAttr(result.Attributes, "namespace")
+	if ns == nil {
+		t.Fatal("namespace attribute missing")
+	}
+	if !ns.Required {
+		t.Error("namespace must stay Required for a multi-allowed-namespace resource")
+	}
+	if ns.StringDefault != "" {
+		t.Errorf("StringDefault = %q, want empty", ns.StringDefault)
+	}
+	if len(ns.EnumValues) != 0 {
+		t.Errorf("EnumValues = %v, want empty", ns.EnumValues)
+	}
+}
+
+// With no registered profile, namespace behaviour is unchanged (Required when the
+// API path is namespaced).
+func TestExtractResourceSchema_NoProfileStaysRequired(t *testing.T) {
+	namespace.ClearProfiles()
+	spec, extractAPIPath := systemOnlySpec("unprofiled_res")
+	result, err := ExtractResourceSchema(spec, "unprofiled_res", extractAPIPath)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	ns := findAttr(result.Attributes, "namespace")
+	if ns == nil {
+		t.Fatal("namespace attribute missing")
+	}
+	if !ns.Required || ns.StringDefault != "" {
+		t.Errorf("unprofiled namespace should be Required with no default; got Required=%v StringDefault=%q", ns.Required, ns.StringDefault)
+	}
+}
+
+// A single-allowed profile that is NOT enforced (unverified classification) must not
+// be defaulted/locked — namespace stays Required so we don't over-restrict on a guess.
+func TestExtractResourceSchema_UnverifiedSingleAllowedStaysRequired(t *testing.T) {
+	namespace.ClearProfiles()
+	namespace.SetProfile("unverified_sys", namespace.Profile{
+		Allowed:  []namespace.NamespaceType{namespace.System},
+		Enforced: false,
+	})
+	defer namespace.ClearProfiles()
+
+	spec, extractAPIPath := systemOnlySpec("unverified_sys")
+	result, err := ExtractResourceSchema(spec, "unverified_sys", extractAPIPath)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	ns := findAttr(result.Attributes, "namespace")
+	if ns == nil {
+		t.Fatal("namespace attribute missing")
+	}
+	if !ns.Required {
+		t.Error("unverified (enforced=false) single-allowed namespace must stay Required")
+	}
+	if ns.StringDefault != "" || len(ns.EnumValues) != 0 {
+		t.Errorf("unverified namespace must not be defaulted/locked; got StringDefault=%q EnumValues=%v", ns.StringDefault, ns.EnumValues)
+	}
+}
 
 func TestExtractOneOfGroups_Empty(t *testing.T) {
 	spec := &openapi.Spec{}

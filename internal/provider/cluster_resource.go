@@ -24,9 +24,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -197,7 +197,7 @@ type ClusterTLSParametersCertParamsModel struct {
 	CipherSuites           types.List                                           `tfsdk:"cipher_suites"`
 	MaximumProtocolVersion types.String                                         `tfsdk:"maximum_protocol_version"`
 	MinimumProtocolVersion types.String                                         `tfsdk:"minimum_protocol_version"`
-	Certificates           []ClusterTLSParametersCertParamsCertificatesModel    `tfsdk:"certificates"`
+	Certificates           types.List                                           `tfsdk:"certificates"`
 	ValidationParams       *ClusterTLSParametersCertParamsValidationParamsModel `tfsdk:"validation_params"`
 }
 
@@ -246,7 +246,7 @@ var ClusterTLSParametersCertParamsValidationParamsModelAttrTypes = map[string]at
 
 // ClusterTLSParametersCertParamsValidationParamsTrustedCAModel represents trusted_ca block
 type ClusterTLSParametersCertParamsValidationParamsTrustedCAModel struct {
-	TrustedCAList []ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel `tfsdk:"trusted_ca_list"`
+	TrustedCAList types.List `tfsdk:"trusted_ca_list"`
 }
 
 // ClusterTLSParametersCertParamsValidationParamsTrustedCAModelAttrTypes defines the attribute types for ClusterTLSParametersCertParamsValidationParamsTrustedCAModel
@@ -376,7 +376,7 @@ var ClusterTLSParametersCommonParamsValidationParamsModelAttrTypes = map[string]
 
 // ClusterTLSParametersCommonParamsValidationParamsTrustedCAModel represents trusted_ca block
 type ClusterTLSParametersCommonParamsValidationParamsTrustedCAModel struct {
-	TrustedCAList []ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel `tfsdk:"trusted_ca_list"`
+	TrustedCAList types.List `tfsdk:"trusted_ca_list"`
 }
 
 // ClusterTLSParametersCommonParamsValidationParamsTrustedCAModelAttrTypes defines the attribute types for ClusterTLSParametersCommonParamsValidationParamsTrustedCAModel
@@ -1271,206 +1271,416 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.AutoHTTPConfig != nil {
-		auto_http_configMap := make(map[string]interface{})
-		createReq.Spec["auto_http_config"] = auto_http_configMap
+		createReq.Spec["auto_http_config"] = map[string]interface{}{}
 	}
 	if data.CircuitBreaker != nil {
-		circuit_breakerMap := make(map[string]interface{})
+		CircuitBreakerMap := make(map[string]interface{})
 		if !data.CircuitBreaker.ConnectionLimit.IsNull() && !data.CircuitBreaker.ConnectionLimit.IsUnknown() {
-			circuit_breakerMap["connection_limit"] = data.CircuitBreaker.ConnectionLimit.ValueInt64()
+			CircuitBreakerMap["connection_limit"] = data.CircuitBreaker.ConnectionLimit.ValueInt64()
 		}
 		if !data.CircuitBreaker.MaxRequests.IsNull() && !data.CircuitBreaker.MaxRequests.IsUnknown() {
-			circuit_breakerMap["max_requests"] = data.CircuitBreaker.MaxRequests.ValueInt64()
+			CircuitBreakerMap["max_requests"] = data.CircuitBreaker.MaxRequests.ValueInt64()
 		}
 		if !data.CircuitBreaker.PendingRequests.IsNull() && !data.CircuitBreaker.PendingRequests.IsUnknown() {
-			circuit_breakerMap["pending_requests"] = data.CircuitBreaker.PendingRequests.ValueInt64()
+			CircuitBreakerMap["pending_requests"] = data.CircuitBreaker.PendingRequests.ValueInt64()
 		}
 		if !data.CircuitBreaker.Priority.IsNull() && !data.CircuitBreaker.Priority.IsUnknown() {
-			circuit_breakerMap["priority"] = data.CircuitBreaker.Priority.ValueString()
+			CircuitBreakerMap["priority"] = data.CircuitBreaker.Priority.ValueString()
 		}
 		if !data.CircuitBreaker.Retries.IsNull() && !data.CircuitBreaker.Retries.IsUnknown() {
-			circuit_breakerMap["retries"] = data.CircuitBreaker.Retries.ValueInt64()
+			CircuitBreakerMap["retries"] = data.CircuitBreaker.Retries.ValueInt64()
 		}
-		createReq.Spec["circuit_breaker"] = circuit_breakerMap
+		createReq.Spec["circuit_breaker"] = CircuitBreakerMap
 	}
 	if data.DefaultSubset != nil {
-		default_subsetMap := make(map[string]interface{})
-		createReq.Spec["default_subset"] = default_subsetMap
+		createReq.Spec["default_subset"] = map[string]interface{}{}
 	}
 	if data.DisableProxyProtocol != nil {
-		disable_proxy_protocolMap := make(map[string]interface{})
-		createReq.Spec["disable_proxy_protocol"] = disable_proxy_protocolMap
+		createReq.Spec["disable_proxy_protocol"] = map[string]interface{}{}
 	}
 	if !data.EndpointSubsets.IsNull() && !data.EndpointSubsets.IsUnknown() {
-		var endpoint_subsetsItems []ClusterEndpointSubsetsModel
-		diags := data.EndpointSubsets.ElementsAs(ctx, &endpoint_subsetsItems, false)
+		var EndpointSubsetsElems []ClusterEndpointSubsetsModel
+		diags := data.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(endpoint_subsetsItems) > 0 {
-			var endpoint_subsetsList []map[string]interface{}
-			for range endpoint_subsetsItems {
-				itemMap := make(map[string]interface{})
-				endpoint_subsetsList = append(endpoint_subsetsList, itemMap)
+		if !resp.Diagnostics.HasError() && len(EndpointSubsetsElems) > 0 {
+			var EndpointSubsetsList []map[string]interface{}
+			for _, EndpointSubsetsItem := range EndpointSubsetsElems {
+				EndpointSubsetsItemMap := make(map[string]interface{})
+				if !EndpointSubsetsItem.Keys.IsNull() && !EndpointSubsetsItem.Keys.IsUnknown() {
+					var KeysItems []string
+					diags := EndpointSubsetsItem.Keys.ElementsAs(ctx, &KeysItems, false)
+					if !diags.HasError() {
+						EndpointSubsetsItemMap["keys"] = KeysItems
+					}
+				}
+				EndpointSubsetsList = append(EndpointSubsetsList, EndpointSubsetsItemMap)
 			}
-			createReq.Spec["endpoint_subsets"] = endpoint_subsetsList
+			createReq.Spec["endpoint_subsets"] = EndpointSubsetsList
 		}
 	}
 	if !data.Endpoints.IsNull() && !data.Endpoints.IsUnknown() {
-		var endpointsItems []ClusterEndpointsModel
-		diags := data.Endpoints.ElementsAs(ctx, &endpointsItems, false)
+		var EndpointsElems []ClusterEndpointsModel
+		diags := data.Endpoints.ElementsAs(ctx, &EndpointsElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(endpointsItems) > 0 {
-			var endpointsList []map[string]interface{}
-			for _, item := range endpointsItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(EndpointsElems) > 0 {
+			var EndpointsList []map[string]interface{}
+			for _, EndpointsItem := range EndpointsElems {
+				EndpointsItemMap := make(map[string]interface{})
+				if !EndpointsItem.Kind.IsNull() && !EndpointsItem.Kind.IsUnknown() {
+					EndpointsItemMap["kind"] = EndpointsItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !EndpointsItem.Name.IsNull() && !EndpointsItem.Name.IsUnknown() {
+					EndpointsItemMap["name"] = EndpointsItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !EndpointsItem.Namespace.IsNull() && !EndpointsItem.Namespace.IsUnknown() {
+					EndpointsItemMap["namespace"] = EndpointsItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !EndpointsItem.Tenant.IsNull() && !EndpointsItem.Tenant.IsUnknown() {
+					EndpointsItemMap["tenant"] = EndpointsItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !EndpointsItem.Uid.IsNull() && !EndpointsItem.Uid.IsUnknown() {
+					EndpointsItemMap["uid"] = EndpointsItem.Uid.ValueString()
 				}
-				endpointsList = append(endpointsList, itemMap)
+				EndpointsList = append(EndpointsList, EndpointsItemMap)
 			}
-			createReq.Spec["endpoints"] = endpointsList
+			createReq.Spec["endpoints"] = EndpointsList
 		}
 	}
 	if !data.HealthChecks.IsNull() && !data.HealthChecks.IsUnknown() {
-		var health_checksItems []ClusterHealthChecksModel
-		diags := data.HealthChecks.ElementsAs(ctx, &health_checksItems, false)
+		var HealthChecksElems []ClusterHealthChecksModel
+		diags := data.HealthChecks.ElementsAs(ctx, &HealthChecksElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(health_checksItems) > 0 {
-			var health_checksList []map[string]interface{}
-			for _, item := range health_checksItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(HealthChecksElems) > 0 {
+			var HealthChecksList []map[string]interface{}
+			for _, HealthChecksItem := range HealthChecksElems {
+				HealthChecksItemMap := make(map[string]interface{})
+				if !HealthChecksItem.Kind.IsNull() && !HealthChecksItem.Kind.IsUnknown() {
+					HealthChecksItemMap["kind"] = HealthChecksItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !HealthChecksItem.Name.IsNull() && !HealthChecksItem.Name.IsUnknown() {
+					HealthChecksItemMap["name"] = HealthChecksItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !HealthChecksItem.Namespace.IsNull() && !HealthChecksItem.Namespace.IsUnknown() {
+					HealthChecksItemMap["namespace"] = HealthChecksItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !HealthChecksItem.Tenant.IsNull() && !HealthChecksItem.Tenant.IsUnknown() {
+					HealthChecksItemMap["tenant"] = HealthChecksItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !HealthChecksItem.Uid.IsNull() && !HealthChecksItem.Uid.IsUnknown() {
+					HealthChecksItemMap["uid"] = HealthChecksItem.Uid.ValueString()
 				}
-				health_checksList = append(health_checksList, itemMap)
+				HealthChecksList = append(HealthChecksList, HealthChecksItemMap)
 			}
-			createReq.Spec["health_checks"] = health_checksList
+			createReq.Spec["health_checks"] = HealthChecksList
 		}
 	}
 	if data.Http1Config != nil {
-		http1_configMap := make(map[string]interface{})
+		Http1ConfigMap := make(map[string]interface{})
 		if data.Http1Config.HeaderTransformation != nil {
-			header_transformationNestedMap := make(map[string]interface{})
-			http1_configMap["header_transformation"] = header_transformationNestedMap
+			HeaderTransformationMap := make(map[string]interface{})
+			if data.Http1Config.HeaderTransformation.DefaultHeaderTransformation != nil {
+				HeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
+			}
+			if data.Http1Config.HeaderTransformation.LegacyHeaderTransformation != nil {
+				HeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
+			}
+			if data.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
+				HeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
+			}
+			if data.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation != nil {
+				HeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
+			}
+			Http1ConfigMap["header_transformation"] = HeaderTransformationMap
 		}
-		createReq.Spec["http1_config"] = http1_configMap
+		createReq.Spec["http1_config"] = Http1ConfigMap
 	}
 	if data.Http2Options != nil {
-		http2_optionsMap := make(map[string]interface{})
+		Http2OptionsMap := make(map[string]interface{})
 		if !data.Http2Options.Enabled.IsNull() && !data.Http2Options.Enabled.IsUnknown() {
-			http2_optionsMap["enabled"] = data.Http2Options.Enabled.ValueBool()
+			Http2OptionsMap["enabled"] = data.Http2Options.Enabled.ValueBool()
 		}
-		createReq.Spec["http2_options"] = http2_optionsMap
+		createReq.Spec["http2_options"] = Http2OptionsMap
 	}
 	if data.NoPanicThreshold != nil {
-		no_panic_thresholdMap := make(map[string]interface{})
-		createReq.Spec["no_panic_threshold"] = no_panic_thresholdMap
+		createReq.Spec["no_panic_threshold"] = map[string]interface{}{}
 	}
 	if data.NoRequestLimitPerConnection != nil {
-		no_request_limit_per_connectionMap := make(map[string]interface{})
-		createReq.Spec["no_request_limit_per_connection"] = no_request_limit_per_connectionMap
+		createReq.Spec["no_request_limit_per_connection"] = map[string]interface{}{}
 	}
 	if data.OutlierDetection != nil {
-		outlier_detectionMap := make(map[string]interface{})
+		OutlierDetectionMap := make(map[string]interface{})
 		if !data.OutlierDetection.BaseEjectionTime.IsNull() && !data.OutlierDetection.BaseEjectionTime.IsUnknown() {
-			outlier_detectionMap["base_ejection_time"] = data.OutlierDetection.BaseEjectionTime.ValueInt64()
+			OutlierDetectionMap["base_ejection_time"] = data.OutlierDetection.BaseEjectionTime.ValueInt64()
 		}
 		if !data.OutlierDetection.Consecutive5xx.IsNull() && !data.OutlierDetection.Consecutive5xx.IsUnknown() {
-			outlier_detectionMap["consecutive_5xx"] = data.OutlierDetection.Consecutive5xx.ValueInt64()
+			OutlierDetectionMap["consecutive_5xx"] = data.OutlierDetection.Consecutive5xx.ValueInt64()
 		}
 		if !data.OutlierDetection.ConsecutiveGatewayFailure.IsNull() && !data.OutlierDetection.ConsecutiveGatewayFailure.IsUnknown() {
-			outlier_detectionMap["consecutive_gateway_failure"] = data.OutlierDetection.ConsecutiveGatewayFailure.ValueInt64()
+			OutlierDetectionMap["consecutive_gateway_failure"] = data.OutlierDetection.ConsecutiveGatewayFailure.ValueInt64()
 		}
 		if !data.OutlierDetection.Interval.IsNull() && !data.OutlierDetection.Interval.IsUnknown() {
-			outlier_detectionMap["interval"] = data.OutlierDetection.Interval.ValueInt64()
+			OutlierDetectionMap["interval"] = data.OutlierDetection.Interval.ValueInt64()
 		}
 		if !data.OutlierDetection.MaxEjectionPercent.IsNull() && !data.OutlierDetection.MaxEjectionPercent.IsUnknown() {
-			outlier_detectionMap["max_ejection_percent"] = data.OutlierDetection.MaxEjectionPercent.ValueInt64()
+			OutlierDetectionMap["max_ejection_percent"] = data.OutlierDetection.MaxEjectionPercent.ValueInt64()
 		}
-		createReq.Spec["outlier_detection"] = outlier_detectionMap
+		createReq.Spec["outlier_detection"] = OutlierDetectionMap
 	}
 	if data.ProxyProtocolV1 != nil {
-		proxy_protocol_v1Map := make(map[string]interface{})
-		createReq.Spec["proxy_protocol_v1"] = proxy_protocol_v1Map
+		createReq.Spec["proxy_protocol_v1"] = map[string]interface{}{}
 	}
 	if data.ProxyProtocolV2 != nil {
-		proxy_protocol_v2Map := make(map[string]interface{})
-		createReq.Spec["proxy_protocol_v2"] = proxy_protocol_v2Map
+		createReq.Spec["proxy_protocol_v2"] = map[string]interface{}{}
 	}
 	if data.TLSParameters != nil {
-		tls_parametersMap := make(map[string]interface{})
+		TLSParametersMap := make(map[string]interface{})
 		if data.TLSParameters.CertParams != nil {
-			cert_paramsNestedMap := make(map[string]interface{})
+			CertParamsMap := make(map[string]interface{})
+			if !data.TLSParameters.CertParams.Certificates.IsNull() && !data.TLSParameters.CertParams.Certificates.IsUnknown() {
+				var CertificatesElems []ClusterTLSParametersCertParamsCertificatesModel
+				diags := data.TLSParameters.CertParams.Certificates.ElementsAs(ctx, &CertificatesElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(CertificatesElems) > 0 {
+					var CertificatesList []map[string]interface{}
+					for _, CertificatesItem := range CertificatesElems {
+						CertificatesItemMap := make(map[string]interface{})
+						if !CertificatesItem.Kind.IsNull() && !CertificatesItem.Kind.IsUnknown() {
+							CertificatesItemMap["kind"] = CertificatesItem.Kind.ValueString()
+						}
+						if !CertificatesItem.Name.IsNull() && !CertificatesItem.Name.IsUnknown() {
+							CertificatesItemMap["name"] = CertificatesItem.Name.ValueString()
+						}
+						if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
+							CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
+						}
+						if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
+							CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
+						}
+						if !CertificatesItem.Uid.IsNull() && !CertificatesItem.Uid.IsUnknown() {
+							CertificatesItemMap["uid"] = CertificatesItem.Uid.ValueString()
+						}
+						CertificatesList = append(CertificatesList, CertificatesItemMap)
+					}
+					CertParamsMap["certificates"] = CertificatesList
+				}
+			}
+			if !data.TLSParameters.CertParams.CipherSuites.IsNull() && !data.TLSParameters.CertParams.CipherSuites.IsUnknown() {
+				var CipherSuitesItems []string
+				diags := data.TLSParameters.CertParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+				if !diags.HasError() {
+					CertParamsMap["cipher_suites"] = CipherSuitesItems
+				}
+			}
 			if !data.TLSParameters.CertParams.MaximumProtocolVersion.IsNull() && !data.TLSParameters.CertParams.MaximumProtocolVersion.IsUnknown() {
-				cert_paramsNestedMap["maximum_protocol_version"] = data.TLSParameters.CertParams.MaximumProtocolVersion.ValueString()
+				CertParamsMap["maximum_protocol_version"] = data.TLSParameters.CertParams.MaximumProtocolVersion.ValueString()
 			}
 			if !data.TLSParameters.CertParams.MinimumProtocolVersion.IsNull() && !data.TLSParameters.CertParams.MinimumProtocolVersion.IsUnknown() {
-				cert_paramsNestedMap["minimum_protocol_version"] = data.TLSParameters.CertParams.MinimumProtocolVersion.ValueString()
+				CertParamsMap["minimum_protocol_version"] = data.TLSParameters.CertParams.MinimumProtocolVersion.ValueString()
 			}
-			tls_parametersMap["cert_params"] = cert_paramsNestedMap
+			if data.TLSParameters.CertParams.ValidationParams != nil {
+				ValidationParamsMap := make(map[string]interface{})
+				if !data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification.IsNull() && !data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+					ValidationParamsMap["skip_hostname_verification"] = data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification.ValueBool()
+				}
+				if data.TLSParameters.CertParams.ValidationParams.TrustedCA != nil {
+					TrustedCAMap := make(map[string]interface{})
+					if !data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+						var TrustedCAListElems []ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel
+						diags := data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(TrustedCAListElems) > 0 {
+							var TrustedCAListList []map[string]interface{}
+							for _, TrustedCAListItem := range TrustedCAListElems {
+								TrustedCAListItemMap := make(map[string]interface{})
+								if !TrustedCAListItem.Kind.IsNull() && !TrustedCAListItem.Kind.IsUnknown() {
+									TrustedCAListItemMap["kind"] = TrustedCAListItem.Kind.ValueString()
+								}
+								if !TrustedCAListItem.Name.IsNull() && !TrustedCAListItem.Name.IsUnknown() {
+									TrustedCAListItemMap["name"] = TrustedCAListItem.Name.ValueString()
+								}
+								if !TrustedCAListItem.Namespace.IsNull() && !TrustedCAListItem.Namespace.IsUnknown() {
+									TrustedCAListItemMap["namespace"] = TrustedCAListItem.Namespace.ValueString()
+								}
+								if !TrustedCAListItem.Tenant.IsNull() && !TrustedCAListItem.Tenant.IsUnknown() {
+									TrustedCAListItemMap["tenant"] = TrustedCAListItem.Tenant.ValueString()
+								}
+								if !TrustedCAListItem.Uid.IsNull() && !TrustedCAListItem.Uid.IsUnknown() {
+									TrustedCAListItemMap["uid"] = TrustedCAListItem.Uid.ValueString()
+								}
+								TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
+							}
+							TrustedCAMap["trusted_ca_list"] = TrustedCAListList
+						}
+					}
+					ValidationParamsMap["trusted_ca"] = TrustedCAMap
+				}
+				if !data.TLSParameters.CertParams.ValidationParams.TrustedCAURL.IsNull() && !data.TLSParameters.CertParams.ValidationParams.TrustedCAURL.IsUnknown() {
+					ValidationParamsMap["trusted_ca_url"] = data.TLSParameters.CertParams.ValidationParams.TrustedCAURL.ValueString()
+				}
+				if !data.TLSParameters.CertParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSParameters.CertParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
+					var VerifySubjectAltNamesItems []string
+					diags := data.TLSParameters.CertParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+					if !diags.HasError() {
+						ValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
+					}
+				}
+				CertParamsMap["validation_params"] = ValidationParamsMap
+			}
+			TLSParametersMap["cert_params"] = CertParamsMap
 		}
 		if data.TLSParameters.CommonParams != nil {
-			common_paramsNestedMap := make(map[string]interface{})
+			CommonParamsMap := make(map[string]interface{})
+			if !data.TLSParameters.CommonParams.CipherSuites.IsNull() && !data.TLSParameters.CommonParams.CipherSuites.IsUnknown() {
+				var CipherSuitesItems []string
+				diags := data.TLSParameters.CommonParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+				if !diags.HasError() {
+					CommonParamsMap["cipher_suites"] = CipherSuitesItems
+				}
+			}
 			if !data.TLSParameters.CommonParams.MaximumProtocolVersion.IsNull() && !data.TLSParameters.CommonParams.MaximumProtocolVersion.IsUnknown() {
-				common_paramsNestedMap["maximum_protocol_version"] = data.TLSParameters.CommonParams.MaximumProtocolVersion.ValueString()
+				CommonParamsMap["maximum_protocol_version"] = data.TLSParameters.CommonParams.MaximumProtocolVersion.ValueString()
 			}
 			if !data.TLSParameters.CommonParams.MinimumProtocolVersion.IsNull() && !data.TLSParameters.CommonParams.MinimumProtocolVersion.IsUnknown() {
-				common_paramsNestedMap["minimum_protocol_version"] = data.TLSParameters.CommonParams.MinimumProtocolVersion.ValueString()
+				CommonParamsMap["minimum_protocol_version"] = data.TLSParameters.CommonParams.MinimumProtocolVersion.ValueString()
 			}
-			tls_parametersMap["common_params"] = common_paramsNestedMap
+			if len(data.TLSParameters.CommonParams.TLSCertificates) > 0 {
+				var TLSCertificatesList []map[string]interface{}
+				for _, TLSCertificatesItem := range data.TLSParameters.CommonParams.TLSCertificates {
+					TLSCertificatesItemMap := make(map[string]interface{})
+					if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+						TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
+					}
+					if TLSCertificatesItem.CustomHashAlgorithms != nil {
+						CustomHashAlgorithmsMap := make(map[string]interface{})
+						if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+							var HashAlgorithmsItems []string
+							diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+							if !diags.HasError() {
+								CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+							}
+						}
+						TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+					}
+					if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+						TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
+					}
+					if TLSCertificatesItem.DisableOCSPStapling != nil {
+						TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+					}
+					if TLSCertificatesItem.PrivateKey != nil {
+						PrivateKeyMap := make(map[string]interface{})
+						if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+							}
+							PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+					}
+					if TLSCertificatesItem.UseSystemDefaults != nil {
+						TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+					}
+					TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+				}
+				CommonParamsMap["tls_certificates"] = TLSCertificatesList
+			}
+			if data.TLSParameters.CommonParams.ValidationParams != nil {
+				ValidationParamsMap := make(map[string]interface{})
+				if !data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+					ValidationParamsMap["skip_hostname_verification"] = data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.ValueBool()
+				}
+				if data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil {
+					TrustedCAMap := make(map[string]interface{})
+					if !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+						var TrustedCAListElems []ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
+						diags := data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(TrustedCAListElems) > 0 {
+							var TrustedCAListList []map[string]interface{}
+							for _, TrustedCAListItem := range TrustedCAListElems {
+								TrustedCAListItemMap := make(map[string]interface{})
+								if !TrustedCAListItem.Kind.IsNull() && !TrustedCAListItem.Kind.IsUnknown() {
+									TrustedCAListItemMap["kind"] = TrustedCAListItem.Kind.ValueString()
+								}
+								if !TrustedCAListItem.Name.IsNull() && !TrustedCAListItem.Name.IsUnknown() {
+									TrustedCAListItemMap["name"] = TrustedCAListItem.Name.ValueString()
+								}
+								if !TrustedCAListItem.Namespace.IsNull() && !TrustedCAListItem.Namespace.IsUnknown() {
+									TrustedCAListItemMap["namespace"] = TrustedCAListItem.Namespace.ValueString()
+								}
+								if !TrustedCAListItem.Tenant.IsNull() && !TrustedCAListItem.Tenant.IsUnknown() {
+									TrustedCAListItemMap["tenant"] = TrustedCAListItem.Tenant.ValueString()
+								}
+								if !TrustedCAListItem.Uid.IsNull() && !TrustedCAListItem.Uid.IsUnknown() {
+									TrustedCAListItemMap["uid"] = TrustedCAListItem.Uid.ValueString()
+								}
+								TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
+							}
+							TrustedCAMap["trusted_ca_list"] = TrustedCAListList
+						}
+					}
+					ValidationParamsMap["trusted_ca"] = TrustedCAMap
+				}
+				if !data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.IsUnknown() {
+					ValidationParamsMap["trusted_ca_url"] = data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.ValueString()
+				}
+				if !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
+					var VerifySubjectAltNamesItems []string
+					diags := data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+					if !diags.HasError() {
+						ValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
+					}
+				}
+				CommonParamsMap["validation_params"] = ValidationParamsMap
+			}
+			TLSParametersMap["common_params"] = CommonParamsMap
 		}
 		if data.TLSParameters.DefaultSessionKeyCaching != nil {
-			tls_parametersMap["default_session_key_caching"] = map[string]interface{}{}
+			TLSParametersMap["default_session_key_caching"] = map[string]interface{}{}
 		}
 		if data.TLSParameters.DisableSessionKeyCaching != nil {
-			tls_parametersMap["disable_session_key_caching"] = map[string]interface{}{}
+			TLSParametersMap["disable_session_key_caching"] = map[string]interface{}{}
 		}
 		if data.TLSParameters.DisableSni != nil {
-			tls_parametersMap["disable_sni"] = map[string]interface{}{}
+			TLSParametersMap["disable_sni"] = map[string]interface{}{}
 		}
 		if !data.TLSParameters.MaxSessionKeys.IsNull() && !data.TLSParameters.MaxSessionKeys.IsUnknown() {
-			tls_parametersMap["max_session_keys"] = data.TLSParameters.MaxSessionKeys.ValueInt64()
+			TLSParametersMap["max_session_keys"] = data.TLSParameters.MaxSessionKeys.ValueInt64()
 		}
 		if !data.TLSParameters.Sni.IsNull() && !data.TLSParameters.Sni.IsUnknown() {
-			tls_parametersMap["sni"] = data.TLSParameters.Sni.ValueString()
+			TLSParametersMap["sni"] = data.TLSParameters.Sni.ValueString()
 		}
 		if data.TLSParameters.UseHostHeaderAsSni != nil {
-			tls_parametersMap["use_host_header_as_sni"] = map[string]interface{}{}
+			TLSParametersMap["use_host_header_as_sni"] = map[string]interface{}{}
 		}
-		createReq.Spec["tls_parameters"] = tls_parametersMap
+		createReq.Spec["tls_parameters"] = TLSParametersMap
 	}
 	if data.UpstreamConnPoolReuseType != nil {
-		upstream_conn_pool_reuse_typeMap := make(map[string]interface{})
+		UpstreamConnPoolReuseTypeMap := make(map[string]interface{})
 		if data.UpstreamConnPoolReuseType.DisableConnPoolReuse != nil {
-			upstream_conn_pool_reuse_typeMap["disable_conn_pool_reuse"] = map[string]interface{}{}
+			UpstreamConnPoolReuseTypeMap["disable_conn_pool_reuse"] = map[string]interface{}{}
 		}
 		if data.UpstreamConnPoolReuseType.EnableConnPoolReuse != nil {
-			upstream_conn_pool_reuse_typeMap["enable_conn_pool_reuse"] = map[string]interface{}{}
+			UpstreamConnPoolReuseTypeMap["enable_conn_pool_reuse"] = map[string]interface{}{}
 		}
-		createReq.Spec["upstream_conn_pool_reuse_type"] = upstream_conn_pool_reuse_typeMap
+		createReq.Spec["upstream_conn_pool_reuse_type"] = UpstreamConnPoolReuseTypeMap
 	}
 	if !data.ConnectionTimeout.IsNull() && !data.ConnectionTimeout.IsUnknown() {
 		createReq.Spec["connection_timeout"] = data.ConnectionTimeout.ValueInt64()
@@ -1507,56 +1717,33 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["auto_http_config"].(map[string]interface{}); ok && isImport && data.AutoHTTPConfig == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.AutoHTTPConfig = &ClusterEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["circuit_breaker"].(map[string]interface{}); ok && (isImport || data.CircuitBreaker != nil) {
 		data.CircuitBreaker = &ClusterCircuitBreakerModel{
 			ConnectionLimit: func() types.Int64 {
 				if !isImport && data.CircuitBreaker != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CircuitBreaker.ConnectionLimit
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["connection_limit"].(float64); ok {
+				if v, ok := blockData["connection_limit"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			MaxRequests: func() types.Int64 {
 				if !isImport && data.CircuitBreaker != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CircuitBreaker.MaxRequests
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["max_requests"].(float64); ok {
+				if v, ok := blockData["max_requests"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			PendingRequests: func() types.Int64 {
 				if !isImport && data.CircuitBreaker != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CircuitBreaker.PendingRequests
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["pending_requests"].(float64); ok {
+				if v, ok := blockData["pending_requests"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -1569,16 +1756,9 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 			}(),
 			Retries: func() types.Int64 {
 				if !isImport && data.CircuitBreaker != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CircuitBreaker.Retries
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["retries"].(float64); ok {
+				if v, ok := blockData["retries"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -1586,25 +1766,23 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 		}
 	}
 	if _, ok := apiResource.Spec["default_subset"].(map[string]interface{}); ok && isImport && data.DefaultSubset == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DefaultSubset = &ClusterEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["disable_proxy_protocol"].(map[string]interface{}); ok && isImport && data.DisableProxyProtocol == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableProxyProtocol = &ClusterEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["endpoint_subsets"].([]interface{}); ok && len(listData) > 0 {
-		var endpoint_subsetsList []ClusterEndpointSubsetsModel
+	if !isImport && (data.EndpointSubsets.IsNull() || len(data.EndpointSubsets.Elements()) == 0) {
+		data.EndpointSubsets = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["endpoint_subsets"].([]interface{}); ok && len(listData) > 0 {
+		var EndpointSubsetsList []ClusterEndpointSubsetsModel
 		var existingEndpointSubsetsItems []ClusterEndpointSubsetsModel
 		if !data.EndpointSubsets.IsNull() && !data.EndpointSubsets.IsUnknown() {
 			data.EndpointSubsets.ElementsAs(ctx, &existingEndpointSubsetsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				endpoint_subsetsList = append(endpoint_subsetsList, ClusterEndpointSubsetsModel{
+				EndpointSubsetsList = append(EndpointSubsetsList, ClusterEndpointSubsetsModel{
 					Keys: func() types.List {
 						if v, ok := itemMap["keys"].([]interface{}); ok && len(v) > 0 {
 							var items []string
@@ -1621,25 +1799,26 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes}, endpoint_subsetsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes}, EndpointSubsetsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.EndpointSubsets = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.EndpointSubsets = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes})
 	}
-	if listData, ok := apiResource.Spec["endpoints"].([]interface{}); ok && len(listData) > 0 {
-		var endpointsList []ClusterEndpointsModel
+	if !isImport && (data.Endpoints.IsNull() || len(data.Endpoints.Elements()) == 0) {
+		data.Endpoints = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["endpoints"].([]interface{}); ok && len(listData) > 0 {
+		var EndpointsList []ClusterEndpointsModel
 		var existingEndpointsItems []ClusterEndpointsModel
 		if !data.Endpoints.IsNull() && !data.Endpoints.IsUnknown() {
 			data.Endpoints.ElementsAs(ctx, &existingEndpointsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				endpointsList = append(endpointsList, ClusterEndpointsModel{
+				EndpointsList = append(EndpointsList, ClusterEndpointsModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -1673,25 +1852,26 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterEndpointsModelAttrTypes}, endpointsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterEndpointsModelAttrTypes}, EndpointsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Endpoints = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Endpoints = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointsModelAttrTypes})
 	}
-	if listData, ok := apiResource.Spec["health_checks"].([]interface{}); ok && len(listData) > 0 {
-		var health_checksList []ClusterHealthChecksModel
+	if !isImport && (data.HealthChecks.IsNull() || len(data.HealthChecks.Elements()) == 0) {
+		data.HealthChecks = types.ListNull(types.ObjectType{AttrTypes: ClusterHealthChecksModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["health_checks"].([]interface{}); ok && len(listData) > 0 {
+		var HealthChecksList []ClusterHealthChecksModel
 		var existingHealthChecksItems []ClusterHealthChecksModel
 		if !data.HealthChecks.IsNull() && !data.HealthChecks.IsUnknown() {
 			data.HealthChecks.ElementsAs(ctx, &existingHealthChecksItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				health_checksList = append(health_checksList, ClusterHealthChecksModel{
+				HealthChecksList = append(HealthChecksList, ClusterHealthChecksModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -1725,33 +1905,58 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterHealthChecksModelAttrTypes}, health_checksList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterHealthChecksModelAttrTypes}, HealthChecksList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.HealthChecks = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.HealthChecks = types.ListNull(types.ObjectType{AttrTypes: ClusterHealthChecksModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["http1_config"].(map[string]interface{}); ok && isImport && data.Http1Config == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Http1Config = &ClusterHttp1ConfigModel{}
+	if blockData, ok := apiResource.Spec["http1_config"].(map[string]interface{}); ok && (isImport || data.Http1Config != nil) {
+		data.Http1Config = &ClusterHttp1ConfigModel{
+			HeaderTransformation: func() *ClusterHttp1ConfigHeaderTransformationModel {
+				if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+					return data.Http1Config.HeaderTransformation
+				}
+				if HeaderTransformationData, ok := blockData["header_transformation"].(map[string]interface{}); ok {
+					return &ClusterHttp1ConfigHeaderTransformationModel{
+						DefaultHeaderTransformation: func() *ClusterEmptyModel {
+							if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
+								return &ClusterEmptyModel{}
+							}
+							return nil
+						}(),
+						LegacyHeaderTransformation: func() *ClusterEmptyModel {
+							if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
+								return &ClusterEmptyModel{}
+							}
+							return nil
+						}(),
+						PreserveCaseHeaderTransformation: func() *ClusterEmptyModel {
+							if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
+								return &ClusterEmptyModel{}
+							}
+							return nil
+						}(),
+						ProperCaseHeaderTransformation: func() *ClusterEmptyModel {
+							if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
+								return &ClusterEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["http2_options"].(map[string]interface{}); ok && (isImport || data.Http2Options != nil) {
 		data.Http2Options = &ClusterHttp2OptionsModel{
 			Enabled: func() types.Bool {
 				if !isImport && data.Http2Options != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults from overwriting user intent
 					return data.Http2Options.Enabled
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.BoolNull()
-				}
-				// Import case: read from API
 				if v, ok := blockData["enabled"].(bool); ok {
 					return types.BoolValue(v)
 				}
@@ -1760,93 +1965,54 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 		}
 	}
 	if _, ok := apiResource.Spec["no_panic_threshold"].(map[string]interface{}); ok && isImport && data.NoPanicThreshold == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoPanicThreshold = &ClusterEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_request_limit_per_connection"].(map[string]interface{}); ok && isImport && data.NoRequestLimitPerConnection == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoRequestLimitPerConnection = &ClusterEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["outlier_detection"].(map[string]interface{}); ok && (isImport || data.OutlierDetection != nil) {
 		data.OutlierDetection = &ClusterOutlierDetectionModel{
 			BaseEjectionTime: func() types.Int64 {
 				if !isImport && data.OutlierDetection != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.OutlierDetection.BaseEjectionTime
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["base_ejection_time"].(float64); ok {
+				if v, ok := blockData["base_ejection_time"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			Consecutive5xx: func() types.Int64 {
 				if !isImport && data.OutlierDetection != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.OutlierDetection.Consecutive5xx
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["consecutive_5xx"].(float64); ok {
+				if v, ok := blockData["consecutive_5xx"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			ConsecutiveGatewayFailure: func() types.Int64 {
 				if !isImport && data.OutlierDetection != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.OutlierDetection.ConsecutiveGatewayFailure
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["consecutive_gateway_failure"].(float64); ok {
+				if v, ok := blockData["consecutive_gateway_failure"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			Interval: func() types.Int64 {
 				if !isImport && data.OutlierDetection != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.OutlierDetection.Interval
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["interval"].(float64); ok {
+				if v, ok := blockData["interval"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			MaxEjectionPercent: func() types.Int64 {
 				if !isImport && data.OutlierDetection != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.OutlierDetection.MaxEjectionPercent
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["max_ejection_percent"].(float64); ok {
+				if v, ok := blockData["max_ejection_percent"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -1854,27 +2020,65 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 		}
 	}
 	if _, ok := apiResource.Spec["proxy_protocol_v1"].(map[string]interface{}); ok && isImport && data.ProxyProtocolV1 == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.ProxyProtocolV1 = &ClusterEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["proxy_protocol_v2"].(map[string]interface{}); ok && isImport && data.ProxyProtocolV2 == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.ProxyProtocolV2 = &ClusterEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["tls_parameters"].(map[string]interface{}); ok && (isImport || data.TLSParameters != nil) {
 		data.TLSParameters = &ClusterTLSParametersModel{
 			CertParams: func() *ClusterTLSParametersCertParamsModel {
 				if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil {
-					// Normal Read: preserve existing state value
 					return data.TLSParameters.CertParams
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["cert_params"].(map[string]interface{}); ok {
+				if CertParamsData, ok := blockData["cert_params"].(map[string]interface{}); ok {
 					return &ClusterTLSParametersCertParamsModel{
+						Certificates: func() types.List {
+							if rawList, ok := CertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var CertificatesResult []ClusterTLSParametersCertParamsCertificatesModel
+								for _, CertificatesItem := range rawList {
+									if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
+										CertificatesResult = append(CertificatesResult, ClusterTLSParametersCertParamsCertificatesModel{
+											Kind: func() types.String {
+												if v, ok := CertificatesItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := CertificatesItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := CertificatesItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := CertificatesItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := CertificatesItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsCertificatesModelAttrTypes}, CertificatesResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsCertificatesModelAttrTypes})
+						}(),
 						CipherSuites: func() types.List {
-							if v, ok := nestedBlockData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+							if v, ok := CertParamsData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
 								var items []string
 								for _, item := range v {
 									if s, ok := item.(string); ok {
@@ -1887,16 +2091,99 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 							return types.ListNull(types.StringType)
 						}(),
 						MaximumProtocolVersion: func() types.String {
-							if v, ok := nestedBlockData["maximum_protocol_version"].(string); ok && v != "" {
+							if v, ok := CertParamsData["maximum_protocol_version"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						MinimumProtocolVersion: func() types.String {
-							if v, ok := nestedBlockData["minimum_protocol_version"].(string); ok && v != "" {
+							if v, ok := CertParamsData["minimum_protocol_version"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						ValidationParams: func() *ClusterTLSParametersCertParamsValidationParamsModel {
+							if ValidationParamsData, ok := CertParamsData["validation_params"].(map[string]interface{}); ok {
+								return &ClusterTLSParametersCertParamsValidationParamsModel{
+									SkipHostnameVerification: func() types.Bool {
+										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									TrustedCA: func() *ClusterTLSParametersCertParamsValidationParamsTrustedCAModel {
+										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
+											return &ClusterTLSParametersCertParamsValidationParamsTrustedCAModel{
+												TrustedCAList: func() types.List {
+													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
+														var TrustedCAListResult []ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel
+														for _, TrustedCAListItem := range rawList {
+															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
+																TrustedCAListResult = append(TrustedCAListResult, ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel{
+																	Kind: func() types.String {
+																		if v, ok := TrustedCAListItemMap["kind"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := TrustedCAListItemMap["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := TrustedCAListItemMap["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := TrustedCAListItemMap["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Uid: func() types.String {
+																		if v, ok := TrustedCAListItemMap["uid"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																})
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
+														return listVal
+													}
+													return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := ValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									VerifySubjectAltNames: func() types.List {
+										if v, ok := ValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -1904,14 +2191,12 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 			}(),
 			CommonParams: func() *ClusterTLSParametersCommonParamsModel {
 				if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil {
-					// Normal Read: preserve existing state value
 					return data.TLSParameters.CommonParams
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["common_params"].(map[string]interface{}); ok {
+				if CommonParamsData, ok := blockData["common_params"].(map[string]interface{}); ok {
 					return &ClusterTLSParametersCommonParamsModel{
 						CipherSuites: func() types.List {
-							if v, ok := nestedBlockData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+							if v, ok := CommonParamsData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
 								var items []string
 								for _, item := range v {
 									if s, ok := item.(string); ok {
@@ -1924,16 +2209,207 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 							return types.ListNull(types.StringType)
 						}(),
 						MaximumProtocolVersion: func() types.String {
-							if v, ok := nestedBlockData["maximum_protocol_version"].(string); ok && v != "" {
+							if v, ok := CommonParamsData["maximum_protocol_version"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						MinimumProtocolVersion: func() types.String {
-							if v, ok := nestedBlockData["minimum_protocol_version"].(string); ok && v != "" {
+							if v, ok := CommonParamsData["minimum_protocol_version"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						TLSCertificates: func() []ClusterTLSParametersCommonParamsTLSCertificatesModel {
+							if rawList, ok := CommonParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []ClusterTLSParametersCommonParamsTLSCertificatesModel
+								for _, TLSCertificatesItem := range rawList {
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, ClusterTLSParametersCommonParamsTLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *ClusterTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &ClusterTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() *ClusterEmptyModel {
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return &ClusterEmptyModel{}
+												}
+												return nil
+											}(),
+											PrivateKey: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() *ClusterEmptyModel {
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return &ClusterEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return TLSCertificatesResult
+							}
+							return nil
+						}(),
+						ValidationParams: func() *ClusterTLSParametersCommonParamsValidationParamsModel {
+							if ValidationParamsData, ok := CommonParamsData["validation_params"].(map[string]interface{}); ok {
+								return &ClusterTLSParametersCommonParamsValidationParamsModel{
+									SkipHostnameVerification: func() types.Bool {
+										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									TrustedCA: func() *ClusterTLSParametersCommonParamsValidationParamsTrustedCAModel {
+										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
+											return &ClusterTLSParametersCommonParamsValidationParamsTrustedCAModel{
+												TrustedCAList: func() types.List {
+													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
+														var TrustedCAListResult []ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
+														for _, TrustedCAListItem := range rawList {
+															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
+																TrustedCAListResult = append(TrustedCAListResult, ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel{
+																	Kind: func() types.String {
+																		if v, ok := TrustedCAListItemMap["kind"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := TrustedCAListItemMap["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := TrustedCAListItemMap["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := TrustedCAListItemMap["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Uid: func() types.String {
+																		if v, ok := TrustedCAListItemMap["uid"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																})
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
+														return listVal
+													}
+													return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := ValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									VerifySubjectAltNames: func() types.List {
+										if v, ok := ValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -1941,11 +2417,8 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 			}(),
 			DefaultSessionKeyCaching: func() *ClusterEmptyModel {
 				if !isImport && data.TLSParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSParameters.DefaultSessionKeyCaching
 				}
-				// Import case: read from API
 				if _, ok := blockData["default_session_key_caching"].(map[string]interface{}); ok {
 					return &ClusterEmptyModel{}
 				}
@@ -1953,11 +2426,8 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 			}(),
 			DisableSessionKeyCaching: func() *ClusterEmptyModel {
 				if !isImport && data.TLSParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSParameters.DisableSessionKeyCaching
 				}
-				// Import case: read from API
 				if _, ok := blockData["disable_session_key_caching"].(map[string]interface{}); ok {
 					return &ClusterEmptyModel{}
 				}
@@ -1965,11 +2435,8 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 			}(),
 			DisableSni: func() *ClusterEmptyModel {
 				if !isImport && data.TLSParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSParameters.DisableSni
 				}
-				// Import case: read from API
 				if _, ok := blockData["disable_sni"].(map[string]interface{}); ok {
 					return &ClusterEmptyModel{}
 				}
@@ -1977,16 +2444,9 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 			}(),
 			MaxSessionKeys: func() types.Int64 {
 				if !isImport && data.TLSParameters != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.TLSParameters.MaxSessionKeys
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["max_session_keys"].(float64); ok {
+				if v, ok := blockData["max_session_keys"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -1999,11 +2459,8 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 			}(),
 			UseHostHeaderAsSni: func() *ClusterEmptyModel {
 				if !isImport && data.TLSParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSParameters.UseHostHeaderAsSni
 				}
-				// Import case: read from API
 				if _, ok := blockData["use_host_header_as_sni"].(map[string]interface{}); ok {
 					return &ClusterEmptyModel{}
 				}
@@ -2011,11 +2468,28 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["upstream_conn_pool_reuse_type"].(map[string]interface{}); ok && isImport && data.UpstreamConnPoolReuseType == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.UpstreamConnPoolReuseType = &ClusterUpstreamConnPoolReuseTypeModel{}
+	if blockData, ok := apiResource.Spec["upstream_conn_pool_reuse_type"].(map[string]interface{}); ok && (isImport || data.UpstreamConnPoolReuseType != nil) {
+		data.UpstreamConnPoolReuseType = &ClusterUpstreamConnPoolReuseTypeModel{
+			DisableConnPoolReuse: func() *ClusterEmptyModel {
+				if !isImport && data.UpstreamConnPoolReuseType != nil {
+					return data.UpstreamConnPoolReuseType.DisableConnPoolReuse
+				}
+				if _, ok := blockData["disable_conn_pool_reuse"].(map[string]interface{}); ok {
+					return &ClusterEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableConnPoolReuse: func() *ClusterEmptyModel {
+				if !isImport && data.UpstreamConnPoolReuseType != nil {
+					return data.UpstreamConnPoolReuseType.EnableConnPoolReuse
+				}
+				if _, ok := blockData["enable_conn_pool_reuse"].(map[string]interface{}); ok {
+					return &ClusterEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["connection_timeout"].(float64); ok {
 		data.ConnectionTimeout = types.Int64Value(int64(v))
 	} else {
@@ -2132,56 +2606,33 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["auto_http_config"].(map[string]interface{}); ok && isImport && data.AutoHTTPConfig == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.AutoHTTPConfig = &ClusterEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["circuit_breaker"].(map[string]interface{}); ok && (isImport || data.CircuitBreaker != nil) {
 		data.CircuitBreaker = &ClusterCircuitBreakerModel{
 			ConnectionLimit: func() types.Int64 {
 				if !isImport && data.CircuitBreaker != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CircuitBreaker.ConnectionLimit
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["connection_limit"].(float64); ok {
+				if v, ok := blockData["connection_limit"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			MaxRequests: func() types.Int64 {
 				if !isImport && data.CircuitBreaker != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CircuitBreaker.MaxRequests
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["max_requests"].(float64); ok {
+				if v, ok := blockData["max_requests"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			PendingRequests: func() types.Int64 {
 				if !isImport && data.CircuitBreaker != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CircuitBreaker.PendingRequests
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["pending_requests"].(float64); ok {
+				if v, ok := blockData["pending_requests"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -2194,16 +2645,9 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 			}(),
 			Retries: func() types.Int64 {
 				if !isImport && data.CircuitBreaker != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CircuitBreaker.Retries
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["retries"].(float64); ok {
+				if v, ok := blockData["retries"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -2211,25 +2655,23 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 		}
 	}
 	if _, ok := apiResource.Spec["default_subset"].(map[string]interface{}); ok && isImport && data.DefaultSubset == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DefaultSubset = &ClusterEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["disable_proxy_protocol"].(map[string]interface{}); ok && isImport && data.DisableProxyProtocol == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableProxyProtocol = &ClusterEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["endpoint_subsets"].([]interface{}); ok && len(listData) > 0 {
-		var endpoint_subsetsList []ClusterEndpointSubsetsModel
+	if !isImport && (data.EndpointSubsets.IsNull() || len(data.EndpointSubsets.Elements()) == 0) {
+		data.EndpointSubsets = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["endpoint_subsets"].([]interface{}); ok && len(listData) > 0 {
+		var EndpointSubsetsList []ClusterEndpointSubsetsModel
 		var existingEndpointSubsetsItems []ClusterEndpointSubsetsModel
 		if !data.EndpointSubsets.IsNull() && !data.EndpointSubsets.IsUnknown() {
 			data.EndpointSubsets.ElementsAs(ctx, &existingEndpointSubsetsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				endpoint_subsetsList = append(endpoint_subsetsList, ClusterEndpointSubsetsModel{
+				EndpointSubsetsList = append(EndpointSubsetsList, ClusterEndpointSubsetsModel{
 					Keys: func() types.List {
 						if v, ok := itemMap["keys"].([]interface{}); ok && len(v) > 0 {
 							var items []string
@@ -2246,25 +2688,26 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes}, endpoint_subsetsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes}, EndpointSubsetsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.EndpointSubsets = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.EndpointSubsets = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes})
 	}
-	if listData, ok := apiResource.Spec["endpoints"].([]interface{}); ok && len(listData) > 0 {
-		var endpointsList []ClusterEndpointsModel
+	if !isImport && (data.Endpoints.IsNull() || len(data.Endpoints.Elements()) == 0) {
+		data.Endpoints = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["endpoints"].([]interface{}); ok && len(listData) > 0 {
+		var EndpointsList []ClusterEndpointsModel
 		var existingEndpointsItems []ClusterEndpointsModel
 		if !data.Endpoints.IsNull() && !data.Endpoints.IsUnknown() {
 			data.Endpoints.ElementsAs(ctx, &existingEndpointsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				endpointsList = append(endpointsList, ClusterEndpointsModel{
+				EndpointsList = append(EndpointsList, ClusterEndpointsModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -2298,25 +2741,26 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterEndpointsModelAttrTypes}, endpointsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterEndpointsModelAttrTypes}, EndpointsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Endpoints = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Endpoints = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointsModelAttrTypes})
 	}
-	if listData, ok := apiResource.Spec["health_checks"].([]interface{}); ok && len(listData) > 0 {
-		var health_checksList []ClusterHealthChecksModel
+	if !isImport && (data.HealthChecks.IsNull() || len(data.HealthChecks.Elements()) == 0) {
+		data.HealthChecks = types.ListNull(types.ObjectType{AttrTypes: ClusterHealthChecksModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["health_checks"].([]interface{}); ok && len(listData) > 0 {
+		var HealthChecksList []ClusterHealthChecksModel
 		var existingHealthChecksItems []ClusterHealthChecksModel
 		if !data.HealthChecks.IsNull() && !data.HealthChecks.IsUnknown() {
 			data.HealthChecks.ElementsAs(ctx, &existingHealthChecksItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				health_checksList = append(health_checksList, ClusterHealthChecksModel{
+				HealthChecksList = append(HealthChecksList, ClusterHealthChecksModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -2350,33 +2794,58 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterHealthChecksModelAttrTypes}, health_checksList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterHealthChecksModelAttrTypes}, HealthChecksList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.HealthChecks = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.HealthChecks = types.ListNull(types.ObjectType{AttrTypes: ClusterHealthChecksModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["http1_config"].(map[string]interface{}); ok && isImport && data.Http1Config == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Http1Config = &ClusterHttp1ConfigModel{}
+	if blockData, ok := apiResource.Spec["http1_config"].(map[string]interface{}); ok && (isImport || data.Http1Config != nil) {
+		data.Http1Config = &ClusterHttp1ConfigModel{
+			HeaderTransformation: func() *ClusterHttp1ConfigHeaderTransformationModel {
+				if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+					return data.Http1Config.HeaderTransformation
+				}
+				if HeaderTransformationData, ok := blockData["header_transformation"].(map[string]interface{}); ok {
+					return &ClusterHttp1ConfigHeaderTransformationModel{
+						DefaultHeaderTransformation: func() *ClusterEmptyModel {
+							if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
+								return &ClusterEmptyModel{}
+							}
+							return nil
+						}(),
+						LegacyHeaderTransformation: func() *ClusterEmptyModel {
+							if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
+								return &ClusterEmptyModel{}
+							}
+							return nil
+						}(),
+						PreserveCaseHeaderTransformation: func() *ClusterEmptyModel {
+							if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
+								return &ClusterEmptyModel{}
+							}
+							return nil
+						}(),
+						ProperCaseHeaderTransformation: func() *ClusterEmptyModel {
+							if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
+								return &ClusterEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["http2_options"].(map[string]interface{}); ok && (isImport || data.Http2Options != nil) {
 		data.Http2Options = &ClusterHttp2OptionsModel{
 			Enabled: func() types.Bool {
 				if !isImport && data.Http2Options != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults from overwriting user intent
 					return data.Http2Options.Enabled
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.BoolNull()
-				}
-				// Import case: read from API
 				if v, ok := blockData["enabled"].(bool); ok {
 					return types.BoolValue(v)
 				}
@@ -2385,93 +2854,54 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 		}
 	}
 	if _, ok := apiResource.Spec["no_panic_threshold"].(map[string]interface{}); ok && isImport && data.NoPanicThreshold == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoPanicThreshold = &ClusterEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_request_limit_per_connection"].(map[string]interface{}); ok && isImport && data.NoRequestLimitPerConnection == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoRequestLimitPerConnection = &ClusterEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["outlier_detection"].(map[string]interface{}); ok && (isImport || data.OutlierDetection != nil) {
 		data.OutlierDetection = &ClusterOutlierDetectionModel{
 			BaseEjectionTime: func() types.Int64 {
 				if !isImport && data.OutlierDetection != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.OutlierDetection.BaseEjectionTime
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["base_ejection_time"].(float64); ok {
+				if v, ok := blockData["base_ejection_time"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			Consecutive5xx: func() types.Int64 {
 				if !isImport && data.OutlierDetection != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.OutlierDetection.Consecutive5xx
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["consecutive_5xx"].(float64); ok {
+				if v, ok := blockData["consecutive_5xx"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			ConsecutiveGatewayFailure: func() types.Int64 {
 				if !isImport && data.OutlierDetection != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.OutlierDetection.ConsecutiveGatewayFailure
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["consecutive_gateway_failure"].(float64); ok {
+				if v, ok := blockData["consecutive_gateway_failure"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			Interval: func() types.Int64 {
 				if !isImport && data.OutlierDetection != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.OutlierDetection.Interval
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["interval"].(float64); ok {
+				if v, ok := blockData["interval"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			MaxEjectionPercent: func() types.Int64 {
 				if !isImport && data.OutlierDetection != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.OutlierDetection.MaxEjectionPercent
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["max_ejection_percent"].(float64); ok {
+				if v, ok := blockData["max_ejection_percent"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -2479,27 +2909,65 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 		}
 	}
 	if _, ok := apiResource.Spec["proxy_protocol_v1"].(map[string]interface{}); ok && isImport && data.ProxyProtocolV1 == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.ProxyProtocolV1 = &ClusterEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["proxy_protocol_v2"].(map[string]interface{}); ok && isImport && data.ProxyProtocolV2 == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.ProxyProtocolV2 = &ClusterEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["tls_parameters"].(map[string]interface{}); ok && (isImport || data.TLSParameters != nil) {
 		data.TLSParameters = &ClusterTLSParametersModel{
 			CertParams: func() *ClusterTLSParametersCertParamsModel {
 				if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil {
-					// Normal Read: preserve existing state value
 					return data.TLSParameters.CertParams
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["cert_params"].(map[string]interface{}); ok {
+				if CertParamsData, ok := blockData["cert_params"].(map[string]interface{}); ok {
 					return &ClusterTLSParametersCertParamsModel{
+						Certificates: func() types.List {
+							if rawList, ok := CertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var CertificatesResult []ClusterTLSParametersCertParamsCertificatesModel
+								for _, CertificatesItem := range rawList {
+									if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
+										CertificatesResult = append(CertificatesResult, ClusterTLSParametersCertParamsCertificatesModel{
+											Kind: func() types.String {
+												if v, ok := CertificatesItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := CertificatesItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := CertificatesItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := CertificatesItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := CertificatesItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsCertificatesModelAttrTypes}, CertificatesResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsCertificatesModelAttrTypes})
+						}(),
 						CipherSuites: func() types.List {
-							if v, ok := nestedBlockData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+							if v, ok := CertParamsData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
 								var items []string
 								for _, item := range v {
 									if s, ok := item.(string); ok {
@@ -2512,16 +2980,99 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 							return types.ListNull(types.StringType)
 						}(),
 						MaximumProtocolVersion: func() types.String {
-							if v, ok := nestedBlockData["maximum_protocol_version"].(string); ok && v != "" {
+							if v, ok := CertParamsData["maximum_protocol_version"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						MinimumProtocolVersion: func() types.String {
-							if v, ok := nestedBlockData["minimum_protocol_version"].(string); ok && v != "" {
+							if v, ok := CertParamsData["minimum_protocol_version"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						ValidationParams: func() *ClusterTLSParametersCertParamsValidationParamsModel {
+							if ValidationParamsData, ok := CertParamsData["validation_params"].(map[string]interface{}); ok {
+								return &ClusterTLSParametersCertParamsValidationParamsModel{
+									SkipHostnameVerification: func() types.Bool {
+										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									TrustedCA: func() *ClusterTLSParametersCertParamsValidationParamsTrustedCAModel {
+										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
+											return &ClusterTLSParametersCertParamsValidationParamsTrustedCAModel{
+												TrustedCAList: func() types.List {
+													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
+														var TrustedCAListResult []ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel
+														for _, TrustedCAListItem := range rawList {
+															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
+																TrustedCAListResult = append(TrustedCAListResult, ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel{
+																	Kind: func() types.String {
+																		if v, ok := TrustedCAListItemMap["kind"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := TrustedCAListItemMap["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := TrustedCAListItemMap["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := TrustedCAListItemMap["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Uid: func() types.String {
+																		if v, ok := TrustedCAListItemMap["uid"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																})
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
+														return listVal
+													}
+													return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := ValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									VerifySubjectAltNames: func() types.List {
+										if v, ok := ValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -2529,14 +3080,12 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 			}(),
 			CommonParams: func() *ClusterTLSParametersCommonParamsModel {
 				if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil {
-					// Normal Read: preserve existing state value
 					return data.TLSParameters.CommonParams
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["common_params"].(map[string]interface{}); ok {
+				if CommonParamsData, ok := blockData["common_params"].(map[string]interface{}); ok {
 					return &ClusterTLSParametersCommonParamsModel{
 						CipherSuites: func() types.List {
-							if v, ok := nestedBlockData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+							if v, ok := CommonParamsData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
 								var items []string
 								for _, item := range v {
 									if s, ok := item.(string); ok {
@@ -2549,16 +3098,207 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 							return types.ListNull(types.StringType)
 						}(),
 						MaximumProtocolVersion: func() types.String {
-							if v, ok := nestedBlockData["maximum_protocol_version"].(string); ok && v != "" {
+							if v, ok := CommonParamsData["maximum_protocol_version"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						MinimumProtocolVersion: func() types.String {
-							if v, ok := nestedBlockData["minimum_protocol_version"].(string); ok && v != "" {
+							if v, ok := CommonParamsData["minimum_protocol_version"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						TLSCertificates: func() []ClusterTLSParametersCommonParamsTLSCertificatesModel {
+							if rawList, ok := CommonParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []ClusterTLSParametersCommonParamsTLSCertificatesModel
+								for _, TLSCertificatesItem := range rawList {
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, ClusterTLSParametersCommonParamsTLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *ClusterTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &ClusterTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() *ClusterEmptyModel {
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return &ClusterEmptyModel{}
+												}
+												return nil
+											}(),
+											PrivateKey: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() *ClusterEmptyModel {
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return &ClusterEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return TLSCertificatesResult
+							}
+							return nil
+						}(),
+						ValidationParams: func() *ClusterTLSParametersCommonParamsValidationParamsModel {
+							if ValidationParamsData, ok := CommonParamsData["validation_params"].(map[string]interface{}); ok {
+								return &ClusterTLSParametersCommonParamsValidationParamsModel{
+									SkipHostnameVerification: func() types.Bool {
+										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									TrustedCA: func() *ClusterTLSParametersCommonParamsValidationParamsTrustedCAModel {
+										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
+											return &ClusterTLSParametersCommonParamsValidationParamsTrustedCAModel{
+												TrustedCAList: func() types.List {
+													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
+														var TrustedCAListResult []ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
+														for _, TrustedCAListItem := range rawList {
+															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
+																TrustedCAListResult = append(TrustedCAListResult, ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel{
+																	Kind: func() types.String {
+																		if v, ok := TrustedCAListItemMap["kind"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := TrustedCAListItemMap["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := TrustedCAListItemMap["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := TrustedCAListItemMap["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Uid: func() types.String {
+																		if v, ok := TrustedCAListItemMap["uid"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																})
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
+														return listVal
+													}
+													return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := ValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									VerifySubjectAltNames: func() types.List {
+										if v, ok := ValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -2566,11 +3306,8 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 			}(),
 			DefaultSessionKeyCaching: func() *ClusterEmptyModel {
 				if !isImport && data.TLSParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSParameters.DefaultSessionKeyCaching
 				}
-				// Import case: read from API
 				if _, ok := blockData["default_session_key_caching"].(map[string]interface{}); ok {
 					return &ClusterEmptyModel{}
 				}
@@ -2578,11 +3315,8 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 			}(),
 			DisableSessionKeyCaching: func() *ClusterEmptyModel {
 				if !isImport && data.TLSParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSParameters.DisableSessionKeyCaching
 				}
-				// Import case: read from API
 				if _, ok := blockData["disable_session_key_caching"].(map[string]interface{}); ok {
 					return &ClusterEmptyModel{}
 				}
@@ -2590,11 +3324,8 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 			}(),
 			DisableSni: func() *ClusterEmptyModel {
 				if !isImport && data.TLSParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSParameters.DisableSni
 				}
-				// Import case: read from API
 				if _, ok := blockData["disable_sni"].(map[string]interface{}); ok {
 					return &ClusterEmptyModel{}
 				}
@@ -2602,16 +3333,9 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 			}(),
 			MaxSessionKeys: func() types.Int64 {
 				if !isImport && data.TLSParameters != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.TLSParameters.MaxSessionKeys
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["max_session_keys"].(float64); ok {
+				if v, ok := blockData["max_session_keys"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -2624,11 +3348,8 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 			}(),
 			UseHostHeaderAsSni: func() *ClusterEmptyModel {
 				if !isImport && data.TLSParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSParameters.UseHostHeaderAsSni
 				}
-				// Import case: read from API
 				if _, ok := blockData["use_host_header_as_sni"].(map[string]interface{}); ok {
 					return &ClusterEmptyModel{}
 				}
@@ -2636,11 +3357,28 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["upstream_conn_pool_reuse_type"].(map[string]interface{}); ok && isImport && data.UpstreamConnPoolReuseType == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.UpstreamConnPoolReuseType = &ClusterUpstreamConnPoolReuseTypeModel{}
+	if blockData, ok := apiResource.Spec["upstream_conn_pool_reuse_type"].(map[string]interface{}); ok && (isImport || data.UpstreamConnPoolReuseType != nil) {
+		data.UpstreamConnPoolReuseType = &ClusterUpstreamConnPoolReuseTypeModel{
+			DisableConnPoolReuse: func() *ClusterEmptyModel {
+				if !isImport && data.UpstreamConnPoolReuseType != nil {
+					return data.UpstreamConnPoolReuseType.DisableConnPoolReuse
+				}
+				if _, ok := blockData["disable_conn_pool_reuse"].(map[string]interface{}); ok {
+					return &ClusterEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableConnPoolReuse: func() *ClusterEmptyModel {
+				if !isImport && data.UpstreamConnPoolReuseType != nil {
+					return data.UpstreamConnPoolReuseType.EnableConnPoolReuse
+				}
+				if _, ok := blockData["enable_conn_pool_reuse"].(map[string]interface{}); ok {
+					return &ClusterEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["connection_timeout"].(float64); ok {
 		data.ConnectionTimeout = types.Int64Value(int64(v))
 	} else {
@@ -2675,6 +3413,14 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 		data.PanicThreshold = types.Int64Value(int64(v))
 	} else {
 		data.PanicThreshold = types.Int64Null()
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -2728,206 +3474,416 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.AutoHTTPConfig != nil {
-		auto_http_configMap := make(map[string]interface{})
-		apiResource.Spec["auto_http_config"] = auto_http_configMap
+		apiResource.Spec["auto_http_config"] = map[string]interface{}{}
 	}
 	if data.CircuitBreaker != nil {
-		circuit_breakerMap := make(map[string]interface{})
+		CircuitBreakerMap := make(map[string]interface{})
 		if !data.CircuitBreaker.ConnectionLimit.IsNull() && !data.CircuitBreaker.ConnectionLimit.IsUnknown() {
-			circuit_breakerMap["connection_limit"] = data.CircuitBreaker.ConnectionLimit.ValueInt64()
+			CircuitBreakerMap["connection_limit"] = data.CircuitBreaker.ConnectionLimit.ValueInt64()
 		}
 		if !data.CircuitBreaker.MaxRequests.IsNull() && !data.CircuitBreaker.MaxRequests.IsUnknown() {
-			circuit_breakerMap["max_requests"] = data.CircuitBreaker.MaxRequests.ValueInt64()
+			CircuitBreakerMap["max_requests"] = data.CircuitBreaker.MaxRequests.ValueInt64()
 		}
 		if !data.CircuitBreaker.PendingRequests.IsNull() && !data.CircuitBreaker.PendingRequests.IsUnknown() {
-			circuit_breakerMap["pending_requests"] = data.CircuitBreaker.PendingRequests.ValueInt64()
+			CircuitBreakerMap["pending_requests"] = data.CircuitBreaker.PendingRequests.ValueInt64()
 		}
 		if !data.CircuitBreaker.Priority.IsNull() && !data.CircuitBreaker.Priority.IsUnknown() {
-			circuit_breakerMap["priority"] = data.CircuitBreaker.Priority.ValueString()
+			CircuitBreakerMap["priority"] = data.CircuitBreaker.Priority.ValueString()
 		}
 		if !data.CircuitBreaker.Retries.IsNull() && !data.CircuitBreaker.Retries.IsUnknown() {
-			circuit_breakerMap["retries"] = data.CircuitBreaker.Retries.ValueInt64()
+			CircuitBreakerMap["retries"] = data.CircuitBreaker.Retries.ValueInt64()
 		}
-		apiResource.Spec["circuit_breaker"] = circuit_breakerMap
+		apiResource.Spec["circuit_breaker"] = CircuitBreakerMap
 	}
 	if data.DefaultSubset != nil {
-		default_subsetMap := make(map[string]interface{})
-		apiResource.Spec["default_subset"] = default_subsetMap
+		apiResource.Spec["default_subset"] = map[string]interface{}{}
 	}
 	if data.DisableProxyProtocol != nil {
-		disable_proxy_protocolMap := make(map[string]interface{})
-		apiResource.Spec["disable_proxy_protocol"] = disable_proxy_protocolMap
+		apiResource.Spec["disable_proxy_protocol"] = map[string]interface{}{}
 	}
 	if !data.EndpointSubsets.IsNull() && !data.EndpointSubsets.IsUnknown() {
-		var endpoint_subsetsItems []ClusterEndpointSubsetsModel
-		diags := data.EndpointSubsets.ElementsAs(ctx, &endpoint_subsetsItems, false)
+		var EndpointSubsetsElems []ClusterEndpointSubsetsModel
+		diags := data.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(endpoint_subsetsItems) > 0 {
-			var endpoint_subsetsList []map[string]interface{}
-			for range endpoint_subsetsItems {
-				itemMap := make(map[string]interface{})
-				endpoint_subsetsList = append(endpoint_subsetsList, itemMap)
+		if !resp.Diagnostics.HasError() && len(EndpointSubsetsElems) > 0 {
+			var EndpointSubsetsList []map[string]interface{}
+			for _, EndpointSubsetsItem := range EndpointSubsetsElems {
+				EndpointSubsetsItemMap := make(map[string]interface{})
+				if !EndpointSubsetsItem.Keys.IsNull() && !EndpointSubsetsItem.Keys.IsUnknown() {
+					var KeysItems []string
+					diags := EndpointSubsetsItem.Keys.ElementsAs(ctx, &KeysItems, false)
+					if !diags.HasError() {
+						EndpointSubsetsItemMap["keys"] = KeysItems
+					}
+				}
+				EndpointSubsetsList = append(EndpointSubsetsList, EndpointSubsetsItemMap)
 			}
-			apiResource.Spec["endpoint_subsets"] = endpoint_subsetsList
+			apiResource.Spec["endpoint_subsets"] = EndpointSubsetsList
 		}
 	}
 	if !data.Endpoints.IsNull() && !data.Endpoints.IsUnknown() {
-		var endpointsItems []ClusterEndpointsModel
-		diags := data.Endpoints.ElementsAs(ctx, &endpointsItems, false)
+		var EndpointsElems []ClusterEndpointsModel
+		diags := data.Endpoints.ElementsAs(ctx, &EndpointsElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(endpointsItems) > 0 {
-			var endpointsList []map[string]interface{}
-			for _, item := range endpointsItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(EndpointsElems) > 0 {
+			var EndpointsList []map[string]interface{}
+			for _, EndpointsItem := range EndpointsElems {
+				EndpointsItemMap := make(map[string]interface{})
+				if !EndpointsItem.Kind.IsNull() && !EndpointsItem.Kind.IsUnknown() {
+					EndpointsItemMap["kind"] = EndpointsItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !EndpointsItem.Name.IsNull() && !EndpointsItem.Name.IsUnknown() {
+					EndpointsItemMap["name"] = EndpointsItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !EndpointsItem.Namespace.IsNull() && !EndpointsItem.Namespace.IsUnknown() {
+					EndpointsItemMap["namespace"] = EndpointsItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !EndpointsItem.Tenant.IsNull() && !EndpointsItem.Tenant.IsUnknown() {
+					EndpointsItemMap["tenant"] = EndpointsItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !EndpointsItem.Uid.IsNull() && !EndpointsItem.Uid.IsUnknown() {
+					EndpointsItemMap["uid"] = EndpointsItem.Uid.ValueString()
 				}
-				endpointsList = append(endpointsList, itemMap)
+				EndpointsList = append(EndpointsList, EndpointsItemMap)
 			}
-			apiResource.Spec["endpoints"] = endpointsList
+			apiResource.Spec["endpoints"] = EndpointsList
 		}
 	}
 	if !data.HealthChecks.IsNull() && !data.HealthChecks.IsUnknown() {
-		var health_checksItems []ClusterHealthChecksModel
-		diags := data.HealthChecks.ElementsAs(ctx, &health_checksItems, false)
+		var HealthChecksElems []ClusterHealthChecksModel
+		diags := data.HealthChecks.ElementsAs(ctx, &HealthChecksElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(health_checksItems) > 0 {
-			var health_checksList []map[string]interface{}
-			for _, item := range health_checksItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(HealthChecksElems) > 0 {
+			var HealthChecksList []map[string]interface{}
+			for _, HealthChecksItem := range HealthChecksElems {
+				HealthChecksItemMap := make(map[string]interface{})
+				if !HealthChecksItem.Kind.IsNull() && !HealthChecksItem.Kind.IsUnknown() {
+					HealthChecksItemMap["kind"] = HealthChecksItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !HealthChecksItem.Name.IsNull() && !HealthChecksItem.Name.IsUnknown() {
+					HealthChecksItemMap["name"] = HealthChecksItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !HealthChecksItem.Namespace.IsNull() && !HealthChecksItem.Namespace.IsUnknown() {
+					HealthChecksItemMap["namespace"] = HealthChecksItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !HealthChecksItem.Tenant.IsNull() && !HealthChecksItem.Tenant.IsUnknown() {
+					HealthChecksItemMap["tenant"] = HealthChecksItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !HealthChecksItem.Uid.IsNull() && !HealthChecksItem.Uid.IsUnknown() {
+					HealthChecksItemMap["uid"] = HealthChecksItem.Uid.ValueString()
 				}
-				health_checksList = append(health_checksList, itemMap)
+				HealthChecksList = append(HealthChecksList, HealthChecksItemMap)
 			}
-			apiResource.Spec["health_checks"] = health_checksList
+			apiResource.Spec["health_checks"] = HealthChecksList
 		}
 	}
 	if data.Http1Config != nil {
-		http1_configMap := make(map[string]interface{})
+		Http1ConfigMap := make(map[string]interface{})
 		if data.Http1Config.HeaderTransformation != nil {
-			header_transformationNestedMap := make(map[string]interface{})
-			http1_configMap["header_transformation"] = header_transformationNestedMap
+			HeaderTransformationMap := make(map[string]interface{})
+			if data.Http1Config.HeaderTransformation.DefaultHeaderTransformation != nil {
+				HeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
+			}
+			if data.Http1Config.HeaderTransformation.LegacyHeaderTransformation != nil {
+				HeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
+			}
+			if data.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
+				HeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
+			}
+			if data.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation != nil {
+				HeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
+			}
+			Http1ConfigMap["header_transformation"] = HeaderTransformationMap
 		}
-		apiResource.Spec["http1_config"] = http1_configMap
+		apiResource.Spec["http1_config"] = Http1ConfigMap
 	}
 	if data.Http2Options != nil {
-		http2_optionsMap := make(map[string]interface{})
+		Http2OptionsMap := make(map[string]interface{})
 		if !data.Http2Options.Enabled.IsNull() && !data.Http2Options.Enabled.IsUnknown() {
-			http2_optionsMap["enabled"] = data.Http2Options.Enabled.ValueBool()
+			Http2OptionsMap["enabled"] = data.Http2Options.Enabled.ValueBool()
 		}
-		apiResource.Spec["http2_options"] = http2_optionsMap
+		apiResource.Spec["http2_options"] = Http2OptionsMap
 	}
 	if data.NoPanicThreshold != nil {
-		no_panic_thresholdMap := make(map[string]interface{})
-		apiResource.Spec["no_panic_threshold"] = no_panic_thresholdMap
+		apiResource.Spec["no_panic_threshold"] = map[string]interface{}{}
 	}
 	if data.NoRequestLimitPerConnection != nil {
-		no_request_limit_per_connectionMap := make(map[string]interface{})
-		apiResource.Spec["no_request_limit_per_connection"] = no_request_limit_per_connectionMap
+		apiResource.Spec["no_request_limit_per_connection"] = map[string]interface{}{}
 	}
 	if data.OutlierDetection != nil {
-		outlier_detectionMap := make(map[string]interface{})
+		OutlierDetectionMap := make(map[string]interface{})
 		if !data.OutlierDetection.BaseEjectionTime.IsNull() && !data.OutlierDetection.BaseEjectionTime.IsUnknown() {
-			outlier_detectionMap["base_ejection_time"] = data.OutlierDetection.BaseEjectionTime.ValueInt64()
+			OutlierDetectionMap["base_ejection_time"] = data.OutlierDetection.BaseEjectionTime.ValueInt64()
 		}
 		if !data.OutlierDetection.Consecutive5xx.IsNull() && !data.OutlierDetection.Consecutive5xx.IsUnknown() {
-			outlier_detectionMap["consecutive_5xx"] = data.OutlierDetection.Consecutive5xx.ValueInt64()
+			OutlierDetectionMap["consecutive_5xx"] = data.OutlierDetection.Consecutive5xx.ValueInt64()
 		}
 		if !data.OutlierDetection.ConsecutiveGatewayFailure.IsNull() && !data.OutlierDetection.ConsecutiveGatewayFailure.IsUnknown() {
-			outlier_detectionMap["consecutive_gateway_failure"] = data.OutlierDetection.ConsecutiveGatewayFailure.ValueInt64()
+			OutlierDetectionMap["consecutive_gateway_failure"] = data.OutlierDetection.ConsecutiveGatewayFailure.ValueInt64()
 		}
 		if !data.OutlierDetection.Interval.IsNull() && !data.OutlierDetection.Interval.IsUnknown() {
-			outlier_detectionMap["interval"] = data.OutlierDetection.Interval.ValueInt64()
+			OutlierDetectionMap["interval"] = data.OutlierDetection.Interval.ValueInt64()
 		}
 		if !data.OutlierDetection.MaxEjectionPercent.IsNull() && !data.OutlierDetection.MaxEjectionPercent.IsUnknown() {
-			outlier_detectionMap["max_ejection_percent"] = data.OutlierDetection.MaxEjectionPercent.ValueInt64()
+			OutlierDetectionMap["max_ejection_percent"] = data.OutlierDetection.MaxEjectionPercent.ValueInt64()
 		}
-		apiResource.Spec["outlier_detection"] = outlier_detectionMap
+		apiResource.Spec["outlier_detection"] = OutlierDetectionMap
 	}
 	if data.ProxyProtocolV1 != nil {
-		proxy_protocol_v1Map := make(map[string]interface{})
-		apiResource.Spec["proxy_protocol_v1"] = proxy_protocol_v1Map
+		apiResource.Spec["proxy_protocol_v1"] = map[string]interface{}{}
 	}
 	if data.ProxyProtocolV2 != nil {
-		proxy_protocol_v2Map := make(map[string]interface{})
-		apiResource.Spec["proxy_protocol_v2"] = proxy_protocol_v2Map
+		apiResource.Spec["proxy_protocol_v2"] = map[string]interface{}{}
 	}
 	if data.TLSParameters != nil {
-		tls_parametersMap := make(map[string]interface{})
+		TLSParametersMap := make(map[string]interface{})
 		if data.TLSParameters.CertParams != nil {
-			cert_paramsNestedMap := make(map[string]interface{})
+			CertParamsMap := make(map[string]interface{})
+			if !data.TLSParameters.CertParams.Certificates.IsNull() && !data.TLSParameters.CertParams.Certificates.IsUnknown() {
+				var CertificatesElems []ClusterTLSParametersCertParamsCertificatesModel
+				diags := data.TLSParameters.CertParams.Certificates.ElementsAs(ctx, &CertificatesElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(CertificatesElems) > 0 {
+					var CertificatesList []map[string]interface{}
+					for _, CertificatesItem := range CertificatesElems {
+						CertificatesItemMap := make(map[string]interface{})
+						if !CertificatesItem.Kind.IsNull() && !CertificatesItem.Kind.IsUnknown() {
+							CertificatesItemMap["kind"] = CertificatesItem.Kind.ValueString()
+						}
+						if !CertificatesItem.Name.IsNull() && !CertificatesItem.Name.IsUnknown() {
+							CertificatesItemMap["name"] = CertificatesItem.Name.ValueString()
+						}
+						if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
+							CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
+						}
+						if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
+							CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
+						}
+						if !CertificatesItem.Uid.IsNull() && !CertificatesItem.Uid.IsUnknown() {
+							CertificatesItemMap["uid"] = CertificatesItem.Uid.ValueString()
+						}
+						CertificatesList = append(CertificatesList, CertificatesItemMap)
+					}
+					CertParamsMap["certificates"] = CertificatesList
+				}
+			}
+			if !data.TLSParameters.CertParams.CipherSuites.IsNull() && !data.TLSParameters.CertParams.CipherSuites.IsUnknown() {
+				var CipherSuitesItems []string
+				diags := data.TLSParameters.CertParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+				if !diags.HasError() {
+					CertParamsMap["cipher_suites"] = CipherSuitesItems
+				}
+			}
 			if !data.TLSParameters.CertParams.MaximumProtocolVersion.IsNull() && !data.TLSParameters.CertParams.MaximumProtocolVersion.IsUnknown() {
-				cert_paramsNestedMap["maximum_protocol_version"] = data.TLSParameters.CertParams.MaximumProtocolVersion.ValueString()
+				CertParamsMap["maximum_protocol_version"] = data.TLSParameters.CertParams.MaximumProtocolVersion.ValueString()
 			}
 			if !data.TLSParameters.CertParams.MinimumProtocolVersion.IsNull() && !data.TLSParameters.CertParams.MinimumProtocolVersion.IsUnknown() {
-				cert_paramsNestedMap["minimum_protocol_version"] = data.TLSParameters.CertParams.MinimumProtocolVersion.ValueString()
+				CertParamsMap["minimum_protocol_version"] = data.TLSParameters.CertParams.MinimumProtocolVersion.ValueString()
 			}
-			tls_parametersMap["cert_params"] = cert_paramsNestedMap
+			if data.TLSParameters.CertParams.ValidationParams != nil {
+				ValidationParamsMap := make(map[string]interface{})
+				if !data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification.IsNull() && !data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+					ValidationParamsMap["skip_hostname_verification"] = data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification.ValueBool()
+				}
+				if data.TLSParameters.CertParams.ValidationParams.TrustedCA != nil {
+					TrustedCAMap := make(map[string]interface{})
+					if !data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+						var TrustedCAListElems []ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel
+						diags := data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(TrustedCAListElems) > 0 {
+							var TrustedCAListList []map[string]interface{}
+							for _, TrustedCAListItem := range TrustedCAListElems {
+								TrustedCAListItemMap := make(map[string]interface{})
+								if !TrustedCAListItem.Kind.IsNull() && !TrustedCAListItem.Kind.IsUnknown() {
+									TrustedCAListItemMap["kind"] = TrustedCAListItem.Kind.ValueString()
+								}
+								if !TrustedCAListItem.Name.IsNull() && !TrustedCAListItem.Name.IsUnknown() {
+									TrustedCAListItemMap["name"] = TrustedCAListItem.Name.ValueString()
+								}
+								if !TrustedCAListItem.Namespace.IsNull() && !TrustedCAListItem.Namespace.IsUnknown() {
+									TrustedCAListItemMap["namespace"] = TrustedCAListItem.Namespace.ValueString()
+								}
+								if !TrustedCAListItem.Tenant.IsNull() && !TrustedCAListItem.Tenant.IsUnknown() {
+									TrustedCAListItemMap["tenant"] = TrustedCAListItem.Tenant.ValueString()
+								}
+								if !TrustedCAListItem.Uid.IsNull() && !TrustedCAListItem.Uid.IsUnknown() {
+									TrustedCAListItemMap["uid"] = TrustedCAListItem.Uid.ValueString()
+								}
+								TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
+							}
+							TrustedCAMap["trusted_ca_list"] = TrustedCAListList
+						}
+					}
+					ValidationParamsMap["trusted_ca"] = TrustedCAMap
+				}
+				if !data.TLSParameters.CertParams.ValidationParams.TrustedCAURL.IsNull() && !data.TLSParameters.CertParams.ValidationParams.TrustedCAURL.IsUnknown() {
+					ValidationParamsMap["trusted_ca_url"] = data.TLSParameters.CertParams.ValidationParams.TrustedCAURL.ValueString()
+				}
+				if !data.TLSParameters.CertParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSParameters.CertParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
+					var VerifySubjectAltNamesItems []string
+					diags := data.TLSParameters.CertParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+					if !diags.HasError() {
+						ValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
+					}
+				}
+				CertParamsMap["validation_params"] = ValidationParamsMap
+			}
+			TLSParametersMap["cert_params"] = CertParamsMap
 		}
 		if data.TLSParameters.CommonParams != nil {
-			common_paramsNestedMap := make(map[string]interface{})
+			CommonParamsMap := make(map[string]interface{})
+			if !data.TLSParameters.CommonParams.CipherSuites.IsNull() && !data.TLSParameters.CommonParams.CipherSuites.IsUnknown() {
+				var CipherSuitesItems []string
+				diags := data.TLSParameters.CommonParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+				if !diags.HasError() {
+					CommonParamsMap["cipher_suites"] = CipherSuitesItems
+				}
+			}
 			if !data.TLSParameters.CommonParams.MaximumProtocolVersion.IsNull() && !data.TLSParameters.CommonParams.MaximumProtocolVersion.IsUnknown() {
-				common_paramsNestedMap["maximum_protocol_version"] = data.TLSParameters.CommonParams.MaximumProtocolVersion.ValueString()
+				CommonParamsMap["maximum_protocol_version"] = data.TLSParameters.CommonParams.MaximumProtocolVersion.ValueString()
 			}
 			if !data.TLSParameters.CommonParams.MinimumProtocolVersion.IsNull() && !data.TLSParameters.CommonParams.MinimumProtocolVersion.IsUnknown() {
-				common_paramsNestedMap["minimum_protocol_version"] = data.TLSParameters.CommonParams.MinimumProtocolVersion.ValueString()
+				CommonParamsMap["minimum_protocol_version"] = data.TLSParameters.CommonParams.MinimumProtocolVersion.ValueString()
 			}
-			tls_parametersMap["common_params"] = common_paramsNestedMap
+			if len(data.TLSParameters.CommonParams.TLSCertificates) > 0 {
+				var TLSCertificatesList []map[string]interface{}
+				for _, TLSCertificatesItem := range data.TLSParameters.CommonParams.TLSCertificates {
+					TLSCertificatesItemMap := make(map[string]interface{})
+					if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+						TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
+					}
+					if TLSCertificatesItem.CustomHashAlgorithms != nil {
+						CustomHashAlgorithmsMap := make(map[string]interface{})
+						if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+							var HashAlgorithmsItems []string
+							diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+							if !diags.HasError() {
+								CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+							}
+						}
+						TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+					}
+					if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+						TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
+					}
+					if TLSCertificatesItem.DisableOCSPStapling != nil {
+						TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+					}
+					if TLSCertificatesItem.PrivateKey != nil {
+						PrivateKeyMap := make(map[string]interface{})
+						if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+							}
+							PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+					}
+					if TLSCertificatesItem.UseSystemDefaults != nil {
+						TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+					}
+					TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+				}
+				CommonParamsMap["tls_certificates"] = TLSCertificatesList
+			}
+			if data.TLSParameters.CommonParams.ValidationParams != nil {
+				ValidationParamsMap := make(map[string]interface{})
+				if !data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+					ValidationParamsMap["skip_hostname_verification"] = data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.ValueBool()
+				}
+				if data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil {
+					TrustedCAMap := make(map[string]interface{})
+					if !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+						var TrustedCAListElems []ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
+						diags := data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(TrustedCAListElems) > 0 {
+							var TrustedCAListList []map[string]interface{}
+							for _, TrustedCAListItem := range TrustedCAListElems {
+								TrustedCAListItemMap := make(map[string]interface{})
+								if !TrustedCAListItem.Kind.IsNull() && !TrustedCAListItem.Kind.IsUnknown() {
+									TrustedCAListItemMap["kind"] = TrustedCAListItem.Kind.ValueString()
+								}
+								if !TrustedCAListItem.Name.IsNull() && !TrustedCAListItem.Name.IsUnknown() {
+									TrustedCAListItemMap["name"] = TrustedCAListItem.Name.ValueString()
+								}
+								if !TrustedCAListItem.Namespace.IsNull() && !TrustedCAListItem.Namespace.IsUnknown() {
+									TrustedCAListItemMap["namespace"] = TrustedCAListItem.Namespace.ValueString()
+								}
+								if !TrustedCAListItem.Tenant.IsNull() && !TrustedCAListItem.Tenant.IsUnknown() {
+									TrustedCAListItemMap["tenant"] = TrustedCAListItem.Tenant.ValueString()
+								}
+								if !TrustedCAListItem.Uid.IsNull() && !TrustedCAListItem.Uid.IsUnknown() {
+									TrustedCAListItemMap["uid"] = TrustedCAListItem.Uid.ValueString()
+								}
+								TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
+							}
+							TrustedCAMap["trusted_ca_list"] = TrustedCAListList
+						}
+					}
+					ValidationParamsMap["trusted_ca"] = TrustedCAMap
+				}
+				if !data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.IsUnknown() {
+					ValidationParamsMap["trusted_ca_url"] = data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.ValueString()
+				}
+				if !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
+					var VerifySubjectAltNamesItems []string
+					diags := data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+					if !diags.HasError() {
+						ValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
+					}
+				}
+				CommonParamsMap["validation_params"] = ValidationParamsMap
+			}
+			TLSParametersMap["common_params"] = CommonParamsMap
 		}
 		if data.TLSParameters.DefaultSessionKeyCaching != nil {
-			tls_parametersMap["default_session_key_caching"] = map[string]interface{}{}
+			TLSParametersMap["default_session_key_caching"] = map[string]interface{}{}
 		}
 		if data.TLSParameters.DisableSessionKeyCaching != nil {
-			tls_parametersMap["disable_session_key_caching"] = map[string]interface{}{}
+			TLSParametersMap["disable_session_key_caching"] = map[string]interface{}{}
 		}
 		if data.TLSParameters.DisableSni != nil {
-			tls_parametersMap["disable_sni"] = map[string]interface{}{}
+			TLSParametersMap["disable_sni"] = map[string]interface{}{}
 		}
 		if !data.TLSParameters.MaxSessionKeys.IsNull() && !data.TLSParameters.MaxSessionKeys.IsUnknown() {
-			tls_parametersMap["max_session_keys"] = data.TLSParameters.MaxSessionKeys.ValueInt64()
+			TLSParametersMap["max_session_keys"] = data.TLSParameters.MaxSessionKeys.ValueInt64()
 		}
 		if !data.TLSParameters.Sni.IsNull() && !data.TLSParameters.Sni.IsUnknown() {
-			tls_parametersMap["sni"] = data.TLSParameters.Sni.ValueString()
+			TLSParametersMap["sni"] = data.TLSParameters.Sni.ValueString()
 		}
 		if data.TLSParameters.UseHostHeaderAsSni != nil {
-			tls_parametersMap["use_host_header_as_sni"] = map[string]interface{}{}
+			TLSParametersMap["use_host_header_as_sni"] = map[string]interface{}{}
 		}
-		apiResource.Spec["tls_parameters"] = tls_parametersMap
+		apiResource.Spec["tls_parameters"] = TLSParametersMap
 	}
 	if data.UpstreamConnPoolReuseType != nil {
-		upstream_conn_pool_reuse_typeMap := make(map[string]interface{})
+		UpstreamConnPoolReuseTypeMap := make(map[string]interface{})
 		if data.UpstreamConnPoolReuseType.DisableConnPoolReuse != nil {
-			upstream_conn_pool_reuse_typeMap["disable_conn_pool_reuse"] = map[string]interface{}{}
+			UpstreamConnPoolReuseTypeMap["disable_conn_pool_reuse"] = map[string]interface{}{}
 		}
 		if data.UpstreamConnPoolReuseType.EnableConnPoolReuse != nil {
-			upstream_conn_pool_reuse_typeMap["enable_conn_pool_reuse"] = map[string]interface{}{}
+			UpstreamConnPoolReuseTypeMap["enable_conn_pool_reuse"] = map[string]interface{}{}
 		}
-		apiResource.Spec["upstream_conn_pool_reuse_type"] = upstream_conn_pool_reuse_typeMap
+		apiResource.Spec["upstream_conn_pool_reuse_type"] = UpstreamConnPoolReuseTypeMap
 	}
 	if !data.ConnectionTimeout.IsNull() && !data.ConnectionTimeout.IsUnknown() {
 		apiResource.Spec["connection_timeout"] = data.ConnectionTimeout.ValueInt64()
@@ -2989,56 +3945,33 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["auto_http_config"].(map[string]interface{}); ok && isImport && data.AutoHTTPConfig == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.AutoHTTPConfig = &ClusterEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["circuit_breaker"].(map[string]interface{}); ok && (isImport || data.CircuitBreaker != nil) {
 		data.CircuitBreaker = &ClusterCircuitBreakerModel{
 			ConnectionLimit: func() types.Int64 {
 				if !isImport && data.CircuitBreaker != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CircuitBreaker.ConnectionLimit
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["connection_limit"].(float64); ok {
+				if v, ok := blockData["connection_limit"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			MaxRequests: func() types.Int64 {
 				if !isImport && data.CircuitBreaker != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CircuitBreaker.MaxRequests
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["max_requests"].(float64); ok {
+				if v, ok := blockData["max_requests"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			PendingRequests: func() types.Int64 {
 				if !isImport && data.CircuitBreaker != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CircuitBreaker.PendingRequests
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["pending_requests"].(float64); ok {
+				if v, ok := blockData["pending_requests"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -3051,16 +3984,9 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 			}(),
 			Retries: func() types.Int64 {
 				if !isImport && data.CircuitBreaker != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CircuitBreaker.Retries
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["retries"].(float64); ok {
+				if v, ok := blockData["retries"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -3068,25 +3994,23 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 		}
 	}
 	if _, ok := apiResource.Spec["default_subset"].(map[string]interface{}); ok && isImport && data.DefaultSubset == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DefaultSubset = &ClusterEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["disable_proxy_protocol"].(map[string]interface{}); ok && isImport && data.DisableProxyProtocol == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableProxyProtocol = &ClusterEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["endpoint_subsets"].([]interface{}); ok && len(listData) > 0 {
-		var endpoint_subsetsList []ClusterEndpointSubsetsModel
+	if !isImport && (data.EndpointSubsets.IsNull() || len(data.EndpointSubsets.Elements()) == 0) {
+		data.EndpointSubsets = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["endpoint_subsets"].([]interface{}); ok && len(listData) > 0 {
+		var EndpointSubsetsList []ClusterEndpointSubsetsModel
 		var existingEndpointSubsetsItems []ClusterEndpointSubsetsModel
 		if !data.EndpointSubsets.IsNull() && !data.EndpointSubsets.IsUnknown() {
 			data.EndpointSubsets.ElementsAs(ctx, &existingEndpointSubsetsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				endpoint_subsetsList = append(endpoint_subsetsList, ClusterEndpointSubsetsModel{
+				EndpointSubsetsList = append(EndpointSubsetsList, ClusterEndpointSubsetsModel{
 					Keys: func() types.List {
 						if v, ok := itemMap["keys"].([]interface{}); ok && len(v) > 0 {
 							var items []string
@@ -3103,25 +4027,26 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes}, endpoint_subsetsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes}, EndpointSubsetsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.EndpointSubsets = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.EndpointSubsets = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes})
 	}
-	if listData, ok := apiResource.Spec["endpoints"].([]interface{}); ok && len(listData) > 0 {
-		var endpointsList []ClusterEndpointsModel
+	if !isImport && (data.Endpoints.IsNull() || len(data.Endpoints.Elements()) == 0) {
+		data.Endpoints = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["endpoints"].([]interface{}); ok && len(listData) > 0 {
+		var EndpointsList []ClusterEndpointsModel
 		var existingEndpointsItems []ClusterEndpointsModel
 		if !data.Endpoints.IsNull() && !data.Endpoints.IsUnknown() {
 			data.Endpoints.ElementsAs(ctx, &existingEndpointsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				endpointsList = append(endpointsList, ClusterEndpointsModel{
+				EndpointsList = append(EndpointsList, ClusterEndpointsModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -3155,25 +4080,26 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterEndpointsModelAttrTypes}, endpointsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterEndpointsModelAttrTypes}, EndpointsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Endpoints = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Endpoints = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointsModelAttrTypes})
 	}
-	if listData, ok := apiResource.Spec["health_checks"].([]interface{}); ok && len(listData) > 0 {
-		var health_checksList []ClusterHealthChecksModel
+	if !isImport && (data.HealthChecks.IsNull() || len(data.HealthChecks.Elements()) == 0) {
+		data.HealthChecks = types.ListNull(types.ObjectType{AttrTypes: ClusterHealthChecksModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["health_checks"].([]interface{}); ok && len(listData) > 0 {
+		var HealthChecksList []ClusterHealthChecksModel
 		var existingHealthChecksItems []ClusterHealthChecksModel
 		if !data.HealthChecks.IsNull() && !data.HealthChecks.IsUnknown() {
 			data.HealthChecks.ElementsAs(ctx, &existingHealthChecksItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				health_checksList = append(health_checksList, ClusterHealthChecksModel{
+				HealthChecksList = append(HealthChecksList, ClusterHealthChecksModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -3207,33 +4133,58 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterHealthChecksModelAttrTypes}, health_checksList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterHealthChecksModelAttrTypes}, HealthChecksList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.HealthChecks = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.HealthChecks = types.ListNull(types.ObjectType{AttrTypes: ClusterHealthChecksModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["http1_config"].(map[string]interface{}); ok && isImport && data.Http1Config == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Http1Config = &ClusterHttp1ConfigModel{}
+	if blockData, ok := apiResource.Spec["http1_config"].(map[string]interface{}); ok && (isImport || data.Http1Config != nil) {
+		data.Http1Config = &ClusterHttp1ConfigModel{
+			HeaderTransformation: func() *ClusterHttp1ConfigHeaderTransformationModel {
+				if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+					return data.Http1Config.HeaderTransformation
+				}
+				if HeaderTransformationData, ok := blockData["header_transformation"].(map[string]interface{}); ok {
+					return &ClusterHttp1ConfigHeaderTransformationModel{
+						DefaultHeaderTransformation: func() *ClusterEmptyModel {
+							if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
+								return &ClusterEmptyModel{}
+							}
+							return nil
+						}(),
+						LegacyHeaderTransformation: func() *ClusterEmptyModel {
+							if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
+								return &ClusterEmptyModel{}
+							}
+							return nil
+						}(),
+						PreserveCaseHeaderTransformation: func() *ClusterEmptyModel {
+							if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
+								return &ClusterEmptyModel{}
+							}
+							return nil
+						}(),
+						ProperCaseHeaderTransformation: func() *ClusterEmptyModel {
+							if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
+								return &ClusterEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["http2_options"].(map[string]interface{}); ok && (isImport || data.Http2Options != nil) {
 		data.Http2Options = &ClusterHttp2OptionsModel{
 			Enabled: func() types.Bool {
 				if !isImport && data.Http2Options != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults from overwriting user intent
 					return data.Http2Options.Enabled
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.BoolNull()
-				}
-				// Import case: read from API
 				if v, ok := blockData["enabled"].(bool); ok {
 					return types.BoolValue(v)
 				}
@@ -3242,93 +4193,54 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 		}
 	}
 	if _, ok := apiResource.Spec["no_panic_threshold"].(map[string]interface{}); ok && isImport && data.NoPanicThreshold == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoPanicThreshold = &ClusterEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_request_limit_per_connection"].(map[string]interface{}); ok && isImport && data.NoRequestLimitPerConnection == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoRequestLimitPerConnection = &ClusterEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["outlier_detection"].(map[string]interface{}); ok && (isImport || data.OutlierDetection != nil) {
 		data.OutlierDetection = &ClusterOutlierDetectionModel{
 			BaseEjectionTime: func() types.Int64 {
 				if !isImport && data.OutlierDetection != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.OutlierDetection.BaseEjectionTime
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["base_ejection_time"].(float64); ok {
+				if v, ok := blockData["base_ejection_time"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			Consecutive5xx: func() types.Int64 {
 				if !isImport && data.OutlierDetection != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.OutlierDetection.Consecutive5xx
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["consecutive_5xx"].(float64); ok {
+				if v, ok := blockData["consecutive_5xx"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			ConsecutiveGatewayFailure: func() types.Int64 {
 				if !isImport && data.OutlierDetection != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.OutlierDetection.ConsecutiveGatewayFailure
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["consecutive_gateway_failure"].(float64); ok {
+				if v, ok := blockData["consecutive_gateway_failure"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			Interval: func() types.Int64 {
 				if !isImport && data.OutlierDetection != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.OutlierDetection.Interval
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["interval"].(float64); ok {
+				if v, ok := blockData["interval"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			MaxEjectionPercent: func() types.Int64 {
 				if !isImport && data.OutlierDetection != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.OutlierDetection.MaxEjectionPercent
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["max_ejection_percent"].(float64); ok {
+				if v, ok := blockData["max_ejection_percent"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -3336,27 +4248,65 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 		}
 	}
 	if _, ok := apiResource.Spec["proxy_protocol_v1"].(map[string]interface{}); ok && isImport && data.ProxyProtocolV1 == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.ProxyProtocolV1 = &ClusterEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["proxy_protocol_v2"].(map[string]interface{}); ok && isImport && data.ProxyProtocolV2 == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.ProxyProtocolV2 = &ClusterEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["tls_parameters"].(map[string]interface{}); ok && (isImport || data.TLSParameters != nil) {
 		data.TLSParameters = &ClusterTLSParametersModel{
 			CertParams: func() *ClusterTLSParametersCertParamsModel {
 				if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil {
-					// Normal Read: preserve existing state value
 					return data.TLSParameters.CertParams
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["cert_params"].(map[string]interface{}); ok {
+				if CertParamsData, ok := blockData["cert_params"].(map[string]interface{}); ok {
 					return &ClusterTLSParametersCertParamsModel{
+						Certificates: func() types.List {
+							if rawList, ok := CertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var CertificatesResult []ClusterTLSParametersCertParamsCertificatesModel
+								for _, CertificatesItem := range rawList {
+									if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
+										CertificatesResult = append(CertificatesResult, ClusterTLSParametersCertParamsCertificatesModel{
+											Kind: func() types.String {
+												if v, ok := CertificatesItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := CertificatesItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := CertificatesItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := CertificatesItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := CertificatesItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsCertificatesModelAttrTypes}, CertificatesResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsCertificatesModelAttrTypes})
+						}(),
 						CipherSuites: func() types.List {
-							if v, ok := nestedBlockData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+							if v, ok := CertParamsData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
 								var items []string
 								for _, item := range v {
 									if s, ok := item.(string); ok {
@@ -3369,16 +4319,99 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 							return types.ListNull(types.StringType)
 						}(),
 						MaximumProtocolVersion: func() types.String {
-							if v, ok := nestedBlockData["maximum_protocol_version"].(string); ok && v != "" {
+							if v, ok := CertParamsData["maximum_protocol_version"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						MinimumProtocolVersion: func() types.String {
-							if v, ok := nestedBlockData["minimum_protocol_version"].(string); ok && v != "" {
+							if v, ok := CertParamsData["minimum_protocol_version"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						ValidationParams: func() *ClusterTLSParametersCertParamsValidationParamsModel {
+							if ValidationParamsData, ok := CertParamsData["validation_params"].(map[string]interface{}); ok {
+								return &ClusterTLSParametersCertParamsValidationParamsModel{
+									SkipHostnameVerification: func() types.Bool {
+										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									TrustedCA: func() *ClusterTLSParametersCertParamsValidationParamsTrustedCAModel {
+										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
+											return &ClusterTLSParametersCertParamsValidationParamsTrustedCAModel{
+												TrustedCAList: func() types.List {
+													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
+														var TrustedCAListResult []ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel
+														for _, TrustedCAListItem := range rawList {
+															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
+																TrustedCAListResult = append(TrustedCAListResult, ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel{
+																	Kind: func() types.String {
+																		if v, ok := TrustedCAListItemMap["kind"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := TrustedCAListItemMap["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := TrustedCAListItemMap["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := TrustedCAListItemMap["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Uid: func() types.String {
+																		if v, ok := TrustedCAListItemMap["uid"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																})
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
+														return listVal
+													}
+													return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := ValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									VerifySubjectAltNames: func() types.List {
+										if v, ok := ValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -3386,14 +4419,12 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 			}(),
 			CommonParams: func() *ClusterTLSParametersCommonParamsModel {
 				if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil {
-					// Normal Read: preserve existing state value
 					return data.TLSParameters.CommonParams
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["common_params"].(map[string]interface{}); ok {
+				if CommonParamsData, ok := blockData["common_params"].(map[string]interface{}); ok {
 					return &ClusterTLSParametersCommonParamsModel{
 						CipherSuites: func() types.List {
-							if v, ok := nestedBlockData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+							if v, ok := CommonParamsData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
 								var items []string
 								for _, item := range v {
 									if s, ok := item.(string); ok {
@@ -3406,16 +4437,207 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 							return types.ListNull(types.StringType)
 						}(),
 						MaximumProtocolVersion: func() types.String {
-							if v, ok := nestedBlockData["maximum_protocol_version"].(string); ok && v != "" {
+							if v, ok := CommonParamsData["maximum_protocol_version"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						MinimumProtocolVersion: func() types.String {
-							if v, ok := nestedBlockData["minimum_protocol_version"].(string); ok && v != "" {
+							if v, ok := CommonParamsData["minimum_protocol_version"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						TLSCertificates: func() []ClusterTLSParametersCommonParamsTLSCertificatesModel {
+							if rawList, ok := CommonParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []ClusterTLSParametersCommonParamsTLSCertificatesModel
+								for _, TLSCertificatesItem := range rawList {
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, ClusterTLSParametersCommonParamsTLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *ClusterTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &ClusterTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() *ClusterEmptyModel {
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return &ClusterEmptyModel{}
+												}
+												return nil
+											}(),
+											PrivateKey: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() *ClusterEmptyModel {
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return &ClusterEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return TLSCertificatesResult
+							}
+							return nil
+						}(),
+						ValidationParams: func() *ClusterTLSParametersCommonParamsValidationParamsModel {
+							if ValidationParamsData, ok := CommonParamsData["validation_params"].(map[string]interface{}); ok {
+								return &ClusterTLSParametersCommonParamsValidationParamsModel{
+									SkipHostnameVerification: func() types.Bool {
+										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									TrustedCA: func() *ClusterTLSParametersCommonParamsValidationParamsTrustedCAModel {
+										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
+											return &ClusterTLSParametersCommonParamsValidationParamsTrustedCAModel{
+												TrustedCAList: func() types.List {
+													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
+														var TrustedCAListResult []ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
+														for _, TrustedCAListItem := range rawList {
+															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
+																TrustedCAListResult = append(TrustedCAListResult, ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel{
+																	Kind: func() types.String {
+																		if v, ok := TrustedCAListItemMap["kind"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := TrustedCAListItemMap["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := TrustedCAListItemMap["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := TrustedCAListItemMap["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Uid: func() types.String {
+																		if v, ok := TrustedCAListItemMap["uid"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																})
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
+														return listVal
+													}
+													return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := ValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									VerifySubjectAltNames: func() types.List {
+										if v, ok := ValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -3423,11 +4645,8 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 			}(),
 			DefaultSessionKeyCaching: func() *ClusterEmptyModel {
 				if !isImport && data.TLSParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSParameters.DefaultSessionKeyCaching
 				}
-				// Import case: read from API
 				if _, ok := blockData["default_session_key_caching"].(map[string]interface{}); ok {
 					return &ClusterEmptyModel{}
 				}
@@ -3435,11 +4654,8 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 			}(),
 			DisableSessionKeyCaching: func() *ClusterEmptyModel {
 				if !isImport && data.TLSParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSParameters.DisableSessionKeyCaching
 				}
-				// Import case: read from API
 				if _, ok := blockData["disable_session_key_caching"].(map[string]interface{}); ok {
 					return &ClusterEmptyModel{}
 				}
@@ -3447,11 +4663,8 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 			}(),
 			DisableSni: func() *ClusterEmptyModel {
 				if !isImport && data.TLSParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSParameters.DisableSni
 				}
-				// Import case: read from API
 				if _, ok := blockData["disable_sni"].(map[string]interface{}); ok {
 					return &ClusterEmptyModel{}
 				}
@@ -3459,16 +4672,9 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 			}(),
 			MaxSessionKeys: func() types.Int64 {
 				if !isImport && data.TLSParameters != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.TLSParameters.MaxSessionKeys
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["max_session_keys"].(float64); ok {
+				if v, ok := blockData["max_session_keys"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -3481,11 +4687,8 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 			}(),
 			UseHostHeaderAsSni: func() *ClusterEmptyModel {
 				if !isImport && data.TLSParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSParameters.UseHostHeaderAsSni
 				}
-				// Import case: read from API
 				if _, ok := blockData["use_host_header_as_sni"].(map[string]interface{}); ok {
 					return &ClusterEmptyModel{}
 				}
@@ -3493,11 +4696,28 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["upstream_conn_pool_reuse_type"].(map[string]interface{}); ok && isImport && data.UpstreamConnPoolReuseType == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.UpstreamConnPoolReuseType = &ClusterUpstreamConnPoolReuseTypeModel{}
+	if blockData, ok := apiResource.Spec["upstream_conn_pool_reuse_type"].(map[string]interface{}); ok && (isImport || data.UpstreamConnPoolReuseType != nil) {
+		data.UpstreamConnPoolReuseType = &ClusterUpstreamConnPoolReuseTypeModel{
+			DisableConnPoolReuse: func() *ClusterEmptyModel {
+				if !isImport && data.UpstreamConnPoolReuseType != nil {
+					return data.UpstreamConnPoolReuseType.DisableConnPoolReuse
+				}
+				if _, ok := blockData["disable_conn_pool_reuse"].(map[string]interface{}); ok {
+					return &ClusterEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableConnPoolReuse: func() *ClusterEmptyModel {
+				if !isImport && data.UpstreamConnPoolReuseType != nil {
+					return data.UpstreamConnPoolReuseType.EnableConnPoolReuse
+				}
+				if _, ok := blockData["enable_conn_pool_reuse"].(map[string]interface{}); ok {
+					return &ClusterEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["connection_timeout"].(float64); ok {
 		data.ConnectionTimeout = types.Int64Value(int64(v))
 	} else {

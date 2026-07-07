@@ -23,9 +23,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -360,7 +360,7 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"alertname": schema.StringAttribute{
-							MarkdownDescription: "[Enum: SITE_CUSTOMER_TUNNEL_INTERFACE_DOWN|SITE_PHYSICAL_INTERFACE_DOWN|TUNNELS_TO_CUSTOMER_SITE_DOWN|SERVICE_SERVER_ERROR|SERVICE_CLIENT_ERROR|SERVICE_HEALTH_LOW|SERVICE_UNAVAILABLE|SERVICE_SERVER_ERROR_PER_SOURCE_SITE|SERVICE_CLIENT_ERROR_PER_SOURCE_SITE|SERVICE_ENDPOINT_HEALTHCHECK_FAILURE|SYNTHETIC_MONITOR_HEALTH_CRITICAL|MALICIOUS_USER_DETECTED|WAF_TOO_MANY_ATTACKS|API_SECURITY_TOO_MANY_ATTACKS|SERVICE_POLICY_TOO_MANY_ATTACKS|WAF_TOO_MANY_MALICIOUS_BOTS|BOT_DEFENSE_TOO_MANY_SECURITY_EVENTS|THREAT_CAMPAIGN|VES_CLIENT_SIDE_DEFENSE_SUSPICIOUS_DOMAIN|VES_CLIENT_SIDE_DEFENSE_SENSITIVE_FIELD_READ|TLS_AUTOMATIC_CERTIFICATE_RENEWAL_FAILURE|TLS_AUTOMATIC_CERTIFICATE_RENEWAL_STILL_FAILING|TLS_AUTOMATIC_CERTIFICATE_EXPIRED|TLS_CUSTOM_CERTIFICATE_EXPIRING|TLS_CUSTOM_CERTIFICATE_EXPIRING_SOON|TLS_CUSTOM_CERTIFICATE_EXPIRED|L7DDOS|DNS_ZONE_IGNORED_DUPLICATE_RECORD|API_SECURITY_UNUSED_API_DETECTED|API_SECURITY_SHADOW_API_DETECTED|API_SECURITY_SENSITIVE_DATA_IN_RESPONSE_DETECTED|API_SECURITY_RISK_SCORE_HIGH_DETECTED|ROUTED_DDOS_ALERT_NOTIFICATION|ROUTED_DDOS_MITIGATION_NOTIFICATION] List of Alert Names Customer tunnel interface down Physical Interface down Tunnel Interfaces to Customer Site Down Virutal Host server error Virtual Host client error Service Health Low Service Unavailable Virtual Host server error Virtual Host client error Endpoint Healthcheck failure Synthetic.. Possible values are `SITE_CUSTOMER_TUNNEL_INTERFACE_DOWN`, `SITE_PHYSICAL_INTERFACE_DOWN`, `TUNNELS_TO_CUSTOMER_SITE_DOWN`, `SERVICE_SERVER_ERROR`, `SERVICE_CLIENT_ERROR`, `SERVICE_HEALTH_LOW`, `SERVICE_UNAVAILABLE`, `SERVICE_SERVER_ERROR_PER_SOURCE_SITE`, `SERVICE_CLIENT_ERROR_PER_SOURCE_SITE`, `SERVICE_ENDPOINT_HEALTHCHECK_FAILURE`, `SYNTHETIC_MONITOR_HEALTH_CRITICAL`, `MALICIOUS_USER_DETECTED`, `WAF_TOO_MANY_ATTACKS`, `API_SECURITY_TOO_MANY_ATTACKS`, `SERVICE_POLICY_TOO_MANY_ATTACKS`, `WAF_TOO_MANY_MALICIOUS_BOTS`, `BOT_DEFENSE_TOO_MANY_SECURITY_EVENTS`, `THREAT_CAMPAIGN`, `VES_CLIENT_SIDE_DEFENSE_SUSPICIOUS_DOMAIN`, `VES_CLIENT_SIDE_DEFENSE_SENSITIVE_FIELD_READ`, `TLS_AUTOMATIC_CERTIFICATE_RENEWAL_FAILURE`, `TLS_AUTOMATIC_CERTIFICATE_RENEWAL_STILL_FAILING`, `TLS_AUTOMATIC_CERTIFICATE_EXPIRED`, `TLS_CUSTOM_CERTIFICATE_EXPIRING`, `TLS_CUSTOM_CERTIFICATE_EXPIRING_SOON`, `TLS_CUSTOM_CERTIFICATE_EXPIRED`, `L7DDOS`, `DNS_ZONE_IGNORED_DUPLICATE_RECORD`, `API_SECURITY_UNUSED_API_DETECTED`, `API_SECURITY_SHADOW_API_DETECTED`, `API_SECURITY_SENSITIVE_DATA_IN_RESPONSE_DETECTED`, `API_SECURITY_RISK_SCORE_HIGH_DETECTED`, `ROUTED_DDOS_ALERT_NOTIFICATION`, `ROUTED_DDOS_MITIGATION_NOTIFICATION`. Defaults to `SITE_CUSTOMER_TUNNEL_INTERFACE_DOWN`.",
+							MarkdownDescription: "[Enum: SITE_CUSTOMER_TUNNEL_INTERFACE_DOWN|SITE_PHYSICAL_INTERFACE_DOWN|TUNNELS_TO_CUSTOMER_SITE_DOWN|SERVICE_SERVER_ERROR|SERVICE_CLIENT_ERROR|SERVICE_HEALTH_LOW|SERVICE_UNAVAILABLE|SERVICE_SERVER_ERROR_PER_SOURCE_SITE|SERVICE_CLIENT_ERROR_PER_SOURCE_SITE|SERVICE_ENDPOINT_HEALTHCHECK_FAILURE|SYNTHETIC_MONITOR_HEALTH_CRITICAL|MALICIOUS_USER_DETECTED|WAF_TOO_MANY_ATTACKS|API_SECURITY_TOO_MANY_ATTACKS|SERVICE_POLICY_TOO_MANY_ATTACKS|WAF_TOO_MANY_MALICIOUS_BOTS|BOT_DEFENSE_TOO_MANY_SECURITY_EVENTS|THREAT_CAMPAIGN|VES_CLIENT_SIDE_DEFENSE_SUSPICIOUS_DOMAIN|VES_CLIENT_SIDE_DEFENSE_SENSITIVE_FIELD_READ|TLS_AUTOMATIC_CERTIFICATE_RENEWAL_FAILURE|TLS_AUTOMATIC_CERTIFICATE_RENEWAL_STILL_FAILING|TLS_AUTOMATIC_CERTIFICATE_EXPIRED|TLS_CUSTOM_CERTIFICATE_EXPIRING|TLS_CUSTOM_CERTIFICATE_EXPIRING_SOON|TLS_CUSTOM_CERTIFICATE_EXPIRED|L7DDOS|DNS_ZONE_IGNORED_DUPLICATE_RECORD|API_SECURITY_UNUSED_API_DETECTED|API_SECURITY_SHADOW_API_DETECTED|API_SECURITY_SENSITIVE_DATA_IN_RESPONSE_DETECTED|API_SECURITY_RISK_SCORE_HIGH_DETECTED|ROUTED_DDOS_ALERT_NOTIFICATION|ROUTED_DDOS_MITIGATION_NOTIFICATION] List of Alert Names Customer tunnel interface down Physical Interface down Tunnel Interfaces to Customer Site Down Virtual Host server error Virtual Host client error Service Health Low Service Unavailable Virtual Host server error Virtual Host client error Endpoint Healthcheck failure Synthetic.. Possible values are `SITE_CUSTOMER_TUNNEL_INTERFACE_DOWN`, `SITE_PHYSICAL_INTERFACE_DOWN`, `TUNNELS_TO_CUSTOMER_SITE_DOWN`, `SERVICE_SERVER_ERROR`, `SERVICE_CLIENT_ERROR`, `SERVICE_HEALTH_LOW`, `SERVICE_UNAVAILABLE`, `SERVICE_SERVER_ERROR_PER_SOURCE_SITE`, `SERVICE_CLIENT_ERROR_PER_SOURCE_SITE`, `SERVICE_ENDPOINT_HEALTHCHECK_FAILURE`, `SYNTHETIC_MONITOR_HEALTH_CRITICAL`, `MALICIOUS_USER_DETECTED`, `WAF_TOO_MANY_ATTACKS`, `API_SECURITY_TOO_MANY_ATTACKS`, `SERVICE_POLICY_TOO_MANY_ATTACKS`, `WAF_TOO_MANY_MALICIOUS_BOTS`, `BOT_DEFENSE_TOO_MANY_SECURITY_EVENTS`, `THREAT_CAMPAIGN`, `VES_CLIENT_SIDE_DEFENSE_SUSPICIOUS_DOMAIN`, `VES_CLIENT_SIDE_DEFENSE_SENSITIVE_FIELD_READ`, `TLS_AUTOMATIC_CERTIFICATE_RENEWAL_FAILURE`, `TLS_AUTOMATIC_CERTIFICATE_RENEWAL_STILL_FAILING`, `TLS_AUTOMATIC_CERTIFICATE_EXPIRED`, `TLS_CUSTOM_CERTIFICATE_EXPIRING`, `TLS_CUSTOM_CERTIFICATE_EXPIRING_SOON`, `TLS_CUSTOM_CERTIFICATE_EXPIRED`, `L7DDOS`, `DNS_ZONE_IGNORED_DUPLICATE_RECORD`, `API_SECURITY_UNUSED_API_DETECTED`, `API_SECURITY_SHADOW_API_DETECTED`, `API_SECURITY_SENSITIVE_DATA_IN_RESPONSE_DETECTED`, `API_SECURITY_RISK_SCORE_HIGH_DETECTED`, `ROUTED_DDOS_ALERT_NOTIFICATION`, `ROUTED_DDOS_MITIGATION_NOTIFICATION`. Defaults to `SITE_CUSTOMER_TUNNEL_INTERFACE_DOWN`.",
 							Optional:            true,
 							Validators: []validator.String{
 								stringvalidator.OneOf("SITE_CUSTOMER_TUNNEL_INTERFACE_DOWN", "SITE_PHYSICAL_INTERFACE_DOWN", "TUNNELS_TO_CUSTOMER_SITE_DOWN", "SERVICE_SERVER_ERROR", "SERVICE_CLIENT_ERROR", "SERVICE_HEALTH_LOW", "SERVICE_UNAVAILABLE", "SERVICE_SERVER_ERROR_PER_SOURCE_SITE", "SERVICE_CLIENT_ERROR_PER_SOURCE_SITE", "SERVICE_ENDPOINT_HEALTHCHECK_FAILURE", "SYNTHETIC_MONITOR_HEALTH_CRITICAL", "MALICIOUS_USER_DETECTED", "WAF_TOO_MANY_ATTACKS", "API_SECURITY_TOO_MANY_ATTACKS", "SERVICE_POLICY_TOO_MANY_ATTACKS", "WAF_TOO_MANY_MALICIOUS_BOTS", "BOT_DEFENSE_TOO_MANY_SECURITY_EVENTS", "THREAT_CAMPAIGN", "VES_CLIENT_SIDE_DEFENSE_SUSPICIOUS_DOMAIN", "VES_CLIENT_SIDE_DEFENSE_SENSITIVE_FIELD_READ", "TLS_AUTOMATIC_CERTIFICATE_RENEWAL_FAILURE", "TLS_AUTOMATIC_CERTIFICATE_RENEWAL_STILL_FAILING", "TLS_AUTOMATIC_CERTIFICATE_EXPIRED", "TLS_CUSTOM_CERTIFICATE_EXPIRING", "TLS_CUSTOM_CERTIFICATE_EXPIRING_SOON", "TLS_CUSTOM_CERTIFICATE_EXPIRED", "L7DDOS", "DNS_ZONE_IGNORED_DUPLICATE_RECORD", "API_SECURITY_UNUSED_API_DETECTED", "API_SECURITY_SHADOW_API_DETECTED", "API_SECURITY_SENSITIVE_DATA_IN_RESPONSE_DETECTED", "API_SECURITY_RISK_SCORE_HIGH_DETECTED", "ROUTED_DDOS_ALERT_NOTIFICATION", "ROUTED_DDOS_MITIGATION_NOTIFICATION"),
@@ -641,178 +641,185 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.Receivers.IsNull() && !data.Receivers.IsUnknown() {
-		var receiversItems []AlertPolicyReceiversModel
-		diags := data.Receivers.ElementsAs(ctx, &receiversItems, false)
+		var ReceiversElems []AlertPolicyReceiversModel
+		diags := data.Receivers.ElementsAs(ctx, &ReceiversElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(receiversItems) > 0 {
-			var receiversList []map[string]interface{}
-			for _, item := range receiversItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(ReceiversElems) > 0 {
+			var ReceiversList []map[string]interface{}
+			for _, ReceiversItem := range ReceiversElems {
+				ReceiversItemMap := make(map[string]interface{})
+				if !ReceiversItem.Kind.IsNull() && !ReceiversItem.Kind.IsUnknown() {
+					ReceiversItemMap["kind"] = ReceiversItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !ReceiversItem.Name.IsNull() && !ReceiversItem.Name.IsUnknown() {
+					ReceiversItemMap["name"] = ReceiversItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !ReceiversItem.Namespace.IsNull() && !ReceiversItem.Namespace.IsUnknown() {
+					ReceiversItemMap["namespace"] = ReceiversItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !ReceiversItem.Tenant.IsNull() && !ReceiversItem.Tenant.IsUnknown() {
+					ReceiversItemMap["tenant"] = ReceiversItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !ReceiversItem.Uid.IsNull() && !ReceiversItem.Uid.IsUnknown() {
+					ReceiversItemMap["uid"] = ReceiversItem.Uid.ValueString()
 				}
-				receiversList = append(receiversList, itemMap)
+				ReceiversList = append(ReceiversList, ReceiversItemMap)
 			}
-			createReq.Spec["receivers"] = receiversList
+			createReq.Spec["receivers"] = ReceiversList
 		}
 	}
 	if !data.Routes.IsNull() && !data.Routes.IsUnknown() {
-		var routesItems []AlertPolicyRoutesModel
-		diags := data.Routes.ElementsAs(ctx, &routesItems, false)
+		var RoutesElems []AlertPolicyRoutesModel
+		diags := data.Routes.ElementsAs(ctx, &RoutesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(routesItems) > 0 {
-			var routesList []map[string]interface{}
-			for _, item := range routesItems {
-				itemMap := make(map[string]interface{})
-				if !item.Alertname.IsNull() && !item.Alertname.IsUnknown() {
-					itemMap["alertname"] = item.Alertname.ValueString()
+		if !resp.Diagnostics.HasError() && len(RoutesElems) > 0 {
+			var RoutesList []map[string]interface{}
+			for _, RoutesItem := range RoutesElems {
+				RoutesItemMap := make(map[string]interface{})
+				if !RoutesItem.Alertname.IsNull() && !RoutesItem.Alertname.IsUnknown() {
+					RoutesItemMap["alertname"] = RoutesItem.Alertname.ValueString()
 				}
-				if !item.AlertnameRegex.IsNull() && !item.AlertnameRegex.IsUnknown() {
-					itemMap["alertname_regex"] = item.AlertnameRegex.ValueString()
+				if !RoutesItem.AlertnameRegex.IsNull() && !RoutesItem.AlertnameRegex.IsUnknown() {
+					RoutesItemMap["alertname_regex"] = RoutesItem.AlertnameRegex.ValueString()
 				}
-				if item.Any != nil {
-					itemMap["any"] = map[string]interface{}{}
+				if RoutesItem.Any != nil {
+					RoutesItemMap["any"] = map[string]interface{}{}
 				}
-				if item.Custom != nil {
-					customNestedMap := make(map[string]interface{})
-					if item.Custom.Alertlabel != nil {
-						customNestedMap["alertlabel"] = map[string]interface{}{}
+				if RoutesItem.Custom != nil {
+					CustomMap := make(map[string]interface{})
+					if RoutesItem.Custom.Alertlabel != nil {
+						CustomMap["alertlabel"] = map[string]interface{}{}
 					}
-					if item.Custom.Alertname != nil {
-						alertnameDeepMap := make(map[string]interface{})
-						if !item.Custom.Alertname.ExactMatch.IsNull() && !item.Custom.Alertname.ExactMatch.IsUnknown() {
-							alertnameDeepMap["exact_match"] = item.Custom.Alertname.ExactMatch.ValueString()
+					if RoutesItem.Custom.Alertname != nil {
+						AlertnameMap := make(map[string]interface{})
+						if !RoutesItem.Custom.Alertname.ExactMatch.IsNull() && !RoutesItem.Custom.Alertname.ExactMatch.IsUnknown() {
+							AlertnameMap["exact_match"] = RoutesItem.Custom.Alertname.ExactMatch.ValueString()
 						}
-						if !item.Custom.Alertname.RegexMatch.IsNull() && !item.Custom.Alertname.RegexMatch.IsUnknown() {
-							alertnameDeepMap["regex_match"] = item.Custom.Alertname.RegexMatch.ValueString()
+						if !RoutesItem.Custom.Alertname.RegexMatch.IsNull() && !RoutesItem.Custom.Alertname.RegexMatch.IsUnknown() {
+							AlertnameMap["regex_match"] = RoutesItem.Custom.Alertname.RegexMatch.ValueString()
 						}
-						customNestedMap["alertname"] = alertnameDeepMap
+						CustomMap["alertname"] = AlertnameMap
 					}
-					if item.Custom.Group != nil {
-						groupDeepMap := make(map[string]interface{})
-						if !item.Custom.Group.ExactMatch.IsNull() && !item.Custom.Group.ExactMatch.IsUnknown() {
-							groupDeepMap["exact_match"] = item.Custom.Group.ExactMatch.ValueString()
+					if RoutesItem.Custom.Group != nil {
+						GroupMap := make(map[string]interface{})
+						if !RoutesItem.Custom.Group.ExactMatch.IsNull() && !RoutesItem.Custom.Group.ExactMatch.IsUnknown() {
+							GroupMap["exact_match"] = RoutesItem.Custom.Group.ExactMatch.ValueString()
 						}
-						if !item.Custom.Group.RegexMatch.IsNull() && !item.Custom.Group.RegexMatch.IsUnknown() {
-							groupDeepMap["regex_match"] = item.Custom.Group.RegexMatch.ValueString()
+						if !RoutesItem.Custom.Group.RegexMatch.IsNull() && !RoutesItem.Custom.Group.RegexMatch.IsUnknown() {
+							GroupMap["regex_match"] = RoutesItem.Custom.Group.RegexMatch.ValueString()
 						}
-						customNestedMap["group"] = groupDeepMap
+						CustomMap["group"] = GroupMap
 					}
-					if item.Custom.Severity != nil {
-						severityDeepMap := make(map[string]interface{})
-						if !item.Custom.Severity.ExactMatch.IsNull() && !item.Custom.Severity.ExactMatch.IsUnknown() {
-							severityDeepMap["exact_match"] = item.Custom.Severity.ExactMatch.ValueString()
+					if RoutesItem.Custom.Severity != nil {
+						SeverityMap := make(map[string]interface{})
+						if !RoutesItem.Custom.Severity.ExactMatch.IsNull() && !RoutesItem.Custom.Severity.ExactMatch.IsUnknown() {
+							SeverityMap["exact_match"] = RoutesItem.Custom.Severity.ExactMatch.ValueString()
 						}
-						if !item.Custom.Severity.RegexMatch.IsNull() && !item.Custom.Severity.RegexMatch.IsUnknown() {
-							severityDeepMap["regex_match"] = item.Custom.Severity.RegexMatch.ValueString()
+						if !RoutesItem.Custom.Severity.RegexMatch.IsNull() && !RoutesItem.Custom.Severity.RegexMatch.IsUnknown() {
+							SeverityMap["regex_match"] = RoutesItem.Custom.Severity.RegexMatch.ValueString()
 						}
-						customNestedMap["severity"] = severityDeepMap
+						CustomMap["severity"] = SeverityMap
 					}
-					itemMap["custom"] = customNestedMap
+					RoutesItemMap["custom"] = CustomMap
 				}
-				if item.DontSend != nil {
-					itemMap["dont_send"] = map[string]interface{}{}
+				if RoutesItem.DontSend != nil {
+					RoutesItemMap["dont_send"] = map[string]interface{}{}
 				}
-				if item.Group != nil {
-					groupNestedMap := make(map[string]interface{})
-					if !item.Group.Groups.IsNull() && !item.Group.Groups.IsUnknown() {
+				if RoutesItem.Group != nil {
+					GroupMap := make(map[string]interface{})
+					if !RoutesItem.Group.Groups.IsNull() && !RoutesItem.Group.Groups.IsUnknown() {
 						var GroupsItems []string
-						diags := item.Group.Groups.ElementsAs(ctx, &GroupsItems, false)
+						diags := RoutesItem.Group.Groups.ElementsAs(ctx, &GroupsItems, false)
 						if !diags.HasError() {
-							groupNestedMap["groups"] = GroupsItems
+							GroupMap["groups"] = GroupsItems
 						}
 					}
-					itemMap["group"] = groupNestedMap
+					RoutesItemMap["group"] = GroupMap
 				}
-				if item.NotificationParameters != nil {
-					notification_parametersNestedMap := make(map[string]interface{})
-					if item.NotificationParameters.Custom != nil {
-						customDeepMap := make(map[string]interface{})
-						if !item.NotificationParameters.Custom.Labels.IsNull() && !item.NotificationParameters.Custom.Labels.IsUnknown() {
+				if RoutesItem.NotificationParameters != nil {
+					NotificationParametersMap := make(map[string]interface{})
+					if RoutesItem.NotificationParameters.Custom != nil {
+						CustomMap := make(map[string]interface{})
+						if !RoutesItem.NotificationParameters.Custom.Labels.IsNull() && !RoutesItem.NotificationParameters.Custom.Labels.IsUnknown() {
 							var LabelsItems []string
-							diags := item.NotificationParameters.Custom.Labels.ElementsAs(ctx, &LabelsItems, false)
+							diags := RoutesItem.NotificationParameters.Custom.Labels.ElementsAs(ctx, &LabelsItems, false)
 							if !diags.HasError() {
-								customDeepMap["labels"] = LabelsItems
+								CustomMap["labels"] = LabelsItems
 							}
 						}
-						notification_parametersNestedMap["custom"] = customDeepMap
+						NotificationParametersMap["custom"] = CustomMap
 					}
-					if item.NotificationParameters.Default != nil {
-						notification_parametersNestedMap["default"] = map[string]interface{}{}
+					if RoutesItem.NotificationParameters.Default != nil {
+						NotificationParametersMap["default"] = map[string]interface{}{}
 					}
-					if !item.NotificationParameters.GroupInterval.IsNull() && !item.NotificationParameters.GroupInterval.IsUnknown() {
-						notification_parametersNestedMap["group_interval"] = item.NotificationParameters.GroupInterval.ValueString()
+					if !RoutesItem.NotificationParameters.GroupInterval.IsNull() && !RoutesItem.NotificationParameters.GroupInterval.IsUnknown() {
+						NotificationParametersMap["group_interval"] = RoutesItem.NotificationParameters.GroupInterval.ValueString()
 					}
-					if !item.NotificationParameters.GroupWait.IsNull() && !item.NotificationParameters.GroupWait.IsUnknown() {
-						notification_parametersNestedMap["group_wait"] = item.NotificationParameters.GroupWait.ValueString()
+					if !RoutesItem.NotificationParameters.GroupWait.IsNull() && !RoutesItem.NotificationParameters.GroupWait.IsUnknown() {
+						NotificationParametersMap["group_wait"] = RoutesItem.NotificationParameters.GroupWait.ValueString()
 					}
-					if item.NotificationParameters.Individual != nil {
-						notification_parametersNestedMap["individual"] = map[string]interface{}{}
+					if RoutesItem.NotificationParameters.Individual != nil {
+						NotificationParametersMap["individual"] = map[string]interface{}{}
 					}
-					if !item.NotificationParameters.RepeatInterval.IsNull() && !item.NotificationParameters.RepeatInterval.IsUnknown() {
-						notification_parametersNestedMap["repeat_interval"] = item.NotificationParameters.RepeatInterval.ValueString()
+					if !RoutesItem.NotificationParameters.RepeatInterval.IsNull() && !RoutesItem.NotificationParameters.RepeatInterval.IsUnknown() {
+						NotificationParametersMap["repeat_interval"] = RoutesItem.NotificationParameters.RepeatInterval.ValueString()
 					}
-					if item.NotificationParameters.VesIoGroup != nil {
-						notification_parametersNestedMap["ves_io_group"] = map[string]interface{}{}
+					if RoutesItem.NotificationParameters.VesIoGroup != nil {
+						NotificationParametersMap["ves_io_group"] = map[string]interface{}{}
 					}
-					itemMap["notification_parameters"] = notification_parametersNestedMap
+					RoutesItemMap["notification_parameters"] = NotificationParametersMap
 				}
-				if item.Send != nil {
-					itemMap["send"] = map[string]interface{}{}
+				if RoutesItem.Send != nil {
+					RoutesItemMap["send"] = map[string]interface{}{}
 				}
-				if item.Severity != nil {
-					severityNestedMap := make(map[string]interface{})
-					if !item.Severity.Severities.IsNull() && !item.Severity.Severities.IsUnknown() {
+				if RoutesItem.Severity != nil {
+					SeverityMap := make(map[string]interface{})
+					if !RoutesItem.Severity.Severities.IsNull() && !RoutesItem.Severity.Severities.IsUnknown() {
 						var SeveritiesItems []string
-						diags := item.Severity.Severities.ElementsAs(ctx, &SeveritiesItems, false)
+						diags := RoutesItem.Severity.Severities.ElementsAs(ctx, &SeveritiesItems, false)
 						if !diags.HasError() {
-							severityNestedMap["severities"] = SeveritiesItems
+							SeverityMap["severities"] = SeveritiesItems
 						}
 					}
-					itemMap["severity"] = severityNestedMap
+					RoutesItemMap["severity"] = SeverityMap
 				}
-				routesList = append(routesList, itemMap)
+				RoutesList = append(RoutesList, RoutesItemMap)
 			}
-			createReq.Spec["routes"] = routesList
+			createReq.Spec["routes"] = RoutesList
 		}
 	}
 	if data.NotificationParameters != nil {
-		notification_parametersMap := make(map[string]interface{})
+		NotificationParametersMap := make(map[string]interface{})
 		if data.NotificationParameters.Custom != nil {
-			customNestedMap := make(map[string]interface{})
-			notification_parametersMap["custom"] = customNestedMap
+			CustomMap := make(map[string]interface{})
+			if !data.NotificationParameters.Custom.Labels.IsNull() && !data.NotificationParameters.Custom.Labels.IsUnknown() {
+				var LabelsItems []string
+				diags := data.NotificationParameters.Custom.Labels.ElementsAs(ctx, &LabelsItems, false)
+				if !diags.HasError() {
+					CustomMap["labels"] = LabelsItems
+				}
+			}
+			NotificationParametersMap["custom"] = CustomMap
 		}
 		if data.NotificationParameters.Default != nil {
-			notification_parametersMap["default"] = map[string]interface{}{}
+			NotificationParametersMap["default"] = map[string]interface{}{}
 		}
 		if !data.NotificationParameters.GroupInterval.IsNull() && !data.NotificationParameters.GroupInterval.IsUnknown() {
-			notification_parametersMap["group_interval"] = data.NotificationParameters.GroupInterval.ValueString()
+			NotificationParametersMap["group_interval"] = data.NotificationParameters.GroupInterval.ValueString()
 		}
 		if !data.NotificationParameters.GroupWait.IsNull() && !data.NotificationParameters.GroupWait.IsUnknown() {
-			notification_parametersMap["group_wait"] = data.NotificationParameters.GroupWait.ValueString()
+			NotificationParametersMap["group_wait"] = data.NotificationParameters.GroupWait.ValueString()
 		}
 		if data.NotificationParameters.Individual != nil {
-			notification_parametersMap["individual"] = map[string]interface{}{}
+			NotificationParametersMap["individual"] = map[string]interface{}{}
 		}
 		if !data.NotificationParameters.RepeatInterval.IsNull() && !data.NotificationParameters.RepeatInterval.IsUnknown() {
-			notification_parametersMap["repeat_interval"] = data.NotificationParameters.RepeatInterval.ValueString()
+			NotificationParametersMap["repeat_interval"] = data.NotificationParameters.RepeatInterval.ValueString()
 		}
 		if data.NotificationParameters.VesIoGroup != nil {
-			notification_parametersMap["ves_io_group"] = map[string]interface{}{}
+			NotificationParametersMap["ves_io_group"] = map[string]interface{}{}
 		}
-		createReq.Spec["notification_parameters"] = notification_parametersMap
+		createReq.Spec["notification_parameters"] = NotificationParametersMap
 	}
 
 	apiResource, err := r.client.CreateAlertPolicy(ctx, createReq)
@@ -827,16 +834,18 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["receivers"].([]interface{}); ok && len(listData) > 0 {
-		var receiversList []AlertPolicyReceiversModel
+	if !isImport && (data.Receivers.IsNull() || len(data.Receivers.Elements()) == 0) {
+		data.Receivers = types.ListNull(types.ObjectType{AttrTypes: AlertPolicyReceiversModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["receivers"].([]interface{}); ok && len(listData) > 0 {
+		var ReceiversList []AlertPolicyReceiversModel
 		var existingReceiversItems []AlertPolicyReceiversModel
 		if !data.Receivers.IsNull() && !data.Receivers.IsUnknown() {
 			data.Receivers.ElementsAs(ctx, &existingReceiversItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				receiversList = append(receiversList, AlertPolicyReceiversModel{
+				ReceiversList = append(ReceiversList, AlertPolicyReceiversModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -870,25 +879,26 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AlertPolicyReceiversModelAttrTypes}, receiversList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AlertPolicyReceiversModelAttrTypes}, ReceiversList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Receivers = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Receivers = types.ListNull(types.ObjectType{AttrTypes: AlertPolicyReceiversModelAttrTypes})
 	}
-	if listData, ok := apiResource.Spec["routes"].([]interface{}); ok && len(listData) > 0 {
-		var routesList []AlertPolicyRoutesModel
+	if !isImport && (data.Routes.IsNull() || len(data.Routes.Elements()) == 0) {
+		data.Routes = types.ListNull(types.ObjectType{AttrTypes: AlertPolicyRoutesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["routes"].([]interface{}); ok && len(listData) > 0 {
+		var RoutesList []AlertPolicyRoutesModel
 		var existingRoutesItems []AlertPolicyRoutesModel
 		if !data.Routes.IsNull() && !data.Routes.IsUnknown() {
 			data.Routes.ElementsAs(ctx, &existingRoutesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				routesList = append(routesList, AlertPolicyRoutesModel{
+				RoutesList = append(RoutesList, AlertPolicyRoutesModel{
 					Alertname: func() types.String {
 						if v, ok := itemMap["alertname"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -905,14 +915,74 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Any != nil {
 							return &AlertPolicyEmptyModel{}
 						}
+						if _, ok := itemMap["any"].(map[string]interface{}); ok {
+							return &AlertPolicyEmptyModel{}
+						}
 						return nil
 					}(),
 					Custom: func() *AlertPolicyRoutesCustomModel {
-						if _, ok := itemMap["custom"].(map[string]interface{}); ok {
+						if CustomData, ok := itemMap["custom"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesCustomModel{
 								Alertlabel: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && existingRoutesItems[listIdx].Custom.Alertlabel != nil {
+									if _, ok := CustomData["alertlabel"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
+									}
+									return nil
+								}(),
+								Alertname: func() *AlertPolicyRoutesCustomAlertnameModel {
+									if AlertnameData, ok := CustomData["alertname"].(map[string]interface{}); ok {
+										return &AlertPolicyRoutesCustomAlertnameModel{
+											ExactMatch: func() types.String {
+												if v, ok := AlertnameData["exact_match"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											RegexMatch: func() types.String {
+												if v, ok := AlertnameData["regex_match"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Group: func() *AlertPolicyRoutesCustomGroupModel {
+									if GroupData, ok := CustomData["group"].(map[string]interface{}); ok {
+										return &AlertPolicyRoutesCustomGroupModel{
+											ExactMatch: func() types.String {
+												if v, ok := GroupData["exact_match"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											RegexMatch: func() types.String {
+												if v, ok := GroupData["regex_match"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Severity: func() *AlertPolicyRoutesCustomSeverityModel {
+									if SeverityData, ok := CustomData["severity"].(map[string]interface{}); ok {
+										return &AlertPolicyRoutesCustomSeverityModel{
+											ExactMatch: func() types.String {
+												if v, ok := SeverityData["exact_match"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											RegexMatch: func() types.String {
+												if v, ok := SeverityData["regex_match"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
 									}
 									return nil
 								}(),
@@ -924,13 +994,16 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].DontSend != nil {
 							return &AlertPolicyEmptyModel{}
 						}
+						if _, ok := itemMap["dont_send"].(map[string]interface{}); ok {
+							return &AlertPolicyEmptyModel{}
+						}
 						return nil
 					}(),
 					Group: func() *AlertPolicyRoutesGroupModel {
-						if nestedMap, ok := itemMap["group"].(map[string]interface{}); ok {
+						if GroupData, ok := itemMap["group"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesGroupModel{
 								Groups: func() types.List {
-									if v, ok := nestedMap["groups"].([]interface{}); ok && len(v) > 0 {
+									if v, ok := GroupData["groups"].([]interface{}); ok && len(v) > 0 {
 										var items []string
 										for _, item := range v {
 											if s, ok := item.(string); ok {
@@ -947,40 +1020,60 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 						return nil
 					}(),
 					NotificationParameters: func() *AlertPolicyRoutesNotificationParametersModel {
-						if nestedMap, ok := itemMap["notification_parameters"].(map[string]interface{}); ok {
+						if NotificationParametersData, ok := itemMap["notification_parameters"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesNotificationParametersModel{
+								Custom: func() *AlertPolicyRoutesNotificationParametersCustomModel {
+									if CustomData, ok := NotificationParametersData["custom"].(map[string]interface{}); ok {
+										return &AlertPolicyRoutesNotificationParametersCustomModel{
+											Labels: func() types.List {
+												if v, ok := CustomData["labels"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
 								Default: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil && existingRoutesItems[listIdx].NotificationParameters.Default != nil {
+									if _, ok := NotificationParametersData["default"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								GroupInterval: func() types.String {
-									if v, ok := nestedMap["group_interval"].(string); ok && v != "" {
+									if v, ok := NotificationParametersData["group_interval"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								GroupWait: func() types.String {
-									if v, ok := nestedMap["group_wait"].(string); ok && v != "" {
+									if v, ok := NotificationParametersData["group_wait"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Individual: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil && existingRoutesItems[listIdx].NotificationParameters.Individual != nil {
+									if _, ok := NotificationParametersData["individual"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								RepeatInterval: func() types.String {
-									if v, ok := nestedMap["repeat_interval"].(string); ok && v != "" {
+									if v, ok := NotificationParametersData["repeat_interval"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								VesIoGroup: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil && existingRoutesItems[listIdx].NotificationParameters.VesIoGroup != nil {
+									if _, ok := NotificationParametersData["ves_io_group"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
 									}
 									return nil
@@ -993,13 +1086,16 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Send != nil {
 							return &AlertPolicyEmptyModel{}
 						}
+						if _, ok := itemMap["send"].(map[string]interface{}); ok {
+							return &AlertPolicyEmptyModel{}
+						}
 						return nil
 					}(),
 					Severity: func() *AlertPolicyRoutesSeverityModel {
-						if nestedMap, ok := itemMap["severity"].(map[string]interface{}); ok {
+						if SeverityData, ok := itemMap["severity"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesSeverityModel{
 								Severities: func() types.List {
-									if v, ok := nestedMap["severities"].([]interface{}); ok && len(v) > 0 {
+									if v, ok := SeverityData["severities"].([]interface{}); ok && len(v) > 0 {
 										var items []string
 										for _, item := range v {
 											if s, ok := item.(string); ok {
@@ -1018,27 +1114,24 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AlertPolicyRoutesModelAttrTypes}, routesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AlertPolicyRoutesModelAttrTypes}, RoutesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Routes = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Routes = types.ListNull(types.ObjectType{AttrTypes: AlertPolicyRoutesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["notification_parameters"].(map[string]interface{}); ok && (isImport || data.NotificationParameters != nil) {
 		data.NotificationParameters = &AlertPolicyNotificationParametersModel{
 			Custom: func() *AlertPolicyNotificationParametersCustomModel {
 				if !isImport && data.NotificationParameters != nil && data.NotificationParameters.Custom != nil {
-					// Normal Read: preserve existing state value
 					return data.NotificationParameters.Custom
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["custom"].(map[string]interface{}); ok {
+				if CustomData, ok := blockData["custom"].(map[string]interface{}); ok {
 					return &AlertPolicyNotificationParametersCustomModel{
 						Labels: func() types.List {
-							if v, ok := nestedBlockData["labels"].([]interface{}); ok && len(v) > 0 {
+							if v, ok := CustomData["labels"].([]interface{}); ok && len(v) > 0 {
 								var items []string
 								for _, item := range v {
 									if s, ok := item.(string); ok {
@@ -1056,11 +1149,8 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 			}(),
 			Default: func() *AlertPolicyEmptyModel {
 				if !isImport && data.NotificationParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.NotificationParameters.Default
 				}
-				// Import case: read from API
 				if _, ok := blockData["default"].(map[string]interface{}); ok {
 					return &AlertPolicyEmptyModel{}
 				}
@@ -1080,11 +1170,8 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 			}(),
 			Individual: func() *AlertPolicyEmptyModel {
 				if !isImport && data.NotificationParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.NotificationParameters.Individual
 				}
-				// Import case: read from API
 				if _, ok := blockData["individual"].(map[string]interface{}); ok {
 					return &AlertPolicyEmptyModel{}
 				}
@@ -1098,11 +1185,8 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 			}(),
 			VesIoGroup: func() *AlertPolicyEmptyModel {
 				if !isImport && data.NotificationParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.NotificationParameters.VesIoGroup
 				}
-				// Import case: read from API
 				if _, ok := blockData["ves_io_group"].(map[string]interface{}); ok {
 					return &AlertPolicyEmptyModel{}
 				}
@@ -1190,16 +1274,18 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["receivers"].([]interface{}); ok && len(listData) > 0 {
-		var receiversList []AlertPolicyReceiversModel
+	if !isImport && (data.Receivers.IsNull() || len(data.Receivers.Elements()) == 0) {
+		data.Receivers = types.ListNull(types.ObjectType{AttrTypes: AlertPolicyReceiversModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["receivers"].([]interface{}); ok && len(listData) > 0 {
+		var ReceiversList []AlertPolicyReceiversModel
 		var existingReceiversItems []AlertPolicyReceiversModel
 		if !data.Receivers.IsNull() && !data.Receivers.IsUnknown() {
 			data.Receivers.ElementsAs(ctx, &existingReceiversItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				receiversList = append(receiversList, AlertPolicyReceiversModel{
+				ReceiversList = append(ReceiversList, AlertPolicyReceiversModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -1233,25 +1319,26 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AlertPolicyReceiversModelAttrTypes}, receiversList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AlertPolicyReceiversModelAttrTypes}, ReceiversList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Receivers = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Receivers = types.ListNull(types.ObjectType{AttrTypes: AlertPolicyReceiversModelAttrTypes})
 	}
-	if listData, ok := apiResource.Spec["routes"].([]interface{}); ok && len(listData) > 0 {
-		var routesList []AlertPolicyRoutesModel
+	if !isImport && (data.Routes.IsNull() || len(data.Routes.Elements()) == 0) {
+		data.Routes = types.ListNull(types.ObjectType{AttrTypes: AlertPolicyRoutesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["routes"].([]interface{}); ok && len(listData) > 0 {
+		var RoutesList []AlertPolicyRoutesModel
 		var existingRoutesItems []AlertPolicyRoutesModel
 		if !data.Routes.IsNull() && !data.Routes.IsUnknown() {
 			data.Routes.ElementsAs(ctx, &existingRoutesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				routesList = append(routesList, AlertPolicyRoutesModel{
+				RoutesList = append(RoutesList, AlertPolicyRoutesModel{
 					Alertname: func() types.String {
 						if v, ok := itemMap["alertname"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -1268,14 +1355,74 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Any != nil {
 							return &AlertPolicyEmptyModel{}
 						}
+						if _, ok := itemMap["any"].(map[string]interface{}); ok {
+							return &AlertPolicyEmptyModel{}
+						}
 						return nil
 					}(),
 					Custom: func() *AlertPolicyRoutesCustomModel {
-						if _, ok := itemMap["custom"].(map[string]interface{}); ok {
+						if CustomData, ok := itemMap["custom"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesCustomModel{
 								Alertlabel: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && existingRoutesItems[listIdx].Custom.Alertlabel != nil {
+									if _, ok := CustomData["alertlabel"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
+									}
+									return nil
+								}(),
+								Alertname: func() *AlertPolicyRoutesCustomAlertnameModel {
+									if AlertnameData, ok := CustomData["alertname"].(map[string]interface{}); ok {
+										return &AlertPolicyRoutesCustomAlertnameModel{
+											ExactMatch: func() types.String {
+												if v, ok := AlertnameData["exact_match"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											RegexMatch: func() types.String {
+												if v, ok := AlertnameData["regex_match"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Group: func() *AlertPolicyRoutesCustomGroupModel {
+									if GroupData, ok := CustomData["group"].(map[string]interface{}); ok {
+										return &AlertPolicyRoutesCustomGroupModel{
+											ExactMatch: func() types.String {
+												if v, ok := GroupData["exact_match"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											RegexMatch: func() types.String {
+												if v, ok := GroupData["regex_match"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Severity: func() *AlertPolicyRoutesCustomSeverityModel {
+									if SeverityData, ok := CustomData["severity"].(map[string]interface{}); ok {
+										return &AlertPolicyRoutesCustomSeverityModel{
+											ExactMatch: func() types.String {
+												if v, ok := SeverityData["exact_match"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											RegexMatch: func() types.String {
+												if v, ok := SeverityData["regex_match"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
 									}
 									return nil
 								}(),
@@ -1287,13 +1434,16 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].DontSend != nil {
 							return &AlertPolicyEmptyModel{}
 						}
+						if _, ok := itemMap["dont_send"].(map[string]interface{}); ok {
+							return &AlertPolicyEmptyModel{}
+						}
 						return nil
 					}(),
 					Group: func() *AlertPolicyRoutesGroupModel {
-						if nestedMap, ok := itemMap["group"].(map[string]interface{}); ok {
+						if GroupData, ok := itemMap["group"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesGroupModel{
 								Groups: func() types.List {
-									if v, ok := nestedMap["groups"].([]interface{}); ok && len(v) > 0 {
+									if v, ok := GroupData["groups"].([]interface{}); ok && len(v) > 0 {
 										var items []string
 										for _, item := range v {
 											if s, ok := item.(string); ok {
@@ -1310,40 +1460,60 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 						return nil
 					}(),
 					NotificationParameters: func() *AlertPolicyRoutesNotificationParametersModel {
-						if nestedMap, ok := itemMap["notification_parameters"].(map[string]interface{}); ok {
+						if NotificationParametersData, ok := itemMap["notification_parameters"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesNotificationParametersModel{
+								Custom: func() *AlertPolicyRoutesNotificationParametersCustomModel {
+									if CustomData, ok := NotificationParametersData["custom"].(map[string]interface{}); ok {
+										return &AlertPolicyRoutesNotificationParametersCustomModel{
+											Labels: func() types.List {
+												if v, ok := CustomData["labels"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
 								Default: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil && existingRoutesItems[listIdx].NotificationParameters.Default != nil {
+									if _, ok := NotificationParametersData["default"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								GroupInterval: func() types.String {
-									if v, ok := nestedMap["group_interval"].(string); ok && v != "" {
+									if v, ok := NotificationParametersData["group_interval"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								GroupWait: func() types.String {
-									if v, ok := nestedMap["group_wait"].(string); ok && v != "" {
+									if v, ok := NotificationParametersData["group_wait"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Individual: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil && existingRoutesItems[listIdx].NotificationParameters.Individual != nil {
+									if _, ok := NotificationParametersData["individual"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								RepeatInterval: func() types.String {
-									if v, ok := nestedMap["repeat_interval"].(string); ok && v != "" {
+									if v, ok := NotificationParametersData["repeat_interval"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								VesIoGroup: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil && existingRoutesItems[listIdx].NotificationParameters.VesIoGroup != nil {
+									if _, ok := NotificationParametersData["ves_io_group"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
 									}
 									return nil
@@ -1356,13 +1526,16 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Send != nil {
 							return &AlertPolicyEmptyModel{}
 						}
+						if _, ok := itemMap["send"].(map[string]interface{}); ok {
+							return &AlertPolicyEmptyModel{}
+						}
 						return nil
 					}(),
 					Severity: func() *AlertPolicyRoutesSeverityModel {
-						if nestedMap, ok := itemMap["severity"].(map[string]interface{}); ok {
+						if SeverityData, ok := itemMap["severity"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesSeverityModel{
 								Severities: func() types.List {
-									if v, ok := nestedMap["severities"].([]interface{}); ok && len(v) > 0 {
+									if v, ok := SeverityData["severities"].([]interface{}); ok && len(v) > 0 {
 										var items []string
 										for _, item := range v {
 											if s, ok := item.(string); ok {
@@ -1381,27 +1554,24 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AlertPolicyRoutesModelAttrTypes}, routesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AlertPolicyRoutesModelAttrTypes}, RoutesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Routes = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Routes = types.ListNull(types.ObjectType{AttrTypes: AlertPolicyRoutesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["notification_parameters"].(map[string]interface{}); ok && (isImport || data.NotificationParameters != nil) {
 		data.NotificationParameters = &AlertPolicyNotificationParametersModel{
 			Custom: func() *AlertPolicyNotificationParametersCustomModel {
 				if !isImport && data.NotificationParameters != nil && data.NotificationParameters.Custom != nil {
-					// Normal Read: preserve existing state value
 					return data.NotificationParameters.Custom
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["custom"].(map[string]interface{}); ok {
+				if CustomData, ok := blockData["custom"].(map[string]interface{}); ok {
 					return &AlertPolicyNotificationParametersCustomModel{
 						Labels: func() types.List {
-							if v, ok := nestedBlockData["labels"].([]interface{}); ok && len(v) > 0 {
+							if v, ok := CustomData["labels"].([]interface{}); ok && len(v) > 0 {
 								var items []string
 								for _, item := range v {
 									if s, ok := item.(string); ok {
@@ -1419,11 +1589,8 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 			}(),
 			Default: func() *AlertPolicyEmptyModel {
 				if !isImport && data.NotificationParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.NotificationParameters.Default
 				}
-				// Import case: read from API
 				if _, ok := blockData["default"].(map[string]interface{}); ok {
 					return &AlertPolicyEmptyModel{}
 				}
@@ -1443,11 +1610,8 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 			}(),
 			Individual: func() *AlertPolicyEmptyModel {
 				if !isImport && data.NotificationParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.NotificationParameters.Individual
 				}
-				// Import case: read from API
 				if _, ok := blockData["individual"].(map[string]interface{}); ok {
 					return &AlertPolicyEmptyModel{}
 				}
@@ -1461,17 +1625,22 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 			}(),
 			VesIoGroup: func() *AlertPolicyEmptyModel {
 				if !isImport && data.NotificationParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.NotificationParameters.VesIoGroup
 				}
-				// Import case: read from API
 				if _, ok := blockData["ves_io_group"].(map[string]interface{}); ok {
 					return &AlertPolicyEmptyModel{}
 				}
 				return nil
 			}(),
 		}
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -1525,178 +1694,185 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.Receivers.IsNull() && !data.Receivers.IsUnknown() {
-		var receiversItems []AlertPolicyReceiversModel
-		diags := data.Receivers.ElementsAs(ctx, &receiversItems, false)
+		var ReceiversElems []AlertPolicyReceiversModel
+		diags := data.Receivers.ElementsAs(ctx, &ReceiversElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(receiversItems) > 0 {
-			var receiversList []map[string]interface{}
-			for _, item := range receiversItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(ReceiversElems) > 0 {
+			var ReceiversList []map[string]interface{}
+			for _, ReceiversItem := range ReceiversElems {
+				ReceiversItemMap := make(map[string]interface{})
+				if !ReceiversItem.Kind.IsNull() && !ReceiversItem.Kind.IsUnknown() {
+					ReceiversItemMap["kind"] = ReceiversItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !ReceiversItem.Name.IsNull() && !ReceiversItem.Name.IsUnknown() {
+					ReceiversItemMap["name"] = ReceiversItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !ReceiversItem.Namespace.IsNull() && !ReceiversItem.Namespace.IsUnknown() {
+					ReceiversItemMap["namespace"] = ReceiversItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !ReceiversItem.Tenant.IsNull() && !ReceiversItem.Tenant.IsUnknown() {
+					ReceiversItemMap["tenant"] = ReceiversItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !ReceiversItem.Uid.IsNull() && !ReceiversItem.Uid.IsUnknown() {
+					ReceiversItemMap["uid"] = ReceiversItem.Uid.ValueString()
 				}
-				receiversList = append(receiversList, itemMap)
+				ReceiversList = append(ReceiversList, ReceiversItemMap)
 			}
-			apiResource.Spec["receivers"] = receiversList
+			apiResource.Spec["receivers"] = ReceiversList
 		}
 	}
 	if !data.Routes.IsNull() && !data.Routes.IsUnknown() {
-		var routesItems []AlertPolicyRoutesModel
-		diags := data.Routes.ElementsAs(ctx, &routesItems, false)
+		var RoutesElems []AlertPolicyRoutesModel
+		diags := data.Routes.ElementsAs(ctx, &RoutesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(routesItems) > 0 {
-			var routesList []map[string]interface{}
-			for _, item := range routesItems {
-				itemMap := make(map[string]interface{})
-				if !item.Alertname.IsNull() && !item.Alertname.IsUnknown() {
-					itemMap["alertname"] = item.Alertname.ValueString()
+		if !resp.Diagnostics.HasError() && len(RoutesElems) > 0 {
+			var RoutesList []map[string]interface{}
+			for _, RoutesItem := range RoutesElems {
+				RoutesItemMap := make(map[string]interface{})
+				if !RoutesItem.Alertname.IsNull() && !RoutesItem.Alertname.IsUnknown() {
+					RoutesItemMap["alertname"] = RoutesItem.Alertname.ValueString()
 				}
-				if !item.AlertnameRegex.IsNull() && !item.AlertnameRegex.IsUnknown() {
-					itemMap["alertname_regex"] = item.AlertnameRegex.ValueString()
+				if !RoutesItem.AlertnameRegex.IsNull() && !RoutesItem.AlertnameRegex.IsUnknown() {
+					RoutesItemMap["alertname_regex"] = RoutesItem.AlertnameRegex.ValueString()
 				}
-				if item.Any != nil {
-					itemMap["any"] = map[string]interface{}{}
+				if RoutesItem.Any != nil {
+					RoutesItemMap["any"] = map[string]interface{}{}
 				}
-				if item.Custom != nil {
-					customNestedMap := make(map[string]interface{})
-					if item.Custom.Alertlabel != nil {
-						customNestedMap["alertlabel"] = map[string]interface{}{}
+				if RoutesItem.Custom != nil {
+					CustomMap := make(map[string]interface{})
+					if RoutesItem.Custom.Alertlabel != nil {
+						CustomMap["alertlabel"] = map[string]interface{}{}
 					}
-					if item.Custom.Alertname != nil {
-						alertnameDeepMap := make(map[string]interface{})
-						if !item.Custom.Alertname.ExactMatch.IsNull() && !item.Custom.Alertname.ExactMatch.IsUnknown() {
-							alertnameDeepMap["exact_match"] = item.Custom.Alertname.ExactMatch.ValueString()
+					if RoutesItem.Custom.Alertname != nil {
+						AlertnameMap := make(map[string]interface{})
+						if !RoutesItem.Custom.Alertname.ExactMatch.IsNull() && !RoutesItem.Custom.Alertname.ExactMatch.IsUnknown() {
+							AlertnameMap["exact_match"] = RoutesItem.Custom.Alertname.ExactMatch.ValueString()
 						}
-						if !item.Custom.Alertname.RegexMatch.IsNull() && !item.Custom.Alertname.RegexMatch.IsUnknown() {
-							alertnameDeepMap["regex_match"] = item.Custom.Alertname.RegexMatch.ValueString()
+						if !RoutesItem.Custom.Alertname.RegexMatch.IsNull() && !RoutesItem.Custom.Alertname.RegexMatch.IsUnknown() {
+							AlertnameMap["regex_match"] = RoutesItem.Custom.Alertname.RegexMatch.ValueString()
 						}
-						customNestedMap["alertname"] = alertnameDeepMap
+						CustomMap["alertname"] = AlertnameMap
 					}
-					if item.Custom.Group != nil {
-						groupDeepMap := make(map[string]interface{})
-						if !item.Custom.Group.ExactMatch.IsNull() && !item.Custom.Group.ExactMatch.IsUnknown() {
-							groupDeepMap["exact_match"] = item.Custom.Group.ExactMatch.ValueString()
+					if RoutesItem.Custom.Group != nil {
+						GroupMap := make(map[string]interface{})
+						if !RoutesItem.Custom.Group.ExactMatch.IsNull() && !RoutesItem.Custom.Group.ExactMatch.IsUnknown() {
+							GroupMap["exact_match"] = RoutesItem.Custom.Group.ExactMatch.ValueString()
 						}
-						if !item.Custom.Group.RegexMatch.IsNull() && !item.Custom.Group.RegexMatch.IsUnknown() {
-							groupDeepMap["regex_match"] = item.Custom.Group.RegexMatch.ValueString()
+						if !RoutesItem.Custom.Group.RegexMatch.IsNull() && !RoutesItem.Custom.Group.RegexMatch.IsUnknown() {
+							GroupMap["regex_match"] = RoutesItem.Custom.Group.RegexMatch.ValueString()
 						}
-						customNestedMap["group"] = groupDeepMap
+						CustomMap["group"] = GroupMap
 					}
-					if item.Custom.Severity != nil {
-						severityDeepMap := make(map[string]interface{})
-						if !item.Custom.Severity.ExactMatch.IsNull() && !item.Custom.Severity.ExactMatch.IsUnknown() {
-							severityDeepMap["exact_match"] = item.Custom.Severity.ExactMatch.ValueString()
+					if RoutesItem.Custom.Severity != nil {
+						SeverityMap := make(map[string]interface{})
+						if !RoutesItem.Custom.Severity.ExactMatch.IsNull() && !RoutesItem.Custom.Severity.ExactMatch.IsUnknown() {
+							SeverityMap["exact_match"] = RoutesItem.Custom.Severity.ExactMatch.ValueString()
 						}
-						if !item.Custom.Severity.RegexMatch.IsNull() && !item.Custom.Severity.RegexMatch.IsUnknown() {
-							severityDeepMap["regex_match"] = item.Custom.Severity.RegexMatch.ValueString()
+						if !RoutesItem.Custom.Severity.RegexMatch.IsNull() && !RoutesItem.Custom.Severity.RegexMatch.IsUnknown() {
+							SeverityMap["regex_match"] = RoutesItem.Custom.Severity.RegexMatch.ValueString()
 						}
-						customNestedMap["severity"] = severityDeepMap
+						CustomMap["severity"] = SeverityMap
 					}
-					itemMap["custom"] = customNestedMap
+					RoutesItemMap["custom"] = CustomMap
 				}
-				if item.DontSend != nil {
-					itemMap["dont_send"] = map[string]interface{}{}
+				if RoutesItem.DontSend != nil {
+					RoutesItemMap["dont_send"] = map[string]interface{}{}
 				}
-				if item.Group != nil {
-					groupNestedMap := make(map[string]interface{})
-					if !item.Group.Groups.IsNull() && !item.Group.Groups.IsUnknown() {
+				if RoutesItem.Group != nil {
+					GroupMap := make(map[string]interface{})
+					if !RoutesItem.Group.Groups.IsNull() && !RoutesItem.Group.Groups.IsUnknown() {
 						var GroupsItems []string
-						diags := item.Group.Groups.ElementsAs(ctx, &GroupsItems, false)
+						diags := RoutesItem.Group.Groups.ElementsAs(ctx, &GroupsItems, false)
 						if !diags.HasError() {
-							groupNestedMap["groups"] = GroupsItems
+							GroupMap["groups"] = GroupsItems
 						}
 					}
-					itemMap["group"] = groupNestedMap
+					RoutesItemMap["group"] = GroupMap
 				}
-				if item.NotificationParameters != nil {
-					notification_parametersNestedMap := make(map[string]interface{})
-					if item.NotificationParameters.Custom != nil {
-						customDeepMap := make(map[string]interface{})
-						if !item.NotificationParameters.Custom.Labels.IsNull() && !item.NotificationParameters.Custom.Labels.IsUnknown() {
+				if RoutesItem.NotificationParameters != nil {
+					NotificationParametersMap := make(map[string]interface{})
+					if RoutesItem.NotificationParameters.Custom != nil {
+						CustomMap := make(map[string]interface{})
+						if !RoutesItem.NotificationParameters.Custom.Labels.IsNull() && !RoutesItem.NotificationParameters.Custom.Labels.IsUnknown() {
 							var LabelsItems []string
-							diags := item.NotificationParameters.Custom.Labels.ElementsAs(ctx, &LabelsItems, false)
+							diags := RoutesItem.NotificationParameters.Custom.Labels.ElementsAs(ctx, &LabelsItems, false)
 							if !diags.HasError() {
-								customDeepMap["labels"] = LabelsItems
+								CustomMap["labels"] = LabelsItems
 							}
 						}
-						notification_parametersNestedMap["custom"] = customDeepMap
+						NotificationParametersMap["custom"] = CustomMap
 					}
-					if item.NotificationParameters.Default != nil {
-						notification_parametersNestedMap["default"] = map[string]interface{}{}
+					if RoutesItem.NotificationParameters.Default != nil {
+						NotificationParametersMap["default"] = map[string]interface{}{}
 					}
-					if !item.NotificationParameters.GroupInterval.IsNull() && !item.NotificationParameters.GroupInterval.IsUnknown() {
-						notification_parametersNestedMap["group_interval"] = item.NotificationParameters.GroupInterval.ValueString()
+					if !RoutesItem.NotificationParameters.GroupInterval.IsNull() && !RoutesItem.NotificationParameters.GroupInterval.IsUnknown() {
+						NotificationParametersMap["group_interval"] = RoutesItem.NotificationParameters.GroupInterval.ValueString()
 					}
-					if !item.NotificationParameters.GroupWait.IsNull() && !item.NotificationParameters.GroupWait.IsUnknown() {
-						notification_parametersNestedMap["group_wait"] = item.NotificationParameters.GroupWait.ValueString()
+					if !RoutesItem.NotificationParameters.GroupWait.IsNull() && !RoutesItem.NotificationParameters.GroupWait.IsUnknown() {
+						NotificationParametersMap["group_wait"] = RoutesItem.NotificationParameters.GroupWait.ValueString()
 					}
-					if item.NotificationParameters.Individual != nil {
-						notification_parametersNestedMap["individual"] = map[string]interface{}{}
+					if RoutesItem.NotificationParameters.Individual != nil {
+						NotificationParametersMap["individual"] = map[string]interface{}{}
 					}
-					if !item.NotificationParameters.RepeatInterval.IsNull() && !item.NotificationParameters.RepeatInterval.IsUnknown() {
-						notification_parametersNestedMap["repeat_interval"] = item.NotificationParameters.RepeatInterval.ValueString()
+					if !RoutesItem.NotificationParameters.RepeatInterval.IsNull() && !RoutesItem.NotificationParameters.RepeatInterval.IsUnknown() {
+						NotificationParametersMap["repeat_interval"] = RoutesItem.NotificationParameters.RepeatInterval.ValueString()
 					}
-					if item.NotificationParameters.VesIoGroup != nil {
-						notification_parametersNestedMap["ves_io_group"] = map[string]interface{}{}
+					if RoutesItem.NotificationParameters.VesIoGroup != nil {
+						NotificationParametersMap["ves_io_group"] = map[string]interface{}{}
 					}
-					itemMap["notification_parameters"] = notification_parametersNestedMap
+					RoutesItemMap["notification_parameters"] = NotificationParametersMap
 				}
-				if item.Send != nil {
-					itemMap["send"] = map[string]interface{}{}
+				if RoutesItem.Send != nil {
+					RoutesItemMap["send"] = map[string]interface{}{}
 				}
-				if item.Severity != nil {
-					severityNestedMap := make(map[string]interface{})
-					if !item.Severity.Severities.IsNull() && !item.Severity.Severities.IsUnknown() {
+				if RoutesItem.Severity != nil {
+					SeverityMap := make(map[string]interface{})
+					if !RoutesItem.Severity.Severities.IsNull() && !RoutesItem.Severity.Severities.IsUnknown() {
 						var SeveritiesItems []string
-						diags := item.Severity.Severities.ElementsAs(ctx, &SeveritiesItems, false)
+						diags := RoutesItem.Severity.Severities.ElementsAs(ctx, &SeveritiesItems, false)
 						if !diags.HasError() {
-							severityNestedMap["severities"] = SeveritiesItems
+							SeverityMap["severities"] = SeveritiesItems
 						}
 					}
-					itemMap["severity"] = severityNestedMap
+					RoutesItemMap["severity"] = SeverityMap
 				}
-				routesList = append(routesList, itemMap)
+				RoutesList = append(RoutesList, RoutesItemMap)
 			}
-			apiResource.Spec["routes"] = routesList
+			apiResource.Spec["routes"] = RoutesList
 		}
 	}
 	if data.NotificationParameters != nil {
-		notification_parametersMap := make(map[string]interface{})
+		NotificationParametersMap := make(map[string]interface{})
 		if data.NotificationParameters.Custom != nil {
-			customNestedMap := make(map[string]interface{})
-			notification_parametersMap["custom"] = customNestedMap
+			CustomMap := make(map[string]interface{})
+			if !data.NotificationParameters.Custom.Labels.IsNull() && !data.NotificationParameters.Custom.Labels.IsUnknown() {
+				var LabelsItems []string
+				diags := data.NotificationParameters.Custom.Labels.ElementsAs(ctx, &LabelsItems, false)
+				if !diags.HasError() {
+					CustomMap["labels"] = LabelsItems
+				}
+			}
+			NotificationParametersMap["custom"] = CustomMap
 		}
 		if data.NotificationParameters.Default != nil {
-			notification_parametersMap["default"] = map[string]interface{}{}
+			NotificationParametersMap["default"] = map[string]interface{}{}
 		}
 		if !data.NotificationParameters.GroupInterval.IsNull() && !data.NotificationParameters.GroupInterval.IsUnknown() {
-			notification_parametersMap["group_interval"] = data.NotificationParameters.GroupInterval.ValueString()
+			NotificationParametersMap["group_interval"] = data.NotificationParameters.GroupInterval.ValueString()
 		}
 		if !data.NotificationParameters.GroupWait.IsNull() && !data.NotificationParameters.GroupWait.IsUnknown() {
-			notification_parametersMap["group_wait"] = data.NotificationParameters.GroupWait.ValueString()
+			NotificationParametersMap["group_wait"] = data.NotificationParameters.GroupWait.ValueString()
 		}
 		if data.NotificationParameters.Individual != nil {
-			notification_parametersMap["individual"] = map[string]interface{}{}
+			NotificationParametersMap["individual"] = map[string]interface{}{}
 		}
 		if !data.NotificationParameters.RepeatInterval.IsNull() && !data.NotificationParameters.RepeatInterval.IsUnknown() {
-			notification_parametersMap["repeat_interval"] = data.NotificationParameters.RepeatInterval.ValueString()
+			NotificationParametersMap["repeat_interval"] = data.NotificationParameters.RepeatInterval.ValueString()
 		}
 		if data.NotificationParameters.VesIoGroup != nil {
-			notification_parametersMap["ves_io_group"] = map[string]interface{}{}
+			NotificationParametersMap["ves_io_group"] = map[string]interface{}{}
 		}
-		apiResource.Spec["notification_parameters"] = notification_parametersMap
+		apiResource.Spec["notification_parameters"] = NotificationParametersMap
 	}
 
 	_, err := r.client.UpdateAlertPolicy(ctx, apiResource)
@@ -1722,16 +1898,18 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["receivers"].([]interface{}); ok && len(listData) > 0 {
-		var receiversList []AlertPolicyReceiversModel
+	if !isImport && (data.Receivers.IsNull() || len(data.Receivers.Elements()) == 0) {
+		data.Receivers = types.ListNull(types.ObjectType{AttrTypes: AlertPolicyReceiversModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["receivers"].([]interface{}); ok && len(listData) > 0 {
+		var ReceiversList []AlertPolicyReceiversModel
 		var existingReceiversItems []AlertPolicyReceiversModel
 		if !data.Receivers.IsNull() && !data.Receivers.IsUnknown() {
 			data.Receivers.ElementsAs(ctx, &existingReceiversItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				receiversList = append(receiversList, AlertPolicyReceiversModel{
+				ReceiversList = append(ReceiversList, AlertPolicyReceiversModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -1765,25 +1943,26 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AlertPolicyReceiversModelAttrTypes}, receiversList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AlertPolicyReceiversModelAttrTypes}, ReceiversList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Receivers = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Receivers = types.ListNull(types.ObjectType{AttrTypes: AlertPolicyReceiversModelAttrTypes})
 	}
-	if listData, ok := apiResource.Spec["routes"].([]interface{}); ok && len(listData) > 0 {
-		var routesList []AlertPolicyRoutesModel
+	if !isImport && (data.Routes.IsNull() || len(data.Routes.Elements()) == 0) {
+		data.Routes = types.ListNull(types.ObjectType{AttrTypes: AlertPolicyRoutesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["routes"].([]interface{}); ok && len(listData) > 0 {
+		var RoutesList []AlertPolicyRoutesModel
 		var existingRoutesItems []AlertPolicyRoutesModel
 		if !data.Routes.IsNull() && !data.Routes.IsUnknown() {
 			data.Routes.ElementsAs(ctx, &existingRoutesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				routesList = append(routesList, AlertPolicyRoutesModel{
+				RoutesList = append(RoutesList, AlertPolicyRoutesModel{
 					Alertname: func() types.String {
 						if v, ok := itemMap["alertname"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -1800,14 +1979,74 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Any != nil {
 							return &AlertPolicyEmptyModel{}
 						}
+						if _, ok := itemMap["any"].(map[string]interface{}); ok {
+							return &AlertPolicyEmptyModel{}
+						}
 						return nil
 					}(),
 					Custom: func() *AlertPolicyRoutesCustomModel {
-						if _, ok := itemMap["custom"].(map[string]interface{}); ok {
+						if CustomData, ok := itemMap["custom"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesCustomModel{
 								Alertlabel: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && existingRoutesItems[listIdx].Custom.Alertlabel != nil {
+									if _, ok := CustomData["alertlabel"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
+									}
+									return nil
+								}(),
+								Alertname: func() *AlertPolicyRoutesCustomAlertnameModel {
+									if AlertnameData, ok := CustomData["alertname"].(map[string]interface{}); ok {
+										return &AlertPolicyRoutesCustomAlertnameModel{
+											ExactMatch: func() types.String {
+												if v, ok := AlertnameData["exact_match"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											RegexMatch: func() types.String {
+												if v, ok := AlertnameData["regex_match"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Group: func() *AlertPolicyRoutesCustomGroupModel {
+									if GroupData, ok := CustomData["group"].(map[string]interface{}); ok {
+										return &AlertPolicyRoutesCustomGroupModel{
+											ExactMatch: func() types.String {
+												if v, ok := GroupData["exact_match"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											RegexMatch: func() types.String {
+												if v, ok := GroupData["regex_match"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Severity: func() *AlertPolicyRoutesCustomSeverityModel {
+									if SeverityData, ok := CustomData["severity"].(map[string]interface{}); ok {
+										return &AlertPolicyRoutesCustomSeverityModel{
+											ExactMatch: func() types.String {
+												if v, ok := SeverityData["exact_match"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											RegexMatch: func() types.String {
+												if v, ok := SeverityData["regex_match"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
 									}
 									return nil
 								}(),
@@ -1819,13 +2058,16 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].DontSend != nil {
 							return &AlertPolicyEmptyModel{}
 						}
+						if _, ok := itemMap["dont_send"].(map[string]interface{}); ok {
+							return &AlertPolicyEmptyModel{}
+						}
 						return nil
 					}(),
 					Group: func() *AlertPolicyRoutesGroupModel {
-						if nestedMap, ok := itemMap["group"].(map[string]interface{}); ok {
+						if GroupData, ok := itemMap["group"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesGroupModel{
 								Groups: func() types.List {
-									if v, ok := nestedMap["groups"].([]interface{}); ok && len(v) > 0 {
+									if v, ok := GroupData["groups"].([]interface{}); ok && len(v) > 0 {
 										var items []string
 										for _, item := range v {
 											if s, ok := item.(string); ok {
@@ -1842,40 +2084,60 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 						return nil
 					}(),
 					NotificationParameters: func() *AlertPolicyRoutesNotificationParametersModel {
-						if nestedMap, ok := itemMap["notification_parameters"].(map[string]interface{}); ok {
+						if NotificationParametersData, ok := itemMap["notification_parameters"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesNotificationParametersModel{
+								Custom: func() *AlertPolicyRoutesNotificationParametersCustomModel {
+									if CustomData, ok := NotificationParametersData["custom"].(map[string]interface{}); ok {
+										return &AlertPolicyRoutesNotificationParametersCustomModel{
+											Labels: func() types.List {
+												if v, ok := CustomData["labels"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
 								Default: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil && existingRoutesItems[listIdx].NotificationParameters.Default != nil {
+									if _, ok := NotificationParametersData["default"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								GroupInterval: func() types.String {
-									if v, ok := nestedMap["group_interval"].(string); ok && v != "" {
+									if v, ok := NotificationParametersData["group_interval"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								GroupWait: func() types.String {
-									if v, ok := nestedMap["group_wait"].(string); ok && v != "" {
+									if v, ok := NotificationParametersData["group_wait"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Individual: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil && existingRoutesItems[listIdx].NotificationParameters.Individual != nil {
+									if _, ok := NotificationParametersData["individual"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								RepeatInterval: func() types.String {
-									if v, ok := nestedMap["repeat_interval"].(string); ok && v != "" {
+									if v, ok := NotificationParametersData["repeat_interval"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								VesIoGroup: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil && existingRoutesItems[listIdx].NotificationParameters.VesIoGroup != nil {
+									if _, ok := NotificationParametersData["ves_io_group"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
 									}
 									return nil
@@ -1888,13 +2150,16 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Send != nil {
 							return &AlertPolicyEmptyModel{}
 						}
+						if _, ok := itemMap["send"].(map[string]interface{}); ok {
+							return &AlertPolicyEmptyModel{}
+						}
 						return nil
 					}(),
 					Severity: func() *AlertPolicyRoutesSeverityModel {
-						if nestedMap, ok := itemMap["severity"].(map[string]interface{}); ok {
+						if SeverityData, ok := itemMap["severity"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesSeverityModel{
 								Severities: func() types.List {
-									if v, ok := nestedMap["severities"].([]interface{}); ok && len(v) > 0 {
+									if v, ok := SeverityData["severities"].([]interface{}); ok && len(v) > 0 {
 										var items []string
 										for _, item := range v {
 											if s, ok := item.(string); ok {
@@ -1913,27 +2178,24 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AlertPolicyRoutesModelAttrTypes}, routesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AlertPolicyRoutesModelAttrTypes}, RoutesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Routes = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Routes = types.ListNull(types.ObjectType{AttrTypes: AlertPolicyRoutesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["notification_parameters"].(map[string]interface{}); ok && (isImport || data.NotificationParameters != nil) {
 		data.NotificationParameters = &AlertPolicyNotificationParametersModel{
 			Custom: func() *AlertPolicyNotificationParametersCustomModel {
 				if !isImport && data.NotificationParameters != nil && data.NotificationParameters.Custom != nil {
-					// Normal Read: preserve existing state value
 					return data.NotificationParameters.Custom
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["custom"].(map[string]interface{}); ok {
+				if CustomData, ok := blockData["custom"].(map[string]interface{}); ok {
 					return &AlertPolicyNotificationParametersCustomModel{
 						Labels: func() types.List {
-							if v, ok := nestedBlockData["labels"].([]interface{}); ok && len(v) > 0 {
+							if v, ok := CustomData["labels"].([]interface{}); ok && len(v) > 0 {
 								var items []string
 								for _, item := range v {
 									if s, ok := item.(string); ok {
@@ -1951,11 +2213,8 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 			}(),
 			Default: func() *AlertPolicyEmptyModel {
 				if !isImport && data.NotificationParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.NotificationParameters.Default
 				}
-				// Import case: read from API
 				if _, ok := blockData["default"].(map[string]interface{}); ok {
 					return &AlertPolicyEmptyModel{}
 				}
@@ -1975,11 +2234,8 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 			}(),
 			Individual: func() *AlertPolicyEmptyModel {
 				if !isImport && data.NotificationParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.NotificationParameters.Individual
 				}
-				// Import case: read from API
 				if _, ok := blockData["individual"].(map[string]interface{}); ok {
 					return &AlertPolicyEmptyModel{}
 				}
@@ -1993,11 +2249,8 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 			}(),
 			VesIoGroup: func() *AlertPolicyEmptyModel {
 				if !isImport && data.NotificationParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.NotificationParameters.VesIoGroup
 				}
-				// Import case: read from API
 				if _, ok := blockData["ves_io_group"].(map[string]interface{}); ok {
 					return &AlertPolicyEmptyModel{}
 				}

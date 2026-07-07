@@ -1,41 +1,36 @@
 ---
-page_title: "f5xc_sensitive_data_policy Data Source - terraform-provider-f5xc"
+page_title: "xcsh_sensitive_data_policy Data Source - xcsh"
 subcategory: "Security"
 description: |-
   Retrieves information about sensitive_data_policy creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_sensitive_data_policy (Data Source)
+# xcsh_sensitive_data_policy (Data Source)
 
 Manages sensitive_data_policy creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
 
-~> **Note** Please refer to [Sensitive Data Policy API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/data_and_privacy_security/) to learn more.
+~> **Note** Please refer to [Sensitive Data Policy API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/data_and_privacy_security/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# Sensitive Data Policy Data Source Example
-# Retrieves information about an existing Sensitive Data Policy
+# SensitiveDataPolicy Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Sensitive Data Policy by name
-data "f5xc_sensitive_data_policy" "example" {
+# Look up an existing SensitiveDataPolicy by name
+data "xcsh_sensitive_data_policy" "example" {
   name      = "example-sensitive-data-policy"
   namespace = "staging"
-}
-
-output "sensitive_data_policy_id" {
-  value = data.f5xc_sensitive_data_policy.example.id
 }
 ```
 

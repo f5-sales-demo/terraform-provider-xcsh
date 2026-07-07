@@ -21,9 +21,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -506,89 +506,111 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.Rules.IsNull() && !data.Rules.IsUnknown() {
-		var rulesItems []DataTypeRulesModel
-		diags := data.Rules.ElementsAs(ctx, &rulesItems, false)
+		var RulesElems []DataTypeRulesModel
+		diags := data.Rules.ElementsAs(ctx, &RulesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(rulesItems) > 0 {
-			var rulesList []map[string]interface{}
-			for _, item := range rulesItems {
-				itemMap := make(map[string]interface{})
-				if item.KeyPattern != nil {
-					key_patternNestedMap := make(map[string]interface{})
-					if item.KeyPattern.ExactValues != nil {
-						exact_valuesDeepMap := make(map[string]interface{})
-						if !item.KeyPattern.ExactValues.ExactValues.IsNull() && !item.KeyPattern.ExactValues.ExactValues.IsUnknown() {
+		if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
+			var RulesList []map[string]interface{}
+			for _, RulesItem := range RulesElems {
+				RulesItemMap := make(map[string]interface{})
+				if RulesItem.KeyPattern != nil {
+					KeyPatternMap := make(map[string]interface{})
+					if RulesItem.KeyPattern.ExactValues != nil {
+						ExactValuesMap := make(map[string]interface{})
+						if !RulesItem.KeyPattern.ExactValues.ExactValues.IsNull() && !RulesItem.KeyPattern.ExactValues.ExactValues.IsUnknown() {
 							var ExactValuesItems []string
-							diags := item.KeyPattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+							diags := RulesItem.KeyPattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
 							if !diags.HasError() {
-								exact_valuesDeepMap["exact_values"] = ExactValuesItems
+								ExactValuesMap["exact_values"] = ExactValuesItems
 							}
 						}
-						key_patternNestedMap["exact_values"] = exact_valuesDeepMap
+						KeyPatternMap["exact_values"] = ExactValuesMap
 					}
-					if !item.KeyPattern.RegexValue.IsNull() && !item.KeyPattern.RegexValue.IsUnknown() {
-						key_patternNestedMap["regex_value"] = item.KeyPattern.RegexValue.ValueString()
+					if !RulesItem.KeyPattern.RegexValue.IsNull() && !RulesItem.KeyPattern.RegexValue.IsUnknown() {
+						KeyPatternMap["regex_value"] = RulesItem.KeyPattern.RegexValue.ValueString()
 					}
-					if !item.KeyPattern.SubstringValue.IsNull() && !item.KeyPattern.SubstringValue.IsUnknown() {
-						key_patternNestedMap["substring_value"] = item.KeyPattern.SubstringValue.ValueString()
+					if !RulesItem.KeyPattern.SubstringValue.IsNull() && !RulesItem.KeyPattern.SubstringValue.IsUnknown() {
+						KeyPatternMap["substring_value"] = RulesItem.KeyPattern.SubstringValue.ValueString()
 					}
-					itemMap["key_pattern"] = key_patternNestedMap
+					RulesItemMap["key_pattern"] = KeyPatternMap
 				}
-				if item.KeyValuePattern != nil {
-					key_value_patternNestedMap := make(map[string]interface{})
-					if item.KeyValuePattern.KeyPattern != nil {
-						key_patternDeepMap := make(map[string]interface{})
-						if !item.KeyValuePattern.KeyPattern.RegexValue.IsNull() && !item.KeyValuePattern.KeyPattern.RegexValue.IsUnknown() {
-							key_patternDeepMap["regex_value"] = item.KeyValuePattern.KeyPattern.RegexValue.ValueString()
+				if RulesItem.KeyValuePattern != nil {
+					KeyValuePatternMap := make(map[string]interface{})
+					if RulesItem.KeyValuePattern.KeyPattern != nil {
+						KeyPatternMap := make(map[string]interface{})
+						if RulesItem.KeyValuePattern.KeyPattern.ExactValues != nil {
+							ExactValuesMap := make(map[string]interface{})
+							if !RulesItem.KeyValuePattern.KeyPattern.ExactValues.ExactValues.IsNull() && !RulesItem.KeyValuePattern.KeyPattern.ExactValues.ExactValues.IsUnknown() {
+								var ExactValuesItems []string
+								diags := RulesItem.KeyValuePattern.KeyPattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+								if !diags.HasError() {
+									ExactValuesMap["exact_values"] = ExactValuesItems
+								}
+							}
+							KeyPatternMap["exact_values"] = ExactValuesMap
 						}
-						if !item.KeyValuePattern.KeyPattern.SubstringValue.IsNull() && !item.KeyValuePattern.KeyPattern.SubstringValue.IsUnknown() {
-							key_patternDeepMap["substring_value"] = item.KeyValuePattern.KeyPattern.SubstringValue.ValueString()
+						if !RulesItem.KeyValuePattern.KeyPattern.RegexValue.IsNull() && !RulesItem.KeyValuePattern.KeyPattern.RegexValue.IsUnknown() {
+							KeyPatternMap["regex_value"] = RulesItem.KeyValuePattern.KeyPattern.RegexValue.ValueString()
 						}
-						key_value_patternNestedMap["key_pattern"] = key_patternDeepMap
+						if !RulesItem.KeyValuePattern.KeyPattern.SubstringValue.IsNull() && !RulesItem.KeyValuePattern.KeyPattern.SubstringValue.IsUnknown() {
+							KeyPatternMap["substring_value"] = RulesItem.KeyValuePattern.KeyPattern.SubstringValue.ValueString()
+						}
+						KeyValuePatternMap["key_pattern"] = KeyPatternMap
 					}
-					if item.KeyValuePattern.ValuePattern != nil {
-						value_patternDeepMap := make(map[string]interface{})
-						if !item.KeyValuePattern.ValuePattern.RegexValue.IsNull() && !item.KeyValuePattern.ValuePattern.RegexValue.IsUnknown() {
-							value_patternDeepMap["regex_value"] = item.KeyValuePattern.ValuePattern.RegexValue.ValueString()
+					if RulesItem.KeyValuePattern.ValuePattern != nil {
+						ValuePatternMap := make(map[string]interface{})
+						if RulesItem.KeyValuePattern.ValuePattern.ExactValues != nil {
+							ExactValuesMap := make(map[string]interface{})
+							if !RulesItem.KeyValuePattern.ValuePattern.ExactValues.ExactValues.IsNull() && !RulesItem.KeyValuePattern.ValuePattern.ExactValues.ExactValues.IsUnknown() {
+								var ExactValuesItems []string
+								diags := RulesItem.KeyValuePattern.ValuePattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+								if !diags.HasError() {
+									ExactValuesMap["exact_values"] = ExactValuesItems
+								}
+							}
+							ValuePatternMap["exact_values"] = ExactValuesMap
 						}
-						if !item.KeyValuePattern.ValuePattern.SubstringValue.IsNull() && !item.KeyValuePattern.ValuePattern.SubstringValue.IsUnknown() {
-							value_patternDeepMap["substring_value"] = item.KeyValuePattern.ValuePattern.SubstringValue.ValueString()
+						if !RulesItem.KeyValuePattern.ValuePattern.RegexValue.IsNull() && !RulesItem.KeyValuePattern.ValuePattern.RegexValue.IsUnknown() {
+							ValuePatternMap["regex_value"] = RulesItem.KeyValuePattern.ValuePattern.RegexValue.ValueString()
 						}
-						key_value_patternNestedMap["value_pattern"] = value_patternDeepMap
+						if !RulesItem.KeyValuePattern.ValuePattern.SubstringValue.IsNull() && !RulesItem.KeyValuePattern.ValuePattern.SubstringValue.IsUnknown() {
+							ValuePatternMap["substring_value"] = RulesItem.KeyValuePattern.ValuePattern.SubstringValue.ValueString()
+						}
+						KeyValuePatternMap["value_pattern"] = ValuePatternMap
 					}
-					itemMap["key_value_pattern"] = key_value_patternNestedMap
+					RulesItemMap["key_value_pattern"] = KeyValuePatternMap
 				}
-				if item.ValuePattern != nil {
-					value_patternNestedMap := make(map[string]interface{})
-					if item.ValuePattern.ExactValues != nil {
-						exact_valuesDeepMap := make(map[string]interface{})
-						if !item.ValuePattern.ExactValues.ExactValues.IsNull() && !item.ValuePattern.ExactValues.ExactValues.IsUnknown() {
+				if RulesItem.ValuePattern != nil {
+					ValuePatternMap := make(map[string]interface{})
+					if RulesItem.ValuePattern.ExactValues != nil {
+						ExactValuesMap := make(map[string]interface{})
+						if !RulesItem.ValuePattern.ExactValues.ExactValues.IsNull() && !RulesItem.ValuePattern.ExactValues.ExactValues.IsUnknown() {
 							var ExactValuesItems []string
-							diags := item.ValuePattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+							diags := RulesItem.ValuePattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
 							if !diags.HasError() {
-								exact_valuesDeepMap["exact_values"] = ExactValuesItems
+								ExactValuesMap["exact_values"] = ExactValuesItems
 							}
 						}
-						value_patternNestedMap["exact_values"] = exact_valuesDeepMap
+						ValuePatternMap["exact_values"] = ExactValuesMap
 					}
-					if !item.ValuePattern.RegexValue.IsNull() && !item.ValuePattern.RegexValue.IsUnknown() {
-						value_patternNestedMap["regex_value"] = item.ValuePattern.RegexValue.ValueString()
+					if !RulesItem.ValuePattern.RegexValue.IsNull() && !RulesItem.ValuePattern.RegexValue.IsUnknown() {
+						ValuePatternMap["regex_value"] = RulesItem.ValuePattern.RegexValue.ValueString()
 					}
-					if !item.ValuePattern.SubstringValue.IsNull() && !item.ValuePattern.SubstringValue.IsUnknown() {
-						value_patternNestedMap["substring_value"] = item.ValuePattern.SubstringValue.ValueString()
+					if !RulesItem.ValuePattern.SubstringValue.IsNull() && !RulesItem.ValuePattern.SubstringValue.IsUnknown() {
+						ValuePatternMap["substring_value"] = RulesItem.ValuePattern.SubstringValue.ValueString()
 					}
-					itemMap["value_pattern"] = value_patternNestedMap
+					RulesItemMap["value_pattern"] = ValuePatternMap
 				}
-				rulesList = append(rulesList, itemMap)
+				RulesList = append(RulesList, RulesItemMap)
 			}
-			createReq.Spec["rules"] = rulesList
+			createReq.Spec["rules"] = RulesList
 		}
 	}
 	if !data.Compliances.IsNull() && !data.Compliances.IsUnknown() {
-		var compliancesList []string
-		resp.Diagnostics.Append(data.Compliances.ElementsAs(ctx, &compliancesList, false)...)
-		if !resp.Diagnostics.HasError() {
-			createReq.Spec["compliances"] = compliancesList
+		var CompliancesItems []string
+		diags := data.Compliances.ElementsAs(ctx, &CompliancesItems, false)
+		if !diags.HasError() {
+			createReq.Spec["compliances"] = CompliancesItems
 		}
 	}
 	if !data.IsPII.IsNull() && !data.IsPII.IsUnknown() {
@@ -610,27 +632,49 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["rules"].([]interface{}); ok && len(listData) > 0 {
-		var rulesList []DataTypeRulesModel
+	if !isImport && (data.Rules.IsNull() || len(data.Rules.Elements()) == 0) {
+		data.Rules = types.ListNull(types.ObjectType{AttrTypes: DataTypeRulesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["rules"].([]interface{}); ok && len(listData) > 0 {
+		var RulesList []DataTypeRulesModel
 		var existingRulesItems []DataTypeRulesModel
 		if !data.Rules.IsNull() && !data.Rules.IsUnknown() {
 			data.Rules.ElementsAs(ctx, &existingRulesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				rulesList = append(rulesList, DataTypeRulesModel{
+				RulesList = append(RulesList, DataTypeRulesModel{
 					KeyPattern: func() *DataTypeRulesKeyPatternModel {
-						if nestedMap, ok := itemMap["key_pattern"].(map[string]interface{}); ok {
+						if KeyPatternData, ok := itemMap["key_pattern"].(map[string]interface{}); ok {
 							return &DataTypeRulesKeyPatternModel{
+								ExactValues: func() *DataTypeRulesKeyPatternExactValuesModel {
+									if ExactValuesData, ok := KeyPatternData["exact_values"].(map[string]interface{}); ok {
+										return &DataTypeRulesKeyPatternExactValuesModel{
+											ExactValues: func() types.List {
+												if v, ok := ExactValuesData["exact_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
 								RegexValue: func() types.String {
-									if v, ok := nestedMap["regex_value"].(string); ok && v != "" {
+									if v, ok := KeyPatternData["regex_value"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								SubstringValue: func() types.String {
-									if v, ok := nestedMap["substring_value"].(string); ok && v != "" {
+									if v, ok := KeyPatternData["substring_value"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -640,22 +684,121 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 						return nil
 					}(),
 					KeyValuePattern: func() *DataTypeRulesKeyValuePatternModel {
-						if _, ok := itemMap["key_value_pattern"].(map[string]interface{}); ok {
-							return &DataTypeRulesKeyValuePatternModel{}
+						if KeyValuePatternData, ok := itemMap["key_value_pattern"].(map[string]interface{}); ok {
+							return &DataTypeRulesKeyValuePatternModel{
+								KeyPattern: func() *DataTypeRulesKeyValuePatternKeyPatternModel {
+									if KeyPatternData, ok := KeyValuePatternData["key_pattern"].(map[string]interface{}); ok {
+										return &DataTypeRulesKeyValuePatternKeyPatternModel{
+											ExactValues: func() *DataTypeRulesKeyValuePatternKeyPatternExactValuesModel {
+												if ExactValuesData, ok := KeyPatternData["exact_values"].(map[string]interface{}); ok {
+													return &DataTypeRulesKeyValuePatternKeyPatternExactValuesModel{
+														ExactValues: func() types.List {
+															if v, ok := ExactValuesData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											RegexValue: func() types.String {
+												if v, ok := KeyPatternData["regex_value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											SubstringValue: func() types.String {
+												if v, ok := KeyPatternData["substring_value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								ValuePattern: func() *DataTypeRulesKeyValuePatternValuePatternModel {
+									if ValuePatternData, ok := KeyValuePatternData["value_pattern"].(map[string]interface{}); ok {
+										return &DataTypeRulesKeyValuePatternValuePatternModel{
+											ExactValues: func() *DataTypeRulesKeyValuePatternValuePatternExactValuesModel {
+												if ExactValuesData, ok := ValuePatternData["exact_values"].(map[string]interface{}); ok {
+													return &DataTypeRulesKeyValuePatternValuePatternExactValuesModel{
+														ExactValues: func() types.List {
+															if v, ok := ExactValuesData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											RegexValue: func() types.String {
+												if v, ok := ValuePatternData["regex_value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											SubstringValue: func() types.String {
+												if v, ok := ValuePatternData["substring_value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+							}
 						}
 						return nil
 					}(),
 					ValuePattern: func() *DataTypeRulesValuePatternModel {
-						if nestedMap, ok := itemMap["value_pattern"].(map[string]interface{}); ok {
+						if ValuePatternData, ok := itemMap["value_pattern"].(map[string]interface{}); ok {
 							return &DataTypeRulesValuePatternModel{
+								ExactValues: func() *DataTypeRulesValuePatternExactValuesModel {
+									if ExactValuesData, ok := ValuePatternData["exact_values"].(map[string]interface{}); ok {
+										return &DataTypeRulesValuePatternExactValuesModel{
+											ExactValues: func() types.List {
+												if v, ok := ExactValuesData["exact_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
 								RegexValue: func() types.String {
-									if v, ok := nestedMap["regex_value"].(string); ok && v != "" {
+									if v, ok := ValuePatternData["regex_value"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								SubstringValue: func() types.String {
-									if v, ok := nestedMap["substring_value"].(string); ok && v != "" {
+									if v, ok := ValuePatternData["substring_value"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -667,13 +810,12 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DataTypeRulesModelAttrTypes}, rulesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DataTypeRulesModelAttrTypes}, RulesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: DataTypeRulesModelAttrTypes})
 	}
 	if v, ok := apiResource.Spec["compliances"].([]interface{}); ok && len(v) > 0 {
@@ -781,27 +923,49 @@ func (r *DataTypeResource) Read(ctx context.Context, req resource.ReadRequest, r
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["rules"].([]interface{}); ok && len(listData) > 0 {
-		var rulesList []DataTypeRulesModel
+	if !isImport && (data.Rules.IsNull() || len(data.Rules.Elements()) == 0) {
+		data.Rules = types.ListNull(types.ObjectType{AttrTypes: DataTypeRulesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["rules"].([]interface{}); ok && len(listData) > 0 {
+		var RulesList []DataTypeRulesModel
 		var existingRulesItems []DataTypeRulesModel
 		if !data.Rules.IsNull() && !data.Rules.IsUnknown() {
 			data.Rules.ElementsAs(ctx, &existingRulesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				rulesList = append(rulesList, DataTypeRulesModel{
+				RulesList = append(RulesList, DataTypeRulesModel{
 					KeyPattern: func() *DataTypeRulesKeyPatternModel {
-						if nestedMap, ok := itemMap["key_pattern"].(map[string]interface{}); ok {
+						if KeyPatternData, ok := itemMap["key_pattern"].(map[string]interface{}); ok {
 							return &DataTypeRulesKeyPatternModel{
+								ExactValues: func() *DataTypeRulesKeyPatternExactValuesModel {
+									if ExactValuesData, ok := KeyPatternData["exact_values"].(map[string]interface{}); ok {
+										return &DataTypeRulesKeyPatternExactValuesModel{
+											ExactValues: func() types.List {
+												if v, ok := ExactValuesData["exact_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
 								RegexValue: func() types.String {
-									if v, ok := nestedMap["regex_value"].(string); ok && v != "" {
+									if v, ok := KeyPatternData["regex_value"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								SubstringValue: func() types.String {
-									if v, ok := nestedMap["substring_value"].(string); ok && v != "" {
+									if v, ok := KeyPatternData["substring_value"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -811,22 +975,121 @@ func (r *DataTypeResource) Read(ctx context.Context, req resource.ReadRequest, r
 						return nil
 					}(),
 					KeyValuePattern: func() *DataTypeRulesKeyValuePatternModel {
-						if _, ok := itemMap["key_value_pattern"].(map[string]interface{}); ok {
-							return &DataTypeRulesKeyValuePatternModel{}
+						if KeyValuePatternData, ok := itemMap["key_value_pattern"].(map[string]interface{}); ok {
+							return &DataTypeRulesKeyValuePatternModel{
+								KeyPattern: func() *DataTypeRulesKeyValuePatternKeyPatternModel {
+									if KeyPatternData, ok := KeyValuePatternData["key_pattern"].(map[string]interface{}); ok {
+										return &DataTypeRulesKeyValuePatternKeyPatternModel{
+											ExactValues: func() *DataTypeRulesKeyValuePatternKeyPatternExactValuesModel {
+												if ExactValuesData, ok := KeyPatternData["exact_values"].(map[string]interface{}); ok {
+													return &DataTypeRulesKeyValuePatternKeyPatternExactValuesModel{
+														ExactValues: func() types.List {
+															if v, ok := ExactValuesData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											RegexValue: func() types.String {
+												if v, ok := KeyPatternData["regex_value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											SubstringValue: func() types.String {
+												if v, ok := KeyPatternData["substring_value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								ValuePattern: func() *DataTypeRulesKeyValuePatternValuePatternModel {
+									if ValuePatternData, ok := KeyValuePatternData["value_pattern"].(map[string]interface{}); ok {
+										return &DataTypeRulesKeyValuePatternValuePatternModel{
+											ExactValues: func() *DataTypeRulesKeyValuePatternValuePatternExactValuesModel {
+												if ExactValuesData, ok := ValuePatternData["exact_values"].(map[string]interface{}); ok {
+													return &DataTypeRulesKeyValuePatternValuePatternExactValuesModel{
+														ExactValues: func() types.List {
+															if v, ok := ExactValuesData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											RegexValue: func() types.String {
+												if v, ok := ValuePatternData["regex_value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											SubstringValue: func() types.String {
+												if v, ok := ValuePatternData["substring_value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+							}
 						}
 						return nil
 					}(),
 					ValuePattern: func() *DataTypeRulesValuePatternModel {
-						if nestedMap, ok := itemMap["value_pattern"].(map[string]interface{}); ok {
+						if ValuePatternData, ok := itemMap["value_pattern"].(map[string]interface{}); ok {
 							return &DataTypeRulesValuePatternModel{
+								ExactValues: func() *DataTypeRulesValuePatternExactValuesModel {
+									if ExactValuesData, ok := ValuePatternData["exact_values"].(map[string]interface{}); ok {
+										return &DataTypeRulesValuePatternExactValuesModel{
+											ExactValues: func() types.List {
+												if v, ok := ExactValuesData["exact_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
 								RegexValue: func() types.String {
-									if v, ok := nestedMap["regex_value"].(string); ok && v != "" {
+									if v, ok := ValuePatternData["regex_value"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								SubstringValue: func() types.String {
-									if v, ok := nestedMap["substring_value"].(string); ok && v != "" {
+									if v, ok := ValuePatternData["substring_value"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -838,13 +1101,12 @@ func (r *DataTypeResource) Read(ctx context.Context, req resource.ReadRequest, r
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DataTypeRulesModelAttrTypes}, rulesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DataTypeRulesModelAttrTypes}, RulesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: DataTypeRulesModelAttrTypes})
 	}
 	if v, ok := apiResource.Spec["compliances"].([]interface{}); ok && len(v) > 0 {
@@ -871,6 +1133,14 @@ func (r *DataTypeResource) Read(ctx context.Context, req resource.ReadRequest, r
 		data.IsSensitiveData = types.BoolValue(v)
 	} else {
 		data.IsSensitiveData = types.BoolNull()
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -924,89 +1194,111 @@ func (r *DataTypeResource) Update(ctx context.Context, req resource.UpdateReques
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.Rules.IsNull() && !data.Rules.IsUnknown() {
-		var rulesItems []DataTypeRulesModel
-		diags := data.Rules.ElementsAs(ctx, &rulesItems, false)
+		var RulesElems []DataTypeRulesModel
+		diags := data.Rules.ElementsAs(ctx, &RulesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(rulesItems) > 0 {
-			var rulesList []map[string]interface{}
-			for _, item := range rulesItems {
-				itemMap := make(map[string]interface{})
-				if item.KeyPattern != nil {
-					key_patternNestedMap := make(map[string]interface{})
-					if item.KeyPattern.ExactValues != nil {
-						exact_valuesDeepMap := make(map[string]interface{})
-						if !item.KeyPattern.ExactValues.ExactValues.IsNull() && !item.KeyPattern.ExactValues.ExactValues.IsUnknown() {
+		if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
+			var RulesList []map[string]interface{}
+			for _, RulesItem := range RulesElems {
+				RulesItemMap := make(map[string]interface{})
+				if RulesItem.KeyPattern != nil {
+					KeyPatternMap := make(map[string]interface{})
+					if RulesItem.KeyPattern.ExactValues != nil {
+						ExactValuesMap := make(map[string]interface{})
+						if !RulesItem.KeyPattern.ExactValues.ExactValues.IsNull() && !RulesItem.KeyPattern.ExactValues.ExactValues.IsUnknown() {
 							var ExactValuesItems []string
-							diags := item.KeyPattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+							diags := RulesItem.KeyPattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
 							if !diags.HasError() {
-								exact_valuesDeepMap["exact_values"] = ExactValuesItems
+								ExactValuesMap["exact_values"] = ExactValuesItems
 							}
 						}
-						key_patternNestedMap["exact_values"] = exact_valuesDeepMap
+						KeyPatternMap["exact_values"] = ExactValuesMap
 					}
-					if !item.KeyPattern.RegexValue.IsNull() && !item.KeyPattern.RegexValue.IsUnknown() {
-						key_patternNestedMap["regex_value"] = item.KeyPattern.RegexValue.ValueString()
+					if !RulesItem.KeyPattern.RegexValue.IsNull() && !RulesItem.KeyPattern.RegexValue.IsUnknown() {
+						KeyPatternMap["regex_value"] = RulesItem.KeyPattern.RegexValue.ValueString()
 					}
-					if !item.KeyPattern.SubstringValue.IsNull() && !item.KeyPattern.SubstringValue.IsUnknown() {
-						key_patternNestedMap["substring_value"] = item.KeyPattern.SubstringValue.ValueString()
+					if !RulesItem.KeyPattern.SubstringValue.IsNull() && !RulesItem.KeyPattern.SubstringValue.IsUnknown() {
+						KeyPatternMap["substring_value"] = RulesItem.KeyPattern.SubstringValue.ValueString()
 					}
-					itemMap["key_pattern"] = key_patternNestedMap
+					RulesItemMap["key_pattern"] = KeyPatternMap
 				}
-				if item.KeyValuePattern != nil {
-					key_value_patternNestedMap := make(map[string]interface{})
-					if item.KeyValuePattern.KeyPattern != nil {
-						key_patternDeepMap := make(map[string]interface{})
-						if !item.KeyValuePattern.KeyPattern.RegexValue.IsNull() && !item.KeyValuePattern.KeyPattern.RegexValue.IsUnknown() {
-							key_patternDeepMap["regex_value"] = item.KeyValuePattern.KeyPattern.RegexValue.ValueString()
+				if RulesItem.KeyValuePattern != nil {
+					KeyValuePatternMap := make(map[string]interface{})
+					if RulesItem.KeyValuePattern.KeyPattern != nil {
+						KeyPatternMap := make(map[string]interface{})
+						if RulesItem.KeyValuePattern.KeyPattern.ExactValues != nil {
+							ExactValuesMap := make(map[string]interface{})
+							if !RulesItem.KeyValuePattern.KeyPattern.ExactValues.ExactValues.IsNull() && !RulesItem.KeyValuePattern.KeyPattern.ExactValues.ExactValues.IsUnknown() {
+								var ExactValuesItems []string
+								diags := RulesItem.KeyValuePattern.KeyPattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+								if !diags.HasError() {
+									ExactValuesMap["exact_values"] = ExactValuesItems
+								}
+							}
+							KeyPatternMap["exact_values"] = ExactValuesMap
 						}
-						if !item.KeyValuePattern.KeyPattern.SubstringValue.IsNull() && !item.KeyValuePattern.KeyPattern.SubstringValue.IsUnknown() {
-							key_patternDeepMap["substring_value"] = item.KeyValuePattern.KeyPattern.SubstringValue.ValueString()
+						if !RulesItem.KeyValuePattern.KeyPattern.RegexValue.IsNull() && !RulesItem.KeyValuePattern.KeyPattern.RegexValue.IsUnknown() {
+							KeyPatternMap["regex_value"] = RulesItem.KeyValuePattern.KeyPattern.RegexValue.ValueString()
 						}
-						key_value_patternNestedMap["key_pattern"] = key_patternDeepMap
+						if !RulesItem.KeyValuePattern.KeyPattern.SubstringValue.IsNull() && !RulesItem.KeyValuePattern.KeyPattern.SubstringValue.IsUnknown() {
+							KeyPatternMap["substring_value"] = RulesItem.KeyValuePattern.KeyPattern.SubstringValue.ValueString()
+						}
+						KeyValuePatternMap["key_pattern"] = KeyPatternMap
 					}
-					if item.KeyValuePattern.ValuePattern != nil {
-						value_patternDeepMap := make(map[string]interface{})
-						if !item.KeyValuePattern.ValuePattern.RegexValue.IsNull() && !item.KeyValuePattern.ValuePattern.RegexValue.IsUnknown() {
-							value_patternDeepMap["regex_value"] = item.KeyValuePattern.ValuePattern.RegexValue.ValueString()
+					if RulesItem.KeyValuePattern.ValuePattern != nil {
+						ValuePatternMap := make(map[string]interface{})
+						if RulesItem.KeyValuePattern.ValuePattern.ExactValues != nil {
+							ExactValuesMap := make(map[string]interface{})
+							if !RulesItem.KeyValuePattern.ValuePattern.ExactValues.ExactValues.IsNull() && !RulesItem.KeyValuePattern.ValuePattern.ExactValues.ExactValues.IsUnknown() {
+								var ExactValuesItems []string
+								diags := RulesItem.KeyValuePattern.ValuePattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+								if !diags.HasError() {
+									ExactValuesMap["exact_values"] = ExactValuesItems
+								}
+							}
+							ValuePatternMap["exact_values"] = ExactValuesMap
 						}
-						if !item.KeyValuePattern.ValuePattern.SubstringValue.IsNull() && !item.KeyValuePattern.ValuePattern.SubstringValue.IsUnknown() {
-							value_patternDeepMap["substring_value"] = item.KeyValuePattern.ValuePattern.SubstringValue.ValueString()
+						if !RulesItem.KeyValuePattern.ValuePattern.RegexValue.IsNull() && !RulesItem.KeyValuePattern.ValuePattern.RegexValue.IsUnknown() {
+							ValuePatternMap["regex_value"] = RulesItem.KeyValuePattern.ValuePattern.RegexValue.ValueString()
 						}
-						key_value_patternNestedMap["value_pattern"] = value_patternDeepMap
+						if !RulesItem.KeyValuePattern.ValuePattern.SubstringValue.IsNull() && !RulesItem.KeyValuePattern.ValuePattern.SubstringValue.IsUnknown() {
+							ValuePatternMap["substring_value"] = RulesItem.KeyValuePattern.ValuePattern.SubstringValue.ValueString()
+						}
+						KeyValuePatternMap["value_pattern"] = ValuePatternMap
 					}
-					itemMap["key_value_pattern"] = key_value_patternNestedMap
+					RulesItemMap["key_value_pattern"] = KeyValuePatternMap
 				}
-				if item.ValuePattern != nil {
-					value_patternNestedMap := make(map[string]interface{})
-					if item.ValuePattern.ExactValues != nil {
-						exact_valuesDeepMap := make(map[string]interface{})
-						if !item.ValuePattern.ExactValues.ExactValues.IsNull() && !item.ValuePattern.ExactValues.ExactValues.IsUnknown() {
+				if RulesItem.ValuePattern != nil {
+					ValuePatternMap := make(map[string]interface{})
+					if RulesItem.ValuePattern.ExactValues != nil {
+						ExactValuesMap := make(map[string]interface{})
+						if !RulesItem.ValuePattern.ExactValues.ExactValues.IsNull() && !RulesItem.ValuePattern.ExactValues.ExactValues.IsUnknown() {
 							var ExactValuesItems []string
-							diags := item.ValuePattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+							diags := RulesItem.ValuePattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
 							if !diags.HasError() {
-								exact_valuesDeepMap["exact_values"] = ExactValuesItems
+								ExactValuesMap["exact_values"] = ExactValuesItems
 							}
 						}
-						value_patternNestedMap["exact_values"] = exact_valuesDeepMap
+						ValuePatternMap["exact_values"] = ExactValuesMap
 					}
-					if !item.ValuePattern.RegexValue.IsNull() && !item.ValuePattern.RegexValue.IsUnknown() {
-						value_patternNestedMap["regex_value"] = item.ValuePattern.RegexValue.ValueString()
+					if !RulesItem.ValuePattern.RegexValue.IsNull() && !RulesItem.ValuePattern.RegexValue.IsUnknown() {
+						ValuePatternMap["regex_value"] = RulesItem.ValuePattern.RegexValue.ValueString()
 					}
-					if !item.ValuePattern.SubstringValue.IsNull() && !item.ValuePattern.SubstringValue.IsUnknown() {
-						value_patternNestedMap["substring_value"] = item.ValuePattern.SubstringValue.ValueString()
+					if !RulesItem.ValuePattern.SubstringValue.IsNull() && !RulesItem.ValuePattern.SubstringValue.IsUnknown() {
+						ValuePatternMap["substring_value"] = RulesItem.ValuePattern.SubstringValue.ValueString()
 					}
-					itemMap["value_pattern"] = value_patternNestedMap
+					RulesItemMap["value_pattern"] = ValuePatternMap
 				}
-				rulesList = append(rulesList, itemMap)
+				RulesList = append(RulesList, RulesItemMap)
 			}
-			apiResource.Spec["rules"] = rulesList
+			apiResource.Spec["rules"] = RulesList
 		}
 	}
 	if !data.Compliances.IsNull() && !data.Compliances.IsUnknown() {
-		var compliancesList []string
-		resp.Diagnostics.Append(data.Compliances.ElementsAs(ctx, &compliancesList, false)...)
-		if !resp.Diagnostics.HasError() {
-			apiResource.Spec["compliances"] = compliancesList
+		var CompliancesItems []string
+		diags := data.Compliances.ElementsAs(ctx, &CompliancesItems, false)
+		if !diags.HasError() {
+			apiResource.Spec["compliances"] = CompliancesItems
 		}
 	}
 	if !data.IsPII.IsNull() && !data.IsPII.IsUnknown() {
@@ -1039,27 +1331,49 @@ func (r *DataTypeResource) Update(ctx context.Context, req resource.UpdateReques
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["rules"].([]interface{}); ok && len(listData) > 0 {
-		var rulesList []DataTypeRulesModel
+	if !isImport && (data.Rules.IsNull() || len(data.Rules.Elements()) == 0) {
+		data.Rules = types.ListNull(types.ObjectType{AttrTypes: DataTypeRulesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["rules"].([]interface{}); ok && len(listData) > 0 {
+		var RulesList []DataTypeRulesModel
 		var existingRulesItems []DataTypeRulesModel
 		if !data.Rules.IsNull() && !data.Rules.IsUnknown() {
 			data.Rules.ElementsAs(ctx, &existingRulesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				rulesList = append(rulesList, DataTypeRulesModel{
+				RulesList = append(RulesList, DataTypeRulesModel{
 					KeyPattern: func() *DataTypeRulesKeyPatternModel {
-						if nestedMap, ok := itemMap["key_pattern"].(map[string]interface{}); ok {
+						if KeyPatternData, ok := itemMap["key_pattern"].(map[string]interface{}); ok {
 							return &DataTypeRulesKeyPatternModel{
+								ExactValues: func() *DataTypeRulesKeyPatternExactValuesModel {
+									if ExactValuesData, ok := KeyPatternData["exact_values"].(map[string]interface{}); ok {
+										return &DataTypeRulesKeyPatternExactValuesModel{
+											ExactValues: func() types.List {
+												if v, ok := ExactValuesData["exact_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
 								RegexValue: func() types.String {
-									if v, ok := nestedMap["regex_value"].(string); ok && v != "" {
+									if v, ok := KeyPatternData["regex_value"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								SubstringValue: func() types.String {
-									if v, ok := nestedMap["substring_value"].(string); ok && v != "" {
+									if v, ok := KeyPatternData["substring_value"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -1069,22 +1383,121 @@ func (r *DataTypeResource) Update(ctx context.Context, req resource.UpdateReques
 						return nil
 					}(),
 					KeyValuePattern: func() *DataTypeRulesKeyValuePatternModel {
-						if _, ok := itemMap["key_value_pattern"].(map[string]interface{}); ok {
-							return &DataTypeRulesKeyValuePatternModel{}
+						if KeyValuePatternData, ok := itemMap["key_value_pattern"].(map[string]interface{}); ok {
+							return &DataTypeRulesKeyValuePatternModel{
+								KeyPattern: func() *DataTypeRulesKeyValuePatternKeyPatternModel {
+									if KeyPatternData, ok := KeyValuePatternData["key_pattern"].(map[string]interface{}); ok {
+										return &DataTypeRulesKeyValuePatternKeyPatternModel{
+											ExactValues: func() *DataTypeRulesKeyValuePatternKeyPatternExactValuesModel {
+												if ExactValuesData, ok := KeyPatternData["exact_values"].(map[string]interface{}); ok {
+													return &DataTypeRulesKeyValuePatternKeyPatternExactValuesModel{
+														ExactValues: func() types.List {
+															if v, ok := ExactValuesData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											RegexValue: func() types.String {
+												if v, ok := KeyPatternData["regex_value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											SubstringValue: func() types.String {
+												if v, ok := KeyPatternData["substring_value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								ValuePattern: func() *DataTypeRulesKeyValuePatternValuePatternModel {
+									if ValuePatternData, ok := KeyValuePatternData["value_pattern"].(map[string]interface{}); ok {
+										return &DataTypeRulesKeyValuePatternValuePatternModel{
+											ExactValues: func() *DataTypeRulesKeyValuePatternValuePatternExactValuesModel {
+												if ExactValuesData, ok := ValuePatternData["exact_values"].(map[string]interface{}); ok {
+													return &DataTypeRulesKeyValuePatternValuePatternExactValuesModel{
+														ExactValues: func() types.List {
+															if v, ok := ExactValuesData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											RegexValue: func() types.String {
+												if v, ok := ValuePatternData["regex_value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											SubstringValue: func() types.String {
+												if v, ok := ValuePatternData["substring_value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+							}
 						}
 						return nil
 					}(),
 					ValuePattern: func() *DataTypeRulesValuePatternModel {
-						if nestedMap, ok := itemMap["value_pattern"].(map[string]interface{}); ok {
+						if ValuePatternData, ok := itemMap["value_pattern"].(map[string]interface{}); ok {
 							return &DataTypeRulesValuePatternModel{
+								ExactValues: func() *DataTypeRulesValuePatternExactValuesModel {
+									if ExactValuesData, ok := ValuePatternData["exact_values"].(map[string]interface{}); ok {
+										return &DataTypeRulesValuePatternExactValuesModel{
+											ExactValues: func() types.List {
+												if v, ok := ExactValuesData["exact_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
 								RegexValue: func() types.String {
-									if v, ok := nestedMap["regex_value"].(string); ok && v != "" {
+									if v, ok := ValuePatternData["regex_value"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								SubstringValue: func() types.String {
-									if v, ok := nestedMap["substring_value"].(string); ok && v != "" {
+									if v, ok := ValuePatternData["substring_value"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -1096,13 +1509,12 @@ func (r *DataTypeResource) Update(ctx context.Context, req resource.UpdateReques
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DataTypeRulesModelAttrTypes}, rulesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DataTypeRulesModelAttrTypes}, RulesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: DataTypeRulesModelAttrTypes})
 	}
 	if v, ok := apiResource.Spec["compliances"].([]interface{}); ok && len(v) > 0 {

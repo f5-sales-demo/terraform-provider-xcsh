@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_cloud_link Resource - terraform-provider-f5xc"
+page_title: "xcsh_cloud_link Resource - xcsh"
 subcategory: "Networking"
 description: |-
   Manages new CloudLink with configured parameters. in F5 Distributed Cloud.
 ---
 
-# f5xc_cloud_link (Resource)
+# xcsh_cloud_link (Resource)
 
 Manages new CloudLink with configured parameters. in F5 Distributed Cloud.
 
@@ -14,47 +14,24 @@ Manages new CloudLink with configured parameters. in F5 Distributed Cloud.
 ## Example Usage
 
 ```terraform
-# Cloud Link Resource Example
-# Manages new CloudLink with configured parameters. in F5 Distributed Cloud.
+# CloudLink Resource Example
+# Manages new CloudLink with configured parameters.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Cloud Link configuration
-resource "f5xc_cloud_link" "example" {
+# Basic CloudLink configuration
+resource "xcsh_cloud_link" "example" {
   name      = "example-cloud-link"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # [OneOf: aws, gcp] Amazon Web Services(AWS) CloudLink Prov...
-  aws {
-    # Configure aws settings
-  }
-  # Type establishes a direct reference from one object(the r...
-  aws_cred {
-    # Configure aws_cred settings
-  }
-  # Bring Your Own Connections. List of Bring You Own Connect...
-  byoc {
-    # Configure byoc settings
-  }
 }
 ```
 
@@ -339,5 +316,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_cloud_link.example system/example
+terraform import xcsh_cloud_link.example system/example
 ```

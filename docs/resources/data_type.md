@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_data_type Resource - terraform-provider-f5xc"
+page_title: "xcsh_data_type Resource - xcsh"
 subcategory: "Security"
 description: |-
   Manages data_type creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_data_type (Resource)
+# xcsh_data_type (Resource)
 
 Manages data_type creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.
 
@@ -14,47 +14,28 @@ Manages data_type creates a new object in the storage backend for metadata.names
 ## Example Usage
 
 ```terraform
-# Data Type Resource Example
-# Manages data_type creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.
+# DataType Resource Example
+# Manages data_type creates a new object in the storage backend for metadata.namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Data Type configuration
-resource "f5xc_data_type" "example" {
+# Basic DataType configuration
+resource "xcsh_data_type" "example" {
   name      = "example-data-type"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # Configure key/value or regex match rules to enable the pl...
-  rules {
-    # Configure rules settings
-  }
-  # Configuration parameter for key pattern.
-  key_pattern {
-    # Configure key_pattern settings
-  }
-  # Configuration parameter for exact values.
-  exact_values {
-    # Configure exact_values settings
-  }
+  compliances       = ["example-value"]
+  is_pii            = true
+  is_sensitive_data = true
 }
 ```
 
@@ -279,5 +260,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_data_type.example system/example
+terraform import xcsh_data_type.example system/example
 ```

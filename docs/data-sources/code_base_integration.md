@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_code_base_integration Data Source - terraform-provider-f5xc"
+page_title: "xcsh_code_base_integration Data Source - xcsh"
 subcategory: "Integrations"
 description: |-
   Retrieves information about integration details. in F5 Distributed Cloud.
 ---
 
-# f5xc_code_base_integration (Data Source)
+# xcsh_code_base_integration (Data Source)
 
 Manages integration details. in F5 Distributed Cloud. This is a read-only data source.
 
@@ -14,28 +14,23 @@ Manages integration details. in F5 Distributed Cloud. This is a read-only data s
 ## Example Usage
 
 ```terraform
-# codebase Integration Data Source Example
-# Retrieves information about an existing codebase Integration
+# CodeBaseIntegration Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing codebase Integration by name
-data "f5xc_code_base_integration" "example" {
+# Look up an existing CodeBaseIntegration by name
+data "xcsh_code_base_integration" "example" {
   name      = "example-code-base-integration"
   namespace = "staging"
-}
-
-output "code_base_integration_id" {
-  value = data.f5xc_code_base_integration.example.id
 }
 ```
 

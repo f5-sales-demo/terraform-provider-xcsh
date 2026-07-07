@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_app_api_group Resource - terraform-provider-f5xc"
+page_title: "xcsh_app_api_group Resource - xcsh"
 subcategory: "API Security"
 description: |-
   Manages app_api_group creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_app_api_group (Resource)
+# xcsh_app_api_group (Resource)
 
 Manages app_api_group creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.
 
@@ -14,47 +14,24 @@ Manages app_api_group creates a new object in the storage backend for metadata.n
 ## Example Usage
 
 ```terraform
-# App API Group Resource Example
-# Manages app_api_group creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.
+# AppAPIGroup Resource Example
+# Manages app_api_group creates a new object in the storage backend for metadata.namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic App API Group configuration
-resource "f5xc_app_api_group" "example" {
+# Basic AppAPIGroup configuration
+resource "xcsh_app_api_group" "example" {
   name      = "example-app-api-group"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # List of API group elements with methods and path regex fo...
-  elements {
-    # Configure elements settings
-  }
-  # [OneOf: bigip_virtual_server, cdn_loadbalancer, http_load...
-  bigip_virtual_server {
-    # Configure bigip_virtual_server settings
-  }
-  # Set the scope of the API Group to a specific CDN Loadbala...
-  cdn_loadbalancer {
-    # Configure cdn_loadbalancer settings
-  }
+  namespace = "system"
 }
 ```
 
@@ -69,8 +46,6 @@ resource "f5xc_app_api_group" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the App API Group. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the App API Group will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -78,6 +53,8 @@ resource "f5xc_app_api_group" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the App API Group. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -255,5 +232,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_app_api_group.example system/example
+terraform import xcsh_app_api_group.example system/example
 ```

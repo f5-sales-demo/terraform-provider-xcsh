@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_virtual_host Resource - terraform-provider-f5xc"
+page_title: "xcsh_virtual_host Resource - xcsh"
 subcategory: "Load Balancing"
 description: |-
   Manages virtual host in a given namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_virtual_host (Resource)
+# xcsh_virtual_host (Resource)
 
 Manages virtual host in a given namespace. in F5 Distributed Cloud.
 
@@ -14,46 +14,37 @@ Manages virtual host in a given namespace. in F5 Distributed Cloud.
 ## Example Usage
 
 ```terraform
-# Virtual Host Resource Example
-# Manages virtual host in a given namespace. in F5 Distributed Cloud.
+# VirtualHost Resource Example
+# Manages virtual host in a given namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Virtual Host configuration
-resource "f5xc_virtual_host" "example" {
+# Basic VirtualHost configuration
+resource "xcsh_virtual_host" "example" {
   name      = "example-virtual-host"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  domains                     = ["app.example.com"]
-  proxy                       = "DNS_PROXY"
-  idle_timeout                = 30000
-  connection_idle_timeout     = 120000
-  max_request_header_size     = 32768
-  add_location                = false
-  disable_dns_resolve         = false
-  disable_default_error_pages = false
-  request_headers_to_remove   = []
-  response_headers_to_remove  = []
-  request_cookies_to_remove   = []
-  response_cookies_to_remove  = []
+  domains                     = ["example-value"]
+  request_cookies_to_remove   = ["example-value"]
+  request_headers_to_remove   = ["example-value"]
+  response_cookies_to_remove  = ["example-value"]
+  response_headers_to_remove  = ["example-value"]
+  add_location                = true
+  connection_idle_timeout     = 1
+  disable_default_error_pages = true
+  disable_dns_resolve         = true
+  idle_timeout                = 1
+  max_request_header_size     = 1
+  proxy                       = "UDP_PROXY"
 }
 ```
 
@@ -941,5 +932,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_virtual_host.example system/example
+terraform import xcsh_virtual_host.example system/example
 ```

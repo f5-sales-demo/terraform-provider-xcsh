@@ -5,7 +5,10 @@
 
 // generate-all-schemas.go - Batch generator for all F5 XC Terraform resources
 // This tool processes all OpenAPI spec files and generates comprehensive Terraform schemas.
-// Last synced: api-specs-enriched v2.1.129 (lables→labels property rename in fleetFlashBladeEndpoint)
+// It is also the single source of truth for generated Terraform examples (resource +
+// data-source), rendered schema-driven from the TerraformAttribute tree so they cannot
+// drift from the schema; orphan example dirs are pruned each run.
+// Last synced: api-specs-enriched v2.1.168 (spec asset renamed f5xc-api-specs -> xcsh-api-specs; downloads accept either during transition)
 //
 // CI/CD Integration:
 //   Changes to this file trigger the generate.yml workflow which regenerates all
@@ -16,7 +19,7 @@
 // Usage: go run tools/generate-all-schemas.go [--spec-dir=/path/to/specs] [--dry-run]
 //
 // Environment Variables:
-//   F5XC_SPEC_DIR - Directory containing OpenAPI spec files (default: /tmp)
+//   XCSH_SPEC_DIR - Directory containing OpenAPI spec files (default: /tmp)
 
 package main
 
@@ -29,12 +32,12 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/codegen"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/namespace"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/naming"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/openapi"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/registration"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/tools/pkg/schema"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/codegen"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/namespace"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/registration"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/schema"
 )
 
 // Configuration
@@ -80,7 +83,7 @@ func main() {
 
 	// Check for spec directory
 	if specDir == "" {
-		specDir = os.Getenv("F5XC_SPEC_DIR")
+		specDir = os.Getenv("XCSH_SPEC_DIR")
 	}
 	if specDir == "" {
 		specDir = "docs/specifications/api"
@@ -163,7 +166,7 @@ func main() {
 	fmt.Println("\n🎉 Batch generation complete!")
 }
 
-// processV2Specs processes v2 format specs (domain-organized files from f5xc-api-enriched)
+// processV2Specs processes v2 format specs (domain-organized files from api-specs-enriched)
 func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 	// Parse the index.json to get domain information
 	index, err := openapi.ParseIndexFromDir(specDir)
@@ -283,9 +286,19 @@ func processV2Resource(domainFile string, resource openapi.ExtractedResource, do
 	if domainInfo.Spec != nil {
 		var profileSpec *openapi.NamespaceProfileSpec
 
-		// 1. Check per-schema profile (components.schemas.<Resource>.x-f5xc-namespace-profile)
-		if schema, ok := domainInfo.Spec.Components.Schemas[resource.Name]; ok && schema.XF5XCNamespaceProfile != nil {
-			profileSpec = schema.XF5XCNamespaceProfile
+		// 1. Check the per-schema profile on the resource's spec schema. There is no
+		//    schema keyed by the bare resource name — the accurate per-resource profile
+		//    lives on its CreateSpecType/GetSpecType (mirror the extraction lookup).
+		for _, pat := range []string{
+			resource.Name + "CreateSpecType",
+			"schema" + resource.Name + "CreateSpecType",
+			resource.Name + "GetSpecType",
+			resource.Name,
+		} {
+			if schema, ok := domainInfo.Spec.Components.Schemas[pat]; ok && schema.XF5XCNamespaceProfile != nil {
+				profileSpec = schema.XF5XCNamespaceProfile
+				break
+			}
 		}
 
 		// 2. Fall back to info-level profile
@@ -568,7 +581,6 @@ func generateResourceFromSchema(resourceName string, schemaName string, schemaDe
 		if err := codegen.GenerateDataSource(resource, outputDir); err != nil {
 			return GenerationResult{ResourceName: resourceName, Success: false, Error: err.Error()}
 		}
-
 	}
 
 	fmt.Printf("✅ %s: %d attrs, %d blocks\n", resourceName, attrCount, blockCount)
@@ -669,7 +681,6 @@ func extractAPIPath(spec *OpenAPI3Spec, resourceName string) (basePath string, i
 		true
 }
 
-
 // extractResourceSchema, hasNestedModelsWithAttrTypes, hasMaxLengthValidatorsAny,
 // hasEnumValidatorsAny, hasPatternValidatorsAny, hasListSizeValidatorsAny,
 // collectConflictAttrs, scanPlanModifierUsage, generateExampleUsage,
@@ -683,7 +694,6 @@ func extractAPIPath(spec *OpenAPI3Spec, resourceName string) (basePath string, i
 // renderComputedFieldsCode, renderSpecUnmarshalCode, renderNestedAttributes, renderNestedBlocks,
 // renderNestedModelTypes, renderBlockFields, collectNestedModelTypes, escapeGoString, regexLiteral,
 // and the NestedModelInfo type) have been moved to tools/pkg/codegen/ (SP-2 Task 4).
-
 
 // Provider registration (generateProviderRegistration, cleanOrphanGeneratedFiles,
 // generateCombinedClientTypes, and CoreResources) have been moved to

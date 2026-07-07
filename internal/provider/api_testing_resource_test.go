@@ -9,20 +9,20 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/acctest"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/acctest"
 )
 
 func TestAccAPITestingResource_basic(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	resourceName := "f5xc_api_testing.test"
+	resourceName := "xcsh_api_testing.test"
 	rName := acctest.RandomName("tf-test-api")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy:             acctest.CheckResourceDestroyed("f5xc_api_testing"),
+		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_api_testing"),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAPITestingConfig_basic(rName),
@@ -58,7 +58,7 @@ func testAccAPITestingImportStateIdFunc(resourceName string) resource.ImportStat
 
 func testAccAPITestingConfig_basic(name string) string {
 	return fmt.Sprintf(`
-resource "f5xc_api_testing" "test" {
+resource "xcsh_api_testing" "test" {
   name       = %[1]q
   namespace  = "system"
 }

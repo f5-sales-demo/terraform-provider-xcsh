@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_udp_loadbalancer Resource - terraform-provider-f5xc"
+page_title: "xcsh_udp_loadbalancer Resource - xcsh"
 subcategory: "Load Balancing"
 description: |-
   Manages a UDP Load Balancer resource in F5 Distributed Cloud for load balancing UDP traffic across origin pools.
 ---
 
-# f5xc_udp_loadbalancer (Resource)
+# xcsh_udp_loadbalancer (Resource)
 
 Manages a UDP Load Balancer resource in F5 Distributed Cloud for load balancing UDP traffic across origin pools.
 
@@ -14,42 +14,29 @@ Manages a UDP Load Balancer resource in F5 Distributed Cloud for load balancing 
 ## Example Usage
 
 ```terraform
-# UDP Loadbalancer Resource Example
+# UDPLoadBalancer Resource Example
 # Manages a UDP Load Balancer resource in F5 Distributed Cloud for load balancing UDP traffic across origin pools.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic UDP Loadbalancer configuration
-resource "f5xc_udp_loadbalancer" "example" {
+# Basic UDPLoadBalancer configuration
+resource "xcsh_udp_loadbalancer" "example" {
   name      = "example-udp-loadbalancer"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  domains                          = ["dns.example.com"]
-  listen_port                      = 53
-  idle_timeout                     = 30000
+  domains                          = ["example-value"]
+  dns_volterra_managed             = true
   enable_per_packet_load_balancing = true
-
-  dns_volterra_managed = true
-
-  advertise_on_public_default_vip {}
+  idle_timeout                     = 1
 }
 ```
 
@@ -411,5 +398,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_udp_loadbalancer.example system/example
+terraform import xcsh_udp_loadbalancer.example system/example
 ```

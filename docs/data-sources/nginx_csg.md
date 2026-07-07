@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_nginx_csg Data Source - terraform-provider-f5xc"
+page_title: "xcsh_nginx_csg Data Source - xcsh"
 subcategory: "Uncategorized"
 description: |-
   Retrieves information about an existing Nginx Csg resource in F5 Distributed Cloud for get nginx csg configuration. configuration. (read-only data source)
 ---
 
-# f5xc_nginx_csg (Data Source)
+# xcsh_nginx_csg (Data Source)
 
 Retrieves information about a Nginx Csg resource in F5 Distributed Cloud for get nginx csg configuration. configuration. (read-only data source)
 
@@ -14,28 +14,23 @@ Retrieves information about a Nginx Csg resource in F5 Distributed Cloud for get
 ## Example Usage
 
 ```terraform
-# Nginx Csg Data Source Example
-# Retrieves information about an existing Nginx Csg
+# NginxCsg Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Nginx Csg by name
-data "f5xc_nginx_csg" "example" {
+# Look up an existing NginxCsg by name
+data "xcsh_nginx_csg" "example" {
   name      = "example-nginx-csg"
   namespace = "staging"
-}
-
-output "nginx_csg_id" {
-  value = data.f5xc_nginx_csg.example.id
 }
 ```
 

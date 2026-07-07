@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_cdn_cache_rule Resource - terraform-provider-f5xc"
+page_title: "xcsh_cdn_cache_rule Resource - xcsh"
 subcategory: "Load Balancing"
 description: |-
   Manages a CDN Cache Rule resource in F5 Distributed Cloud for CDN loadbalancer specification. configuration.
 ---
 
-# f5xc_cdn_cache_rule (Resource)
+# xcsh_cdn_cache_rule (Resource)
 
 Manages a CDN Cache Rule resource in F5 Distributed Cloud for CDN loadbalancer specification. configuration.
 
@@ -14,47 +14,24 @@ Manages a CDN Cache Rule resource in F5 Distributed Cloud for CDN loadbalancer s
 ## Example Usage
 
 ```terraform
-# CDN Cache Rule Resource Example
-# Manages a CDN Cache Rule resource in F5 Distributed Cloud for CDN loadbalancer specification. configuration.
+# CDNCacheRule Resource Example
+# Manages a CDN Cache Rule resource in F5 Distributed Cloud for CDN loadbalancer specification.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic CDN Cache Rule configuration
-resource "f5xc_cdn_cache_rule" "example" {
+# Basic CDNCacheRule configuration
+resource "xcsh_cdn_cache_rule" "example" {
   name      = "example-CDN-cache-rule"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # Cache Rule. This defines a CDN Cache Rule.
-  cache_rules {
-    # Configure cache_rules settings
-  }
-  # Configuration parameter for cache bypass.
-  cache_bypass {
-    # Configure cache_bypass settings
-  }
-  # Configuration parameter for eligible for cache.
-  eligible_for_cache {
-    # Configure eligible_for_cache settings
-  }
 }
 ```
 
@@ -266,5 +243,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_cdn_cache_rule.example system/example
+terraform import xcsh_cdn_cache_rule.example system/example
 ```

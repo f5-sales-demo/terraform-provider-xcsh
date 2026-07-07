@@ -1,87 +1,43 @@
 ---
-page_title: "f5xc_aws_vpc_site Resource - terraform-provider-f5xc"
+page_title: "xcsh_aws_vpc_site Resource - xcsh"
 subcategory: "Sites"
 description: |-
   Manages a AWS VPC Site resource in F5 Distributed Cloud for deploying F5 sites within AWS VPC environments.
 ---
 
-# f5xc_aws_vpc_site (Resource)
+# xcsh_aws_vpc_site (Resource)
 
 Manages a AWS VPC Site resource in F5 Distributed Cloud for deploying F5 sites within AWS VPC environments.
 
-~> **Note** Please refer to [AWS VPC Site API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/cloud_infrastructure/) to learn more.
+~> **Note** Please refer to [AWS VPC Site API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/cloud_infrastructure/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# AWS VPC Site Resource Example
+# AWSVPCSite Resource Example
 # Manages a AWS VPC Site resource in F5 Distributed Cloud for deploying F5 sites within AWS VPC environments.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic AWS VPC Site configuration
-resource "f5xc_aws_vpc_site" "example" {
+# Basic AWSVPCSite configuration
+resource "xcsh_aws_vpc_site" "example" {
   name      = "example-aws-vpc-site"
-  namespace = "staging"
+  namespace = "system"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # AWS VPC Site configuration
-  aws_region = "us-west-2"
-
-  # AWS credentials reference
-  aws_cred {
-    name      = "aws-credentials"
-    namespace = "staging"
-  }
-
-  # VPC configuration
-  vpc {
-    new_vpc {
-      name_tag     = "f5xc-vpc"
-      primary_ipv4 = "10.0.0.0/16"
-    }
-  }
-
-  # Instance type
-  instance_type = "t3.xlarge"
-
-  # Ingress/Egress gateway
-  ingress_egress_gw {
-    aws_certified_hw = "aws-byol-multi-nic-voltmesh"
-    az_nodes {
-      aws_az_name = "us-west-2a"
-      inside_subnet {
-        subnet_param {
-          ipv4 = "10.0.1.0/24"
-        }
-      }
-      outside_subnet {
-        subnet_param {
-          ipv4 = "10.0.2.0/24"
-        }
-      }
-    }
-  }
-
-  # No worker nodes by default
-  no_worker_nodes {}
+  aws_region    = "example-value"
+  instance_type = "example-value"
+  ssh_key       = "example-value"
+  address       = "example-value"
+  disk_size     = 1
 }
 ```
 
@@ -98,8 +54,6 @@ resource "f5xc_aws_vpc_site" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the AWS VPC Site. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the AWS VPC Site will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -107,6 +61,8 @@ resource "f5xc_aws_vpc_site" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the AWS VPC Site. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -1166,5 +1122,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_aws_vpc_site.example system/example
+terraform import xcsh_aws_vpc_site.example system/example
 ```

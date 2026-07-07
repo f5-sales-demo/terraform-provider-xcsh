@@ -1,167 +1,40 @@
 ---
-page_title: "f5xc_http_loadbalancer Resource - terraform-provider-f5xc"
+page_title: "xcsh_http_loadbalancer Resource - xcsh"
 subcategory: "Load Balancing"
 description: |-
   Manages an HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with advanced routing and security.
 ---
 
-# f5xc_http_loadbalancer (Resource)
+# xcsh_http_loadbalancer (Resource)
 
 Manages an HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with advanced routing and security.
 
-~> **Note** Please refer to [HTTP Loadbalancer API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/virtual/) to learn more.
+~> **Note** Please refer to [HTTP Loadbalancer API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/virtual/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# HTTP Loadbalancer Resource Example
+# HTTPLoadBalancer Resource Example
 # Manages an HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with advanced routing and security.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic HTTP Loadbalancer configuration
-resource "f5xc_http_loadbalancer" "example" {
+# Basic HTTPLoadBalancer configuration
+resource "xcsh_http_loadbalancer" "example" {
   name      = "example-http-loadbalancer"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  // One of the arguments from this list "advertise_custom advertise_on_public advertise_on_public_default_vip do_not_advertise" must be set
-
-  advertise_on_public_default_vip {}
-
-  // One of the arguments from this list "api_specification disable_api_definition" must be set
-
-  disable_api_definition {}
-
-  // One of the arguments from this list "disable_api_discovery enable_api_discovery" must be set
-
-  disable_api_discovery {}
-
-  // One of the arguments from this list "api_testing disable_api_testing" must be set
-
-  disable_api_testing {}
-
-  // One of the arguments from this list "captcha_challenge enable_challenge js_challenge no_challenge policy_based_challenge" must be set
-
-  no_challenge {}
-
-  domains = ["app.example.com", "`www.example.com"`]
-
-  // One of the arguments from this list "cookie_stickiness least_active random ring_hash round_robin source_ip_stickiness" must be set
-
-  round_robin {}
-
-  // One of the arguments from this list "http https https_auto_cert" must be set
-
-  https_auto_cert {
-    http_redirect = true
-    add_hsts      = true
-
-    // One of the arguments from this list "default_header no_headers server_name" must be set
-
-    default_header {}
-
-    tls_config {
-      // One of the arguments from this list "custom_security default_security low_security medium_security" must be set
-
-      default_security {}
-    }
-
-    // One of the arguments from this list "no_mtls use_mtls" must be set
-
-    no_mtls {}
-  }
-
-  // One of the arguments from this list "disable_malicious_user_detection enable_malicious_user_detection" must be set
-
-  enable_malicious_user_detection {}
-
-  // One of the arguments from this list "disable_malware_protection malware_protection_settings" must be set
-
-  disable_malware_protection {}
-
-  // One of the arguments from this list "api_rate_limit disable_rate_limit rate_limit" must be set
-
-  disable_rate_limit {}
-
-  // One of the arguments from this list "default_sensitive_data_policy sensitive_data_policy" must be set
-
-  default_sensitive_data_policy {}
-
-  // One of the arguments from this list "active_service_policies no_service_policies service_policies_from_namespace" must be set
-
-  service_policies_from_namespace {}
-
-  // One of the arguments from this list "disable_threat_mesh enable_threat_mesh" must be set
-
-  enable_threat_mesh {}
-
-  // One of the arguments from this list "disable_trust_client_ip_headers enable_trust_client_ip_headers" must be set
-
-  disable_trust_client_ip_headers {}
-
-  // One of the arguments from this list "user_id_client_ip user_identification" must be set
-
-  user_id_client_ip {}
-
-  // One of the arguments from this list "app_firewall disable_waf" must be set
-
-  app_firewall {
-    name      = "example-app-firewall"
-    namespace = "staging"
-  }
-
-  // One of the arguments from this list "bot_defense bot_defense_advanced disable_bot_defense" must be set
-
-  disable_bot_defense {}
-
-  // Default route pools configuration
-  default_route_pools {
-    pool {
-      name      = "example-origin-pool"
-      namespace = "staging"
-    }
-    weight   = 1
-    priority = 1
-  }
+  domains = ["example-value"]
 }
-
-# The following optional fields have server-applied defaults and can be omitted:
-# - add_location
-# - endpoint_selection
-# - loadbalancer_algorithm
-# - healthcheck
-# - no_tls
-# - same_as_endpoint_port
-# - default_sensitive_data_policy
-# - disable_api_definition
-# - disable_api_discovery
-# - disable_api_testing
-# - disable_malware_protection
-# - disable_rate_limit
-# - disable_threat_mesh
-# - disable_trust_client_ip_headers
-# - l7_ddos_protection
-# - round_robin
-# - service_policies_from_namespace
-# - user_id_client_ip
 ```
 
 <!-- schema generated by tfplugindocs -->
@@ -174,7 +47,7 @@ resource "f5xc_http_loadbalancer" "example" {
 ### Conflict Protocol
 
 ```hcl
-resource "f5xc_http_loadbalancer" "test" {
+resource "xcsh_http_loadbalancer" "test" {
   name      = "example"
   namespace = "system"
   domains   = ["test.example.com"]
@@ -198,7 +71,7 @@ resource "f5xc_http_loadbalancer" "test" {
 ### Do Not Advertise
 
 ```hcl
-resource "f5xc_http_loadbalancer" "test" {
+resource "xcsh_http_loadbalancer" "test" {
   name      = "example"
   namespace = "system"
   domains   = ["test.example.com"]
@@ -214,7 +87,7 @@ resource "f5xc_http_loadbalancer" "test" {
 ### Https Auto Cert
 
 ```hcl
-resource "f5xc_http_loadbalancer" "test" {
+resource "xcsh_http_loadbalancer" "test" {
   name      = "example"
   namespace = "system"
 
@@ -235,7 +108,7 @@ resource "f5xc_http_loadbalancer" "test" {
 ### Ip Reputation
 
 ```hcl
-resource "f5xc_http_loadbalancer" "test" {
+resource "xcsh_http_loadbalancer" "test" {
   name      = "example"
   namespace = "system"
   domains   = ["test.example.com"]
@@ -253,7 +126,7 @@ resource "f5xc_http_loadbalancer" "test" {
 ### Js Challenge
 
 ```hcl
-resource "f5xc_http_loadbalancer" "test" {
+resource "xcsh_http_loadbalancer" "test" {
   name      = "example"
   namespace = "system"
   domains   = ["test.example.com"]
@@ -274,7 +147,7 @@ resource "f5xc_http_loadbalancer" "test" {
 ### Labels Update
 
 ```hcl
-resource "f5xc_http_loadbalancer" "test" {
+resource "xcsh_http_loadbalancer" "test" {
   name      = "example"
   namespace = "system"
 
@@ -296,7 +169,7 @@ resource "f5xc_http_loadbalancer" "test" {
 ### Least Active
 
 ```hcl
-resource "f5xc_http_loadbalancer" "test" {
+resource "xcsh_http_loadbalancer" "test" {
   name      = "example"
   namespace = "system"
   domains   = ["test.example.com"]
@@ -314,7 +187,7 @@ resource "f5xc_http_loadbalancer" "test" {
 ### Security Stack
 
 ```hcl
-resource "f5xc_healthcheck" "test" {
+resource "xcsh_healthcheck" "test" {
   name      = "example"
   namespace = "system"
 
@@ -329,7 +202,7 @@ resource "f5xc_healthcheck" "test" {
   }
 }
 
-resource "f5xc_origin_pool" "test" {
+resource "xcsh_origin_pool" "test" {
   name      = "example"
   namespace = "system"
   port      = 443
@@ -342,7 +215,7 @@ resource "f5xc_origin_pool" "test" {
   }
 
   healthcheck {
-    name      = f5xc_healthcheck.test.name
+    name      = xcsh_healthcheck.test.name
     namespace = "system"
   }
 
@@ -350,7 +223,7 @@ resource "f5xc_origin_pool" "test" {
   same_as_endpoint_port {}
 }
 
-resource "f5xc_app_firewall" "test" {
+resource "xcsh_app_firewall" "test" {
   name      = "example"
   namespace = "system"
 
@@ -362,7 +235,7 @@ resource "f5xc_app_firewall" "test" {
   default_anonymization {}
 }
 
-resource "f5xc_http_loadbalancer" "test" {
+resource "xcsh_http_loadbalancer" "test" {
   name      = "example"
   namespace = "system"
 
@@ -374,7 +247,7 @@ resource "f5xc_http_loadbalancer" "test" {
 
   default_route_pools {
     pool {
-      name      = f5xc_origin_pool.test.name
+      name      = xcsh_origin_pool.test.name
       namespace = "system"
     }
     weight   = 1
@@ -382,7 +255,7 @@ resource "f5xc_http_loadbalancer" "test" {
   }
 
   app_firewall {
-    name      = f5xc_app_firewall.test.name
+    name      = xcsh_app_firewall.test.name
     namespace = "system"
   }
 
@@ -396,7 +269,7 @@ resource "f5xc_http_loadbalancer" "test" {
 ### Source Ip Stickiness
 
 ```hcl
-resource "f5xc_http_loadbalancer" "test" {
+resource "xcsh_http_loadbalancer" "test" {
   name      = "example"
   namespace = "system"
   domains   = ["test.example.com"]
@@ -414,7 +287,7 @@ resource "f5xc_http_loadbalancer" "test" {
 ### User Identification
 
 ```hcl
-resource "f5xc_user_identification" "test" {
+resource "xcsh_user_identification" "test" {
   name      = "example"
   namespace = "system"
 
@@ -423,7 +296,7 @@ resource "f5xc_user_identification" "test" {
   }
 }
 
-resource "f5xc_http_loadbalancer" "test" {
+resource "xcsh_http_loadbalancer" "test" {
   name      = "example"
   namespace = "system"
   domains   = ["test.example.com"]
@@ -433,7 +306,7 @@ resource "f5xc_http_loadbalancer" "test" {
   }
 
   user_identification {
-    name      = f5xc_user_identification.test.name
+    name      = xcsh_user_identification.test.name
     namespace = "system"
   }
 
@@ -444,7 +317,7 @@ resource "f5xc_http_loadbalancer" "test" {
 ### With Domains
 
 ```hcl
-resource "f5xc_http_loadbalancer" "test" {
+resource "xcsh_http_loadbalancer" "test" {
   name      = "example"
   namespace = "system"
 
@@ -468,7 +341,7 @@ resource "f5xc_http_loadbalancer" "test" {
 ### With Labels
 
 ```hcl
-resource "f5xc_http_loadbalancer" "test" {
+resource "xcsh_http_loadbalancer" "test" {
   name      = "example"
   namespace = "system"
 
@@ -491,7 +364,7 @@ resource "f5xc_http_loadbalancer" "test" {
 ### With Origin Pool
 
 ```hcl
-resource "f5xc_origin_pool" "test" {
+resource "xcsh_origin_pool" "test" {
   name      = "example"
   namespace = "system"
   port      = 443
@@ -507,7 +380,7 @@ resource "f5xc_origin_pool" "test" {
   same_as_endpoint_port {}
 }
 
-resource "f5xc_http_loadbalancer" "test" {
+resource "xcsh_http_loadbalancer" "test" {
   name      = "example"
   namespace = "system"
 
@@ -519,7 +392,7 @@ resource "f5xc_http_loadbalancer" "test" {
 
   default_route_pools {
     pool {
-      name      = f5xc_origin_pool.test.name
+      name      = xcsh_origin_pool.test.name
       namespace = "system"
     }
     weight   = 1
@@ -533,7 +406,7 @@ resource "f5xc_http_loadbalancer" "test" {
 ### With Rate Limit
 
 ```hcl
-resource "f5xc_http_loadbalancer" "test" {
+resource "xcsh_http_loadbalancer" "test" {
   name      = "example"
   namespace = "system"
   domains   = ["test.example.com"]
@@ -558,7 +431,7 @@ resource "f5xc_http_loadbalancer" "test" {
 ### With Waf
 
 ```hcl
-resource "f5xc_app_firewall" "test" {
+resource "xcsh_app_firewall" "test" {
   name      = "example"
   namespace = "system"
 
@@ -570,7 +443,7 @@ resource "f5xc_app_firewall" "test" {
   default_anonymization {}
 }
 
-resource "f5xc_http_loadbalancer" "test" {
+resource "xcsh_http_loadbalancer" "test" {
   name      = "example"
   namespace = "system"
 
@@ -581,7 +454,7 @@ resource "f5xc_http_loadbalancer" "test" {
   }
 
   app_firewall {
-    name      = f5xc_app_firewall.test.name
+    name      = xcsh_app_firewall.test.name
     namespace = "system"
   }
 
@@ -720,14 +593,14 @@ spec:
 
 <a id="disable-api-testing"></a>&#x2022; [`disable_api_testing`](#disable-api-testing) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
-<a id="disable-bot-defense"></a>&#x2022; [`disable_bot_defense`](#disable-bot-defense) - Optional Block<br>Configuration parameter for disable bot defense
+<a id="disable-bot-defense"></a>&#x2022; [`disable_bot_defense`](#disable-bot-defense) - Optional Block  Defaults to `map[]`<br>Configuration parameter for disable bot defense.  Server applies default when omitted
 
 <a id="disable-caching"></a>&#x2022; [`disable_caching`](#disable-caching) - Optional Block<br>Configuration parameter for disable caching
 
 <a id="disable-client-side-defense"></a>&#x2022; [`disable_client_side_defense`](#disable-client-side-defense) - Optional Block<br>Enable this option
 
 -> **One of the following:**
-&#x2022; <a id="disable-ip-reputation"></a>[`disable_ip_reputation`](#disable-ip-reputation) - Optional Block<br>Enable this option
+&#x2022; <a id="disable-ip-reputation"></a>[`disable_ip_reputation`](#disable-ip-reputation) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 -> **One of the following:**
 &#x2022; <a id="disable-malicious-user-detection"></a>[`disable_malicious_user_detection`](#disable-malicious-user-detection) - Optional Block  Defaults to `map[]`<br>Configuration parameter for disable malicious user detection.  Server applies default when omitted
@@ -1231,7 +1104,7 @@ An [`api_rate_limit`](#api-rate-limit) block supports the following:
 
 <a id="api-rate-limit-no-ip-allowed-list"></a>&#x2022; [`no_ip_allowed_list`](#api-rate-limit-no-ip-allowed-list) - Optional Block<br>Enable this option
 
-<a id="api-rate-limit-server-url-rules"></a>&#x2022; [`server_url_rules`](#api-rate-limit-server-url-rules) - Optional Block<br>Set of rules for entire domain or base path that contain multiple endpoints. Order is matter as it uses first match policy. For matching also specific endpoints you can use the API endpoint rules set bellow<br>See [Server URL Rules](#api-rate-limit-server-url-rules)
+<a id="api-rate-limit-server-url-rules"></a>&#x2022; [`server_url_rules`](#api-rate-limit-server-url-rules) - Optional Block<br>Set of rules for entire domain or base path that contain multiple endpoints. Order is matter as it uses first match policy. For matching also specific endpoints you can use the API endpoint rules set below<br>See [Server URL Rules](#api-rate-limit-server-url-rules)
 below.
 
 #### API Rate Limit API Endpoint Rules
@@ -2682,23 +2555,23 @@ endpoint in an upstream cluster is required, the load balancer uses loadbalancer
 
 An [`advanced_options`](#default-pool-advanced-options) block (within [`default_pool`](#default-pool)) supports the following:
 
-<a id="config-48f56b"></a>&#x2022; [`auto_http_config`](#config-48f56b) - Optional Block<br>Enable this option
+<a id="config-48f56b"></a>&#x2022; [`auto_http_config`](#config-48f56b) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 <a id="breaker-8f5df4"></a>&#x2022; [`circuit_breaker`](#breaker-8f5df4) - Optional Block<br>CircuitBreaker provides a mechanism for watching failures in upstream connections or requests and if the failures reach a certain threshold, automatically fail subsequent requests which allows to apply back pressure on downstream quickly<br>See [Circuit Breaker](#breaker-8f5df4) below.
 
-<a id="timeout-8cd873"></a>&#x2022; [`connection_timeout`](#timeout-8cd873) - Optional Number  Defaults to `2`  Specified in milliseconds<br>The timeout for new network connections to endpoints in the cluster.  The seconds
+<a id="timeout-8cd873"></a>&#x2022; [`connection_timeout`](#timeout-8cd873) - Optional Number  Specified in milliseconds<br>The timeout for new network connections to endpoints in the cluster.  The default value is 2 seconds.  Recommended: `2000` ⚙️ **Server Default**
 
-<a id="breaker-db5d25"></a>&#x2022; [`default_circuit_breaker`](#breaker-db5d25) - Optional Block<br>Configuration parameter for default circuit breaker
+<a id="breaker-db5d25"></a>&#x2022; [`default_circuit_breaker`](#breaker-db5d25) - Optional Block  Defaults to `map[]`<br>Configuration parameter for default circuit breaker.  Server applies default when omitted
 
 <a id="breaker-03c951"></a>&#x2022; [`disable_circuit_breaker`](#breaker-03c951) - Optional Block<br>Configuration parameter for disable circuit breaker
 
 <a id="persistance-83b4c4"></a>&#x2022; [`disable_lb_source_ip_persistance`](#persistance-83b4c4) - Optional Block<br>Enable this option
 
-<a id="detection-46546c"></a>&#x2022; [`disable_outlier_detection`](#detection-46546c) - Optional Block<br>Configuration parameter for disable outlier detection
+<a id="detection-46546c"></a>&#x2022; [`disable_outlier_detection`](#detection-46546c) - Optional Block  Defaults to `map[]`<br>Configuration parameter for disable outlier detection.  Server applies default when omitted
 
 <a id="protocol-d614b9"></a>&#x2022; [`disable_proxy_protocol`](#protocol-d614b9) - Optional Block<br>Configuration parameter for disable proxy protocol
 
-<a id="subsets-b0bd38"></a>&#x2022; [`disable_subsets`](#subsets-b0bd38) - Optional Block<br>Configuration parameter for disable subsets
+<a id="subsets-b0bd38"></a>&#x2022; [`disable_subsets`](#subsets-b0bd38) - Optional Block  Defaults to `map[]`<br>Configuration parameter for disable subsets.  Server applies default when omitted
 
 <a id="persistance-d799ee"></a>&#x2022; [`enable_lb_source_ip_persistance`](#persistance-d799ee) - Optional Block<br>Enable this option
 
@@ -2708,13 +2581,13 @@ An [`advanced_options`](#default-pool-advanced-options) block (within [`default_
 
 <a id="options-fc9fd8"></a>&#x2022; [`http2_options`](#options-fc9fd8) - Optional Block<br>Http2 Protocol OPTIONS for upstream connections<br>See [Http2 Options](#options-fc9fd8) below.
 
-<a id="timeout-3807d9"></a>&#x2022; [`http_idle_timeout`](#timeout-3807d9) - Optional Number<br>The idle timeout for upstream connection pool connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed
+<a id="timeout-3807d9"></a>&#x2022; [`http_idle_timeout`](#timeout-3807d9) - Optional Number<br>The idle timeout for upstream connection pool connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed.  Recommended: `300000` ⚙️ **Server Default**
 
 <a id="connection-965447"></a>&#x2022; [`max_requests_per_connection`](#connection-965447) - Optional Number<br>Sets the maximum number of requests allowed per connection to the origin server. Enter a value >=1 to define the request limit per connection
 
-<a id="threshold-4ef07a"></a>&#x2022; [`no_panic_threshold`](#threshold-4ef07a) - Optional Block<br>Configuration parameter for no panic threshold
+<a id="threshold-4ef07a"></a>&#x2022; [`no_panic_threshold`](#threshold-4ef07a) - Optional Block  Defaults to `map[]`<br>Configuration parameter for no panic threshold.  Server applies default when omitted
 
-<a id="connection-081822"></a>&#x2022; [`no_request_limit_per_connection`](#connection-081822) - Optional Block<br>Configuration parameter for no request limit per connection
+<a id="connection-081822"></a>&#x2022; [`no_request_limit_per_connection`](#connection-081822) - Optional Block  Defaults to `map[]`<br>Configuration parameter for no request limit per connection.  Server applies default when omitted
 
 <a id="detection-c89e70"></a>&#x2022; [`outlier_detection`](#detection-c89e70) - Optional Block<br>Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checkingg. Algorithm 1<br>See [Outlier
 Detection](#detection-c89e70) below.
@@ -3057,7 +2930,7 @@ An [`upstream_conn_pool_reuse_type`](#type-2756f7) block (within [`default_pool`
 
 An [`use_tls`](#default-pool-use-tls) block (within [`default_pool`](#default-pool)) supports the following:
 
-<a id="caching-6d4585"></a>&#x2022; [`default_session_key_caching`](#caching-6d4585) - Optional Block<br>Configuration parameter for default session key caching
+<a id="caching-6d4585"></a>&#x2022; [`default_session_key_caching`](#caching-6d4585) - Optional Block  Defaults to `map[]`<br>Configuration parameter for default session key caching.  Server applies default when omitted
 
 <a id="caching-e75c13"></a>&#x2022; [`disable_session_key_caching`](#caching-e75c13) - Optional Block<br>Configuration parameter for disable session key caching
 
@@ -3065,7 +2938,7 @@ An [`use_tls`](#default-pool-use-tls) block (within [`default_pool`](#default-po
 
 <a id="default-pool-use-tls-max-session-keys"></a>&#x2022; [`max_session_keys`](#default-pool-use-tls-max-session-keys) - Optional Number<br>Number of session keys that are cached
 
-<a id="default-pool-use-tls-no-mtls"></a>&#x2022; [`no_mtls`](#default-pool-use-tls-no-mtls) - Optional Block<br>Enable this option
+<a id="default-pool-use-tls-no-mtls"></a>&#x2022; [`no_mtls`](#default-pool-use-tls-no-mtls) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 <a id="verification-a40775"></a>&#x2022; [`skip_server_verification`](#verification-a40775) - Optional Block<br>Enable this option
 
@@ -3073,7 +2946,7 @@ An [`use_tls`](#default-pool-use-tls) block (within [`default_pool`](#default-po
 
 <a id="default-pool-use-tls-tls-config"></a>&#x2022; [`tls_config`](#default-pool-use-tls-tls-config) - Optional Block<br>Defines various OPTIONS to configure TLS configuration parameters<br>See [TLS Config](#default-pool-use-tls-tls-config) below.
 
-<a id="sni-a63eaf"></a>&#x2022; [`use_host_header_as_sni`](#sni-a63eaf) - Optional Block<br>Enable this option
+<a id="sni-a63eaf"></a>&#x2022; [`use_host_header_as_sni`](#sni-a63eaf) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 <a id="default-pool-use-tls-use-mtls"></a>&#x2022; [`use_mtls`](#default-pool-use-tls-use-mtls) - Optional Block<br>mTLS Certificate. mTLS Client Certificate<br>See [Use mTLS](#default-pool-use-tls-use-mtls) below.
 
@@ -3081,7 +2954,7 @@ An [`use_tls`](#default-pool-use-tls) block (within [`default_pool`](#default-po
 
 <a id="verification-388853"></a>&#x2022; [`use_server_verification`](#verification-388853) - Optional Block<br>Configuration parameter for use server verification<br>See [Use Server Verification](#verification-388853) below.
 
-<a id="trusted-ca-e7a557"></a>&#x2022; [`volterra_trusted_ca`](#trusted-ca-e7a557) - Optional Block<br>Configuration parameter for volterra trusted CA
+<a id="trusted-ca-e7a557"></a>&#x2022; [`volterra_trusted_ca`](#trusted-ca-e7a557) - Optional Block  Defaults to `map[]`<br>Configuration parameter for volterra trusted CA.  Server applies default when omitted
 
 #### Default Pool Use TLS TLS Config
 
@@ -3688,13 +3561,13 @@ A [`xfcc_options`](#options-4d1e53) block (within [`https.tls_parameters.use_mtl
 
 A [`https_auto_cert`](#https-auto-cert) block supports the following:
 
-<a id="https-auto-cert-add-hsts"></a>&#x2022; [`add_hsts`](#https-auto-cert-add-hsts) - Optional Bool<br>Add HTTP Strict-Transport-Security response header
+<a id="https-auto-cert-add-hsts"></a>&#x2022; [`add_hsts`](#https-auto-cert-add-hsts) - Optional Bool  Defaults to `false`<br>Add HTTP Strict-Transport-Security response header.  Server applies default when omitted
 
 <a id="https-auto-cert-append-server-name"></a>&#x2022; [`append_server_name`](#https-auto-cert-append-server-name) - Optional String<br>Define the header value for the header name “server”. If header value is already present, it is not overwritten and passed as-is
 
 <a id="https-auto-cert-coalescing-options"></a>&#x2022; [`coalescing_options`](#https-auto-cert-coalescing-options) - Optional Block<br>TLS connection coalescing configuration (not compatible with mTLS)<br>See [Coalescing Options](#https-auto-cert-coalescing-options) below.
 
-<a id="https-auto-cert-connection-idle-timeout"></a>&#x2022; [`connection_idle_timeout`](#https-auto-cert-connection-idle-timeout) - Optional Number<br>The idle timeout for downstream connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed
+<a id="https-auto-cert-connection-idle-timeout"></a>&#x2022; [`connection_idle_timeout`](#https-auto-cert-connection-idle-timeout) - Optional Number<br>The idle timeout for downstream connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed. Server applies default when omitted
 
 <a id="https-auto-cert-default-header"></a>&#x2022; [`default_header`](#https-auto-cert-default-header) - Optional Block<br>Configuration parameter for default header
 
@@ -3702,13 +3575,13 @@ A [`https_auto_cert`](#https-auto-cert) block supports the following:
 
 <a id="https-auto-cert-disable-path-normalize"></a>&#x2022; [`disable_path_normalize`](#https-auto-cert-disable-path-normalize) - Optional Block<br>Enable this option
 
-<a id="https-auto-cert-enable-path-normalize"></a>&#x2022; [`enable_path_normalize`](#https-auto-cert-enable-path-normalize) - Optional Block<br>Enable this option
+<a id="https-auto-cert-enable-path-normalize"></a>&#x2022; [`enable_path_normalize`](#https-auto-cert-enable-path-normalize) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 <a id="https-auto-cert-http-protocol-options"></a>&#x2022; [`http_protocol_options`](#https-auto-cert-http-protocol-options) - Optional Block<br>HTTP protocol configuration OPTIONS for downstream connections<br>See [HTTP Protocol Options](#https-auto-cert-http-protocol-options) below.
 
-<a id="https-auto-cert-http-redirect"></a>&#x2022; [`http_redirect`](#https-auto-cert-http-redirect) - Optional Bool<br>HTTP Redirect to HTTPS. Redirect HTTP traffic to HTTPS
+<a id="https-auto-cert-http-redirect"></a>&#x2022; [`http_redirect`](#https-auto-cert-http-redirect) - Optional Bool  Defaults to `false`<br>HTTP Redirect to HTTPS. Redirect HTTP traffic to HTTPS.  Server applies default when omitted
 
-<a id="https-auto-cert-no-mtls"></a>&#x2022; [`no_mtls`](#https-auto-cert-no-mtls) - Optional Block<br>Enable this option
+<a id="https-auto-cert-no-mtls"></a>&#x2022; [`no_mtls`](#https-auto-cert-no-mtls) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 <a id="loadbalancer-eb605c"></a>&#x2022; [`non_default_loadbalancer`](#loadbalancer-eb605c) - Optional Block<br>Configuration parameter for non default loadbalancer
 
@@ -4574,9 +4447,9 @@ A [`rate_limit`](#rate-limit) block supports the following:
 
 <a id="rate-limit-ip-allowed-list"></a>&#x2022; [`ip_allowed_list`](#rate-limit-ip-allowed-list) - Optional Block<br>List of IPv4 prefixes that represent an endpoint<br>See [IP Allowed List](#rate-limit-ip-allowed-list) below.
 
-<a id="rate-limit-no-ip-allowed-list"></a>&#x2022; [`no_ip_allowed_list`](#rate-limit-no-ip-allowed-list) - Optional Block<br>Enable this option
+<a id="rate-limit-no-ip-allowed-list"></a>&#x2022; [`no_ip_allowed_list`](#rate-limit-no-ip-allowed-list) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
-<a id="rate-limit-no-policies"></a>&#x2022; [`no_policies`](#rate-limit-no-policies) - Optional Block<br>Configuration parameter for no policies
+<a id="rate-limit-no-policies"></a>&#x2022; [`no_policies`](#rate-limit-no-policies) - Optional Block  Defaults to `map[]`<br>Configuration parameter for no policies.  Server applies default when omitted
 
 <a id="rate-limit-policies"></a>&#x2022; [`policies`](#rate-limit-policies) - Optional Block<br>List of rate limiter policies to be applied<br>See [Policies](#rate-limit-policies) below.
 
@@ -4626,7 +4499,7 @@ A [`rate_limiter`](#rate-limit-rate-limiter) block (within [`rate_limit`](#rate-
 
 <a id="rate-limit-rate-limiter-leaky-bucket"></a>&#x2022; [`leaky_bucket`](#rate-limit-rate-limiter-leaky-bucket) - Optional Block<br>X-displayName: 'Leaky Bucket Rate Limiter' Leaky-Bucket is the default rate limiter algorithm for F5
 
-<a id="multiplier-07ace4"></a>&#x2022; [`period_multiplier`](#multiplier-07ace4) - Optional Number<br>Setting, combined with Per Period units, provides a duration
+<a id="multiplier-07ace4"></a>&#x2022; [`period_multiplier`](#multiplier-07ace4) - Optional Number<br>Setting, combined with Per Period units, provides a duration. Server applies default when omitted
 
 <a id="rate-limit-rate-limiter-token-bucket"></a>&#x2022; [`token_bucket`](#rate-limit-rate-limiter-token-bucket) - Optional Block<br>X-displayName: 'Token Bucket Rate Limiter' Token-Bucket is a rate limiter algorithm that is stricter with enforcing limits
 
@@ -5626,5 +5499,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_http_loadbalancer.example system/example
+terraform import xcsh_http_loadbalancer.example system/example
 ```

@@ -1,4 +1,4 @@
-# f5xc_virtual_network
+# xcsh_virtual_network
 
 Category: Networking
 Virtual network in given namespace
@@ -6,24 +6,14 @@ Virtual network in given namespace
 ## Required
 
 - name
-- namespace
 - legacy_type
 
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_virtual_network" "example" {
+resource "xcsh_virtual_network" "example" {
   name      = "example-virtual-network"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
+  namespace = "system"
 
   legacy_type = "VIRTUAL_NETWORK_SITE_LOCAL"
 }

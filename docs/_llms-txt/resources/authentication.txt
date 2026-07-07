@@ -1,4 +1,4 @@
-# f5xc_authentication
+# xcsh_authentication
 
 Category: Authentication
 Authentication resource
@@ -11,25 +11,9 @@ Authentication resource
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_authentication" "example" {
+resource "xcsh_authentication" "example" {
   name      = "example-authentication"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  cookie_params {
-  }
-  auth_hmac {
-  }
-  prim_key {
-  }
 }
 ```
 

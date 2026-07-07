@@ -23,9 +23,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -51,7 +51,7 @@ type TCPLoadBalancerEmptyModel struct {
 
 // TCPLoadBalancerActiveServicePoliciesModel represents active_service_policies block
 type TCPLoadBalancerActiveServicePoliciesModel struct {
-	Policies []TCPLoadBalancerActiveServicePoliciesPoliciesModel `tfsdk:"policies"`
+	Policies types.List `tfsdk:"policies"`
 }
 
 // TCPLoadBalancerActiveServicePoliciesModelAttrTypes defines the attribute types for TCPLoadBalancerActiveServicePoliciesModel
@@ -75,7 +75,7 @@ var TCPLoadBalancerActiveServicePoliciesPoliciesModelAttrTypes = map[string]attr
 
 // TCPLoadBalancerAdvertiseCustomModel represents advertise_custom block
 type TCPLoadBalancerAdvertiseCustomModel struct {
-	AdvertiseWhere []TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel `tfsdk:"advertise_where"`
+	AdvertiseWhere types.List `tfsdk:"advertise_where"`
 }
 
 // TCPLoadBalancerAdvertiseCustomModelAttrTypes defines the attribute types for TCPLoadBalancerAdvertiseCustomModel
@@ -371,10 +371,10 @@ var TCPLoadBalancerTLSTCPModelAttrTypes = map[string]attr.Type{
 
 // TCPLoadBalancerTLSTCPTLSCertParamsModel represents tls_cert_params block
 type TCPLoadBalancerTLSTCPTLSCertParamsModel struct {
-	Certificates []TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModel `tfsdk:"certificates"`
-	NoMtls       *TCPLoadBalancerEmptyModel                            `tfsdk:"no_mtls"`
-	TLSConfig    *TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModel     `tfsdk:"tls_config"`
-	UseMtls      *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsModel       `tfsdk:"use_mtls"`
+	Certificates types.List                                        `tfsdk:"certificates"`
+	NoMtls       *TCPLoadBalancerEmptyModel                        `tfsdk:"no_mtls"`
+	TLSConfig    *TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModel `tfsdk:"tls_config"`
+	UseMtls      *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsModel   `tfsdk:"use_mtls"`
 }
 
 // TCPLoadBalancerTLSTCPTLSCertParamsModelAttrTypes defines the attribute types for TCPLoadBalancerTLSTCPTLSCertParamsModel
@@ -2169,245 +2169,657 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.ActiveServicePolicies != nil {
-		active_service_policiesMap := make(map[string]interface{})
-		if len(data.ActiveServicePolicies.Policies) > 0 {
-			var policiesList []map[string]interface{}
-			for _, listItem := range data.ActiveServicePolicies.Policies {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
+		ActiveServicePoliciesMap := make(map[string]interface{})
+		if !data.ActiveServicePolicies.Policies.IsNull() && !data.ActiveServicePolicies.Policies.IsUnknown() {
+			var PoliciesElems []TCPLoadBalancerActiveServicePoliciesPoliciesModel
+			diags := data.ActiveServicePolicies.Policies.ElementsAs(ctx, &PoliciesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(PoliciesElems) > 0 {
+				var PoliciesList []map[string]interface{}
+				for _, PoliciesItem := range PoliciesElems {
+					PoliciesItemMap := make(map[string]interface{})
+					if !PoliciesItem.Name.IsNull() && !PoliciesItem.Name.IsUnknown() {
+						PoliciesItemMap["name"] = PoliciesItem.Name.ValueString()
+					}
+					if !PoliciesItem.Namespace.IsNull() && !PoliciesItem.Namespace.IsUnknown() {
+						PoliciesItemMap["namespace"] = PoliciesItem.Namespace.ValueString()
+					}
+					if !PoliciesItem.Tenant.IsNull() && !PoliciesItem.Tenant.IsUnknown() {
+						PoliciesItemMap["tenant"] = PoliciesItem.Tenant.ValueString()
+					}
+					PoliciesList = append(PoliciesList, PoliciesItemMap)
 				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				policiesList = append(policiesList, listItemMap)
+				ActiveServicePoliciesMap["policies"] = PoliciesList
 			}
-			active_service_policiesMap["policies"] = policiesList
 		}
-		createReq.Spec["active_service_policies"] = active_service_policiesMap
+		createReq.Spec["active_service_policies"] = ActiveServicePoliciesMap
 	}
 	if data.AdvertiseCustom != nil {
-		advertise_customMap := make(map[string]interface{})
-		if len(data.AdvertiseCustom.AdvertiseWhere) > 0 {
-			var advertise_whereList []map[string]interface{}
-			for _, listItem := range data.AdvertiseCustom.AdvertiseWhere {
-				listItemMap := make(map[string]interface{})
-				if listItem.AdvertiseOnPublic != nil {
-					advertise_on_publicDeepMap := make(map[string]interface{})
-					listItemMap["advertise_on_public"] = advertise_on_publicDeepMap
-				}
-				if !listItem.Port.IsNull() && !listItem.Port.IsUnknown() {
-					listItemMap["port"] = listItem.Port.ValueInt64()
-				}
-				if !listItem.PortRanges.IsNull() && !listItem.PortRanges.IsUnknown() {
-					listItemMap["port_ranges"] = listItem.PortRanges.ValueString()
-				}
-				if listItem.Site != nil {
-					siteDeepMap := make(map[string]interface{})
-					if !listItem.Site.IP.IsNull() && !listItem.Site.IP.IsUnknown() {
-						siteDeepMap["ip"] = listItem.Site.IP.ValueString()
+		AdvertiseCustomMap := make(map[string]interface{})
+		if !data.AdvertiseCustom.AdvertiseWhere.IsNull() && !data.AdvertiseCustom.AdvertiseWhere.IsUnknown() {
+			var AdvertiseWhereElems []TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel
+			diags := data.AdvertiseCustom.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(AdvertiseWhereElems) > 0 {
+				var AdvertiseWhereList []map[string]interface{}
+				for _, AdvertiseWhereItem := range AdvertiseWhereElems {
+					AdvertiseWhereItemMap := make(map[string]interface{})
+					if AdvertiseWhereItem.AdvertiseOnPublic != nil {
+						AdvertiseOnPublicMap := make(map[string]interface{})
+						if AdvertiseWhereItem.AdvertiseOnPublic.PublicIP != nil {
+							PublicIPMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
+								PublicIPMap["name"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
+								PublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+							}
+							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
+								PublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+							}
+							AdvertiseOnPublicMap["public_ip"] = PublicIPMap
+						}
+						AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseOnPublicMap
 					}
-					if !listItem.Site.Network.IsNull() && !listItem.Site.Network.IsUnknown() {
-						siteDeepMap["network"] = listItem.Site.Network.ValueString()
+					if !AdvertiseWhereItem.Port.IsNull() && !AdvertiseWhereItem.Port.IsUnknown() {
+						AdvertiseWhereItemMap["port"] = AdvertiseWhereItem.Port.ValueInt64()
 					}
-					listItemMap["site"] = siteDeepMap
+					if !AdvertiseWhereItem.PortRanges.IsNull() && !AdvertiseWhereItem.PortRanges.IsUnknown() {
+						AdvertiseWhereItemMap["port_ranges"] = AdvertiseWhereItem.PortRanges.ValueString()
+					}
+					if AdvertiseWhereItem.Site != nil {
+						SiteMap := make(map[string]interface{})
+						if !AdvertiseWhereItem.Site.IP.IsNull() && !AdvertiseWhereItem.Site.IP.IsUnknown() {
+							SiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
+						}
+						if !AdvertiseWhereItem.Site.Network.IsNull() && !AdvertiseWhereItem.Site.Network.IsUnknown() {
+							SiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
+						}
+						if AdvertiseWhereItem.Site.Site != nil {
+							SiteMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.Site.Site.Name.IsNull() && !AdvertiseWhereItem.Site.Site.Name.IsUnknown() {
+								SiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
+								SiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
+							}
+							if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
+								SiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
+							}
+							SiteMap["site"] = SiteMap
+						}
+						AdvertiseWhereItemMap["site"] = SiteMap
+					}
+					if AdvertiseWhereItem.UseDefaultPort != nil {
+						AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
+					}
+					if AdvertiseWhereItem.VirtualNetwork != nil {
+						VirtualNetworkMap := make(map[string]interface{})
+						if AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP != nil {
+							VirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
+						}
+						if AdvertiseWhereItem.VirtualNetwork.DefaultVIP != nil {
+							VirtualNetworkMap["default_vip"] = map[string]interface{}{}
+						}
+						if !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
+							VirtualNetworkMap["specific_v6_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.ValueString()
+						}
+						if !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsUnknown() {
+							VirtualNetworkMap["specific_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificVIP.ValueString()
+						}
+						if AdvertiseWhereItem.VirtualNetwork.VirtualNetwork != nil {
+							VirtualNetworkMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsUnknown() {
+								VirtualNetworkMap["name"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
+								VirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
+								VirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
+							}
+							VirtualNetworkMap["virtual_network"] = VirtualNetworkMap
+						}
+						AdvertiseWhereItemMap["virtual_network"] = VirtualNetworkMap
+					}
+					if AdvertiseWhereItem.VirtualSite != nil {
+						VirtualSiteMap := make(map[string]interface{})
+						if !AdvertiseWhereItem.VirtualSite.Network.IsNull() && !AdvertiseWhereItem.VirtualSite.Network.IsUnknown() {
+							VirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
+						}
+						if AdvertiseWhereItem.VirtualSite.VirtualSite != nil {
+							VirtualSiteMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsUnknown() {
+								VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
+								VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
+								VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
+							}
+							VirtualSiteMap["virtual_site"] = VirtualSiteMap
+						}
+						AdvertiseWhereItemMap["virtual_site"] = VirtualSiteMap
+					}
+					if AdvertiseWhereItem.VirtualSiteWithVIP != nil {
+						VirtualSiteWithVIPMap := make(map[string]interface{})
+						if !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsUnknown() {
+							VirtualSiteWithVIPMap["ip"] = AdvertiseWhereItem.VirtualSiteWithVIP.IP.ValueString()
+						}
+						if !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsUnknown() {
+							VirtualSiteWithVIPMap["network"] = AdvertiseWhereItem.VirtualSiteWithVIP.Network.ValueString()
+						}
+						if AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite != nil {
+							VirtualSiteMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsUnknown() {
+								VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
+								VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
+								VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
+							}
+							VirtualSiteWithVIPMap["virtual_site"] = VirtualSiteMap
+						}
+						AdvertiseWhereItemMap["virtual_site_with_vip"] = VirtualSiteWithVIPMap
+					}
+					if AdvertiseWhereItem.Vk8sService != nil {
+						Vk8sServiceMap := make(map[string]interface{})
+						if AdvertiseWhereItem.Vk8sService.Site != nil {
+							SiteMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.Vk8sService.Site.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Name.IsUnknown() {
+								SiteMap["name"] = AdvertiseWhereItem.Vk8sService.Site.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
+								SiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
+							}
+							if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
+								SiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
+							}
+							Vk8sServiceMap["site"] = SiteMap
+						}
+						if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
+							VirtualSiteMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsUnknown() {
+								VirtualSiteMap["name"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
+								VirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
+							}
+							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
+								VirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
+							}
+							Vk8sServiceMap["virtual_site"] = VirtualSiteMap
+						}
+						AdvertiseWhereItemMap["vk8s_service"] = Vk8sServiceMap
+					}
+					AdvertiseWhereList = append(AdvertiseWhereList, AdvertiseWhereItemMap)
 				}
-				if listItem.UseDefaultPort != nil {
-					listItemMap["use_default_port"] = map[string]interface{}{}
-				}
-				if listItem.VirtualNetwork != nil {
-					virtual_networkDeepMap := make(map[string]interface{})
-					if listItem.VirtualNetwork.DefaultV6VIP != nil {
-						virtual_networkDeepMap["default_v6_vip"] = map[string]interface{}{}
-					}
-					if listItem.VirtualNetwork.DefaultVIP != nil {
-						virtual_networkDeepMap["default_vip"] = map[string]interface{}{}
-					}
-					if !listItem.VirtualNetwork.SpecificV6VIP.IsNull() && !listItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
-						virtual_networkDeepMap["specific_v6_vip"] = listItem.VirtualNetwork.SpecificV6VIP.ValueString()
-					}
-					if !listItem.VirtualNetwork.SpecificVIP.IsNull() && !listItem.VirtualNetwork.SpecificVIP.IsUnknown() {
-						virtual_networkDeepMap["specific_vip"] = listItem.VirtualNetwork.SpecificVIP.ValueString()
-					}
-					listItemMap["virtual_network"] = virtual_networkDeepMap
-				}
-				if listItem.VirtualSite != nil {
-					virtual_siteDeepMap := make(map[string]interface{})
-					if !listItem.VirtualSite.Network.IsNull() && !listItem.VirtualSite.Network.IsUnknown() {
-						virtual_siteDeepMap["network"] = listItem.VirtualSite.Network.ValueString()
-					}
-					listItemMap["virtual_site"] = virtual_siteDeepMap
-				}
-				if listItem.VirtualSiteWithVIP != nil {
-					virtual_site_with_vipDeepMap := make(map[string]interface{})
-					if !listItem.VirtualSiteWithVIP.IP.IsNull() && !listItem.VirtualSiteWithVIP.IP.IsUnknown() {
-						virtual_site_with_vipDeepMap["ip"] = listItem.VirtualSiteWithVIP.IP.ValueString()
-					}
-					if !listItem.VirtualSiteWithVIP.Network.IsNull() && !listItem.VirtualSiteWithVIP.Network.IsUnknown() {
-						virtual_site_with_vipDeepMap["network"] = listItem.VirtualSiteWithVIP.Network.ValueString()
-					}
-					listItemMap["virtual_site_with_vip"] = virtual_site_with_vipDeepMap
-				}
-				if listItem.Vk8sService != nil {
-					vk8s_serviceDeepMap := make(map[string]interface{})
-					listItemMap["vk8s_service"] = vk8s_serviceDeepMap
-				}
-				advertise_whereList = append(advertise_whereList, listItemMap)
+				AdvertiseCustomMap["advertise_where"] = AdvertiseWhereList
 			}
-			advertise_customMap["advertise_where"] = advertise_whereList
 		}
-		createReq.Spec["advertise_custom"] = advertise_customMap
+		createReq.Spec["advertise_custom"] = AdvertiseCustomMap
 	}
 	if data.AdvertiseOnPublic != nil {
-		advertise_on_publicMap := make(map[string]interface{})
+		AdvertiseOnPublicMap := make(map[string]interface{})
 		if data.AdvertiseOnPublic.PublicIP != nil {
-			public_ipNestedMap := make(map[string]interface{})
+			PublicIPMap := make(map[string]interface{})
 			if !data.AdvertiseOnPublic.PublicIP.Name.IsNull() && !data.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
-				public_ipNestedMap["name"] = data.AdvertiseOnPublic.PublicIP.Name.ValueString()
+				PublicIPMap["name"] = data.AdvertiseOnPublic.PublicIP.Name.ValueString()
 			}
 			if !data.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !data.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
-				public_ipNestedMap["namespace"] = data.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+				PublicIPMap["namespace"] = data.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 			}
 			if !data.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !data.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-				public_ipNestedMap["tenant"] = data.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+				PublicIPMap["tenant"] = data.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 			}
-			advertise_on_publicMap["public_ip"] = public_ipNestedMap
+			AdvertiseOnPublicMap["public_ip"] = PublicIPMap
 		}
-		createReq.Spec["advertise_on_public"] = advertise_on_publicMap
+		createReq.Spec["advertise_on_public"] = AdvertiseOnPublicMap
 	}
 	if data.AdvertiseOnPublicDefaultVIP != nil {
-		advertise_on_public_default_vipMap := make(map[string]interface{})
-		createReq.Spec["advertise_on_public_default_vip"] = advertise_on_public_default_vipMap
+		createReq.Spec["advertise_on_public_default_vip"] = map[string]interface{}{}
 	}
 	if data.DefaultLBWithSni != nil {
-		default_lb_with_sniMap := make(map[string]interface{})
-		createReq.Spec["default_lb_with_sni"] = default_lb_with_sniMap
+		createReq.Spec["default_lb_with_sni"] = map[string]interface{}{}
 	}
 	if data.DoNotAdvertise != nil {
-		do_not_advertiseMap := make(map[string]interface{})
-		createReq.Spec["do_not_advertise"] = do_not_advertiseMap
+		createReq.Spec["do_not_advertise"] = map[string]interface{}{}
 	}
 	if data.DoNotRetractCluster != nil {
-		do_not_retract_clusterMap := make(map[string]interface{})
-		createReq.Spec["do_not_retract_cluster"] = do_not_retract_clusterMap
+		createReq.Spec["do_not_retract_cluster"] = map[string]interface{}{}
 	}
 	if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
-		var domainsList []string
-		resp.Diagnostics.Append(data.Domains.ElementsAs(ctx, &domainsList, false)...)
-		if !resp.Diagnostics.HasError() {
-			createReq.Spec["domains"] = domainsList
+		var DomainsItems []string
+		diags := data.Domains.ElementsAs(ctx, &DomainsItems, false)
+		if !diags.HasError() {
+			createReq.Spec["domains"] = DomainsItems
 		}
 	}
 	if data.HashPolicyChoiceLeastActive != nil {
-		hash_policy_choice_least_activeMap := make(map[string]interface{})
-		createReq.Spec["hash_policy_choice_least_active"] = hash_policy_choice_least_activeMap
+		createReq.Spec["hash_policy_choice_least_active"] = map[string]interface{}{}
 	}
 	if data.HashPolicyChoiceRandom != nil {
-		hash_policy_choice_randomMap := make(map[string]interface{})
-		createReq.Spec["hash_policy_choice_random"] = hash_policy_choice_randomMap
+		createReq.Spec["hash_policy_choice_random"] = map[string]interface{}{}
 	}
 	if data.HashPolicyChoiceSourceIPStickiness != nil {
-		hash_policy_choice_source_ip_stickinessMap := make(map[string]interface{})
-		createReq.Spec["hash_policy_choice_source_ip_stickiness"] = hash_policy_choice_source_ip_stickinessMap
+		createReq.Spec["hash_policy_choice_source_ip_stickiness"] = map[string]interface{}{}
 	}
 	if data.NoServicePolicies != nil {
-		no_service_policiesMap := make(map[string]interface{})
-		createReq.Spec["no_service_policies"] = no_service_policiesMap
+		createReq.Spec["no_service_policies"] = map[string]interface{}{}
 	}
 	if !data.OriginPoolsWeights.IsNull() && !data.OriginPoolsWeights.IsUnknown() {
-		var origin_pools_weightsItems []TCPLoadBalancerOriginPoolsWeightsModel
-		diags := data.OriginPoolsWeights.ElementsAs(ctx, &origin_pools_weightsItems, false)
+		var OriginPoolsWeightsElems []TCPLoadBalancerOriginPoolsWeightsModel
+		diags := data.OriginPoolsWeights.ElementsAs(ctx, &OriginPoolsWeightsElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(origin_pools_weightsItems) > 0 {
-			var origin_pools_weightsList []map[string]interface{}
-			for _, item := range origin_pools_weightsItems {
-				itemMap := make(map[string]interface{})
-				if item.Cluster != nil {
-					clusterNestedMap := make(map[string]interface{})
-					if !item.Cluster.Name.IsNull() && !item.Cluster.Name.IsUnknown() {
-						clusterNestedMap["name"] = item.Cluster.Name.ValueString()
+		if !resp.Diagnostics.HasError() && len(OriginPoolsWeightsElems) > 0 {
+			var OriginPoolsWeightsList []map[string]interface{}
+			for _, OriginPoolsWeightsItem := range OriginPoolsWeightsElems {
+				OriginPoolsWeightsItemMap := make(map[string]interface{})
+				if OriginPoolsWeightsItem.Cluster != nil {
+					ClusterMap := make(map[string]interface{})
+					if !OriginPoolsWeightsItem.Cluster.Name.IsNull() && !OriginPoolsWeightsItem.Cluster.Name.IsUnknown() {
+						ClusterMap["name"] = OriginPoolsWeightsItem.Cluster.Name.ValueString()
 					}
-					if !item.Cluster.Namespace.IsNull() && !item.Cluster.Namespace.IsUnknown() {
-						clusterNestedMap["namespace"] = item.Cluster.Namespace.ValueString()
+					if !OriginPoolsWeightsItem.Cluster.Namespace.IsNull() && !OriginPoolsWeightsItem.Cluster.Namespace.IsUnknown() {
+						ClusterMap["namespace"] = OriginPoolsWeightsItem.Cluster.Namespace.ValueString()
 					}
-					if !item.Cluster.Tenant.IsNull() && !item.Cluster.Tenant.IsUnknown() {
-						clusterNestedMap["tenant"] = item.Cluster.Tenant.ValueString()
+					if !OriginPoolsWeightsItem.Cluster.Tenant.IsNull() && !OriginPoolsWeightsItem.Cluster.Tenant.IsUnknown() {
+						ClusterMap["tenant"] = OriginPoolsWeightsItem.Cluster.Tenant.ValueString()
 					}
-					itemMap["cluster"] = clusterNestedMap
+					OriginPoolsWeightsItemMap["cluster"] = ClusterMap
 				}
-				if item.EndpointSubsets != nil {
-					itemMap["endpoint_subsets"] = map[string]interface{}{}
+				if OriginPoolsWeightsItem.EndpointSubsets != nil {
+					OriginPoolsWeightsItemMap["endpoint_subsets"] = map[string]interface{}{}
 				}
-				if item.Pool != nil {
-					poolNestedMap := make(map[string]interface{})
-					if !item.Pool.Name.IsNull() && !item.Pool.Name.IsUnknown() {
-						poolNestedMap["name"] = item.Pool.Name.ValueString()
+				if OriginPoolsWeightsItem.Pool != nil {
+					PoolMap := make(map[string]interface{})
+					if !OriginPoolsWeightsItem.Pool.Name.IsNull() && !OriginPoolsWeightsItem.Pool.Name.IsUnknown() {
+						PoolMap["name"] = OriginPoolsWeightsItem.Pool.Name.ValueString()
 					}
-					if !item.Pool.Namespace.IsNull() && !item.Pool.Namespace.IsUnknown() {
-						poolNestedMap["namespace"] = item.Pool.Namespace.ValueString()
+					if !OriginPoolsWeightsItem.Pool.Namespace.IsNull() && !OriginPoolsWeightsItem.Pool.Namespace.IsUnknown() {
+						PoolMap["namespace"] = OriginPoolsWeightsItem.Pool.Namespace.ValueString()
 					}
-					if !item.Pool.Tenant.IsNull() && !item.Pool.Tenant.IsUnknown() {
-						poolNestedMap["tenant"] = item.Pool.Tenant.ValueString()
+					if !OriginPoolsWeightsItem.Pool.Tenant.IsNull() && !OriginPoolsWeightsItem.Pool.Tenant.IsUnknown() {
+						PoolMap["tenant"] = OriginPoolsWeightsItem.Pool.Tenant.ValueString()
 					}
-					itemMap["pool"] = poolNestedMap
+					OriginPoolsWeightsItemMap["pool"] = PoolMap
 				}
-				if !item.Priority.IsNull() && !item.Priority.IsUnknown() {
-					itemMap["priority"] = item.Priority.ValueInt64()
+				if !OriginPoolsWeightsItem.Priority.IsNull() && !OriginPoolsWeightsItem.Priority.IsUnknown() {
+					OriginPoolsWeightsItemMap["priority"] = OriginPoolsWeightsItem.Priority.ValueInt64()
 				}
-				if !item.Weight.IsNull() && !item.Weight.IsUnknown() {
-					itemMap["weight"] = item.Weight.ValueInt64()
+				if !OriginPoolsWeightsItem.Weight.IsNull() && !OriginPoolsWeightsItem.Weight.IsUnknown() {
+					OriginPoolsWeightsItemMap["weight"] = OriginPoolsWeightsItem.Weight.ValueInt64()
 				}
-				origin_pools_weightsList = append(origin_pools_weightsList, itemMap)
+				OriginPoolsWeightsList = append(OriginPoolsWeightsList, OriginPoolsWeightsItemMap)
 			}
-			createReq.Spec["origin_pools_weights"] = origin_pools_weightsList
+			createReq.Spec["origin_pools_weights"] = OriginPoolsWeightsList
 		}
 	}
 	if data.Sni != nil {
-		sniMap := make(map[string]interface{})
-		createReq.Spec["sni"] = sniMap
+		createReq.Spec["sni"] = map[string]interface{}{}
 	}
 	if data.TLSTCP != nil {
-		tls_tcpMap := make(map[string]interface{})
+		TLSTCPMap := make(map[string]interface{})
 		if data.TLSTCP.TLSCertParams != nil {
-			tls_cert_paramsNestedMap := make(map[string]interface{})
-			tls_tcpMap["tls_cert_params"] = tls_cert_paramsNestedMap
+			TLSCertParamsMap := make(map[string]interface{})
+			if !data.TLSTCP.TLSCertParams.Certificates.IsNull() && !data.TLSTCP.TLSCertParams.Certificates.IsUnknown() {
+				var CertificatesElems []TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModel
+				diags := data.TLSTCP.TLSCertParams.Certificates.ElementsAs(ctx, &CertificatesElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(CertificatesElems) > 0 {
+					var CertificatesList []map[string]interface{}
+					for _, CertificatesItem := range CertificatesElems {
+						CertificatesItemMap := make(map[string]interface{})
+						if !CertificatesItem.Name.IsNull() && !CertificatesItem.Name.IsUnknown() {
+							CertificatesItemMap["name"] = CertificatesItem.Name.ValueString()
+						}
+						if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
+							CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
+						}
+						if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
+							CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
+						}
+						CertificatesList = append(CertificatesList, CertificatesItemMap)
+					}
+					TLSCertParamsMap["certificates"] = CertificatesList
+				}
+			}
+			if data.TLSTCP.TLSCertParams.NoMtls != nil {
+				TLSCertParamsMap["no_mtls"] = map[string]interface{}{}
+			}
+			if data.TLSTCP.TLSCertParams.TLSConfig != nil {
+				TLSConfigMap := make(map[string]interface{})
+				if data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity != nil {
+					CustomSecurityMap := make(map[string]interface{})
+					if !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
+						var CipherSuitesItems []string
+						diags := data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						if !diags.HasError() {
+							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+						}
+					}
+					if !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
+						CustomSecurityMap["max_version"] = data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+					}
+					if !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
+						CustomSecurityMap["min_version"] = data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.ValueString()
+					}
+					TLSConfigMap["custom_security"] = CustomSecurityMap
+				}
+				if data.TLSTCP.TLSCertParams.TLSConfig.DefaultSecurity != nil {
+					TLSConfigMap["default_security"] = map[string]interface{}{}
+				}
+				if data.TLSTCP.TLSCertParams.TLSConfig.LowSecurity != nil {
+					TLSConfigMap["low_security"] = map[string]interface{}{}
+				}
+				if data.TLSTCP.TLSCertParams.TLSConfig.MediumSecurity != nil {
+					TLSConfigMap["medium_security"] = map[string]interface{}{}
+				}
+				TLSCertParamsMap["tls_config"] = TLSConfigMap
+			}
+			if data.TLSTCP.TLSCertParams.UseMtls != nil {
+				UseMtlsMap := make(map[string]interface{})
+				if !data.TLSTCP.TLSCertParams.UseMtls.ClientCertificateOptional.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.ClientCertificateOptional.IsUnknown() {
+					UseMtlsMap["client_certificate_optional"] = data.TLSTCP.TLSCertParams.UseMtls.ClientCertificateOptional.ValueBool()
+				}
+				if data.TLSTCP.TLSCertParams.UseMtls.CRL != nil {
+					CRLMap := make(map[string]interface{})
+					if !data.TLSTCP.TLSCertParams.UseMtls.CRL.Name.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.CRL.Name.IsUnknown() {
+						CRLMap["name"] = data.TLSTCP.TLSCertParams.UseMtls.CRL.Name.ValueString()
+					}
+					if !data.TLSTCP.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
+						CRLMap["namespace"] = data.TLSTCP.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
+					}
+					if !data.TLSTCP.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
+						CRLMap["tenant"] = data.TLSTCP.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
+					}
+					UseMtlsMap["crl"] = CRLMap
+				}
+				if data.TLSTCP.TLSCertParams.UseMtls.NoCRL != nil {
+					UseMtlsMap["no_crl"] = map[string]interface{}{}
+				}
+				if data.TLSTCP.TLSCertParams.UseMtls.TrustedCA != nil {
+					TrustedCAMap := make(map[string]interface{})
+					if !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Name.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Name.IsUnknown() {
+						TrustedCAMap["name"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Name.ValueString()
+					}
+					if !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
+						TrustedCAMap["namespace"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
+					}
+					if !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
+						TrustedCAMap["tenant"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
+					}
+					UseMtlsMap["trusted_ca"] = TrustedCAMap
+				}
+				if !data.TLSTCP.TLSCertParams.UseMtls.TrustedCAURL.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.TrustedCAURL.IsUnknown() {
+					UseMtlsMap["trusted_ca_url"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCAURL.ValueString()
+				}
+				if data.TLSTCP.TLSCertParams.UseMtls.XfccDisabled != nil {
+					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+				}
+				if data.TLSTCP.TLSCertParams.UseMtls.XfccOptions != nil {
+					XfccOptionsMap := make(map[string]interface{})
+					if !data.TLSTCP.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
+						var XfccHeaderElementsItems []string
+						diags := data.TLSTCP.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						if !diags.HasError() {
+							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+						}
+					}
+					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+				}
+				TLSCertParamsMap["use_mtls"] = UseMtlsMap
+			}
+			TLSTCPMap["tls_cert_params"] = TLSCertParamsMap
 		}
 		if data.TLSTCP.TLSParameters != nil {
-			tls_parametersNestedMap := make(map[string]interface{})
-			tls_tcpMap["tls_parameters"] = tls_parametersNestedMap
+			TLSParametersMap := make(map[string]interface{})
+			if data.TLSTCP.TLSParameters.NoMtls != nil {
+				TLSParametersMap["no_mtls"] = map[string]interface{}{}
+			}
+			if len(data.TLSTCP.TLSParameters.TLSCertificates) > 0 {
+				var TLSCertificatesList []map[string]interface{}
+				for _, TLSCertificatesItem := range data.TLSTCP.TLSParameters.TLSCertificates {
+					TLSCertificatesItemMap := make(map[string]interface{})
+					if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+						TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
+					}
+					if TLSCertificatesItem.CustomHashAlgorithms != nil {
+						CustomHashAlgorithmsMap := make(map[string]interface{})
+						if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+							var HashAlgorithmsItems []string
+							diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+							if !diags.HasError() {
+								CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+							}
+						}
+						TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+					}
+					if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+						TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
+					}
+					if TLSCertificatesItem.DisableOCSPStapling != nil {
+						TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+					}
+					if TLSCertificatesItem.PrivateKey != nil {
+						PrivateKeyMap := make(map[string]interface{})
+						if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+							}
+							PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+					}
+					if TLSCertificatesItem.UseSystemDefaults != nil {
+						TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+					}
+					TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+				}
+				TLSParametersMap["tls_certificates"] = TLSCertificatesList
+			}
+			if data.TLSTCP.TLSParameters.TLSConfig != nil {
+				TLSConfigMap := make(map[string]interface{})
+				if data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity != nil {
+					CustomSecurityMap := make(map[string]interface{})
+					if !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
+						var CipherSuitesItems []string
+						diags := data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						if !diags.HasError() {
+							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+						}
+					}
+					if !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
+						CustomSecurityMap["max_version"] = data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+					}
+					if !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
+						CustomSecurityMap["min_version"] = data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MinVersion.ValueString()
+					}
+					TLSConfigMap["custom_security"] = CustomSecurityMap
+				}
+				if data.TLSTCP.TLSParameters.TLSConfig.DefaultSecurity != nil {
+					TLSConfigMap["default_security"] = map[string]interface{}{}
+				}
+				if data.TLSTCP.TLSParameters.TLSConfig.LowSecurity != nil {
+					TLSConfigMap["low_security"] = map[string]interface{}{}
+				}
+				if data.TLSTCP.TLSParameters.TLSConfig.MediumSecurity != nil {
+					TLSConfigMap["medium_security"] = map[string]interface{}{}
+				}
+				TLSParametersMap["tls_config"] = TLSConfigMap
+			}
+			if data.TLSTCP.TLSParameters.UseMtls != nil {
+				UseMtlsMap := make(map[string]interface{})
+				if !data.TLSTCP.TLSParameters.UseMtls.ClientCertificateOptional.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.ClientCertificateOptional.IsUnknown() {
+					UseMtlsMap["client_certificate_optional"] = data.TLSTCP.TLSParameters.UseMtls.ClientCertificateOptional.ValueBool()
+				}
+				if data.TLSTCP.TLSParameters.UseMtls.CRL != nil {
+					CRLMap := make(map[string]interface{})
+					if !data.TLSTCP.TLSParameters.UseMtls.CRL.Name.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.CRL.Name.IsUnknown() {
+						CRLMap["name"] = data.TLSTCP.TLSParameters.UseMtls.CRL.Name.ValueString()
+					}
+					if !data.TLSTCP.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
+						CRLMap["namespace"] = data.TLSTCP.TLSParameters.UseMtls.CRL.Namespace.ValueString()
+					}
+					if !data.TLSTCP.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
+						CRLMap["tenant"] = data.TLSTCP.TLSParameters.UseMtls.CRL.Tenant.ValueString()
+					}
+					UseMtlsMap["crl"] = CRLMap
+				}
+				if data.TLSTCP.TLSParameters.UseMtls.NoCRL != nil {
+					UseMtlsMap["no_crl"] = map[string]interface{}{}
+				}
+				if data.TLSTCP.TLSParameters.UseMtls.TrustedCA != nil {
+					TrustedCAMap := make(map[string]interface{})
+					if !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Name.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Name.IsUnknown() {
+						TrustedCAMap["name"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Name.ValueString()
+					}
+					if !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
+						TrustedCAMap["namespace"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
+					}
+					if !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
+						TrustedCAMap["tenant"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
+					}
+					UseMtlsMap["trusted_ca"] = TrustedCAMap
+				}
+				if !data.TLSTCP.TLSParameters.UseMtls.TrustedCAURL.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.TrustedCAURL.IsUnknown() {
+					UseMtlsMap["trusted_ca_url"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCAURL.ValueString()
+				}
+				if data.TLSTCP.TLSParameters.UseMtls.XfccDisabled != nil {
+					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+				}
+				if data.TLSTCP.TLSParameters.UseMtls.XfccOptions != nil {
+					XfccOptionsMap := make(map[string]interface{})
+					if !data.TLSTCP.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
+						var XfccHeaderElementsItems []string
+						diags := data.TLSTCP.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						if !diags.HasError() {
+							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+						}
+					}
+					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+				}
+				TLSParametersMap["use_mtls"] = UseMtlsMap
+			}
+			TLSTCPMap["tls_parameters"] = TLSParametersMap
 		}
-		createReq.Spec["tls_tcp"] = tls_tcpMap
+		createReq.Spec["tls_tcp"] = TLSTCPMap
 	}
 	if data.TLSTCPAutoCert != nil {
-		tls_tcp_auto_certMap := make(map[string]interface{})
+		TLSTCPAutoCertMap := make(map[string]interface{})
 		if data.TLSTCPAutoCert.NoMtls != nil {
-			tls_tcp_auto_certMap["no_mtls"] = map[string]interface{}{}
+			TLSTCPAutoCertMap["no_mtls"] = map[string]interface{}{}
 		}
 		if data.TLSTCPAutoCert.TLSConfig != nil {
-			tls_configNestedMap := make(map[string]interface{})
-			tls_tcp_auto_certMap["tls_config"] = tls_configNestedMap
+			TLSConfigMap := make(map[string]interface{})
+			if data.TLSTCPAutoCert.TLSConfig.CustomSecurity != nil {
+				CustomSecurityMap := make(map[string]interface{})
+				if !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
+					var CipherSuitesItems []string
+					diags := data.TLSTCPAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+					if !diags.HasError() {
+						CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+					}
+				}
+				if !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
+					CustomSecurityMap["max_version"] = data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+				}
+				if !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
+					CustomSecurityMap["min_version"] = data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MinVersion.ValueString()
+				}
+				TLSConfigMap["custom_security"] = CustomSecurityMap
+			}
+			if data.TLSTCPAutoCert.TLSConfig.DefaultSecurity != nil {
+				TLSConfigMap["default_security"] = map[string]interface{}{}
+			}
+			if data.TLSTCPAutoCert.TLSConfig.LowSecurity != nil {
+				TLSConfigMap["low_security"] = map[string]interface{}{}
+			}
+			if data.TLSTCPAutoCert.TLSConfig.MediumSecurity != nil {
+				TLSConfigMap["medium_security"] = map[string]interface{}{}
+			}
+			TLSTCPAutoCertMap["tls_config"] = TLSConfigMap
 		}
 		if data.TLSTCPAutoCert.UseMtls != nil {
-			use_mtlsNestedMap := make(map[string]interface{})
+			UseMtlsMap := make(map[string]interface{})
 			if !data.TLSTCPAutoCert.UseMtls.ClientCertificateOptional.IsNull() && !data.TLSTCPAutoCert.UseMtls.ClientCertificateOptional.IsUnknown() {
-				use_mtlsNestedMap["client_certificate_optional"] = data.TLSTCPAutoCert.UseMtls.ClientCertificateOptional.ValueBool()
+				UseMtlsMap["client_certificate_optional"] = data.TLSTCPAutoCert.UseMtls.ClientCertificateOptional.ValueBool()
+			}
+			if data.TLSTCPAutoCert.UseMtls.CRL != nil {
+				CRLMap := make(map[string]interface{})
+				if !data.TLSTCPAutoCert.UseMtls.CRL.Name.IsNull() && !data.TLSTCPAutoCert.UseMtls.CRL.Name.IsUnknown() {
+					CRLMap["name"] = data.TLSTCPAutoCert.UseMtls.CRL.Name.ValueString()
+				}
+				if !data.TLSTCPAutoCert.UseMtls.CRL.Namespace.IsNull() && !data.TLSTCPAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
+					CRLMap["namespace"] = data.TLSTCPAutoCert.UseMtls.CRL.Namespace.ValueString()
+				}
+				if !data.TLSTCPAutoCert.UseMtls.CRL.Tenant.IsNull() && !data.TLSTCPAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
+					CRLMap["tenant"] = data.TLSTCPAutoCert.UseMtls.CRL.Tenant.ValueString()
+				}
+				UseMtlsMap["crl"] = CRLMap
+			}
+			if data.TLSTCPAutoCert.UseMtls.NoCRL != nil {
+				UseMtlsMap["no_crl"] = map[string]interface{}{}
+			}
+			if data.TLSTCPAutoCert.UseMtls.TrustedCA != nil {
+				TrustedCAMap := make(map[string]interface{})
+				if !data.TLSTCPAutoCert.UseMtls.TrustedCA.Name.IsNull() && !data.TLSTCPAutoCert.UseMtls.TrustedCA.Name.IsUnknown() {
+					TrustedCAMap["name"] = data.TLSTCPAutoCert.UseMtls.TrustedCA.Name.ValueString()
+				}
+				if !data.TLSTCPAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !data.TLSTCPAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
+					TrustedCAMap["namespace"] = data.TLSTCPAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
+				}
+				if !data.TLSTCPAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !data.TLSTCPAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
+					TrustedCAMap["tenant"] = data.TLSTCPAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
+				}
+				UseMtlsMap["trusted_ca"] = TrustedCAMap
 			}
 			if !data.TLSTCPAutoCert.UseMtls.TrustedCAURL.IsNull() && !data.TLSTCPAutoCert.UseMtls.TrustedCAURL.IsUnknown() {
-				use_mtlsNestedMap["trusted_ca_url"] = data.TLSTCPAutoCert.UseMtls.TrustedCAURL.ValueString()
+				UseMtlsMap["trusted_ca_url"] = data.TLSTCPAutoCert.UseMtls.TrustedCAURL.ValueString()
 			}
-			tls_tcp_auto_certMap["use_mtls"] = use_mtlsNestedMap
+			if data.TLSTCPAutoCert.UseMtls.XfccDisabled != nil {
+				UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+			}
+			if data.TLSTCPAutoCert.UseMtls.XfccOptions != nil {
+				XfccOptionsMap := make(map[string]interface{})
+				if !data.TLSTCPAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.TLSTCPAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
+					var XfccHeaderElementsItems []string
+					diags := data.TLSTCPAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+					if !diags.HasError() {
+						XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+					}
+				}
+				UseMtlsMap["xfcc_options"] = XfccOptionsMap
+			}
+			TLSTCPAutoCertMap["use_mtls"] = UseMtlsMap
 		}
-		createReq.Spec["tls_tcp_auto_cert"] = tls_tcp_auto_certMap
+		createReq.Spec["tls_tcp_auto_cert"] = TLSTCPAutoCertMap
 	}
 	if !data.DNSVolterraManaged.IsNull() && !data.DNSVolterraManaged.IsUnknown() {
 		createReq.Spec["dns_volterra_managed"] = data.DNSVolterraManaged.ValueBool()
 	}
 	if data.HashPolicyChoiceRoundRobin != nil {
-		hash_policy_choice_round_robinMap := make(map[string]interface{})
-		createReq.Spec["hash_policy_choice_round_robin"] = hash_policy_choice_round_robinMap
+		createReq.Spec["hash_policy_choice_round_robin"] = map[string]interface{}{}
 	}
 	if !data.IdleTimeout.IsNull() && !data.IdleTimeout.IsUnknown() {
 		createReq.Spec["idle_timeout"] = data.IdleTimeout.ValueInt64()
@@ -2416,23 +2828,19 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		createReq.Spec["listen_port"] = data.ListenPort.ValueInt64()
 	}
 	if data.NoSni != nil {
-		no_sniMap := make(map[string]interface{})
-		createReq.Spec["no_sni"] = no_sniMap
+		createReq.Spec["no_sni"] = map[string]interface{}{}
 	}
 	if !data.PortRanges.IsNull() && !data.PortRanges.IsUnknown() {
 		createReq.Spec["port_ranges"] = data.PortRanges.ValueString()
 	}
 	if data.RetractCluster != nil {
-		retract_clusterMap := make(map[string]interface{})
-		createReq.Spec["retract_cluster"] = retract_clusterMap
+		createReq.Spec["retract_cluster"] = map[string]interface{}{}
 	}
 	if data.ServicePoliciesFromNamespace != nil {
-		service_policies_from_namespaceMap := make(map[string]interface{})
-		createReq.Spec["service_policies_from_namespace"] = service_policies_from_namespaceMap
+		createReq.Spec["service_policies_from_namespace"] = map[string]interface{}{}
 	}
 	if data.TCP != nil {
-		tcpMap := make(map[string]interface{})
-		createReq.Spec["tcp"] = tcpMap
+		createReq.Spec["tcp"] = map[string]interface{}{}
 	}
 
 	apiResource, err := r.client.CreateTCPLoadBalancer(ctx, createReq)
@@ -2449,26 +2857,29 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["active_service_policies"].(map[string]interface{}); ok && (isImport || data.ActiveServicePolicies != nil) {
 		data.ActiveServicePolicies = &TCPLoadBalancerActiveServicePoliciesModel{
-			Policies: func() []TCPLoadBalancerActiveServicePoliciesPoliciesModel {
-				if listData, ok := blockData["policies"].([]interface{}); ok && len(listData) > 0 {
-					var result []TCPLoadBalancerActiveServicePoliciesPoliciesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, TCPLoadBalancerActiveServicePoliciesPoliciesModel{
+			Policies: func() types.List {
+				if !isImport && data.ActiveServicePolicies != nil && (data.ActiveServicePolicies.Policies.IsNull() || len(data.ActiveServicePolicies.Policies.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerActiveServicePoliciesPoliciesModelAttrTypes})
+				}
+				if rawList, ok := blockData["policies"].([]interface{}); ok && len(rawList) > 0 {
+					var PoliciesResult []TCPLoadBalancerActiveServicePoliciesPoliciesModel
+					for _, PoliciesItem := range rawList {
+						if PoliciesItemMap, ok := PoliciesItem.(map[string]interface{}); ok {
+							PoliciesResult = append(PoliciesResult, TCPLoadBalancerActiveServicePoliciesPoliciesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := PoliciesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := PoliciesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := PoliciesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -2476,166 +2887,367 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: TCPLoadBalancerActiveServicePoliciesPoliciesModelAttrTypes}, PoliciesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerActiveServicePoliciesPoliciesModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["advertise_custom"].(map[string]interface{}); ok && (isImport || data.AdvertiseCustom != nil) {
 		data.AdvertiseCustom = &TCPLoadBalancerAdvertiseCustomModel{
-			AdvertiseWhere: func() []TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel {
-				if listData, ok := blockData["advertise_where"].([]interface{}); ok && len(listData) > 0 {
-					var result []TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel{
+			AdvertiseWhere: func() types.List {
+				if !isImport && data.AdvertiseCustom != nil && (data.AdvertiseCustom.AdvertiseWhere.IsNull() || len(data.AdvertiseCustom.AdvertiseWhere.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes})
+				}
+				if rawList, ok := blockData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
+					var AdvertiseWhereResult []TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel
+					for _, AdvertiseWhereItem := range rawList {
+						if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
+							AdvertiseWhereResult = append(AdvertiseWhereResult, TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel{
 								AdvertiseOnPublic: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
-									if _, ok := itemMap["advertise_on_public"].(map[string]interface{}); ok {
-										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel{}
+									if AdvertiseOnPublicData, ok := AdvertiseWhereItemMap["advertise_on_public"].(map[string]interface{}); ok {
+										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel{
+											PublicIP: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel {
+												if PublicIPData, ok := AdvertiseOnPublicData["public_ip"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel{
+														Name: func() types.String {
+															if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
 									}
 									return nil
 								}(),
 								Port: func() types.Int64 {
-									if v, ok := itemMap["port"].(float64); ok {
+									if v, ok := AdvertiseWhereItemMap["port"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								PortRanges: func() types.String {
-									if v, ok := itemMap["port_ranges"].(string); ok && v != "" {
+									if v, ok := AdvertiseWhereItemMap["port_ranges"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Site: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereSiteModel {
-									if deepMap, ok := itemMap["site"].(map[string]interface{}); ok {
+									if SiteData, ok := AdvertiseWhereItemMap["site"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereSiteModel{
 											IP: func() types.String {
-												if v, ok := deepMap["ip"].(string); ok && v != "" {
+												if v, ok := SiteData["ip"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Network: func() types.String {
-												if v, ok := deepMap["network"].(string); ok && v != "" {
+												if v, ok := SiteData["network"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
+											}(),
+											Site: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereSiteSiteModel {
+												if SiteData, ok := SiteData["site"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereSiteSiteModel{
+														Name: func() types.String {
+															if v, ok := SiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
 											}(),
 										}
 									}
 									return nil
 								}(),
 								UseDefaultPort: func() *TCPLoadBalancerEmptyModel {
-									if _, ok := itemMap["use_default_port"].(map[string]interface{}); ok {
+									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerEmptyModel{}
 									}
 									return nil
 								}(),
 								VirtualNetwork: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel {
-									if deepMap, ok := itemMap["virtual_network"].(map[string]interface{}); ok {
+									if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
 											DefaultV6VIP: func() *TCPLoadBalancerEmptyModel {
-												if _, ok := deepMap["default_v6_vip"].(map[string]interface{}); ok {
+												if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											DefaultVIP: func() *TCPLoadBalancerEmptyModel {
-												if _, ok := deepMap["default_vip"].(map[string]interface{}); ok {
+												if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											SpecificV6VIP: func() types.String {
-												if v, ok := deepMap["specific_v6_vip"].(string); ok && v != "" {
+												if v, ok := VirtualNetworkData["specific_v6_vip"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											SpecificVIP: func() types.String {
-												if v, ok := deepMap["specific_vip"].(string); ok && v != "" {
+												if v, ok := VirtualNetworkData["specific_vip"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
+											}(),
+											VirtualNetwork: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel {
+												if VirtualNetworkData, ok := VirtualNetworkData["virtual_network"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel{
+														Name: func() types.String {
+															if v, ok := VirtualNetworkData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := VirtualNetworkData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := VirtualNetworkData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
 											}(),
 										}
 									}
 									return nil
 								}(),
 								VirtualSite: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteModel {
-									if deepMap, ok := itemMap["virtual_site"].(map[string]interface{}); ok {
+									if VirtualSiteData, ok := AdvertiseWhereItemMap["virtual_site"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteModel{
 											Network: func() types.String {
-												if v, ok := deepMap["network"].(string); ok && v != "" {
+												if v, ok := VirtualSiteData["network"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
+											}(),
+											VirtualSite: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteModel {
+												if VirtualSiteData, ok := VirtualSiteData["virtual_site"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteModel{
+														Name: func() types.String {
+															if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
 											}(),
 										}
 									}
 									return nil
 								}(),
 								VirtualSiteWithVIP: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel {
-									if deepMap, ok := itemMap["virtual_site_with_vip"].(map[string]interface{}); ok {
+									if VirtualSiteWithVIPData, ok := AdvertiseWhereItemMap["virtual_site_with_vip"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel{
 											IP: func() types.String {
-												if v, ok := deepMap["ip"].(string); ok && v != "" {
+												if v, ok := VirtualSiteWithVIPData["ip"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Network: func() types.String {
-												if v, ok := deepMap["network"].(string); ok && v != "" {
+												if v, ok := VirtualSiteWithVIPData["network"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
+											}(),
+											VirtualSite: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteModel {
+												if VirtualSiteData, ok := VirtualSiteWithVIPData["virtual_site"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteModel{
+														Name: func() types.String {
+															if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
 											}(),
 										}
 									}
 									return nil
 								}(),
 								Vk8sService: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceModel {
-									if _, ok := itemMap["vk8s_service"].(map[string]interface{}); ok {
-										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceModel{}
+									if Vk8sServiceData, ok := AdvertiseWhereItemMap["vk8s_service"].(map[string]interface{}); ok {
+										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceModel{
+											Site: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceSiteModel {
+												if SiteData, ok := Vk8sServiceData["site"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceSiteModel{
+														Name: func() types.String {
+															if v, ok := SiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											VirtualSite: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteModel {
+												if VirtualSiteData, ok := Vk8sServiceData["virtual_site"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteModel{
+														Name: func() types.String {
+															if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
 									}
 									return nil
 								}(),
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes}, AdvertiseWhereResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["advertise_on_public"].(map[string]interface{}); ok && (isImport || data.AdvertiseOnPublic != nil) {
+		data.AdvertiseOnPublic = &TCPLoadBalancerAdvertiseOnPublicModel{
+			PublicIP: func() *TCPLoadBalancerAdvertiseOnPublicPublicIPModel {
+				if !isImport && data.AdvertiseOnPublic != nil && data.AdvertiseOnPublic.PublicIP != nil {
+					return data.AdvertiseOnPublic.PublicIP
+				}
+				if PublicIPData, ok := blockData["public_ip"].(map[string]interface{}); ok {
+					return &TCPLoadBalancerAdvertiseOnPublicPublicIPModel{
+						Name: func() types.String {
+							if v, ok := PublicIPData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
 				}
 				return nil
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["advertise_on_public"].(map[string]interface{}); ok && isImport && data.AdvertiseOnPublic == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AdvertiseOnPublic = &TCPLoadBalancerAdvertiseOnPublicModel{}
-	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["advertise_on_public_default_vip"].(map[string]interface{}); ok && isImport && data.AdvertiseOnPublicDefaultVIP == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.AdvertiseOnPublicDefaultVIP = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["default_lb_with_sni"].(map[string]interface{}); ok && isImport && data.DefaultLBWithSni == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DefaultLBWithSni = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok && isImport && data.DoNotAdvertise == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DoNotAdvertise = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["do_not_retract_cluster"].(map[string]interface{}); ok && isImport && data.DoNotRetractCluster == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DoNotRetractCluster = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
 		var domainsList []string
 		for _, item := range v {
@@ -2652,52 +3264,46 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if _, ok := apiResource.Spec["hash_policy_choice_least_active"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceLeastActive == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.HashPolicyChoiceLeastActive = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["hash_policy_choice_random"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRandom == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.HashPolicyChoiceRandom = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["hash_policy_choice_source_ip_stickiness"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceSourceIPStickiness == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.HashPolicyChoiceSourceIPStickiness = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_service_policies"].(map[string]interface{}); ok && isImport && data.NoServicePolicies == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoServicePolicies = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["origin_pools_weights"].([]interface{}); ok && len(listData) > 0 {
-		var origin_pools_weightsList []TCPLoadBalancerOriginPoolsWeightsModel
+	if !isImport && (data.OriginPoolsWeights.IsNull() || len(data.OriginPoolsWeights.Elements()) == 0) {
+		data.OriginPoolsWeights = types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerOriginPoolsWeightsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["origin_pools_weights"].([]interface{}); ok && len(listData) > 0 {
+		var OriginPoolsWeightsList []TCPLoadBalancerOriginPoolsWeightsModel
 		var existingOriginPoolsWeightsItems []TCPLoadBalancerOriginPoolsWeightsModel
 		if !data.OriginPoolsWeights.IsNull() && !data.OriginPoolsWeights.IsUnknown() {
 			data.OriginPoolsWeights.ElementsAs(ctx, &existingOriginPoolsWeightsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				origin_pools_weightsList = append(origin_pools_weightsList, TCPLoadBalancerOriginPoolsWeightsModel{
+				OriginPoolsWeightsList = append(OriginPoolsWeightsList, TCPLoadBalancerOriginPoolsWeightsModel{
 					Cluster: func() *TCPLoadBalancerOriginPoolsWeightsClusterModel {
-						if nestedMap, ok := itemMap["cluster"].(map[string]interface{}); ok {
+						if ClusterData, ok := itemMap["cluster"].(map[string]interface{}); ok {
 							return &TCPLoadBalancerOriginPoolsWeightsClusterModel{
 								Name: func() types.String {
-									if v, ok := nestedMap["name"].(string); ok && v != "" {
+									if v, ok := ClusterData["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := nestedMap["namespace"].(string); ok && v != "" {
+									if v, ok := ClusterData["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := nestedMap["tenant"].(string); ok && v != "" {
+									if v, ok := ClusterData["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -2710,25 +3316,28 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						if !isImport && len(existingOriginPoolsWeightsItems) > listIdx && existingOriginPoolsWeightsItems[listIdx].EndpointSubsets != nil {
 							return &TCPLoadBalancerEmptyModel{}
 						}
+						if _, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
+							return &TCPLoadBalancerEmptyModel{}
+						}
 						return nil
 					}(),
 					Pool: func() *TCPLoadBalancerOriginPoolsWeightsPoolModel {
-						if nestedMap, ok := itemMap["pool"].(map[string]interface{}); ok {
+						if PoolData, ok := itemMap["pool"].(map[string]interface{}); ok {
 							return &TCPLoadBalancerOriginPoolsWeightsPoolModel{
 								Name: func() types.String {
-									if v, ok := nestedMap["name"].(string); ok && v != "" {
+									if v, ok := PoolData["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := nestedMap["namespace"].(string); ok && v != "" {
+									if v, ok := PoolData["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := nestedMap["tenant"].(string); ok && v != "" {
+									if v, ok := PoolData["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -2752,35 +3361,690 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: TCPLoadBalancerOriginPoolsWeightsModelAttrTypes}, origin_pools_weightsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: TCPLoadBalancerOriginPoolsWeightsModelAttrTypes}, OriginPoolsWeightsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.OriginPoolsWeights = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.OriginPoolsWeights = types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerOriginPoolsWeightsModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["sni"].(map[string]interface{}); ok && isImport && data.Sni == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.Sni = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["tls_tcp"].(map[string]interface{}); ok && isImport && data.TLSTCP == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.TLSTCP = &TCPLoadBalancerTLSTCPModel{}
+	if blockData, ok := apiResource.Spec["tls_tcp"].(map[string]interface{}); ok && (isImport || data.TLSTCP != nil) {
+		data.TLSTCP = &TCPLoadBalancerTLSTCPModel{
+			TLSCertParams: func() *TCPLoadBalancerTLSTCPTLSCertParamsModel {
+				if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil {
+					return data.TLSTCP.TLSCertParams
+				}
+				if TLSCertParamsData, ok := blockData["tls_cert_params"].(map[string]interface{}); ok {
+					return &TCPLoadBalancerTLSTCPTLSCertParamsModel{
+						Certificates: func() types.List {
+							if rawList, ok := TLSCertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var CertificatesResult []TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModel
+								for _, CertificatesItem := range rawList {
+									if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
+										CertificatesResult = append(CertificatesResult, TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModel{
+											Name: func() types.String {
+												if v, ok := CertificatesItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := CertificatesItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := CertificatesItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModelAttrTypes}, CertificatesResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModelAttrTypes})
+						}(),
+						NoMtls: func() *TCPLoadBalancerEmptyModel {
+							if _, ok := TLSCertParamsData["no_mtls"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+						TLSConfig: func() *TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModel {
+							if TLSConfigData, ok := TLSCertParamsData["tls_config"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModel{
+									CustomSecurity: func() *TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigCustomSecurityModel {
+										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigCustomSecurityModel{
+												CipherSuites: func() types.List {
+													if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												MaxVersion: func() types.String {
+													if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												MinVersion: func() types.String {
+													if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									LowSecurity: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									MediumSecurity: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseMtls: func() *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsModel {
+							if UseMtlsData, ok := TLSCertParamsData["use_mtls"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsModel{
+									ClientCertificateOptional: func() types.Bool {
+										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									CRL: func() *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsCRLModel {
+										if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsCRLModel{
+												Name: func() types.String {
+													if v, ok := CRLData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := CRLData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := CRLData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NoCRL: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									TrustedCA: func() *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsTrustedCAModel {
+										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsTrustedCAModel{
+												Name: func() types.String {
+													if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									XfccDisabled: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									XfccOptions: func() *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsXfccOptionsModel {
+										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsXfccOptionsModel{
+												XfccHeaderElements: func() types.List {
+													if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			TLSParameters: func() *TCPLoadBalancerTLSTCPTLSParametersModel {
+				if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil {
+					return data.TLSTCP.TLSParameters
+				}
+				if TLSParametersData, ok := blockData["tls_parameters"].(map[string]interface{}); ok {
+					return &TCPLoadBalancerTLSTCPTLSParametersModel{
+						NoMtls: func() *TCPLoadBalancerEmptyModel {
+							if _, ok := TLSParametersData["no_mtls"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+						TLSCertificates: func() []TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModel {
+							if rawList, ok := TLSParametersData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModel
+								for _, TLSCertificatesItem := range rawList {
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() *TCPLoadBalancerEmptyModel {
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerEmptyModel{}
+												}
+												return nil
+											}(),
+											PrivateKey: func() *TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() *TCPLoadBalancerEmptyModel {
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return TLSCertificatesResult
+							}
+							return nil
+						}(),
+						TLSConfig: func() *TCPLoadBalancerTLSTCPTLSParametersTLSConfigModel {
+							if TLSConfigData, ok := TLSParametersData["tls_config"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPTLSParametersTLSConfigModel{
+									CustomSecurity: func() *TCPLoadBalancerTLSTCPTLSParametersTLSConfigCustomSecurityModel {
+										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSParametersTLSConfigCustomSecurityModel{
+												CipherSuites: func() types.List {
+													if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												MaxVersion: func() types.String {
+													if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												MinVersion: func() types.String {
+													if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									LowSecurity: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									MediumSecurity: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseMtls: func() *TCPLoadBalancerTLSTCPTLSParametersUseMtlsModel {
+							if UseMtlsData, ok := TLSParametersData["use_mtls"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPTLSParametersUseMtlsModel{
+									ClientCertificateOptional: func() types.Bool {
+										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									CRL: func() *TCPLoadBalancerTLSTCPTLSParametersUseMtlsCRLModel {
+										if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSParametersUseMtlsCRLModel{
+												Name: func() types.String {
+													if v, ok := CRLData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := CRLData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := CRLData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NoCRL: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									TrustedCA: func() *TCPLoadBalancerTLSTCPTLSParametersUseMtlsTrustedCAModel {
+										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSParametersUseMtlsTrustedCAModel{
+												Name: func() types.String {
+													if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									XfccDisabled: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									XfccOptions: func() *TCPLoadBalancerTLSTCPTLSParametersUseMtlsXfccOptionsModel {
+										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSParametersUseMtlsXfccOptionsModel{
+												XfccHeaderElements: func() types.List {
+													if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["tls_tcp_auto_cert"].(map[string]interface{}); ok && isImport && data.TLSTCPAutoCert == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.TLSTCPAutoCert = &TCPLoadBalancerTLSTCPAutoCertModel{}
+	if blockData, ok := apiResource.Spec["tls_tcp_auto_cert"].(map[string]interface{}); ok && (isImport || data.TLSTCPAutoCert != nil) {
+		data.TLSTCPAutoCert = &TCPLoadBalancerTLSTCPAutoCertModel{
+			NoMtls: func() *TCPLoadBalancerEmptyModel {
+				if !isImport && data.TLSTCPAutoCert != nil {
+					return data.TLSTCPAutoCert.NoMtls
+				}
+				if _, ok := blockData["no_mtls"].(map[string]interface{}); ok {
+					return &TCPLoadBalancerEmptyModel{}
+				}
+				return nil
+			}(),
+			TLSConfig: func() *TCPLoadBalancerTLSTCPAutoCertTLSConfigModel {
+				if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
+					return data.TLSTCPAutoCert.TLSConfig
+				}
+				if TLSConfigData, ok := blockData["tls_config"].(map[string]interface{}); ok {
+					return &TCPLoadBalancerTLSTCPAutoCertTLSConfigModel{
+						CustomSecurity: func() *TCPLoadBalancerTLSTCPAutoCertTLSConfigCustomSecurityModel {
+							if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPAutoCertTLSConfigCustomSecurityModel{
+									CipherSuites: func() types.List {
+										if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									MaxVersion: func() types.String {
+										if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									MinVersion: func() types.String {
+										if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
+							if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+						LowSecurity: func() *TCPLoadBalancerEmptyModel {
+							if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+						MediumSecurity: func() *TCPLoadBalancerEmptyModel {
+							if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			UseMtls: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsModel {
+				if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil {
+					return data.TLSTCPAutoCert.UseMtls
+				}
+				if UseMtlsData, ok := blockData["use_mtls"].(map[string]interface{}); ok {
+					return &TCPLoadBalancerTLSTCPAutoCertUseMtlsModel{
+						ClientCertificateOptional: func() types.Bool {
+							if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+								return types.BoolValue(v)
+							}
+							return types.BoolNull()
+						}(),
+						CRL: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsCRLModel {
+							if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPAutoCertUseMtlsCRLModel{
+									Name: func() types.String {
+										if v, ok := CRLData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := CRLData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := CRLData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						NoCRL: func() *TCPLoadBalancerEmptyModel {
+							if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+						TrustedCA: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsTrustedCAModel {
+							if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPAutoCertUseMtlsTrustedCAModel{
+									Name: func() types.String {
+										if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						TrustedCAURL: func() types.String {
+							if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						XfccDisabled: func() *TCPLoadBalancerEmptyModel {
+							if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+						XfccOptions: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsXfccOptionsModel {
+							if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPAutoCertUseMtlsXfccOptionsModel{
+									XfccHeaderElements: func() types.List {
+										if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	// Top-level Optional bool: preserve prior state to avoid API default drift
 	if !isImport && !data.DNSVolterraManaged.IsNull() && !data.DNSVolterraManaged.IsUnknown() {
 		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		// Import case, null state, or unknown (after Create): read from API
 		if v, ok := apiResource.Spec["dns_volterra_managed"].(bool); ok {
 			data.DNSVolterraManaged = types.BoolValue(v)
 		} else {
@@ -2788,10 +4052,8 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		}
 	}
 	if _, ok := apiResource.Spec["hash_policy_choice_round_robin"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRoundRobin == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.HashPolicyChoiceRoundRobin = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["idle_timeout"].(float64); ok {
 		data.IdleTimeout = types.Int64Value(int64(v))
 	} else {
@@ -2803,30 +4065,22 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		data.ListenPort = types.Int64Null()
 	}
 	if _, ok := apiResource.Spec["no_sni"].(map[string]interface{}); ok && isImport && data.NoSni == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoSni = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["port_ranges"].(string); ok && v != "" {
 		data.PortRanges = types.StringValue(v)
 	} else {
 		data.PortRanges = types.StringNull()
 	}
 	if _, ok := apiResource.Spec["retract_cluster"].(map[string]interface{}); ok && isImport && data.RetractCluster == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.RetractCluster = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["service_policies_from_namespace"].(map[string]interface{}); ok && isImport && data.ServicePoliciesFromNamespace == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.ServicePoliciesFromNamespace = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["tcp"].(map[string]interface{}); ok && isImport && data.TCP == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.TCP = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 
 	tflog.Trace(ctx, "created TCPLoadBalancer resource")
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -2909,26 +4163,29 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	_ = isImport // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["active_service_policies"].(map[string]interface{}); ok && (isImport || data.ActiveServicePolicies != nil) {
 		data.ActiveServicePolicies = &TCPLoadBalancerActiveServicePoliciesModel{
-			Policies: func() []TCPLoadBalancerActiveServicePoliciesPoliciesModel {
-				if listData, ok := blockData["policies"].([]interface{}); ok && len(listData) > 0 {
-					var result []TCPLoadBalancerActiveServicePoliciesPoliciesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, TCPLoadBalancerActiveServicePoliciesPoliciesModel{
+			Policies: func() types.List {
+				if !isImport && data.ActiveServicePolicies != nil && (data.ActiveServicePolicies.Policies.IsNull() || len(data.ActiveServicePolicies.Policies.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerActiveServicePoliciesPoliciesModelAttrTypes})
+				}
+				if rawList, ok := blockData["policies"].([]interface{}); ok && len(rawList) > 0 {
+					var PoliciesResult []TCPLoadBalancerActiveServicePoliciesPoliciesModel
+					for _, PoliciesItem := range rawList {
+						if PoliciesItemMap, ok := PoliciesItem.(map[string]interface{}); ok {
+							PoliciesResult = append(PoliciesResult, TCPLoadBalancerActiveServicePoliciesPoliciesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := PoliciesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := PoliciesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := PoliciesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -2936,166 +4193,367 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: TCPLoadBalancerActiveServicePoliciesPoliciesModelAttrTypes}, PoliciesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerActiveServicePoliciesPoliciesModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["advertise_custom"].(map[string]interface{}); ok && (isImport || data.AdvertiseCustom != nil) {
 		data.AdvertiseCustom = &TCPLoadBalancerAdvertiseCustomModel{
-			AdvertiseWhere: func() []TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel {
-				if listData, ok := blockData["advertise_where"].([]interface{}); ok && len(listData) > 0 {
-					var result []TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel{
+			AdvertiseWhere: func() types.List {
+				if !isImport && data.AdvertiseCustom != nil && (data.AdvertiseCustom.AdvertiseWhere.IsNull() || len(data.AdvertiseCustom.AdvertiseWhere.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes})
+				}
+				if rawList, ok := blockData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
+					var AdvertiseWhereResult []TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel
+					for _, AdvertiseWhereItem := range rawList {
+						if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
+							AdvertiseWhereResult = append(AdvertiseWhereResult, TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel{
 								AdvertiseOnPublic: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
-									if _, ok := itemMap["advertise_on_public"].(map[string]interface{}); ok {
-										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel{}
+									if AdvertiseOnPublicData, ok := AdvertiseWhereItemMap["advertise_on_public"].(map[string]interface{}); ok {
+										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel{
+											PublicIP: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel {
+												if PublicIPData, ok := AdvertiseOnPublicData["public_ip"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel{
+														Name: func() types.String {
+															if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
 									}
 									return nil
 								}(),
 								Port: func() types.Int64 {
-									if v, ok := itemMap["port"].(float64); ok {
+									if v, ok := AdvertiseWhereItemMap["port"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								PortRanges: func() types.String {
-									if v, ok := itemMap["port_ranges"].(string); ok && v != "" {
+									if v, ok := AdvertiseWhereItemMap["port_ranges"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Site: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereSiteModel {
-									if deepMap, ok := itemMap["site"].(map[string]interface{}); ok {
+									if SiteData, ok := AdvertiseWhereItemMap["site"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereSiteModel{
 											IP: func() types.String {
-												if v, ok := deepMap["ip"].(string); ok && v != "" {
+												if v, ok := SiteData["ip"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Network: func() types.String {
-												if v, ok := deepMap["network"].(string); ok && v != "" {
+												if v, ok := SiteData["network"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
+											}(),
+											Site: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereSiteSiteModel {
+												if SiteData, ok := SiteData["site"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereSiteSiteModel{
+														Name: func() types.String {
+															if v, ok := SiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
 											}(),
 										}
 									}
 									return nil
 								}(),
 								UseDefaultPort: func() *TCPLoadBalancerEmptyModel {
-									if _, ok := itemMap["use_default_port"].(map[string]interface{}); ok {
+									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerEmptyModel{}
 									}
 									return nil
 								}(),
 								VirtualNetwork: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel {
-									if deepMap, ok := itemMap["virtual_network"].(map[string]interface{}); ok {
+									if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
 											DefaultV6VIP: func() *TCPLoadBalancerEmptyModel {
-												if _, ok := deepMap["default_v6_vip"].(map[string]interface{}); ok {
+												if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											DefaultVIP: func() *TCPLoadBalancerEmptyModel {
-												if _, ok := deepMap["default_vip"].(map[string]interface{}); ok {
+												if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											SpecificV6VIP: func() types.String {
-												if v, ok := deepMap["specific_v6_vip"].(string); ok && v != "" {
+												if v, ok := VirtualNetworkData["specific_v6_vip"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											SpecificVIP: func() types.String {
-												if v, ok := deepMap["specific_vip"].(string); ok && v != "" {
+												if v, ok := VirtualNetworkData["specific_vip"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
+											}(),
+											VirtualNetwork: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel {
+												if VirtualNetworkData, ok := VirtualNetworkData["virtual_network"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel{
+														Name: func() types.String {
+															if v, ok := VirtualNetworkData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := VirtualNetworkData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := VirtualNetworkData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
 											}(),
 										}
 									}
 									return nil
 								}(),
 								VirtualSite: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteModel {
-									if deepMap, ok := itemMap["virtual_site"].(map[string]interface{}); ok {
+									if VirtualSiteData, ok := AdvertiseWhereItemMap["virtual_site"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteModel{
 											Network: func() types.String {
-												if v, ok := deepMap["network"].(string); ok && v != "" {
+												if v, ok := VirtualSiteData["network"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
+											}(),
+											VirtualSite: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteModel {
+												if VirtualSiteData, ok := VirtualSiteData["virtual_site"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteModel{
+														Name: func() types.String {
+															if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
 											}(),
 										}
 									}
 									return nil
 								}(),
 								VirtualSiteWithVIP: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel {
-									if deepMap, ok := itemMap["virtual_site_with_vip"].(map[string]interface{}); ok {
+									if VirtualSiteWithVIPData, ok := AdvertiseWhereItemMap["virtual_site_with_vip"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel{
 											IP: func() types.String {
-												if v, ok := deepMap["ip"].(string); ok && v != "" {
+												if v, ok := VirtualSiteWithVIPData["ip"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Network: func() types.String {
-												if v, ok := deepMap["network"].(string); ok && v != "" {
+												if v, ok := VirtualSiteWithVIPData["network"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
+											}(),
+											VirtualSite: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteModel {
+												if VirtualSiteData, ok := VirtualSiteWithVIPData["virtual_site"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteModel{
+														Name: func() types.String {
+															if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
 											}(),
 										}
 									}
 									return nil
 								}(),
 								Vk8sService: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceModel {
-									if _, ok := itemMap["vk8s_service"].(map[string]interface{}); ok {
-										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceModel{}
+									if Vk8sServiceData, ok := AdvertiseWhereItemMap["vk8s_service"].(map[string]interface{}); ok {
+										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceModel{
+											Site: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceSiteModel {
+												if SiteData, ok := Vk8sServiceData["site"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceSiteModel{
+														Name: func() types.String {
+															if v, ok := SiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											VirtualSite: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteModel {
+												if VirtualSiteData, ok := Vk8sServiceData["virtual_site"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteModel{
+														Name: func() types.String {
+															if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
 									}
 									return nil
 								}(),
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes}, AdvertiseWhereResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["advertise_on_public"].(map[string]interface{}); ok && (isImport || data.AdvertiseOnPublic != nil) {
+		data.AdvertiseOnPublic = &TCPLoadBalancerAdvertiseOnPublicModel{
+			PublicIP: func() *TCPLoadBalancerAdvertiseOnPublicPublicIPModel {
+				if !isImport && data.AdvertiseOnPublic != nil && data.AdvertiseOnPublic.PublicIP != nil {
+					return data.AdvertiseOnPublic.PublicIP
+				}
+				if PublicIPData, ok := blockData["public_ip"].(map[string]interface{}); ok {
+					return &TCPLoadBalancerAdvertiseOnPublicPublicIPModel{
+						Name: func() types.String {
+							if v, ok := PublicIPData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
 				}
 				return nil
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["advertise_on_public"].(map[string]interface{}); ok && isImport && data.AdvertiseOnPublic == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AdvertiseOnPublic = &TCPLoadBalancerAdvertiseOnPublicModel{}
-	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["advertise_on_public_default_vip"].(map[string]interface{}); ok && isImport && data.AdvertiseOnPublicDefaultVIP == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.AdvertiseOnPublicDefaultVIP = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["default_lb_with_sni"].(map[string]interface{}); ok && isImport && data.DefaultLBWithSni == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DefaultLBWithSni = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok && isImport && data.DoNotAdvertise == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DoNotAdvertise = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["do_not_retract_cluster"].(map[string]interface{}); ok && isImport && data.DoNotRetractCluster == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DoNotRetractCluster = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
 		var domainsList []string
 		for _, item := range v {
@@ -3112,52 +4570,46 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if _, ok := apiResource.Spec["hash_policy_choice_least_active"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceLeastActive == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.HashPolicyChoiceLeastActive = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["hash_policy_choice_random"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRandom == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.HashPolicyChoiceRandom = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["hash_policy_choice_source_ip_stickiness"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceSourceIPStickiness == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.HashPolicyChoiceSourceIPStickiness = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_service_policies"].(map[string]interface{}); ok && isImport && data.NoServicePolicies == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoServicePolicies = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["origin_pools_weights"].([]interface{}); ok && len(listData) > 0 {
-		var origin_pools_weightsList []TCPLoadBalancerOriginPoolsWeightsModel
+	if !isImport && (data.OriginPoolsWeights.IsNull() || len(data.OriginPoolsWeights.Elements()) == 0) {
+		data.OriginPoolsWeights = types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerOriginPoolsWeightsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["origin_pools_weights"].([]interface{}); ok && len(listData) > 0 {
+		var OriginPoolsWeightsList []TCPLoadBalancerOriginPoolsWeightsModel
 		var existingOriginPoolsWeightsItems []TCPLoadBalancerOriginPoolsWeightsModel
 		if !data.OriginPoolsWeights.IsNull() && !data.OriginPoolsWeights.IsUnknown() {
 			data.OriginPoolsWeights.ElementsAs(ctx, &existingOriginPoolsWeightsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				origin_pools_weightsList = append(origin_pools_weightsList, TCPLoadBalancerOriginPoolsWeightsModel{
+				OriginPoolsWeightsList = append(OriginPoolsWeightsList, TCPLoadBalancerOriginPoolsWeightsModel{
 					Cluster: func() *TCPLoadBalancerOriginPoolsWeightsClusterModel {
-						if nestedMap, ok := itemMap["cluster"].(map[string]interface{}); ok {
+						if ClusterData, ok := itemMap["cluster"].(map[string]interface{}); ok {
 							return &TCPLoadBalancerOriginPoolsWeightsClusterModel{
 								Name: func() types.String {
-									if v, ok := nestedMap["name"].(string); ok && v != "" {
+									if v, ok := ClusterData["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := nestedMap["namespace"].(string); ok && v != "" {
+									if v, ok := ClusterData["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := nestedMap["tenant"].(string); ok && v != "" {
+									if v, ok := ClusterData["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -3170,25 +4622,28 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 						if !isImport && len(existingOriginPoolsWeightsItems) > listIdx && existingOriginPoolsWeightsItems[listIdx].EndpointSubsets != nil {
 							return &TCPLoadBalancerEmptyModel{}
 						}
+						if _, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
+							return &TCPLoadBalancerEmptyModel{}
+						}
 						return nil
 					}(),
 					Pool: func() *TCPLoadBalancerOriginPoolsWeightsPoolModel {
-						if nestedMap, ok := itemMap["pool"].(map[string]interface{}); ok {
+						if PoolData, ok := itemMap["pool"].(map[string]interface{}); ok {
 							return &TCPLoadBalancerOriginPoolsWeightsPoolModel{
 								Name: func() types.String {
-									if v, ok := nestedMap["name"].(string); ok && v != "" {
+									if v, ok := PoolData["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := nestedMap["namespace"].(string); ok && v != "" {
+									if v, ok := PoolData["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := nestedMap["tenant"].(string); ok && v != "" {
+									if v, ok := PoolData["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -3212,35 +4667,690 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: TCPLoadBalancerOriginPoolsWeightsModelAttrTypes}, origin_pools_weightsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: TCPLoadBalancerOriginPoolsWeightsModelAttrTypes}, OriginPoolsWeightsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.OriginPoolsWeights = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.OriginPoolsWeights = types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerOriginPoolsWeightsModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["sni"].(map[string]interface{}); ok && isImport && data.Sni == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.Sni = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["tls_tcp"].(map[string]interface{}); ok && isImport && data.TLSTCP == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.TLSTCP = &TCPLoadBalancerTLSTCPModel{}
+	if blockData, ok := apiResource.Spec["tls_tcp"].(map[string]interface{}); ok && (isImport || data.TLSTCP != nil) {
+		data.TLSTCP = &TCPLoadBalancerTLSTCPModel{
+			TLSCertParams: func() *TCPLoadBalancerTLSTCPTLSCertParamsModel {
+				if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil {
+					return data.TLSTCP.TLSCertParams
+				}
+				if TLSCertParamsData, ok := blockData["tls_cert_params"].(map[string]interface{}); ok {
+					return &TCPLoadBalancerTLSTCPTLSCertParamsModel{
+						Certificates: func() types.List {
+							if rawList, ok := TLSCertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var CertificatesResult []TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModel
+								for _, CertificatesItem := range rawList {
+									if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
+										CertificatesResult = append(CertificatesResult, TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModel{
+											Name: func() types.String {
+												if v, ok := CertificatesItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := CertificatesItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := CertificatesItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModelAttrTypes}, CertificatesResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModelAttrTypes})
+						}(),
+						NoMtls: func() *TCPLoadBalancerEmptyModel {
+							if _, ok := TLSCertParamsData["no_mtls"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+						TLSConfig: func() *TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModel {
+							if TLSConfigData, ok := TLSCertParamsData["tls_config"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModel{
+									CustomSecurity: func() *TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigCustomSecurityModel {
+										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigCustomSecurityModel{
+												CipherSuites: func() types.List {
+													if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												MaxVersion: func() types.String {
+													if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												MinVersion: func() types.String {
+													if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									LowSecurity: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									MediumSecurity: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseMtls: func() *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsModel {
+							if UseMtlsData, ok := TLSCertParamsData["use_mtls"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsModel{
+									ClientCertificateOptional: func() types.Bool {
+										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									CRL: func() *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsCRLModel {
+										if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsCRLModel{
+												Name: func() types.String {
+													if v, ok := CRLData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := CRLData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := CRLData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NoCRL: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									TrustedCA: func() *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsTrustedCAModel {
+										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsTrustedCAModel{
+												Name: func() types.String {
+													if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									XfccDisabled: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									XfccOptions: func() *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsXfccOptionsModel {
+										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsXfccOptionsModel{
+												XfccHeaderElements: func() types.List {
+													if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			TLSParameters: func() *TCPLoadBalancerTLSTCPTLSParametersModel {
+				if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil {
+					return data.TLSTCP.TLSParameters
+				}
+				if TLSParametersData, ok := blockData["tls_parameters"].(map[string]interface{}); ok {
+					return &TCPLoadBalancerTLSTCPTLSParametersModel{
+						NoMtls: func() *TCPLoadBalancerEmptyModel {
+							if _, ok := TLSParametersData["no_mtls"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+						TLSCertificates: func() []TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModel {
+							if rawList, ok := TLSParametersData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModel
+								for _, TLSCertificatesItem := range rawList {
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() *TCPLoadBalancerEmptyModel {
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerEmptyModel{}
+												}
+												return nil
+											}(),
+											PrivateKey: func() *TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() *TCPLoadBalancerEmptyModel {
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return TLSCertificatesResult
+							}
+							return nil
+						}(),
+						TLSConfig: func() *TCPLoadBalancerTLSTCPTLSParametersTLSConfigModel {
+							if TLSConfigData, ok := TLSParametersData["tls_config"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPTLSParametersTLSConfigModel{
+									CustomSecurity: func() *TCPLoadBalancerTLSTCPTLSParametersTLSConfigCustomSecurityModel {
+										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSParametersTLSConfigCustomSecurityModel{
+												CipherSuites: func() types.List {
+													if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												MaxVersion: func() types.String {
+													if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												MinVersion: func() types.String {
+													if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									LowSecurity: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									MediumSecurity: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseMtls: func() *TCPLoadBalancerTLSTCPTLSParametersUseMtlsModel {
+							if UseMtlsData, ok := TLSParametersData["use_mtls"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPTLSParametersUseMtlsModel{
+									ClientCertificateOptional: func() types.Bool {
+										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									CRL: func() *TCPLoadBalancerTLSTCPTLSParametersUseMtlsCRLModel {
+										if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSParametersUseMtlsCRLModel{
+												Name: func() types.String {
+													if v, ok := CRLData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := CRLData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := CRLData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NoCRL: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									TrustedCA: func() *TCPLoadBalancerTLSTCPTLSParametersUseMtlsTrustedCAModel {
+										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSParametersUseMtlsTrustedCAModel{
+												Name: func() types.String {
+													if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									XfccDisabled: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									XfccOptions: func() *TCPLoadBalancerTLSTCPTLSParametersUseMtlsXfccOptionsModel {
+										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSParametersUseMtlsXfccOptionsModel{
+												XfccHeaderElements: func() types.List {
+													if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["tls_tcp_auto_cert"].(map[string]interface{}); ok && isImport && data.TLSTCPAutoCert == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.TLSTCPAutoCert = &TCPLoadBalancerTLSTCPAutoCertModel{}
+	if blockData, ok := apiResource.Spec["tls_tcp_auto_cert"].(map[string]interface{}); ok && (isImport || data.TLSTCPAutoCert != nil) {
+		data.TLSTCPAutoCert = &TCPLoadBalancerTLSTCPAutoCertModel{
+			NoMtls: func() *TCPLoadBalancerEmptyModel {
+				if !isImport && data.TLSTCPAutoCert != nil {
+					return data.TLSTCPAutoCert.NoMtls
+				}
+				if _, ok := blockData["no_mtls"].(map[string]interface{}); ok {
+					return &TCPLoadBalancerEmptyModel{}
+				}
+				return nil
+			}(),
+			TLSConfig: func() *TCPLoadBalancerTLSTCPAutoCertTLSConfigModel {
+				if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
+					return data.TLSTCPAutoCert.TLSConfig
+				}
+				if TLSConfigData, ok := blockData["tls_config"].(map[string]interface{}); ok {
+					return &TCPLoadBalancerTLSTCPAutoCertTLSConfigModel{
+						CustomSecurity: func() *TCPLoadBalancerTLSTCPAutoCertTLSConfigCustomSecurityModel {
+							if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPAutoCertTLSConfigCustomSecurityModel{
+									CipherSuites: func() types.List {
+										if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									MaxVersion: func() types.String {
+										if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									MinVersion: func() types.String {
+										if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
+							if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+						LowSecurity: func() *TCPLoadBalancerEmptyModel {
+							if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+						MediumSecurity: func() *TCPLoadBalancerEmptyModel {
+							if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			UseMtls: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsModel {
+				if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil {
+					return data.TLSTCPAutoCert.UseMtls
+				}
+				if UseMtlsData, ok := blockData["use_mtls"].(map[string]interface{}); ok {
+					return &TCPLoadBalancerTLSTCPAutoCertUseMtlsModel{
+						ClientCertificateOptional: func() types.Bool {
+							if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+								return types.BoolValue(v)
+							}
+							return types.BoolNull()
+						}(),
+						CRL: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsCRLModel {
+							if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPAutoCertUseMtlsCRLModel{
+									Name: func() types.String {
+										if v, ok := CRLData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := CRLData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := CRLData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						NoCRL: func() *TCPLoadBalancerEmptyModel {
+							if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+						TrustedCA: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsTrustedCAModel {
+							if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPAutoCertUseMtlsTrustedCAModel{
+									Name: func() types.String {
+										if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						TrustedCAURL: func() types.String {
+							if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						XfccDisabled: func() *TCPLoadBalancerEmptyModel {
+							if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+						XfccOptions: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsXfccOptionsModel {
+							if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPAutoCertUseMtlsXfccOptionsModel{
+									XfccHeaderElements: func() types.List {
+										if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	// Top-level Optional bool: preserve prior state to avoid API default drift
 	if !isImport && !data.DNSVolterraManaged.IsNull() && !data.DNSVolterraManaged.IsUnknown() {
 		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		// Import case, null state, or unknown (after Create): read from API
 		if v, ok := apiResource.Spec["dns_volterra_managed"].(bool); ok {
 			data.DNSVolterraManaged = types.BoolValue(v)
 		} else {
@@ -3248,10 +5358,8 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 		}
 	}
 	if _, ok := apiResource.Spec["hash_policy_choice_round_robin"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRoundRobin == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.HashPolicyChoiceRoundRobin = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["idle_timeout"].(float64); ok {
 		data.IdleTimeout = types.Int64Value(int64(v))
 	} else {
@@ -3263,30 +5371,30 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 		data.ListenPort = types.Int64Null()
 	}
 	if _, ok := apiResource.Spec["no_sni"].(map[string]interface{}); ok && isImport && data.NoSni == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoSni = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["port_ranges"].(string); ok && v != "" {
 		data.PortRanges = types.StringValue(v)
 	} else {
 		data.PortRanges = types.StringNull()
 	}
 	if _, ok := apiResource.Spec["retract_cluster"].(map[string]interface{}); ok && isImport && data.RetractCluster == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.RetractCluster = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["service_policies_from_namespace"].(map[string]interface{}); ok && isImport && data.ServicePoliciesFromNamespace == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.ServicePoliciesFromNamespace = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["tcp"].(map[string]interface{}); ok && isImport && data.TCP == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.TCP = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
+	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
@@ -3339,245 +5447,657 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.ActiveServicePolicies != nil {
-		active_service_policiesMap := make(map[string]interface{})
-		if len(data.ActiveServicePolicies.Policies) > 0 {
-			var policiesList []map[string]interface{}
-			for _, listItem := range data.ActiveServicePolicies.Policies {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
+		ActiveServicePoliciesMap := make(map[string]interface{})
+		if !data.ActiveServicePolicies.Policies.IsNull() && !data.ActiveServicePolicies.Policies.IsUnknown() {
+			var PoliciesElems []TCPLoadBalancerActiveServicePoliciesPoliciesModel
+			diags := data.ActiveServicePolicies.Policies.ElementsAs(ctx, &PoliciesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(PoliciesElems) > 0 {
+				var PoliciesList []map[string]interface{}
+				for _, PoliciesItem := range PoliciesElems {
+					PoliciesItemMap := make(map[string]interface{})
+					if !PoliciesItem.Name.IsNull() && !PoliciesItem.Name.IsUnknown() {
+						PoliciesItemMap["name"] = PoliciesItem.Name.ValueString()
+					}
+					if !PoliciesItem.Namespace.IsNull() && !PoliciesItem.Namespace.IsUnknown() {
+						PoliciesItemMap["namespace"] = PoliciesItem.Namespace.ValueString()
+					}
+					if !PoliciesItem.Tenant.IsNull() && !PoliciesItem.Tenant.IsUnknown() {
+						PoliciesItemMap["tenant"] = PoliciesItem.Tenant.ValueString()
+					}
+					PoliciesList = append(PoliciesList, PoliciesItemMap)
 				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				policiesList = append(policiesList, listItemMap)
+				ActiveServicePoliciesMap["policies"] = PoliciesList
 			}
-			active_service_policiesMap["policies"] = policiesList
 		}
-		apiResource.Spec["active_service_policies"] = active_service_policiesMap
+		apiResource.Spec["active_service_policies"] = ActiveServicePoliciesMap
 	}
 	if data.AdvertiseCustom != nil {
-		advertise_customMap := make(map[string]interface{})
-		if len(data.AdvertiseCustom.AdvertiseWhere) > 0 {
-			var advertise_whereList []map[string]interface{}
-			for _, listItem := range data.AdvertiseCustom.AdvertiseWhere {
-				listItemMap := make(map[string]interface{})
-				if listItem.AdvertiseOnPublic != nil {
-					advertise_on_publicDeepMap := make(map[string]interface{})
-					listItemMap["advertise_on_public"] = advertise_on_publicDeepMap
-				}
-				if !listItem.Port.IsNull() && !listItem.Port.IsUnknown() {
-					listItemMap["port"] = listItem.Port.ValueInt64()
-				}
-				if !listItem.PortRanges.IsNull() && !listItem.PortRanges.IsUnknown() {
-					listItemMap["port_ranges"] = listItem.PortRanges.ValueString()
-				}
-				if listItem.Site != nil {
-					siteDeepMap := make(map[string]interface{})
-					if !listItem.Site.IP.IsNull() && !listItem.Site.IP.IsUnknown() {
-						siteDeepMap["ip"] = listItem.Site.IP.ValueString()
+		AdvertiseCustomMap := make(map[string]interface{})
+		if !data.AdvertiseCustom.AdvertiseWhere.IsNull() && !data.AdvertiseCustom.AdvertiseWhere.IsUnknown() {
+			var AdvertiseWhereElems []TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel
+			diags := data.AdvertiseCustom.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(AdvertiseWhereElems) > 0 {
+				var AdvertiseWhereList []map[string]interface{}
+				for _, AdvertiseWhereItem := range AdvertiseWhereElems {
+					AdvertiseWhereItemMap := make(map[string]interface{})
+					if AdvertiseWhereItem.AdvertiseOnPublic != nil {
+						AdvertiseOnPublicMap := make(map[string]interface{})
+						if AdvertiseWhereItem.AdvertiseOnPublic.PublicIP != nil {
+							PublicIPMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
+								PublicIPMap["name"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
+								PublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+							}
+							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
+								PublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+							}
+							AdvertiseOnPublicMap["public_ip"] = PublicIPMap
+						}
+						AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseOnPublicMap
 					}
-					if !listItem.Site.Network.IsNull() && !listItem.Site.Network.IsUnknown() {
-						siteDeepMap["network"] = listItem.Site.Network.ValueString()
+					if !AdvertiseWhereItem.Port.IsNull() && !AdvertiseWhereItem.Port.IsUnknown() {
+						AdvertiseWhereItemMap["port"] = AdvertiseWhereItem.Port.ValueInt64()
 					}
-					listItemMap["site"] = siteDeepMap
+					if !AdvertiseWhereItem.PortRanges.IsNull() && !AdvertiseWhereItem.PortRanges.IsUnknown() {
+						AdvertiseWhereItemMap["port_ranges"] = AdvertiseWhereItem.PortRanges.ValueString()
+					}
+					if AdvertiseWhereItem.Site != nil {
+						SiteMap := make(map[string]interface{})
+						if !AdvertiseWhereItem.Site.IP.IsNull() && !AdvertiseWhereItem.Site.IP.IsUnknown() {
+							SiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
+						}
+						if !AdvertiseWhereItem.Site.Network.IsNull() && !AdvertiseWhereItem.Site.Network.IsUnknown() {
+							SiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
+						}
+						if AdvertiseWhereItem.Site.Site != nil {
+							SiteMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.Site.Site.Name.IsNull() && !AdvertiseWhereItem.Site.Site.Name.IsUnknown() {
+								SiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
+								SiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
+							}
+							if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
+								SiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
+							}
+							SiteMap["site"] = SiteMap
+						}
+						AdvertiseWhereItemMap["site"] = SiteMap
+					}
+					if AdvertiseWhereItem.UseDefaultPort != nil {
+						AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
+					}
+					if AdvertiseWhereItem.VirtualNetwork != nil {
+						VirtualNetworkMap := make(map[string]interface{})
+						if AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP != nil {
+							VirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
+						}
+						if AdvertiseWhereItem.VirtualNetwork.DefaultVIP != nil {
+							VirtualNetworkMap["default_vip"] = map[string]interface{}{}
+						}
+						if !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
+							VirtualNetworkMap["specific_v6_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.ValueString()
+						}
+						if !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsUnknown() {
+							VirtualNetworkMap["specific_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificVIP.ValueString()
+						}
+						if AdvertiseWhereItem.VirtualNetwork.VirtualNetwork != nil {
+							VirtualNetworkMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsUnknown() {
+								VirtualNetworkMap["name"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
+								VirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
+								VirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
+							}
+							VirtualNetworkMap["virtual_network"] = VirtualNetworkMap
+						}
+						AdvertiseWhereItemMap["virtual_network"] = VirtualNetworkMap
+					}
+					if AdvertiseWhereItem.VirtualSite != nil {
+						VirtualSiteMap := make(map[string]interface{})
+						if !AdvertiseWhereItem.VirtualSite.Network.IsNull() && !AdvertiseWhereItem.VirtualSite.Network.IsUnknown() {
+							VirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
+						}
+						if AdvertiseWhereItem.VirtualSite.VirtualSite != nil {
+							VirtualSiteMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsUnknown() {
+								VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
+								VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
+								VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
+							}
+							VirtualSiteMap["virtual_site"] = VirtualSiteMap
+						}
+						AdvertiseWhereItemMap["virtual_site"] = VirtualSiteMap
+					}
+					if AdvertiseWhereItem.VirtualSiteWithVIP != nil {
+						VirtualSiteWithVIPMap := make(map[string]interface{})
+						if !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsUnknown() {
+							VirtualSiteWithVIPMap["ip"] = AdvertiseWhereItem.VirtualSiteWithVIP.IP.ValueString()
+						}
+						if !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsUnknown() {
+							VirtualSiteWithVIPMap["network"] = AdvertiseWhereItem.VirtualSiteWithVIP.Network.ValueString()
+						}
+						if AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite != nil {
+							VirtualSiteMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsUnknown() {
+								VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
+								VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
+								VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
+							}
+							VirtualSiteWithVIPMap["virtual_site"] = VirtualSiteMap
+						}
+						AdvertiseWhereItemMap["virtual_site_with_vip"] = VirtualSiteWithVIPMap
+					}
+					if AdvertiseWhereItem.Vk8sService != nil {
+						Vk8sServiceMap := make(map[string]interface{})
+						if AdvertiseWhereItem.Vk8sService.Site != nil {
+							SiteMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.Vk8sService.Site.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Name.IsUnknown() {
+								SiteMap["name"] = AdvertiseWhereItem.Vk8sService.Site.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
+								SiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
+							}
+							if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
+								SiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
+							}
+							Vk8sServiceMap["site"] = SiteMap
+						}
+						if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
+							VirtualSiteMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsUnknown() {
+								VirtualSiteMap["name"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
+								VirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
+							}
+							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
+								VirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
+							}
+							Vk8sServiceMap["virtual_site"] = VirtualSiteMap
+						}
+						AdvertiseWhereItemMap["vk8s_service"] = Vk8sServiceMap
+					}
+					AdvertiseWhereList = append(AdvertiseWhereList, AdvertiseWhereItemMap)
 				}
-				if listItem.UseDefaultPort != nil {
-					listItemMap["use_default_port"] = map[string]interface{}{}
-				}
-				if listItem.VirtualNetwork != nil {
-					virtual_networkDeepMap := make(map[string]interface{})
-					if listItem.VirtualNetwork.DefaultV6VIP != nil {
-						virtual_networkDeepMap["default_v6_vip"] = map[string]interface{}{}
-					}
-					if listItem.VirtualNetwork.DefaultVIP != nil {
-						virtual_networkDeepMap["default_vip"] = map[string]interface{}{}
-					}
-					if !listItem.VirtualNetwork.SpecificV6VIP.IsNull() && !listItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
-						virtual_networkDeepMap["specific_v6_vip"] = listItem.VirtualNetwork.SpecificV6VIP.ValueString()
-					}
-					if !listItem.VirtualNetwork.SpecificVIP.IsNull() && !listItem.VirtualNetwork.SpecificVIP.IsUnknown() {
-						virtual_networkDeepMap["specific_vip"] = listItem.VirtualNetwork.SpecificVIP.ValueString()
-					}
-					listItemMap["virtual_network"] = virtual_networkDeepMap
-				}
-				if listItem.VirtualSite != nil {
-					virtual_siteDeepMap := make(map[string]interface{})
-					if !listItem.VirtualSite.Network.IsNull() && !listItem.VirtualSite.Network.IsUnknown() {
-						virtual_siteDeepMap["network"] = listItem.VirtualSite.Network.ValueString()
-					}
-					listItemMap["virtual_site"] = virtual_siteDeepMap
-				}
-				if listItem.VirtualSiteWithVIP != nil {
-					virtual_site_with_vipDeepMap := make(map[string]interface{})
-					if !listItem.VirtualSiteWithVIP.IP.IsNull() && !listItem.VirtualSiteWithVIP.IP.IsUnknown() {
-						virtual_site_with_vipDeepMap["ip"] = listItem.VirtualSiteWithVIP.IP.ValueString()
-					}
-					if !listItem.VirtualSiteWithVIP.Network.IsNull() && !listItem.VirtualSiteWithVIP.Network.IsUnknown() {
-						virtual_site_with_vipDeepMap["network"] = listItem.VirtualSiteWithVIP.Network.ValueString()
-					}
-					listItemMap["virtual_site_with_vip"] = virtual_site_with_vipDeepMap
-				}
-				if listItem.Vk8sService != nil {
-					vk8s_serviceDeepMap := make(map[string]interface{})
-					listItemMap["vk8s_service"] = vk8s_serviceDeepMap
-				}
-				advertise_whereList = append(advertise_whereList, listItemMap)
+				AdvertiseCustomMap["advertise_where"] = AdvertiseWhereList
 			}
-			advertise_customMap["advertise_where"] = advertise_whereList
 		}
-		apiResource.Spec["advertise_custom"] = advertise_customMap
+		apiResource.Spec["advertise_custom"] = AdvertiseCustomMap
 	}
 	if data.AdvertiseOnPublic != nil {
-		advertise_on_publicMap := make(map[string]interface{})
+		AdvertiseOnPublicMap := make(map[string]interface{})
 		if data.AdvertiseOnPublic.PublicIP != nil {
-			public_ipNestedMap := make(map[string]interface{})
+			PublicIPMap := make(map[string]interface{})
 			if !data.AdvertiseOnPublic.PublicIP.Name.IsNull() && !data.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
-				public_ipNestedMap["name"] = data.AdvertiseOnPublic.PublicIP.Name.ValueString()
+				PublicIPMap["name"] = data.AdvertiseOnPublic.PublicIP.Name.ValueString()
 			}
 			if !data.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !data.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
-				public_ipNestedMap["namespace"] = data.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+				PublicIPMap["namespace"] = data.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 			}
 			if !data.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !data.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-				public_ipNestedMap["tenant"] = data.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+				PublicIPMap["tenant"] = data.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 			}
-			advertise_on_publicMap["public_ip"] = public_ipNestedMap
+			AdvertiseOnPublicMap["public_ip"] = PublicIPMap
 		}
-		apiResource.Spec["advertise_on_public"] = advertise_on_publicMap
+		apiResource.Spec["advertise_on_public"] = AdvertiseOnPublicMap
 	}
 	if data.AdvertiseOnPublicDefaultVIP != nil {
-		advertise_on_public_default_vipMap := make(map[string]interface{})
-		apiResource.Spec["advertise_on_public_default_vip"] = advertise_on_public_default_vipMap
+		apiResource.Spec["advertise_on_public_default_vip"] = map[string]interface{}{}
 	}
 	if data.DefaultLBWithSni != nil {
-		default_lb_with_sniMap := make(map[string]interface{})
-		apiResource.Spec["default_lb_with_sni"] = default_lb_with_sniMap
+		apiResource.Spec["default_lb_with_sni"] = map[string]interface{}{}
 	}
 	if data.DoNotAdvertise != nil {
-		do_not_advertiseMap := make(map[string]interface{})
-		apiResource.Spec["do_not_advertise"] = do_not_advertiseMap
+		apiResource.Spec["do_not_advertise"] = map[string]interface{}{}
 	}
 	if data.DoNotRetractCluster != nil {
-		do_not_retract_clusterMap := make(map[string]interface{})
-		apiResource.Spec["do_not_retract_cluster"] = do_not_retract_clusterMap
+		apiResource.Spec["do_not_retract_cluster"] = map[string]interface{}{}
 	}
 	if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
-		var domainsList []string
-		resp.Diagnostics.Append(data.Domains.ElementsAs(ctx, &domainsList, false)...)
-		if !resp.Diagnostics.HasError() {
-			apiResource.Spec["domains"] = domainsList
+		var DomainsItems []string
+		diags := data.Domains.ElementsAs(ctx, &DomainsItems, false)
+		if !diags.HasError() {
+			apiResource.Spec["domains"] = DomainsItems
 		}
 	}
 	if data.HashPolicyChoiceLeastActive != nil {
-		hash_policy_choice_least_activeMap := make(map[string]interface{})
-		apiResource.Spec["hash_policy_choice_least_active"] = hash_policy_choice_least_activeMap
+		apiResource.Spec["hash_policy_choice_least_active"] = map[string]interface{}{}
 	}
 	if data.HashPolicyChoiceRandom != nil {
-		hash_policy_choice_randomMap := make(map[string]interface{})
-		apiResource.Spec["hash_policy_choice_random"] = hash_policy_choice_randomMap
+		apiResource.Spec["hash_policy_choice_random"] = map[string]interface{}{}
 	}
 	if data.HashPolicyChoiceSourceIPStickiness != nil {
-		hash_policy_choice_source_ip_stickinessMap := make(map[string]interface{})
-		apiResource.Spec["hash_policy_choice_source_ip_stickiness"] = hash_policy_choice_source_ip_stickinessMap
+		apiResource.Spec["hash_policy_choice_source_ip_stickiness"] = map[string]interface{}{}
 	}
 	if data.NoServicePolicies != nil {
-		no_service_policiesMap := make(map[string]interface{})
-		apiResource.Spec["no_service_policies"] = no_service_policiesMap
+		apiResource.Spec["no_service_policies"] = map[string]interface{}{}
 	}
 	if !data.OriginPoolsWeights.IsNull() && !data.OriginPoolsWeights.IsUnknown() {
-		var origin_pools_weightsItems []TCPLoadBalancerOriginPoolsWeightsModel
-		diags := data.OriginPoolsWeights.ElementsAs(ctx, &origin_pools_weightsItems, false)
+		var OriginPoolsWeightsElems []TCPLoadBalancerOriginPoolsWeightsModel
+		diags := data.OriginPoolsWeights.ElementsAs(ctx, &OriginPoolsWeightsElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(origin_pools_weightsItems) > 0 {
-			var origin_pools_weightsList []map[string]interface{}
-			for _, item := range origin_pools_weightsItems {
-				itemMap := make(map[string]interface{})
-				if item.Cluster != nil {
-					clusterNestedMap := make(map[string]interface{})
-					if !item.Cluster.Name.IsNull() && !item.Cluster.Name.IsUnknown() {
-						clusterNestedMap["name"] = item.Cluster.Name.ValueString()
+		if !resp.Diagnostics.HasError() && len(OriginPoolsWeightsElems) > 0 {
+			var OriginPoolsWeightsList []map[string]interface{}
+			for _, OriginPoolsWeightsItem := range OriginPoolsWeightsElems {
+				OriginPoolsWeightsItemMap := make(map[string]interface{})
+				if OriginPoolsWeightsItem.Cluster != nil {
+					ClusterMap := make(map[string]interface{})
+					if !OriginPoolsWeightsItem.Cluster.Name.IsNull() && !OriginPoolsWeightsItem.Cluster.Name.IsUnknown() {
+						ClusterMap["name"] = OriginPoolsWeightsItem.Cluster.Name.ValueString()
 					}
-					if !item.Cluster.Namespace.IsNull() && !item.Cluster.Namespace.IsUnknown() {
-						clusterNestedMap["namespace"] = item.Cluster.Namespace.ValueString()
+					if !OriginPoolsWeightsItem.Cluster.Namespace.IsNull() && !OriginPoolsWeightsItem.Cluster.Namespace.IsUnknown() {
+						ClusterMap["namespace"] = OriginPoolsWeightsItem.Cluster.Namespace.ValueString()
 					}
-					if !item.Cluster.Tenant.IsNull() && !item.Cluster.Tenant.IsUnknown() {
-						clusterNestedMap["tenant"] = item.Cluster.Tenant.ValueString()
+					if !OriginPoolsWeightsItem.Cluster.Tenant.IsNull() && !OriginPoolsWeightsItem.Cluster.Tenant.IsUnknown() {
+						ClusterMap["tenant"] = OriginPoolsWeightsItem.Cluster.Tenant.ValueString()
 					}
-					itemMap["cluster"] = clusterNestedMap
+					OriginPoolsWeightsItemMap["cluster"] = ClusterMap
 				}
-				if item.EndpointSubsets != nil {
-					itemMap["endpoint_subsets"] = map[string]interface{}{}
+				if OriginPoolsWeightsItem.EndpointSubsets != nil {
+					OriginPoolsWeightsItemMap["endpoint_subsets"] = map[string]interface{}{}
 				}
-				if item.Pool != nil {
-					poolNestedMap := make(map[string]interface{})
-					if !item.Pool.Name.IsNull() && !item.Pool.Name.IsUnknown() {
-						poolNestedMap["name"] = item.Pool.Name.ValueString()
+				if OriginPoolsWeightsItem.Pool != nil {
+					PoolMap := make(map[string]interface{})
+					if !OriginPoolsWeightsItem.Pool.Name.IsNull() && !OriginPoolsWeightsItem.Pool.Name.IsUnknown() {
+						PoolMap["name"] = OriginPoolsWeightsItem.Pool.Name.ValueString()
 					}
-					if !item.Pool.Namespace.IsNull() && !item.Pool.Namespace.IsUnknown() {
-						poolNestedMap["namespace"] = item.Pool.Namespace.ValueString()
+					if !OriginPoolsWeightsItem.Pool.Namespace.IsNull() && !OriginPoolsWeightsItem.Pool.Namespace.IsUnknown() {
+						PoolMap["namespace"] = OriginPoolsWeightsItem.Pool.Namespace.ValueString()
 					}
-					if !item.Pool.Tenant.IsNull() && !item.Pool.Tenant.IsUnknown() {
-						poolNestedMap["tenant"] = item.Pool.Tenant.ValueString()
+					if !OriginPoolsWeightsItem.Pool.Tenant.IsNull() && !OriginPoolsWeightsItem.Pool.Tenant.IsUnknown() {
+						PoolMap["tenant"] = OriginPoolsWeightsItem.Pool.Tenant.ValueString()
 					}
-					itemMap["pool"] = poolNestedMap
+					OriginPoolsWeightsItemMap["pool"] = PoolMap
 				}
-				if !item.Priority.IsNull() && !item.Priority.IsUnknown() {
-					itemMap["priority"] = item.Priority.ValueInt64()
+				if !OriginPoolsWeightsItem.Priority.IsNull() && !OriginPoolsWeightsItem.Priority.IsUnknown() {
+					OriginPoolsWeightsItemMap["priority"] = OriginPoolsWeightsItem.Priority.ValueInt64()
 				}
-				if !item.Weight.IsNull() && !item.Weight.IsUnknown() {
-					itemMap["weight"] = item.Weight.ValueInt64()
+				if !OriginPoolsWeightsItem.Weight.IsNull() && !OriginPoolsWeightsItem.Weight.IsUnknown() {
+					OriginPoolsWeightsItemMap["weight"] = OriginPoolsWeightsItem.Weight.ValueInt64()
 				}
-				origin_pools_weightsList = append(origin_pools_weightsList, itemMap)
+				OriginPoolsWeightsList = append(OriginPoolsWeightsList, OriginPoolsWeightsItemMap)
 			}
-			apiResource.Spec["origin_pools_weights"] = origin_pools_weightsList
+			apiResource.Spec["origin_pools_weights"] = OriginPoolsWeightsList
 		}
 	}
 	if data.Sni != nil {
-		sniMap := make(map[string]interface{})
-		apiResource.Spec["sni"] = sniMap
+		apiResource.Spec["sni"] = map[string]interface{}{}
 	}
 	if data.TLSTCP != nil {
-		tls_tcpMap := make(map[string]interface{})
+		TLSTCPMap := make(map[string]interface{})
 		if data.TLSTCP.TLSCertParams != nil {
-			tls_cert_paramsNestedMap := make(map[string]interface{})
-			tls_tcpMap["tls_cert_params"] = tls_cert_paramsNestedMap
+			TLSCertParamsMap := make(map[string]interface{})
+			if !data.TLSTCP.TLSCertParams.Certificates.IsNull() && !data.TLSTCP.TLSCertParams.Certificates.IsUnknown() {
+				var CertificatesElems []TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModel
+				diags := data.TLSTCP.TLSCertParams.Certificates.ElementsAs(ctx, &CertificatesElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(CertificatesElems) > 0 {
+					var CertificatesList []map[string]interface{}
+					for _, CertificatesItem := range CertificatesElems {
+						CertificatesItemMap := make(map[string]interface{})
+						if !CertificatesItem.Name.IsNull() && !CertificatesItem.Name.IsUnknown() {
+							CertificatesItemMap["name"] = CertificatesItem.Name.ValueString()
+						}
+						if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
+							CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
+						}
+						if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
+							CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
+						}
+						CertificatesList = append(CertificatesList, CertificatesItemMap)
+					}
+					TLSCertParamsMap["certificates"] = CertificatesList
+				}
+			}
+			if data.TLSTCP.TLSCertParams.NoMtls != nil {
+				TLSCertParamsMap["no_mtls"] = map[string]interface{}{}
+			}
+			if data.TLSTCP.TLSCertParams.TLSConfig != nil {
+				TLSConfigMap := make(map[string]interface{})
+				if data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity != nil {
+					CustomSecurityMap := make(map[string]interface{})
+					if !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
+						var CipherSuitesItems []string
+						diags := data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						if !diags.HasError() {
+							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+						}
+					}
+					if !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
+						CustomSecurityMap["max_version"] = data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+					}
+					if !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
+						CustomSecurityMap["min_version"] = data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.ValueString()
+					}
+					TLSConfigMap["custom_security"] = CustomSecurityMap
+				}
+				if data.TLSTCP.TLSCertParams.TLSConfig.DefaultSecurity != nil {
+					TLSConfigMap["default_security"] = map[string]interface{}{}
+				}
+				if data.TLSTCP.TLSCertParams.TLSConfig.LowSecurity != nil {
+					TLSConfigMap["low_security"] = map[string]interface{}{}
+				}
+				if data.TLSTCP.TLSCertParams.TLSConfig.MediumSecurity != nil {
+					TLSConfigMap["medium_security"] = map[string]interface{}{}
+				}
+				TLSCertParamsMap["tls_config"] = TLSConfigMap
+			}
+			if data.TLSTCP.TLSCertParams.UseMtls != nil {
+				UseMtlsMap := make(map[string]interface{})
+				if !data.TLSTCP.TLSCertParams.UseMtls.ClientCertificateOptional.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.ClientCertificateOptional.IsUnknown() {
+					UseMtlsMap["client_certificate_optional"] = data.TLSTCP.TLSCertParams.UseMtls.ClientCertificateOptional.ValueBool()
+				}
+				if data.TLSTCP.TLSCertParams.UseMtls.CRL != nil {
+					CRLMap := make(map[string]interface{})
+					if !data.TLSTCP.TLSCertParams.UseMtls.CRL.Name.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.CRL.Name.IsUnknown() {
+						CRLMap["name"] = data.TLSTCP.TLSCertParams.UseMtls.CRL.Name.ValueString()
+					}
+					if !data.TLSTCP.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
+						CRLMap["namespace"] = data.TLSTCP.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
+					}
+					if !data.TLSTCP.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
+						CRLMap["tenant"] = data.TLSTCP.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
+					}
+					UseMtlsMap["crl"] = CRLMap
+				}
+				if data.TLSTCP.TLSCertParams.UseMtls.NoCRL != nil {
+					UseMtlsMap["no_crl"] = map[string]interface{}{}
+				}
+				if data.TLSTCP.TLSCertParams.UseMtls.TrustedCA != nil {
+					TrustedCAMap := make(map[string]interface{})
+					if !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Name.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Name.IsUnknown() {
+						TrustedCAMap["name"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Name.ValueString()
+					}
+					if !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
+						TrustedCAMap["namespace"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
+					}
+					if !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
+						TrustedCAMap["tenant"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
+					}
+					UseMtlsMap["trusted_ca"] = TrustedCAMap
+				}
+				if !data.TLSTCP.TLSCertParams.UseMtls.TrustedCAURL.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.TrustedCAURL.IsUnknown() {
+					UseMtlsMap["trusted_ca_url"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCAURL.ValueString()
+				}
+				if data.TLSTCP.TLSCertParams.UseMtls.XfccDisabled != nil {
+					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+				}
+				if data.TLSTCP.TLSCertParams.UseMtls.XfccOptions != nil {
+					XfccOptionsMap := make(map[string]interface{})
+					if !data.TLSTCP.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
+						var XfccHeaderElementsItems []string
+						diags := data.TLSTCP.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						if !diags.HasError() {
+							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+						}
+					}
+					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+				}
+				TLSCertParamsMap["use_mtls"] = UseMtlsMap
+			}
+			TLSTCPMap["tls_cert_params"] = TLSCertParamsMap
 		}
 		if data.TLSTCP.TLSParameters != nil {
-			tls_parametersNestedMap := make(map[string]interface{})
-			tls_tcpMap["tls_parameters"] = tls_parametersNestedMap
+			TLSParametersMap := make(map[string]interface{})
+			if data.TLSTCP.TLSParameters.NoMtls != nil {
+				TLSParametersMap["no_mtls"] = map[string]interface{}{}
+			}
+			if len(data.TLSTCP.TLSParameters.TLSCertificates) > 0 {
+				var TLSCertificatesList []map[string]interface{}
+				for _, TLSCertificatesItem := range data.TLSTCP.TLSParameters.TLSCertificates {
+					TLSCertificatesItemMap := make(map[string]interface{})
+					if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+						TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
+					}
+					if TLSCertificatesItem.CustomHashAlgorithms != nil {
+						CustomHashAlgorithmsMap := make(map[string]interface{})
+						if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+							var HashAlgorithmsItems []string
+							diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+							if !diags.HasError() {
+								CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+							}
+						}
+						TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+					}
+					if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+						TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
+					}
+					if TLSCertificatesItem.DisableOCSPStapling != nil {
+						TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+					}
+					if TLSCertificatesItem.PrivateKey != nil {
+						PrivateKeyMap := make(map[string]interface{})
+						if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+							}
+							PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+					}
+					if TLSCertificatesItem.UseSystemDefaults != nil {
+						TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+					}
+					TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+				}
+				TLSParametersMap["tls_certificates"] = TLSCertificatesList
+			}
+			if data.TLSTCP.TLSParameters.TLSConfig != nil {
+				TLSConfigMap := make(map[string]interface{})
+				if data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity != nil {
+					CustomSecurityMap := make(map[string]interface{})
+					if !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
+						var CipherSuitesItems []string
+						diags := data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						if !diags.HasError() {
+							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+						}
+					}
+					if !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
+						CustomSecurityMap["max_version"] = data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+					}
+					if !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
+						CustomSecurityMap["min_version"] = data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MinVersion.ValueString()
+					}
+					TLSConfigMap["custom_security"] = CustomSecurityMap
+				}
+				if data.TLSTCP.TLSParameters.TLSConfig.DefaultSecurity != nil {
+					TLSConfigMap["default_security"] = map[string]interface{}{}
+				}
+				if data.TLSTCP.TLSParameters.TLSConfig.LowSecurity != nil {
+					TLSConfigMap["low_security"] = map[string]interface{}{}
+				}
+				if data.TLSTCP.TLSParameters.TLSConfig.MediumSecurity != nil {
+					TLSConfigMap["medium_security"] = map[string]interface{}{}
+				}
+				TLSParametersMap["tls_config"] = TLSConfigMap
+			}
+			if data.TLSTCP.TLSParameters.UseMtls != nil {
+				UseMtlsMap := make(map[string]interface{})
+				if !data.TLSTCP.TLSParameters.UseMtls.ClientCertificateOptional.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.ClientCertificateOptional.IsUnknown() {
+					UseMtlsMap["client_certificate_optional"] = data.TLSTCP.TLSParameters.UseMtls.ClientCertificateOptional.ValueBool()
+				}
+				if data.TLSTCP.TLSParameters.UseMtls.CRL != nil {
+					CRLMap := make(map[string]interface{})
+					if !data.TLSTCP.TLSParameters.UseMtls.CRL.Name.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.CRL.Name.IsUnknown() {
+						CRLMap["name"] = data.TLSTCP.TLSParameters.UseMtls.CRL.Name.ValueString()
+					}
+					if !data.TLSTCP.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
+						CRLMap["namespace"] = data.TLSTCP.TLSParameters.UseMtls.CRL.Namespace.ValueString()
+					}
+					if !data.TLSTCP.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
+						CRLMap["tenant"] = data.TLSTCP.TLSParameters.UseMtls.CRL.Tenant.ValueString()
+					}
+					UseMtlsMap["crl"] = CRLMap
+				}
+				if data.TLSTCP.TLSParameters.UseMtls.NoCRL != nil {
+					UseMtlsMap["no_crl"] = map[string]interface{}{}
+				}
+				if data.TLSTCP.TLSParameters.UseMtls.TrustedCA != nil {
+					TrustedCAMap := make(map[string]interface{})
+					if !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Name.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Name.IsUnknown() {
+						TrustedCAMap["name"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Name.ValueString()
+					}
+					if !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
+						TrustedCAMap["namespace"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
+					}
+					if !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
+						TrustedCAMap["tenant"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
+					}
+					UseMtlsMap["trusted_ca"] = TrustedCAMap
+				}
+				if !data.TLSTCP.TLSParameters.UseMtls.TrustedCAURL.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.TrustedCAURL.IsUnknown() {
+					UseMtlsMap["trusted_ca_url"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCAURL.ValueString()
+				}
+				if data.TLSTCP.TLSParameters.UseMtls.XfccDisabled != nil {
+					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+				}
+				if data.TLSTCP.TLSParameters.UseMtls.XfccOptions != nil {
+					XfccOptionsMap := make(map[string]interface{})
+					if !data.TLSTCP.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
+						var XfccHeaderElementsItems []string
+						diags := data.TLSTCP.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						if !diags.HasError() {
+							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+						}
+					}
+					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+				}
+				TLSParametersMap["use_mtls"] = UseMtlsMap
+			}
+			TLSTCPMap["tls_parameters"] = TLSParametersMap
 		}
-		apiResource.Spec["tls_tcp"] = tls_tcpMap
+		apiResource.Spec["tls_tcp"] = TLSTCPMap
 	}
 	if data.TLSTCPAutoCert != nil {
-		tls_tcp_auto_certMap := make(map[string]interface{})
+		TLSTCPAutoCertMap := make(map[string]interface{})
 		if data.TLSTCPAutoCert.NoMtls != nil {
-			tls_tcp_auto_certMap["no_mtls"] = map[string]interface{}{}
+			TLSTCPAutoCertMap["no_mtls"] = map[string]interface{}{}
 		}
 		if data.TLSTCPAutoCert.TLSConfig != nil {
-			tls_configNestedMap := make(map[string]interface{})
-			tls_tcp_auto_certMap["tls_config"] = tls_configNestedMap
+			TLSConfigMap := make(map[string]interface{})
+			if data.TLSTCPAutoCert.TLSConfig.CustomSecurity != nil {
+				CustomSecurityMap := make(map[string]interface{})
+				if !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
+					var CipherSuitesItems []string
+					diags := data.TLSTCPAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+					if !diags.HasError() {
+						CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+					}
+				}
+				if !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
+					CustomSecurityMap["max_version"] = data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+				}
+				if !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
+					CustomSecurityMap["min_version"] = data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MinVersion.ValueString()
+				}
+				TLSConfigMap["custom_security"] = CustomSecurityMap
+			}
+			if data.TLSTCPAutoCert.TLSConfig.DefaultSecurity != nil {
+				TLSConfigMap["default_security"] = map[string]interface{}{}
+			}
+			if data.TLSTCPAutoCert.TLSConfig.LowSecurity != nil {
+				TLSConfigMap["low_security"] = map[string]interface{}{}
+			}
+			if data.TLSTCPAutoCert.TLSConfig.MediumSecurity != nil {
+				TLSConfigMap["medium_security"] = map[string]interface{}{}
+			}
+			TLSTCPAutoCertMap["tls_config"] = TLSConfigMap
 		}
 		if data.TLSTCPAutoCert.UseMtls != nil {
-			use_mtlsNestedMap := make(map[string]interface{})
+			UseMtlsMap := make(map[string]interface{})
 			if !data.TLSTCPAutoCert.UseMtls.ClientCertificateOptional.IsNull() && !data.TLSTCPAutoCert.UseMtls.ClientCertificateOptional.IsUnknown() {
-				use_mtlsNestedMap["client_certificate_optional"] = data.TLSTCPAutoCert.UseMtls.ClientCertificateOptional.ValueBool()
+				UseMtlsMap["client_certificate_optional"] = data.TLSTCPAutoCert.UseMtls.ClientCertificateOptional.ValueBool()
+			}
+			if data.TLSTCPAutoCert.UseMtls.CRL != nil {
+				CRLMap := make(map[string]interface{})
+				if !data.TLSTCPAutoCert.UseMtls.CRL.Name.IsNull() && !data.TLSTCPAutoCert.UseMtls.CRL.Name.IsUnknown() {
+					CRLMap["name"] = data.TLSTCPAutoCert.UseMtls.CRL.Name.ValueString()
+				}
+				if !data.TLSTCPAutoCert.UseMtls.CRL.Namespace.IsNull() && !data.TLSTCPAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
+					CRLMap["namespace"] = data.TLSTCPAutoCert.UseMtls.CRL.Namespace.ValueString()
+				}
+				if !data.TLSTCPAutoCert.UseMtls.CRL.Tenant.IsNull() && !data.TLSTCPAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
+					CRLMap["tenant"] = data.TLSTCPAutoCert.UseMtls.CRL.Tenant.ValueString()
+				}
+				UseMtlsMap["crl"] = CRLMap
+			}
+			if data.TLSTCPAutoCert.UseMtls.NoCRL != nil {
+				UseMtlsMap["no_crl"] = map[string]interface{}{}
+			}
+			if data.TLSTCPAutoCert.UseMtls.TrustedCA != nil {
+				TrustedCAMap := make(map[string]interface{})
+				if !data.TLSTCPAutoCert.UseMtls.TrustedCA.Name.IsNull() && !data.TLSTCPAutoCert.UseMtls.TrustedCA.Name.IsUnknown() {
+					TrustedCAMap["name"] = data.TLSTCPAutoCert.UseMtls.TrustedCA.Name.ValueString()
+				}
+				if !data.TLSTCPAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !data.TLSTCPAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
+					TrustedCAMap["namespace"] = data.TLSTCPAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
+				}
+				if !data.TLSTCPAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !data.TLSTCPAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
+					TrustedCAMap["tenant"] = data.TLSTCPAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
+				}
+				UseMtlsMap["trusted_ca"] = TrustedCAMap
 			}
 			if !data.TLSTCPAutoCert.UseMtls.TrustedCAURL.IsNull() && !data.TLSTCPAutoCert.UseMtls.TrustedCAURL.IsUnknown() {
-				use_mtlsNestedMap["trusted_ca_url"] = data.TLSTCPAutoCert.UseMtls.TrustedCAURL.ValueString()
+				UseMtlsMap["trusted_ca_url"] = data.TLSTCPAutoCert.UseMtls.TrustedCAURL.ValueString()
 			}
-			tls_tcp_auto_certMap["use_mtls"] = use_mtlsNestedMap
+			if data.TLSTCPAutoCert.UseMtls.XfccDisabled != nil {
+				UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+			}
+			if data.TLSTCPAutoCert.UseMtls.XfccOptions != nil {
+				XfccOptionsMap := make(map[string]interface{})
+				if !data.TLSTCPAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.TLSTCPAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
+					var XfccHeaderElementsItems []string
+					diags := data.TLSTCPAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+					if !diags.HasError() {
+						XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+					}
+				}
+				UseMtlsMap["xfcc_options"] = XfccOptionsMap
+			}
+			TLSTCPAutoCertMap["use_mtls"] = UseMtlsMap
 		}
-		apiResource.Spec["tls_tcp_auto_cert"] = tls_tcp_auto_certMap
+		apiResource.Spec["tls_tcp_auto_cert"] = TLSTCPAutoCertMap
 	}
 	if !data.DNSVolterraManaged.IsNull() && !data.DNSVolterraManaged.IsUnknown() {
 		apiResource.Spec["dns_volterra_managed"] = data.DNSVolterraManaged.ValueBool()
 	}
 	if data.HashPolicyChoiceRoundRobin != nil {
-		hash_policy_choice_round_robinMap := make(map[string]interface{})
-		apiResource.Spec["hash_policy_choice_round_robin"] = hash_policy_choice_round_robinMap
+		apiResource.Spec["hash_policy_choice_round_robin"] = map[string]interface{}{}
 	}
 	if !data.IdleTimeout.IsNull() && !data.IdleTimeout.IsUnknown() {
 		apiResource.Spec["idle_timeout"] = data.IdleTimeout.ValueInt64()
@@ -3586,23 +6106,19 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		apiResource.Spec["listen_port"] = data.ListenPort.ValueInt64()
 	}
 	if data.NoSni != nil {
-		no_sniMap := make(map[string]interface{})
-		apiResource.Spec["no_sni"] = no_sniMap
+		apiResource.Spec["no_sni"] = map[string]interface{}{}
 	}
 	if !data.PortRanges.IsNull() && !data.PortRanges.IsUnknown() {
 		apiResource.Spec["port_ranges"] = data.PortRanges.ValueString()
 	}
 	if data.RetractCluster != nil {
-		retract_clusterMap := make(map[string]interface{})
-		apiResource.Spec["retract_cluster"] = retract_clusterMap
+		apiResource.Spec["retract_cluster"] = map[string]interface{}{}
 	}
 	if data.ServicePoliciesFromNamespace != nil {
-		service_policies_from_namespaceMap := make(map[string]interface{})
-		apiResource.Spec["service_policies_from_namespace"] = service_policies_from_namespaceMap
+		apiResource.Spec["service_policies_from_namespace"] = map[string]interface{}{}
 	}
 	if data.TCP != nil {
-		tcpMap := make(map[string]interface{})
-		apiResource.Spec["tcp"] = tcpMap
+		apiResource.Spec["tcp"] = map[string]interface{}{}
 	}
 
 	_, err := r.client.UpdateTCPLoadBalancer(ctx, apiResource)
@@ -3658,26 +6174,29 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	_ = isImport          // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["active_service_policies"].(map[string]interface{}); ok && (isImport || data.ActiveServicePolicies != nil) {
 		data.ActiveServicePolicies = &TCPLoadBalancerActiveServicePoliciesModel{
-			Policies: func() []TCPLoadBalancerActiveServicePoliciesPoliciesModel {
-				if listData, ok := blockData["policies"].([]interface{}); ok && len(listData) > 0 {
-					var result []TCPLoadBalancerActiveServicePoliciesPoliciesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, TCPLoadBalancerActiveServicePoliciesPoliciesModel{
+			Policies: func() types.List {
+				if !isImport && data.ActiveServicePolicies != nil && (data.ActiveServicePolicies.Policies.IsNull() || len(data.ActiveServicePolicies.Policies.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerActiveServicePoliciesPoliciesModelAttrTypes})
+				}
+				if rawList, ok := blockData["policies"].([]interface{}); ok && len(rawList) > 0 {
+					var PoliciesResult []TCPLoadBalancerActiveServicePoliciesPoliciesModel
+					for _, PoliciesItem := range rawList {
+						if PoliciesItemMap, ok := PoliciesItem.(map[string]interface{}); ok {
+							PoliciesResult = append(PoliciesResult, TCPLoadBalancerActiveServicePoliciesPoliciesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := PoliciesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := PoliciesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := PoliciesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -3685,166 +6204,367 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: TCPLoadBalancerActiveServicePoliciesPoliciesModelAttrTypes}, PoliciesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerActiveServicePoliciesPoliciesModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["advertise_custom"].(map[string]interface{}); ok && (isImport || data.AdvertiseCustom != nil) {
 		data.AdvertiseCustom = &TCPLoadBalancerAdvertiseCustomModel{
-			AdvertiseWhere: func() []TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel {
-				if listData, ok := blockData["advertise_where"].([]interface{}); ok && len(listData) > 0 {
-					var result []TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel{
+			AdvertiseWhere: func() types.List {
+				if !isImport && data.AdvertiseCustom != nil && (data.AdvertiseCustom.AdvertiseWhere.IsNull() || len(data.AdvertiseCustom.AdvertiseWhere.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes})
+				}
+				if rawList, ok := blockData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
+					var AdvertiseWhereResult []TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel
+					for _, AdvertiseWhereItem := range rawList {
+						if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
+							AdvertiseWhereResult = append(AdvertiseWhereResult, TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel{
 								AdvertiseOnPublic: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
-									if _, ok := itemMap["advertise_on_public"].(map[string]interface{}); ok {
-										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel{}
+									if AdvertiseOnPublicData, ok := AdvertiseWhereItemMap["advertise_on_public"].(map[string]interface{}); ok {
+										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel{
+											PublicIP: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel {
+												if PublicIPData, ok := AdvertiseOnPublicData["public_ip"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel{
+														Name: func() types.String {
+															if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
 									}
 									return nil
 								}(),
 								Port: func() types.Int64 {
-									if v, ok := itemMap["port"].(float64); ok {
+									if v, ok := AdvertiseWhereItemMap["port"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								PortRanges: func() types.String {
-									if v, ok := itemMap["port_ranges"].(string); ok && v != "" {
+									if v, ok := AdvertiseWhereItemMap["port_ranges"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Site: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereSiteModel {
-									if deepMap, ok := itemMap["site"].(map[string]interface{}); ok {
+									if SiteData, ok := AdvertiseWhereItemMap["site"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereSiteModel{
 											IP: func() types.String {
-												if v, ok := deepMap["ip"].(string); ok && v != "" {
+												if v, ok := SiteData["ip"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Network: func() types.String {
-												if v, ok := deepMap["network"].(string); ok && v != "" {
+												if v, ok := SiteData["network"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
+											}(),
+											Site: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereSiteSiteModel {
+												if SiteData, ok := SiteData["site"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereSiteSiteModel{
+														Name: func() types.String {
+															if v, ok := SiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
 											}(),
 										}
 									}
 									return nil
 								}(),
 								UseDefaultPort: func() *TCPLoadBalancerEmptyModel {
-									if _, ok := itemMap["use_default_port"].(map[string]interface{}); ok {
+									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerEmptyModel{}
 									}
 									return nil
 								}(),
 								VirtualNetwork: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel {
-									if deepMap, ok := itemMap["virtual_network"].(map[string]interface{}); ok {
+									if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
 											DefaultV6VIP: func() *TCPLoadBalancerEmptyModel {
-												if _, ok := deepMap["default_v6_vip"].(map[string]interface{}); ok {
+												if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											DefaultVIP: func() *TCPLoadBalancerEmptyModel {
-												if _, ok := deepMap["default_vip"].(map[string]interface{}); ok {
+												if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											SpecificV6VIP: func() types.String {
-												if v, ok := deepMap["specific_v6_vip"].(string); ok && v != "" {
+												if v, ok := VirtualNetworkData["specific_v6_vip"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											SpecificVIP: func() types.String {
-												if v, ok := deepMap["specific_vip"].(string); ok && v != "" {
+												if v, ok := VirtualNetworkData["specific_vip"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
+											}(),
+											VirtualNetwork: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel {
+												if VirtualNetworkData, ok := VirtualNetworkData["virtual_network"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel{
+														Name: func() types.String {
+															if v, ok := VirtualNetworkData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := VirtualNetworkData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := VirtualNetworkData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
 											}(),
 										}
 									}
 									return nil
 								}(),
 								VirtualSite: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteModel {
-									if deepMap, ok := itemMap["virtual_site"].(map[string]interface{}); ok {
+									if VirtualSiteData, ok := AdvertiseWhereItemMap["virtual_site"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteModel{
 											Network: func() types.String {
-												if v, ok := deepMap["network"].(string); ok && v != "" {
+												if v, ok := VirtualSiteData["network"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
+											}(),
+											VirtualSite: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteModel {
+												if VirtualSiteData, ok := VirtualSiteData["virtual_site"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteModel{
+														Name: func() types.String {
+															if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
 											}(),
 										}
 									}
 									return nil
 								}(),
 								VirtualSiteWithVIP: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel {
-									if deepMap, ok := itemMap["virtual_site_with_vip"].(map[string]interface{}); ok {
+									if VirtualSiteWithVIPData, ok := AdvertiseWhereItemMap["virtual_site_with_vip"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel{
 											IP: func() types.String {
-												if v, ok := deepMap["ip"].(string); ok && v != "" {
+												if v, ok := VirtualSiteWithVIPData["ip"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Network: func() types.String {
-												if v, ok := deepMap["network"].(string); ok && v != "" {
+												if v, ok := VirtualSiteWithVIPData["network"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
+											}(),
+											VirtualSite: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteModel {
+												if VirtualSiteData, ok := VirtualSiteWithVIPData["virtual_site"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteModel{
+														Name: func() types.String {
+															if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
 											}(),
 										}
 									}
 									return nil
 								}(),
 								Vk8sService: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceModel {
-									if _, ok := itemMap["vk8s_service"].(map[string]interface{}); ok {
-										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceModel{}
+									if Vk8sServiceData, ok := AdvertiseWhereItemMap["vk8s_service"].(map[string]interface{}); ok {
+										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceModel{
+											Site: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceSiteModel {
+												if SiteData, ok := Vk8sServiceData["site"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceSiteModel{
+														Name: func() types.String {
+															if v, ok := SiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											VirtualSite: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteModel {
+												if VirtualSiteData, ok := Vk8sServiceData["virtual_site"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteModel{
+														Name: func() types.String {
+															if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
 									}
 									return nil
 								}(),
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes}, AdvertiseWhereResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["advertise_on_public"].(map[string]interface{}); ok && (isImport || data.AdvertiseOnPublic != nil) {
+		data.AdvertiseOnPublic = &TCPLoadBalancerAdvertiseOnPublicModel{
+			PublicIP: func() *TCPLoadBalancerAdvertiseOnPublicPublicIPModel {
+				if !isImport && data.AdvertiseOnPublic != nil && data.AdvertiseOnPublic.PublicIP != nil {
+					return data.AdvertiseOnPublic.PublicIP
+				}
+				if PublicIPData, ok := blockData["public_ip"].(map[string]interface{}); ok {
+					return &TCPLoadBalancerAdvertiseOnPublicPublicIPModel{
+						Name: func() types.String {
+							if v, ok := PublicIPData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
 				}
 				return nil
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["advertise_on_public"].(map[string]interface{}); ok && isImport && data.AdvertiseOnPublic == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AdvertiseOnPublic = &TCPLoadBalancerAdvertiseOnPublicModel{}
-	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["advertise_on_public_default_vip"].(map[string]interface{}); ok && isImport && data.AdvertiseOnPublicDefaultVIP == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.AdvertiseOnPublicDefaultVIP = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["default_lb_with_sni"].(map[string]interface{}); ok && isImport && data.DefaultLBWithSni == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DefaultLBWithSni = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok && isImport && data.DoNotAdvertise == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DoNotAdvertise = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["do_not_retract_cluster"].(map[string]interface{}); ok && isImport && data.DoNotRetractCluster == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DoNotRetractCluster = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
 		var domainsList []string
 		for _, item := range v {
@@ -3861,52 +6581,46 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if _, ok := apiResource.Spec["hash_policy_choice_least_active"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceLeastActive == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.HashPolicyChoiceLeastActive = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["hash_policy_choice_random"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRandom == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.HashPolicyChoiceRandom = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["hash_policy_choice_source_ip_stickiness"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceSourceIPStickiness == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.HashPolicyChoiceSourceIPStickiness = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_service_policies"].(map[string]interface{}); ok && isImport && data.NoServicePolicies == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoServicePolicies = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["origin_pools_weights"].([]interface{}); ok && len(listData) > 0 {
-		var origin_pools_weightsList []TCPLoadBalancerOriginPoolsWeightsModel
+	if !isImport && (data.OriginPoolsWeights.IsNull() || len(data.OriginPoolsWeights.Elements()) == 0) {
+		data.OriginPoolsWeights = types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerOriginPoolsWeightsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["origin_pools_weights"].([]interface{}); ok && len(listData) > 0 {
+		var OriginPoolsWeightsList []TCPLoadBalancerOriginPoolsWeightsModel
 		var existingOriginPoolsWeightsItems []TCPLoadBalancerOriginPoolsWeightsModel
 		if !data.OriginPoolsWeights.IsNull() && !data.OriginPoolsWeights.IsUnknown() {
 			data.OriginPoolsWeights.ElementsAs(ctx, &existingOriginPoolsWeightsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				origin_pools_weightsList = append(origin_pools_weightsList, TCPLoadBalancerOriginPoolsWeightsModel{
+				OriginPoolsWeightsList = append(OriginPoolsWeightsList, TCPLoadBalancerOriginPoolsWeightsModel{
 					Cluster: func() *TCPLoadBalancerOriginPoolsWeightsClusterModel {
-						if nestedMap, ok := itemMap["cluster"].(map[string]interface{}); ok {
+						if ClusterData, ok := itemMap["cluster"].(map[string]interface{}); ok {
 							return &TCPLoadBalancerOriginPoolsWeightsClusterModel{
 								Name: func() types.String {
-									if v, ok := nestedMap["name"].(string); ok && v != "" {
+									if v, ok := ClusterData["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := nestedMap["namespace"].(string); ok && v != "" {
+									if v, ok := ClusterData["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := nestedMap["tenant"].(string); ok && v != "" {
+									if v, ok := ClusterData["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -3919,25 +6633,28 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						if !isImport && len(existingOriginPoolsWeightsItems) > listIdx && existingOriginPoolsWeightsItems[listIdx].EndpointSubsets != nil {
 							return &TCPLoadBalancerEmptyModel{}
 						}
+						if _, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
+							return &TCPLoadBalancerEmptyModel{}
+						}
 						return nil
 					}(),
 					Pool: func() *TCPLoadBalancerOriginPoolsWeightsPoolModel {
-						if nestedMap, ok := itemMap["pool"].(map[string]interface{}); ok {
+						if PoolData, ok := itemMap["pool"].(map[string]interface{}); ok {
 							return &TCPLoadBalancerOriginPoolsWeightsPoolModel{
 								Name: func() types.String {
-									if v, ok := nestedMap["name"].(string); ok && v != "" {
+									if v, ok := PoolData["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := nestedMap["namespace"].(string); ok && v != "" {
+									if v, ok := PoolData["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := nestedMap["tenant"].(string); ok && v != "" {
+									if v, ok := PoolData["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -3961,35 +6678,690 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: TCPLoadBalancerOriginPoolsWeightsModelAttrTypes}, origin_pools_weightsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: TCPLoadBalancerOriginPoolsWeightsModelAttrTypes}, OriginPoolsWeightsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.OriginPoolsWeights = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.OriginPoolsWeights = types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerOriginPoolsWeightsModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["sni"].(map[string]interface{}); ok && isImport && data.Sni == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.Sni = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["tls_tcp"].(map[string]interface{}); ok && isImport && data.TLSTCP == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.TLSTCP = &TCPLoadBalancerTLSTCPModel{}
+	if blockData, ok := apiResource.Spec["tls_tcp"].(map[string]interface{}); ok && (isImport || data.TLSTCP != nil) {
+		data.TLSTCP = &TCPLoadBalancerTLSTCPModel{
+			TLSCertParams: func() *TCPLoadBalancerTLSTCPTLSCertParamsModel {
+				if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil {
+					return data.TLSTCP.TLSCertParams
+				}
+				if TLSCertParamsData, ok := blockData["tls_cert_params"].(map[string]interface{}); ok {
+					return &TCPLoadBalancerTLSTCPTLSCertParamsModel{
+						Certificates: func() types.List {
+							if rawList, ok := TLSCertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var CertificatesResult []TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModel
+								for _, CertificatesItem := range rawList {
+									if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
+										CertificatesResult = append(CertificatesResult, TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModel{
+											Name: func() types.String {
+												if v, ok := CertificatesItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := CertificatesItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := CertificatesItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModelAttrTypes}, CertificatesResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModelAttrTypes})
+						}(),
+						NoMtls: func() *TCPLoadBalancerEmptyModel {
+							if _, ok := TLSCertParamsData["no_mtls"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+						TLSConfig: func() *TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModel {
+							if TLSConfigData, ok := TLSCertParamsData["tls_config"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModel{
+									CustomSecurity: func() *TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigCustomSecurityModel {
+										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigCustomSecurityModel{
+												CipherSuites: func() types.List {
+													if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												MaxVersion: func() types.String {
+													if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												MinVersion: func() types.String {
+													if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									LowSecurity: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									MediumSecurity: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseMtls: func() *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsModel {
+							if UseMtlsData, ok := TLSCertParamsData["use_mtls"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsModel{
+									ClientCertificateOptional: func() types.Bool {
+										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									CRL: func() *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsCRLModel {
+										if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsCRLModel{
+												Name: func() types.String {
+													if v, ok := CRLData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := CRLData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := CRLData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NoCRL: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									TrustedCA: func() *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsTrustedCAModel {
+										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsTrustedCAModel{
+												Name: func() types.String {
+													if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									XfccDisabled: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									XfccOptions: func() *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsXfccOptionsModel {
+										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsXfccOptionsModel{
+												XfccHeaderElements: func() types.List {
+													if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			TLSParameters: func() *TCPLoadBalancerTLSTCPTLSParametersModel {
+				if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil {
+					return data.TLSTCP.TLSParameters
+				}
+				if TLSParametersData, ok := blockData["tls_parameters"].(map[string]interface{}); ok {
+					return &TCPLoadBalancerTLSTCPTLSParametersModel{
+						NoMtls: func() *TCPLoadBalancerEmptyModel {
+							if _, ok := TLSParametersData["no_mtls"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+						TLSCertificates: func() []TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModel {
+							if rawList, ok := TLSParametersData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModel
+								for _, TLSCertificatesItem := range rawList {
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() *TCPLoadBalancerEmptyModel {
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerEmptyModel{}
+												}
+												return nil
+											}(),
+											PrivateKey: func() *TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() *TCPLoadBalancerEmptyModel {
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return TLSCertificatesResult
+							}
+							return nil
+						}(),
+						TLSConfig: func() *TCPLoadBalancerTLSTCPTLSParametersTLSConfigModel {
+							if TLSConfigData, ok := TLSParametersData["tls_config"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPTLSParametersTLSConfigModel{
+									CustomSecurity: func() *TCPLoadBalancerTLSTCPTLSParametersTLSConfigCustomSecurityModel {
+										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSParametersTLSConfigCustomSecurityModel{
+												CipherSuites: func() types.List {
+													if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												MaxVersion: func() types.String {
+													if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												MinVersion: func() types.String {
+													if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									LowSecurity: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									MediumSecurity: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseMtls: func() *TCPLoadBalancerTLSTCPTLSParametersUseMtlsModel {
+							if UseMtlsData, ok := TLSParametersData["use_mtls"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPTLSParametersUseMtlsModel{
+									ClientCertificateOptional: func() types.Bool {
+										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									CRL: func() *TCPLoadBalancerTLSTCPTLSParametersUseMtlsCRLModel {
+										if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSParametersUseMtlsCRLModel{
+												Name: func() types.String {
+													if v, ok := CRLData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := CRLData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := CRLData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NoCRL: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									TrustedCA: func() *TCPLoadBalancerTLSTCPTLSParametersUseMtlsTrustedCAModel {
+										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSParametersUseMtlsTrustedCAModel{
+												Name: func() types.String {
+													if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									XfccDisabled: func() *TCPLoadBalancerEmptyModel {
+										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerEmptyModel{}
+										}
+										return nil
+									}(),
+									XfccOptions: func() *TCPLoadBalancerTLSTCPTLSParametersUseMtlsXfccOptionsModel {
+										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+											return &TCPLoadBalancerTLSTCPTLSParametersUseMtlsXfccOptionsModel{
+												XfccHeaderElements: func() types.List {
+													if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["tls_tcp_auto_cert"].(map[string]interface{}); ok && isImport && data.TLSTCPAutoCert == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.TLSTCPAutoCert = &TCPLoadBalancerTLSTCPAutoCertModel{}
+	if blockData, ok := apiResource.Spec["tls_tcp_auto_cert"].(map[string]interface{}); ok && (isImport || data.TLSTCPAutoCert != nil) {
+		data.TLSTCPAutoCert = &TCPLoadBalancerTLSTCPAutoCertModel{
+			NoMtls: func() *TCPLoadBalancerEmptyModel {
+				if !isImport && data.TLSTCPAutoCert != nil {
+					return data.TLSTCPAutoCert.NoMtls
+				}
+				if _, ok := blockData["no_mtls"].(map[string]interface{}); ok {
+					return &TCPLoadBalancerEmptyModel{}
+				}
+				return nil
+			}(),
+			TLSConfig: func() *TCPLoadBalancerTLSTCPAutoCertTLSConfigModel {
+				if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
+					return data.TLSTCPAutoCert.TLSConfig
+				}
+				if TLSConfigData, ok := blockData["tls_config"].(map[string]interface{}); ok {
+					return &TCPLoadBalancerTLSTCPAutoCertTLSConfigModel{
+						CustomSecurity: func() *TCPLoadBalancerTLSTCPAutoCertTLSConfigCustomSecurityModel {
+							if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPAutoCertTLSConfigCustomSecurityModel{
+									CipherSuites: func() types.List {
+										if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									MaxVersion: func() types.String {
+										if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									MinVersion: func() types.String {
+										if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
+							if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+						LowSecurity: func() *TCPLoadBalancerEmptyModel {
+							if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+						MediumSecurity: func() *TCPLoadBalancerEmptyModel {
+							if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			UseMtls: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsModel {
+				if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil {
+					return data.TLSTCPAutoCert.UseMtls
+				}
+				if UseMtlsData, ok := blockData["use_mtls"].(map[string]interface{}); ok {
+					return &TCPLoadBalancerTLSTCPAutoCertUseMtlsModel{
+						ClientCertificateOptional: func() types.Bool {
+							if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+								return types.BoolValue(v)
+							}
+							return types.BoolNull()
+						}(),
+						CRL: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsCRLModel {
+							if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPAutoCertUseMtlsCRLModel{
+									Name: func() types.String {
+										if v, ok := CRLData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := CRLData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := CRLData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						NoCRL: func() *TCPLoadBalancerEmptyModel {
+							if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+						TrustedCA: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsTrustedCAModel {
+							if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPAutoCertUseMtlsTrustedCAModel{
+									Name: func() types.String {
+										if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						TrustedCAURL: func() types.String {
+							if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						XfccDisabled: func() *TCPLoadBalancerEmptyModel {
+							if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+						XfccOptions: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsXfccOptionsModel {
+							if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+								return &TCPLoadBalancerTLSTCPAutoCertUseMtlsXfccOptionsModel{
+									XfccHeaderElements: func() types.List {
+										if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	// Top-level Optional bool: preserve prior state to avoid API default drift
 	if !isImport && !data.DNSVolterraManaged.IsNull() && !data.DNSVolterraManaged.IsUnknown() {
 		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		// Import case, null state, or unknown (after Create): read from API
 		if v, ok := apiResource.Spec["dns_volterra_managed"].(bool); ok {
 			data.DNSVolterraManaged = types.BoolValue(v)
 		} else {
@@ -3997,10 +7369,8 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		}
 	}
 	if _, ok := apiResource.Spec["hash_policy_choice_round_robin"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRoundRobin == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.HashPolicyChoiceRoundRobin = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["idle_timeout"].(float64); ok {
 		data.IdleTimeout = types.Int64Value(int64(v))
 	} else {
@@ -4012,30 +7382,22 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		data.ListenPort = types.Int64Null()
 	}
 	if _, ok := apiResource.Spec["no_sni"].(map[string]interface{}); ok && isImport && data.NoSni == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoSni = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["port_ranges"].(string); ok && v != "" {
 		data.PortRanges = types.StringValue(v)
 	} else {
 		data.PortRanges = types.StringNull()
 	}
 	if _, ok := apiResource.Spec["retract_cluster"].(map[string]interface{}); ok && isImport && data.RetractCluster == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.RetractCluster = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["service_policies_from_namespace"].(map[string]interface{}); ok && isImport && data.ServicePoliciesFromNamespace == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.ServicePoliciesFromNamespace = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["tcp"].(map[string]interface{}); ok && isImport && data.TCP == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.TCP = &TCPLoadBalancerEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }

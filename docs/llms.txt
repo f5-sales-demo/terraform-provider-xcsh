@@ -1,6 +1,6 @@
 # F5 Distributed Cloud Terraform Provider
 
-> Provider: f5xc-salesdemos/f5xc | Registry: <https://registry.terraform.io/providers/f5xc-salesdemos/f5xc>
+> Provider: f5-sales-demo/xcsh | Registry: <https://registry.terraform.io/providers/f5-sales-demo/xcsh>
 
 DEPRECATED — do not use: volterraedge/volterra
 
@@ -8,8 +8,8 @@ DEPRECATED — do not use: volterraedge/volterra
 
     terraform {
       required_providers {
-        f5xc = {
-          source = "f5xc-salesdemos/f5xc"
+        xcsh = {
+          source = "f5-sales-demo/xcsh"
         }
       }
     }
@@ -38,20 +38,20 @@ DEPRECATED — do not use: volterraedge/volterra
 - [Load Balancing](_llms-txt/load-balancing.txt) (13 resources): HTTP/TCP/UDP/CDN load balancers, origin pools, health checks, and routing
 - [Sites](_llms-txt/sites.txt) (11 resources): AWS/Azure/GCP VPC sites, SecureMesh, VoltStack, and site mesh groups
 - [Kubernetes](_llms-txt/kubernetes.txt) (8 resources): Container registries, workloads, and Kubernetes integrations
+- [DNS](_llms-txt/dns.txt) (7 resources): DNS domains, zones, compliance checks, and DNS proxy configuration
 - [API Security](_llms-txt/api-security.txt) (5 resources): API definition, discovery, testing, and security controls for web APIs
 - [Applications](_llms-txt/applications.txt) (4 resources): Application settings, types, discovery, and filtering
-- [Monitoring](_llms-txt/monitoring.txt) (4 resources): Log receivers, alert policies, APM, and global logging configuration
 - [Certificates](_llms-txt/certificates.txt) (4 resources): TLS certificates, certificate chains, CRLs, and trusted CA lists
+- [Monitoring](_llms-txt/monitoring.txt) (4 resources): Log receivers, alert policies, APM, and global logging configuration
 - [VPN](_llms-txt/vpn.txt) (4 resources): VPN and IPSec configuration
-- [DNS](_llms-txt/dns.txt) (3 resources): DNS domains, zones, compliance checks, and DNS proxy configuration
-- [BIG-IP Integration](_llms-txt/big-ip-integration.txt) (3 resources): BIG-IP proxy, data groups, and iRules integration
 - [Authentication](_llms-txt/authentication.txt) (3 resources): Authentication methods, cloud credentials, and secret management
-- [Uncategorized](_llms-txt/uncategorized.txt) (2 resources): Resources pending categorization
+- [BIG-IP Integration](_llms-txt/big-ip-integration.txt) (3 resources): BIG-IP proxy, data groups, and iRules integration
+- [Cloud Resources](_llms-txt/cloud-resources.txt) (3 resources): Cloud elastic IPs, address allocators, and geo-location resources
 - [Organization](_llms-txt/organization.txt) (2 resources): Namespaces, tenant configuration, and organizational settings
-- [Cloud Resources](_llms-txt/cloud-resources.txt) (2 resources): Cloud elastic IPs, address allocators, and geo-location resources
-- [Subscriptions](_llms-txt/subscriptions.txt) (1 resources): Cloud subscription management and metering
+- [Uncategorized](_llms-txt/uncategorized.txt) (2 resources): Resources pending categorization
 - [Integrations](_llms-txt/integrations.txt) (1 resources): External integrations including code base and ticket tracking
 - [Service Mesh](_llms-txt/service-mesh.txt) (1 resources): Service mesh policies and traffic management
+- [Subscriptions](_llms-txt/subscriptions.txt) (1 resources): Cloud subscription management and metering
 
 ## Data Sources
 

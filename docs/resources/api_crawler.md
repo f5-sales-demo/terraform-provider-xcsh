@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_api_crawler Resource - terraform-provider-f5xc"
+page_title: "xcsh_api_crawler Resource - xcsh"
 subcategory: "API Security"
 description: |-
   Manages an API Crawler resource in F5 Distributed Cloud.
 ---
 
-# f5xc_api_crawler (Resource)
+# xcsh_api_crawler (Resource)
 
 Manages an API Crawler resource in F5 Distributed Cloud.
 
@@ -14,47 +14,24 @@ Manages an API Crawler resource in F5 Distributed Cloud.
 ## Example Usage
 
 ```terraform
-# API Crawler Resource Example
+# APICrawler Resource Example
 # Manages an API Crawler resource in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic API Crawler configuration
-resource "f5xc_api_crawler" "example" {
+# Basic APICrawler configuration
+resource "xcsh_api_crawler" "example" {
   name      = "example-api-crawler"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # API Crawler Configuration .
-  domains {
-    # Configure domains settings
-  }
-  # Configuration parameter for simple login.
-  simple_login {
-    # Configure simple_login settings
-  }
-  # SecretType is used in an object to indicate a sensitive/c...
-  password {
-    # Configure password settings
-  }
+  namespace = "system"
 }
 ```
 
@@ -69,8 +46,6 @@ resource "f5xc_api_crawler" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the API Crawler. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the API Crawler will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -78,6 +53,8 @@ resource "f5xc_api_crawler" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the API Crawler. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -236,5 +213,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_api_crawler.example system/example
+terraform import xcsh_api_crawler.example system/example
 ```

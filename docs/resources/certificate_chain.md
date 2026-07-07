@@ -1,46 +1,39 @@
 ---
-page_title: "f5xc_certificate_chain Resource - terraform-provider-f5xc"
+page_title: "xcsh_certificate_chain Resource - xcsh"
 subcategory: "Certificates"
 description: |-
   Manages a Certificate Chain resource in F5 Distributed Cloud for certificate chain configuration for TLS.
 ---
 
-# f5xc_certificate_chain (Resource)
+# xcsh_certificate_chain (Resource)
 
 Manages a Certificate Chain resource in F5 Distributed Cloud for certificate chain configuration for TLS.
 
-~> **Note** Please refer to [Certificate Chain API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/certificates/) to learn more.
+~> **Note** Please refer to [Certificate Chain API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/certificates/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# Certificate Chain Resource Example
+# CertificateChain Resource Example
 # Manages a Certificate Chain resource in F5 Distributed Cloud for certificate chain configuration for TLS.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Certificate Chain configuration
-resource "f5xc_certificate_chain" "example" {
+# Basic CertificateChain configuration
+resource "xcsh_certificate_chain" "example" {
   name      = "example-certificate-chain"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
+  certificate_url = "example-value"
 }
 ```
 
@@ -180,5 +173,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_certificate_chain.example system/example
+terraform import xcsh_certificate_chain.example system/example
 ```

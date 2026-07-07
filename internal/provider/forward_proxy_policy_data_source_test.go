@@ -8,7 +8,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/acctest"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/acctest"
 )
 
 func TestAccForwardProxyPolicyDataSource_basic(t *testing.T) {
@@ -16,8 +16,8 @@ func TestAccForwardProxyPolicyDataSource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test-fpp")
-	resourceName := "f5xc_forward_proxy_policy.test"
-	dataSourceName := "data.f5xc_forward_proxy_policy.test"
+	resourceName := "xcsh_forward_proxy_policy.test"
+	dataSourceName := "data.xcsh_forward_proxy_policy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -40,15 +40,15 @@ func testAccForwardProxyPolicyDataSourceConfig_basic(name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "f5xc_forward_proxy_policy" "test" {
+resource "xcsh_forward_proxy_policy" "test" {
   name      = %[1]q
   namespace = "system"
 }
 
-data "f5xc_forward_proxy_policy" "test" {
-  depends_on = [f5xc_forward_proxy_policy.test]
-  name       = f5xc_forward_proxy_policy.test.name
-  namespace  = f5xc_forward_proxy_policy.test.namespace
+data "xcsh_forward_proxy_policy" "test" {
+  depends_on = [xcsh_forward_proxy_policy.test]
+  name       = xcsh_forward_proxy_policy.test.name
+  namespace  = xcsh_forward_proxy_policy.test.namespace
 }
 `, name))
 }

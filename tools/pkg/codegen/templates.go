@@ -33,6 +33,9 @@ import (
 {{- end}}
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
+{{- if .HasStringDefaults}}
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
+{{- end}}
 {{- if .HasBlocks}}
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 {{- end}}
@@ -52,9 +55,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -107,6 +110,9 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 {{- if .Computed}}
 				Computed: true,
 {{- end}}
+{{- if ne .StringDefault ""}}
+				Default: stringdefault.StaticString("{{.StringDefault}}"),
+{{- end}}
 {{- if eq .Type "map"}}
 				ElementType: types.StringType,
 {{- end}}
@@ -133,6 +139,9 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 {{- else if eq .TfsdkTag "namespace"}}
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
+{{- if gt (len .EnumValues) 0}}
+					stringvalidator.OneOf({{enumValuesLiteral .EnumValues}}),
+{{- end}}
 				},
 {{- else if and (eq .Type "string") (or (gt .MinLength 0) (gt .MaxLength 0) (ne .Pattern "") (gt (len .EnumValues) 0))}}
 				Validators: []validator.String{
@@ -410,6 +419,14 @@ func (r *{{.TitleCase}}Resource) Read(ctx context.Context, req resource.ReadRequ
 	_ = isImport // May be unused if resource has no blocks needing import detection
 {{renderSpecUnmarshalCode .Attributes "\t" .TitleCase}}
 
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
+	}
+
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
 
@@ -655,7 +672,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 )
 
 var (
@@ -795,7 +812,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 )
 
 var (

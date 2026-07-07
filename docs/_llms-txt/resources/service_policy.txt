@@ -1,4 +1,4 @@
-# f5xc_service_policy
+# xcsh_service_policy
 
 Category: Security
 Service_policy creates a new object in the storage backend for metadata.namespace
@@ -8,63 +8,12 @@ Service_policy creates a new object in the storage backend for metadata.namespac
 - name
 - namespace
 
-## OneOf Groups
-
-Pick exactly one:
-  allow_all_requests = "..."
-  allow_list = "..."
-  deny_all_requests = "..."
-  deny_list = "..."
-  rule_list = "..."
-
-Pick exactly one:
-  any_server = "..."
-  server_name = "..."
-  server_name_matcher = "..."
-  server_selector = "..."
-
-## Server Defaults (safe to omit)
-
-- port_matcher
-- any_server
-
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_service_policy" "example" {
+resource "xcsh_service_policy" "example" {
   name      = "example-service-policy"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  // One of the arguments from this list "allow_all_requests allow_list deny_all_requests deny_list rule_list" must be set
-
-  rule_list {
-    rules {
-      metadata {
-        name = "allow-api"
-      }
-      spec {
-        action = "ALLOW"
-        any_client {}
-        any_ip {}
-        path {
-          prefix_values = ["/api/"]
-        }
-      }
-    }
-  }
-
-  // One of the arguments from this list "any_server server_name server_name_matcher server_selector" must be set
-
-  any_server {}
 }
 ```
 

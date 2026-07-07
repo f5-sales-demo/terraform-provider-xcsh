@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_proxy Data Source - terraform-provider-f5xc"
+page_title: "xcsh_proxy Data Source - xcsh"
 subcategory: "Networking"
 description: |-
   Retrieves information about an existing Proxy resource in F5 Distributed Cloud for tcp loadbalancer create specification. configuration.
 ---
 
-# f5xc_proxy (Data Source)
+# xcsh_proxy (Data Source)
 
 Retrieves information about a Proxy resource in F5 Distributed Cloud for tcp loadbalancer create specification. configuration. This is a read-only data source.
 
@@ -15,27 +15,22 @@ Retrieves information about a Proxy resource in F5 Distributed Cloud for tcp loa
 
 ```terraform
 # Proxy Data Source Example
-# Retrieves information about an existing Proxy
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
 # Look up an existing Proxy by name
-data "f5xc_proxy" "example" {
+data "xcsh_proxy" "example" {
   name      = "example-proxy"
   namespace = "staging"
-}
-
-output "proxy_id" {
-  value = data.f5xc_proxy.example.id
 }
 ```
 

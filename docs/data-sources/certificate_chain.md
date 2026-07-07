@@ -1,41 +1,36 @@
 ---
-page_title: "f5xc_certificate_chain Data Source - terraform-provider-f5xc"
+page_title: "xcsh_certificate_chain Data Source - xcsh"
 subcategory: "Certificates"
 description: |-
   Retrieves information about an existing Certificate Chain resource in F5 Distributed Cloud for certificate chain configuration for TLS.
 ---
 
-# f5xc_certificate_chain (Data Source)
+# xcsh_certificate_chain (Data Source)
 
 Retrieves information about a Certificate Chain resource in F5 Distributed Cloud for certificate chain configuration for TLS. This is a read-only data source.
 
-~> **Note** Please refer to [Certificate Chain API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/certificates/) to learn more.
+~> **Note** Please refer to [Certificate Chain API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/certificates/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# Certificate Chain Data Source Example
-# Retrieves information about an existing Certificate Chain
+# CertificateChain Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Certificate Chain by name
-data "f5xc_certificate_chain" "example" {
+# Look up an existing CertificateChain by name
+data "xcsh_certificate_chain" "example" {
   name      = "example-certificate-chain"
   namespace = "staging"
-}
-
-output "certificate_chain_id" {
-  value = data.f5xc_certificate_chain.example.id
 }
 ```
 

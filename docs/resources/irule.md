@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_irule Resource - terraform-provider-f5xc"
+page_title: "xcsh_irule Resource - xcsh"
 subcategory: "BIG-IP Integration"
 description: |-
   Manages iRule in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud.
 ---
 
-# f5xc_irule (Resource)
+# xcsh_irule (Resource)
 
 Manages iRule in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud.
 
@@ -15,32 +15,27 @@ Manages iRule in a given namespace. If one already exists it will give an error.
 
 ```terraform
 # Irule Resource Example
-# Manages iRule in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud.
+# Manages iRule in a given namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
 # Basic Irule configuration
-resource "f5xc_irule" "example" {
+resource "xcsh_irule" "example" {
   name      = "example-irule"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
+  description_spec = "example-value"
+  irule            = "example-value"
+  description      = "example-value"
 }
 ```
 
@@ -182,5 +177,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_irule.example system/example
+terraform import xcsh_irule.example system/example
 ```

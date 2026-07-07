@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_cdn_purge_command Resource - terraform-provider-f5xc"
+page_title: "xcsh_cdn_purge_command Resource - xcsh"
 subcategory: "Load Balancing"
 description: |-
   Manages a CDN Purge Command resource in F5 Distributed Cloud for CDN purge command specification. configuration.
 ---
 
-# f5xc_cdn_purge_command (Resource)
+# xcsh_cdn_purge_command (Resource)
 
 Manages a CDN Purge Command resource in F5 Distributed Cloud for CDN purge command specification. configuration.
 
@@ -14,47 +14,24 @@ Manages a CDN Purge Command resource in F5 Distributed Cloud for CDN purge comma
 ## Example Usage
 
 ```terraform
-# CDN Purge Command Resource Example
-# Manages a CDN Purge Command resource in F5 Distributed Cloud for CDN purge command specification. configuration.
+# CDNPurgeCommand Resource Example
+# Manages a CDN Purge Command resource in F5 Distributed Cloud for CDN purge command specification.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic CDN Purge Command configuration
-resource "f5xc_cdn_purge_command" "example" {
+# Basic CDNPurgeCommand configuration
+resource "xcsh_cdn_purge_command" "example" {
   name      = "example-CDN-purge-command"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # [OneOf: hard_purge, soft_purge] Enable this option
-  hard_purge {
-    # Configure hard_purge settings
-  }
-  # Enable this option
-  purge_all {
-    # Configure purge_all settings
-  }
-  # Enable this option
-  soft_purge {
-    # Configure soft_purge settings
-  }
 }
 ```
 
@@ -214,5 +191,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_cdn_purge_command.example system/example
+terraform import xcsh_cdn_purge_command.example system/example
 ```

@@ -1,41 +1,36 @@
 ---
-page_title: "f5xc_container_registry Data Source - terraform-provider-f5xc"
+page_title: "xcsh_container_registry Data Source - xcsh"
 subcategory: "Kubernetes"
 description: |-
   Retrieves information about an existing Container Registry resource in F5 Distributed Cloud for container image registry configuration.
 ---
 
-# f5xc_container_registry (Data Source)
+# xcsh_container_registry (Data Source)
 
 Retrieves information about a Container Registry resource in F5 Distributed Cloud for container image registry configuration. This is a read-only data source.
 
-~> **Note** Please refer to [Container Registry API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/managed_kubernetes/) to learn more.
+~> **Note** Please refer to [Container Registry API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/managed_kubernetes/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# Container Registry Data Source Example
-# Retrieves information about an existing Container Registry
+# ContainerRegistry Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Container Registry by name
-data "f5xc_container_registry" "example" {
+# Look up an existing ContainerRegistry by name
+data "xcsh_container_registry" "example" {
   name      = "example-container-registry"
   namespace = "staging"
-}
-
-output "container_registry_id" {
-  value = data.f5xc_container_registry.example.id
 }
 ```
 

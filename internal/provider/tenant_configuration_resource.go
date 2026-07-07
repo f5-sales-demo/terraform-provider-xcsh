@@ -15,14 +15,15 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -222,13 +223,16 @@ func (r *TenantConfigurationResource) Schema(ctx context.Context, req resource.S
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Tenant Configuration will be created.",
-				Required:            true,
+				MarkdownDescription: "Namespace for the Tenant Configuration. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
+				Optional:            true,
+				Computed:            true,
+				Default:             stringdefault.StaticString("system"),
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
+					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
@@ -504,72 +508,100 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.BasicConfiguration != nil {
-		basic_configurationMap := make(map[string]interface{})
+		BasicConfigurationMap := make(map[string]interface{})
 		if !data.BasicConfiguration.DisplayName.IsNull() && !data.BasicConfiguration.DisplayName.IsUnknown() {
-			basic_configurationMap["display_name"] = data.BasicConfiguration.DisplayName.ValueString()
+			BasicConfigurationMap["display_name"] = data.BasicConfiguration.DisplayName.ValueString()
 		}
-		createReq.Spec["basic_configuration"] = basic_configurationMap
+		createReq.Spec["basic_configuration"] = BasicConfigurationMap
 	}
 	if data.BruteForceDetection != nil {
-		brute_force_detectionMap := make(map[string]interface{})
+		BruteForceDetectionMap := make(map[string]interface{})
 		if !data.BruteForceDetection.MaxLoginFailures.IsNull() && !data.BruteForceDetection.MaxLoginFailures.IsUnknown() {
-			brute_force_detectionMap["max_login_failures"] = data.BruteForceDetection.MaxLoginFailures.ValueInt64()
+			BruteForceDetectionMap["max_login_failures"] = data.BruteForceDetection.MaxLoginFailures.ValueInt64()
 		}
-		createReq.Spec["brute_force_detection"] = brute_force_detectionMap
+		createReq.Spec["brute_force_detection"] = BruteForceDetectionMap
 	}
 	if data.BruteForceDetectionSettings != nil {
-		brute_force_detection_settingsMap := make(map[string]interface{})
+		BruteForceDetectionSettingsMap := make(map[string]interface{})
 		if !data.BruteForceDetectionSettings.MaxLoginFailures.IsNull() && !data.BruteForceDetectionSettings.MaxLoginFailures.IsUnknown() {
-			brute_force_detection_settingsMap["max_login_failures"] = data.BruteForceDetectionSettings.MaxLoginFailures.ValueInt64()
+			BruteForceDetectionSettingsMap["max_login_failures"] = data.BruteForceDetectionSettings.MaxLoginFailures.ValueInt64()
 		}
-		createReq.Spec["brute_force_detection_settings"] = brute_force_detection_settingsMap
+		createReq.Spec["brute_force_detection_settings"] = BruteForceDetectionSettingsMap
 	}
 	if data.PasswordPolicy != nil {
-		password_policyMap := make(map[string]interface{})
+		PasswordPolicyMap := make(map[string]interface{})
 		if !data.PasswordPolicy.Digits.IsNull() && !data.PasswordPolicy.Digits.IsUnknown() {
-			password_policyMap["digits"] = data.PasswordPolicy.Digits.ValueInt64()
+			PasswordPolicyMap["digits"] = data.PasswordPolicy.Digits.ValueInt64()
 		}
 		if !data.PasswordPolicy.ExpirePassword.IsNull() && !data.PasswordPolicy.ExpirePassword.IsUnknown() {
-			password_policyMap["expire_password"] = data.PasswordPolicy.ExpirePassword.ValueInt64()
+			PasswordPolicyMap["expire_password"] = data.PasswordPolicy.ExpirePassword.ValueInt64()
 		}
 		if !data.PasswordPolicy.LowercaseCharacters.IsNull() && !data.PasswordPolicy.LowercaseCharacters.IsUnknown() {
-			password_policyMap["lowercase_characters"] = data.PasswordPolicy.LowercaseCharacters.ValueInt64()
+			PasswordPolicyMap["lowercase_characters"] = data.PasswordPolicy.LowercaseCharacters.ValueInt64()
 		}
 		if !data.PasswordPolicy.MinimumLength.IsNull() && !data.PasswordPolicy.MinimumLength.IsUnknown() {
-			password_policyMap["minimum_length"] = data.PasswordPolicy.MinimumLength.ValueInt64()
+			PasswordPolicyMap["minimum_length"] = data.PasswordPolicy.MinimumLength.ValueInt64()
 		}
 		if !data.PasswordPolicy.NotRecentlyUsed.IsNull() && !data.PasswordPolicy.NotRecentlyUsed.IsUnknown() {
-			password_policyMap["not_recently_used"] = data.PasswordPolicy.NotRecentlyUsed.ValueInt64()
+			PasswordPolicyMap["not_recently_used"] = data.PasswordPolicy.NotRecentlyUsed.ValueInt64()
 		}
 		if !data.PasswordPolicy.NotUsername.IsNull() && !data.PasswordPolicy.NotUsername.IsUnknown() {
-			password_policyMap["not_username"] = data.PasswordPolicy.NotUsername.ValueBool()
+			PasswordPolicyMap["not_username"] = data.PasswordPolicy.NotUsername.ValueBool()
 		}
 		if !data.PasswordPolicy.SpecialCharacters.IsNull() && !data.PasswordPolicy.SpecialCharacters.IsUnknown() {
-			password_policyMap["special_characters"] = data.PasswordPolicy.SpecialCharacters.ValueInt64()
+			PasswordPolicyMap["special_characters"] = data.PasswordPolicy.SpecialCharacters.ValueInt64()
 		}
 		if !data.PasswordPolicy.UppercaseCharacters.IsNull() && !data.PasswordPolicy.UppercaseCharacters.IsUnknown() {
-			password_policyMap["uppercase_characters"] = data.PasswordPolicy.UppercaseCharacters.ValueInt64()
+			PasswordPolicyMap["uppercase_characters"] = data.PasswordPolicy.UppercaseCharacters.ValueInt64()
 		}
-		createReq.Spec["password_policy"] = password_policyMap
+		createReq.Spec["password_policy"] = PasswordPolicyMap
 	}
 	if data.TenantDetails != nil {
-		tenant_detailsMap := make(map[string]interface{})
+		TenantDetailsMap := make(map[string]interface{})
 		if !data.TenantDetails.DisplayName.IsNull() && !data.TenantDetails.DisplayName.IsUnknown() {
-			tenant_detailsMap["display_name"] = data.TenantDetails.DisplayName.ValueString()
+			TenantDetailsMap["display_name"] = data.TenantDetails.DisplayName.ValueString()
 		}
-		createReq.Spec["tenant_details"] = tenant_detailsMap
+		createReq.Spec["tenant_details"] = TenantDetailsMap
 	}
 	if data.UserSessionExpiration != nil {
-		user_session_expirationMap := make(map[string]interface{})
+		UserSessionExpirationMap := make(map[string]interface{})
 		if data.UserSessionExpiration.AbsoluteTimeout != nil {
-			absolute_timeoutNestedMap := make(map[string]interface{})
-			user_session_expirationMap["absolute_timeout"] = absolute_timeoutNestedMap
+			AbsoluteTimeoutMap := make(map[string]interface{})
+			if data.UserSessionExpiration.AbsoluteTimeout.Hours != nil {
+				HoursMap := make(map[string]interface{})
+				if !data.UserSessionExpiration.AbsoluteTimeout.Hours.Duration.IsNull() && !data.UserSessionExpiration.AbsoluteTimeout.Hours.Duration.IsUnknown() {
+					HoursMap["duration"] = data.UserSessionExpiration.AbsoluteTimeout.Hours.Duration.ValueInt64()
+				}
+				AbsoluteTimeoutMap["hours"] = HoursMap
+			}
+			if data.UserSessionExpiration.AbsoluteTimeout.Minutes != nil {
+				MinutesMap := make(map[string]interface{})
+				if !data.UserSessionExpiration.AbsoluteTimeout.Minutes.Duration.IsNull() && !data.UserSessionExpiration.AbsoluteTimeout.Minutes.Duration.IsUnknown() {
+					MinutesMap["duration"] = data.UserSessionExpiration.AbsoluteTimeout.Minutes.Duration.ValueInt64()
+				}
+				AbsoluteTimeoutMap["minutes"] = MinutesMap
+			}
+			UserSessionExpirationMap["absolute_timeout"] = AbsoluteTimeoutMap
 		}
 		if data.UserSessionExpiration.IdleTimeout != nil {
-			idle_timeoutNestedMap := make(map[string]interface{})
-			user_session_expirationMap["idle_timeout"] = idle_timeoutNestedMap
+			IdleTimeoutMap := make(map[string]interface{})
+			if data.UserSessionExpiration.IdleTimeout.Hours != nil {
+				HoursMap := make(map[string]interface{})
+				if !data.UserSessionExpiration.IdleTimeout.Hours.Duration.IsNull() && !data.UserSessionExpiration.IdleTimeout.Hours.Duration.IsUnknown() {
+					HoursMap["duration"] = data.UserSessionExpiration.IdleTimeout.Hours.Duration.ValueInt64()
+				}
+				IdleTimeoutMap["hours"] = HoursMap
+			}
+			if data.UserSessionExpiration.IdleTimeout.Minutes != nil {
+				MinutesMap := make(map[string]interface{})
+				if !data.UserSessionExpiration.IdleTimeout.Minutes.Duration.IsNull() && !data.UserSessionExpiration.IdleTimeout.Minutes.Duration.IsUnknown() {
+					MinutesMap["duration"] = data.UserSessionExpiration.IdleTimeout.Minutes.Duration.ValueInt64()
+				}
+				IdleTimeoutMap["minutes"] = MinutesMap
+			}
+			UserSessionExpirationMap["idle_timeout"] = IdleTimeoutMap
 		}
-		createReq.Spec["user_session_expiration"] = user_session_expirationMap
+		createReq.Spec["user_session_expiration"] = UserSessionExpirationMap
 	}
 
 	apiResource, err := r.client.CreateTenantConfiguration(ctx, createReq)
@@ -598,16 +630,9 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 		data.BruteForceDetection = &TenantConfigurationBruteForceDetectionModel{
 			MaxLoginFailures: func() types.Int64 {
 				if !isImport && data.BruteForceDetection != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.BruteForceDetection.MaxLoginFailures
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["max_login_failures"].(float64); ok {
+				if v, ok := blockData["max_login_failures"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -618,16 +643,9 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 		data.BruteForceDetectionSettings = &TenantConfigurationBruteForceDetectionSettingsModel{
 			MaxLoginFailures: func() types.Int64 {
 				if !isImport && data.BruteForceDetectionSettings != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.BruteForceDetectionSettings.MaxLoginFailures
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["max_login_failures"].(float64); ok {
+				if v, ok := blockData["max_login_failures"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -638,95 +656,53 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 		data.PasswordPolicy = &TenantConfigurationPasswordPolicyModel{
 			Digits: func() types.Int64 {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.PasswordPolicy.Digits
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["digits"].(float64); ok {
+				if v, ok := blockData["digits"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			ExpirePassword: func() types.Int64 {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.PasswordPolicy.ExpirePassword
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["expire_password"].(float64); ok {
+				if v, ok := blockData["expire_password"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			LowercaseCharacters: func() types.Int64 {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.PasswordPolicy.LowercaseCharacters
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["lowercase_characters"].(float64); ok {
+				if v, ok := blockData["lowercase_characters"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			MinimumLength: func() types.Int64 {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.PasswordPolicy.MinimumLength
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["minimum_length"].(float64); ok {
+				if v, ok := blockData["minimum_length"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			NotRecentlyUsed: func() types.Int64 {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.PasswordPolicy.NotRecentlyUsed
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["not_recently_used"].(float64); ok {
+				if v, ok := blockData["not_recently_used"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			NotUsername: func() types.Bool {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults from overwriting user intent
 					return data.PasswordPolicy.NotUsername
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.BoolNull()
-				}
-				// Import case: read from API
 				if v, ok := blockData["not_username"].(bool); ok {
 					return types.BoolValue(v)
 				}
@@ -734,32 +710,18 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 			}(),
 			SpecialCharacters: func() types.Int64 {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.PasswordPolicy.SpecialCharacters
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["special_characters"].(float64); ok {
+				if v, ok := blockData["special_characters"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			UppercaseCharacters: func() types.Int64 {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.PasswordPolicy.UppercaseCharacters
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["uppercase_characters"].(float64); ok {
+				if v, ok := blockData["uppercase_characters"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -776,11 +738,82 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["user_session_expiration"].(map[string]interface{}); ok && isImport && data.UserSessionExpiration == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.UserSessionExpiration = &TenantConfigurationUserSessionExpirationModel{}
+	if blockData, ok := apiResource.Spec["user_session_expiration"].(map[string]interface{}); ok && (isImport || data.UserSessionExpiration != nil) {
+		data.UserSessionExpiration = &TenantConfigurationUserSessionExpirationModel{
+			AbsoluteTimeout: func() *TenantConfigurationUserSessionExpirationAbsoluteTimeoutModel {
+				if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.AbsoluteTimeout != nil {
+					return data.UserSessionExpiration.AbsoluteTimeout
+				}
+				if AbsoluteTimeoutData, ok := blockData["absolute_timeout"].(map[string]interface{}); ok {
+					return &TenantConfigurationUserSessionExpirationAbsoluteTimeoutModel{
+						Hours: func() *TenantConfigurationUserSessionExpirationAbsoluteTimeoutHoursModel {
+							if HoursData, ok := AbsoluteTimeoutData["hours"].(map[string]interface{}); ok {
+								return &TenantConfigurationUserSessionExpirationAbsoluteTimeoutHoursModel{
+									Duration: func() types.Int64 {
+										if v, ok := HoursData["duration"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Minutes: func() *TenantConfigurationUserSessionExpirationAbsoluteTimeoutMinutesModel {
+							if MinutesData, ok := AbsoluteTimeoutData["minutes"].(map[string]interface{}); ok {
+								return &TenantConfigurationUserSessionExpirationAbsoluteTimeoutMinutesModel{
+									Duration: func() types.Int64 {
+										if v, ok := MinutesData["duration"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			IdleTimeout: func() *TenantConfigurationUserSessionExpirationIdleTimeoutModel {
+				if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.IdleTimeout != nil {
+					return data.UserSessionExpiration.IdleTimeout
+				}
+				if IdleTimeoutData, ok := blockData["idle_timeout"].(map[string]interface{}); ok {
+					return &TenantConfigurationUserSessionExpirationIdleTimeoutModel{
+						Hours: func() *TenantConfigurationUserSessionExpirationIdleTimeoutHoursModel {
+							if HoursData, ok := IdleTimeoutData["hours"].(map[string]interface{}); ok {
+								return &TenantConfigurationUserSessionExpirationIdleTimeoutHoursModel{
+									Duration: func() types.Int64 {
+										if v, ok := HoursData["duration"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Minutes: func() *TenantConfigurationUserSessionExpirationIdleTimeoutMinutesModel {
+							if MinutesData, ok := IdleTimeoutData["minutes"].(map[string]interface{}); ok {
+								return &TenantConfigurationUserSessionExpirationIdleTimeoutMinutesModel{
+									Duration: func() types.Int64 {
+										if v, ok := MinutesData["duration"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 
 	tflog.Trace(ctx, "created TenantConfiguration resource")
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -875,16 +908,9 @@ func (r *TenantConfigurationResource) Read(ctx context.Context, req resource.Rea
 		data.BruteForceDetection = &TenantConfigurationBruteForceDetectionModel{
 			MaxLoginFailures: func() types.Int64 {
 				if !isImport && data.BruteForceDetection != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.BruteForceDetection.MaxLoginFailures
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["max_login_failures"].(float64); ok {
+				if v, ok := blockData["max_login_failures"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -895,16 +921,9 @@ func (r *TenantConfigurationResource) Read(ctx context.Context, req resource.Rea
 		data.BruteForceDetectionSettings = &TenantConfigurationBruteForceDetectionSettingsModel{
 			MaxLoginFailures: func() types.Int64 {
 				if !isImport && data.BruteForceDetectionSettings != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.BruteForceDetectionSettings.MaxLoginFailures
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["max_login_failures"].(float64); ok {
+				if v, ok := blockData["max_login_failures"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -915,95 +934,53 @@ func (r *TenantConfigurationResource) Read(ctx context.Context, req resource.Rea
 		data.PasswordPolicy = &TenantConfigurationPasswordPolicyModel{
 			Digits: func() types.Int64 {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.PasswordPolicy.Digits
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["digits"].(float64); ok {
+				if v, ok := blockData["digits"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			ExpirePassword: func() types.Int64 {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.PasswordPolicy.ExpirePassword
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["expire_password"].(float64); ok {
+				if v, ok := blockData["expire_password"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			LowercaseCharacters: func() types.Int64 {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.PasswordPolicy.LowercaseCharacters
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["lowercase_characters"].(float64); ok {
+				if v, ok := blockData["lowercase_characters"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			MinimumLength: func() types.Int64 {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.PasswordPolicy.MinimumLength
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["minimum_length"].(float64); ok {
+				if v, ok := blockData["minimum_length"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			NotRecentlyUsed: func() types.Int64 {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.PasswordPolicy.NotRecentlyUsed
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["not_recently_used"].(float64); ok {
+				if v, ok := blockData["not_recently_used"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			NotUsername: func() types.Bool {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults from overwriting user intent
 					return data.PasswordPolicy.NotUsername
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.BoolNull()
-				}
-				// Import case: read from API
 				if v, ok := blockData["not_username"].(bool); ok {
 					return types.BoolValue(v)
 				}
@@ -1011,32 +988,18 @@ func (r *TenantConfigurationResource) Read(ctx context.Context, req resource.Rea
 			}(),
 			SpecialCharacters: func() types.Int64 {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.PasswordPolicy.SpecialCharacters
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["special_characters"].(float64); ok {
+				if v, ok := blockData["special_characters"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			UppercaseCharacters: func() types.Int64 {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.PasswordPolicy.UppercaseCharacters
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["uppercase_characters"].(float64); ok {
+				if v, ok := blockData["uppercase_characters"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -1053,11 +1016,90 @@ func (r *TenantConfigurationResource) Read(ctx context.Context, req resource.Rea
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["user_session_expiration"].(map[string]interface{}); ok && isImport && data.UserSessionExpiration == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.UserSessionExpiration = &TenantConfigurationUserSessionExpirationModel{}
+	if blockData, ok := apiResource.Spec["user_session_expiration"].(map[string]interface{}); ok && (isImport || data.UserSessionExpiration != nil) {
+		data.UserSessionExpiration = &TenantConfigurationUserSessionExpirationModel{
+			AbsoluteTimeout: func() *TenantConfigurationUserSessionExpirationAbsoluteTimeoutModel {
+				if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.AbsoluteTimeout != nil {
+					return data.UserSessionExpiration.AbsoluteTimeout
+				}
+				if AbsoluteTimeoutData, ok := blockData["absolute_timeout"].(map[string]interface{}); ok {
+					return &TenantConfigurationUserSessionExpirationAbsoluteTimeoutModel{
+						Hours: func() *TenantConfigurationUserSessionExpirationAbsoluteTimeoutHoursModel {
+							if HoursData, ok := AbsoluteTimeoutData["hours"].(map[string]interface{}); ok {
+								return &TenantConfigurationUserSessionExpirationAbsoluteTimeoutHoursModel{
+									Duration: func() types.Int64 {
+										if v, ok := HoursData["duration"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Minutes: func() *TenantConfigurationUserSessionExpirationAbsoluteTimeoutMinutesModel {
+							if MinutesData, ok := AbsoluteTimeoutData["minutes"].(map[string]interface{}); ok {
+								return &TenantConfigurationUserSessionExpirationAbsoluteTimeoutMinutesModel{
+									Duration: func() types.Int64 {
+										if v, ok := MinutesData["duration"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			IdleTimeout: func() *TenantConfigurationUserSessionExpirationIdleTimeoutModel {
+				if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.IdleTimeout != nil {
+					return data.UserSessionExpiration.IdleTimeout
+				}
+				if IdleTimeoutData, ok := blockData["idle_timeout"].(map[string]interface{}); ok {
+					return &TenantConfigurationUserSessionExpirationIdleTimeoutModel{
+						Hours: func() *TenantConfigurationUserSessionExpirationIdleTimeoutHoursModel {
+							if HoursData, ok := IdleTimeoutData["hours"].(map[string]interface{}); ok {
+								return &TenantConfigurationUserSessionExpirationIdleTimeoutHoursModel{
+									Duration: func() types.Int64 {
+										if v, ok := HoursData["duration"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Minutes: func() *TenantConfigurationUserSessionExpirationIdleTimeoutMinutesModel {
+							if MinutesData, ok := IdleTimeoutData["minutes"].(map[string]interface{}); ok {
+								return &TenantConfigurationUserSessionExpirationIdleTimeoutMinutesModel{
+									Duration: func() types.Int64 {
+										if v, ok := MinutesData["duration"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
+	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
@@ -1110,72 +1152,100 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.BasicConfiguration != nil {
-		basic_configurationMap := make(map[string]interface{})
+		BasicConfigurationMap := make(map[string]interface{})
 		if !data.BasicConfiguration.DisplayName.IsNull() && !data.BasicConfiguration.DisplayName.IsUnknown() {
-			basic_configurationMap["display_name"] = data.BasicConfiguration.DisplayName.ValueString()
+			BasicConfigurationMap["display_name"] = data.BasicConfiguration.DisplayName.ValueString()
 		}
-		apiResource.Spec["basic_configuration"] = basic_configurationMap
+		apiResource.Spec["basic_configuration"] = BasicConfigurationMap
 	}
 	if data.BruteForceDetection != nil {
-		brute_force_detectionMap := make(map[string]interface{})
+		BruteForceDetectionMap := make(map[string]interface{})
 		if !data.BruteForceDetection.MaxLoginFailures.IsNull() && !data.BruteForceDetection.MaxLoginFailures.IsUnknown() {
-			brute_force_detectionMap["max_login_failures"] = data.BruteForceDetection.MaxLoginFailures.ValueInt64()
+			BruteForceDetectionMap["max_login_failures"] = data.BruteForceDetection.MaxLoginFailures.ValueInt64()
 		}
-		apiResource.Spec["brute_force_detection"] = brute_force_detectionMap
+		apiResource.Spec["brute_force_detection"] = BruteForceDetectionMap
 	}
 	if data.BruteForceDetectionSettings != nil {
-		brute_force_detection_settingsMap := make(map[string]interface{})
+		BruteForceDetectionSettingsMap := make(map[string]interface{})
 		if !data.BruteForceDetectionSettings.MaxLoginFailures.IsNull() && !data.BruteForceDetectionSettings.MaxLoginFailures.IsUnknown() {
-			brute_force_detection_settingsMap["max_login_failures"] = data.BruteForceDetectionSettings.MaxLoginFailures.ValueInt64()
+			BruteForceDetectionSettingsMap["max_login_failures"] = data.BruteForceDetectionSettings.MaxLoginFailures.ValueInt64()
 		}
-		apiResource.Spec["brute_force_detection_settings"] = brute_force_detection_settingsMap
+		apiResource.Spec["brute_force_detection_settings"] = BruteForceDetectionSettingsMap
 	}
 	if data.PasswordPolicy != nil {
-		password_policyMap := make(map[string]interface{})
+		PasswordPolicyMap := make(map[string]interface{})
 		if !data.PasswordPolicy.Digits.IsNull() && !data.PasswordPolicy.Digits.IsUnknown() {
-			password_policyMap["digits"] = data.PasswordPolicy.Digits.ValueInt64()
+			PasswordPolicyMap["digits"] = data.PasswordPolicy.Digits.ValueInt64()
 		}
 		if !data.PasswordPolicy.ExpirePassword.IsNull() && !data.PasswordPolicy.ExpirePassword.IsUnknown() {
-			password_policyMap["expire_password"] = data.PasswordPolicy.ExpirePassword.ValueInt64()
+			PasswordPolicyMap["expire_password"] = data.PasswordPolicy.ExpirePassword.ValueInt64()
 		}
 		if !data.PasswordPolicy.LowercaseCharacters.IsNull() && !data.PasswordPolicy.LowercaseCharacters.IsUnknown() {
-			password_policyMap["lowercase_characters"] = data.PasswordPolicy.LowercaseCharacters.ValueInt64()
+			PasswordPolicyMap["lowercase_characters"] = data.PasswordPolicy.LowercaseCharacters.ValueInt64()
 		}
 		if !data.PasswordPolicy.MinimumLength.IsNull() && !data.PasswordPolicy.MinimumLength.IsUnknown() {
-			password_policyMap["minimum_length"] = data.PasswordPolicy.MinimumLength.ValueInt64()
+			PasswordPolicyMap["minimum_length"] = data.PasswordPolicy.MinimumLength.ValueInt64()
 		}
 		if !data.PasswordPolicy.NotRecentlyUsed.IsNull() && !data.PasswordPolicy.NotRecentlyUsed.IsUnknown() {
-			password_policyMap["not_recently_used"] = data.PasswordPolicy.NotRecentlyUsed.ValueInt64()
+			PasswordPolicyMap["not_recently_used"] = data.PasswordPolicy.NotRecentlyUsed.ValueInt64()
 		}
 		if !data.PasswordPolicy.NotUsername.IsNull() && !data.PasswordPolicy.NotUsername.IsUnknown() {
-			password_policyMap["not_username"] = data.PasswordPolicy.NotUsername.ValueBool()
+			PasswordPolicyMap["not_username"] = data.PasswordPolicy.NotUsername.ValueBool()
 		}
 		if !data.PasswordPolicy.SpecialCharacters.IsNull() && !data.PasswordPolicy.SpecialCharacters.IsUnknown() {
-			password_policyMap["special_characters"] = data.PasswordPolicy.SpecialCharacters.ValueInt64()
+			PasswordPolicyMap["special_characters"] = data.PasswordPolicy.SpecialCharacters.ValueInt64()
 		}
 		if !data.PasswordPolicy.UppercaseCharacters.IsNull() && !data.PasswordPolicy.UppercaseCharacters.IsUnknown() {
-			password_policyMap["uppercase_characters"] = data.PasswordPolicy.UppercaseCharacters.ValueInt64()
+			PasswordPolicyMap["uppercase_characters"] = data.PasswordPolicy.UppercaseCharacters.ValueInt64()
 		}
-		apiResource.Spec["password_policy"] = password_policyMap
+		apiResource.Spec["password_policy"] = PasswordPolicyMap
 	}
 	if data.TenantDetails != nil {
-		tenant_detailsMap := make(map[string]interface{})
+		TenantDetailsMap := make(map[string]interface{})
 		if !data.TenantDetails.DisplayName.IsNull() && !data.TenantDetails.DisplayName.IsUnknown() {
-			tenant_detailsMap["display_name"] = data.TenantDetails.DisplayName.ValueString()
+			TenantDetailsMap["display_name"] = data.TenantDetails.DisplayName.ValueString()
 		}
-		apiResource.Spec["tenant_details"] = tenant_detailsMap
+		apiResource.Spec["tenant_details"] = TenantDetailsMap
 	}
 	if data.UserSessionExpiration != nil {
-		user_session_expirationMap := make(map[string]interface{})
+		UserSessionExpirationMap := make(map[string]interface{})
 		if data.UserSessionExpiration.AbsoluteTimeout != nil {
-			absolute_timeoutNestedMap := make(map[string]interface{})
-			user_session_expirationMap["absolute_timeout"] = absolute_timeoutNestedMap
+			AbsoluteTimeoutMap := make(map[string]interface{})
+			if data.UserSessionExpiration.AbsoluteTimeout.Hours != nil {
+				HoursMap := make(map[string]interface{})
+				if !data.UserSessionExpiration.AbsoluteTimeout.Hours.Duration.IsNull() && !data.UserSessionExpiration.AbsoluteTimeout.Hours.Duration.IsUnknown() {
+					HoursMap["duration"] = data.UserSessionExpiration.AbsoluteTimeout.Hours.Duration.ValueInt64()
+				}
+				AbsoluteTimeoutMap["hours"] = HoursMap
+			}
+			if data.UserSessionExpiration.AbsoluteTimeout.Minutes != nil {
+				MinutesMap := make(map[string]interface{})
+				if !data.UserSessionExpiration.AbsoluteTimeout.Minutes.Duration.IsNull() && !data.UserSessionExpiration.AbsoluteTimeout.Minutes.Duration.IsUnknown() {
+					MinutesMap["duration"] = data.UserSessionExpiration.AbsoluteTimeout.Minutes.Duration.ValueInt64()
+				}
+				AbsoluteTimeoutMap["minutes"] = MinutesMap
+			}
+			UserSessionExpirationMap["absolute_timeout"] = AbsoluteTimeoutMap
 		}
 		if data.UserSessionExpiration.IdleTimeout != nil {
-			idle_timeoutNestedMap := make(map[string]interface{})
-			user_session_expirationMap["idle_timeout"] = idle_timeoutNestedMap
+			IdleTimeoutMap := make(map[string]interface{})
+			if data.UserSessionExpiration.IdleTimeout.Hours != nil {
+				HoursMap := make(map[string]interface{})
+				if !data.UserSessionExpiration.IdleTimeout.Hours.Duration.IsNull() && !data.UserSessionExpiration.IdleTimeout.Hours.Duration.IsUnknown() {
+					HoursMap["duration"] = data.UserSessionExpiration.IdleTimeout.Hours.Duration.ValueInt64()
+				}
+				IdleTimeoutMap["hours"] = HoursMap
+			}
+			if data.UserSessionExpiration.IdleTimeout.Minutes != nil {
+				MinutesMap := make(map[string]interface{})
+				if !data.UserSessionExpiration.IdleTimeout.Minutes.Duration.IsNull() && !data.UserSessionExpiration.IdleTimeout.Minutes.Duration.IsUnknown() {
+					MinutesMap["duration"] = data.UserSessionExpiration.IdleTimeout.Minutes.Duration.ValueInt64()
+				}
+				IdleTimeoutMap["minutes"] = MinutesMap
+			}
+			UserSessionExpirationMap["idle_timeout"] = IdleTimeoutMap
 		}
-		apiResource.Spec["user_session_expiration"] = user_session_expirationMap
+		apiResource.Spec["user_session_expiration"] = UserSessionExpirationMap
 	}
 
 	_, err := r.client.UpdateTenantConfiguration(ctx, apiResource)
@@ -1215,16 +1285,9 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 		data.BruteForceDetection = &TenantConfigurationBruteForceDetectionModel{
 			MaxLoginFailures: func() types.Int64 {
 				if !isImport && data.BruteForceDetection != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.BruteForceDetection.MaxLoginFailures
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["max_login_failures"].(float64); ok {
+				if v, ok := blockData["max_login_failures"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -1235,16 +1298,9 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 		data.BruteForceDetectionSettings = &TenantConfigurationBruteForceDetectionSettingsModel{
 			MaxLoginFailures: func() types.Int64 {
 				if !isImport && data.BruteForceDetectionSettings != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.BruteForceDetectionSettings.MaxLoginFailures
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["max_login_failures"].(float64); ok {
+				if v, ok := blockData["max_login_failures"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -1255,95 +1311,53 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 		data.PasswordPolicy = &TenantConfigurationPasswordPolicyModel{
 			Digits: func() types.Int64 {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.PasswordPolicy.Digits
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["digits"].(float64); ok {
+				if v, ok := blockData["digits"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			ExpirePassword: func() types.Int64 {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.PasswordPolicy.ExpirePassword
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["expire_password"].(float64); ok {
+				if v, ok := blockData["expire_password"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			LowercaseCharacters: func() types.Int64 {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.PasswordPolicy.LowercaseCharacters
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["lowercase_characters"].(float64); ok {
+				if v, ok := blockData["lowercase_characters"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			MinimumLength: func() types.Int64 {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.PasswordPolicy.MinimumLength
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["minimum_length"].(float64); ok {
+				if v, ok := blockData["minimum_length"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			NotRecentlyUsed: func() types.Int64 {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.PasswordPolicy.NotRecentlyUsed
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["not_recently_used"].(float64); ok {
+				if v, ok := blockData["not_recently_used"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			NotUsername: func() types.Bool {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults from overwriting user intent
 					return data.PasswordPolicy.NotUsername
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.BoolNull()
-				}
-				// Import case: read from API
 				if v, ok := blockData["not_username"].(bool); ok {
 					return types.BoolValue(v)
 				}
@@ -1351,32 +1365,18 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 			}(),
 			SpecialCharacters: func() types.Int64 {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.PasswordPolicy.SpecialCharacters
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["special_characters"].(float64); ok {
+				if v, ok := blockData["special_characters"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			UppercaseCharacters: func() types.Int64 {
 				if !isImport && data.PasswordPolicy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.PasswordPolicy.UppercaseCharacters
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["uppercase_characters"].(float64); ok {
+				if v, ok := blockData["uppercase_characters"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -1393,11 +1393,82 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["user_session_expiration"].(map[string]interface{}); ok && isImport && data.UserSessionExpiration == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.UserSessionExpiration = &TenantConfigurationUserSessionExpirationModel{}
+	if blockData, ok := apiResource.Spec["user_session_expiration"].(map[string]interface{}); ok && (isImport || data.UserSessionExpiration != nil) {
+		data.UserSessionExpiration = &TenantConfigurationUserSessionExpirationModel{
+			AbsoluteTimeout: func() *TenantConfigurationUserSessionExpirationAbsoluteTimeoutModel {
+				if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.AbsoluteTimeout != nil {
+					return data.UserSessionExpiration.AbsoluteTimeout
+				}
+				if AbsoluteTimeoutData, ok := blockData["absolute_timeout"].(map[string]interface{}); ok {
+					return &TenantConfigurationUserSessionExpirationAbsoluteTimeoutModel{
+						Hours: func() *TenantConfigurationUserSessionExpirationAbsoluteTimeoutHoursModel {
+							if HoursData, ok := AbsoluteTimeoutData["hours"].(map[string]interface{}); ok {
+								return &TenantConfigurationUserSessionExpirationAbsoluteTimeoutHoursModel{
+									Duration: func() types.Int64 {
+										if v, ok := HoursData["duration"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Minutes: func() *TenantConfigurationUserSessionExpirationAbsoluteTimeoutMinutesModel {
+							if MinutesData, ok := AbsoluteTimeoutData["minutes"].(map[string]interface{}); ok {
+								return &TenantConfigurationUserSessionExpirationAbsoluteTimeoutMinutesModel{
+									Duration: func() types.Int64 {
+										if v, ok := MinutesData["duration"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			IdleTimeout: func() *TenantConfigurationUserSessionExpirationIdleTimeoutModel {
+				if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.IdleTimeout != nil {
+					return data.UserSessionExpiration.IdleTimeout
+				}
+				if IdleTimeoutData, ok := blockData["idle_timeout"].(map[string]interface{}); ok {
+					return &TenantConfigurationUserSessionExpirationIdleTimeoutModel{
+						Hours: func() *TenantConfigurationUserSessionExpirationIdleTimeoutHoursModel {
+							if HoursData, ok := IdleTimeoutData["hours"].(map[string]interface{}); ok {
+								return &TenantConfigurationUserSessionExpirationIdleTimeoutHoursModel{
+									Duration: func() types.Int64 {
+										if v, ok := HoursData["duration"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Minutes: func() *TenantConfigurationUserSessionExpirationIdleTimeoutMinutesModel {
+							if MinutesData, ok := IdleTimeoutData["minutes"].(map[string]interface{}); ok {
+								return &TenantConfigurationUserSessionExpirationIdleTimeoutMinutesModel{
+									Duration: func() types.Int64 {
+										if v, ok := MinutesData["duration"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }

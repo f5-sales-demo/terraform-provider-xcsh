@@ -1,4 +1,4 @@
-# f5xc_policer
+# xcsh_policer
 
 Category: Service Mesh
 New policer with traffic rate limits
@@ -10,27 +10,15 @@ New policer with traffic rate limits
 - burst_size
 - committed_information_rate
 
-## Server Defaults (safe to omit)
-
-- policer_mode
-- policer_type
-
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_policer" "example" {
+resource "xcsh_policer" "example" {
   name      = "example-policer"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
+  burst_size                 = 1
+  committed_information_rate = 1
 }
 ```
 

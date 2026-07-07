@@ -1,4 +1,4 @@
-# f5xc_network_firewall
+# xcsh_network_firewall
 
 Category: Security
 Network firewall is created by users in system namespace. configuration
@@ -8,34 +8,12 @@ Network firewall is created by users in system namespace. configuration
 - name
 - namespace
 
-## Server Defaults (safe to omit)
-
-- disable_fast_acl
-- disable_forward_proxy_policy
-- disable_network_policy
-
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_network_firewall" "example" {
+resource "xcsh_network_firewall" "example" {
   name      = "example-network-firewall"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  active_enhanced_firewall_policies {
-  }
-  enhanced_firewall_policies {
-  }
-  active_fast_acls {
-  }
+  namespace = "system"
 }
 ```
 

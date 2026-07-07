@@ -1,71 +1,37 @@
 ---
-page_title: "f5xc_network_policy Resource - terraform-provider-f5xc"
+page_title: "xcsh_network_policy Resource - xcsh"
 subcategory: "Security"
 description: |-
   Manages new network policy with configured parameters in specified namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_network_policy (Resource)
+# xcsh_network_policy (Resource)
 
 Manages new network policy with configured parameters in specified namespace. in F5 Distributed Cloud.
 
-~> **Note** Please refer to [Network Policy API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/network_security/) to learn more.
+~> **Note** Please refer to [Network Policy API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/network_security/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# Network Policy Resource Example
-# Manages new network policy with configured parameters in specified namespace. in F5 Distributed Cloud.
+# NetworkPolicy Resource Example
+# Manages new network policy with configured parameters in specified namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Network Policy configuration
-resource "f5xc_network_policy" "example" {
+# Basic NetworkPolicy configuration
+resource "xcsh_network_policy" "example" {
   name      = "example-network-policy"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Network Policy configuration
-  endpoint {
-    any {}
-  }
-
-  ingress_rules {
-    metadata {
-      name = "allow-http"
-    }
-    spec {
-      action = "ALLOW"
-      any    = {}
-    }
-  }
-
-  egress_rules {
-    metadata {
-      name = "allow-all-egress"
-    }
-    spec {
-      action = "ALLOW"
-      any    = {}
-    }
-  }
 }
 ```
 
@@ -448,5 +414,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_network_policy.example system/example
+terraform import xcsh_network_policy.example system/example
 ```

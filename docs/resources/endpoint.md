@@ -1,60 +1,41 @@
 ---
-page_title: "f5xc_endpoint Resource - terraform-provider-f5xc"
+page_title: "xcsh_endpoint Resource - xcsh"
 subcategory: "Load Balancing"
 description: |-
   Manages endpoint will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_endpoint (Resource)
+# xcsh_endpoint (Resource)
 
 Manages endpoint will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
 
-~> **Note** Please refer to [Endpoint API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/service_mesh/) to learn more.
+~> **Note** Please refer to [Endpoint API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/service_mesh/) to learn more.
 
 ## Example Usage
 
 ```terraform
 # Endpoint Resource Example
-# Manages endpoint will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
+# Manages endpoint will create the object in the storage backend for namespace metadata.namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
 # Basic Endpoint configuration
-resource "f5xc_endpoint" "example" {
+resource "xcsh_endpoint" "example" {
   name      = "example-endpoint"
-  namespace = "staging"
+  namespace = "system"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # Specifies name and TTL used for DNS resolution.
-  dns_name_advanced {
-    # Configure dns_name_advanced settings
-  }
-  # Specifies whether endpoint service is discovered by name ...
-  service_info {
-    # Configure service_info settings
-  }
-  # Type can be used to establish a 'selector reference' from...
-  service_selector {
-    # Configure service_selector settings
-  }
+  health_check_port = 1
+  port              = 1
+  protocol          = "example-value"
 }
 ```
 
@@ -69,8 +50,6 @@ resource "f5xc_endpoint" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Endpoint. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Endpoint will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -78,6 +57,8 @@ resource "f5xc_endpoint" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Endpoint. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -97,7 +78,7 @@ resource "f5xc_endpoint" "example" {
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
-<a id="where"></a>&#x2022; [`where`](#where) - Optional Block<br>NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules \* Direct reference to virtual_network object \* Site local network when refering to site object \* All site local<br>See [Where](#where) below for
+<a id="where"></a>&#x2022; [`where`](#where) - Optional Block<br>NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules \* Direct reference to virtual_network object \* Site local network when referring to site object \* All site local<br>See [Where](#where) below for
 details.
 
 ### Attributes Reference
@@ -337,5 +318,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_endpoint.example system/example
+terraform import xcsh_endpoint.example system/example
 ```

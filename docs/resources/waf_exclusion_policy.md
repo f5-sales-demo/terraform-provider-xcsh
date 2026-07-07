@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_waf_exclusion_policy Resource - terraform-provider-f5xc"
+page_title: "xcsh_waf_exclusion_policy Resource - xcsh"
 subcategory: "Security"
 description: |-
   Manages WAF exclusion policy. in F5 Distributed Cloud.
 ---
 
-# f5xc_waf_exclusion_policy (Resource)
+# xcsh_waf_exclusion_policy (Resource)
 
 Manages WAF exclusion policy. in F5 Distributed Cloud.
 
@@ -14,43 +14,24 @@ Manages WAF exclusion policy. in F5 Distributed Cloud.
 ## Example Usage
 
 ```terraform
-# WAF Exclusion Policy Resource Example
-# Manages WAF exclusion policy. in F5 Distributed Cloud.
+# WAFExclusionPolicy Resource Example
+# Manages WAF exclusion policy.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic WAF Exclusion Policy configuration
-resource "f5xc_waf_exclusion_policy" "example" {
+# Basic WAFExclusionPolicy configuration
+resource "xcsh_waf_exclusion_policy" "example" {
   name      = "example-waf-exclusion-policy"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  waf_exclusion_rules {
-    // One of the arguments from this list "any_domain exact_value suffix_value" must be set
-
-    any_domain {}
-
-    // One of the arguments from this list "any_path path_prefix path_regex" must be set
-
-    any_path {}
-  }
 }
 ```
 
@@ -277,5 +258,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_waf_exclusion_policy.example system/example
+terraform import xcsh_waf_exclusion_policy.example system/example
 ```

@@ -1,46 +1,37 @@
 ---
-page_title: "f5xc_virtual_network Resource - terraform-provider-f5xc"
+page_title: "xcsh_virtual_network Resource - xcsh"
 subcategory: "Networking"
 description: |-
   Manages virtual network in given namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_virtual_network (Resource)
+# xcsh_virtual_network (Resource)
 
 Manages virtual network in given namespace. in F5 Distributed Cloud.
 
-~> **Note** Please refer to [Virtual Network API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/network/) to learn more.
+~> **Note** Please refer to [Virtual Network API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/network/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# Virtual Network Resource Example
-# Manages virtual network in given namespace. in F5 Distributed Cloud.
+# VirtualNetwork Resource Example
+# Manages virtual network in given namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Virtual Network configuration
-resource "f5xc_virtual_network" "example" {
+# Basic VirtualNetwork configuration
+resource "xcsh_virtual_network" "example" {
   name      = "example-virtual-network"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
+  namespace = "system"
 
   legacy_type = "VIRTUAL_NETWORK_SITE_LOCAL"
 }
@@ -57,8 +48,6 @@ resource "f5xc_virtual_network" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Virtual Network. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Virtual Network will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -66,6 +55,8 @@ resource "f5xc_virtual_network" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Virtual Network. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -234,5 +225,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_virtual_network.example system/example
+terraform import xcsh_virtual_network.example system/example
 ```

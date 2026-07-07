@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_network_interface Data Source - terraform-provider-f5xc"
+page_title: "xcsh_network_interface Data Source - xcsh"
 subcategory: "Networking"
 description: |-
   Retrieves information about an existing Network Interface resource in F5 Distributed Cloud for network interface represents configuration of a network device. it is created by users in system namespace. configuration.
 ---
 
-# f5xc_network_interface (Data Source)
+# xcsh_network_interface (Data Source)
 
 Retrieves information about a Network Interface resource in F5 Distributed Cloud for network interface represents configuration of a network device. it is created by users in system namespace. configuration. This is a read-only data source.
 
@@ -14,28 +14,23 @@ Retrieves information about a Network Interface resource in F5 Distributed Cloud
 ## Example Usage
 
 ```terraform
-# Network Interface Data Source Example
-# Retrieves information about an existing Network Interface
+# NetworkInterface Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Network Interface by name
-data "f5xc_network_interface" "example" {
+# Look up an existing NetworkInterface by name
+data "xcsh_network_interface" "example" {
   name      = "example-network-interface"
   namespace = "staging"
-}
-
-output "network_interface_id" {
-  value = data.f5xc_network_interface.example.id
 }
 ```
 

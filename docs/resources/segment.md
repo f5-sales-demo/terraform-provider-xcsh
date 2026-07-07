@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_segment Resource - terraform-provider-f5xc"
+page_title: "xcsh_segment Resource - xcsh"
 subcategory: "Networking"
 description: |-
   Manages a Segment resource in F5 Distributed Cloud for segment. configuration.
 ---
 
-# f5xc_segment (Resource)
+# xcsh_segment (Resource)
 
 Manages a Segment resource in F5 Distributed Cloud for segment. configuration.
 
@@ -15,42 +15,23 @@ Manages a Segment resource in F5 Distributed Cloud for segment. configuration.
 
 ```terraform
 # Segment Resource Example
-# Manages a Segment resource in F5 Distributed Cloud for segment. configuration.
+# Manages a Segment resource in F5 Distributed Cloud for segment.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
 # Basic Segment configuration
-resource "f5xc_segment" "example" {
+resource "xcsh_segment" "example" {
   name      = "example-segment"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # [OneOf: disable, enable] Enable this option
-  disable_spec {
-    # Configure disable_spec settings
-  }
-  # Enable this option
-  enable {
-    # Configure enable settings
-  }
 }
 ```
 
@@ -190,5 +171,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_segment.example system/example
+terraform import xcsh_segment.example system/example
 ```

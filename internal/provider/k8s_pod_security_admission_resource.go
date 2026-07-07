@@ -19,9 +19,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -271,34 +271,34 @@ func (r *K8SPodSecurityAdmissionResource) Create(ctx context.Context, req resour
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.PodSecurityAdmissionSpecs.IsNull() && !data.PodSecurityAdmissionSpecs.IsUnknown() {
-		var pod_security_admission_specsItems []K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel
-		diags := data.PodSecurityAdmissionSpecs.ElementsAs(ctx, &pod_security_admission_specsItems, false)
+		var PodSecurityAdmissionSpecsElems []K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel
+		diags := data.PodSecurityAdmissionSpecs.ElementsAs(ctx, &PodSecurityAdmissionSpecsElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(pod_security_admission_specsItems) > 0 {
-			var pod_security_admission_specsList []map[string]interface{}
-			for _, item := range pod_security_admission_specsItems {
-				itemMap := make(map[string]interface{})
-				if item.Audit != nil {
-					itemMap["audit"] = map[string]interface{}{}
+		if !resp.Diagnostics.HasError() && len(PodSecurityAdmissionSpecsElems) > 0 {
+			var PodSecurityAdmissionSpecsList []map[string]interface{}
+			for _, PodSecurityAdmissionSpecsItem := range PodSecurityAdmissionSpecsElems {
+				PodSecurityAdmissionSpecsItemMap := make(map[string]interface{})
+				if PodSecurityAdmissionSpecsItem.Audit != nil {
+					PodSecurityAdmissionSpecsItemMap["audit"] = map[string]interface{}{}
 				}
-				if item.Baseline != nil {
-					itemMap["baseline"] = map[string]interface{}{}
+				if PodSecurityAdmissionSpecsItem.Baseline != nil {
+					PodSecurityAdmissionSpecsItemMap["baseline"] = map[string]interface{}{}
 				}
-				if item.Enforce != nil {
-					itemMap["enforce"] = map[string]interface{}{}
+				if PodSecurityAdmissionSpecsItem.Enforce != nil {
+					PodSecurityAdmissionSpecsItemMap["enforce"] = map[string]interface{}{}
 				}
-				if item.Privileged != nil {
-					itemMap["privileged"] = map[string]interface{}{}
+				if PodSecurityAdmissionSpecsItem.Privileged != nil {
+					PodSecurityAdmissionSpecsItemMap["privileged"] = map[string]interface{}{}
 				}
-				if item.Restricted != nil {
-					itemMap["restricted"] = map[string]interface{}{}
+				if PodSecurityAdmissionSpecsItem.Restricted != nil {
+					PodSecurityAdmissionSpecsItemMap["restricted"] = map[string]interface{}{}
 				}
-				if item.Warn != nil {
-					itemMap["warn"] = map[string]interface{}{}
+				if PodSecurityAdmissionSpecsItem.Warn != nil {
+					PodSecurityAdmissionSpecsItemMap["warn"] = map[string]interface{}{}
 				}
-				pod_security_admission_specsList = append(pod_security_admission_specsList, itemMap)
+				PodSecurityAdmissionSpecsList = append(PodSecurityAdmissionSpecsList, PodSecurityAdmissionSpecsItemMap)
 			}
-			createReq.Spec["pod_security_admission_specs"] = pod_security_admission_specsList
+			createReq.Spec["pod_security_admission_specs"] = PodSecurityAdmissionSpecsList
 		}
 	}
 
@@ -314,18 +314,23 @@ func (r *K8SPodSecurityAdmissionResource) Create(ctx context.Context, req resour
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["pod_security_admission_specs"].([]interface{}); ok && len(listData) > 0 {
-		var pod_security_admission_specsList []K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel
+	if !isImport && (data.PodSecurityAdmissionSpecs.IsNull() || len(data.PodSecurityAdmissionSpecs.Elements()) == 0) {
+		data.PodSecurityAdmissionSpecs = types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["pod_security_admission_specs"].([]interface{}); ok && len(listData) > 0 {
+		var PodSecurityAdmissionSpecsList []K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel
 		var existingPodSecurityAdmissionSpecsItems []K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel
 		if !data.PodSecurityAdmissionSpecs.IsNull() && !data.PodSecurityAdmissionSpecs.IsUnknown() {
 			data.PodSecurityAdmissionSpecs.ElementsAs(ctx, &existingPodSecurityAdmissionSpecsItems, false)
 		}
-		for listIdx := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
-			{
-				pod_security_admission_specsList = append(pod_security_admission_specsList, K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel{
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				PodSecurityAdmissionSpecsList = append(PodSecurityAdmissionSpecsList, K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel{
 					Audit: func() *K8SPodSecurityAdmissionEmptyModel {
 						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Audit != nil {
+							return &K8SPodSecurityAdmissionEmptyModel{}
+						}
+						if _, ok := itemMap["audit"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
 						}
 						return nil
@@ -334,10 +339,16 @@ func (r *K8SPodSecurityAdmissionResource) Create(ctx context.Context, req resour
 						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Baseline != nil {
 							return &K8SPodSecurityAdmissionEmptyModel{}
 						}
+						if _, ok := itemMap["baseline"].(map[string]interface{}); ok {
+							return &K8SPodSecurityAdmissionEmptyModel{}
+						}
 						return nil
 					}(),
 					Enforce: func() *K8SPodSecurityAdmissionEmptyModel {
 						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Enforce != nil {
+							return &K8SPodSecurityAdmissionEmptyModel{}
+						}
+						if _, ok := itemMap["enforce"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
 						}
 						return nil
@@ -346,10 +357,16 @@ func (r *K8SPodSecurityAdmissionResource) Create(ctx context.Context, req resour
 						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Privileged != nil {
 							return &K8SPodSecurityAdmissionEmptyModel{}
 						}
+						if _, ok := itemMap["privileged"].(map[string]interface{}); ok {
+							return &K8SPodSecurityAdmissionEmptyModel{}
+						}
 						return nil
 					}(),
 					Restricted: func() *K8SPodSecurityAdmissionEmptyModel {
 						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Restricted != nil {
+							return &K8SPodSecurityAdmissionEmptyModel{}
+						}
+						if _, ok := itemMap["restricted"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
 						}
 						return nil
@@ -358,18 +375,20 @@ func (r *K8SPodSecurityAdmissionResource) Create(ctx context.Context, req resour
 						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Warn != nil {
 							return &K8SPodSecurityAdmissionEmptyModel{}
 						}
+						if _, ok := itemMap["warn"].(map[string]interface{}); ok {
+							return &K8SPodSecurityAdmissionEmptyModel{}
+						}
 						return nil
 					}(),
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModelAttrTypes}, pod_security_admission_specsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModelAttrTypes}, PodSecurityAdmissionSpecsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.PodSecurityAdmissionSpecs = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.PodSecurityAdmissionSpecs = types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModelAttrTypes})
 	}
 
@@ -452,18 +471,23 @@ func (r *K8SPodSecurityAdmissionResource) Read(ctx context.Context, req resource
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["pod_security_admission_specs"].([]interface{}); ok && len(listData) > 0 {
-		var pod_security_admission_specsList []K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel
+	if !isImport && (data.PodSecurityAdmissionSpecs.IsNull() || len(data.PodSecurityAdmissionSpecs.Elements()) == 0) {
+		data.PodSecurityAdmissionSpecs = types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["pod_security_admission_specs"].([]interface{}); ok && len(listData) > 0 {
+		var PodSecurityAdmissionSpecsList []K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel
 		var existingPodSecurityAdmissionSpecsItems []K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel
 		if !data.PodSecurityAdmissionSpecs.IsNull() && !data.PodSecurityAdmissionSpecs.IsUnknown() {
 			data.PodSecurityAdmissionSpecs.ElementsAs(ctx, &existingPodSecurityAdmissionSpecsItems, false)
 		}
-		for listIdx := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
-			{
-				pod_security_admission_specsList = append(pod_security_admission_specsList, K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel{
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				PodSecurityAdmissionSpecsList = append(PodSecurityAdmissionSpecsList, K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel{
 					Audit: func() *K8SPodSecurityAdmissionEmptyModel {
 						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Audit != nil {
+							return &K8SPodSecurityAdmissionEmptyModel{}
+						}
+						if _, ok := itemMap["audit"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
 						}
 						return nil
@@ -472,10 +496,16 @@ func (r *K8SPodSecurityAdmissionResource) Read(ctx context.Context, req resource
 						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Baseline != nil {
 							return &K8SPodSecurityAdmissionEmptyModel{}
 						}
+						if _, ok := itemMap["baseline"].(map[string]interface{}); ok {
+							return &K8SPodSecurityAdmissionEmptyModel{}
+						}
 						return nil
 					}(),
 					Enforce: func() *K8SPodSecurityAdmissionEmptyModel {
 						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Enforce != nil {
+							return &K8SPodSecurityAdmissionEmptyModel{}
+						}
+						if _, ok := itemMap["enforce"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
 						}
 						return nil
@@ -484,10 +514,16 @@ func (r *K8SPodSecurityAdmissionResource) Read(ctx context.Context, req resource
 						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Privileged != nil {
 							return &K8SPodSecurityAdmissionEmptyModel{}
 						}
+						if _, ok := itemMap["privileged"].(map[string]interface{}); ok {
+							return &K8SPodSecurityAdmissionEmptyModel{}
+						}
 						return nil
 					}(),
 					Restricted: func() *K8SPodSecurityAdmissionEmptyModel {
 						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Restricted != nil {
+							return &K8SPodSecurityAdmissionEmptyModel{}
+						}
+						if _, ok := itemMap["restricted"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
 						}
 						return nil
@@ -496,19 +532,29 @@ func (r *K8SPodSecurityAdmissionResource) Read(ctx context.Context, req resource
 						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Warn != nil {
 							return &K8SPodSecurityAdmissionEmptyModel{}
 						}
+						if _, ok := itemMap["warn"].(map[string]interface{}); ok {
+							return &K8SPodSecurityAdmissionEmptyModel{}
+						}
 						return nil
 					}(),
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModelAttrTypes}, pod_security_admission_specsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModelAttrTypes}, PodSecurityAdmissionSpecsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.PodSecurityAdmissionSpecs = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.PodSecurityAdmissionSpecs = types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModelAttrTypes})
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -562,34 +608,34 @@ func (r *K8SPodSecurityAdmissionResource) Update(ctx context.Context, req resour
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.PodSecurityAdmissionSpecs.IsNull() && !data.PodSecurityAdmissionSpecs.IsUnknown() {
-		var pod_security_admission_specsItems []K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel
-		diags := data.PodSecurityAdmissionSpecs.ElementsAs(ctx, &pod_security_admission_specsItems, false)
+		var PodSecurityAdmissionSpecsElems []K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel
+		diags := data.PodSecurityAdmissionSpecs.ElementsAs(ctx, &PodSecurityAdmissionSpecsElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(pod_security_admission_specsItems) > 0 {
-			var pod_security_admission_specsList []map[string]interface{}
-			for _, item := range pod_security_admission_specsItems {
-				itemMap := make(map[string]interface{})
-				if item.Audit != nil {
-					itemMap["audit"] = map[string]interface{}{}
+		if !resp.Diagnostics.HasError() && len(PodSecurityAdmissionSpecsElems) > 0 {
+			var PodSecurityAdmissionSpecsList []map[string]interface{}
+			for _, PodSecurityAdmissionSpecsItem := range PodSecurityAdmissionSpecsElems {
+				PodSecurityAdmissionSpecsItemMap := make(map[string]interface{})
+				if PodSecurityAdmissionSpecsItem.Audit != nil {
+					PodSecurityAdmissionSpecsItemMap["audit"] = map[string]interface{}{}
 				}
-				if item.Baseline != nil {
-					itemMap["baseline"] = map[string]interface{}{}
+				if PodSecurityAdmissionSpecsItem.Baseline != nil {
+					PodSecurityAdmissionSpecsItemMap["baseline"] = map[string]interface{}{}
 				}
-				if item.Enforce != nil {
-					itemMap["enforce"] = map[string]interface{}{}
+				if PodSecurityAdmissionSpecsItem.Enforce != nil {
+					PodSecurityAdmissionSpecsItemMap["enforce"] = map[string]interface{}{}
 				}
-				if item.Privileged != nil {
-					itemMap["privileged"] = map[string]interface{}{}
+				if PodSecurityAdmissionSpecsItem.Privileged != nil {
+					PodSecurityAdmissionSpecsItemMap["privileged"] = map[string]interface{}{}
 				}
-				if item.Restricted != nil {
-					itemMap["restricted"] = map[string]interface{}{}
+				if PodSecurityAdmissionSpecsItem.Restricted != nil {
+					PodSecurityAdmissionSpecsItemMap["restricted"] = map[string]interface{}{}
 				}
-				if item.Warn != nil {
-					itemMap["warn"] = map[string]interface{}{}
+				if PodSecurityAdmissionSpecsItem.Warn != nil {
+					PodSecurityAdmissionSpecsItemMap["warn"] = map[string]interface{}{}
 				}
-				pod_security_admission_specsList = append(pod_security_admission_specsList, itemMap)
+				PodSecurityAdmissionSpecsList = append(PodSecurityAdmissionSpecsList, PodSecurityAdmissionSpecsItemMap)
 			}
-			apiResource.Spec["pod_security_admission_specs"] = pod_security_admission_specsList
+			apiResource.Spec["pod_security_admission_specs"] = PodSecurityAdmissionSpecsList
 		}
 	}
 
@@ -616,18 +662,23 @@ func (r *K8SPodSecurityAdmissionResource) Update(ctx context.Context, req resour
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["pod_security_admission_specs"].([]interface{}); ok && len(listData) > 0 {
-		var pod_security_admission_specsList []K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel
+	if !isImport && (data.PodSecurityAdmissionSpecs.IsNull() || len(data.PodSecurityAdmissionSpecs.Elements()) == 0) {
+		data.PodSecurityAdmissionSpecs = types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["pod_security_admission_specs"].([]interface{}); ok && len(listData) > 0 {
+		var PodSecurityAdmissionSpecsList []K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel
 		var existingPodSecurityAdmissionSpecsItems []K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel
 		if !data.PodSecurityAdmissionSpecs.IsNull() && !data.PodSecurityAdmissionSpecs.IsUnknown() {
 			data.PodSecurityAdmissionSpecs.ElementsAs(ctx, &existingPodSecurityAdmissionSpecsItems, false)
 		}
-		for listIdx := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
-			{
-				pod_security_admission_specsList = append(pod_security_admission_specsList, K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel{
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				PodSecurityAdmissionSpecsList = append(PodSecurityAdmissionSpecsList, K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel{
 					Audit: func() *K8SPodSecurityAdmissionEmptyModel {
 						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Audit != nil {
+							return &K8SPodSecurityAdmissionEmptyModel{}
+						}
+						if _, ok := itemMap["audit"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
 						}
 						return nil
@@ -636,10 +687,16 @@ func (r *K8SPodSecurityAdmissionResource) Update(ctx context.Context, req resour
 						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Baseline != nil {
 							return &K8SPodSecurityAdmissionEmptyModel{}
 						}
+						if _, ok := itemMap["baseline"].(map[string]interface{}); ok {
+							return &K8SPodSecurityAdmissionEmptyModel{}
+						}
 						return nil
 					}(),
 					Enforce: func() *K8SPodSecurityAdmissionEmptyModel {
 						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Enforce != nil {
+							return &K8SPodSecurityAdmissionEmptyModel{}
+						}
+						if _, ok := itemMap["enforce"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
 						}
 						return nil
@@ -648,10 +705,16 @@ func (r *K8SPodSecurityAdmissionResource) Update(ctx context.Context, req resour
 						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Privileged != nil {
 							return &K8SPodSecurityAdmissionEmptyModel{}
 						}
+						if _, ok := itemMap["privileged"].(map[string]interface{}); ok {
+							return &K8SPodSecurityAdmissionEmptyModel{}
+						}
 						return nil
 					}(),
 					Restricted: func() *K8SPodSecurityAdmissionEmptyModel {
 						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Restricted != nil {
+							return &K8SPodSecurityAdmissionEmptyModel{}
+						}
+						if _, ok := itemMap["restricted"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
 						}
 						return nil
@@ -660,18 +723,20 @@ func (r *K8SPodSecurityAdmissionResource) Update(ctx context.Context, req resour
 						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Warn != nil {
 							return &K8SPodSecurityAdmissionEmptyModel{}
 						}
+						if _, ok := itemMap["warn"].(map[string]interface{}); ok {
+							return &K8SPodSecurityAdmissionEmptyModel{}
+						}
 						return nil
 					}(),
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModelAttrTypes}, pod_security_admission_specsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModelAttrTypes}, PodSecurityAdmissionSpecsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.PodSecurityAdmissionSpecs = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.PodSecurityAdmissionSpecs = types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModelAttrTypes})
 	}
 

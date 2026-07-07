@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_app_setting Data Source - terraform-provider-f5xc"
+page_title: "xcsh_app_setting Data Source - xcsh"
 subcategory: "Applications"
 description: |-
   Retrieves information about App setting configuration in namespace metadata.namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_app_setting (Data Source)
+# xcsh_app_setting (Data Source)
 
 Manages App setting configuration in namespace metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
 
@@ -14,28 +14,23 @@ Manages App setting configuration in namespace metadata.namespace. in F5 Distrib
 ## Example Usage
 
 ```terraform
-# App Setting Data Source Example
-# Retrieves information about an existing App Setting
+# AppSetting Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing App Setting by name
-data "f5xc_app_setting" "example" {
+# Look up an existing AppSetting by name
+data "xcsh_app_setting" "example" {
   name      = "example-app-setting"
   namespace = "staging"
-}
-
-output "app_setting_id" {
-  value = data.f5xc_app_setting.example.id
 }
 ```
 

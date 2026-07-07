@@ -22,9 +22,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -115,22 +115,22 @@ type ApplicationProfilesVirtualServerModel struct {
 	VsScore                      types.Int64                                                        `tfsdk:"vs_score"`
 	AddressTranslation           *ApplicationProfilesVirtualServerAddressTranslationModel           `tfsdk:"address_translation"`
 	AutoLastHop                  *ApplicationProfilesVirtualServerAutoLastHopModel                  `tfsdk:"auto_last_hop"`
-	ClonePoolClient              []ApplicationProfilesVirtualServerClonePoolClientModel             `tfsdk:"clone_pool_client"`
-	ClonePoolServer              []ApplicationProfilesVirtualServerClonePoolServerModel             `tfsdk:"clone_pool_server"`
+	ClonePoolClient              types.List                                                         `tfsdk:"clone_pool_client"`
+	ClonePoolServer              types.List                                                         `tfsdk:"clone_pool_server"`
 	ConnectionRateLimitMode      *ApplicationProfilesVirtualServerConnectionRateLimitModeModel      `tfsdk:"connection_rate_limit_mode"`
-	DefaultPersistenceProfile    []ApplicationProfilesVirtualServerDefaultPersistenceProfileModel   `tfsdk:"default_persistence_profile"`
-	DefaultPool                  []ApplicationProfilesVirtualServerDefaultPoolModel                 `tfsdk:"default_pool"`
-	FallbackPersistenceProfile   []ApplicationProfilesVirtualServerFallbackPersistenceProfileModel  `tfsdk:"fallback_persistence_profile"`
-	FixProfile                   []ApplicationProfilesVirtualServerFixProfileModel                  `tfsdk:"fix_profile"`
+	DefaultPersistenceProfile    types.List                                                         `tfsdk:"default_persistence_profile"`
+	DefaultPool                  types.List                                                         `tfsdk:"default_pool"`
+	FallbackPersistenceProfile   types.List                                                         `tfsdk:"fallback_persistence_profile"`
+	FixProfile                   types.List                                                         `tfsdk:"fix_profile"`
 	HTTP                         *ApplicationProfilesVirtualServerHTTPModel                         `tfsdk:"http"`
 	HTTPS                        *ApplicationProfilesVirtualServerHTTPSModel                        `tfsdk:"https"`
 	ImmediateActionOnServiceDown *ApplicationProfilesVirtualServerImmediateActionOnServiceDownModel `tfsdk:"immediate_action_on_service_down"`
-	LastHopPool                  []ApplicationProfilesVirtualServerLastHopPoolModel                 `tfsdk:"last_hop_pool"`
+	LastHopPool                  types.List                                                         `tfsdk:"last_hop_pool"`
 	Nat64                        *ApplicationProfilesVirtualServerNat64Model                        `tfsdk:"nat64"`
 	PortTranslation              *ApplicationProfilesVirtualServerPortTranslationModel              `tfsdk:"port_translation"`
-	RequestLoggingProfile        []ApplicationProfilesVirtualServerRequestLoggingProfileModel       `tfsdk:"request_logging_profile"`
+	RequestLoggingProfile        types.List                                                         `tfsdk:"request_logging_profile"`
 	SourcePort                   *ApplicationProfilesVirtualServerSourcePortModel                   `tfsdk:"source_port"`
-	StatisticsProfile            []ApplicationProfilesVirtualServerStatisticsProfileModel           `tfsdk:"statistics_profile"`
+	StatisticsProfile            types.List                                                         `tfsdk:"statistics_profile"`
 	TCP                          *ApplicationProfilesVirtualServerTCPModel                          `tfsdk:"tcp"`
 	UDP                          *ApplicationProfilesVirtualServerUDPModel                          `tfsdk:"udp"`
 	VirtualServerState           *ApplicationProfilesVirtualServerVirtualServerStateModel           `tfsdk:"virtual_server_state"`
@@ -386,13 +386,13 @@ var ApplicationProfilesVirtualServerFixProfileModelAttrTypes = map[string]attr.T
 
 // ApplicationProfilesVirtualServerHTTPModel represents http block
 type ApplicationProfilesVirtualServerHTTPModel struct {
-	HTTPClientProfile      []ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel      `tfsdk:"http_client_profile"`
-	HTTPServerProfile      []ApplicationProfilesVirtualServerHTTPHTTPServerProfileModel      `tfsdk:"http_server_profile"`
-	StreamProfile          []ApplicationProfilesVirtualServerHTTPStreamProfileModel          `tfsdk:"stream_profile"`
-	TCPClientProfile       []ApplicationProfilesVirtualServerHTTPTCPClientProfileModel       `tfsdk:"tcp_client_profile"`
-	TCPServerProfile       []ApplicationProfilesVirtualServerHTTPTCPServerProfileModel       `tfsdk:"tcp_server_profile"`
-	WebSocketClientProfile []ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModel `tfsdk:"websocket_client_profile"`
-	WebSocketServerProfile []ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModel `tfsdk:"websocket_server_profile"`
+	HTTPClientProfile      types.List `tfsdk:"http_client_profile"`
+	HTTPServerProfile      types.List `tfsdk:"http_server_profile"`
+	StreamProfile          types.List `tfsdk:"stream_profile"`
+	TCPClientProfile       types.List `tfsdk:"tcp_client_profile"`
+	TCPServerProfile       types.List `tfsdk:"tcp_server_profile"`
+	WebSocketClientProfile types.List `tfsdk:"websocket_client_profile"`
+	WebSocketServerProfile types.List `tfsdk:"websocket_server_profile"`
 }
 
 // ApplicationProfilesVirtualServerHTTPModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHTTPModel
@@ -534,13 +534,13 @@ var ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModelAttrTypes = m
 
 // ApplicationProfilesVirtualServerHTTPSModel represents https block
 type ApplicationProfilesVirtualServerHTTPSModel struct {
-	HTTPClientProfile      []ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel      `tfsdk:"http_client_profile"`
-	HTTPServerProfile      []ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModel      `tfsdk:"http_server_profile"`
-	StreamProfile          []ApplicationProfilesVirtualServerHTTPSStreamProfileModel          `tfsdk:"stream_profile"`
-	TCPClientProfile       []ApplicationProfilesVirtualServerHTTPSTCPClientProfileModel       `tfsdk:"tcp_client_profile"`
-	TCPServerProfile       []ApplicationProfilesVirtualServerHTTPSTCPServerProfileModel       `tfsdk:"tcp_server_profile"`
-	WebSocketClientProfile []ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModel `tfsdk:"websocket_client_profile"`
-	WebSocketServerProfile []ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModel `tfsdk:"websocket_server_profile"`
+	HTTPClientProfile      types.List `tfsdk:"http_client_profile"`
+	HTTPServerProfile      types.List `tfsdk:"http_server_profile"`
+	StreamProfile          types.List `tfsdk:"stream_profile"`
+	TCPClientProfile       types.List `tfsdk:"tcp_client_profile"`
+	TCPServerProfile       types.List `tfsdk:"tcp_server_profile"`
+	WebSocketClientProfile types.List `tfsdk:"websocket_client_profile"`
+	WebSocketServerProfile types.List `tfsdk:"websocket_server_profile"`
 }
 
 // ApplicationProfilesVirtualServerHTTPSModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHTTPSModel
@@ -788,8 +788,8 @@ var ApplicationProfilesVirtualServerStatisticsProfileModelAttrTypes = map[string
 
 // ApplicationProfilesVirtualServerTCPModel represents tcp block
 type ApplicationProfilesVirtualServerTCPModel struct {
-	TCPClientProfile []ApplicationProfilesVirtualServerTCPTCPClientProfileModel `tfsdk:"tcp_client_profile"`
-	TCPServerProfile []ApplicationProfilesVirtualServerTCPTCPServerProfileModel `tfsdk:"tcp_server_profile"`
+	TCPClientProfile types.List `tfsdk:"tcp_client_profile"`
+	TCPServerProfile types.List `tfsdk:"tcp_server_profile"`
 }
 
 // ApplicationProfilesVirtualServerTCPModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerTCPModel
@@ -836,8 +836,8 @@ var ApplicationProfilesVirtualServerTCPTCPServerProfileModelAttrTypes = map[stri
 
 // ApplicationProfilesVirtualServerUDPModel represents udp block
 type ApplicationProfilesVirtualServerUDPModel struct {
-	TCPClientProfile []ApplicationProfilesVirtualServerUDPTCPClientProfileModel `tfsdk:"tcp_client_profile"`
-	TCPServerProfile []ApplicationProfilesVirtualServerUDPTCPServerProfileModel `tfsdk:"tcp_server_profile"`
+	TCPClientProfile types.List `tfsdk:"tcp_client_profile"`
+	TCPServerProfile types.List `tfsdk:"tcp_server_profile"`
 }
 
 // ApplicationProfilesVirtualServerUDPModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerUDPModel
@@ -2788,348 +2788,999 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.AdvancedTCPProfile != nil {
-		advanced_tcp_profileMap := make(map[string]interface{})
+		AdvancedTCPProfileMap := make(map[string]interface{})
 		if data.AdvancedTCPProfile.DisableTCPAdvancedProfile != nil {
-			advanced_tcp_profileMap["disable_tcp_advanced_profile"] = map[string]interface{}{}
+			AdvancedTCPProfileMap["disable_tcp_advanced_profile"] = map[string]interface{}{}
 		}
 		if data.AdvancedTCPProfile.EnableTCPAdvancedProfile != nil {
-			advanced_tcp_profileMap["enable_tcp_advanced_profile"] = map[string]interface{}{}
+			AdvancedTCPProfileMap["enable_tcp_advanced_profile"] = map[string]interface{}{}
 		}
-		createReq.Spec["advanced_tcp_profile"] = advanced_tcp_profileMap
+		createReq.Spec["advanced_tcp_profile"] = AdvancedTCPProfileMap
 	}
 	if data.DDOSProfile != nil {
-		ddos_profileMap := make(map[string]interface{})
+		DDOSProfileMap := make(map[string]interface{})
 		if data.DDOSProfile.DisableDDOSMitigation != nil {
-			ddos_profileMap["disable_ddos_mitigation"] = map[string]interface{}{}
+			DDOSProfileMap["disable_ddos_mitigation"] = map[string]interface{}{}
 		}
 		if data.DDOSProfile.EnableDDOSMitigation != nil {
-			ddos_profileMap["enable_ddos_mitigation"] = map[string]interface{}{}
+			DDOSProfileMap["enable_ddos_mitigation"] = map[string]interface{}{}
 		}
-		createReq.Spec["ddos_profile"] = ddos_profileMap
+		createReq.Spec["ddos_profile"] = DDOSProfileMap
 	}
 	if !data.Irules.IsNull() && !data.Irules.IsUnknown() {
-		var irulesItems []ApplicationProfilesIrulesModel
-		diags := data.Irules.ElementsAs(ctx, &irulesItems, false)
+		var IrulesElems []ApplicationProfilesIrulesModel
+		diags := data.Irules.ElementsAs(ctx, &IrulesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(irulesItems) > 0 {
-			var irulesList []map[string]interface{}
-			for _, item := range irulesItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(IrulesElems) > 0 {
+			var IrulesList []map[string]interface{}
+			for _, IrulesItem := range IrulesElems {
+				IrulesItemMap := make(map[string]interface{})
+				if !IrulesItem.Kind.IsNull() && !IrulesItem.Kind.IsUnknown() {
+					IrulesItemMap["kind"] = IrulesItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !IrulesItem.Name.IsNull() && !IrulesItem.Name.IsUnknown() {
+					IrulesItemMap["name"] = IrulesItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !IrulesItem.Namespace.IsNull() && !IrulesItem.Namespace.IsUnknown() {
+					IrulesItemMap["namespace"] = IrulesItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !IrulesItem.Tenant.IsNull() && !IrulesItem.Tenant.IsUnknown() {
+					IrulesItemMap["tenant"] = IrulesItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !IrulesItem.Uid.IsNull() && !IrulesItem.Uid.IsUnknown() {
+					IrulesItemMap["uid"] = IrulesItem.Uid.ValueString()
 				}
-				irulesList = append(irulesList, itemMap)
+				IrulesList = append(IrulesList, IrulesItemMap)
 			}
-			createReq.Spec["irules"] = irulesList
+			createReq.Spec["irules"] = IrulesList
 		}
 	}
 	if !data.TrafficPolicies.IsNull() && !data.TrafficPolicies.IsUnknown() {
-		var traffic_policiesItems []ApplicationProfilesTrafficPoliciesModel
-		diags := data.TrafficPolicies.ElementsAs(ctx, &traffic_policiesItems, false)
+		var TrafficPoliciesElems []ApplicationProfilesTrafficPoliciesModel
+		diags := data.TrafficPolicies.ElementsAs(ctx, &TrafficPoliciesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(traffic_policiesItems) > 0 {
-			var traffic_policiesList []map[string]interface{}
-			for _, item := range traffic_policiesItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(TrafficPoliciesElems) > 0 {
+			var TrafficPoliciesList []map[string]interface{}
+			for _, TrafficPoliciesItem := range TrafficPoliciesElems {
+				TrafficPoliciesItemMap := make(map[string]interface{})
+				if !TrafficPoliciesItem.Kind.IsNull() && !TrafficPoliciesItem.Kind.IsUnknown() {
+					TrafficPoliciesItemMap["kind"] = TrafficPoliciesItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !TrafficPoliciesItem.Name.IsNull() && !TrafficPoliciesItem.Name.IsUnknown() {
+					TrafficPoliciesItemMap["name"] = TrafficPoliciesItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !TrafficPoliciesItem.Namespace.IsNull() && !TrafficPoliciesItem.Namespace.IsUnknown() {
+					TrafficPoliciesItemMap["namespace"] = TrafficPoliciesItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !TrafficPoliciesItem.Tenant.IsNull() && !TrafficPoliciesItem.Tenant.IsUnknown() {
+					TrafficPoliciesItemMap["tenant"] = TrafficPoliciesItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !TrafficPoliciesItem.Uid.IsNull() && !TrafficPoliciesItem.Uid.IsUnknown() {
+					TrafficPoliciesItemMap["uid"] = TrafficPoliciesItem.Uid.ValueString()
 				}
-				traffic_policiesList = append(traffic_policiesList, itemMap)
+				TrafficPoliciesList = append(TrafficPoliciesList, TrafficPoliciesItemMap)
 			}
-			createReq.Spec["traffic_policies"] = traffic_policiesList
+			createReq.Spec["traffic_policies"] = TrafficPoliciesList
 		}
 	}
 	if data.VirtualServer != nil {
-		virtual_serverMap := make(map[string]interface{})
+		VirtualServerMap := make(map[string]interface{})
 		if data.VirtualServer.AddressTranslation != nil {
-			address_translationNestedMap := make(map[string]interface{})
-			virtual_serverMap["address_translation"] = address_translationNestedMap
+			AddressTranslationMap := make(map[string]interface{})
+			if data.VirtualServer.AddressTranslation.AddressTranslationDisable != nil {
+				AddressTranslationMap["address_translation_disable"] = map[string]interface{}{}
+			}
+			if data.VirtualServer.AddressTranslation.AddressTranslationEnable != nil {
+				AddressTranslationMap["address_translation_enable"] = map[string]interface{}{}
+			}
+			VirtualServerMap["address_translation"] = AddressTranslationMap
 		}
 		if data.VirtualServer.AutoLastHop != nil {
-			auto_last_hopNestedMap := make(map[string]interface{})
-			virtual_serverMap["auto_last_hop"] = auto_last_hopNestedMap
-		}
-		if len(data.VirtualServer.ClonePoolClient) > 0 {
-			var clone_pool_clientList []map[string]interface{}
-			for _, listItem := range data.VirtualServer.ClonePoolClient {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Kind.IsNull() && !listItem.Kind.IsUnknown() {
-					listItemMap["kind"] = listItem.Kind.ValueString()
-				}
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
-				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				if !listItem.Uid.IsNull() && !listItem.Uid.IsUnknown() {
-					listItemMap["uid"] = listItem.Uid.ValueString()
-				}
-				clone_pool_clientList = append(clone_pool_clientList, listItemMap)
+			AutoLastHopMap := make(map[string]interface{})
+			if data.VirtualServer.AutoLastHop.AutoLastHopDefault != nil {
+				AutoLastHopMap["auto_last_hop_default"] = map[string]interface{}{}
 			}
-			virtual_serverMap["clone_pool_client"] = clone_pool_clientList
-		}
-		if len(data.VirtualServer.ClonePoolServer) > 0 {
-			var clone_pool_serverList []map[string]interface{}
-			for _, listItem := range data.VirtualServer.ClonePoolServer {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Kind.IsNull() && !listItem.Kind.IsUnknown() {
-					listItemMap["kind"] = listItem.Kind.ValueString()
-				}
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
-				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				if !listItem.Uid.IsNull() && !listItem.Uid.IsUnknown() {
-					listItemMap["uid"] = listItem.Uid.ValueString()
-				}
-				clone_pool_serverList = append(clone_pool_serverList, listItemMap)
+			if data.VirtualServer.AutoLastHop.AutoLastHopDisable != nil {
+				AutoLastHopMap["auto_last_hop_disable"] = map[string]interface{}{}
 			}
-			virtual_serverMap["clone_pool_server"] = clone_pool_serverList
+			if data.VirtualServer.AutoLastHop.AutoLastHopEnable != nil {
+				AutoLastHopMap["auto_last_hop_enable"] = map[string]interface{}{}
+			}
+			VirtualServerMap["auto_last_hop"] = AutoLastHopMap
+		}
+		if !data.VirtualServer.ClonePoolClient.IsNull() && !data.VirtualServer.ClonePoolClient.IsUnknown() {
+			var ClonePoolClientElems []ApplicationProfilesVirtualServerClonePoolClientModel
+			diags := data.VirtualServer.ClonePoolClient.ElementsAs(ctx, &ClonePoolClientElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(ClonePoolClientElems) > 0 {
+				var ClonePoolClientList []map[string]interface{}
+				for _, ClonePoolClientItem := range ClonePoolClientElems {
+					ClonePoolClientItemMap := make(map[string]interface{})
+					if !ClonePoolClientItem.Kind.IsNull() && !ClonePoolClientItem.Kind.IsUnknown() {
+						ClonePoolClientItemMap["kind"] = ClonePoolClientItem.Kind.ValueString()
+					}
+					if !ClonePoolClientItem.Name.IsNull() && !ClonePoolClientItem.Name.IsUnknown() {
+						ClonePoolClientItemMap["name"] = ClonePoolClientItem.Name.ValueString()
+					}
+					if !ClonePoolClientItem.Namespace.IsNull() && !ClonePoolClientItem.Namespace.IsUnknown() {
+						ClonePoolClientItemMap["namespace"] = ClonePoolClientItem.Namespace.ValueString()
+					}
+					if !ClonePoolClientItem.Tenant.IsNull() && !ClonePoolClientItem.Tenant.IsUnknown() {
+						ClonePoolClientItemMap["tenant"] = ClonePoolClientItem.Tenant.ValueString()
+					}
+					if !ClonePoolClientItem.Uid.IsNull() && !ClonePoolClientItem.Uid.IsUnknown() {
+						ClonePoolClientItemMap["uid"] = ClonePoolClientItem.Uid.ValueString()
+					}
+					ClonePoolClientList = append(ClonePoolClientList, ClonePoolClientItemMap)
+				}
+				VirtualServerMap["clone_pool_client"] = ClonePoolClientList
+			}
+		}
+		if !data.VirtualServer.ClonePoolServer.IsNull() && !data.VirtualServer.ClonePoolServer.IsUnknown() {
+			var ClonePoolServerElems []ApplicationProfilesVirtualServerClonePoolServerModel
+			diags := data.VirtualServer.ClonePoolServer.ElementsAs(ctx, &ClonePoolServerElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(ClonePoolServerElems) > 0 {
+				var ClonePoolServerList []map[string]interface{}
+				for _, ClonePoolServerItem := range ClonePoolServerElems {
+					ClonePoolServerItemMap := make(map[string]interface{})
+					if !ClonePoolServerItem.Kind.IsNull() && !ClonePoolServerItem.Kind.IsUnknown() {
+						ClonePoolServerItemMap["kind"] = ClonePoolServerItem.Kind.ValueString()
+					}
+					if !ClonePoolServerItem.Name.IsNull() && !ClonePoolServerItem.Name.IsUnknown() {
+						ClonePoolServerItemMap["name"] = ClonePoolServerItem.Name.ValueString()
+					}
+					if !ClonePoolServerItem.Namespace.IsNull() && !ClonePoolServerItem.Namespace.IsUnknown() {
+						ClonePoolServerItemMap["namespace"] = ClonePoolServerItem.Namespace.ValueString()
+					}
+					if !ClonePoolServerItem.Tenant.IsNull() && !ClonePoolServerItem.Tenant.IsUnknown() {
+						ClonePoolServerItemMap["tenant"] = ClonePoolServerItem.Tenant.ValueString()
+					}
+					if !ClonePoolServerItem.Uid.IsNull() && !ClonePoolServerItem.Uid.IsUnknown() {
+						ClonePoolServerItemMap["uid"] = ClonePoolServerItem.Uid.ValueString()
+					}
+					ClonePoolServerList = append(ClonePoolServerList, ClonePoolServerItemMap)
+				}
+				VirtualServerMap["clone_pool_server"] = ClonePoolServerList
+			}
 		}
 		if !data.VirtualServer.ConnectionLimit.IsNull() && !data.VirtualServer.ConnectionLimit.IsUnknown() {
-			virtual_serverMap["connection_limit"] = data.VirtualServer.ConnectionLimit.ValueInt64()
+			VirtualServerMap["connection_limit"] = data.VirtualServer.ConnectionLimit.ValueInt64()
 		}
 		if !data.VirtualServer.ConnectionRateLimit.IsNull() && !data.VirtualServer.ConnectionRateLimit.IsUnknown() {
-			virtual_serverMap["connection_rate_limit"] = data.VirtualServer.ConnectionRateLimit.ValueInt64()
+			VirtualServerMap["connection_rate_limit"] = data.VirtualServer.ConnectionRateLimit.ValueInt64()
 		}
 		if data.VirtualServer.ConnectionRateLimitMode != nil {
-			connection_rate_limit_modeNestedMap := make(map[string]interface{})
-			virtual_serverMap["connection_rate_limit_mode"] = connection_rate_limit_modeNestedMap
-		}
-		if len(data.VirtualServer.DefaultPersistenceProfile) > 0 {
-			var default_persistence_profileList []map[string]interface{}
-			for _, listItem := range data.VirtualServer.DefaultPersistenceProfile {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Kind.IsNull() && !listItem.Kind.IsUnknown() {
-					listItemMap["kind"] = listItem.Kind.ValueString()
+			ConnectionRateLimitModeMap := make(map[string]interface{})
+			if data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress != nil {
+				PerDestinationAddressMap := make(map[string]interface{})
+				if !data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress.DestinationMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress.DestinationMask.IsUnknown() {
+					PerDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress.DestinationMask.ValueInt64()
 				}
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
-				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				if !listItem.Uid.IsNull() && !listItem.Uid.IsUnknown() {
-					listItemMap["uid"] = listItem.Uid.ValueString()
-				}
-				default_persistence_profileList = append(default_persistence_profileList, listItemMap)
+				ConnectionRateLimitModeMap["per_destination_address"] = PerDestinationAddressMap
 			}
-			virtual_serverMap["default_persistence_profile"] = default_persistence_profileList
-		}
-		if len(data.VirtualServer.DefaultPool) > 0 {
-			var default_poolList []map[string]interface{}
-			for _, listItem := range data.VirtualServer.DefaultPool {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Kind.IsNull() && !listItem.Kind.IsUnknown() {
-					listItemMap["kind"] = listItem.Kind.ValueString()
+			if data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress != nil {
+				PerSourceAddressMap := make(map[string]interface{})
+				if !data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress.SourceMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress.SourceMask.IsUnknown() {
+					PerSourceAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress.SourceMask.ValueInt64()
 				}
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
-				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				if !listItem.Uid.IsNull() && !listItem.Uid.IsUnknown() {
-					listItemMap["uid"] = listItem.Uid.ValueString()
-				}
-				default_poolList = append(default_poolList, listItemMap)
+				ConnectionRateLimitModeMap["per_source_address"] = PerSourceAddressMap
 			}
-			virtual_serverMap["default_pool"] = default_poolList
-		}
-		if len(data.VirtualServer.FallbackPersistenceProfile) > 0 {
-			var fallback_persistence_profileList []map[string]interface{}
-			for _, listItem := range data.VirtualServer.FallbackPersistenceProfile {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Kind.IsNull() && !listItem.Kind.IsUnknown() {
-					listItemMap["kind"] = listItem.Kind.ValueString()
+			if data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress != nil {
+				PerSourceDestinationAddressMap := make(map[string]interface{})
+				if !data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.DestinationMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.DestinationMask.IsUnknown() {
+					PerSourceDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.DestinationMask.ValueInt64()
 				}
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
+				if !data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.SourceMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.SourceMask.IsUnknown() {
+					PerSourceDestinationAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.SourceMask.ValueInt64()
 				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				if !listItem.Uid.IsNull() && !listItem.Uid.IsUnknown() {
-					listItemMap["uid"] = listItem.Uid.ValueString()
-				}
-				fallback_persistence_profileList = append(fallback_persistence_profileList, listItemMap)
+				ConnectionRateLimitModeMap["per_source_destination_address"] = PerSourceDestinationAddressMap
 			}
-			virtual_serverMap["fallback_persistence_profile"] = fallback_persistence_profileList
-		}
-		if len(data.VirtualServer.FixProfile) > 0 {
-			var fix_profileList []map[string]interface{}
-			for _, listItem := range data.VirtualServer.FixProfile {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Kind.IsNull() && !listItem.Kind.IsUnknown() {
-					listItemMap["kind"] = listItem.Kind.ValueString()
-				}
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
-				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				if !listItem.Uid.IsNull() && !listItem.Uid.IsUnknown() {
-					listItemMap["uid"] = listItem.Uid.ValueString()
-				}
-				fix_profileList = append(fix_profileList, listItemMap)
+			if data.VirtualServer.ConnectionRateLimitMode.PerVirtualServer != nil {
+				ConnectionRateLimitModeMap["per_virtual_server"] = map[string]interface{}{}
 			}
-			virtual_serverMap["fix_profile"] = fix_profileList
+			if data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress != nil {
+				PerVirtualServerDestinationAddressMap := make(map[string]interface{})
+				if !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress.DestinationMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress.DestinationMask.IsUnknown() {
+					PerVirtualServerDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress.DestinationMask.ValueInt64()
+				}
+				ConnectionRateLimitModeMap["per_virtual_server_destination_address"] = PerVirtualServerDestinationAddressMap
+			}
+			if data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress != nil {
+				PerVirtualServerSourceAddressMap := make(map[string]interface{})
+				if !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress.SourceMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress.SourceMask.IsUnknown() {
+					PerVirtualServerSourceAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress.SourceMask.ValueInt64()
+				}
+				ConnectionRateLimitModeMap["per_virtual_server_source_address"] = PerVirtualServerSourceAddressMap
+			}
+			if data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress != nil {
+				PerVirtualServerSourceDestinationAddressMap := make(map[string]interface{})
+				if !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.DestinationMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.DestinationMask.IsUnknown() {
+					PerVirtualServerSourceDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.DestinationMask.ValueInt64()
+				}
+				if !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.SourceMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.SourceMask.IsUnknown() {
+					PerVirtualServerSourceDestinationAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.SourceMask.ValueInt64()
+				}
+				ConnectionRateLimitModeMap["per_virtual_server_source_destination_address"] = PerVirtualServerSourceDestinationAddressMap
+			}
+			VirtualServerMap["connection_rate_limit_mode"] = ConnectionRateLimitModeMap
+		}
+		if !data.VirtualServer.DefaultPersistenceProfile.IsNull() && !data.VirtualServer.DefaultPersistenceProfile.IsUnknown() {
+			var DefaultPersistenceProfileElems []ApplicationProfilesVirtualServerDefaultPersistenceProfileModel
+			diags := data.VirtualServer.DefaultPersistenceProfile.ElementsAs(ctx, &DefaultPersistenceProfileElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(DefaultPersistenceProfileElems) > 0 {
+				var DefaultPersistenceProfileList []map[string]interface{}
+				for _, DefaultPersistenceProfileItem := range DefaultPersistenceProfileElems {
+					DefaultPersistenceProfileItemMap := make(map[string]interface{})
+					if !DefaultPersistenceProfileItem.Kind.IsNull() && !DefaultPersistenceProfileItem.Kind.IsUnknown() {
+						DefaultPersistenceProfileItemMap["kind"] = DefaultPersistenceProfileItem.Kind.ValueString()
+					}
+					if !DefaultPersistenceProfileItem.Name.IsNull() && !DefaultPersistenceProfileItem.Name.IsUnknown() {
+						DefaultPersistenceProfileItemMap["name"] = DefaultPersistenceProfileItem.Name.ValueString()
+					}
+					if !DefaultPersistenceProfileItem.Namespace.IsNull() && !DefaultPersistenceProfileItem.Namespace.IsUnknown() {
+						DefaultPersistenceProfileItemMap["namespace"] = DefaultPersistenceProfileItem.Namespace.ValueString()
+					}
+					if !DefaultPersistenceProfileItem.Tenant.IsNull() && !DefaultPersistenceProfileItem.Tenant.IsUnknown() {
+						DefaultPersistenceProfileItemMap["tenant"] = DefaultPersistenceProfileItem.Tenant.ValueString()
+					}
+					if !DefaultPersistenceProfileItem.Uid.IsNull() && !DefaultPersistenceProfileItem.Uid.IsUnknown() {
+						DefaultPersistenceProfileItemMap["uid"] = DefaultPersistenceProfileItem.Uid.ValueString()
+					}
+					DefaultPersistenceProfileList = append(DefaultPersistenceProfileList, DefaultPersistenceProfileItemMap)
+				}
+				VirtualServerMap["default_persistence_profile"] = DefaultPersistenceProfileList
+			}
+		}
+		if !data.VirtualServer.DefaultPool.IsNull() && !data.VirtualServer.DefaultPool.IsUnknown() {
+			var DefaultPoolElems []ApplicationProfilesVirtualServerDefaultPoolModel
+			diags := data.VirtualServer.DefaultPool.ElementsAs(ctx, &DefaultPoolElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(DefaultPoolElems) > 0 {
+				var DefaultPoolList []map[string]interface{}
+				for _, DefaultPoolItem := range DefaultPoolElems {
+					DefaultPoolItemMap := make(map[string]interface{})
+					if !DefaultPoolItem.Kind.IsNull() && !DefaultPoolItem.Kind.IsUnknown() {
+						DefaultPoolItemMap["kind"] = DefaultPoolItem.Kind.ValueString()
+					}
+					if !DefaultPoolItem.Name.IsNull() && !DefaultPoolItem.Name.IsUnknown() {
+						DefaultPoolItemMap["name"] = DefaultPoolItem.Name.ValueString()
+					}
+					if !DefaultPoolItem.Namespace.IsNull() && !DefaultPoolItem.Namespace.IsUnknown() {
+						DefaultPoolItemMap["namespace"] = DefaultPoolItem.Namespace.ValueString()
+					}
+					if !DefaultPoolItem.Tenant.IsNull() && !DefaultPoolItem.Tenant.IsUnknown() {
+						DefaultPoolItemMap["tenant"] = DefaultPoolItem.Tenant.ValueString()
+					}
+					if !DefaultPoolItem.Uid.IsNull() && !DefaultPoolItem.Uid.IsUnknown() {
+						DefaultPoolItemMap["uid"] = DefaultPoolItem.Uid.ValueString()
+					}
+					DefaultPoolList = append(DefaultPoolList, DefaultPoolItemMap)
+				}
+				VirtualServerMap["default_pool"] = DefaultPoolList
+			}
+		}
+		if !data.VirtualServer.FallbackPersistenceProfile.IsNull() && !data.VirtualServer.FallbackPersistenceProfile.IsUnknown() {
+			var FallbackPersistenceProfileElems []ApplicationProfilesVirtualServerFallbackPersistenceProfileModel
+			diags := data.VirtualServer.FallbackPersistenceProfile.ElementsAs(ctx, &FallbackPersistenceProfileElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(FallbackPersistenceProfileElems) > 0 {
+				var FallbackPersistenceProfileList []map[string]interface{}
+				for _, FallbackPersistenceProfileItem := range FallbackPersistenceProfileElems {
+					FallbackPersistenceProfileItemMap := make(map[string]interface{})
+					if !FallbackPersistenceProfileItem.Kind.IsNull() && !FallbackPersistenceProfileItem.Kind.IsUnknown() {
+						FallbackPersistenceProfileItemMap["kind"] = FallbackPersistenceProfileItem.Kind.ValueString()
+					}
+					if !FallbackPersistenceProfileItem.Name.IsNull() && !FallbackPersistenceProfileItem.Name.IsUnknown() {
+						FallbackPersistenceProfileItemMap["name"] = FallbackPersistenceProfileItem.Name.ValueString()
+					}
+					if !FallbackPersistenceProfileItem.Namespace.IsNull() && !FallbackPersistenceProfileItem.Namespace.IsUnknown() {
+						FallbackPersistenceProfileItemMap["namespace"] = FallbackPersistenceProfileItem.Namespace.ValueString()
+					}
+					if !FallbackPersistenceProfileItem.Tenant.IsNull() && !FallbackPersistenceProfileItem.Tenant.IsUnknown() {
+						FallbackPersistenceProfileItemMap["tenant"] = FallbackPersistenceProfileItem.Tenant.ValueString()
+					}
+					if !FallbackPersistenceProfileItem.Uid.IsNull() && !FallbackPersistenceProfileItem.Uid.IsUnknown() {
+						FallbackPersistenceProfileItemMap["uid"] = FallbackPersistenceProfileItem.Uid.ValueString()
+					}
+					FallbackPersistenceProfileList = append(FallbackPersistenceProfileList, FallbackPersistenceProfileItemMap)
+				}
+				VirtualServerMap["fallback_persistence_profile"] = FallbackPersistenceProfileList
+			}
+		}
+		if !data.VirtualServer.FixProfile.IsNull() && !data.VirtualServer.FixProfile.IsUnknown() {
+			var FixProfileElems []ApplicationProfilesVirtualServerFixProfileModel
+			diags := data.VirtualServer.FixProfile.ElementsAs(ctx, &FixProfileElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(FixProfileElems) > 0 {
+				var FixProfileList []map[string]interface{}
+				for _, FixProfileItem := range FixProfileElems {
+					FixProfileItemMap := make(map[string]interface{})
+					if !FixProfileItem.Kind.IsNull() && !FixProfileItem.Kind.IsUnknown() {
+						FixProfileItemMap["kind"] = FixProfileItem.Kind.ValueString()
+					}
+					if !FixProfileItem.Name.IsNull() && !FixProfileItem.Name.IsUnknown() {
+						FixProfileItemMap["name"] = FixProfileItem.Name.ValueString()
+					}
+					if !FixProfileItem.Namespace.IsNull() && !FixProfileItem.Namespace.IsUnknown() {
+						FixProfileItemMap["namespace"] = FixProfileItem.Namespace.ValueString()
+					}
+					if !FixProfileItem.Tenant.IsNull() && !FixProfileItem.Tenant.IsUnknown() {
+						FixProfileItemMap["tenant"] = FixProfileItem.Tenant.ValueString()
+					}
+					if !FixProfileItem.Uid.IsNull() && !FixProfileItem.Uid.IsUnknown() {
+						FixProfileItemMap["uid"] = FixProfileItem.Uid.ValueString()
+					}
+					FixProfileList = append(FixProfileList, FixProfileItemMap)
+				}
+				VirtualServerMap["fix_profile"] = FixProfileList
+			}
 		}
 		if data.VirtualServer.HTTP != nil {
-			httpNestedMap := make(map[string]interface{})
-			virtual_serverMap["http"] = httpNestedMap
+			HTTPMap := make(map[string]interface{})
+			if !data.VirtualServer.HTTP.HTTPClientProfile.IsNull() && !data.VirtualServer.HTTP.HTTPClientProfile.IsUnknown() {
+				var HTTPClientProfileElems []ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel
+				diags := data.VirtualServer.HTTP.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(HTTPClientProfileElems) > 0 {
+					var HTTPClientProfileList []map[string]interface{}
+					for _, HTTPClientProfileItem := range HTTPClientProfileElems {
+						HTTPClientProfileItemMap := make(map[string]interface{})
+						if !HTTPClientProfileItem.Kind.IsNull() && !HTTPClientProfileItem.Kind.IsUnknown() {
+							HTTPClientProfileItemMap["kind"] = HTTPClientProfileItem.Kind.ValueString()
+						}
+						if !HTTPClientProfileItem.Name.IsNull() && !HTTPClientProfileItem.Name.IsUnknown() {
+							HTTPClientProfileItemMap["name"] = HTTPClientProfileItem.Name.ValueString()
+						}
+						if !HTTPClientProfileItem.Namespace.IsNull() && !HTTPClientProfileItem.Namespace.IsUnknown() {
+							HTTPClientProfileItemMap["namespace"] = HTTPClientProfileItem.Namespace.ValueString()
+						}
+						if !HTTPClientProfileItem.Tenant.IsNull() && !HTTPClientProfileItem.Tenant.IsUnknown() {
+							HTTPClientProfileItemMap["tenant"] = HTTPClientProfileItem.Tenant.ValueString()
+						}
+						if !HTTPClientProfileItem.Uid.IsNull() && !HTTPClientProfileItem.Uid.IsUnknown() {
+							HTTPClientProfileItemMap["uid"] = HTTPClientProfileItem.Uid.ValueString()
+						}
+						HTTPClientProfileList = append(HTTPClientProfileList, HTTPClientProfileItemMap)
+					}
+					HTTPMap["http_client_profile"] = HTTPClientProfileList
+				}
+			}
+			if !data.VirtualServer.HTTP.HTTPServerProfile.IsNull() && !data.VirtualServer.HTTP.HTTPServerProfile.IsUnknown() {
+				var HTTPServerProfileElems []ApplicationProfilesVirtualServerHTTPHTTPServerProfileModel
+				diags := data.VirtualServer.HTTP.HTTPServerProfile.ElementsAs(ctx, &HTTPServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(HTTPServerProfileElems) > 0 {
+					var HTTPServerProfileList []map[string]interface{}
+					for _, HTTPServerProfileItem := range HTTPServerProfileElems {
+						HTTPServerProfileItemMap := make(map[string]interface{})
+						if !HTTPServerProfileItem.Kind.IsNull() && !HTTPServerProfileItem.Kind.IsUnknown() {
+							HTTPServerProfileItemMap["kind"] = HTTPServerProfileItem.Kind.ValueString()
+						}
+						if !HTTPServerProfileItem.Name.IsNull() && !HTTPServerProfileItem.Name.IsUnknown() {
+							HTTPServerProfileItemMap["name"] = HTTPServerProfileItem.Name.ValueString()
+						}
+						if !HTTPServerProfileItem.Namespace.IsNull() && !HTTPServerProfileItem.Namespace.IsUnknown() {
+							HTTPServerProfileItemMap["namespace"] = HTTPServerProfileItem.Namespace.ValueString()
+						}
+						if !HTTPServerProfileItem.Tenant.IsNull() && !HTTPServerProfileItem.Tenant.IsUnknown() {
+							HTTPServerProfileItemMap["tenant"] = HTTPServerProfileItem.Tenant.ValueString()
+						}
+						if !HTTPServerProfileItem.Uid.IsNull() && !HTTPServerProfileItem.Uid.IsUnknown() {
+							HTTPServerProfileItemMap["uid"] = HTTPServerProfileItem.Uid.ValueString()
+						}
+						HTTPServerProfileList = append(HTTPServerProfileList, HTTPServerProfileItemMap)
+					}
+					HTTPMap["http_server_profile"] = HTTPServerProfileList
+				}
+			}
+			if !data.VirtualServer.HTTP.StreamProfile.IsNull() && !data.VirtualServer.HTTP.StreamProfile.IsUnknown() {
+				var StreamProfileElems []ApplicationProfilesVirtualServerHTTPStreamProfileModel
+				diags := data.VirtualServer.HTTP.StreamProfile.ElementsAs(ctx, &StreamProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(StreamProfileElems) > 0 {
+					var StreamProfileList []map[string]interface{}
+					for _, StreamProfileItem := range StreamProfileElems {
+						StreamProfileItemMap := make(map[string]interface{})
+						if !StreamProfileItem.Kind.IsNull() && !StreamProfileItem.Kind.IsUnknown() {
+							StreamProfileItemMap["kind"] = StreamProfileItem.Kind.ValueString()
+						}
+						if !StreamProfileItem.Name.IsNull() && !StreamProfileItem.Name.IsUnknown() {
+							StreamProfileItemMap["name"] = StreamProfileItem.Name.ValueString()
+						}
+						if !StreamProfileItem.Namespace.IsNull() && !StreamProfileItem.Namespace.IsUnknown() {
+							StreamProfileItemMap["namespace"] = StreamProfileItem.Namespace.ValueString()
+						}
+						if !StreamProfileItem.Tenant.IsNull() && !StreamProfileItem.Tenant.IsUnknown() {
+							StreamProfileItemMap["tenant"] = StreamProfileItem.Tenant.ValueString()
+						}
+						if !StreamProfileItem.Uid.IsNull() && !StreamProfileItem.Uid.IsUnknown() {
+							StreamProfileItemMap["uid"] = StreamProfileItem.Uid.ValueString()
+						}
+						StreamProfileList = append(StreamProfileList, StreamProfileItemMap)
+					}
+					HTTPMap["stream_profile"] = StreamProfileList
+				}
+			}
+			if !data.VirtualServer.HTTP.TCPClientProfile.IsNull() && !data.VirtualServer.HTTP.TCPClientProfile.IsUnknown() {
+				var TCPClientProfileElems []ApplicationProfilesVirtualServerHTTPTCPClientProfileModel
+				diags := data.VirtualServer.HTTP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TCPClientProfileElems) > 0 {
+					var TCPClientProfileList []map[string]interface{}
+					for _, TCPClientProfileItem := range TCPClientProfileElems {
+						TCPClientProfileItemMap := make(map[string]interface{})
+						if !TCPClientProfileItem.Kind.IsNull() && !TCPClientProfileItem.Kind.IsUnknown() {
+							TCPClientProfileItemMap["kind"] = TCPClientProfileItem.Kind.ValueString()
+						}
+						if !TCPClientProfileItem.Name.IsNull() && !TCPClientProfileItem.Name.IsUnknown() {
+							TCPClientProfileItemMap["name"] = TCPClientProfileItem.Name.ValueString()
+						}
+						if !TCPClientProfileItem.Namespace.IsNull() && !TCPClientProfileItem.Namespace.IsUnknown() {
+							TCPClientProfileItemMap["namespace"] = TCPClientProfileItem.Namespace.ValueString()
+						}
+						if !TCPClientProfileItem.Tenant.IsNull() && !TCPClientProfileItem.Tenant.IsUnknown() {
+							TCPClientProfileItemMap["tenant"] = TCPClientProfileItem.Tenant.ValueString()
+						}
+						if !TCPClientProfileItem.Uid.IsNull() && !TCPClientProfileItem.Uid.IsUnknown() {
+							TCPClientProfileItemMap["uid"] = TCPClientProfileItem.Uid.ValueString()
+						}
+						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
+					}
+					HTTPMap["tcp_client_profile"] = TCPClientProfileList
+				}
+			}
+			if !data.VirtualServer.HTTP.TCPServerProfile.IsNull() && !data.VirtualServer.HTTP.TCPServerProfile.IsUnknown() {
+				var TCPServerProfileElems []ApplicationProfilesVirtualServerHTTPTCPServerProfileModel
+				diags := data.VirtualServer.HTTP.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TCPServerProfileElems) > 0 {
+					var TCPServerProfileList []map[string]interface{}
+					for _, TCPServerProfileItem := range TCPServerProfileElems {
+						TCPServerProfileItemMap := make(map[string]interface{})
+						if !TCPServerProfileItem.Kind.IsNull() && !TCPServerProfileItem.Kind.IsUnknown() {
+							TCPServerProfileItemMap["kind"] = TCPServerProfileItem.Kind.ValueString()
+						}
+						if !TCPServerProfileItem.Name.IsNull() && !TCPServerProfileItem.Name.IsUnknown() {
+							TCPServerProfileItemMap["name"] = TCPServerProfileItem.Name.ValueString()
+						}
+						if !TCPServerProfileItem.Namespace.IsNull() && !TCPServerProfileItem.Namespace.IsUnknown() {
+							TCPServerProfileItemMap["namespace"] = TCPServerProfileItem.Namespace.ValueString()
+						}
+						if !TCPServerProfileItem.Tenant.IsNull() && !TCPServerProfileItem.Tenant.IsUnknown() {
+							TCPServerProfileItemMap["tenant"] = TCPServerProfileItem.Tenant.ValueString()
+						}
+						if !TCPServerProfileItem.Uid.IsNull() && !TCPServerProfileItem.Uid.IsUnknown() {
+							TCPServerProfileItemMap["uid"] = TCPServerProfileItem.Uid.ValueString()
+						}
+						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
+					}
+					HTTPMap["tcp_server_profile"] = TCPServerProfileList
+				}
+			}
+			if !data.VirtualServer.HTTP.WebSocketClientProfile.IsNull() && !data.VirtualServer.HTTP.WebSocketClientProfile.IsUnknown() {
+				var WebSocketClientProfileElems []ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModel
+				diags := data.VirtualServer.HTTP.WebSocketClientProfile.ElementsAs(ctx, &WebSocketClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(WebSocketClientProfileElems) > 0 {
+					var WebSocketClientProfileList []map[string]interface{}
+					for _, WebSocketClientProfileItem := range WebSocketClientProfileElems {
+						WebSocketClientProfileItemMap := make(map[string]interface{})
+						if !WebSocketClientProfileItem.Kind.IsNull() && !WebSocketClientProfileItem.Kind.IsUnknown() {
+							WebSocketClientProfileItemMap["kind"] = WebSocketClientProfileItem.Kind.ValueString()
+						}
+						if !WebSocketClientProfileItem.Name.IsNull() && !WebSocketClientProfileItem.Name.IsUnknown() {
+							WebSocketClientProfileItemMap["name"] = WebSocketClientProfileItem.Name.ValueString()
+						}
+						if !WebSocketClientProfileItem.Namespace.IsNull() && !WebSocketClientProfileItem.Namespace.IsUnknown() {
+							WebSocketClientProfileItemMap["namespace"] = WebSocketClientProfileItem.Namespace.ValueString()
+						}
+						if !WebSocketClientProfileItem.Tenant.IsNull() && !WebSocketClientProfileItem.Tenant.IsUnknown() {
+							WebSocketClientProfileItemMap["tenant"] = WebSocketClientProfileItem.Tenant.ValueString()
+						}
+						if !WebSocketClientProfileItem.Uid.IsNull() && !WebSocketClientProfileItem.Uid.IsUnknown() {
+							WebSocketClientProfileItemMap["uid"] = WebSocketClientProfileItem.Uid.ValueString()
+						}
+						WebSocketClientProfileList = append(WebSocketClientProfileList, WebSocketClientProfileItemMap)
+					}
+					HTTPMap["websocket_client_profile"] = WebSocketClientProfileList
+				}
+			}
+			if !data.VirtualServer.HTTP.WebSocketServerProfile.IsNull() && !data.VirtualServer.HTTP.WebSocketServerProfile.IsUnknown() {
+				var WebSocketServerProfileElems []ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModel
+				diags := data.VirtualServer.HTTP.WebSocketServerProfile.ElementsAs(ctx, &WebSocketServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(WebSocketServerProfileElems) > 0 {
+					var WebSocketServerProfileList []map[string]interface{}
+					for _, WebSocketServerProfileItem := range WebSocketServerProfileElems {
+						WebSocketServerProfileItemMap := make(map[string]interface{})
+						if !WebSocketServerProfileItem.Kind.IsNull() && !WebSocketServerProfileItem.Kind.IsUnknown() {
+							WebSocketServerProfileItemMap["kind"] = WebSocketServerProfileItem.Kind.ValueString()
+						}
+						if !WebSocketServerProfileItem.Name.IsNull() && !WebSocketServerProfileItem.Name.IsUnknown() {
+							WebSocketServerProfileItemMap["name"] = WebSocketServerProfileItem.Name.ValueString()
+						}
+						if !WebSocketServerProfileItem.Namespace.IsNull() && !WebSocketServerProfileItem.Namespace.IsUnknown() {
+							WebSocketServerProfileItemMap["namespace"] = WebSocketServerProfileItem.Namespace.ValueString()
+						}
+						if !WebSocketServerProfileItem.Tenant.IsNull() && !WebSocketServerProfileItem.Tenant.IsUnknown() {
+							WebSocketServerProfileItemMap["tenant"] = WebSocketServerProfileItem.Tenant.ValueString()
+						}
+						if !WebSocketServerProfileItem.Uid.IsNull() && !WebSocketServerProfileItem.Uid.IsUnknown() {
+							WebSocketServerProfileItemMap["uid"] = WebSocketServerProfileItem.Uid.ValueString()
+						}
+						WebSocketServerProfileList = append(WebSocketServerProfileList, WebSocketServerProfileItemMap)
+					}
+					HTTPMap["websocket_server_profile"] = WebSocketServerProfileList
+				}
+			}
+			VirtualServerMap["http"] = HTTPMap
 		}
 		if data.VirtualServer.HTTPS != nil {
-			httpsNestedMap := make(map[string]interface{})
-			virtual_serverMap["https"] = httpsNestedMap
+			HTTPSMap := make(map[string]interface{})
+			if !data.VirtualServer.HTTPS.HTTPClientProfile.IsNull() && !data.VirtualServer.HTTPS.HTTPClientProfile.IsUnknown() {
+				var HTTPClientProfileElems []ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel
+				diags := data.VirtualServer.HTTPS.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(HTTPClientProfileElems) > 0 {
+					var HTTPClientProfileList []map[string]interface{}
+					for _, HTTPClientProfileItem := range HTTPClientProfileElems {
+						HTTPClientProfileItemMap := make(map[string]interface{})
+						if !HTTPClientProfileItem.Kind.IsNull() && !HTTPClientProfileItem.Kind.IsUnknown() {
+							HTTPClientProfileItemMap["kind"] = HTTPClientProfileItem.Kind.ValueString()
+						}
+						if !HTTPClientProfileItem.Name.IsNull() && !HTTPClientProfileItem.Name.IsUnknown() {
+							HTTPClientProfileItemMap["name"] = HTTPClientProfileItem.Name.ValueString()
+						}
+						if !HTTPClientProfileItem.Namespace.IsNull() && !HTTPClientProfileItem.Namespace.IsUnknown() {
+							HTTPClientProfileItemMap["namespace"] = HTTPClientProfileItem.Namespace.ValueString()
+						}
+						if !HTTPClientProfileItem.Tenant.IsNull() && !HTTPClientProfileItem.Tenant.IsUnknown() {
+							HTTPClientProfileItemMap["tenant"] = HTTPClientProfileItem.Tenant.ValueString()
+						}
+						if !HTTPClientProfileItem.Uid.IsNull() && !HTTPClientProfileItem.Uid.IsUnknown() {
+							HTTPClientProfileItemMap["uid"] = HTTPClientProfileItem.Uid.ValueString()
+						}
+						HTTPClientProfileList = append(HTTPClientProfileList, HTTPClientProfileItemMap)
+					}
+					HTTPSMap["http_client_profile"] = HTTPClientProfileList
+				}
+			}
+			if !data.VirtualServer.HTTPS.HTTPServerProfile.IsNull() && !data.VirtualServer.HTTPS.HTTPServerProfile.IsUnknown() {
+				var HTTPServerProfileElems []ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModel
+				diags := data.VirtualServer.HTTPS.HTTPServerProfile.ElementsAs(ctx, &HTTPServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(HTTPServerProfileElems) > 0 {
+					var HTTPServerProfileList []map[string]interface{}
+					for _, HTTPServerProfileItem := range HTTPServerProfileElems {
+						HTTPServerProfileItemMap := make(map[string]interface{})
+						if !HTTPServerProfileItem.Kind.IsNull() && !HTTPServerProfileItem.Kind.IsUnknown() {
+							HTTPServerProfileItemMap["kind"] = HTTPServerProfileItem.Kind.ValueString()
+						}
+						if !HTTPServerProfileItem.Name.IsNull() && !HTTPServerProfileItem.Name.IsUnknown() {
+							HTTPServerProfileItemMap["name"] = HTTPServerProfileItem.Name.ValueString()
+						}
+						if !HTTPServerProfileItem.Namespace.IsNull() && !HTTPServerProfileItem.Namespace.IsUnknown() {
+							HTTPServerProfileItemMap["namespace"] = HTTPServerProfileItem.Namespace.ValueString()
+						}
+						if !HTTPServerProfileItem.Tenant.IsNull() && !HTTPServerProfileItem.Tenant.IsUnknown() {
+							HTTPServerProfileItemMap["tenant"] = HTTPServerProfileItem.Tenant.ValueString()
+						}
+						if !HTTPServerProfileItem.Uid.IsNull() && !HTTPServerProfileItem.Uid.IsUnknown() {
+							HTTPServerProfileItemMap["uid"] = HTTPServerProfileItem.Uid.ValueString()
+						}
+						HTTPServerProfileList = append(HTTPServerProfileList, HTTPServerProfileItemMap)
+					}
+					HTTPSMap["http_server_profile"] = HTTPServerProfileList
+				}
+			}
+			if !data.VirtualServer.HTTPS.StreamProfile.IsNull() && !data.VirtualServer.HTTPS.StreamProfile.IsUnknown() {
+				var StreamProfileElems []ApplicationProfilesVirtualServerHTTPSStreamProfileModel
+				diags := data.VirtualServer.HTTPS.StreamProfile.ElementsAs(ctx, &StreamProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(StreamProfileElems) > 0 {
+					var StreamProfileList []map[string]interface{}
+					for _, StreamProfileItem := range StreamProfileElems {
+						StreamProfileItemMap := make(map[string]interface{})
+						if !StreamProfileItem.Kind.IsNull() && !StreamProfileItem.Kind.IsUnknown() {
+							StreamProfileItemMap["kind"] = StreamProfileItem.Kind.ValueString()
+						}
+						if !StreamProfileItem.Name.IsNull() && !StreamProfileItem.Name.IsUnknown() {
+							StreamProfileItemMap["name"] = StreamProfileItem.Name.ValueString()
+						}
+						if !StreamProfileItem.Namespace.IsNull() && !StreamProfileItem.Namespace.IsUnknown() {
+							StreamProfileItemMap["namespace"] = StreamProfileItem.Namespace.ValueString()
+						}
+						if !StreamProfileItem.Tenant.IsNull() && !StreamProfileItem.Tenant.IsUnknown() {
+							StreamProfileItemMap["tenant"] = StreamProfileItem.Tenant.ValueString()
+						}
+						if !StreamProfileItem.Uid.IsNull() && !StreamProfileItem.Uid.IsUnknown() {
+							StreamProfileItemMap["uid"] = StreamProfileItem.Uid.ValueString()
+						}
+						StreamProfileList = append(StreamProfileList, StreamProfileItemMap)
+					}
+					HTTPSMap["stream_profile"] = StreamProfileList
+				}
+			}
+			if !data.VirtualServer.HTTPS.TCPClientProfile.IsNull() && !data.VirtualServer.HTTPS.TCPClientProfile.IsUnknown() {
+				var TCPClientProfileElems []ApplicationProfilesVirtualServerHTTPSTCPClientProfileModel
+				diags := data.VirtualServer.HTTPS.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TCPClientProfileElems) > 0 {
+					var TCPClientProfileList []map[string]interface{}
+					for _, TCPClientProfileItem := range TCPClientProfileElems {
+						TCPClientProfileItemMap := make(map[string]interface{})
+						if !TCPClientProfileItem.Kind.IsNull() && !TCPClientProfileItem.Kind.IsUnknown() {
+							TCPClientProfileItemMap["kind"] = TCPClientProfileItem.Kind.ValueString()
+						}
+						if !TCPClientProfileItem.Name.IsNull() && !TCPClientProfileItem.Name.IsUnknown() {
+							TCPClientProfileItemMap["name"] = TCPClientProfileItem.Name.ValueString()
+						}
+						if !TCPClientProfileItem.Namespace.IsNull() && !TCPClientProfileItem.Namespace.IsUnknown() {
+							TCPClientProfileItemMap["namespace"] = TCPClientProfileItem.Namespace.ValueString()
+						}
+						if !TCPClientProfileItem.Tenant.IsNull() && !TCPClientProfileItem.Tenant.IsUnknown() {
+							TCPClientProfileItemMap["tenant"] = TCPClientProfileItem.Tenant.ValueString()
+						}
+						if !TCPClientProfileItem.Uid.IsNull() && !TCPClientProfileItem.Uid.IsUnknown() {
+							TCPClientProfileItemMap["uid"] = TCPClientProfileItem.Uid.ValueString()
+						}
+						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
+					}
+					HTTPSMap["tcp_client_profile"] = TCPClientProfileList
+				}
+			}
+			if !data.VirtualServer.HTTPS.TCPServerProfile.IsNull() && !data.VirtualServer.HTTPS.TCPServerProfile.IsUnknown() {
+				var TCPServerProfileElems []ApplicationProfilesVirtualServerHTTPSTCPServerProfileModel
+				diags := data.VirtualServer.HTTPS.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TCPServerProfileElems) > 0 {
+					var TCPServerProfileList []map[string]interface{}
+					for _, TCPServerProfileItem := range TCPServerProfileElems {
+						TCPServerProfileItemMap := make(map[string]interface{})
+						if !TCPServerProfileItem.Kind.IsNull() && !TCPServerProfileItem.Kind.IsUnknown() {
+							TCPServerProfileItemMap["kind"] = TCPServerProfileItem.Kind.ValueString()
+						}
+						if !TCPServerProfileItem.Name.IsNull() && !TCPServerProfileItem.Name.IsUnknown() {
+							TCPServerProfileItemMap["name"] = TCPServerProfileItem.Name.ValueString()
+						}
+						if !TCPServerProfileItem.Namespace.IsNull() && !TCPServerProfileItem.Namespace.IsUnknown() {
+							TCPServerProfileItemMap["namespace"] = TCPServerProfileItem.Namespace.ValueString()
+						}
+						if !TCPServerProfileItem.Tenant.IsNull() && !TCPServerProfileItem.Tenant.IsUnknown() {
+							TCPServerProfileItemMap["tenant"] = TCPServerProfileItem.Tenant.ValueString()
+						}
+						if !TCPServerProfileItem.Uid.IsNull() && !TCPServerProfileItem.Uid.IsUnknown() {
+							TCPServerProfileItemMap["uid"] = TCPServerProfileItem.Uid.ValueString()
+						}
+						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
+					}
+					HTTPSMap["tcp_server_profile"] = TCPServerProfileList
+				}
+			}
+			if !data.VirtualServer.HTTPS.WebSocketClientProfile.IsNull() && !data.VirtualServer.HTTPS.WebSocketClientProfile.IsUnknown() {
+				var WebSocketClientProfileElems []ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModel
+				diags := data.VirtualServer.HTTPS.WebSocketClientProfile.ElementsAs(ctx, &WebSocketClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(WebSocketClientProfileElems) > 0 {
+					var WebSocketClientProfileList []map[string]interface{}
+					for _, WebSocketClientProfileItem := range WebSocketClientProfileElems {
+						WebSocketClientProfileItemMap := make(map[string]interface{})
+						if !WebSocketClientProfileItem.Kind.IsNull() && !WebSocketClientProfileItem.Kind.IsUnknown() {
+							WebSocketClientProfileItemMap["kind"] = WebSocketClientProfileItem.Kind.ValueString()
+						}
+						if !WebSocketClientProfileItem.Name.IsNull() && !WebSocketClientProfileItem.Name.IsUnknown() {
+							WebSocketClientProfileItemMap["name"] = WebSocketClientProfileItem.Name.ValueString()
+						}
+						if !WebSocketClientProfileItem.Namespace.IsNull() && !WebSocketClientProfileItem.Namespace.IsUnknown() {
+							WebSocketClientProfileItemMap["namespace"] = WebSocketClientProfileItem.Namespace.ValueString()
+						}
+						if !WebSocketClientProfileItem.Tenant.IsNull() && !WebSocketClientProfileItem.Tenant.IsUnknown() {
+							WebSocketClientProfileItemMap["tenant"] = WebSocketClientProfileItem.Tenant.ValueString()
+						}
+						if !WebSocketClientProfileItem.Uid.IsNull() && !WebSocketClientProfileItem.Uid.IsUnknown() {
+							WebSocketClientProfileItemMap["uid"] = WebSocketClientProfileItem.Uid.ValueString()
+						}
+						WebSocketClientProfileList = append(WebSocketClientProfileList, WebSocketClientProfileItemMap)
+					}
+					HTTPSMap["websocket_client_profile"] = WebSocketClientProfileList
+				}
+			}
+			if !data.VirtualServer.HTTPS.WebSocketServerProfile.IsNull() && !data.VirtualServer.HTTPS.WebSocketServerProfile.IsUnknown() {
+				var WebSocketServerProfileElems []ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModel
+				diags := data.VirtualServer.HTTPS.WebSocketServerProfile.ElementsAs(ctx, &WebSocketServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(WebSocketServerProfileElems) > 0 {
+					var WebSocketServerProfileList []map[string]interface{}
+					for _, WebSocketServerProfileItem := range WebSocketServerProfileElems {
+						WebSocketServerProfileItemMap := make(map[string]interface{})
+						if !WebSocketServerProfileItem.Kind.IsNull() && !WebSocketServerProfileItem.Kind.IsUnknown() {
+							WebSocketServerProfileItemMap["kind"] = WebSocketServerProfileItem.Kind.ValueString()
+						}
+						if !WebSocketServerProfileItem.Name.IsNull() && !WebSocketServerProfileItem.Name.IsUnknown() {
+							WebSocketServerProfileItemMap["name"] = WebSocketServerProfileItem.Name.ValueString()
+						}
+						if !WebSocketServerProfileItem.Namespace.IsNull() && !WebSocketServerProfileItem.Namespace.IsUnknown() {
+							WebSocketServerProfileItemMap["namespace"] = WebSocketServerProfileItem.Namespace.ValueString()
+						}
+						if !WebSocketServerProfileItem.Tenant.IsNull() && !WebSocketServerProfileItem.Tenant.IsUnknown() {
+							WebSocketServerProfileItemMap["tenant"] = WebSocketServerProfileItem.Tenant.ValueString()
+						}
+						if !WebSocketServerProfileItem.Uid.IsNull() && !WebSocketServerProfileItem.Uid.IsUnknown() {
+							WebSocketServerProfileItemMap["uid"] = WebSocketServerProfileItem.Uid.ValueString()
+						}
+						WebSocketServerProfileList = append(WebSocketServerProfileList, WebSocketServerProfileItemMap)
+					}
+					HTTPSMap["websocket_server_profile"] = WebSocketServerProfileList
+				}
+			}
+			VirtualServerMap["https"] = HTTPSMap
 		}
 		if data.VirtualServer.ImmediateActionOnServiceDown != nil {
-			immediate_action_on_service_downNestedMap := make(map[string]interface{})
-			virtual_serverMap["immediate_action_on_service_down"] = immediate_action_on_service_downNestedMap
-		}
-		if len(data.VirtualServer.LastHopPool) > 0 {
-			var last_hop_poolList []map[string]interface{}
-			for _, listItem := range data.VirtualServer.LastHopPool {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Kind.IsNull() && !listItem.Kind.IsUnknown() {
-					listItemMap["kind"] = listItem.Kind.ValueString()
-				}
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
-				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				if !listItem.Uid.IsNull() && !listItem.Uid.IsUnknown() {
-					listItemMap["uid"] = listItem.Uid.ValueString()
-				}
-				last_hop_poolList = append(last_hop_poolList, listItemMap)
+			ImmediateActionOnServiceDownMap := make(map[string]interface{})
+			if data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownDrop != nil {
+				ImmediateActionOnServiceDownMap["immediate_action_on_service_down_drop"] = map[string]interface{}{}
 			}
-			virtual_serverMap["last_hop_pool"] = last_hop_poolList
+			if data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownNone != nil {
+				ImmediateActionOnServiceDownMap["immediate_action_on_service_down_none"] = map[string]interface{}{}
+			}
+			if data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownReset != nil {
+				ImmediateActionOnServiceDownMap["immediate_action_on_service_down_reset"] = map[string]interface{}{}
+			}
+			VirtualServerMap["immediate_action_on_service_down"] = ImmediateActionOnServiceDownMap
+		}
+		if !data.VirtualServer.LastHopPool.IsNull() && !data.VirtualServer.LastHopPool.IsUnknown() {
+			var LastHopPoolElems []ApplicationProfilesVirtualServerLastHopPoolModel
+			diags := data.VirtualServer.LastHopPool.ElementsAs(ctx, &LastHopPoolElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(LastHopPoolElems) > 0 {
+				var LastHopPoolList []map[string]interface{}
+				for _, LastHopPoolItem := range LastHopPoolElems {
+					LastHopPoolItemMap := make(map[string]interface{})
+					if !LastHopPoolItem.Kind.IsNull() && !LastHopPoolItem.Kind.IsUnknown() {
+						LastHopPoolItemMap["kind"] = LastHopPoolItem.Kind.ValueString()
+					}
+					if !LastHopPoolItem.Name.IsNull() && !LastHopPoolItem.Name.IsUnknown() {
+						LastHopPoolItemMap["name"] = LastHopPoolItem.Name.ValueString()
+					}
+					if !LastHopPoolItem.Namespace.IsNull() && !LastHopPoolItem.Namespace.IsUnknown() {
+						LastHopPoolItemMap["namespace"] = LastHopPoolItem.Namespace.ValueString()
+					}
+					if !LastHopPoolItem.Tenant.IsNull() && !LastHopPoolItem.Tenant.IsUnknown() {
+						LastHopPoolItemMap["tenant"] = LastHopPoolItem.Tenant.ValueString()
+					}
+					if !LastHopPoolItem.Uid.IsNull() && !LastHopPoolItem.Uid.IsUnknown() {
+						LastHopPoolItemMap["uid"] = LastHopPoolItem.Uid.ValueString()
+					}
+					LastHopPoolList = append(LastHopPoolList, LastHopPoolItemMap)
+				}
+				VirtualServerMap["last_hop_pool"] = LastHopPoolList
+			}
 		}
 		if data.VirtualServer.Nat64 != nil {
-			nat64NestedMap := make(map[string]interface{})
-			virtual_serverMap["nat64"] = nat64NestedMap
+			Nat64Map := make(map[string]interface{})
+			if data.VirtualServer.Nat64.Nat64Disable != nil {
+				Nat64Map["nat64_disable"] = map[string]interface{}{}
+			}
+			if data.VirtualServer.Nat64.Nat64Enable != nil {
+				Nat64Map["nat64_enable"] = map[string]interface{}{}
+			}
+			VirtualServerMap["nat64"] = Nat64Map
 		}
 		if data.VirtualServer.PortTranslation != nil {
-			port_translationNestedMap := make(map[string]interface{})
-			virtual_serverMap["port_translation"] = port_translationNestedMap
-		}
-		if len(data.VirtualServer.RequestLoggingProfile) > 0 {
-			var request_logging_profileList []map[string]interface{}
-			for _, listItem := range data.VirtualServer.RequestLoggingProfile {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Kind.IsNull() && !listItem.Kind.IsUnknown() {
-					listItemMap["kind"] = listItem.Kind.ValueString()
-				}
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
-				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				if !listItem.Uid.IsNull() && !listItem.Uid.IsUnknown() {
-					listItemMap["uid"] = listItem.Uid.ValueString()
-				}
-				request_logging_profileList = append(request_logging_profileList, listItemMap)
+			PortTranslationMap := make(map[string]interface{})
+			if data.VirtualServer.PortTranslation.PortTranslationDisable != nil {
+				PortTranslationMap["port_translation_disable"] = map[string]interface{}{}
 			}
-			virtual_serverMap["request_logging_profile"] = request_logging_profileList
+			if data.VirtualServer.PortTranslation.PortTranslationEnable != nil {
+				PortTranslationMap["port_translation_enable"] = map[string]interface{}{}
+			}
+			VirtualServerMap["port_translation"] = PortTranslationMap
+		}
+		if !data.VirtualServer.RequestLoggingProfile.IsNull() && !data.VirtualServer.RequestLoggingProfile.IsUnknown() {
+			var RequestLoggingProfileElems []ApplicationProfilesVirtualServerRequestLoggingProfileModel
+			diags := data.VirtualServer.RequestLoggingProfile.ElementsAs(ctx, &RequestLoggingProfileElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(RequestLoggingProfileElems) > 0 {
+				var RequestLoggingProfileList []map[string]interface{}
+				for _, RequestLoggingProfileItem := range RequestLoggingProfileElems {
+					RequestLoggingProfileItemMap := make(map[string]interface{})
+					if !RequestLoggingProfileItem.Kind.IsNull() && !RequestLoggingProfileItem.Kind.IsUnknown() {
+						RequestLoggingProfileItemMap["kind"] = RequestLoggingProfileItem.Kind.ValueString()
+					}
+					if !RequestLoggingProfileItem.Name.IsNull() && !RequestLoggingProfileItem.Name.IsUnknown() {
+						RequestLoggingProfileItemMap["name"] = RequestLoggingProfileItem.Name.ValueString()
+					}
+					if !RequestLoggingProfileItem.Namespace.IsNull() && !RequestLoggingProfileItem.Namespace.IsUnknown() {
+						RequestLoggingProfileItemMap["namespace"] = RequestLoggingProfileItem.Namespace.ValueString()
+					}
+					if !RequestLoggingProfileItem.Tenant.IsNull() && !RequestLoggingProfileItem.Tenant.IsUnknown() {
+						RequestLoggingProfileItemMap["tenant"] = RequestLoggingProfileItem.Tenant.ValueString()
+					}
+					if !RequestLoggingProfileItem.Uid.IsNull() && !RequestLoggingProfileItem.Uid.IsUnknown() {
+						RequestLoggingProfileItemMap["uid"] = RequestLoggingProfileItem.Uid.ValueString()
+					}
+					RequestLoggingProfileList = append(RequestLoggingProfileList, RequestLoggingProfileItemMap)
+				}
+				VirtualServerMap["request_logging_profile"] = RequestLoggingProfileList
+			}
 		}
 		if data.VirtualServer.SourcePort != nil {
-			source_portNestedMap := make(map[string]interface{})
-			virtual_serverMap["source_port"] = source_portNestedMap
-		}
-		if len(data.VirtualServer.StatisticsProfile) > 0 {
-			var statistics_profileList []map[string]interface{}
-			for _, listItem := range data.VirtualServer.StatisticsProfile {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Kind.IsNull() && !listItem.Kind.IsUnknown() {
-					listItemMap["kind"] = listItem.Kind.ValueString()
-				}
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
-				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				if !listItem.Uid.IsNull() && !listItem.Uid.IsUnknown() {
-					listItemMap["uid"] = listItem.Uid.ValueString()
-				}
-				statistics_profileList = append(statistics_profileList, listItemMap)
+			SourcePortMap := make(map[string]interface{})
+			if data.VirtualServer.SourcePort.SourcePortChange != nil {
+				SourcePortMap["source_port_change"] = map[string]interface{}{}
 			}
-			virtual_serverMap["statistics_profile"] = statistics_profileList
+			if data.VirtualServer.SourcePort.SourcePortPreserve != nil {
+				SourcePortMap["source_port_preserve"] = map[string]interface{}{}
+			}
+			if data.VirtualServer.SourcePort.SourcePortPreserveStrict != nil {
+				SourcePortMap["source_port_preserve_strict"] = map[string]interface{}{}
+			}
+			VirtualServerMap["source_port"] = SourcePortMap
+		}
+		if !data.VirtualServer.StatisticsProfile.IsNull() && !data.VirtualServer.StatisticsProfile.IsUnknown() {
+			var StatisticsProfileElems []ApplicationProfilesVirtualServerStatisticsProfileModel
+			diags := data.VirtualServer.StatisticsProfile.ElementsAs(ctx, &StatisticsProfileElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(StatisticsProfileElems) > 0 {
+				var StatisticsProfileList []map[string]interface{}
+				for _, StatisticsProfileItem := range StatisticsProfileElems {
+					StatisticsProfileItemMap := make(map[string]interface{})
+					if !StatisticsProfileItem.Kind.IsNull() && !StatisticsProfileItem.Kind.IsUnknown() {
+						StatisticsProfileItemMap["kind"] = StatisticsProfileItem.Kind.ValueString()
+					}
+					if !StatisticsProfileItem.Name.IsNull() && !StatisticsProfileItem.Name.IsUnknown() {
+						StatisticsProfileItemMap["name"] = StatisticsProfileItem.Name.ValueString()
+					}
+					if !StatisticsProfileItem.Namespace.IsNull() && !StatisticsProfileItem.Namespace.IsUnknown() {
+						StatisticsProfileItemMap["namespace"] = StatisticsProfileItem.Namespace.ValueString()
+					}
+					if !StatisticsProfileItem.Tenant.IsNull() && !StatisticsProfileItem.Tenant.IsUnknown() {
+						StatisticsProfileItemMap["tenant"] = StatisticsProfileItem.Tenant.ValueString()
+					}
+					if !StatisticsProfileItem.Uid.IsNull() && !StatisticsProfileItem.Uid.IsUnknown() {
+						StatisticsProfileItemMap["uid"] = StatisticsProfileItem.Uid.ValueString()
+					}
+					StatisticsProfileList = append(StatisticsProfileList, StatisticsProfileItemMap)
+				}
+				VirtualServerMap["statistics_profile"] = StatisticsProfileList
+			}
 		}
 		if data.VirtualServer.TCP != nil {
-			tcpNestedMap := make(map[string]interface{})
-			virtual_serverMap["tcp"] = tcpNestedMap
+			TCPMap := make(map[string]interface{})
+			if !data.VirtualServer.TCP.TCPClientProfile.IsNull() && !data.VirtualServer.TCP.TCPClientProfile.IsUnknown() {
+				var TCPClientProfileElems []ApplicationProfilesVirtualServerTCPTCPClientProfileModel
+				diags := data.VirtualServer.TCP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TCPClientProfileElems) > 0 {
+					var TCPClientProfileList []map[string]interface{}
+					for _, TCPClientProfileItem := range TCPClientProfileElems {
+						TCPClientProfileItemMap := make(map[string]interface{})
+						if !TCPClientProfileItem.Kind.IsNull() && !TCPClientProfileItem.Kind.IsUnknown() {
+							TCPClientProfileItemMap["kind"] = TCPClientProfileItem.Kind.ValueString()
+						}
+						if !TCPClientProfileItem.Name.IsNull() && !TCPClientProfileItem.Name.IsUnknown() {
+							TCPClientProfileItemMap["name"] = TCPClientProfileItem.Name.ValueString()
+						}
+						if !TCPClientProfileItem.Namespace.IsNull() && !TCPClientProfileItem.Namespace.IsUnknown() {
+							TCPClientProfileItemMap["namespace"] = TCPClientProfileItem.Namespace.ValueString()
+						}
+						if !TCPClientProfileItem.Tenant.IsNull() && !TCPClientProfileItem.Tenant.IsUnknown() {
+							TCPClientProfileItemMap["tenant"] = TCPClientProfileItem.Tenant.ValueString()
+						}
+						if !TCPClientProfileItem.Uid.IsNull() && !TCPClientProfileItem.Uid.IsUnknown() {
+							TCPClientProfileItemMap["uid"] = TCPClientProfileItem.Uid.ValueString()
+						}
+						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
+					}
+					TCPMap["tcp_client_profile"] = TCPClientProfileList
+				}
+			}
+			if !data.VirtualServer.TCP.TCPServerProfile.IsNull() && !data.VirtualServer.TCP.TCPServerProfile.IsUnknown() {
+				var TCPServerProfileElems []ApplicationProfilesVirtualServerTCPTCPServerProfileModel
+				diags := data.VirtualServer.TCP.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TCPServerProfileElems) > 0 {
+					var TCPServerProfileList []map[string]interface{}
+					for _, TCPServerProfileItem := range TCPServerProfileElems {
+						TCPServerProfileItemMap := make(map[string]interface{})
+						if !TCPServerProfileItem.Kind.IsNull() && !TCPServerProfileItem.Kind.IsUnknown() {
+							TCPServerProfileItemMap["kind"] = TCPServerProfileItem.Kind.ValueString()
+						}
+						if !TCPServerProfileItem.Name.IsNull() && !TCPServerProfileItem.Name.IsUnknown() {
+							TCPServerProfileItemMap["name"] = TCPServerProfileItem.Name.ValueString()
+						}
+						if !TCPServerProfileItem.Namespace.IsNull() && !TCPServerProfileItem.Namespace.IsUnknown() {
+							TCPServerProfileItemMap["namespace"] = TCPServerProfileItem.Namespace.ValueString()
+						}
+						if !TCPServerProfileItem.Tenant.IsNull() && !TCPServerProfileItem.Tenant.IsUnknown() {
+							TCPServerProfileItemMap["tenant"] = TCPServerProfileItem.Tenant.ValueString()
+						}
+						if !TCPServerProfileItem.Uid.IsNull() && !TCPServerProfileItem.Uid.IsUnknown() {
+							TCPServerProfileItemMap["uid"] = TCPServerProfileItem.Uid.ValueString()
+						}
+						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
+					}
+					TCPMap["tcp_server_profile"] = TCPServerProfileList
+				}
+			}
+			VirtualServerMap["tcp"] = TCPMap
 		}
 		if data.VirtualServer.UDP != nil {
-			udpNestedMap := make(map[string]interface{})
-			virtual_serverMap["udp"] = udpNestedMap
+			UDPMap := make(map[string]interface{})
+			if !data.VirtualServer.UDP.TCPClientProfile.IsNull() && !data.VirtualServer.UDP.TCPClientProfile.IsUnknown() {
+				var TCPClientProfileElems []ApplicationProfilesVirtualServerUDPTCPClientProfileModel
+				diags := data.VirtualServer.UDP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TCPClientProfileElems) > 0 {
+					var TCPClientProfileList []map[string]interface{}
+					for _, TCPClientProfileItem := range TCPClientProfileElems {
+						TCPClientProfileItemMap := make(map[string]interface{})
+						if !TCPClientProfileItem.Kind.IsNull() && !TCPClientProfileItem.Kind.IsUnknown() {
+							TCPClientProfileItemMap["kind"] = TCPClientProfileItem.Kind.ValueString()
+						}
+						if !TCPClientProfileItem.Name.IsNull() && !TCPClientProfileItem.Name.IsUnknown() {
+							TCPClientProfileItemMap["name"] = TCPClientProfileItem.Name.ValueString()
+						}
+						if !TCPClientProfileItem.Namespace.IsNull() && !TCPClientProfileItem.Namespace.IsUnknown() {
+							TCPClientProfileItemMap["namespace"] = TCPClientProfileItem.Namespace.ValueString()
+						}
+						if !TCPClientProfileItem.Tenant.IsNull() && !TCPClientProfileItem.Tenant.IsUnknown() {
+							TCPClientProfileItemMap["tenant"] = TCPClientProfileItem.Tenant.ValueString()
+						}
+						if !TCPClientProfileItem.Uid.IsNull() && !TCPClientProfileItem.Uid.IsUnknown() {
+							TCPClientProfileItemMap["uid"] = TCPClientProfileItem.Uid.ValueString()
+						}
+						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
+					}
+					UDPMap["tcp_client_profile"] = TCPClientProfileList
+				}
+			}
+			if !data.VirtualServer.UDP.TCPServerProfile.IsNull() && !data.VirtualServer.UDP.TCPServerProfile.IsUnknown() {
+				var TCPServerProfileElems []ApplicationProfilesVirtualServerUDPTCPServerProfileModel
+				diags := data.VirtualServer.UDP.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TCPServerProfileElems) > 0 {
+					var TCPServerProfileList []map[string]interface{}
+					for _, TCPServerProfileItem := range TCPServerProfileElems {
+						TCPServerProfileItemMap := make(map[string]interface{})
+						if !TCPServerProfileItem.Kind.IsNull() && !TCPServerProfileItem.Kind.IsUnknown() {
+							TCPServerProfileItemMap["kind"] = TCPServerProfileItem.Kind.ValueString()
+						}
+						if !TCPServerProfileItem.Name.IsNull() && !TCPServerProfileItem.Name.IsUnknown() {
+							TCPServerProfileItemMap["name"] = TCPServerProfileItem.Name.ValueString()
+						}
+						if !TCPServerProfileItem.Namespace.IsNull() && !TCPServerProfileItem.Namespace.IsUnknown() {
+							TCPServerProfileItemMap["namespace"] = TCPServerProfileItem.Namespace.ValueString()
+						}
+						if !TCPServerProfileItem.Tenant.IsNull() && !TCPServerProfileItem.Tenant.IsUnknown() {
+							TCPServerProfileItemMap["tenant"] = TCPServerProfileItem.Tenant.ValueString()
+						}
+						if !TCPServerProfileItem.Uid.IsNull() && !TCPServerProfileItem.Uid.IsUnknown() {
+							TCPServerProfileItemMap["uid"] = TCPServerProfileItem.Uid.ValueString()
+						}
+						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
+					}
+					UDPMap["tcp_server_profile"] = TCPServerProfileList
+				}
+			}
+			VirtualServerMap["udp"] = UDPMap
 		}
 		if data.VirtualServer.VirtualServerState != nil {
-			virtual_server_stateNestedMap := make(map[string]interface{})
-			virtual_serverMap["virtual_server_state"] = virtual_server_stateNestedMap
+			VirtualServerStateMap := make(map[string]interface{})
+			if data.VirtualServer.VirtualServerState.StateDisabled != nil {
+				VirtualServerStateMap["state_disabled"] = map[string]interface{}{}
+			}
+			if data.VirtualServer.VirtualServerState.StateEnabled != nil {
+				VirtualServerStateMap["state_enabled"] = map[string]interface{}{}
+			}
+			VirtualServerMap["virtual_server_state"] = VirtualServerStateMap
 		}
 		if !data.VirtualServer.VsScore.IsNull() && !data.VirtualServer.VsScore.IsUnknown() {
-			virtual_serverMap["vs_score"] = data.VirtualServer.VsScore.ValueInt64()
+			VirtualServerMap["vs_score"] = data.VirtualServer.VsScore.ValueInt64()
 		}
-		createReq.Spec["virtual_server"] = virtual_serverMap
+		createReq.Spec["virtual_server"] = VirtualServerMap
 	}
 
 	apiResource, err := r.client.CreateApplicationProfiles(ctx, createReq)
@@ -3144,26 +3795,62 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["advanced_tcp_profile"].(map[string]interface{}); ok && isImport && data.AdvancedTCPProfile == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AdvancedTCPProfile = &ApplicationProfilesAdvancedTCPProfileModel{}
+	if blockData, ok := apiResource.Spec["advanced_tcp_profile"].(map[string]interface{}); ok && (isImport || data.AdvancedTCPProfile != nil) {
+		data.AdvancedTCPProfile = &ApplicationProfilesAdvancedTCPProfileModel{
+			DisableTCPAdvancedProfile: func() *ApplicationProfilesEmptyModel {
+				if !isImport && data.AdvancedTCPProfile != nil {
+					return data.AdvancedTCPProfile.DisableTCPAdvancedProfile
+				}
+				if _, ok := blockData["disable_tcp_advanced_profile"].(map[string]interface{}); ok {
+					return &ApplicationProfilesEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableTCPAdvancedProfile: func() *ApplicationProfilesEmptyModel {
+				if !isImport && data.AdvancedTCPProfile != nil {
+					return data.AdvancedTCPProfile.EnableTCPAdvancedProfile
+				}
+				if _, ok := blockData["enable_tcp_advanced_profile"].(map[string]interface{}); ok {
+					return &ApplicationProfilesEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && isImport && data.DDOSProfile == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.DDOSProfile = &ApplicationProfilesDDOSProfileModel{}
+	if blockData, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && (isImport || data.DDOSProfile != nil) {
+		data.DDOSProfile = &ApplicationProfilesDDOSProfileModel{
+			DisableDDOSMitigation: func() *ApplicationProfilesEmptyModel {
+				if !isImport && data.DDOSProfile != nil {
+					return data.DDOSProfile.DisableDDOSMitigation
+				}
+				if _, ok := blockData["disable_ddos_mitigation"].(map[string]interface{}); ok {
+					return &ApplicationProfilesEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableDDOSMitigation: func() *ApplicationProfilesEmptyModel {
+				if !isImport && data.DDOSProfile != nil {
+					return data.DDOSProfile.EnableDDOSMitigation
+				}
+				if _, ok := blockData["enable_ddos_mitigation"].(map[string]interface{}); ok {
+					return &ApplicationProfilesEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["irules"].([]interface{}); ok && len(listData) > 0 {
-		var irulesList []ApplicationProfilesIrulesModel
+	if !isImport && (data.Irules.IsNull() || len(data.Irules.Elements()) == 0) {
+		data.Irules = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesIrulesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["irules"].([]interface{}); ok && len(listData) > 0 {
+		var IrulesList []ApplicationProfilesIrulesModel
 		var existingIrulesItems []ApplicationProfilesIrulesModel
 		if !data.Irules.IsNull() && !data.Irules.IsUnknown() {
 			data.Irules.ElementsAs(ctx, &existingIrulesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				irulesList = append(irulesList, ApplicationProfilesIrulesModel{
+				IrulesList = append(IrulesList, ApplicationProfilesIrulesModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -3197,25 +3884,26 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesIrulesModelAttrTypes}, irulesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesIrulesModelAttrTypes}, IrulesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Irules = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Irules = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesIrulesModelAttrTypes})
 	}
-	if listData, ok := apiResource.Spec["traffic_policies"].([]interface{}); ok && len(listData) > 0 {
-		var traffic_policiesList []ApplicationProfilesTrafficPoliciesModel
+	if !isImport && (data.TrafficPolicies.IsNull() || len(data.TrafficPolicies.Elements()) == 0) {
+		data.TrafficPolicies = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesTrafficPoliciesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["traffic_policies"].([]interface{}); ok && len(listData) > 0 {
+		var TrafficPoliciesList []ApplicationProfilesTrafficPoliciesModel
 		var existingTrafficPoliciesItems []ApplicationProfilesTrafficPoliciesModel
 		if !data.TrafficPolicies.IsNull() && !data.TrafficPolicies.IsUnknown() {
 			data.TrafficPolicies.ElementsAs(ctx, &existingTrafficPoliciesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				traffic_policiesList = append(traffic_policiesList, ApplicationProfilesTrafficPoliciesModel{
+				TrafficPoliciesList = append(TrafficPoliciesList, ApplicationProfilesTrafficPoliciesModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -3249,71 +3937,101 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesTrafficPoliciesModelAttrTypes}, traffic_policiesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesTrafficPoliciesModelAttrTypes}, TrafficPoliciesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.TrafficPolicies = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.TrafficPolicies = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesTrafficPoliciesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["virtual_server"].(map[string]interface{}); ok && (isImport || data.VirtualServer != nil) {
 		data.VirtualServer = &ApplicationProfilesVirtualServerModel{
 			AddressTranslation: func() *ApplicationProfilesVirtualServerAddressTranslationModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.AddressTranslation
 				}
-				// Import case: read from API
-				if _, ok := blockData["address_translation"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerAddressTranslationModel{}
+				if AddressTranslationData, ok := blockData["address_translation"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerAddressTranslationModel{
+						AddressTranslationDisable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := AddressTranslationData["address_translation_disable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						AddressTranslationEnable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := AddressTranslationData["address_translation_enable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			AutoLastHop: func() *ApplicationProfilesVirtualServerAutoLastHopModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.AutoLastHop
 				}
-				// Import case: read from API
-				if _, ok := blockData["auto_last_hop"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerAutoLastHopModel{}
+				if AutoLastHopData, ok := blockData["auto_last_hop"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerAutoLastHopModel{
+						AutoLastHopDefault: func() *ApplicationProfilesEmptyModel {
+							if _, ok := AutoLastHopData["auto_last_hop_default"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						AutoLastHopDisable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := AutoLastHopData["auto_last_hop_disable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						AutoLastHopEnable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := AutoLastHopData["auto_last_hop_enable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
-			ClonePoolClient: func() []ApplicationProfilesVirtualServerClonePoolClientModel {
-				if listData, ok := blockData["clone_pool_client"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerClonePoolClientModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerClonePoolClientModel{
+			ClonePoolClient: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.ClonePoolClient.IsNull() || len(data.VirtualServer.ClonePoolClient.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolClientModelAttrTypes})
+				}
+				if rawList, ok := blockData["clone_pool_client"].([]interface{}); ok && len(rawList) > 0 {
+					var ClonePoolClientResult []ApplicationProfilesVirtualServerClonePoolClientModel
+					for _, ClonePoolClientItem := range rawList {
+						if ClonePoolClientItemMap, ok := ClonePoolClientItem.(map[string]interface{}); ok {
+							ClonePoolClientResult = append(ClonePoolClientResult, ApplicationProfilesVirtualServerClonePoolClientModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := ClonePoolClientItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := ClonePoolClientItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := ClonePoolClientItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := ClonePoolClientItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := ClonePoolClientItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -3321,42 +4039,46 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolClientModelAttrTypes}, ClonePoolClientResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolClientModelAttrTypes})
 			}(),
-			ClonePoolServer: func() []ApplicationProfilesVirtualServerClonePoolServerModel {
-				if listData, ok := blockData["clone_pool_server"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerClonePoolServerModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerClonePoolServerModel{
+			ClonePoolServer: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.ClonePoolServer.IsNull() || len(data.VirtualServer.ClonePoolServer.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolServerModelAttrTypes})
+				}
+				if rawList, ok := blockData["clone_pool_server"].([]interface{}); ok && len(rawList) > 0 {
+					var ClonePoolServerResult []ApplicationProfilesVirtualServerClonePoolServerModel
+					for _, ClonePoolServerItem := range rawList {
+						if ClonePoolServerItemMap, ok := ClonePoolServerItem.(map[string]interface{}); ok {
+							ClonePoolServerResult = append(ClonePoolServerResult, ApplicationProfilesVirtualServerClonePoolServerModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := ClonePoolServerItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := ClonePoolServerItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := ClonePoolServerItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := ClonePoolServerItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := ClonePoolServerItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -3364,85 +4086,170 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolServerModelAttrTypes}, ClonePoolServerResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolServerModelAttrTypes})
 			}(),
 			ConnectionLimit: func() types.Int64 {
 				if !isImport && data.VirtualServer != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.VirtualServer.ConnectionLimit
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["connection_limit"].(float64); ok {
+				if v, ok := blockData["connection_limit"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			ConnectionRateLimit: func() types.Int64 {
 				if !isImport && data.VirtualServer != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.VirtualServer.ConnectionRateLimit
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["connection_rate_limit"].(float64); ok {
+				if v, ok := blockData["connection_rate_limit"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			ConnectionRateLimitMode: func() *ApplicationProfilesVirtualServerConnectionRateLimitModeModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.ConnectionRateLimitMode
 				}
-				// Import case: read from API
-				if _, ok := blockData["connection_rate_limit_mode"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerConnectionRateLimitModeModel{}
+				if ConnectionRateLimitModeData, ok := blockData["connection_rate_limit_mode"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerConnectionRateLimitModeModel{
+						PerDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerDestinationAddressModel {
+							if PerDestinationAddressData, ok := ConnectionRateLimitModeData["per_destination_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerDestinationAddressModel{
+									DestinationMask: func() types.Int64 {
+										if v, ok := PerDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						PerSourceAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceAddressModel {
+							if PerSourceAddressData, ok := ConnectionRateLimitModeData["per_source_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceAddressModel{
+									SourceMask: func() types.Int64 {
+										if v, ok := PerSourceAddressData["source_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						PerSourceDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceDestinationAddressModel {
+							if PerSourceDestinationAddressData, ok := ConnectionRateLimitModeData["per_source_destination_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceDestinationAddressModel{
+									DestinationMask: func() types.Int64 {
+										if v, ok := PerSourceDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									SourceMask: func() types.Int64 {
+										if v, ok := PerSourceDestinationAddressData["source_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						PerVirtualServer: func() *ApplicationProfilesEmptyModel {
+							if _, ok := ConnectionRateLimitModeData["per_virtual_server"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						PerVirtualServerDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressModel {
+							if PerVirtualServerDestinationAddressData, ok := ConnectionRateLimitModeData["per_virtual_server_destination_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressModel{
+									DestinationMask: func() types.Int64 {
+										if v, ok := PerVirtualServerDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						PerVirtualServerSourceAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceAddressModel {
+							if PerVirtualServerSourceAddressData, ok := ConnectionRateLimitModeData["per_virtual_server_source_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceAddressModel{
+									SourceMask: func() types.Int64 {
+										if v, ok := PerVirtualServerSourceAddressData["source_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						PerVirtualServerSourceDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressModel {
+							if PerVirtualServerSourceDestinationAddressData, ok := ConnectionRateLimitModeData["per_virtual_server_source_destination_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressModel{
+									DestinationMask: func() types.Int64 {
+										if v, ok := PerVirtualServerSourceDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									SourceMask: func() types.Int64 {
+										if v, ok := PerVirtualServerSourceDestinationAddressData["source_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
-			DefaultPersistenceProfile: func() []ApplicationProfilesVirtualServerDefaultPersistenceProfileModel {
-				if listData, ok := blockData["default_persistence_profile"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerDefaultPersistenceProfileModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerDefaultPersistenceProfileModel{
+			DefaultPersistenceProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.DefaultPersistenceProfile.IsNull() || len(data.VirtualServer.DefaultPersistenceProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPersistenceProfileModelAttrTypes})
+				}
+				if rawList, ok := blockData["default_persistence_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var DefaultPersistenceProfileResult []ApplicationProfilesVirtualServerDefaultPersistenceProfileModel
+					for _, DefaultPersistenceProfileItem := range rawList {
+						if DefaultPersistenceProfileItemMap, ok := DefaultPersistenceProfileItem.(map[string]interface{}); ok {
+							DefaultPersistenceProfileResult = append(DefaultPersistenceProfileResult, ApplicationProfilesVirtualServerDefaultPersistenceProfileModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := DefaultPersistenceProfileItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := DefaultPersistenceProfileItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := DefaultPersistenceProfileItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := DefaultPersistenceProfileItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := DefaultPersistenceProfileItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -3450,42 +4257,46 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPersistenceProfileModelAttrTypes}, DefaultPersistenceProfileResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPersistenceProfileModelAttrTypes})
 			}(),
-			DefaultPool: func() []ApplicationProfilesVirtualServerDefaultPoolModel {
-				if listData, ok := blockData["default_pool"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerDefaultPoolModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerDefaultPoolModel{
+			DefaultPool: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.DefaultPool.IsNull() || len(data.VirtualServer.DefaultPool.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPoolModelAttrTypes})
+				}
+				if rawList, ok := blockData["default_pool"].([]interface{}); ok && len(rawList) > 0 {
+					var DefaultPoolResult []ApplicationProfilesVirtualServerDefaultPoolModel
+					for _, DefaultPoolItem := range rawList {
+						if DefaultPoolItemMap, ok := DefaultPoolItem.(map[string]interface{}); ok {
+							DefaultPoolResult = append(DefaultPoolResult, ApplicationProfilesVirtualServerDefaultPoolModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := DefaultPoolItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := DefaultPoolItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := DefaultPoolItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := DefaultPoolItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := DefaultPoolItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -3493,42 +4304,46 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPoolModelAttrTypes}, DefaultPoolResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPoolModelAttrTypes})
 			}(),
-			FallbackPersistenceProfile: func() []ApplicationProfilesVirtualServerFallbackPersistenceProfileModel {
-				if listData, ok := blockData["fallback_persistence_profile"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerFallbackPersistenceProfileModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerFallbackPersistenceProfileModel{
+			FallbackPersistenceProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.FallbackPersistenceProfile.IsNull() || len(data.VirtualServer.FallbackPersistenceProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFallbackPersistenceProfileModelAttrTypes})
+				}
+				if rawList, ok := blockData["fallback_persistence_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var FallbackPersistenceProfileResult []ApplicationProfilesVirtualServerFallbackPersistenceProfileModel
+					for _, FallbackPersistenceProfileItem := range rawList {
+						if FallbackPersistenceProfileItemMap, ok := FallbackPersistenceProfileItem.(map[string]interface{}); ok {
+							FallbackPersistenceProfileResult = append(FallbackPersistenceProfileResult, ApplicationProfilesVirtualServerFallbackPersistenceProfileModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := FallbackPersistenceProfileItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := FallbackPersistenceProfileItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := FallbackPersistenceProfileItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := FallbackPersistenceProfileItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := FallbackPersistenceProfileItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -3536,42 +4351,46 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFallbackPersistenceProfileModelAttrTypes}, FallbackPersistenceProfileResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFallbackPersistenceProfileModelAttrTypes})
 			}(),
-			FixProfile: func() []ApplicationProfilesVirtualServerFixProfileModel {
-				if listData, ok := blockData["fix_profile"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerFixProfileModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerFixProfileModel{
+			FixProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.FixProfile.IsNull() || len(data.VirtualServer.FixProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFixProfileModelAttrTypes})
+				}
+				if rawList, ok := blockData["fix_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var FixProfileResult []ApplicationProfilesVirtualServerFixProfileModel
+					for _, FixProfileItem := range rawList {
+						if FixProfileItemMap, ok := FixProfileItem.(map[string]interface{}); ok {
+							FixProfileResult = append(FixProfileResult, ApplicationProfilesVirtualServerFixProfileModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := FixProfileItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := FixProfileItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := FixProfileItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := FixProfileItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := FixProfileItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -3579,75 +4398,710 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFixProfileModelAttrTypes}, FixProfileResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFixProfileModelAttrTypes})
 			}(),
 			HTTP: func() *ApplicationProfilesVirtualServerHTTPModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.HTTP
 				}
-				// Import case: read from API
-				if _, ok := blockData["http"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerHTTPModel{}
+				if HTTPData, ok := blockData["http"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerHTTPModel{
+						HTTPClientProfile: func() types.List {
+							if rawList, ok := HTTPData["http_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPClientProfileResult []ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel
+								for _, HTTPClientProfileItem := range rawList {
+									if HTTPClientProfileItemMap, ok := HTTPClientProfileItem.(map[string]interface{}); ok {
+										HTTPClientProfileResult = append(HTTPClientProfileResult, ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPClientProfileModelAttrTypes}, HTTPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPClientProfileModelAttrTypes})
+						}(),
+						HTTPServerProfile: func() types.List {
+							if rawList, ok := HTTPData["http_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPServerProfileResult []ApplicationProfilesVirtualServerHTTPHTTPServerProfileModel
+								for _, HTTPServerProfileItem := range rawList {
+									if HTTPServerProfileItemMap, ok := HTTPServerProfileItem.(map[string]interface{}); ok {
+										HTTPServerProfileResult = append(HTTPServerProfileResult, ApplicationProfilesVirtualServerHTTPHTTPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPServerProfileModelAttrTypes}, HTTPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPServerProfileModelAttrTypes})
+						}(),
+						StreamProfile: func() types.List {
+							if rawList, ok := HTTPData["stream_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var StreamProfileResult []ApplicationProfilesVirtualServerHTTPStreamProfileModel
+								for _, StreamProfileItem := range rawList {
+									if StreamProfileItemMap, ok := StreamProfileItem.(map[string]interface{}); ok {
+										StreamProfileResult = append(StreamProfileResult, ApplicationProfilesVirtualServerHTTPStreamProfileModel{
+											Kind: func() types.String {
+												if v, ok := StreamProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := StreamProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := StreamProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := StreamProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := StreamProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPStreamProfileModelAttrTypes}, StreamProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPStreamProfileModelAttrTypes})
+						}(),
+						TCPClientProfile: func() types.List {
+							if rawList, ok := HTTPData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPClientProfileResult []ApplicationProfilesVirtualServerHTTPTCPClientProfileModel
+								for _, TCPClientProfileItem := range rawList {
+									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
+										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerHTTPTCPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPClientProfileModelAttrTypes}, TCPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPClientProfileModelAttrTypes})
+						}(),
+						TCPServerProfile: func() types.List {
+							if rawList, ok := HTTPData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPServerProfileResult []ApplicationProfilesVirtualServerHTTPTCPServerProfileModel
+								for _, TCPServerProfileItem := range rawList {
+									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
+										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerHTTPTCPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPServerProfileModelAttrTypes}, TCPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPServerProfileModelAttrTypes})
+						}(),
+						WebSocketClientProfile: func() types.List {
+							if rawList, ok := HTTPData["websocket_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var WebSocketClientProfileResult []ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModel
+								for _, WebSocketClientProfileItem := range rawList {
+									if WebSocketClientProfileItemMap, ok := WebSocketClientProfileItem.(map[string]interface{}); ok {
+										WebSocketClientProfileResult = append(WebSocketClientProfileResult, ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModelAttrTypes}, WebSocketClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModelAttrTypes})
+						}(),
+						WebSocketServerProfile: func() types.List {
+							if rawList, ok := HTTPData["websocket_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var WebSocketServerProfileResult []ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModel
+								for _, WebSocketServerProfileItem := range rawList {
+									if WebSocketServerProfileItemMap, ok := WebSocketServerProfileItem.(map[string]interface{}); ok {
+										WebSocketServerProfileResult = append(WebSocketServerProfileResult, ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModelAttrTypes}, WebSocketServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModelAttrTypes})
+						}(),
+					}
 				}
 				return nil
 			}(),
 			HTTPS: func() *ApplicationProfilesVirtualServerHTTPSModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.HTTPS
 				}
-				// Import case: read from API
-				if _, ok := blockData["https"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerHTTPSModel{}
+				if HTTPSData, ok := blockData["https"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerHTTPSModel{
+						HTTPClientProfile: func() types.List {
+							if rawList, ok := HTTPSData["http_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPClientProfileResult []ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel
+								for _, HTTPClientProfileItem := range rawList {
+									if HTTPClientProfileItemMap, ok := HTTPClientProfileItem.(map[string]interface{}); ok {
+										HTTPClientProfileResult = append(HTTPClientProfileResult, ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModelAttrTypes}, HTTPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModelAttrTypes})
+						}(),
+						HTTPServerProfile: func() types.List {
+							if rawList, ok := HTTPSData["http_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPServerProfileResult []ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModel
+								for _, HTTPServerProfileItem := range rawList {
+									if HTTPServerProfileItemMap, ok := HTTPServerProfileItem.(map[string]interface{}); ok {
+										HTTPServerProfileResult = append(HTTPServerProfileResult, ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModelAttrTypes}, HTTPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModelAttrTypes})
+						}(),
+						StreamProfile: func() types.List {
+							if rawList, ok := HTTPSData["stream_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var StreamProfileResult []ApplicationProfilesVirtualServerHTTPSStreamProfileModel
+								for _, StreamProfileItem := range rawList {
+									if StreamProfileItemMap, ok := StreamProfileItem.(map[string]interface{}); ok {
+										StreamProfileResult = append(StreamProfileResult, ApplicationProfilesVirtualServerHTTPSStreamProfileModel{
+											Kind: func() types.String {
+												if v, ok := StreamProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := StreamProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := StreamProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := StreamProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := StreamProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSStreamProfileModelAttrTypes}, StreamProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSStreamProfileModelAttrTypes})
+						}(),
+						TCPClientProfile: func() types.List {
+							if rawList, ok := HTTPSData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPClientProfileResult []ApplicationProfilesVirtualServerHTTPSTCPClientProfileModel
+								for _, TCPClientProfileItem := range rawList {
+									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
+										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerHTTPSTCPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPClientProfileModelAttrTypes}, TCPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPClientProfileModelAttrTypes})
+						}(),
+						TCPServerProfile: func() types.List {
+							if rawList, ok := HTTPSData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPServerProfileResult []ApplicationProfilesVirtualServerHTTPSTCPServerProfileModel
+								for _, TCPServerProfileItem := range rawList {
+									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
+										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerHTTPSTCPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPServerProfileModelAttrTypes}, TCPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPServerProfileModelAttrTypes})
+						}(),
+						WebSocketClientProfile: func() types.List {
+							if rawList, ok := HTTPSData["websocket_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var WebSocketClientProfileResult []ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModel
+								for _, WebSocketClientProfileItem := range rawList {
+									if WebSocketClientProfileItemMap, ok := WebSocketClientProfileItem.(map[string]interface{}); ok {
+										WebSocketClientProfileResult = append(WebSocketClientProfileResult, ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModelAttrTypes}, WebSocketClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModelAttrTypes})
+						}(),
+						WebSocketServerProfile: func() types.List {
+							if rawList, ok := HTTPSData["websocket_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var WebSocketServerProfileResult []ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModel
+								for _, WebSocketServerProfileItem := range rawList {
+									if WebSocketServerProfileItemMap, ok := WebSocketServerProfileItem.(map[string]interface{}); ok {
+										WebSocketServerProfileResult = append(WebSocketServerProfileResult, ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModelAttrTypes}, WebSocketServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModelAttrTypes})
+						}(),
+					}
 				}
 				return nil
 			}(),
 			ImmediateActionOnServiceDown: func() *ApplicationProfilesVirtualServerImmediateActionOnServiceDownModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.ImmediateActionOnServiceDown
 				}
-				// Import case: read from API
-				if _, ok := blockData["immediate_action_on_service_down"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerImmediateActionOnServiceDownModel{}
+				if ImmediateActionOnServiceDownData, ok := blockData["immediate_action_on_service_down"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerImmediateActionOnServiceDownModel{
+						ImmediateActionOnServiceDownDrop: func() *ApplicationProfilesEmptyModel {
+							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_drop"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						ImmediateActionOnServiceDownNone: func() *ApplicationProfilesEmptyModel {
+							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_none"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						ImmediateActionOnServiceDownReset: func() *ApplicationProfilesEmptyModel {
+							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_reset"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
-			LastHopPool: func() []ApplicationProfilesVirtualServerLastHopPoolModel {
-				if listData, ok := blockData["last_hop_pool"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerLastHopPoolModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerLastHopPoolModel{
+			LastHopPool: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.LastHopPool.IsNull() || len(data.VirtualServer.LastHopPool.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerLastHopPoolModelAttrTypes})
+				}
+				if rawList, ok := blockData["last_hop_pool"].([]interface{}); ok && len(rawList) > 0 {
+					var LastHopPoolResult []ApplicationProfilesVirtualServerLastHopPoolModel
+					for _, LastHopPoolItem := range rawList {
+						if LastHopPoolItemMap, ok := LastHopPoolItem.(map[string]interface{}); ok {
+							LastHopPoolResult = append(LastHopPoolResult, ApplicationProfilesVirtualServerLastHopPoolModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := LastHopPoolItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := LastHopPoolItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := LastHopPoolItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := LastHopPoolItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := LastHopPoolItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -3655,64 +5109,90 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerLastHopPoolModelAttrTypes}, LastHopPoolResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerLastHopPoolModelAttrTypes})
 			}(),
 			Nat64: func() *ApplicationProfilesVirtualServerNat64Model {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.Nat64 != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.Nat64
 				}
-				// Import case: read from API
-				if _, ok := blockData["nat64"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerNat64Model{}
+				if Nat64Data, ok := blockData["nat64"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerNat64Model{
+						Nat64Disable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := Nat64Data["nat64_disable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						Nat64Enable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := Nat64Data["nat64_enable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			PortTranslation: func() *ApplicationProfilesVirtualServerPortTranslationModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.PortTranslation != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.PortTranslation
 				}
-				// Import case: read from API
-				if _, ok := blockData["port_translation"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerPortTranslationModel{}
+				if PortTranslationData, ok := blockData["port_translation"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerPortTranslationModel{
+						PortTranslationDisable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := PortTranslationData["port_translation_disable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						PortTranslationEnable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := PortTranslationData["port_translation_enable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
-			RequestLoggingProfile: func() []ApplicationProfilesVirtualServerRequestLoggingProfileModel {
-				if listData, ok := blockData["request_logging_profile"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerRequestLoggingProfileModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerRequestLoggingProfileModel{
+			RequestLoggingProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.RequestLoggingProfile.IsNull() || len(data.VirtualServer.RequestLoggingProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerRequestLoggingProfileModelAttrTypes})
+				}
+				if rawList, ok := blockData["request_logging_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var RequestLoggingProfileResult []ApplicationProfilesVirtualServerRequestLoggingProfileModel
+					for _, RequestLoggingProfileItem := range rawList {
+						if RequestLoggingProfileItemMap, ok := RequestLoggingProfileItem.(map[string]interface{}); ok {
+							RequestLoggingProfileResult = append(RequestLoggingProfileResult, ApplicationProfilesVirtualServerRequestLoggingProfileModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := RequestLoggingProfileItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := RequestLoggingProfileItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := RequestLoggingProfileItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := RequestLoggingProfileItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := RequestLoggingProfileItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -3720,53 +5200,74 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerRequestLoggingProfileModelAttrTypes}, RequestLoggingProfileResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerRequestLoggingProfileModelAttrTypes})
 			}(),
 			SourcePort: func() *ApplicationProfilesVirtualServerSourcePortModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.SourcePort
 				}
-				// Import case: read from API
-				if _, ok := blockData["source_port"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerSourcePortModel{}
+				if SourcePortData, ok := blockData["source_port"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerSourcePortModel{
+						SourcePortChange: func() *ApplicationProfilesEmptyModel {
+							if _, ok := SourcePortData["source_port_change"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						SourcePortPreserve: func() *ApplicationProfilesEmptyModel {
+							if _, ok := SourcePortData["source_port_preserve"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						SourcePortPreserveStrict: func() *ApplicationProfilesEmptyModel {
+							if _, ok := SourcePortData["source_port_preserve_strict"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
-			StatisticsProfile: func() []ApplicationProfilesVirtualServerStatisticsProfileModel {
-				if listData, ok := blockData["statistics_profile"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerStatisticsProfileModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerStatisticsProfileModel{
+			StatisticsProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.StatisticsProfile.IsNull() || len(data.VirtualServer.StatisticsProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerStatisticsProfileModelAttrTypes})
+				}
+				if rawList, ok := blockData["statistics_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var StatisticsProfileResult []ApplicationProfilesVirtualServerStatisticsProfileModel
+					for _, StatisticsProfileItem := range rawList {
+						if StatisticsProfileItemMap, ok := StatisticsProfileItem.(map[string]interface{}); ok {
+							StatisticsProfileResult = append(StatisticsProfileResult, ApplicationProfilesVirtualServerStatisticsProfileModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := StatisticsProfileItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := StatisticsProfileItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := StatisticsProfileItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := StatisticsProfileItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := StatisticsProfileItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -3774,55 +5275,234 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerStatisticsProfileModelAttrTypes}, StatisticsProfileResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerStatisticsProfileModelAttrTypes})
 			}(),
 			TCP: func() *ApplicationProfilesVirtualServerTCPModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.TCP
 				}
-				// Import case: read from API
-				if _, ok := blockData["tcp"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerTCPModel{}
+				if TCPData, ok := blockData["tcp"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerTCPModel{
+						TCPClientProfile: func() types.List {
+							if rawList, ok := TCPData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPClientProfileResult []ApplicationProfilesVirtualServerTCPTCPClientProfileModel
+								for _, TCPClientProfileItem := range rawList {
+									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
+										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerTCPTCPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPClientProfileModelAttrTypes}, TCPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPClientProfileModelAttrTypes})
+						}(),
+						TCPServerProfile: func() types.List {
+							if rawList, ok := TCPData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPServerProfileResult []ApplicationProfilesVirtualServerTCPTCPServerProfileModel
+								for _, TCPServerProfileItem := range rawList {
+									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
+										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerTCPTCPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPServerProfileModelAttrTypes}, TCPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPServerProfileModelAttrTypes})
+						}(),
+					}
 				}
 				return nil
 			}(),
 			UDP: func() *ApplicationProfilesVirtualServerUDPModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.UDP
 				}
-				// Import case: read from API
-				if _, ok := blockData["udp"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerUDPModel{}
+				if UDPData, ok := blockData["udp"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerUDPModel{
+						TCPClientProfile: func() types.List {
+							if rawList, ok := UDPData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPClientProfileResult []ApplicationProfilesVirtualServerUDPTCPClientProfileModel
+								for _, TCPClientProfileItem := range rawList {
+									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
+										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerUDPTCPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes}, TCPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes})
+						}(),
+						TCPServerProfile: func() types.List {
+							if rawList, ok := UDPData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPServerProfileResult []ApplicationProfilesVirtualServerUDPTCPServerProfileModel
+								for _, TCPServerProfileItem := range rawList {
+									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
+										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerUDPTCPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPServerProfileModelAttrTypes}, TCPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPServerProfileModelAttrTypes})
+						}(),
+					}
 				}
 				return nil
 			}(),
 			VirtualServerState: func() *ApplicationProfilesVirtualServerVirtualServerStateModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.VirtualServerState != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.VirtualServerState
 				}
-				// Import case: read from API
-				if _, ok := blockData["virtual_server_state"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerVirtualServerStateModel{}
+				if VirtualServerStateData, ok := blockData["virtual_server_state"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerVirtualServerStateModel{
+						StateDisabled: func() *ApplicationProfilesEmptyModel {
+							if _, ok := VirtualServerStateData["state_disabled"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						StateEnabled: func() *ApplicationProfilesEmptyModel {
+							if _, ok := VirtualServerStateData["state_enabled"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			VsScore: func() types.Int64 {
 				if !isImport && data.VirtualServer != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.VirtualServer.VsScore
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["vs_score"].(float64); ok {
+				if v, ok := blockData["vs_score"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -3909,26 +5589,62 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["advanced_tcp_profile"].(map[string]interface{}); ok && isImport && data.AdvancedTCPProfile == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AdvancedTCPProfile = &ApplicationProfilesAdvancedTCPProfileModel{}
+	if blockData, ok := apiResource.Spec["advanced_tcp_profile"].(map[string]interface{}); ok && (isImport || data.AdvancedTCPProfile != nil) {
+		data.AdvancedTCPProfile = &ApplicationProfilesAdvancedTCPProfileModel{
+			DisableTCPAdvancedProfile: func() *ApplicationProfilesEmptyModel {
+				if !isImport && data.AdvancedTCPProfile != nil {
+					return data.AdvancedTCPProfile.DisableTCPAdvancedProfile
+				}
+				if _, ok := blockData["disable_tcp_advanced_profile"].(map[string]interface{}); ok {
+					return &ApplicationProfilesEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableTCPAdvancedProfile: func() *ApplicationProfilesEmptyModel {
+				if !isImport && data.AdvancedTCPProfile != nil {
+					return data.AdvancedTCPProfile.EnableTCPAdvancedProfile
+				}
+				if _, ok := blockData["enable_tcp_advanced_profile"].(map[string]interface{}); ok {
+					return &ApplicationProfilesEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && isImport && data.DDOSProfile == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.DDOSProfile = &ApplicationProfilesDDOSProfileModel{}
+	if blockData, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && (isImport || data.DDOSProfile != nil) {
+		data.DDOSProfile = &ApplicationProfilesDDOSProfileModel{
+			DisableDDOSMitigation: func() *ApplicationProfilesEmptyModel {
+				if !isImport && data.DDOSProfile != nil {
+					return data.DDOSProfile.DisableDDOSMitigation
+				}
+				if _, ok := blockData["disable_ddos_mitigation"].(map[string]interface{}); ok {
+					return &ApplicationProfilesEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableDDOSMitigation: func() *ApplicationProfilesEmptyModel {
+				if !isImport && data.DDOSProfile != nil {
+					return data.DDOSProfile.EnableDDOSMitigation
+				}
+				if _, ok := blockData["enable_ddos_mitigation"].(map[string]interface{}); ok {
+					return &ApplicationProfilesEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["irules"].([]interface{}); ok && len(listData) > 0 {
-		var irulesList []ApplicationProfilesIrulesModel
+	if !isImport && (data.Irules.IsNull() || len(data.Irules.Elements()) == 0) {
+		data.Irules = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesIrulesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["irules"].([]interface{}); ok && len(listData) > 0 {
+		var IrulesList []ApplicationProfilesIrulesModel
 		var existingIrulesItems []ApplicationProfilesIrulesModel
 		if !data.Irules.IsNull() && !data.Irules.IsUnknown() {
 			data.Irules.ElementsAs(ctx, &existingIrulesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				irulesList = append(irulesList, ApplicationProfilesIrulesModel{
+				IrulesList = append(IrulesList, ApplicationProfilesIrulesModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -3962,25 +5678,26 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesIrulesModelAttrTypes}, irulesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesIrulesModelAttrTypes}, IrulesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Irules = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Irules = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesIrulesModelAttrTypes})
 	}
-	if listData, ok := apiResource.Spec["traffic_policies"].([]interface{}); ok && len(listData) > 0 {
-		var traffic_policiesList []ApplicationProfilesTrafficPoliciesModel
+	if !isImport && (data.TrafficPolicies.IsNull() || len(data.TrafficPolicies.Elements()) == 0) {
+		data.TrafficPolicies = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesTrafficPoliciesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["traffic_policies"].([]interface{}); ok && len(listData) > 0 {
+		var TrafficPoliciesList []ApplicationProfilesTrafficPoliciesModel
 		var existingTrafficPoliciesItems []ApplicationProfilesTrafficPoliciesModel
 		if !data.TrafficPolicies.IsNull() && !data.TrafficPolicies.IsUnknown() {
 			data.TrafficPolicies.ElementsAs(ctx, &existingTrafficPoliciesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				traffic_policiesList = append(traffic_policiesList, ApplicationProfilesTrafficPoliciesModel{
+				TrafficPoliciesList = append(TrafficPoliciesList, ApplicationProfilesTrafficPoliciesModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -4014,71 +5731,101 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesTrafficPoliciesModelAttrTypes}, traffic_policiesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesTrafficPoliciesModelAttrTypes}, TrafficPoliciesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.TrafficPolicies = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.TrafficPolicies = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesTrafficPoliciesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["virtual_server"].(map[string]interface{}); ok && (isImport || data.VirtualServer != nil) {
 		data.VirtualServer = &ApplicationProfilesVirtualServerModel{
 			AddressTranslation: func() *ApplicationProfilesVirtualServerAddressTranslationModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.AddressTranslation
 				}
-				// Import case: read from API
-				if _, ok := blockData["address_translation"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerAddressTranslationModel{}
+				if AddressTranslationData, ok := blockData["address_translation"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerAddressTranslationModel{
+						AddressTranslationDisable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := AddressTranslationData["address_translation_disable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						AddressTranslationEnable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := AddressTranslationData["address_translation_enable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			AutoLastHop: func() *ApplicationProfilesVirtualServerAutoLastHopModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.AutoLastHop
 				}
-				// Import case: read from API
-				if _, ok := blockData["auto_last_hop"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerAutoLastHopModel{}
+				if AutoLastHopData, ok := blockData["auto_last_hop"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerAutoLastHopModel{
+						AutoLastHopDefault: func() *ApplicationProfilesEmptyModel {
+							if _, ok := AutoLastHopData["auto_last_hop_default"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						AutoLastHopDisable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := AutoLastHopData["auto_last_hop_disable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						AutoLastHopEnable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := AutoLastHopData["auto_last_hop_enable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
-			ClonePoolClient: func() []ApplicationProfilesVirtualServerClonePoolClientModel {
-				if listData, ok := blockData["clone_pool_client"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerClonePoolClientModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerClonePoolClientModel{
+			ClonePoolClient: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.ClonePoolClient.IsNull() || len(data.VirtualServer.ClonePoolClient.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolClientModelAttrTypes})
+				}
+				if rawList, ok := blockData["clone_pool_client"].([]interface{}); ok && len(rawList) > 0 {
+					var ClonePoolClientResult []ApplicationProfilesVirtualServerClonePoolClientModel
+					for _, ClonePoolClientItem := range rawList {
+						if ClonePoolClientItemMap, ok := ClonePoolClientItem.(map[string]interface{}); ok {
+							ClonePoolClientResult = append(ClonePoolClientResult, ApplicationProfilesVirtualServerClonePoolClientModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := ClonePoolClientItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := ClonePoolClientItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := ClonePoolClientItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := ClonePoolClientItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := ClonePoolClientItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -4086,42 +5833,46 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolClientModelAttrTypes}, ClonePoolClientResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolClientModelAttrTypes})
 			}(),
-			ClonePoolServer: func() []ApplicationProfilesVirtualServerClonePoolServerModel {
-				if listData, ok := blockData["clone_pool_server"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerClonePoolServerModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerClonePoolServerModel{
+			ClonePoolServer: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.ClonePoolServer.IsNull() || len(data.VirtualServer.ClonePoolServer.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolServerModelAttrTypes})
+				}
+				if rawList, ok := blockData["clone_pool_server"].([]interface{}); ok && len(rawList) > 0 {
+					var ClonePoolServerResult []ApplicationProfilesVirtualServerClonePoolServerModel
+					for _, ClonePoolServerItem := range rawList {
+						if ClonePoolServerItemMap, ok := ClonePoolServerItem.(map[string]interface{}); ok {
+							ClonePoolServerResult = append(ClonePoolServerResult, ApplicationProfilesVirtualServerClonePoolServerModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := ClonePoolServerItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := ClonePoolServerItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := ClonePoolServerItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := ClonePoolServerItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := ClonePoolServerItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -4129,85 +5880,170 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolServerModelAttrTypes}, ClonePoolServerResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolServerModelAttrTypes})
 			}(),
 			ConnectionLimit: func() types.Int64 {
 				if !isImport && data.VirtualServer != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.VirtualServer.ConnectionLimit
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["connection_limit"].(float64); ok {
+				if v, ok := blockData["connection_limit"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			ConnectionRateLimit: func() types.Int64 {
 				if !isImport && data.VirtualServer != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.VirtualServer.ConnectionRateLimit
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["connection_rate_limit"].(float64); ok {
+				if v, ok := blockData["connection_rate_limit"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			ConnectionRateLimitMode: func() *ApplicationProfilesVirtualServerConnectionRateLimitModeModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.ConnectionRateLimitMode
 				}
-				// Import case: read from API
-				if _, ok := blockData["connection_rate_limit_mode"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerConnectionRateLimitModeModel{}
+				if ConnectionRateLimitModeData, ok := blockData["connection_rate_limit_mode"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerConnectionRateLimitModeModel{
+						PerDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerDestinationAddressModel {
+							if PerDestinationAddressData, ok := ConnectionRateLimitModeData["per_destination_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerDestinationAddressModel{
+									DestinationMask: func() types.Int64 {
+										if v, ok := PerDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						PerSourceAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceAddressModel {
+							if PerSourceAddressData, ok := ConnectionRateLimitModeData["per_source_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceAddressModel{
+									SourceMask: func() types.Int64 {
+										if v, ok := PerSourceAddressData["source_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						PerSourceDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceDestinationAddressModel {
+							if PerSourceDestinationAddressData, ok := ConnectionRateLimitModeData["per_source_destination_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceDestinationAddressModel{
+									DestinationMask: func() types.Int64 {
+										if v, ok := PerSourceDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									SourceMask: func() types.Int64 {
+										if v, ok := PerSourceDestinationAddressData["source_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						PerVirtualServer: func() *ApplicationProfilesEmptyModel {
+							if _, ok := ConnectionRateLimitModeData["per_virtual_server"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						PerVirtualServerDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressModel {
+							if PerVirtualServerDestinationAddressData, ok := ConnectionRateLimitModeData["per_virtual_server_destination_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressModel{
+									DestinationMask: func() types.Int64 {
+										if v, ok := PerVirtualServerDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						PerVirtualServerSourceAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceAddressModel {
+							if PerVirtualServerSourceAddressData, ok := ConnectionRateLimitModeData["per_virtual_server_source_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceAddressModel{
+									SourceMask: func() types.Int64 {
+										if v, ok := PerVirtualServerSourceAddressData["source_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						PerVirtualServerSourceDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressModel {
+							if PerVirtualServerSourceDestinationAddressData, ok := ConnectionRateLimitModeData["per_virtual_server_source_destination_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressModel{
+									DestinationMask: func() types.Int64 {
+										if v, ok := PerVirtualServerSourceDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									SourceMask: func() types.Int64 {
+										if v, ok := PerVirtualServerSourceDestinationAddressData["source_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
-			DefaultPersistenceProfile: func() []ApplicationProfilesVirtualServerDefaultPersistenceProfileModel {
-				if listData, ok := blockData["default_persistence_profile"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerDefaultPersistenceProfileModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerDefaultPersistenceProfileModel{
+			DefaultPersistenceProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.DefaultPersistenceProfile.IsNull() || len(data.VirtualServer.DefaultPersistenceProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPersistenceProfileModelAttrTypes})
+				}
+				if rawList, ok := blockData["default_persistence_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var DefaultPersistenceProfileResult []ApplicationProfilesVirtualServerDefaultPersistenceProfileModel
+					for _, DefaultPersistenceProfileItem := range rawList {
+						if DefaultPersistenceProfileItemMap, ok := DefaultPersistenceProfileItem.(map[string]interface{}); ok {
+							DefaultPersistenceProfileResult = append(DefaultPersistenceProfileResult, ApplicationProfilesVirtualServerDefaultPersistenceProfileModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := DefaultPersistenceProfileItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := DefaultPersistenceProfileItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := DefaultPersistenceProfileItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := DefaultPersistenceProfileItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := DefaultPersistenceProfileItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -4215,42 +6051,46 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPersistenceProfileModelAttrTypes}, DefaultPersistenceProfileResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPersistenceProfileModelAttrTypes})
 			}(),
-			DefaultPool: func() []ApplicationProfilesVirtualServerDefaultPoolModel {
-				if listData, ok := blockData["default_pool"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerDefaultPoolModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerDefaultPoolModel{
+			DefaultPool: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.DefaultPool.IsNull() || len(data.VirtualServer.DefaultPool.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPoolModelAttrTypes})
+				}
+				if rawList, ok := blockData["default_pool"].([]interface{}); ok && len(rawList) > 0 {
+					var DefaultPoolResult []ApplicationProfilesVirtualServerDefaultPoolModel
+					for _, DefaultPoolItem := range rawList {
+						if DefaultPoolItemMap, ok := DefaultPoolItem.(map[string]interface{}); ok {
+							DefaultPoolResult = append(DefaultPoolResult, ApplicationProfilesVirtualServerDefaultPoolModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := DefaultPoolItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := DefaultPoolItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := DefaultPoolItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := DefaultPoolItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := DefaultPoolItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -4258,42 +6098,46 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPoolModelAttrTypes}, DefaultPoolResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPoolModelAttrTypes})
 			}(),
-			FallbackPersistenceProfile: func() []ApplicationProfilesVirtualServerFallbackPersistenceProfileModel {
-				if listData, ok := blockData["fallback_persistence_profile"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerFallbackPersistenceProfileModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerFallbackPersistenceProfileModel{
+			FallbackPersistenceProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.FallbackPersistenceProfile.IsNull() || len(data.VirtualServer.FallbackPersistenceProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFallbackPersistenceProfileModelAttrTypes})
+				}
+				if rawList, ok := blockData["fallback_persistence_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var FallbackPersistenceProfileResult []ApplicationProfilesVirtualServerFallbackPersistenceProfileModel
+					for _, FallbackPersistenceProfileItem := range rawList {
+						if FallbackPersistenceProfileItemMap, ok := FallbackPersistenceProfileItem.(map[string]interface{}); ok {
+							FallbackPersistenceProfileResult = append(FallbackPersistenceProfileResult, ApplicationProfilesVirtualServerFallbackPersistenceProfileModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := FallbackPersistenceProfileItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := FallbackPersistenceProfileItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := FallbackPersistenceProfileItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := FallbackPersistenceProfileItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := FallbackPersistenceProfileItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -4301,42 +6145,46 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFallbackPersistenceProfileModelAttrTypes}, FallbackPersistenceProfileResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFallbackPersistenceProfileModelAttrTypes})
 			}(),
-			FixProfile: func() []ApplicationProfilesVirtualServerFixProfileModel {
-				if listData, ok := blockData["fix_profile"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerFixProfileModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerFixProfileModel{
+			FixProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.FixProfile.IsNull() || len(data.VirtualServer.FixProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFixProfileModelAttrTypes})
+				}
+				if rawList, ok := blockData["fix_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var FixProfileResult []ApplicationProfilesVirtualServerFixProfileModel
+					for _, FixProfileItem := range rawList {
+						if FixProfileItemMap, ok := FixProfileItem.(map[string]interface{}); ok {
+							FixProfileResult = append(FixProfileResult, ApplicationProfilesVirtualServerFixProfileModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := FixProfileItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := FixProfileItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := FixProfileItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := FixProfileItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := FixProfileItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -4344,75 +6192,710 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFixProfileModelAttrTypes}, FixProfileResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFixProfileModelAttrTypes})
 			}(),
 			HTTP: func() *ApplicationProfilesVirtualServerHTTPModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.HTTP
 				}
-				// Import case: read from API
-				if _, ok := blockData["http"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerHTTPModel{}
+				if HTTPData, ok := blockData["http"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerHTTPModel{
+						HTTPClientProfile: func() types.List {
+							if rawList, ok := HTTPData["http_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPClientProfileResult []ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel
+								for _, HTTPClientProfileItem := range rawList {
+									if HTTPClientProfileItemMap, ok := HTTPClientProfileItem.(map[string]interface{}); ok {
+										HTTPClientProfileResult = append(HTTPClientProfileResult, ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPClientProfileModelAttrTypes}, HTTPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPClientProfileModelAttrTypes})
+						}(),
+						HTTPServerProfile: func() types.List {
+							if rawList, ok := HTTPData["http_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPServerProfileResult []ApplicationProfilesVirtualServerHTTPHTTPServerProfileModel
+								for _, HTTPServerProfileItem := range rawList {
+									if HTTPServerProfileItemMap, ok := HTTPServerProfileItem.(map[string]interface{}); ok {
+										HTTPServerProfileResult = append(HTTPServerProfileResult, ApplicationProfilesVirtualServerHTTPHTTPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPServerProfileModelAttrTypes}, HTTPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPServerProfileModelAttrTypes})
+						}(),
+						StreamProfile: func() types.List {
+							if rawList, ok := HTTPData["stream_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var StreamProfileResult []ApplicationProfilesVirtualServerHTTPStreamProfileModel
+								for _, StreamProfileItem := range rawList {
+									if StreamProfileItemMap, ok := StreamProfileItem.(map[string]interface{}); ok {
+										StreamProfileResult = append(StreamProfileResult, ApplicationProfilesVirtualServerHTTPStreamProfileModel{
+											Kind: func() types.String {
+												if v, ok := StreamProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := StreamProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := StreamProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := StreamProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := StreamProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPStreamProfileModelAttrTypes}, StreamProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPStreamProfileModelAttrTypes})
+						}(),
+						TCPClientProfile: func() types.List {
+							if rawList, ok := HTTPData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPClientProfileResult []ApplicationProfilesVirtualServerHTTPTCPClientProfileModel
+								for _, TCPClientProfileItem := range rawList {
+									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
+										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerHTTPTCPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPClientProfileModelAttrTypes}, TCPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPClientProfileModelAttrTypes})
+						}(),
+						TCPServerProfile: func() types.List {
+							if rawList, ok := HTTPData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPServerProfileResult []ApplicationProfilesVirtualServerHTTPTCPServerProfileModel
+								for _, TCPServerProfileItem := range rawList {
+									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
+										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerHTTPTCPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPServerProfileModelAttrTypes}, TCPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPServerProfileModelAttrTypes})
+						}(),
+						WebSocketClientProfile: func() types.List {
+							if rawList, ok := HTTPData["websocket_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var WebSocketClientProfileResult []ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModel
+								for _, WebSocketClientProfileItem := range rawList {
+									if WebSocketClientProfileItemMap, ok := WebSocketClientProfileItem.(map[string]interface{}); ok {
+										WebSocketClientProfileResult = append(WebSocketClientProfileResult, ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModelAttrTypes}, WebSocketClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModelAttrTypes})
+						}(),
+						WebSocketServerProfile: func() types.List {
+							if rawList, ok := HTTPData["websocket_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var WebSocketServerProfileResult []ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModel
+								for _, WebSocketServerProfileItem := range rawList {
+									if WebSocketServerProfileItemMap, ok := WebSocketServerProfileItem.(map[string]interface{}); ok {
+										WebSocketServerProfileResult = append(WebSocketServerProfileResult, ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModelAttrTypes}, WebSocketServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModelAttrTypes})
+						}(),
+					}
 				}
 				return nil
 			}(),
 			HTTPS: func() *ApplicationProfilesVirtualServerHTTPSModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.HTTPS
 				}
-				// Import case: read from API
-				if _, ok := blockData["https"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerHTTPSModel{}
+				if HTTPSData, ok := blockData["https"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerHTTPSModel{
+						HTTPClientProfile: func() types.List {
+							if rawList, ok := HTTPSData["http_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPClientProfileResult []ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel
+								for _, HTTPClientProfileItem := range rawList {
+									if HTTPClientProfileItemMap, ok := HTTPClientProfileItem.(map[string]interface{}); ok {
+										HTTPClientProfileResult = append(HTTPClientProfileResult, ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModelAttrTypes}, HTTPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModelAttrTypes})
+						}(),
+						HTTPServerProfile: func() types.List {
+							if rawList, ok := HTTPSData["http_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPServerProfileResult []ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModel
+								for _, HTTPServerProfileItem := range rawList {
+									if HTTPServerProfileItemMap, ok := HTTPServerProfileItem.(map[string]interface{}); ok {
+										HTTPServerProfileResult = append(HTTPServerProfileResult, ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModelAttrTypes}, HTTPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModelAttrTypes})
+						}(),
+						StreamProfile: func() types.List {
+							if rawList, ok := HTTPSData["stream_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var StreamProfileResult []ApplicationProfilesVirtualServerHTTPSStreamProfileModel
+								for _, StreamProfileItem := range rawList {
+									if StreamProfileItemMap, ok := StreamProfileItem.(map[string]interface{}); ok {
+										StreamProfileResult = append(StreamProfileResult, ApplicationProfilesVirtualServerHTTPSStreamProfileModel{
+											Kind: func() types.String {
+												if v, ok := StreamProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := StreamProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := StreamProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := StreamProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := StreamProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSStreamProfileModelAttrTypes}, StreamProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSStreamProfileModelAttrTypes})
+						}(),
+						TCPClientProfile: func() types.List {
+							if rawList, ok := HTTPSData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPClientProfileResult []ApplicationProfilesVirtualServerHTTPSTCPClientProfileModel
+								for _, TCPClientProfileItem := range rawList {
+									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
+										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerHTTPSTCPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPClientProfileModelAttrTypes}, TCPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPClientProfileModelAttrTypes})
+						}(),
+						TCPServerProfile: func() types.List {
+							if rawList, ok := HTTPSData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPServerProfileResult []ApplicationProfilesVirtualServerHTTPSTCPServerProfileModel
+								for _, TCPServerProfileItem := range rawList {
+									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
+										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerHTTPSTCPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPServerProfileModelAttrTypes}, TCPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPServerProfileModelAttrTypes})
+						}(),
+						WebSocketClientProfile: func() types.List {
+							if rawList, ok := HTTPSData["websocket_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var WebSocketClientProfileResult []ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModel
+								for _, WebSocketClientProfileItem := range rawList {
+									if WebSocketClientProfileItemMap, ok := WebSocketClientProfileItem.(map[string]interface{}); ok {
+										WebSocketClientProfileResult = append(WebSocketClientProfileResult, ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModelAttrTypes}, WebSocketClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModelAttrTypes})
+						}(),
+						WebSocketServerProfile: func() types.List {
+							if rawList, ok := HTTPSData["websocket_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var WebSocketServerProfileResult []ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModel
+								for _, WebSocketServerProfileItem := range rawList {
+									if WebSocketServerProfileItemMap, ok := WebSocketServerProfileItem.(map[string]interface{}); ok {
+										WebSocketServerProfileResult = append(WebSocketServerProfileResult, ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModelAttrTypes}, WebSocketServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModelAttrTypes})
+						}(),
+					}
 				}
 				return nil
 			}(),
 			ImmediateActionOnServiceDown: func() *ApplicationProfilesVirtualServerImmediateActionOnServiceDownModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.ImmediateActionOnServiceDown
 				}
-				// Import case: read from API
-				if _, ok := blockData["immediate_action_on_service_down"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerImmediateActionOnServiceDownModel{}
+				if ImmediateActionOnServiceDownData, ok := blockData["immediate_action_on_service_down"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerImmediateActionOnServiceDownModel{
+						ImmediateActionOnServiceDownDrop: func() *ApplicationProfilesEmptyModel {
+							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_drop"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						ImmediateActionOnServiceDownNone: func() *ApplicationProfilesEmptyModel {
+							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_none"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						ImmediateActionOnServiceDownReset: func() *ApplicationProfilesEmptyModel {
+							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_reset"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
-			LastHopPool: func() []ApplicationProfilesVirtualServerLastHopPoolModel {
-				if listData, ok := blockData["last_hop_pool"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerLastHopPoolModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerLastHopPoolModel{
+			LastHopPool: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.LastHopPool.IsNull() || len(data.VirtualServer.LastHopPool.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerLastHopPoolModelAttrTypes})
+				}
+				if rawList, ok := blockData["last_hop_pool"].([]interface{}); ok && len(rawList) > 0 {
+					var LastHopPoolResult []ApplicationProfilesVirtualServerLastHopPoolModel
+					for _, LastHopPoolItem := range rawList {
+						if LastHopPoolItemMap, ok := LastHopPoolItem.(map[string]interface{}); ok {
+							LastHopPoolResult = append(LastHopPoolResult, ApplicationProfilesVirtualServerLastHopPoolModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := LastHopPoolItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := LastHopPoolItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := LastHopPoolItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := LastHopPoolItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := LastHopPoolItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -4420,64 +6903,90 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerLastHopPoolModelAttrTypes}, LastHopPoolResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerLastHopPoolModelAttrTypes})
 			}(),
 			Nat64: func() *ApplicationProfilesVirtualServerNat64Model {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.Nat64 != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.Nat64
 				}
-				// Import case: read from API
-				if _, ok := blockData["nat64"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerNat64Model{}
+				if Nat64Data, ok := blockData["nat64"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerNat64Model{
+						Nat64Disable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := Nat64Data["nat64_disable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						Nat64Enable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := Nat64Data["nat64_enable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			PortTranslation: func() *ApplicationProfilesVirtualServerPortTranslationModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.PortTranslation != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.PortTranslation
 				}
-				// Import case: read from API
-				if _, ok := blockData["port_translation"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerPortTranslationModel{}
+				if PortTranslationData, ok := blockData["port_translation"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerPortTranslationModel{
+						PortTranslationDisable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := PortTranslationData["port_translation_disable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						PortTranslationEnable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := PortTranslationData["port_translation_enable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
-			RequestLoggingProfile: func() []ApplicationProfilesVirtualServerRequestLoggingProfileModel {
-				if listData, ok := blockData["request_logging_profile"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerRequestLoggingProfileModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerRequestLoggingProfileModel{
+			RequestLoggingProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.RequestLoggingProfile.IsNull() || len(data.VirtualServer.RequestLoggingProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerRequestLoggingProfileModelAttrTypes})
+				}
+				if rawList, ok := blockData["request_logging_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var RequestLoggingProfileResult []ApplicationProfilesVirtualServerRequestLoggingProfileModel
+					for _, RequestLoggingProfileItem := range rawList {
+						if RequestLoggingProfileItemMap, ok := RequestLoggingProfileItem.(map[string]interface{}); ok {
+							RequestLoggingProfileResult = append(RequestLoggingProfileResult, ApplicationProfilesVirtualServerRequestLoggingProfileModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := RequestLoggingProfileItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := RequestLoggingProfileItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := RequestLoggingProfileItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := RequestLoggingProfileItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := RequestLoggingProfileItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -4485,53 +6994,74 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerRequestLoggingProfileModelAttrTypes}, RequestLoggingProfileResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerRequestLoggingProfileModelAttrTypes})
 			}(),
 			SourcePort: func() *ApplicationProfilesVirtualServerSourcePortModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.SourcePort
 				}
-				// Import case: read from API
-				if _, ok := blockData["source_port"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerSourcePortModel{}
+				if SourcePortData, ok := blockData["source_port"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerSourcePortModel{
+						SourcePortChange: func() *ApplicationProfilesEmptyModel {
+							if _, ok := SourcePortData["source_port_change"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						SourcePortPreserve: func() *ApplicationProfilesEmptyModel {
+							if _, ok := SourcePortData["source_port_preserve"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						SourcePortPreserveStrict: func() *ApplicationProfilesEmptyModel {
+							if _, ok := SourcePortData["source_port_preserve_strict"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
-			StatisticsProfile: func() []ApplicationProfilesVirtualServerStatisticsProfileModel {
-				if listData, ok := blockData["statistics_profile"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerStatisticsProfileModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerStatisticsProfileModel{
+			StatisticsProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.StatisticsProfile.IsNull() || len(data.VirtualServer.StatisticsProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerStatisticsProfileModelAttrTypes})
+				}
+				if rawList, ok := blockData["statistics_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var StatisticsProfileResult []ApplicationProfilesVirtualServerStatisticsProfileModel
+					for _, StatisticsProfileItem := range rawList {
+						if StatisticsProfileItemMap, ok := StatisticsProfileItem.(map[string]interface{}); ok {
+							StatisticsProfileResult = append(StatisticsProfileResult, ApplicationProfilesVirtualServerStatisticsProfileModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := StatisticsProfileItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := StatisticsProfileItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := StatisticsProfileItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := StatisticsProfileItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := StatisticsProfileItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -4539,60 +7069,247 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerStatisticsProfileModelAttrTypes}, StatisticsProfileResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerStatisticsProfileModelAttrTypes})
 			}(),
 			TCP: func() *ApplicationProfilesVirtualServerTCPModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.TCP
 				}
-				// Import case: read from API
-				if _, ok := blockData["tcp"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerTCPModel{}
+				if TCPData, ok := blockData["tcp"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerTCPModel{
+						TCPClientProfile: func() types.List {
+							if rawList, ok := TCPData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPClientProfileResult []ApplicationProfilesVirtualServerTCPTCPClientProfileModel
+								for _, TCPClientProfileItem := range rawList {
+									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
+										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerTCPTCPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPClientProfileModelAttrTypes}, TCPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPClientProfileModelAttrTypes})
+						}(),
+						TCPServerProfile: func() types.List {
+							if rawList, ok := TCPData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPServerProfileResult []ApplicationProfilesVirtualServerTCPTCPServerProfileModel
+								for _, TCPServerProfileItem := range rawList {
+									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
+										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerTCPTCPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPServerProfileModelAttrTypes}, TCPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPServerProfileModelAttrTypes})
+						}(),
+					}
 				}
 				return nil
 			}(),
 			UDP: func() *ApplicationProfilesVirtualServerUDPModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.UDP
 				}
-				// Import case: read from API
-				if _, ok := blockData["udp"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerUDPModel{}
+				if UDPData, ok := blockData["udp"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerUDPModel{
+						TCPClientProfile: func() types.List {
+							if rawList, ok := UDPData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPClientProfileResult []ApplicationProfilesVirtualServerUDPTCPClientProfileModel
+								for _, TCPClientProfileItem := range rawList {
+									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
+										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerUDPTCPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes}, TCPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes})
+						}(),
+						TCPServerProfile: func() types.List {
+							if rawList, ok := UDPData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPServerProfileResult []ApplicationProfilesVirtualServerUDPTCPServerProfileModel
+								for _, TCPServerProfileItem := range rawList {
+									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
+										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerUDPTCPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPServerProfileModelAttrTypes}, TCPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPServerProfileModelAttrTypes})
+						}(),
+					}
 				}
 				return nil
 			}(),
 			VirtualServerState: func() *ApplicationProfilesVirtualServerVirtualServerStateModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.VirtualServerState != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.VirtualServerState
 				}
-				// Import case: read from API
-				if _, ok := blockData["virtual_server_state"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerVirtualServerStateModel{}
+				if VirtualServerStateData, ok := blockData["virtual_server_state"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerVirtualServerStateModel{
+						StateDisabled: func() *ApplicationProfilesEmptyModel {
+							if _, ok := VirtualServerStateData["state_disabled"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						StateEnabled: func() *ApplicationProfilesEmptyModel {
+							if _, ok := VirtualServerStateData["state_enabled"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			VsScore: func() types.Int64 {
 				if !isImport && data.VirtualServer != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.VirtualServer.VsScore
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["vs_score"].(float64); ok {
+				if v, ok := blockData["vs_score"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 		}
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -4646,348 +7363,999 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.AdvancedTCPProfile != nil {
-		advanced_tcp_profileMap := make(map[string]interface{})
+		AdvancedTCPProfileMap := make(map[string]interface{})
 		if data.AdvancedTCPProfile.DisableTCPAdvancedProfile != nil {
-			advanced_tcp_profileMap["disable_tcp_advanced_profile"] = map[string]interface{}{}
+			AdvancedTCPProfileMap["disable_tcp_advanced_profile"] = map[string]interface{}{}
 		}
 		if data.AdvancedTCPProfile.EnableTCPAdvancedProfile != nil {
-			advanced_tcp_profileMap["enable_tcp_advanced_profile"] = map[string]interface{}{}
+			AdvancedTCPProfileMap["enable_tcp_advanced_profile"] = map[string]interface{}{}
 		}
-		apiResource.Spec["advanced_tcp_profile"] = advanced_tcp_profileMap
+		apiResource.Spec["advanced_tcp_profile"] = AdvancedTCPProfileMap
 	}
 	if data.DDOSProfile != nil {
-		ddos_profileMap := make(map[string]interface{})
+		DDOSProfileMap := make(map[string]interface{})
 		if data.DDOSProfile.DisableDDOSMitigation != nil {
-			ddos_profileMap["disable_ddos_mitigation"] = map[string]interface{}{}
+			DDOSProfileMap["disable_ddos_mitigation"] = map[string]interface{}{}
 		}
 		if data.DDOSProfile.EnableDDOSMitigation != nil {
-			ddos_profileMap["enable_ddos_mitigation"] = map[string]interface{}{}
+			DDOSProfileMap["enable_ddos_mitigation"] = map[string]interface{}{}
 		}
-		apiResource.Spec["ddos_profile"] = ddos_profileMap
+		apiResource.Spec["ddos_profile"] = DDOSProfileMap
 	}
 	if !data.Irules.IsNull() && !data.Irules.IsUnknown() {
-		var irulesItems []ApplicationProfilesIrulesModel
-		diags := data.Irules.ElementsAs(ctx, &irulesItems, false)
+		var IrulesElems []ApplicationProfilesIrulesModel
+		diags := data.Irules.ElementsAs(ctx, &IrulesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(irulesItems) > 0 {
-			var irulesList []map[string]interface{}
-			for _, item := range irulesItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(IrulesElems) > 0 {
+			var IrulesList []map[string]interface{}
+			for _, IrulesItem := range IrulesElems {
+				IrulesItemMap := make(map[string]interface{})
+				if !IrulesItem.Kind.IsNull() && !IrulesItem.Kind.IsUnknown() {
+					IrulesItemMap["kind"] = IrulesItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !IrulesItem.Name.IsNull() && !IrulesItem.Name.IsUnknown() {
+					IrulesItemMap["name"] = IrulesItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !IrulesItem.Namespace.IsNull() && !IrulesItem.Namespace.IsUnknown() {
+					IrulesItemMap["namespace"] = IrulesItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !IrulesItem.Tenant.IsNull() && !IrulesItem.Tenant.IsUnknown() {
+					IrulesItemMap["tenant"] = IrulesItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !IrulesItem.Uid.IsNull() && !IrulesItem.Uid.IsUnknown() {
+					IrulesItemMap["uid"] = IrulesItem.Uid.ValueString()
 				}
-				irulesList = append(irulesList, itemMap)
+				IrulesList = append(IrulesList, IrulesItemMap)
 			}
-			apiResource.Spec["irules"] = irulesList
+			apiResource.Spec["irules"] = IrulesList
 		}
 	}
 	if !data.TrafficPolicies.IsNull() && !data.TrafficPolicies.IsUnknown() {
-		var traffic_policiesItems []ApplicationProfilesTrafficPoliciesModel
-		diags := data.TrafficPolicies.ElementsAs(ctx, &traffic_policiesItems, false)
+		var TrafficPoliciesElems []ApplicationProfilesTrafficPoliciesModel
+		diags := data.TrafficPolicies.ElementsAs(ctx, &TrafficPoliciesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(traffic_policiesItems) > 0 {
-			var traffic_policiesList []map[string]interface{}
-			for _, item := range traffic_policiesItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(TrafficPoliciesElems) > 0 {
+			var TrafficPoliciesList []map[string]interface{}
+			for _, TrafficPoliciesItem := range TrafficPoliciesElems {
+				TrafficPoliciesItemMap := make(map[string]interface{})
+				if !TrafficPoliciesItem.Kind.IsNull() && !TrafficPoliciesItem.Kind.IsUnknown() {
+					TrafficPoliciesItemMap["kind"] = TrafficPoliciesItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !TrafficPoliciesItem.Name.IsNull() && !TrafficPoliciesItem.Name.IsUnknown() {
+					TrafficPoliciesItemMap["name"] = TrafficPoliciesItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !TrafficPoliciesItem.Namespace.IsNull() && !TrafficPoliciesItem.Namespace.IsUnknown() {
+					TrafficPoliciesItemMap["namespace"] = TrafficPoliciesItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !TrafficPoliciesItem.Tenant.IsNull() && !TrafficPoliciesItem.Tenant.IsUnknown() {
+					TrafficPoliciesItemMap["tenant"] = TrafficPoliciesItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !TrafficPoliciesItem.Uid.IsNull() && !TrafficPoliciesItem.Uid.IsUnknown() {
+					TrafficPoliciesItemMap["uid"] = TrafficPoliciesItem.Uid.ValueString()
 				}
-				traffic_policiesList = append(traffic_policiesList, itemMap)
+				TrafficPoliciesList = append(TrafficPoliciesList, TrafficPoliciesItemMap)
 			}
-			apiResource.Spec["traffic_policies"] = traffic_policiesList
+			apiResource.Spec["traffic_policies"] = TrafficPoliciesList
 		}
 	}
 	if data.VirtualServer != nil {
-		virtual_serverMap := make(map[string]interface{})
+		VirtualServerMap := make(map[string]interface{})
 		if data.VirtualServer.AddressTranslation != nil {
-			address_translationNestedMap := make(map[string]interface{})
-			virtual_serverMap["address_translation"] = address_translationNestedMap
+			AddressTranslationMap := make(map[string]interface{})
+			if data.VirtualServer.AddressTranslation.AddressTranslationDisable != nil {
+				AddressTranslationMap["address_translation_disable"] = map[string]interface{}{}
+			}
+			if data.VirtualServer.AddressTranslation.AddressTranslationEnable != nil {
+				AddressTranslationMap["address_translation_enable"] = map[string]interface{}{}
+			}
+			VirtualServerMap["address_translation"] = AddressTranslationMap
 		}
 		if data.VirtualServer.AutoLastHop != nil {
-			auto_last_hopNestedMap := make(map[string]interface{})
-			virtual_serverMap["auto_last_hop"] = auto_last_hopNestedMap
-		}
-		if len(data.VirtualServer.ClonePoolClient) > 0 {
-			var clone_pool_clientList []map[string]interface{}
-			for _, listItem := range data.VirtualServer.ClonePoolClient {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Kind.IsNull() && !listItem.Kind.IsUnknown() {
-					listItemMap["kind"] = listItem.Kind.ValueString()
-				}
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
-				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				if !listItem.Uid.IsNull() && !listItem.Uid.IsUnknown() {
-					listItemMap["uid"] = listItem.Uid.ValueString()
-				}
-				clone_pool_clientList = append(clone_pool_clientList, listItemMap)
+			AutoLastHopMap := make(map[string]interface{})
+			if data.VirtualServer.AutoLastHop.AutoLastHopDefault != nil {
+				AutoLastHopMap["auto_last_hop_default"] = map[string]interface{}{}
 			}
-			virtual_serverMap["clone_pool_client"] = clone_pool_clientList
-		}
-		if len(data.VirtualServer.ClonePoolServer) > 0 {
-			var clone_pool_serverList []map[string]interface{}
-			for _, listItem := range data.VirtualServer.ClonePoolServer {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Kind.IsNull() && !listItem.Kind.IsUnknown() {
-					listItemMap["kind"] = listItem.Kind.ValueString()
-				}
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
-				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				if !listItem.Uid.IsNull() && !listItem.Uid.IsUnknown() {
-					listItemMap["uid"] = listItem.Uid.ValueString()
-				}
-				clone_pool_serverList = append(clone_pool_serverList, listItemMap)
+			if data.VirtualServer.AutoLastHop.AutoLastHopDisable != nil {
+				AutoLastHopMap["auto_last_hop_disable"] = map[string]interface{}{}
 			}
-			virtual_serverMap["clone_pool_server"] = clone_pool_serverList
+			if data.VirtualServer.AutoLastHop.AutoLastHopEnable != nil {
+				AutoLastHopMap["auto_last_hop_enable"] = map[string]interface{}{}
+			}
+			VirtualServerMap["auto_last_hop"] = AutoLastHopMap
+		}
+		if !data.VirtualServer.ClonePoolClient.IsNull() && !data.VirtualServer.ClonePoolClient.IsUnknown() {
+			var ClonePoolClientElems []ApplicationProfilesVirtualServerClonePoolClientModel
+			diags := data.VirtualServer.ClonePoolClient.ElementsAs(ctx, &ClonePoolClientElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(ClonePoolClientElems) > 0 {
+				var ClonePoolClientList []map[string]interface{}
+				for _, ClonePoolClientItem := range ClonePoolClientElems {
+					ClonePoolClientItemMap := make(map[string]interface{})
+					if !ClonePoolClientItem.Kind.IsNull() && !ClonePoolClientItem.Kind.IsUnknown() {
+						ClonePoolClientItemMap["kind"] = ClonePoolClientItem.Kind.ValueString()
+					}
+					if !ClonePoolClientItem.Name.IsNull() && !ClonePoolClientItem.Name.IsUnknown() {
+						ClonePoolClientItemMap["name"] = ClonePoolClientItem.Name.ValueString()
+					}
+					if !ClonePoolClientItem.Namespace.IsNull() && !ClonePoolClientItem.Namespace.IsUnknown() {
+						ClonePoolClientItemMap["namespace"] = ClonePoolClientItem.Namespace.ValueString()
+					}
+					if !ClonePoolClientItem.Tenant.IsNull() && !ClonePoolClientItem.Tenant.IsUnknown() {
+						ClonePoolClientItemMap["tenant"] = ClonePoolClientItem.Tenant.ValueString()
+					}
+					if !ClonePoolClientItem.Uid.IsNull() && !ClonePoolClientItem.Uid.IsUnknown() {
+						ClonePoolClientItemMap["uid"] = ClonePoolClientItem.Uid.ValueString()
+					}
+					ClonePoolClientList = append(ClonePoolClientList, ClonePoolClientItemMap)
+				}
+				VirtualServerMap["clone_pool_client"] = ClonePoolClientList
+			}
+		}
+		if !data.VirtualServer.ClonePoolServer.IsNull() && !data.VirtualServer.ClonePoolServer.IsUnknown() {
+			var ClonePoolServerElems []ApplicationProfilesVirtualServerClonePoolServerModel
+			diags := data.VirtualServer.ClonePoolServer.ElementsAs(ctx, &ClonePoolServerElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(ClonePoolServerElems) > 0 {
+				var ClonePoolServerList []map[string]interface{}
+				for _, ClonePoolServerItem := range ClonePoolServerElems {
+					ClonePoolServerItemMap := make(map[string]interface{})
+					if !ClonePoolServerItem.Kind.IsNull() && !ClonePoolServerItem.Kind.IsUnknown() {
+						ClonePoolServerItemMap["kind"] = ClonePoolServerItem.Kind.ValueString()
+					}
+					if !ClonePoolServerItem.Name.IsNull() && !ClonePoolServerItem.Name.IsUnknown() {
+						ClonePoolServerItemMap["name"] = ClonePoolServerItem.Name.ValueString()
+					}
+					if !ClonePoolServerItem.Namespace.IsNull() && !ClonePoolServerItem.Namespace.IsUnknown() {
+						ClonePoolServerItemMap["namespace"] = ClonePoolServerItem.Namespace.ValueString()
+					}
+					if !ClonePoolServerItem.Tenant.IsNull() && !ClonePoolServerItem.Tenant.IsUnknown() {
+						ClonePoolServerItemMap["tenant"] = ClonePoolServerItem.Tenant.ValueString()
+					}
+					if !ClonePoolServerItem.Uid.IsNull() && !ClonePoolServerItem.Uid.IsUnknown() {
+						ClonePoolServerItemMap["uid"] = ClonePoolServerItem.Uid.ValueString()
+					}
+					ClonePoolServerList = append(ClonePoolServerList, ClonePoolServerItemMap)
+				}
+				VirtualServerMap["clone_pool_server"] = ClonePoolServerList
+			}
 		}
 		if !data.VirtualServer.ConnectionLimit.IsNull() && !data.VirtualServer.ConnectionLimit.IsUnknown() {
-			virtual_serverMap["connection_limit"] = data.VirtualServer.ConnectionLimit.ValueInt64()
+			VirtualServerMap["connection_limit"] = data.VirtualServer.ConnectionLimit.ValueInt64()
 		}
 		if !data.VirtualServer.ConnectionRateLimit.IsNull() && !data.VirtualServer.ConnectionRateLimit.IsUnknown() {
-			virtual_serverMap["connection_rate_limit"] = data.VirtualServer.ConnectionRateLimit.ValueInt64()
+			VirtualServerMap["connection_rate_limit"] = data.VirtualServer.ConnectionRateLimit.ValueInt64()
 		}
 		if data.VirtualServer.ConnectionRateLimitMode != nil {
-			connection_rate_limit_modeNestedMap := make(map[string]interface{})
-			virtual_serverMap["connection_rate_limit_mode"] = connection_rate_limit_modeNestedMap
-		}
-		if len(data.VirtualServer.DefaultPersistenceProfile) > 0 {
-			var default_persistence_profileList []map[string]interface{}
-			for _, listItem := range data.VirtualServer.DefaultPersistenceProfile {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Kind.IsNull() && !listItem.Kind.IsUnknown() {
-					listItemMap["kind"] = listItem.Kind.ValueString()
+			ConnectionRateLimitModeMap := make(map[string]interface{})
+			if data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress != nil {
+				PerDestinationAddressMap := make(map[string]interface{})
+				if !data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress.DestinationMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress.DestinationMask.IsUnknown() {
+					PerDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress.DestinationMask.ValueInt64()
 				}
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
-				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				if !listItem.Uid.IsNull() && !listItem.Uid.IsUnknown() {
-					listItemMap["uid"] = listItem.Uid.ValueString()
-				}
-				default_persistence_profileList = append(default_persistence_profileList, listItemMap)
+				ConnectionRateLimitModeMap["per_destination_address"] = PerDestinationAddressMap
 			}
-			virtual_serverMap["default_persistence_profile"] = default_persistence_profileList
-		}
-		if len(data.VirtualServer.DefaultPool) > 0 {
-			var default_poolList []map[string]interface{}
-			for _, listItem := range data.VirtualServer.DefaultPool {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Kind.IsNull() && !listItem.Kind.IsUnknown() {
-					listItemMap["kind"] = listItem.Kind.ValueString()
+			if data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress != nil {
+				PerSourceAddressMap := make(map[string]interface{})
+				if !data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress.SourceMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress.SourceMask.IsUnknown() {
+					PerSourceAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress.SourceMask.ValueInt64()
 				}
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
-				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				if !listItem.Uid.IsNull() && !listItem.Uid.IsUnknown() {
-					listItemMap["uid"] = listItem.Uid.ValueString()
-				}
-				default_poolList = append(default_poolList, listItemMap)
+				ConnectionRateLimitModeMap["per_source_address"] = PerSourceAddressMap
 			}
-			virtual_serverMap["default_pool"] = default_poolList
-		}
-		if len(data.VirtualServer.FallbackPersistenceProfile) > 0 {
-			var fallback_persistence_profileList []map[string]interface{}
-			for _, listItem := range data.VirtualServer.FallbackPersistenceProfile {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Kind.IsNull() && !listItem.Kind.IsUnknown() {
-					listItemMap["kind"] = listItem.Kind.ValueString()
+			if data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress != nil {
+				PerSourceDestinationAddressMap := make(map[string]interface{})
+				if !data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.DestinationMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.DestinationMask.IsUnknown() {
+					PerSourceDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.DestinationMask.ValueInt64()
 				}
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
+				if !data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.SourceMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.SourceMask.IsUnknown() {
+					PerSourceDestinationAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.SourceMask.ValueInt64()
 				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				if !listItem.Uid.IsNull() && !listItem.Uid.IsUnknown() {
-					listItemMap["uid"] = listItem.Uid.ValueString()
-				}
-				fallback_persistence_profileList = append(fallback_persistence_profileList, listItemMap)
+				ConnectionRateLimitModeMap["per_source_destination_address"] = PerSourceDestinationAddressMap
 			}
-			virtual_serverMap["fallback_persistence_profile"] = fallback_persistence_profileList
-		}
-		if len(data.VirtualServer.FixProfile) > 0 {
-			var fix_profileList []map[string]interface{}
-			for _, listItem := range data.VirtualServer.FixProfile {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Kind.IsNull() && !listItem.Kind.IsUnknown() {
-					listItemMap["kind"] = listItem.Kind.ValueString()
-				}
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
-				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				if !listItem.Uid.IsNull() && !listItem.Uid.IsUnknown() {
-					listItemMap["uid"] = listItem.Uid.ValueString()
-				}
-				fix_profileList = append(fix_profileList, listItemMap)
+			if data.VirtualServer.ConnectionRateLimitMode.PerVirtualServer != nil {
+				ConnectionRateLimitModeMap["per_virtual_server"] = map[string]interface{}{}
 			}
-			virtual_serverMap["fix_profile"] = fix_profileList
+			if data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress != nil {
+				PerVirtualServerDestinationAddressMap := make(map[string]interface{})
+				if !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress.DestinationMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress.DestinationMask.IsUnknown() {
+					PerVirtualServerDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress.DestinationMask.ValueInt64()
+				}
+				ConnectionRateLimitModeMap["per_virtual_server_destination_address"] = PerVirtualServerDestinationAddressMap
+			}
+			if data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress != nil {
+				PerVirtualServerSourceAddressMap := make(map[string]interface{})
+				if !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress.SourceMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress.SourceMask.IsUnknown() {
+					PerVirtualServerSourceAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress.SourceMask.ValueInt64()
+				}
+				ConnectionRateLimitModeMap["per_virtual_server_source_address"] = PerVirtualServerSourceAddressMap
+			}
+			if data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress != nil {
+				PerVirtualServerSourceDestinationAddressMap := make(map[string]interface{})
+				if !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.DestinationMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.DestinationMask.IsUnknown() {
+					PerVirtualServerSourceDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.DestinationMask.ValueInt64()
+				}
+				if !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.SourceMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.SourceMask.IsUnknown() {
+					PerVirtualServerSourceDestinationAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.SourceMask.ValueInt64()
+				}
+				ConnectionRateLimitModeMap["per_virtual_server_source_destination_address"] = PerVirtualServerSourceDestinationAddressMap
+			}
+			VirtualServerMap["connection_rate_limit_mode"] = ConnectionRateLimitModeMap
+		}
+		if !data.VirtualServer.DefaultPersistenceProfile.IsNull() && !data.VirtualServer.DefaultPersistenceProfile.IsUnknown() {
+			var DefaultPersistenceProfileElems []ApplicationProfilesVirtualServerDefaultPersistenceProfileModel
+			diags := data.VirtualServer.DefaultPersistenceProfile.ElementsAs(ctx, &DefaultPersistenceProfileElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(DefaultPersistenceProfileElems) > 0 {
+				var DefaultPersistenceProfileList []map[string]interface{}
+				for _, DefaultPersistenceProfileItem := range DefaultPersistenceProfileElems {
+					DefaultPersistenceProfileItemMap := make(map[string]interface{})
+					if !DefaultPersistenceProfileItem.Kind.IsNull() && !DefaultPersistenceProfileItem.Kind.IsUnknown() {
+						DefaultPersistenceProfileItemMap["kind"] = DefaultPersistenceProfileItem.Kind.ValueString()
+					}
+					if !DefaultPersistenceProfileItem.Name.IsNull() && !DefaultPersistenceProfileItem.Name.IsUnknown() {
+						DefaultPersistenceProfileItemMap["name"] = DefaultPersistenceProfileItem.Name.ValueString()
+					}
+					if !DefaultPersistenceProfileItem.Namespace.IsNull() && !DefaultPersistenceProfileItem.Namespace.IsUnknown() {
+						DefaultPersistenceProfileItemMap["namespace"] = DefaultPersistenceProfileItem.Namespace.ValueString()
+					}
+					if !DefaultPersistenceProfileItem.Tenant.IsNull() && !DefaultPersistenceProfileItem.Tenant.IsUnknown() {
+						DefaultPersistenceProfileItemMap["tenant"] = DefaultPersistenceProfileItem.Tenant.ValueString()
+					}
+					if !DefaultPersistenceProfileItem.Uid.IsNull() && !DefaultPersistenceProfileItem.Uid.IsUnknown() {
+						DefaultPersistenceProfileItemMap["uid"] = DefaultPersistenceProfileItem.Uid.ValueString()
+					}
+					DefaultPersistenceProfileList = append(DefaultPersistenceProfileList, DefaultPersistenceProfileItemMap)
+				}
+				VirtualServerMap["default_persistence_profile"] = DefaultPersistenceProfileList
+			}
+		}
+		if !data.VirtualServer.DefaultPool.IsNull() && !data.VirtualServer.DefaultPool.IsUnknown() {
+			var DefaultPoolElems []ApplicationProfilesVirtualServerDefaultPoolModel
+			diags := data.VirtualServer.DefaultPool.ElementsAs(ctx, &DefaultPoolElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(DefaultPoolElems) > 0 {
+				var DefaultPoolList []map[string]interface{}
+				for _, DefaultPoolItem := range DefaultPoolElems {
+					DefaultPoolItemMap := make(map[string]interface{})
+					if !DefaultPoolItem.Kind.IsNull() && !DefaultPoolItem.Kind.IsUnknown() {
+						DefaultPoolItemMap["kind"] = DefaultPoolItem.Kind.ValueString()
+					}
+					if !DefaultPoolItem.Name.IsNull() && !DefaultPoolItem.Name.IsUnknown() {
+						DefaultPoolItemMap["name"] = DefaultPoolItem.Name.ValueString()
+					}
+					if !DefaultPoolItem.Namespace.IsNull() && !DefaultPoolItem.Namespace.IsUnknown() {
+						DefaultPoolItemMap["namespace"] = DefaultPoolItem.Namespace.ValueString()
+					}
+					if !DefaultPoolItem.Tenant.IsNull() && !DefaultPoolItem.Tenant.IsUnknown() {
+						DefaultPoolItemMap["tenant"] = DefaultPoolItem.Tenant.ValueString()
+					}
+					if !DefaultPoolItem.Uid.IsNull() && !DefaultPoolItem.Uid.IsUnknown() {
+						DefaultPoolItemMap["uid"] = DefaultPoolItem.Uid.ValueString()
+					}
+					DefaultPoolList = append(DefaultPoolList, DefaultPoolItemMap)
+				}
+				VirtualServerMap["default_pool"] = DefaultPoolList
+			}
+		}
+		if !data.VirtualServer.FallbackPersistenceProfile.IsNull() && !data.VirtualServer.FallbackPersistenceProfile.IsUnknown() {
+			var FallbackPersistenceProfileElems []ApplicationProfilesVirtualServerFallbackPersistenceProfileModel
+			diags := data.VirtualServer.FallbackPersistenceProfile.ElementsAs(ctx, &FallbackPersistenceProfileElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(FallbackPersistenceProfileElems) > 0 {
+				var FallbackPersistenceProfileList []map[string]interface{}
+				for _, FallbackPersistenceProfileItem := range FallbackPersistenceProfileElems {
+					FallbackPersistenceProfileItemMap := make(map[string]interface{})
+					if !FallbackPersistenceProfileItem.Kind.IsNull() && !FallbackPersistenceProfileItem.Kind.IsUnknown() {
+						FallbackPersistenceProfileItemMap["kind"] = FallbackPersistenceProfileItem.Kind.ValueString()
+					}
+					if !FallbackPersistenceProfileItem.Name.IsNull() && !FallbackPersistenceProfileItem.Name.IsUnknown() {
+						FallbackPersistenceProfileItemMap["name"] = FallbackPersistenceProfileItem.Name.ValueString()
+					}
+					if !FallbackPersistenceProfileItem.Namespace.IsNull() && !FallbackPersistenceProfileItem.Namespace.IsUnknown() {
+						FallbackPersistenceProfileItemMap["namespace"] = FallbackPersistenceProfileItem.Namespace.ValueString()
+					}
+					if !FallbackPersistenceProfileItem.Tenant.IsNull() && !FallbackPersistenceProfileItem.Tenant.IsUnknown() {
+						FallbackPersistenceProfileItemMap["tenant"] = FallbackPersistenceProfileItem.Tenant.ValueString()
+					}
+					if !FallbackPersistenceProfileItem.Uid.IsNull() && !FallbackPersistenceProfileItem.Uid.IsUnknown() {
+						FallbackPersistenceProfileItemMap["uid"] = FallbackPersistenceProfileItem.Uid.ValueString()
+					}
+					FallbackPersistenceProfileList = append(FallbackPersistenceProfileList, FallbackPersistenceProfileItemMap)
+				}
+				VirtualServerMap["fallback_persistence_profile"] = FallbackPersistenceProfileList
+			}
+		}
+		if !data.VirtualServer.FixProfile.IsNull() && !data.VirtualServer.FixProfile.IsUnknown() {
+			var FixProfileElems []ApplicationProfilesVirtualServerFixProfileModel
+			diags := data.VirtualServer.FixProfile.ElementsAs(ctx, &FixProfileElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(FixProfileElems) > 0 {
+				var FixProfileList []map[string]interface{}
+				for _, FixProfileItem := range FixProfileElems {
+					FixProfileItemMap := make(map[string]interface{})
+					if !FixProfileItem.Kind.IsNull() && !FixProfileItem.Kind.IsUnknown() {
+						FixProfileItemMap["kind"] = FixProfileItem.Kind.ValueString()
+					}
+					if !FixProfileItem.Name.IsNull() && !FixProfileItem.Name.IsUnknown() {
+						FixProfileItemMap["name"] = FixProfileItem.Name.ValueString()
+					}
+					if !FixProfileItem.Namespace.IsNull() && !FixProfileItem.Namespace.IsUnknown() {
+						FixProfileItemMap["namespace"] = FixProfileItem.Namespace.ValueString()
+					}
+					if !FixProfileItem.Tenant.IsNull() && !FixProfileItem.Tenant.IsUnknown() {
+						FixProfileItemMap["tenant"] = FixProfileItem.Tenant.ValueString()
+					}
+					if !FixProfileItem.Uid.IsNull() && !FixProfileItem.Uid.IsUnknown() {
+						FixProfileItemMap["uid"] = FixProfileItem.Uid.ValueString()
+					}
+					FixProfileList = append(FixProfileList, FixProfileItemMap)
+				}
+				VirtualServerMap["fix_profile"] = FixProfileList
+			}
 		}
 		if data.VirtualServer.HTTP != nil {
-			httpNestedMap := make(map[string]interface{})
-			virtual_serverMap["http"] = httpNestedMap
+			HTTPMap := make(map[string]interface{})
+			if !data.VirtualServer.HTTP.HTTPClientProfile.IsNull() && !data.VirtualServer.HTTP.HTTPClientProfile.IsUnknown() {
+				var HTTPClientProfileElems []ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel
+				diags := data.VirtualServer.HTTP.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(HTTPClientProfileElems) > 0 {
+					var HTTPClientProfileList []map[string]interface{}
+					for _, HTTPClientProfileItem := range HTTPClientProfileElems {
+						HTTPClientProfileItemMap := make(map[string]interface{})
+						if !HTTPClientProfileItem.Kind.IsNull() && !HTTPClientProfileItem.Kind.IsUnknown() {
+							HTTPClientProfileItemMap["kind"] = HTTPClientProfileItem.Kind.ValueString()
+						}
+						if !HTTPClientProfileItem.Name.IsNull() && !HTTPClientProfileItem.Name.IsUnknown() {
+							HTTPClientProfileItemMap["name"] = HTTPClientProfileItem.Name.ValueString()
+						}
+						if !HTTPClientProfileItem.Namespace.IsNull() && !HTTPClientProfileItem.Namespace.IsUnknown() {
+							HTTPClientProfileItemMap["namespace"] = HTTPClientProfileItem.Namespace.ValueString()
+						}
+						if !HTTPClientProfileItem.Tenant.IsNull() && !HTTPClientProfileItem.Tenant.IsUnknown() {
+							HTTPClientProfileItemMap["tenant"] = HTTPClientProfileItem.Tenant.ValueString()
+						}
+						if !HTTPClientProfileItem.Uid.IsNull() && !HTTPClientProfileItem.Uid.IsUnknown() {
+							HTTPClientProfileItemMap["uid"] = HTTPClientProfileItem.Uid.ValueString()
+						}
+						HTTPClientProfileList = append(HTTPClientProfileList, HTTPClientProfileItemMap)
+					}
+					HTTPMap["http_client_profile"] = HTTPClientProfileList
+				}
+			}
+			if !data.VirtualServer.HTTP.HTTPServerProfile.IsNull() && !data.VirtualServer.HTTP.HTTPServerProfile.IsUnknown() {
+				var HTTPServerProfileElems []ApplicationProfilesVirtualServerHTTPHTTPServerProfileModel
+				diags := data.VirtualServer.HTTP.HTTPServerProfile.ElementsAs(ctx, &HTTPServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(HTTPServerProfileElems) > 0 {
+					var HTTPServerProfileList []map[string]interface{}
+					for _, HTTPServerProfileItem := range HTTPServerProfileElems {
+						HTTPServerProfileItemMap := make(map[string]interface{})
+						if !HTTPServerProfileItem.Kind.IsNull() && !HTTPServerProfileItem.Kind.IsUnknown() {
+							HTTPServerProfileItemMap["kind"] = HTTPServerProfileItem.Kind.ValueString()
+						}
+						if !HTTPServerProfileItem.Name.IsNull() && !HTTPServerProfileItem.Name.IsUnknown() {
+							HTTPServerProfileItemMap["name"] = HTTPServerProfileItem.Name.ValueString()
+						}
+						if !HTTPServerProfileItem.Namespace.IsNull() && !HTTPServerProfileItem.Namespace.IsUnknown() {
+							HTTPServerProfileItemMap["namespace"] = HTTPServerProfileItem.Namespace.ValueString()
+						}
+						if !HTTPServerProfileItem.Tenant.IsNull() && !HTTPServerProfileItem.Tenant.IsUnknown() {
+							HTTPServerProfileItemMap["tenant"] = HTTPServerProfileItem.Tenant.ValueString()
+						}
+						if !HTTPServerProfileItem.Uid.IsNull() && !HTTPServerProfileItem.Uid.IsUnknown() {
+							HTTPServerProfileItemMap["uid"] = HTTPServerProfileItem.Uid.ValueString()
+						}
+						HTTPServerProfileList = append(HTTPServerProfileList, HTTPServerProfileItemMap)
+					}
+					HTTPMap["http_server_profile"] = HTTPServerProfileList
+				}
+			}
+			if !data.VirtualServer.HTTP.StreamProfile.IsNull() && !data.VirtualServer.HTTP.StreamProfile.IsUnknown() {
+				var StreamProfileElems []ApplicationProfilesVirtualServerHTTPStreamProfileModel
+				diags := data.VirtualServer.HTTP.StreamProfile.ElementsAs(ctx, &StreamProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(StreamProfileElems) > 0 {
+					var StreamProfileList []map[string]interface{}
+					for _, StreamProfileItem := range StreamProfileElems {
+						StreamProfileItemMap := make(map[string]interface{})
+						if !StreamProfileItem.Kind.IsNull() && !StreamProfileItem.Kind.IsUnknown() {
+							StreamProfileItemMap["kind"] = StreamProfileItem.Kind.ValueString()
+						}
+						if !StreamProfileItem.Name.IsNull() && !StreamProfileItem.Name.IsUnknown() {
+							StreamProfileItemMap["name"] = StreamProfileItem.Name.ValueString()
+						}
+						if !StreamProfileItem.Namespace.IsNull() && !StreamProfileItem.Namespace.IsUnknown() {
+							StreamProfileItemMap["namespace"] = StreamProfileItem.Namespace.ValueString()
+						}
+						if !StreamProfileItem.Tenant.IsNull() && !StreamProfileItem.Tenant.IsUnknown() {
+							StreamProfileItemMap["tenant"] = StreamProfileItem.Tenant.ValueString()
+						}
+						if !StreamProfileItem.Uid.IsNull() && !StreamProfileItem.Uid.IsUnknown() {
+							StreamProfileItemMap["uid"] = StreamProfileItem.Uid.ValueString()
+						}
+						StreamProfileList = append(StreamProfileList, StreamProfileItemMap)
+					}
+					HTTPMap["stream_profile"] = StreamProfileList
+				}
+			}
+			if !data.VirtualServer.HTTP.TCPClientProfile.IsNull() && !data.VirtualServer.HTTP.TCPClientProfile.IsUnknown() {
+				var TCPClientProfileElems []ApplicationProfilesVirtualServerHTTPTCPClientProfileModel
+				diags := data.VirtualServer.HTTP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TCPClientProfileElems) > 0 {
+					var TCPClientProfileList []map[string]interface{}
+					for _, TCPClientProfileItem := range TCPClientProfileElems {
+						TCPClientProfileItemMap := make(map[string]interface{})
+						if !TCPClientProfileItem.Kind.IsNull() && !TCPClientProfileItem.Kind.IsUnknown() {
+							TCPClientProfileItemMap["kind"] = TCPClientProfileItem.Kind.ValueString()
+						}
+						if !TCPClientProfileItem.Name.IsNull() && !TCPClientProfileItem.Name.IsUnknown() {
+							TCPClientProfileItemMap["name"] = TCPClientProfileItem.Name.ValueString()
+						}
+						if !TCPClientProfileItem.Namespace.IsNull() && !TCPClientProfileItem.Namespace.IsUnknown() {
+							TCPClientProfileItemMap["namespace"] = TCPClientProfileItem.Namespace.ValueString()
+						}
+						if !TCPClientProfileItem.Tenant.IsNull() && !TCPClientProfileItem.Tenant.IsUnknown() {
+							TCPClientProfileItemMap["tenant"] = TCPClientProfileItem.Tenant.ValueString()
+						}
+						if !TCPClientProfileItem.Uid.IsNull() && !TCPClientProfileItem.Uid.IsUnknown() {
+							TCPClientProfileItemMap["uid"] = TCPClientProfileItem.Uid.ValueString()
+						}
+						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
+					}
+					HTTPMap["tcp_client_profile"] = TCPClientProfileList
+				}
+			}
+			if !data.VirtualServer.HTTP.TCPServerProfile.IsNull() && !data.VirtualServer.HTTP.TCPServerProfile.IsUnknown() {
+				var TCPServerProfileElems []ApplicationProfilesVirtualServerHTTPTCPServerProfileModel
+				diags := data.VirtualServer.HTTP.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TCPServerProfileElems) > 0 {
+					var TCPServerProfileList []map[string]interface{}
+					for _, TCPServerProfileItem := range TCPServerProfileElems {
+						TCPServerProfileItemMap := make(map[string]interface{})
+						if !TCPServerProfileItem.Kind.IsNull() && !TCPServerProfileItem.Kind.IsUnknown() {
+							TCPServerProfileItemMap["kind"] = TCPServerProfileItem.Kind.ValueString()
+						}
+						if !TCPServerProfileItem.Name.IsNull() && !TCPServerProfileItem.Name.IsUnknown() {
+							TCPServerProfileItemMap["name"] = TCPServerProfileItem.Name.ValueString()
+						}
+						if !TCPServerProfileItem.Namespace.IsNull() && !TCPServerProfileItem.Namespace.IsUnknown() {
+							TCPServerProfileItemMap["namespace"] = TCPServerProfileItem.Namespace.ValueString()
+						}
+						if !TCPServerProfileItem.Tenant.IsNull() && !TCPServerProfileItem.Tenant.IsUnknown() {
+							TCPServerProfileItemMap["tenant"] = TCPServerProfileItem.Tenant.ValueString()
+						}
+						if !TCPServerProfileItem.Uid.IsNull() && !TCPServerProfileItem.Uid.IsUnknown() {
+							TCPServerProfileItemMap["uid"] = TCPServerProfileItem.Uid.ValueString()
+						}
+						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
+					}
+					HTTPMap["tcp_server_profile"] = TCPServerProfileList
+				}
+			}
+			if !data.VirtualServer.HTTP.WebSocketClientProfile.IsNull() && !data.VirtualServer.HTTP.WebSocketClientProfile.IsUnknown() {
+				var WebSocketClientProfileElems []ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModel
+				diags := data.VirtualServer.HTTP.WebSocketClientProfile.ElementsAs(ctx, &WebSocketClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(WebSocketClientProfileElems) > 0 {
+					var WebSocketClientProfileList []map[string]interface{}
+					for _, WebSocketClientProfileItem := range WebSocketClientProfileElems {
+						WebSocketClientProfileItemMap := make(map[string]interface{})
+						if !WebSocketClientProfileItem.Kind.IsNull() && !WebSocketClientProfileItem.Kind.IsUnknown() {
+							WebSocketClientProfileItemMap["kind"] = WebSocketClientProfileItem.Kind.ValueString()
+						}
+						if !WebSocketClientProfileItem.Name.IsNull() && !WebSocketClientProfileItem.Name.IsUnknown() {
+							WebSocketClientProfileItemMap["name"] = WebSocketClientProfileItem.Name.ValueString()
+						}
+						if !WebSocketClientProfileItem.Namespace.IsNull() && !WebSocketClientProfileItem.Namespace.IsUnknown() {
+							WebSocketClientProfileItemMap["namespace"] = WebSocketClientProfileItem.Namespace.ValueString()
+						}
+						if !WebSocketClientProfileItem.Tenant.IsNull() && !WebSocketClientProfileItem.Tenant.IsUnknown() {
+							WebSocketClientProfileItemMap["tenant"] = WebSocketClientProfileItem.Tenant.ValueString()
+						}
+						if !WebSocketClientProfileItem.Uid.IsNull() && !WebSocketClientProfileItem.Uid.IsUnknown() {
+							WebSocketClientProfileItemMap["uid"] = WebSocketClientProfileItem.Uid.ValueString()
+						}
+						WebSocketClientProfileList = append(WebSocketClientProfileList, WebSocketClientProfileItemMap)
+					}
+					HTTPMap["websocket_client_profile"] = WebSocketClientProfileList
+				}
+			}
+			if !data.VirtualServer.HTTP.WebSocketServerProfile.IsNull() && !data.VirtualServer.HTTP.WebSocketServerProfile.IsUnknown() {
+				var WebSocketServerProfileElems []ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModel
+				diags := data.VirtualServer.HTTP.WebSocketServerProfile.ElementsAs(ctx, &WebSocketServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(WebSocketServerProfileElems) > 0 {
+					var WebSocketServerProfileList []map[string]interface{}
+					for _, WebSocketServerProfileItem := range WebSocketServerProfileElems {
+						WebSocketServerProfileItemMap := make(map[string]interface{})
+						if !WebSocketServerProfileItem.Kind.IsNull() && !WebSocketServerProfileItem.Kind.IsUnknown() {
+							WebSocketServerProfileItemMap["kind"] = WebSocketServerProfileItem.Kind.ValueString()
+						}
+						if !WebSocketServerProfileItem.Name.IsNull() && !WebSocketServerProfileItem.Name.IsUnknown() {
+							WebSocketServerProfileItemMap["name"] = WebSocketServerProfileItem.Name.ValueString()
+						}
+						if !WebSocketServerProfileItem.Namespace.IsNull() && !WebSocketServerProfileItem.Namespace.IsUnknown() {
+							WebSocketServerProfileItemMap["namespace"] = WebSocketServerProfileItem.Namespace.ValueString()
+						}
+						if !WebSocketServerProfileItem.Tenant.IsNull() && !WebSocketServerProfileItem.Tenant.IsUnknown() {
+							WebSocketServerProfileItemMap["tenant"] = WebSocketServerProfileItem.Tenant.ValueString()
+						}
+						if !WebSocketServerProfileItem.Uid.IsNull() && !WebSocketServerProfileItem.Uid.IsUnknown() {
+							WebSocketServerProfileItemMap["uid"] = WebSocketServerProfileItem.Uid.ValueString()
+						}
+						WebSocketServerProfileList = append(WebSocketServerProfileList, WebSocketServerProfileItemMap)
+					}
+					HTTPMap["websocket_server_profile"] = WebSocketServerProfileList
+				}
+			}
+			VirtualServerMap["http"] = HTTPMap
 		}
 		if data.VirtualServer.HTTPS != nil {
-			httpsNestedMap := make(map[string]interface{})
-			virtual_serverMap["https"] = httpsNestedMap
+			HTTPSMap := make(map[string]interface{})
+			if !data.VirtualServer.HTTPS.HTTPClientProfile.IsNull() && !data.VirtualServer.HTTPS.HTTPClientProfile.IsUnknown() {
+				var HTTPClientProfileElems []ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel
+				diags := data.VirtualServer.HTTPS.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(HTTPClientProfileElems) > 0 {
+					var HTTPClientProfileList []map[string]interface{}
+					for _, HTTPClientProfileItem := range HTTPClientProfileElems {
+						HTTPClientProfileItemMap := make(map[string]interface{})
+						if !HTTPClientProfileItem.Kind.IsNull() && !HTTPClientProfileItem.Kind.IsUnknown() {
+							HTTPClientProfileItemMap["kind"] = HTTPClientProfileItem.Kind.ValueString()
+						}
+						if !HTTPClientProfileItem.Name.IsNull() && !HTTPClientProfileItem.Name.IsUnknown() {
+							HTTPClientProfileItemMap["name"] = HTTPClientProfileItem.Name.ValueString()
+						}
+						if !HTTPClientProfileItem.Namespace.IsNull() && !HTTPClientProfileItem.Namespace.IsUnknown() {
+							HTTPClientProfileItemMap["namespace"] = HTTPClientProfileItem.Namespace.ValueString()
+						}
+						if !HTTPClientProfileItem.Tenant.IsNull() && !HTTPClientProfileItem.Tenant.IsUnknown() {
+							HTTPClientProfileItemMap["tenant"] = HTTPClientProfileItem.Tenant.ValueString()
+						}
+						if !HTTPClientProfileItem.Uid.IsNull() && !HTTPClientProfileItem.Uid.IsUnknown() {
+							HTTPClientProfileItemMap["uid"] = HTTPClientProfileItem.Uid.ValueString()
+						}
+						HTTPClientProfileList = append(HTTPClientProfileList, HTTPClientProfileItemMap)
+					}
+					HTTPSMap["http_client_profile"] = HTTPClientProfileList
+				}
+			}
+			if !data.VirtualServer.HTTPS.HTTPServerProfile.IsNull() && !data.VirtualServer.HTTPS.HTTPServerProfile.IsUnknown() {
+				var HTTPServerProfileElems []ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModel
+				diags := data.VirtualServer.HTTPS.HTTPServerProfile.ElementsAs(ctx, &HTTPServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(HTTPServerProfileElems) > 0 {
+					var HTTPServerProfileList []map[string]interface{}
+					for _, HTTPServerProfileItem := range HTTPServerProfileElems {
+						HTTPServerProfileItemMap := make(map[string]interface{})
+						if !HTTPServerProfileItem.Kind.IsNull() && !HTTPServerProfileItem.Kind.IsUnknown() {
+							HTTPServerProfileItemMap["kind"] = HTTPServerProfileItem.Kind.ValueString()
+						}
+						if !HTTPServerProfileItem.Name.IsNull() && !HTTPServerProfileItem.Name.IsUnknown() {
+							HTTPServerProfileItemMap["name"] = HTTPServerProfileItem.Name.ValueString()
+						}
+						if !HTTPServerProfileItem.Namespace.IsNull() && !HTTPServerProfileItem.Namespace.IsUnknown() {
+							HTTPServerProfileItemMap["namespace"] = HTTPServerProfileItem.Namespace.ValueString()
+						}
+						if !HTTPServerProfileItem.Tenant.IsNull() && !HTTPServerProfileItem.Tenant.IsUnknown() {
+							HTTPServerProfileItemMap["tenant"] = HTTPServerProfileItem.Tenant.ValueString()
+						}
+						if !HTTPServerProfileItem.Uid.IsNull() && !HTTPServerProfileItem.Uid.IsUnknown() {
+							HTTPServerProfileItemMap["uid"] = HTTPServerProfileItem.Uid.ValueString()
+						}
+						HTTPServerProfileList = append(HTTPServerProfileList, HTTPServerProfileItemMap)
+					}
+					HTTPSMap["http_server_profile"] = HTTPServerProfileList
+				}
+			}
+			if !data.VirtualServer.HTTPS.StreamProfile.IsNull() && !data.VirtualServer.HTTPS.StreamProfile.IsUnknown() {
+				var StreamProfileElems []ApplicationProfilesVirtualServerHTTPSStreamProfileModel
+				diags := data.VirtualServer.HTTPS.StreamProfile.ElementsAs(ctx, &StreamProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(StreamProfileElems) > 0 {
+					var StreamProfileList []map[string]interface{}
+					for _, StreamProfileItem := range StreamProfileElems {
+						StreamProfileItemMap := make(map[string]interface{})
+						if !StreamProfileItem.Kind.IsNull() && !StreamProfileItem.Kind.IsUnknown() {
+							StreamProfileItemMap["kind"] = StreamProfileItem.Kind.ValueString()
+						}
+						if !StreamProfileItem.Name.IsNull() && !StreamProfileItem.Name.IsUnknown() {
+							StreamProfileItemMap["name"] = StreamProfileItem.Name.ValueString()
+						}
+						if !StreamProfileItem.Namespace.IsNull() && !StreamProfileItem.Namespace.IsUnknown() {
+							StreamProfileItemMap["namespace"] = StreamProfileItem.Namespace.ValueString()
+						}
+						if !StreamProfileItem.Tenant.IsNull() && !StreamProfileItem.Tenant.IsUnknown() {
+							StreamProfileItemMap["tenant"] = StreamProfileItem.Tenant.ValueString()
+						}
+						if !StreamProfileItem.Uid.IsNull() && !StreamProfileItem.Uid.IsUnknown() {
+							StreamProfileItemMap["uid"] = StreamProfileItem.Uid.ValueString()
+						}
+						StreamProfileList = append(StreamProfileList, StreamProfileItemMap)
+					}
+					HTTPSMap["stream_profile"] = StreamProfileList
+				}
+			}
+			if !data.VirtualServer.HTTPS.TCPClientProfile.IsNull() && !data.VirtualServer.HTTPS.TCPClientProfile.IsUnknown() {
+				var TCPClientProfileElems []ApplicationProfilesVirtualServerHTTPSTCPClientProfileModel
+				diags := data.VirtualServer.HTTPS.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TCPClientProfileElems) > 0 {
+					var TCPClientProfileList []map[string]interface{}
+					for _, TCPClientProfileItem := range TCPClientProfileElems {
+						TCPClientProfileItemMap := make(map[string]interface{})
+						if !TCPClientProfileItem.Kind.IsNull() && !TCPClientProfileItem.Kind.IsUnknown() {
+							TCPClientProfileItemMap["kind"] = TCPClientProfileItem.Kind.ValueString()
+						}
+						if !TCPClientProfileItem.Name.IsNull() && !TCPClientProfileItem.Name.IsUnknown() {
+							TCPClientProfileItemMap["name"] = TCPClientProfileItem.Name.ValueString()
+						}
+						if !TCPClientProfileItem.Namespace.IsNull() && !TCPClientProfileItem.Namespace.IsUnknown() {
+							TCPClientProfileItemMap["namespace"] = TCPClientProfileItem.Namespace.ValueString()
+						}
+						if !TCPClientProfileItem.Tenant.IsNull() && !TCPClientProfileItem.Tenant.IsUnknown() {
+							TCPClientProfileItemMap["tenant"] = TCPClientProfileItem.Tenant.ValueString()
+						}
+						if !TCPClientProfileItem.Uid.IsNull() && !TCPClientProfileItem.Uid.IsUnknown() {
+							TCPClientProfileItemMap["uid"] = TCPClientProfileItem.Uid.ValueString()
+						}
+						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
+					}
+					HTTPSMap["tcp_client_profile"] = TCPClientProfileList
+				}
+			}
+			if !data.VirtualServer.HTTPS.TCPServerProfile.IsNull() && !data.VirtualServer.HTTPS.TCPServerProfile.IsUnknown() {
+				var TCPServerProfileElems []ApplicationProfilesVirtualServerHTTPSTCPServerProfileModel
+				diags := data.VirtualServer.HTTPS.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TCPServerProfileElems) > 0 {
+					var TCPServerProfileList []map[string]interface{}
+					for _, TCPServerProfileItem := range TCPServerProfileElems {
+						TCPServerProfileItemMap := make(map[string]interface{})
+						if !TCPServerProfileItem.Kind.IsNull() && !TCPServerProfileItem.Kind.IsUnknown() {
+							TCPServerProfileItemMap["kind"] = TCPServerProfileItem.Kind.ValueString()
+						}
+						if !TCPServerProfileItem.Name.IsNull() && !TCPServerProfileItem.Name.IsUnknown() {
+							TCPServerProfileItemMap["name"] = TCPServerProfileItem.Name.ValueString()
+						}
+						if !TCPServerProfileItem.Namespace.IsNull() && !TCPServerProfileItem.Namespace.IsUnknown() {
+							TCPServerProfileItemMap["namespace"] = TCPServerProfileItem.Namespace.ValueString()
+						}
+						if !TCPServerProfileItem.Tenant.IsNull() && !TCPServerProfileItem.Tenant.IsUnknown() {
+							TCPServerProfileItemMap["tenant"] = TCPServerProfileItem.Tenant.ValueString()
+						}
+						if !TCPServerProfileItem.Uid.IsNull() && !TCPServerProfileItem.Uid.IsUnknown() {
+							TCPServerProfileItemMap["uid"] = TCPServerProfileItem.Uid.ValueString()
+						}
+						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
+					}
+					HTTPSMap["tcp_server_profile"] = TCPServerProfileList
+				}
+			}
+			if !data.VirtualServer.HTTPS.WebSocketClientProfile.IsNull() && !data.VirtualServer.HTTPS.WebSocketClientProfile.IsUnknown() {
+				var WebSocketClientProfileElems []ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModel
+				diags := data.VirtualServer.HTTPS.WebSocketClientProfile.ElementsAs(ctx, &WebSocketClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(WebSocketClientProfileElems) > 0 {
+					var WebSocketClientProfileList []map[string]interface{}
+					for _, WebSocketClientProfileItem := range WebSocketClientProfileElems {
+						WebSocketClientProfileItemMap := make(map[string]interface{})
+						if !WebSocketClientProfileItem.Kind.IsNull() && !WebSocketClientProfileItem.Kind.IsUnknown() {
+							WebSocketClientProfileItemMap["kind"] = WebSocketClientProfileItem.Kind.ValueString()
+						}
+						if !WebSocketClientProfileItem.Name.IsNull() && !WebSocketClientProfileItem.Name.IsUnknown() {
+							WebSocketClientProfileItemMap["name"] = WebSocketClientProfileItem.Name.ValueString()
+						}
+						if !WebSocketClientProfileItem.Namespace.IsNull() && !WebSocketClientProfileItem.Namespace.IsUnknown() {
+							WebSocketClientProfileItemMap["namespace"] = WebSocketClientProfileItem.Namespace.ValueString()
+						}
+						if !WebSocketClientProfileItem.Tenant.IsNull() && !WebSocketClientProfileItem.Tenant.IsUnknown() {
+							WebSocketClientProfileItemMap["tenant"] = WebSocketClientProfileItem.Tenant.ValueString()
+						}
+						if !WebSocketClientProfileItem.Uid.IsNull() && !WebSocketClientProfileItem.Uid.IsUnknown() {
+							WebSocketClientProfileItemMap["uid"] = WebSocketClientProfileItem.Uid.ValueString()
+						}
+						WebSocketClientProfileList = append(WebSocketClientProfileList, WebSocketClientProfileItemMap)
+					}
+					HTTPSMap["websocket_client_profile"] = WebSocketClientProfileList
+				}
+			}
+			if !data.VirtualServer.HTTPS.WebSocketServerProfile.IsNull() && !data.VirtualServer.HTTPS.WebSocketServerProfile.IsUnknown() {
+				var WebSocketServerProfileElems []ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModel
+				diags := data.VirtualServer.HTTPS.WebSocketServerProfile.ElementsAs(ctx, &WebSocketServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(WebSocketServerProfileElems) > 0 {
+					var WebSocketServerProfileList []map[string]interface{}
+					for _, WebSocketServerProfileItem := range WebSocketServerProfileElems {
+						WebSocketServerProfileItemMap := make(map[string]interface{})
+						if !WebSocketServerProfileItem.Kind.IsNull() && !WebSocketServerProfileItem.Kind.IsUnknown() {
+							WebSocketServerProfileItemMap["kind"] = WebSocketServerProfileItem.Kind.ValueString()
+						}
+						if !WebSocketServerProfileItem.Name.IsNull() && !WebSocketServerProfileItem.Name.IsUnknown() {
+							WebSocketServerProfileItemMap["name"] = WebSocketServerProfileItem.Name.ValueString()
+						}
+						if !WebSocketServerProfileItem.Namespace.IsNull() && !WebSocketServerProfileItem.Namespace.IsUnknown() {
+							WebSocketServerProfileItemMap["namespace"] = WebSocketServerProfileItem.Namespace.ValueString()
+						}
+						if !WebSocketServerProfileItem.Tenant.IsNull() && !WebSocketServerProfileItem.Tenant.IsUnknown() {
+							WebSocketServerProfileItemMap["tenant"] = WebSocketServerProfileItem.Tenant.ValueString()
+						}
+						if !WebSocketServerProfileItem.Uid.IsNull() && !WebSocketServerProfileItem.Uid.IsUnknown() {
+							WebSocketServerProfileItemMap["uid"] = WebSocketServerProfileItem.Uid.ValueString()
+						}
+						WebSocketServerProfileList = append(WebSocketServerProfileList, WebSocketServerProfileItemMap)
+					}
+					HTTPSMap["websocket_server_profile"] = WebSocketServerProfileList
+				}
+			}
+			VirtualServerMap["https"] = HTTPSMap
 		}
 		if data.VirtualServer.ImmediateActionOnServiceDown != nil {
-			immediate_action_on_service_downNestedMap := make(map[string]interface{})
-			virtual_serverMap["immediate_action_on_service_down"] = immediate_action_on_service_downNestedMap
-		}
-		if len(data.VirtualServer.LastHopPool) > 0 {
-			var last_hop_poolList []map[string]interface{}
-			for _, listItem := range data.VirtualServer.LastHopPool {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Kind.IsNull() && !listItem.Kind.IsUnknown() {
-					listItemMap["kind"] = listItem.Kind.ValueString()
-				}
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
-				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				if !listItem.Uid.IsNull() && !listItem.Uid.IsUnknown() {
-					listItemMap["uid"] = listItem.Uid.ValueString()
-				}
-				last_hop_poolList = append(last_hop_poolList, listItemMap)
+			ImmediateActionOnServiceDownMap := make(map[string]interface{})
+			if data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownDrop != nil {
+				ImmediateActionOnServiceDownMap["immediate_action_on_service_down_drop"] = map[string]interface{}{}
 			}
-			virtual_serverMap["last_hop_pool"] = last_hop_poolList
+			if data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownNone != nil {
+				ImmediateActionOnServiceDownMap["immediate_action_on_service_down_none"] = map[string]interface{}{}
+			}
+			if data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownReset != nil {
+				ImmediateActionOnServiceDownMap["immediate_action_on_service_down_reset"] = map[string]interface{}{}
+			}
+			VirtualServerMap["immediate_action_on_service_down"] = ImmediateActionOnServiceDownMap
+		}
+		if !data.VirtualServer.LastHopPool.IsNull() && !data.VirtualServer.LastHopPool.IsUnknown() {
+			var LastHopPoolElems []ApplicationProfilesVirtualServerLastHopPoolModel
+			diags := data.VirtualServer.LastHopPool.ElementsAs(ctx, &LastHopPoolElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(LastHopPoolElems) > 0 {
+				var LastHopPoolList []map[string]interface{}
+				for _, LastHopPoolItem := range LastHopPoolElems {
+					LastHopPoolItemMap := make(map[string]interface{})
+					if !LastHopPoolItem.Kind.IsNull() && !LastHopPoolItem.Kind.IsUnknown() {
+						LastHopPoolItemMap["kind"] = LastHopPoolItem.Kind.ValueString()
+					}
+					if !LastHopPoolItem.Name.IsNull() && !LastHopPoolItem.Name.IsUnknown() {
+						LastHopPoolItemMap["name"] = LastHopPoolItem.Name.ValueString()
+					}
+					if !LastHopPoolItem.Namespace.IsNull() && !LastHopPoolItem.Namespace.IsUnknown() {
+						LastHopPoolItemMap["namespace"] = LastHopPoolItem.Namespace.ValueString()
+					}
+					if !LastHopPoolItem.Tenant.IsNull() && !LastHopPoolItem.Tenant.IsUnknown() {
+						LastHopPoolItemMap["tenant"] = LastHopPoolItem.Tenant.ValueString()
+					}
+					if !LastHopPoolItem.Uid.IsNull() && !LastHopPoolItem.Uid.IsUnknown() {
+						LastHopPoolItemMap["uid"] = LastHopPoolItem.Uid.ValueString()
+					}
+					LastHopPoolList = append(LastHopPoolList, LastHopPoolItemMap)
+				}
+				VirtualServerMap["last_hop_pool"] = LastHopPoolList
+			}
 		}
 		if data.VirtualServer.Nat64 != nil {
-			nat64NestedMap := make(map[string]interface{})
-			virtual_serverMap["nat64"] = nat64NestedMap
+			Nat64Map := make(map[string]interface{})
+			if data.VirtualServer.Nat64.Nat64Disable != nil {
+				Nat64Map["nat64_disable"] = map[string]interface{}{}
+			}
+			if data.VirtualServer.Nat64.Nat64Enable != nil {
+				Nat64Map["nat64_enable"] = map[string]interface{}{}
+			}
+			VirtualServerMap["nat64"] = Nat64Map
 		}
 		if data.VirtualServer.PortTranslation != nil {
-			port_translationNestedMap := make(map[string]interface{})
-			virtual_serverMap["port_translation"] = port_translationNestedMap
-		}
-		if len(data.VirtualServer.RequestLoggingProfile) > 0 {
-			var request_logging_profileList []map[string]interface{}
-			for _, listItem := range data.VirtualServer.RequestLoggingProfile {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Kind.IsNull() && !listItem.Kind.IsUnknown() {
-					listItemMap["kind"] = listItem.Kind.ValueString()
-				}
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
-				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				if !listItem.Uid.IsNull() && !listItem.Uid.IsUnknown() {
-					listItemMap["uid"] = listItem.Uid.ValueString()
-				}
-				request_logging_profileList = append(request_logging_profileList, listItemMap)
+			PortTranslationMap := make(map[string]interface{})
+			if data.VirtualServer.PortTranslation.PortTranslationDisable != nil {
+				PortTranslationMap["port_translation_disable"] = map[string]interface{}{}
 			}
-			virtual_serverMap["request_logging_profile"] = request_logging_profileList
+			if data.VirtualServer.PortTranslation.PortTranslationEnable != nil {
+				PortTranslationMap["port_translation_enable"] = map[string]interface{}{}
+			}
+			VirtualServerMap["port_translation"] = PortTranslationMap
+		}
+		if !data.VirtualServer.RequestLoggingProfile.IsNull() && !data.VirtualServer.RequestLoggingProfile.IsUnknown() {
+			var RequestLoggingProfileElems []ApplicationProfilesVirtualServerRequestLoggingProfileModel
+			diags := data.VirtualServer.RequestLoggingProfile.ElementsAs(ctx, &RequestLoggingProfileElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(RequestLoggingProfileElems) > 0 {
+				var RequestLoggingProfileList []map[string]interface{}
+				for _, RequestLoggingProfileItem := range RequestLoggingProfileElems {
+					RequestLoggingProfileItemMap := make(map[string]interface{})
+					if !RequestLoggingProfileItem.Kind.IsNull() && !RequestLoggingProfileItem.Kind.IsUnknown() {
+						RequestLoggingProfileItemMap["kind"] = RequestLoggingProfileItem.Kind.ValueString()
+					}
+					if !RequestLoggingProfileItem.Name.IsNull() && !RequestLoggingProfileItem.Name.IsUnknown() {
+						RequestLoggingProfileItemMap["name"] = RequestLoggingProfileItem.Name.ValueString()
+					}
+					if !RequestLoggingProfileItem.Namespace.IsNull() && !RequestLoggingProfileItem.Namespace.IsUnknown() {
+						RequestLoggingProfileItemMap["namespace"] = RequestLoggingProfileItem.Namespace.ValueString()
+					}
+					if !RequestLoggingProfileItem.Tenant.IsNull() && !RequestLoggingProfileItem.Tenant.IsUnknown() {
+						RequestLoggingProfileItemMap["tenant"] = RequestLoggingProfileItem.Tenant.ValueString()
+					}
+					if !RequestLoggingProfileItem.Uid.IsNull() && !RequestLoggingProfileItem.Uid.IsUnknown() {
+						RequestLoggingProfileItemMap["uid"] = RequestLoggingProfileItem.Uid.ValueString()
+					}
+					RequestLoggingProfileList = append(RequestLoggingProfileList, RequestLoggingProfileItemMap)
+				}
+				VirtualServerMap["request_logging_profile"] = RequestLoggingProfileList
+			}
 		}
 		if data.VirtualServer.SourcePort != nil {
-			source_portNestedMap := make(map[string]interface{})
-			virtual_serverMap["source_port"] = source_portNestedMap
-		}
-		if len(data.VirtualServer.StatisticsProfile) > 0 {
-			var statistics_profileList []map[string]interface{}
-			for _, listItem := range data.VirtualServer.StatisticsProfile {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Kind.IsNull() && !listItem.Kind.IsUnknown() {
-					listItemMap["kind"] = listItem.Kind.ValueString()
-				}
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
-				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				if !listItem.Uid.IsNull() && !listItem.Uid.IsUnknown() {
-					listItemMap["uid"] = listItem.Uid.ValueString()
-				}
-				statistics_profileList = append(statistics_profileList, listItemMap)
+			SourcePortMap := make(map[string]interface{})
+			if data.VirtualServer.SourcePort.SourcePortChange != nil {
+				SourcePortMap["source_port_change"] = map[string]interface{}{}
 			}
-			virtual_serverMap["statistics_profile"] = statistics_profileList
+			if data.VirtualServer.SourcePort.SourcePortPreserve != nil {
+				SourcePortMap["source_port_preserve"] = map[string]interface{}{}
+			}
+			if data.VirtualServer.SourcePort.SourcePortPreserveStrict != nil {
+				SourcePortMap["source_port_preserve_strict"] = map[string]interface{}{}
+			}
+			VirtualServerMap["source_port"] = SourcePortMap
+		}
+		if !data.VirtualServer.StatisticsProfile.IsNull() && !data.VirtualServer.StatisticsProfile.IsUnknown() {
+			var StatisticsProfileElems []ApplicationProfilesVirtualServerStatisticsProfileModel
+			diags := data.VirtualServer.StatisticsProfile.ElementsAs(ctx, &StatisticsProfileElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(StatisticsProfileElems) > 0 {
+				var StatisticsProfileList []map[string]interface{}
+				for _, StatisticsProfileItem := range StatisticsProfileElems {
+					StatisticsProfileItemMap := make(map[string]interface{})
+					if !StatisticsProfileItem.Kind.IsNull() && !StatisticsProfileItem.Kind.IsUnknown() {
+						StatisticsProfileItemMap["kind"] = StatisticsProfileItem.Kind.ValueString()
+					}
+					if !StatisticsProfileItem.Name.IsNull() && !StatisticsProfileItem.Name.IsUnknown() {
+						StatisticsProfileItemMap["name"] = StatisticsProfileItem.Name.ValueString()
+					}
+					if !StatisticsProfileItem.Namespace.IsNull() && !StatisticsProfileItem.Namespace.IsUnknown() {
+						StatisticsProfileItemMap["namespace"] = StatisticsProfileItem.Namespace.ValueString()
+					}
+					if !StatisticsProfileItem.Tenant.IsNull() && !StatisticsProfileItem.Tenant.IsUnknown() {
+						StatisticsProfileItemMap["tenant"] = StatisticsProfileItem.Tenant.ValueString()
+					}
+					if !StatisticsProfileItem.Uid.IsNull() && !StatisticsProfileItem.Uid.IsUnknown() {
+						StatisticsProfileItemMap["uid"] = StatisticsProfileItem.Uid.ValueString()
+					}
+					StatisticsProfileList = append(StatisticsProfileList, StatisticsProfileItemMap)
+				}
+				VirtualServerMap["statistics_profile"] = StatisticsProfileList
+			}
 		}
 		if data.VirtualServer.TCP != nil {
-			tcpNestedMap := make(map[string]interface{})
-			virtual_serverMap["tcp"] = tcpNestedMap
+			TCPMap := make(map[string]interface{})
+			if !data.VirtualServer.TCP.TCPClientProfile.IsNull() && !data.VirtualServer.TCP.TCPClientProfile.IsUnknown() {
+				var TCPClientProfileElems []ApplicationProfilesVirtualServerTCPTCPClientProfileModel
+				diags := data.VirtualServer.TCP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TCPClientProfileElems) > 0 {
+					var TCPClientProfileList []map[string]interface{}
+					for _, TCPClientProfileItem := range TCPClientProfileElems {
+						TCPClientProfileItemMap := make(map[string]interface{})
+						if !TCPClientProfileItem.Kind.IsNull() && !TCPClientProfileItem.Kind.IsUnknown() {
+							TCPClientProfileItemMap["kind"] = TCPClientProfileItem.Kind.ValueString()
+						}
+						if !TCPClientProfileItem.Name.IsNull() && !TCPClientProfileItem.Name.IsUnknown() {
+							TCPClientProfileItemMap["name"] = TCPClientProfileItem.Name.ValueString()
+						}
+						if !TCPClientProfileItem.Namespace.IsNull() && !TCPClientProfileItem.Namespace.IsUnknown() {
+							TCPClientProfileItemMap["namespace"] = TCPClientProfileItem.Namespace.ValueString()
+						}
+						if !TCPClientProfileItem.Tenant.IsNull() && !TCPClientProfileItem.Tenant.IsUnknown() {
+							TCPClientProfileItemMap["tenant"] = TCPClientProfileItem.Tenant.ValueString()
+						}
+						if !TCPClientProfileItem.Uid.IsNull() && !TCPClientProfileItem.Uid.IsUnknown() {
+							TCPClientProfileItemMap["uid"] = TCPClientProfileItem.Uid.ValueString()
+						}
+						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
+					}
+					TCPMap["tcp_client_profile"] = TCPClientProfileList
+				}
+			}
+			if !data.VirtualServer.TCP.TCPServerProfile.IsNull() && !data.VirtualServer.TCP.TCPServerProfile.IsUnknown() {
+				var TCPServerProfileElems []ApplicationProfilesVirtualServerTCPTCPServerProfileModel
+				diags := data.VirtualServer.TCP.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TCPServerProfileElems) > 0 {
+					var TCPServerProfileList []map[string]interface{}
+					for _, TCPServerProfileItem := range TCPServerProfileElems {
+						TCPServerProfileItemMap := make(map[string]interface{})
+						if !TCPServerProfileItem.Kind.IsNull() && !TCPServerProfileItem.Kind.IsUnknown() {
+							TCPServerProfileItemMap["kind"] = TCPServerProfileItem.Kind.ValueString()
+						}
+						if !TCPServerProfileItem.Name.IsNull() && !TCPServerProfileItem.Name.IsUnknown() {
+							TCPServerProfileItemMap["name"] = TCPServerProfileItem.Name.ValueString()
+						}
+						if !TCPServerProfileItem.Namespace.IsNull() && !TCPServerProfileItem.Namespace.IsUnknown() {
+							TCPServerProfileItemMap["namespace"] = TCPServerProfileItem.Namespace.ValueString()
+						}
+						if !TCPServerProfileItem.Tenant.IsNull() && !TCPServerProfileItem.Tenant.IsUnknown() {
+							TCPServerProfileItemMap["tenant"] = TCPServerProfileItem.Tenant.ValueString()
+						}
+						if !TCPServerProfileItem.Uid.IsNull() && !TCPServerProfileItem.Uid.IsUnknown() {
+							TCPServerProfileItemMap["uid"] = TCPServerProfileItem.Uid.ValueString()
+						}
+						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
+					}
+					TCPMap["tcp_server_profile"] = TCPServerProfileList
+				}
+			}
+			VirtualServerMap["tcp"] = TCPMap
 		}
 		if data.VirtualServer.UDP != nil {
-			udpNestedMap := make(map[string]interface{})
-			virtual_serverMap["udp"] = udpNestedMap
+			UDPMap := make(map[string]interface{})
+			if !data.VirtualServer.UDP.TCPClientProfile.IsNull() && !data.VirtualServer.UDP.TCPClientProfile.IsUnknown() {
+				var TCPClientProfileElems []ApplicationProfilesVirtualServerUDPTCPClientProfileModel
+				diags := data.VirtualServer.UDP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TCPClientProfileElems) > 0 {
+					var TCPClientProfileList []map[string]interface{}
+					for _, TCPClientProfileItem := range TCPClientProfileElems {
+						TCPClientProfileItemMap := make(map[string]interface{})
+						if !TCPClientProfileItem.Kind.IsNull() && !TCPClientProfileItem.Kind.IsUnknown() {
+							TCPClientProfileItemMap["kind"] = TCPClientProfileItem.Kind.ValueString()
+						}
+						if !TCPClientProfileItem.Name.IsNull() && !TCPClientProfileItem.Name.IsUnknown() {
+							TCPClientProfileItemMap["name"] = TCPClientProfileItem.Name.ValueString()
+						}
+						if !TCPClientProfileItem.Namespace.IsNull() && !TCPClientProfileItem.Namespace.IsUnknown() {
+							TCPClientProfileItemMap["namespace"] = TCPClientProfileItem.Namespace.ValueString()
+						}
+						if !TCPClientProfileItem.Tenant.IsNull() && !TCPClientProfileItem.Tenant.IsUnknown() {
+							TCPClientProfileItemMap["tenant"] = TCPClientProfileItem.Tenant.ValueString()
+						}
+						if !TCPClientProfileItem.Uid.IsNull() && !TCPClientProfileItem.Uid.IsUnknown() {
+							TCPClientProfileItemMap["uid"] = TCPClientProfileItem.Uid.ValueString()
+						}
+						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
+					}
+					UDPMap["tcp_client_profile"] = TCPClientProfileList
+				}
+			}
+			if !data.VirtualServer.UDP.TCPServerProfile.IsNull() && !data.VirtualServer.UDP.TCPServerProfile.IsUnknown() {
+				var TCPServerProfileElems []ApplicationProfilesVirtualServerUDPTCPServerProfileModel
+				diags := data.VirtualServer.UDP.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TCPServerProfileElems) > 0 {
+					var TCPServerProfileList []map[string]interface{}
+					for _, TCPServerProfileItem := range TCPServerProfileElems {
+						TCPServerProfileItemMap := make(map[string]interface{})
+						if !TCPServerProfileItem.Kind.IsNull() && !TCPServerProfileItem.Kind.IsUnknown() {
+							TCPServerProfileItemMap["kind"] = TCPServerProfileItem.Kind.ValueString()
+						}
+						if !TCPServerProfileItem.Name.IsNull() && !TCPServerProfileItem.Name.IsUnknown() {
+							TCPServerProfileItemMap["name"] = TCPServerProfileItem.Name.ValueString()
+						}
+						if !TCPServerProfileItem.Namespace.IsNull() && !TCPServerProfileItem.Namespace.IsUnknown() {
+							TCPServerProfileItemMap["namespace"] = TCPServerProfileItem.Namespace.ValueString()
+						}
+						if !TCPServerProfileItem.Tenant.IsNull() && !TCPServerProfileItem.Tenant.IsUnknown() {
+							TCPServerProfileItemMap["tenant"] = TCPServerProfileItem.Tenant.ValueString()
+						}
+						if !TCPServerProfileItem.Uid.IsNull() && !TCPServerProfileItem.Uid.IsUnknown() {
+							TCPServerProfileItemMap["uid"] = TCPServerProfileItem.Uid.ValueString()
+						}
+						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
+					}
+					UDPMap["tcp_server_profile"] = TCPServerProfileList
+				}
+			}
+			VirtualServerMap["udp"] = UDPMap
 		}
 		if data.VirtualServer.VirtualServerState != nil {
-			virtual_server_stateNestedMap := make(map[string]interface{})
-			virtual_serverMap["virtual_server_state"] = virtual_server_stateNestedMap
+			VirtualServerStateMap := make(map[string]interface{})
+			if data.VirtualServer.VirtualServerState.StateDisabled != nil {
+				VirtualServerStateMap["state_disabled"] = map[string]interface{}{}
+			}
+			if data.VirtualServer.VirtualServerState.StateEnabled != nil {
+				VirtualServerStateMap["state_enabled"] = map[string]interface{}{}
+			}
+			VirtualServerMap["virtual_server_state"] = VirtualServerStateMap
 		}
 		if !data.VirtualServer.VsScore.IsNull() && !data.VirtualServer.VsScore.IsUnknown() {
-			virtual_serverMap["vs_score"] = data.VirtualServer.VsScore.ValueInt64()
+			VirtualServerMap["vs_score"] = data.VirtualServer.VsScore.ValueInt64()
 		}
-		apiResource.Spec["virtual_server"] = virtual_serverMap
+		apiResource.Spec["virtual_server"] = VirtualServerMap
 	}
 
 	_, err := r.client.UpdateApplicationProfiles(ctx, apiResource)
@@ -5013,26 +8381,62 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["advanced_tcp_profile"].(map[string]interface{}); ok && isImport && data.AdvancedTCPProfile == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AdvancedTCPProfile = &ApplicationProfilesAdvancedTCPProfileModel{}
+	if blockData, ok := apiResource.Spec["advanced_tcp_profile"].(map[string]interface{}); ok && (isImport || data.AdvancedTCPProfile != nil) {
+		data.AdvancedTCPProfile = &ApplicationProfilesAdvancedTCPProfileModel{
+			DisableTCPAdvancedProfile: func() *ApplicationProfilesEmptyModel {
+				if !isImport && data.AdvancedTCPProfile != nil {
+					return data.AdvancedTCPProfile.DisableTCPAdvancedProfile
+				}
+				if _, ok := blockData["disable_tcp_advanced_profile"].(map[string]interface{}); ok {
+					return &ApplicationProfilesEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableTCPAdvancedProfile: func() *ApplicationProfilesEmptyModel {
+				if !isImport && data.AdvancedTCPProfile != nil {
+					return data.AdvancedTCPProfile.EnableTCPAdvancedProfile
+				}
+				if _, ok := blockData["enable_tcp_advanced_profile"].(map[string]interface{}); ok {
+					return &ApplicationProfilesEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && isImport && data.DDOSProfile == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.DDOSProfile = &ApplicationProfilesDDOSProfileModel{}
+	if blockData, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && (isImport || data.DDOSProfile != nil) {
+		data.DDOSProfile = &ApplicationProfilesDDOSProfileModel{
+			DisableDDOSMitigation: func() *ApplicationProfilesEmptyModel {
+				if !isImport && data.DDOSProfile != nil {
+					return data.DDOSProfile.DisableDDOSMitigation
+				}
+				if _, ok := blockData["disable_ddos_mitigation"].(map[string]interface{}); ok {
+					return &ApplicationProfilesEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableDDOSMitigation: func() *ApplicationProfilesEmptyModel {
+				if !isImport && data.DDOSProfile != nil {
+					return data.DDOSProfile.EnableDDOSMitigation
+				}
+				if _, ok := blockData["enable_ddos_mitigation"].(map[string]interface{}); ok {
+					return &ApplicationProfilesEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["irules"].([]interface{}); ok && len(listData) > 0 {
-		var irulesList []ApplicationProfilesIrulesModel
+	if !isImport && (data.Irules.IsNull() || len(data.Irules.Elements()) == 0) {
+		data.Irules = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesIrulesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["irules"].([]interface{}); ok && len(listData) > 0 {
+		var IrulesList []ApplicationProfilesIrulesModel
 		var existingIrulesItems []ApplicationProfilesIrulesModel
 		if !data.Irules.IsNull() && !data.Irules.IsUnknown() {
 			data.Irules.ElementsAs(ctx, &existingIrulesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				irulesList = append(irulesList, ApplicationProfilesIrulesModel{
+				IrulesList = append(IrulesList, ApplicationProfilesIrulesModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -5066,25 +8470,26 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesIrulesModelAttrTypes}, irulesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesIrulesModelAttrTypes}, IrulesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Irules = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Irules = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesIrulesModelAttrTypes})
 	}
-	if listData, ok := apiResource.Spec["traffic_policies"].([]interface{}); ok && len(listData) > 0 {
-		var traffic_policiesList []ApplicationProfilesTrafficPoliciesModel
+	if !isImport && (data.TrafficPolicies.IsNull() || len(data.TrafficPolicies.Elements()) == 0) {
+		data.TrafficPolicies = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesTrafficPoliciesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["traffic_policies"].([]interface{}); ok && len(listData) > 0 {
+		var TrafficPoliciesList []ApplicationProfilesTrafficPoliciesModel
 		var existingTrafficPoliciesItems []ApplicationProfilesTrafficPoliciesModel
 		if !data.TrafficPolicies.IsNull() && !data.TrafficPolicies.IsUnknown() {
 			data.TrafficPolicies.ElementsAs(ctx, &existingTrafficPoliciesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				traffic_policiesList = append(traffic_policiesList, ApplicationProfilesTrafficPoliciesModel{
+				TrafficPoliciesList = append(TrafficPoliciesList, ApplicationProfilesTrafficPoliciesModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -5118,71 +8523,101 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesTrafficPoliciesModelAttrTypes}, traffic_policiesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesTrafficPoliciesModelAttrTypes}, TrafficPoliciesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.TrafficPolicies = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.TrafficPolicies = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesTrafficPoliciesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["virtual_server"].(map[string]interface{}); ok && (isImport || data.VirtualServer != nil) {
 		data.VirtualServer = &ApplicationProfilesVirtualServerModel{
 			AddressTranslation: func() *ApplicationProfilesVirtualServerAddressTranslationModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.AddressTranslation
 				}
-				// Import case: read from API
-				if _, ok := blockData["address_translation"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerAddressTranslationModel{}
+				if AddressTranslationData, ok := blockData["address_translation"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerAddressTranslationModel{
+						AddressTranslationDisable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := AddressTranslationData["address_translation_disable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						AddressTranslationEnable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := AddressTranslationData["address_translation_enable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			AutoLastHop: func() *ApplicationProfilesVirtualServerAutoLastHopModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.AutoLastHop
 				}
-				// Import case: read from API
-				if _, ok := blockData["auto_last_hop"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerAutoLastHopModel{}
+				if AutoLastHopData, ok := blockData["auto_last_hop"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerAutoLastHopModel{
+						AutoLastHopDefault: func() *ApplicationProfilesEmptyModel {
+							if _, ok := AutoLastHopData["auto_last_hop_default"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						AutoLastHopDisable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := AutoLastHopData["auto_last_hop_disable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						AutoLastHopEnable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := AutoLastHopData["auto_last_hop_enable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
-			ClonePoolClient: func() []ApplicationProfilesVirtualServerClonePoolClientModel {
-				if listData, ok := blockData["clone_pool_client"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerClonePoolClientModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerClonePoolClientModel{
+			ClonePoolClient: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.ClonePoolClient.IsNull() || len(data.VirtualServer.ClonePoolClient.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolClientModelAttrTypes})
+				}
+				if rawList, ok := blockData["clone_pool_client"].([]interface{}); ok && len(rawList) > 0 {
+					var ClonePoolClientResult []ApplicationProfilesVirtualServerClonePoolClientModel
+					for _, ClonePoolClientItem := range rawList {
+						if ClonePoolClientItemMap, ok := ClonePoolClientItem.(map[string]interface{}); ok {
+							ClonePoolClientResult = append(ClonePoolClientResult, ApplicationProfilesVirtualServerClonePoolClientModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := ClonePoolClientItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := ClonePoolClientItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := ClonePoolClientItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := ClonePoolClientItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := ClonePoolClientItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -5190,42 +8625,46 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolClientModelAttrTypes}, ClonePoolClientResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolClientModelAttrTypes})
 			}(),
-			ClonePoolServer: func() []ApplicationProfilesVirtualServerClonePoolServerModel {
-				if listData, ok := blockData["clone_pool_server"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerClonePoolServerModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerClonePoolServerModel{
+			ClonePoolServer: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.ClonePoolServer.IsNull() || len(data.VirtualServer.ClonePoolServer.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolServerModelAttrTypes})
+				}
+				if rawList, ok := blockData["clone_pool_server"].([]interface{}); ok && len(rawList) > 0 {
+					var ClonePoolServerResult []ApplicationProfilesVirtualServerClonePoolServerModel
+					for _, ClonePoolServerItem := range rawList {
+						if ClonePoolServerItemMap, ok := ClonePoolServerItem.(map[string]interface{}); ok {
+							ClonePoolServerResult = append(ClonePoolServerResult, ApplicationProfilesVirtualServerClonePoolServerModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := ClonePoolServerItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := ClonePoolServerItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := ClonePoolServerItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := ClonePoolServerItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := ClonePoolServerItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -5233,85 +8672,170 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolServerModelAttrTypes}, ClonePoolServerResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolServerModelAttrTypes})
 			}(),
 			ConnectionLimit: func() types.Int64 {
 				if !isImport && data.VirtualServer != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.VirtualServer.ConnectionLimit
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["connection_limit"].(float64); ok {
+				if v, ok := blockData["connection_limit"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			ConnectionRateLimit: func() types.Int64 {
 				if !isImport && data.VirtualServer != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.VirtualServer.ConnectionRateLimit
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["connection_rate_limit"].(float64); ok {
+				if v, ok := blockData["connection_rate_limit"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			ConnectionRateLimitMode: func() *ApplicationProfilesVirtualServerConnectionRateLimitModeModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.ConnectionRateLimitMode
 				}
-				// Import case: read from API
-				if _, ok := blockData["connection_rate_limit_mode"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerConnectionRateLimitModeModel{}
+				if ConnectionRateLimitModeData, ok := blockData["connection_rate_limit_mode"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerConnectionRateLimitModeModel{
+						PerDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerDestinationAddressModel {
+							if PerDestinationAddressData, ok := ConnectionRateLimitModeData["per_destination_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerDestinationAddressModel{
+									DestinationMask: func() types.Int64 {
+										if v, ok := PerDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						PerSourceAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceAddressModel {
+							if PerSourceAddressData, ok := ConnectionRateLimitModeData["per_source_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceAddressModel{
+									SourceMask: func() types.Int64 {
+										if v, ok := PerSourceAddressData["source_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						PerSourceDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceDestinationAddressModel {
+							if PerSourceDestinationAddressData, ok := ConnectionRateLimitModeData["per_source_destination_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceDestinationAddressModel{
+									DestinationMask: func() types.Int64 {
+										if v, ok := PerSourceDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									SourceMask: func() types.Int64 {
+										if v, ok := PerSourceDestinationAddressData["source_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						PerVirtualServer: func() *ApplicationProfilesEmptyModel {
+							if _, ok := ConnectionRateLimitModeData["per_virtual_server"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						PerVirtualServerDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressModel {
+							if PerVirtualServerDestinationAddressData, ok := ConnectionRateLimitModeData["per_virtual_server_destination_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressModel{
+									DestinationMask: func() types.Int64 {
+										if v, ok := PerVirtualServerDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						PerVirtualServerSourceAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceAddressModel {
+							if PerVirtualServerSourceAddressData, ok := ConnectionRateLimitModeData["per_virtual_server_source_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceAddressModel{
+									SourceMask: func() types.Int64 {
+										if v, ok := PerVirtualServerSourceAddressData["source_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						PerVirtualServerSourceDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressModel {
+							if PerVirtualServerSourceDestinationAddressData, ok := ConnectionRateLimitModeData["per_virtual_server_source_destination_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressModel{
+									DestinationMask: func() types.Int64 {
+										if v, ok := PerVirtualServerSourceDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									SourceMask: func() types.Int64 {
+										if v, ok := PerVirtualServerSourceDestinationAddressData["source_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
-			DefaultPersistenceProfile: func() []ApplicationProfilesVirtualServerDefaultPersistenceProfileModel {
-				if listData, ok := blockData["default_persistence_profile"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerDefaultPersistenceProfileModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerDefaultPersistenceProfileModel{
+			DefaultPersistenceProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.DefaultPersistenceProfile.IsNull() || len(data.VirtualServer.DefaultPersistenceProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPersistenceProfileModelAttrTypes})
+				}
+				if rawList, ok := blockData["default_persistence_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var DefaultPersistenceProfileResult []ApplicationProfilesVirtualServerDefaultPersistenceProfileModel
+					for _, DefaultPersistenceProfileItem := range rawList {
+						if DefaultPersistenceProfileItemMap, ok := DefaultPersistenceProfileItem.(map[string]interface{}); ok {
+							DefaultPersistenceProfileResult = append(DefaultPersistenceProfileResult, ApplicationProfilesVirtualServerDefaultPersistenceProfileModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := DefaultPersistenceProfileItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := DefaultPersistenceProfileItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := DefaultPersistenceProfileItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := DefaultPersistenceProfileItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := DefaultPersistenceProfileItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -5319,42 +8843,46 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPersistenceProfileModelAttrTypes}, DefaultPersistenceProfileResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPersistenceProfileModelAttrTypes})
 			}(),
-			DefaultPool: func() []ApplicationProfilesVirtualServerDefaultPoolModel {
-				if listData, ok := blockData["default_pool"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerDefaultPoolModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerDefaultPoolModel{
+			DefaultPool: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.DefaultPool.IsNull() || len(data.VirtualServer.DefaultPool.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPoolModelAttrTypes})
+				}
+				if rawList, ok := blockData["default_pool"].([]interface{}); ok && len(rawList) > 0 {
+					var DefaultPoolResult []ApplicationProfilesVirtualServerDefaultPoolModel
+					for _, DefaultPoolItem := range rawList {
+						if DefaultPoolItemMap, ok := DefaultPoolItem.(map[string]interface{}); ok {
+							DefaultPoolResult = append(DefaultPoolResult, ApplicationProfilesVirtualServerDefaultPoolModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := DefaultPoolItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := DefaultPoolItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := DefaultPoolItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := DefaultPoolItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := DefaultPoolItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -5362,42 +8890,46 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPoolModelAttrTypes}, DefaultPoolResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPoolModelAttrTypes})
 			}(),
-			FallbackPersistenceProfile: func() []ApplicationProfilesVirtualServerFallbackPersistenceProfileModel {
-				if listData, ok := blockData["fallback_persistence_profile"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerFallbackPersistenceProfileModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerFallbackPersistenceProfileModel{
+			FallbackPersistenceProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.FallbackPersistenceProfile.IsNull() || len(data.VirtualServer.FallbackPersistenceProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFallbackPersistenceProfileModelAttrTypes})
+				}
+				if rawList, ok := blockData["fallback_persistence_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var FallbackPersistenceProfileResult []ApplicationProfilesVirtualServerFallbackPersistenceProfileModel
+					for _, FallbackPersistenceProfileItem := range rawList {
+						if FallbackPersistenceProfileItemMap, ok := FallbackPersistenceProfileItem.(map[string]interface{}); ok {
+							FallbackPersistenceProfileResult = append(FallbackPersistenceProfileResult, ApplicationProfilesVirtualServerFallbackPersistenceProfileModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := FallbackPersistenceProfileItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := FallbackPersistenceProfileItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := FallbackPersistenceProfileItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := FallbackPersistenceProfileItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := FallbackPersistenceProfileItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -5405,42 +8937,46 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFallbackPersistenceProfileModelAttrTypes}, FallbackPersistenceProfileResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFallbackPersistenceProfileModelAttrTypes})
 			}(),
-			FixProfile: func() []ApplicationProfilesVirtualServerFixProfileModel {
-				if listData, ok := blockData["fix_profile"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerFixProfileModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerFixProfileModel{
+			FixProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.FixProfile.IsNull() || len(data.VirtualServer.FixProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFixProfileModelAttrTypes})
+				}
+				if rawList, ok := blockData["fix_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var FixProfileResult []ApplicationProfilesVirtualServerFixProfileModel
+					for _, FixProfileItem := range rawList {
+						if FixProfileItemMap, ok := FixProfileItem.(map[string]interface{}); ok {
+							FixProfileResult = append(FixProfileResult, ApplicationProfilesVirtualServerFixProfileModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := FixProfileItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := FixProfileItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := FixProfileItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := FixProfileItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := FixProfileItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -5448,75 +8984,710 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFixProfileModelAttrTypes}, FixProfileResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFixProfileModelAttrTypes})
 			}(),
 			HTTP: func() *ApplicationProfilesVirtualServerHTTPModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.HTTP
 				}
-				// Import case: read from API
-				if _, ok := blockData["http"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerHTTPModel{}
+				if HTTPData, ok := blockData["http"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerHTTPModel{
+						HTTPClientProfile: func() types.List {
+							if rawList, ok := HTTPData["http_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPClientProfileResult []ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel
+								for _, HTTPClientProfileItem := range rawList {
+									if HTTPClientProfileItemMap, ok := HTTPClientProfileItem.(map[string]interface{}); ok {
+										HTTPClientProfileResult = append(HTTPClientProfileResult, ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPClientProfileModelAttrTypes}, HTTPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPClientProfileModelAttrTypes})
+						}(),
+						HTTPServerProfile: func() types.List {
+							if rawList, ok := HTTPData["http_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPServerProfileResult []ApplicationProfilesVirtualServerHTTPHTTPServerProfileModel
+								for _, HTTPServerProfileItem := range rawList {
+									if HTTPServerProfileItemMap, ok := HTTPServerProfileItem.(map[string]interface{}); ok {
+										HTTPServerProfileResult = append(HTTPServerProfileResult, ApplicationProfilesVirtualServerHTTPHTTPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPServerProfileModelAttrTypes}, HTTPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPServerProfileModelAttrTypes})
+						}(),
+						StreamProfile: func() types.List {
+							if rawList, ok := HTTPData["stream_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var StreamProfileResult []ApplicationProfilesVirtualServerHTTPStreamProfileModel
+								for _, StreamProfileItem := range rawList {
+									if StreamProfileItemMap, ok := StreamProfileItem.(map[string]interface{}); ok {
+										StreamProfileResult = append(StreamProfileResult, ApplicationProfilesVirtualServerHTTPStreamProfileModel{
+											Kind: func() types.String {
+												if v, ok := StreamProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := StreamProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := StreamProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := StreamProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := StreamProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPStreamProfileModelAttrTypes}, StreamProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPStreamProfileModelAttrTypes})
+						}(),
+						TCPClientProfile: func() types.List {
+							if rawList, ok := HTTPData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPClientProfileResult []ApplicationProfilesVirtualServerHTTPTCPClientProfileModel
+								for _, TCPClientProfileItem := range rawList {
+									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
+										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerHTTPTCPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPClientProfileModelAttrTypes}, TCPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPClientProfileModelAttrTypes})
+						}(),
+						TCPServerProfile: func() types.List {
+							if rawList, ok := HTTPData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPServerProfileResult []ApplicationProfilesVirtualServerHTTPTCPServerProfileModel
+								for _, TCPServerProfileItem := range rawList {
+									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
+										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerHTTPTCPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPServerProfileModelAttrTypes}, TCPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPServerProfileModelAttrTypes})
+						}(),
+						WebSocketClientProfile: func() types.List {
+							if rawList, ok := HTTPData["websocket_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var WebSocketClientProfileResult []ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModel
+								for _, WebSocketClientProfileItem := range rawList {
+									if WebSocketClientProfileItemMap, ok := WebSocketClientProfileItem.(map[string]interface{}); ok {
+										WebSocketClientProfileResult = append(WebSocketClientProfileResult, ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModelAttrTypes}, WebSocketClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModelAttrTypes})
+						}(),
+						WebSocketServerProfile: func() types.List {
+							if rawList, ok := HTTPData["websocket_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var WebSocketServerProfileResult []ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModel
+								for _, WebSocketServerProfileItem := range rawList {
+									if WebSocketServerProfileItemMap, ok := WebSocketServerProfileItem.(map[string]interface{}); ok {
+										WebSocketServerProfileResult = append(WebSocketServerProfileResult, ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModelAttrTypes}, WebSocketServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModelAttrTypes})
+						}(),
+					}
 				}
 				return nil
 			}(),
 			HTTPS: func() *ApplicationProfilesVirtualServerHTTPSModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.HTTPS
 				}
-				// Import case: read from API
-				if _, ok := blockData["https"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerHTTPSModel{}
+				if HTTPSData, ok := blockData["https"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerHTTPSModel{
+						HTTPClientProfile: func() types.List {
+							if rawList, ok := HTTPSData["http_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPClientProfileResult []ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel
+								for _, HTTPClientProfileItem := range rawList {
+									if HTTPClientProfileItemMap, ok := HTTPClientProfileItem.(map[string]interface{}); ok {
+										HTTPClientProfileResult = append(HTTPClientProfileResult, ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModelAttrTypes}, HTTPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModelAttrTypes})
+						}(),
+						HTTPServerProfile: func() types.List {
+							if rawList, ok := HTTPSData["http_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPServerProfileResult []ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModel
+								for _, HTTPServerProfileItem := range rawList {
+									if HTTPServerProfileItemMap, ok := HTTPServerProfileItem.(map[string]interface{}); ok {
+										HTTPServerProfileResult = append(HTTPServerProfileResult, ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModelAttrTypes}, HTTPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModelAttrTypes})
+						}(),
+						StreamProfile: func() types.List {
+							if rawList, ok := HTTPSData["stream_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var StreamProfileResult []ApplicationProfilesVirtualServerHTTPSStreamProfileModel
+								for _, StreamProfileItem := range rawList {
+									if StreamProfileItemMap, ok := StreamProfileItem.(map[string]interface{}); ok {
+										StreamProfileResult = append(StreamProfileResult, ApplicationProfilesVirtualServerHTTPSStreamProfileModel{
+											Kind: func() types.String {
+												if v, ok := StreamProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := StreamProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := StreamProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := StreamProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := StreamProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSStreamProfileModelAttrTypes}, StreamProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSStreamProfileModelAttrTypes})
+						}(),
+						TCPClientProfile: func() types.List {
+							if rawList, ok := HTTPSData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPClientProfileResult []ApplicationProfilesVirtualServerHTTPSTCPClientProfileModel
+								for _, TCPClientProfileItem := range rawList {
+									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
+										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerHTTPSTCPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPClientProfileModelAttrTypes}, TCPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPClientProfileModelAttrTypes})
+						}(),
+						TCPServerProfile: func() types.List {
+							if rawList, ok := HTTPSData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPServerProfileResult []ApplicationProfilesVirtualServerHTTPSTCPServerProfileModel
+								for _, TCPServerProfileItem := range rawList {
+									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
+										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerHTTPSTCPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPServerProfileModelAttrTypes}, TCPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPServerProfileModelAttrTypes})
+						}(),
+						WebSocketClientProfile: func() types.List {
+							if rawList, ok := HTTPSData["websocket_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var WebSocketClientProfileResult []ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModel
+								for _, WebSocketClientProfileItem := range rawList {
+									if WebSocketClientProfileItemMap, ok := WebSocketClientProfileItem.(map[string]interface{}); ok {
+										WebSocketClientProfileResult = append(WebSocketClientProfileResult, ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModelAttrTypes}, WebSocketClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModelAttrTypes})
+						}(),
+						WebSocketServerProfile: func() types.List {
+							if rawList, ok := HTTPSData["websocket_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var WebSocketServerProfileResult []ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModel
+								for _, WebSocketServerProfileItem := range rawList {
+									if WebSocketServerProfileItemMap, ok := WebSocketServerProfileItem.(map[string]interface{}); ok {
+										WebSocketServerProfileResult = append(WebSocketServerProfileResult, ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModelAttrTypes}, WebSocketServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModelAttrTypes})
+						}(),
+					}
 				}
 				return nil
 			}(),
 			ImmediateActionOnServiceDown: func() *ApplicationProfilesVirtualServerImmediateActionOnServiceDownModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.ImmediateActionOnServiceDown
 				}
-				// Import case: read from API
-				if _, ok := blockData["immediate_action_on_service_down"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerImmediateActionOnServiceDownModel{}
+				if ImmediateActionOnServiceDownData, ok := blockData["immediate_action_on_service_down"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerImmediateActionOnServiceDownModel{
+						ImmediateActionOnServiceDownDrop: func() *ApplicationProfilesEmptyModel {
+							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_drop"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						ImmediateActionOnServiceDownNone: func() *ApplicationProfilesEmptyModel {
+							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_none"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						ImmediateActionOnServiceDownReset: func() *ApplicationProfilesEmptyModel {
+							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_reset"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
-			LastHopPool: func() []ApplicationProfilesVirtualServerLastHopPoolModel {
-				if listData, ok := blockData["last_hop_pool"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerLastHopPoolModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerLastHopPoolModel{
+			LastHopPool: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.LastHopPool.IsNull() || len(data.VirtualServer.LastHopPool.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerLastHopPoolModelAttrTypes})
+				}
+				if rawList, ok := blockData["last_hop_pool"].([]interface{}); ok && len(rawList) > 0 {
+					var LastHopPoolResult []ApplicationProfilesVirtualServerLastHopPoolModel
+					for _, LastHopPoolItem := range rawList {
+						if LastHopPoolItemMap, ok := LastHopPoolItem.(map[string]interface{}); ok {
+							LastHopPoolResult = append(LastHopPoolResult, ApplicationProfilesVirtualServerLastHopPoolModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := LastHopPoolItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := LastHopPoolItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := LastHopPoolItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := LastHopPoolItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := LastHopPoolItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -5524,64 +9695,90 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerLastHopPoolModelAttrTypes}, LastHopPoolResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerLastHopPoolModelAttrTypes})
 			}(),
 			Nat64: func() *ApplicationProfilesVirtualServerNat64Model {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.Nat64 != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.Nat64
 				}
-				// Import case: read from API
-				if _, ok := blockData["nat64"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerNat64Model{}
+				if Nat64Data, ok := blockData["nat64"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerNat64Model{
+						Nat64Disable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := Nat64Data["nat64_disable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						Nat64Enable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := Nat64Data["nat64_enable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			PortTranslation: func() *ApplicationProfilesVirtualServerPortTranslationModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.PortTranslation != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.PortTranslation
 				}
-				// Import case: read from API
-				if _, ok := blockData["port_translation"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerPortTranslationModel{}
+				if PortTranslationData, ok := blockData["port_translation"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerPortTranslationModel{
+						PortTranslationDisable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := PortTranslationData["port_translation_disable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						PortTranslationEnable: func() *ApplicationProfilesEmptyModel {
+							if _, ok := PortTranslationData["port_translation_enable"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
-			RequestLoggingProfile: func() []ApplicationProfilesVirtualServerRequestLoggingProfileModel {
-				if listData, ok := blockData["request_logging_profile"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerRequestLoggingProfileModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerRequestLoggingProfileModel{
+			RequestLoggingProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.RequestLoggingProfile.IsNull() || len(data.VirtualServer.RequestLoggingProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerRequestLoggingProfileModelAttrTypes})
+				}
+				if rawList, ok := blockData["request_logging_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var RequestLoggingProfileResult []ApplicationProfilesVirtualServerRequestLoggingProfileModel
+					for _, RequestLoggingProfileItem := range rawList {
+						if RequestLoggingProfileItemMap, ok := RequestLoggingProfileItem.(map[string]interface{}); ok {
+							RequestLoggingProfileResult = append(RequestLoggingProfileResult, ApplicationProfilesVirtualServerRequestLoggingProfileModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := RequestLoggingProfileItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := RequestLoggingProfileItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := RequestLoggingProfileItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := RequestLoggingProfileItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := RequestLoggingProfileItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -5589,53 +9786,74 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerRequestLoggingProfileModelAttrTypes}, RequestLoggingProfileResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerRequestLoggingProfileModelAttrTypes})
 			}(),
 			SourcePort: func() *ApplicationProfilesVirtualServerSourcePortModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.SourcePort
 				}
-				// Import case: read from API
-				if _, ok := blockData["source_port"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerSourcePortModel{}
+				if SourcePortData, ok := blockData["source_port"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerSourcePortModel{
+						SourcePortChange: func() *ApplicationProfilesEmptyModel {
+							if _, ok := SourcePortData["source_port_change"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						SourcePortPreserve: func() *ApplicationProfilesEmptyModel {
+							if _, ok := SourcePortData["source_port_preserve"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						SourcePortPreserveStrict: func() *ApplicationProfilesEmptyModel {
+							if _, ok := SourcePortData["source_port_preserve_strict"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
-			StatisticsProfile: func() []ApplicationProfilesVirtualServerStatisticsProfileModel {
-				if listData, ok := blockData["statistics_profile"].([]interface{}); ok && len(listData) > 0 {
-					var result []ApplicationProfilesVirtualServerStatisticsProfileModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ApplicationProfilesVirtualServerStatisticsProfileModel{
+			StatisticsProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.StatisticsProfile.IsNull() || len(data.VirtualServer.StatisticsProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerStatisticsProfileModelAttrTypes})
+				}
+				if rawList, ok := blockData["statistics_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var StatisticsProfileResult []ApplicationProfilesVirtualServerStatisticsProfileModel
+					for _, StatisticsProfileItem := range rawList {
+						if StatisticsProfileItemMap, ok := StatisticsProfileItem.(map[string]interface{}); ok {
+							StatisticsProfileResult = append(StatisticsProfileResult, ApplicationProfilesVirtualServerStatisticsProfileModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := StatisticsProfileItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := StatisticsProfileItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := StatisticsProfileItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := StatisticsProfileItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := StatisticsProfileItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -5643,55 +9861,234 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerStatisticsProfileModelAttrTypes}, StatisticsProfileResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerStatisticsProfileModelAttrTypes})
 			}(),
 			TCP: func() *ApplicationProfilesVirtualServerTCPModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.TCP
 				}
-				// Import case: read from API
-				if _, ok := blockData["tcp"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerTCPModel{}
+				if TCPData, ok := blockData["tcp"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerTCPModel{
+						TCPClientProfile: func() types.List {
+							if rawList, ok := TCPData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPClientProfileResult []ApplicationProfilesVirtualServerTCPTCPClientProfileModel
+								for _, TCPClientProfileItem := range rawList {
+									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
+										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerTCPTCPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPClientProfileModelAttrTypes}, TCPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPClientProfileModelAttrTypes})
+						}(),
+						TCPServerProfile: func() types.List {
+							if rawList, ok := TCPData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPServerProfileResult []ApplicationProfilesVirtualServerTCPTCPServerProfileModel
+								for _, TCPServerProfileItem := range rawList {
+									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
+										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerTCPTCPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPServerProfileModelAttrTypes}, TCPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPServerProfileModelAttrTypes})
+						}(),
+					}
 				}
 				return nil
 			}(),
 			UDP: func() *ApplicationProfilesVirtualServerUDPModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.UDP
 				}
-				// Import case: read from API
-				if _, ok := blockData["udp"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerUDPModel{}
+				if UDPData, ok := blockData["udp"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerUDPModel{
+						TCPClientProfile: func() types.List {
+							if rawList, ok := UDPData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPClientProfileResult []ApplicationProfilesVirtualServerUDPTCPClientProfileModel
+								for _, TCPClientProfileItem := range rawList {
+									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
+										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerUDPTCPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes}, TCPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes})
+						}(),
+						TCPServerProfile: func() types.List {
+							if rawList, ok := UDPData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPServerProfileResult []ApplicationProfilesVirtualServerUDPTCPServerProfileModel
+								for _, TCPServerProfileItem := range rawList {
+									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
+										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerUDPTCPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPServerProfileModelAttrTypes}, TCPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPServerProfileModelAttrTypes})
+						}(),
+					}
 				}
 				return nil
 			}(),
 			VirtualServerState: func() *ApplicationProfilesVirtualServerVirtualServerStateModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.VirtualServerState != nil {
-					// Normal Read: preserve existing state value
 					return data.VirtualServer.VirtualServerState
 				}
-				// Import case: read from API
-				if _, ok := blockData["virtual_server_state"].(map[string]interface{}); ok {
-					return &ApplicationProfilesVirtualServerVirtualServerStateModel{}
+				if VirtualServerStateData, ok := blockData["virtual_server_state"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerVirtualServerStateModel{
+						StateDisabled: func() *ApplicationProfilesEmptyModel {
+							if _, ok := VirtualServerStateData["state_disabled"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+						StateEnabled: func() *ApplicationProfilesEmptyModel {
+							if _, ok := VirtualServerStateData["state_enabled"].(map[string]interface{}); ok {
+								return &ApplicationProfilesEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			VsScore: func() types.Int64 {
 				if !isImport && data.VirtualServer != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.VirtualServer.VsScore
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["vs_score"].(float64); ok {
+				if v, ok := blockData["vs_score"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()

@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_bot_defense_app_infrastructure Data Source - terraform-provider-f5xc"
+page_title: "xcsh_bot_defense_app_infrastructure Data Source - xcsh"
 subcategory: "Security"
 description: |-
   Retrieves information about Bot Defense App Infrastructure in a given namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_bot_defense_app_infrastructure (Data Source)
+# xcsh_bot_defense_app_infrastructure (Data Source)
 
 Manages Bot Defense App Infrastructure in a given namespace. in F5 Distributed Cloud. This is a read-only data source.
 
@@ -14,28 +14,23 @@ Manages Bot Defense App Infrastructure in a given namespace. in F5 Distributed C
 ## Example Usage
 
 ```terraform
-# Bot Defense App Infrastructure Data Source Example
-# Retrieves information about an existing Bot Defense App Infrastructure
+# BotDefenseAppInfrastructure Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Bot Defense App Infrastructure by name
-data "f5xc_bot_defense_app_infrastructure" "example" {
+# Look up an existing BotDefenseAppInfrastructure by name
+data "xcsh_bot_defense_app_infrastructure" "example" {
   name      = "example-bot-defense-app-infrastructure"
   namespace = "staging"
-}
-
-output "bot_defense_app_infrastructure_id" {
-  value = data.f5xc_bot_defense_app_infrastructure.example.id
 }
 ```
 

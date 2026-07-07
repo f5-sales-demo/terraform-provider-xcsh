@@ -1,4 +1,4 @@
-# f5xc_bgp_asn_set
+# xcsh_bgp_asn_set
 
 Category: Networking
 Bgp_asn_set creates a new object in the storage backend for metadata.namespace
@@ -6,23 +6,15 @@ Bgp_asn_set creates a new object in the storage backend for metadata.namespace
 ## Required
 
 - name
-- namespace
 
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_bgp_asn_set" "example" {
+resource "xcsh_bgp_asn_set" "example" {
   name      = "example-bgp-asn-set"
-  namespace = "staging"
+  namespace = "system"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
+  as_numbers = [1]
 }
 ```
 

@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/acctest"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/acctest"
 )
 
 func TestAccFleetResource_basic(t *testing.T) {
@@ -18,7 +18,7 @@ func TestAccFleetResource_basic(t *testing.T) {
 
 	rName := acctest.RandomName("tf-acc-test-fleet")
 	nsName := acctest.RandomName("tf-acc-test-ns")
-	resourceName := "f5xc_fleet.test"
+	resourceName := "xcsh_fleet.test"
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -26,7 +26,7 @@ func TestAccFleetResource_basic(t *testing.T) {
 		ExternalProviders: map[string]resource.ExternalProvider{
 			"time": {Source: "hashicorp/time"},
 		},
-		CheckDestroy: acctest.CheckResourceDestroyed("f5xc_fleet"),
+		CheckDestroy: acctest.CheckResourceDestroyed("xcsh_fleet"),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccFleetConfig_basic(nsName, rName),
@@ -68,7 +68,7 @@ func testAccFleetConfig_basic(nsName, name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "f5xc_fleet" "test" {
+resource "xcsh_fleet" "test" {
   name        = %[1]q
   namespace   = "system"
   fleet_label = %[1]q

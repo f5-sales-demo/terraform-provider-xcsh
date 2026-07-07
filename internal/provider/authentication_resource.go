@@ -20,9 +20,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -615,57 +615,134 @@ func (r *AuthenticationResource) Create(ctx context.Context, req resource.Create
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.CookieParams != nil {
-		cookie_paramsMap := make(map[string]interface{})
+		CookieParamsMap := make(map[string]interface{})
 		if data.CookieParams.AuthHMAC != nil {
-			auth_hmacNestedMap := make(map[string]interface{})
+			AuthHMACMap := make(map[string]interface{})
+			if data.CookieParams.AuthHMAC.PrimKey != nil {
+				PrimKeyMap := make(map[string]interface{})
+				if data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.Location.IsNull() && !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					PrimKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.Provider.IsNull() && !data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.URL.IsNull() && !data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.URL.ValueString()
+					}
+					PrimKeyMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				AuthHMACMap["prim_key"] = PrimKeyMap
+			}
 			if !data.CookieParams.AuthHMAC.PrimKeyExpiry.IsNull() && !data.CookieParams.AuthHMAC.PrimKeyExpiry.IsUnknown() {
-				auth_hmacNestedMap["prim_key_expiry"] = data.CookieParams.AuthHMAC.PrimKeyExpiry.ValueString()
+				AuthHMACMap["prim_key_expiry"] = data.CookieParams.AuthHMAC.PrimKeyExpiry.ValueString()
+			}
+			if data.CookieParams.AuthHMAC.SecKey != nil {
+				SecKeyMap := make(map[string]interface{})
+				if data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.Location.IsNull() && !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					SecKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.Provider.IsNull() && !data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.URL.IsNull() && !data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.URL.ValueString()
+					}
+					SecKeyMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				AuthHMACMap["sec_key"] = SecKeyMap
 			}
 			if !data.CookieParams.AuthHMAC.SecKeyExpiry.IsNull() && !data.CookieParams.AuthHMAC.SecKeyExpiry.IsUnknown() {
-				auth_hmacNestedMap["sec_key_expiry"] = data.CookieParams.AuthHMAC.SecKeyExpiry.ValueString()
+				AuthHMACMap["sec_key_expiry"] = data.CookieParams.AuthHMAC.SecKeyExpiry.ValueString()
 			}
-			cookie_paramsMap["auth_hmac"] = auth_hmacNestedMap
+			CookieParamsMap["auth_hmac"] = AuthHMACMap
 		}
 		if !data.CookieParams.CookieExpiry.IsNull() && !data.CookieParams.CookieExpiry.IsUnknown() {
-			cookie_paramsMap["cookie_expiry"] = data.CookieParams.CookieExpiry.ValueInt64()
+			CookieParamsMap["cookie_expiry"] = data.CookieParams.CookieExpiry.ValueInt64()
 		}
 		if !data.CookieParams.CookieRefreshInterval.IsNull() && !data.CookieParams.CookieRefreshInterval.IsUnknown() {
-			cookie_paramsMap["cookie_refresh_interval"] = data.CookieParams.CookieRefreshInterval.ValueInt64()
+			CookieParamsMap["cookie_refresh_interval"] = data.CookieParams.CookieRefreshInterval.ValueInt64()
 		}
 		if data.CookieParams.KmsKeyHMAC != nil {
-			cookie_paramsMap["kms_key_hmac"] = map[string]interface{}{}
+			CookieParamsMap["kms_key_hmac"] = map[string]interface{}{}
 		}
 		if !data.CookieParams.SessionExpiry.IsNull() && !data.CookieParams.SessionExpiry.IsUnknown() {
-			cookie_paramsMap["session_expiry"] = data.CookieParams.SessionExpiry.ValueInt64()
+			CookieParamsMap["session_expiry"] = data.CookieParams.SessionExpiry.ValueInt64()
 		}
-		createReq.Spec["cookie_params"] = cookie_paramsMap
+		createReq.Spec["cookie_params"] = CookieParamsMap
 	}
 	if data.OIDCAuth != nil {
-		oidc_authMap := make(map[string]interface{})
+		OIDCAuthMap := make(map[string]interface{})
 		if data.OIDCAuth.ClientSecret != nil {
-			client_secretNestedMap := make(map[string]interface{})
-			oidc_authMap["client_secret"] = client_secretNestedMap
+			ClientSecretMap := make(map[string]interface{})
+			if data.OIDCAuth.ClientSecret.BlindfoldSecretInfo != nil {
+				BlindfoldSecretInfoMap := make(map[string]interface{})
+				if !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["decryption_provider"] = data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				}
+				if !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.Location.IsNull() && !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.Location.IsUnknown() {
+					BlindfoldSecretInfoMap["location"] = data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.Location.ValueString()
+				}
+				if !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["store_provider"] = data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
+				}
+				ClientSecretMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			}
+			if data.OIDCAuth.ClientSecret.ClearSecretInfo != nil {
+				ClearSecretInfoMap := make(map[string]interface{})
+				if !data.OIDCAuth.ClientSecret.ClearSecretInfo.Provider.IsNull() && !data.OIDCAuth.ClientSecret.ClearSecretInfo.Provider.IsUnknown() {
+					ClearSecretInfoMap["provider"] = data.OIDCAuth.ClientSecret.ClearSecretInfo.Provider.ValueString()
+				}
+				if !data.OIDCAuth.ClientSecret.ClearSecretInfo.URL.IsNull() && !data.OIDCAuth.ClientSecret.ClearSecretInfo.URL.IsUnknown() {
+					ClearSecretInfoMap["url"] = data.OIDCAuth.ClientSecret.ClearSecretInfo.URL.ValueString()
+				}
+				ClientSecretMap["clear_secret_info"] = ClearSecretInfoMap
+			}
+			OIDCAuthMap["client_secret"] = ClientSecretMap
 		}
 		if data.OIDCAuth.OIDCAuthParams != nil {
-			oidc_auth_paramsNestedMap := make(map[string]interface{})
+			OIDCAuthParamsMap := make(map[string]interface{})
 			if !data.OIDCAuth.OIDCAuthParams.AuthEndpointURL.IsNull() && !data.OIDCAuth.OIDCAuthParams.AuthEndpointURL.IsUnknown() {
-				oidc_auth_paramsNestedMap["auth_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.AuthEndpointURL.ValueString()
+				OIDCAuthParamsMap["auth_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.AuthEndpointURL.ValueString()
 			}
 			if !data.OIDCAuth.OIDCAuthParams.EndSessionEndpointURL.IsNull() && !data.OIDCAuth.OIDCAuthParams.EndSessionEndpointURL.IsUnknown() {
-				oidc_auth_paramsNestedMap["end_session_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.EndSessionEndpointURL.ValueString()
+				OIDCAuthParamsMap["end_session_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.EndSessionEndpointURL.ValueString()
 			}
 			if !data.OIDCAuth.OIDCAuthParams.TokenEndpointURL.IsNull() && !data.OIDCAuth.OIDCAuthParams.TokenEndpointURL.IsUnknown() {
-				oidc_auth_paramsNestedMap["token_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.TokenEndpointURL.ValueString()
+				OIDCAuthParamsMap["token_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.TokenEndpointURL.ValueString()
 			}
-			oidc_authMap["oidc_auth_params"] = oidc_auth_paramsNestedMap
+			OIDCAuthMap["oidc_auth_params"] = OIDCAuthParamsMap
 		}
 		if !data.OIDCAuth.OIDCClientID.IsNull() && !data.OIDCAuth.OIDCClientID.IsUnknown() {
-			oidc_authMap["oidc_client_id"] = data.OIDCAuth.OIDCClientID.ValueString()
+			OIDCAuthMap["oidc_client_id"] = data.OIDCAuth.OIDCClientID.ValueString()
 		}
 		if !data.OIDCAuth.OIDCWellKnownConfigURL.IsNull() && !data.OIDCAuth.OIDCWellKnownConfigURL.IsUnknown() {
-			oidc_authMap["oidc_well_known_config_url"] = data.OIDCAuth.OIDCWellKnownConfigURL.ValueString()
+			OIDCAuthMap["oidc_well_known_config_url"] = data.OIDCAuth.OIDCWellKnownConfigURL.ValueString()
 		}
-		createReq.Spec["oidc_auth"] = oidc_authMap
+		createReq.Spec["oidc_auth"] = OIDCAuthMap
 	}
 
 	apiResource, err := r.client.CreateAuthentication(ctx, createReq)
@@ -684,20 +761,120 @@ func (r *AuthenticationResource) Create(ctx context.Context, req resource.Create
 		data.CookieParams = &AuthenticationCookieParamsModel{
 			AuthHMAC: func() *AuthenticationCookieParamsAuthHMACModel {
 				if !isImport && data.CookieParams != nil && data.CookieParams.AuthHMAC != nil {
-					// Normal Read: preserve existing state value
 					return data.CookieParams.AuthHMAC
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["auth_hmac"].(map[string]interface{}); ok {
+				if AuthHMACData, ok := blockData["auth_hmac"].(map[string]interface{}); ok {
 					return &AuthenticationCookieParamsAuthHMACModel{
+						PrimKey: func() *AuthenticationCookieParamsAuthHMACPrimKeyModel {
+							if PrimKeyData, ok := AuthHMACData["prim_key"].(map[string]interface{}); ok {
+								return &AuthenticationCookieParamsAuthHMACPrimKeyModel{
+									BlindfoldSecretInfo: func() *AuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := PrimKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &AuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *AuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoModel {
+										if ClearSecretInfoData, ok := PrimKeyData["clear_secret_info"].(map[string]interface{}); ok {
+											return &AuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						PrimKeyExpiry: func() types.String {
-							if v, ok := nestedBlockData["prim_key_expiry"].(string); ok && v != "" {
+							if v, ok := AuthHMACData["prim_key_expiry"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
+						SecKey: func() *AuthenticationCookieParamsAuthHMACSecKeyModel {
+							if SecKeyData, ok := AuthHMACData["sec_key"].(map[string]interface{}); ok {
+								return &AuthenticationCookieParamsAuthHMACSecKeyModel{
+									BlindfoldSecretInfo: func() *AuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := SecKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &AuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *AuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoModel {
+										if ClearSecretInfoData, ok := SecKeyData["clear_secret_info"].(map[string]interface{}); ok {
+											return &AuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						SecKeyExpiry: func() types.String {
-							if v, ok := nestedBlockData["sec_key_expiry"].(string); ok && v != "" {
+							if v, ok := AuthHMACData["sec_key_expiry"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -708,43 +885,26 @@ func (r *AuthenticationResource) Create(ctx context.Context, req resource.Create
 			}(),
 			CookieExpiry: func() types.Int64 {
 				if !isImport && data.CookieParams != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CookieParams.CookieExpiry
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["cookie_expiry"].(float64); ok {
+				if v, ok := blockData["cookie_expiry"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			CookieRefreshInterval: func() types.Int64 {
 				if !isImport && data.CookieParams != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CookieParams.CookieRefreshInterval
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["cookie_refresh_interval"].(float64); ok {
+				if v, ok := blockData["cookie_refresh_interval"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			KmsKeyHMAC: func() *AuthenticationEmptyModel {
 				if !isImport && data.CookieParams != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.CookieParams.KmsKeyHMAC
 				}
-				// Import case: read from API
 				if _, ok := blockData["kms_key_hmac"].(map[string]interface{}); ok {
 					return &AuthenticationEmptyModel{}
 				}
@@ -752,16 +912,9 @@ func (r *AuthenticationResource) Create(ctx context.Context, req resource.Create
 			}(),
 			SessionExpiry: func() types.Int64 {
 				if !isImport && data.CookieParams != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CookieParams.SessionExpiry
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["session_expiry"].(float64); ok {
+				if v, ok := blockData["session_expiry"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -772,37 +925,78 @@ func (r *AuthenticationResource) Create(ctx context.Context, req resource.Create
 		data.OIDCAuth = &AuthenticationOIDCAuthModel{
 			ClientSecret: func() *AuthenticationOIDCAuthClientSecretModel {
 				if !isImport && data.OIDCAuth != nil && data.OIDCAuth.ClientSecret != nil {
-					// Normal Read: preserve existing state value
 					return data.OIDCAuth.ClientSecret
 				}
-				// Import case: read from API
-				if _, ok := blockData["client_secret"].(map[string]interface{}); ok {
-					return &AuthenticationOIDCAuthClientSecretModel{}
+				if ClientSecretData, ok := blockData["client_secret"].(map[string]interface{}); ok {
+					return &AuthenticationOIDCAuthClientSecretModel{
+						BlindfoldSecretInfo: func() *AuthenticationOIDCAuthClientSecretBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := ClientSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &AuthenticationOIDCAuthClientSecretBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *AuthenticationOIDCAuthClientSecretClearSecretInfoModel {
+							if ClearSecretInfoData, ok := ClientSecretData["clear_secret_info"].(map[string]interface{}); ok {
+								return &AuthenticationOIDCAuthClientSecretClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			OIDCAuthParams: func() *AuthenticationOIDCAuthOIDCAuthParamsModel {
 				if !isImport && data.OIDCAuth != nil && data.OIDCAuth.OIDCAuthParams != nil {
-					// Normal Read: preserve existing state value
 					return data.OIDCAuth.OIDCAuthParams
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["oidc_auth_params"].(map[string]interface{}); ok {
+				if OIDCAuthParamsData, ok := blockData["oidc_auth_params"].(map[string]interface{}); ok {
 					return &AuthenticationOIDCAuthOIDCAuthParamsModel{
 						AuthEndpointURL: func() types.String {
-							if v, ok := nestedBlockData["auth_endpoint_url"].(string); ok && v != "" {
+							if v, ok := OIDCAuthParamsData["auth_endpoint_url"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						EndSessionEndpointURL: func() types.String {
-							if v, ok := nestedBlockData["end_session_endpoint_url"].(string); ok && v != "" {
+							if v, ok := OIDCAuthParamsData["end_session_endpoint_url"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						TokenEndpointURL: func() types.String {
-							if v, ok := nestedBlockData["token_endpoint_url"].(string); ok && v != "" {
+							if v, ok := OIDCAuthParamsData["token_endpoint_url"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -909,20 +1103,120 @@ func (r *AuthenticationResource) Read(ctx context.Context, req resource.ReadRequ
 		data.CookieParams = &AuthenticationCookieParamsModel{
 			AuthHMAC: func() *AuthenticationCookieParamsAuthHMACModel {
 				if !isImport && data.CookieParams != nil && data.CookieParams.AuthHMAC != nil {
-					// Normal Read: preserve existing state value
 					return data.CookieParams.AuthHMAC
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["auth_hmac"].(map[string]interface{}); ok {
+				if AuthHMACData, ok := blockData["auth_hmac"].(map[string]interface{}); ok {
 					return &AuthenticationCookieParamsAuthHMACModel{
+						PrimKey: func() *AuthenticationCookieParamsAuthHMACPrimKeyModel {
+							if PrimKeyData, ok := AuthHMACData["prim_key"].(map[string]interface{}); ok {
+								return &AuthenticationCookieParamsAuthHMACPrimKeyModel{
+									BlindfoldSecretInfo: func() *AuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := PrimKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &AuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *AuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoModel {
+										if ClearSecretInfoData, ok := PrimKeyData["clear_secret_info"].(map[string]interface{}); ok {
+											return &AuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						PrimKeyExpiry: func() types.String {
-							if v, ok := nestedBlockData["prim_key_expiry"].(string); ok && v != "" {
+							if v, ok := AuthHMACData["prim_key_expiry"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
+						SecKey: func() *AuthenticationCookieParamsAuthHMACSecKeyModel {
+							if SecKeyData, ok := AuthHMACData["sec_key"].(map[string]interface{}); ok {
+								return &AuthenticationCookieParamsAuthHMACSecKeyModel{
+									BlindfoldSecretInfo: func() *AuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := SecKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &AuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *AuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoModel {
+										if ClearSecretInfoData, ok := SecKeyData["clear_secret_info"].(map[string]interface{}); ok {
+											return &AuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						SecKeyExpiry: func() types.String {
-							if v, ok := nestedBlockData["sec_key_expiry"].(string); ok && v != "" {
+							if v, ok := AuthHMACData["sec_key_expiry"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -933,43 +1227,26 @@ func (r *AuthenticationResource) Read(ctx context.Context, req resource.ReadRequ
 			}(),
 			CookieExpiry: func() types.Int64 {
 				if !isImport && data.CookieParams != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CookieParams.CookieExpiry
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["cookie_expiry"].(float64); ok {
+				if v, ok := blockData["cookie_expiry"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			CookieRefreshInterval: func() types.Int64 {
 				if !isImport && data.CookieParams != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CookieParams.CookieRefreshInterval
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["cookie_refresh_interval"].(float64); ok {
+				if v, ok := blockData["cookie_refresh_interval"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			KmsKeyHMAC: func() *AuthenticationEmptyModel {
 				if !isImport && data.CookieParams != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.CookieParams.KmsKeyHMAC
 				}
-				// Import case: read from API
 				if _, ok := blockData["kms_key_hmac"].(map[string]interface{}); ok {
 					return &AuthenticationEmptyModel{}
 				}
@@ -977,16 +1254,9 @@ func (r *AuthenticationResource) Read(ctx context.Context, req resource.ReadRequ
 			}(),
 			SessionExpiry: func() types.Int64 {
 				if !isImport && data.CookieParams != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CookieParams.SessionExpiry
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["session_expiry"].(float64); ok {
+				if v, ok := blockData["session_expiry"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -997,37 +1267,78 @@ func (r *AuthenticationResource) Read(ctx context.Context, req resource.ReadRequ
 		data.OIDCAuth = &AuthenticationOIDCAuthModel{
 			ClientSecret: func() *AuthenticationOIDCAuthClientSecretModel {
 				if !isImport && data.OIDCAuth != nil && data.OIDCAuth.ClientSecret != nil {
-					// Normal Read: preserve existing state value
 					return data.OIDCAuth.ClientSecret
 				}
-				// Import case: read from API
-				if _, ok := blockData["client_secret"].(map[string]interface{}); ok {
-					return &AuthenticationOIDCAuthClientSecretModel{}
+				if ClientSecretData, ok := blockData["client_secret"].(map[string]interface{}); ok {
+					return &AuthenticationOIDCAuthClientSecretModel{
+						BlindfoldSecretInfo: func() *AuthenticationOIDCAuthClientSecretBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := ClientSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &AuthenticationOIDCAuthClientSecretBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *AuthenticationOIDCAuthClientSecretClearSecretInfoModel {
+							if ClearSecretInfoData, ok := ClientSecretData["clear_secret_info"].(map[string]interface{}); ok {
+								return &AuthenticationOIDCAuthClientSecretClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			OIDCAuthParams: func() *AuthenticationOIDCAuthOIDCAuthParamsModel {
 				if !isImport && data.OIDCAuth != nil && data.OIDCAuth.OIDCAuthParams != nil {
-					// Normal Read: preserve existing state value
 					return data.OIDCAuth.OIDCAuthParams
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["oidc_auth_params"].(map[string]interface{}); ok {
+				if OIDCAuthParamsData, ok := blockData["oidc_auth_params"].(map[string]interface{}); ok {
 					return &AuthenticationOIDCAuthOIDCAuthParamsModel{
 						AuthEndpointURL: func() types.String {
-							if v, ok := nestedBlockData["auth_endpoint_url"].(string); ok && v != "" {
+							if v, ok := OIDCAuthParamsData["auth_endpoint_url"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						EndSessionEndpointURL: func() types.String {
-							if v, ok := nestedBlockData["end_session_endpoint_url"].(string); ok && v != "" {
+							if v, ok := OIDCAuthParamsData["end_session_endpoint_url"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						TokenEndpointURL: func() types.String {
-							if v, ok := nestedBlockData["token_endpoint_url"].(string); ok && v != "" {
+							if v, ok := OIDCAuthParamsData["token_endpoint_url"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -1049,6 +1360,14 @@ func (r *AuthenticationResource) Read(ctx context.Context, req resource.ReadRequ
 				return types.StringNull()
 			}(),
 		}
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -1102,57 +1421,134 @@ func (r *AuthenticationResource) Update(ctx context.Context, req resource.Update
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.CookieParams != nil {
-		cookie_paramsMap := make(map[string]interface{})
+		CookieParamsMap := make(map[string]interface{})
 		if data.CookieParams.AuthHMAC != nil {
-			auth_hmacNestedMap := make(map[string]interface{})
+			AuthHMACMap := make(map[string]interface{})
+			if data.CookieParams.AuthHMAC.PrimKey != nil {
+				PrimKeyMap := make(map[string]interface{})
+				if data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.Location.IsNull() && !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					PrimKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.Provider.IsNull() && !data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.URL.IsNull() && !data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.URL.ValueString()
+					}
+					PrimKeyMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				AuthHMACMap["prim_key"] = PrimKeyMap
+			}
 			if !data.CookieParams.AuthHMAC.PrimKeyExpiry.IsNull() && !data.CookieParams.AuthHMAC.PrimKeyExpiry.IsUnknown() {
-				auth_hmacNestedMap["prim_key_expiry"] = data.CookieParams.AuthHMAC.PrimKeyExpiry.ValueString()
+				AuthHMACMap["prim_key_expiry"] = data.CookieParams.AuthHMAC.PrimKeyExpiry.ValueString()
+			}
+			if data.CookieParams.AuthHMAC.SecKey != nil {
+				SecKeyMap := make(map[string]interface{})
+				if data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.Location.IsNull() && !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					SecKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.Provider.IsNull() && !data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.URL.IsNull() && !data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.URL.ValueString()
+					}
+					SecKeyMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				AuthHMACMap["sec_key"] = SecKeyMap
 			}
 			if !data.CookieParams.AuthHMAC.SecKeyExpiry.IsNull() && !data.CookieParams.AuthHMAC.SecKeyExpiry.IsUnknown() {
-				auth_hmacNestedMap["sec_key_expiry"] = data.CookieParams.AuthHMAC.SecKeyExpiry.ValueString()
+				AuthHMACMap["sec_key_expiry"] = data.CookieParams.AuthHMAC.SecKeyExpiry.ValueString()
 			}
-			cookie_paramsMap["auth_hmac"] = auth_hmacNestedMap
+			CookieParamsMap["auth_hmac"] = AuthHMACMap
 		}
 		if !data.CookieParams.CookieExpiry.IsNull() && !data.CookieParams.CookieExpiry.IsUnknown() {
-			cookie_paramsMap["cookie_expiry"] = data.CookieParams.CookieExpiry.ValueInt64()
+			CookieParamsMap["cookie_expiry"] = data.CookieParams.CookieExpiry.ValueInt64()
 		}
 		if !data.CookieParams.CookieRefreshInterval.IsNull() && !data.CookieParams.CookieRefreshInterval.IsUnknown() {
-			cookie_paramsMap["cookie_refresh_interval"] = data.CookieParams.CookieRefreshInterval.ValueInt64()
+			CookieParamsMap["cookie_refresh_interval"] = data.CookieParams.CookieRefreshInterval.ValueInt64()
 		}
 		if data.CookieParams.KmsKeyHMAC != nil {
-			cookie_paramsMap["kms_key_hmac"] = map[string]interface{}{}
+			CookieParamsMap["kms_key_hmac"] = map[string]interface{}{}
 		}
 		if !data.CookieParams.SessionExpiry.IsNull() && !data.CookieParams.SessionExpiry.IsUnknown() {
-			cookie_paramsMap["session_expiry"] = data.CookieParams.SessionExpiry.ValueInt64()
+			CookieParamsMap["session_expiry"] = data.CookieParams.SessionExpiry.ValueInt64()
 		}
-		apiResource.Spec["cookie_params"] = cookie_paramsMap
+		apiResource.Spec["cookie_params"] = CookieParamsMap
 	}
 	if data.OIDCAuth != nil {
-		oidc_authMap := make(map[string]interface{})
+		OIDCAuthMap := make(map[string]interface{})
 		if data.OIDCAuth.ClientSecret != nil {
-			client_secretNestedMap := make(map[string]interface{})
-			oidc_authMap["client_secret"] = client_secretNestedMap
+			ClientSecretMap := make(map[string]interface{})
+			if data.OIDCAuth.ClientSecret.BlindfoldSecretInfo != nil {
+				BlindfoldSecretInfoMap := make(map[string]interface{})
+				if !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["decryption_provider"] = data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				}
+				if !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.Location.IsNull() && !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.Location.IsUnknown() {
+					BlindfoldSecretInfoMap["location"] = data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.Location.ValueString()
+				}
+				if !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["store_provider"] = data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
+				}
+				ClientSecretMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			}
+			if data.OIDCAuth.ClientSecret.ClearSecretInfo != nil {
+				ClearSecretInfoMap := make(map[string]interface{})
+				if !data.OIDCAuth.ClientSecret.ClearSecretInfo.Provider.IsNull() && !data.OIDCAuth.ClientSecret.ClearSecretInfo.Provider.IsUnknown() {
+					ClearSecretInfoMap["provider"] = data.OIDCAuth.ClientSecret.ClearSecretInfo.Provider.ValueString()
+				}
+				if !data.OIDCAuth.ClientSecret.ClearSecretInfo.URL.IsNull() && !data.OIDCAuth.ClientSecret.ClearSecretInfo.URL.IsUnknown() {
+					ClearSecretInfoMap["url"] = data.OIDCAuth.ClientSecret.ClearSecretInfo.URL.ValueString()
+				}
+				ClientSecretMap["clear_secret_info"] = ClearSecretInfoMap
+			}
+			OIDCAuthMap["client_secret"] = ClientSecretMap
 		}
 		if data.OIDCAuth.OIDCAuthParams != nil {
-			oidc_auth_paramsNestedMap := make(map[string]interface{})
+			OIDCAuthParamsMap := make(map[string]interface{})
 			if !data.OIDCAuth.OIDCAuthParams.AuthEndpointURL.IsNull() && !data.OIDCAuth.OIDCAuthParams.AuthEndpointURL.IsUnknown() {
-				oidc_auth_paramsNestedMap["auth_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.AuthEndpointURL.ValueString()
+				OIDCAuthParamsMap["auth_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.AuthEndpointURL.ValueString()
 			}
 			if !data.OIDCAuth.OIDCAuthParams.EndSessionEndpointURL.IsNull() && !data.OIDCAuth.OIDCAuthParams.EndSessionEndpointURL.IsUnknown() {
-				oidc_auth_paramsNestedMap["end_session_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.EndSessionEndpointURL.ValueString()
+				OIDCAuthParamsMap["end_session_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.EndSessionEndpointURL.ValueString()
 			}
 			if !data.OIDCAuth.OIDCAuthParams.TokenEndpointURL.IsNull() && !data.OIDCAuth.OIDCAuthParams.TokenEndpointURL.IsUnknown() {
-				oidc_auth_paramsNestedMap["token_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.TokenEndpointURL.ValueString()
+				OIDCAuthParamsMap["token_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.TokenEndpointURL.ValueString()
 			}
-			oidc_authMap["oidc_auth_params"] = oidc_auth_paramsNestedMap
+			OIDCAuthMap["oidc_auth_params"] = OIDCAuthParamsMap
 		}
 		if !data.OIDCAuth.OIDCClientID.IsNull() && !data.OIDCAuth.OIDCClientID.IsUnknown() {
-			oidc_authMap["oidc_client_id"] = data.OIDCAuth.OIDCClientID.ValueString()
+			OIDCAuthMap["oidc_client_id"] = data.OIDCAuth.OIDCClientID.ValueString()
 		}
 		if !data.OIDCAuth.OIDCWellKnownConfigURL.IsNull() && !data.OIDCAuth.OIDCWellKnownConfigURL.IsUnknown() {
-			oidc_authMap["oidc_well_known_config_url"] = data.OIDCAuth.OIDCWellKnownConfigURL.ValueString()
+			OIDCAuthMap["oidc_well_known_config_url"] = data.OIDCAuth.OIDCWellKnownConfigURL.ValueString()
 		}
-		apiResource.Spec["oidc_auth"] = oidc_authMap
+		apiResource.Spec["oidc_auth"] = OIDCAuthMap
 	}
 
 	_, err := r.client.UpdateAuthentication(ctx, apiResource)
@@ -1182,20 +1578,120 @@ func (r *AuthenticationResource) Update(ctx context.Context, req resource.Update
 		data.CookieParams = &AuthenticationCookieParamsModel{
 			AuthHMAC: func() *AuthenticationCookieParamsAuthHMACModel {
 				if !isImport && data.CookieParams != nil && data.CookieParams.AuthHMAC != nil {
-					// Normal Read: preserve existing state value
 					return data.CookieParams.AuthHMAC
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["auth_hmac"].(map[string]interface{}); ok {
+				if AuthHMACData, ok := blockData["auth_hmac"].(map[string]interface{}); ok {
 					return &AuthenticationCookieParamsAuthHMACModel{
+						PrimKey: func() *AuthenticationCookieParamsAuthHMACPrimKeyModel {
+							if PrimKeyData, ok := AuthHMACData["prim_key"].(map[string]interface{}); ok {
+								return &AuthenticationCookieParamsAuthHMACPrimKeyModel{
+									BlindfoldSecretInfo: func() *AuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := PrimKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &AuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *AuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoModel {
+										if ClearSecretInfoData, ok := PrimKeyData["clear_secret_info"].(map[string]interface{}); ok {
+											return &AuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						PrimKeyExpiry: func() types.String {
-							if v, ok := nestedBlockData["prim_key_expiry"].(string); ok && v != "" {
+							if v, ok := AuthHMACData["prim_key_expiry"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
+						SecKey: func() *AuthenticationCookieParamsAuthHMACSecKeyModel {
+							if SecKeyData, ok := AuthHMACData["sec_key"].(map[string]interface{}); ok {
+								return &AuthenticationCookieParamsAuthHMACSecKeyModel{
+									BlindfoldSecretInfo: func() *AuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := SecKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &AuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *AuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoModel {
+										if ClearSecretInfoData, ok := SecKeyData["clear_secret_info"].(map[string]interface{}); ok {
+											return &AuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						SecKeyExpiry: func() types.String {
-							if v, ok := nestedBlockData["sec_key_expiry"].(string); ok && v != "" {
+							if v, ok := AuthHMACData["sec_key_expiry"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -1206,43 +1702,26 @@ func (r *AuthenticationResource) Update(ctx context.Context, req resource.Update
 			}(),
 			CookieExpiry: func() types.Int64 {
 				if !isImport && data.CookieParams != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CookieParams.CookieExpiry
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["cookie_expiry"].(float64); ok {
+				if v, ok := blockData["cookie_expiry"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			CookieRefreshInterval: func() types.Int64 {
 				if !isImport && data.CookieParams != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CookieParams.CookieRefreshInterval
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["cookie_refresh_interval"].(float64); ok {
+				if v, ok := blockData["cookie_refresh_interval"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			KmsKeyHMAC: func() *AuthenticationEmptyModel {
 				if !isImport && data.CookieParams != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.CookieParams.KmsKeyHMAC
 				}
-				// Import case: read from API
 				if _, ok := blockData["kms_key_hmac"].(map[string]interface{}); ok {
 					return &AuthenticationEmptyModel{}
 				}
@@ -1250,16 +1729,9 @@ func (r *AuthenticationResource) Update(ctx context.Context, req resource.Update
 			}(),
 			SessionExpiry: func() types.Int64 {
 				if !isImport && data.CookieParams != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.CookieParams.SessionExpiry
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["session_expiry"].(float64); ok {
+				if v, ok := blockData["session_expiry"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -1270,37 +1742,78 @@ func (r *AuthenticationResource) Update(ctx context.Context, req resource.Update
 		data.OIDCAuth = &AuthenticationOIDCAuthModel{
 			ClientSecret: func() *AuthenticationOIDCAuthClientSecretModel {
 				if !isImport && data.OIDCAuth != nil && data.OIDCAuth.ClientSecret != nil {
-					// Normal Read: preserve existing state value
 					return data.OIDCAuth.ClientSecret
 				}
-				// Import case: read from API
-				if _, ok := blockData["client_secret"].(map[string]interface{}); ok {
-					return &AuthenticationOIDCAuthClientSecretModel{}
+				if ClientSecretData, ok := blockData["client_secret"].(map[string]interface{}); ok {
+					return &AuthenticationOIDCAuthClientSecretModel{
+						BlindfoldSecretInfo: func() *AuthenticationOIDCAuthClientSecretBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := ClientSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &AuthenticationOIDCAuthClientSecretBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *AuthenticationOIDCAuthClientSecretClearSecretInfoModel {
+							if ClearSecretInfoData, ok := ClientSecretData["clear_secret_info"].(map[string]interface{}); ok {
+								return &AuthenticationOIDCAuthClientSecretClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			OIDCAuthParams: func() *AuthenticationOIDCAuthOIDCAuthParamsModel {
 				if !isImport && data.OIDCAuth != nil && data.OIDCAuth.OIDCAuthParams != nil {
-					// Normal Read: preserve existing state value
 					return data.OIDCAuth.OIDCAuthParams
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["oidc_auth_params"].(map[string]interface{}); ok {
+				if OIDCAuthParamsData, ok := blockData["oidc_auth_params"].(map[string]interface{}); ok {
 					return &AuthenticationOIDCAuthOIDCAuthParamsModel{
 						AuthEndpointURL: func() types.String {
-							if v, ok := nestedBlockData["auth_endpoint_url"].(string); ok && v != "" {
+							if v, ok := OIDCAuthParamsData["auth_endpoint_url"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						EndSessionEndpointURL: func() types.String {
-							if v, ok := nestedBlockData["end_session_endpoint_url"].(string); ok && v != "" {
+							if v, ok := OIDCAuthParamsData["end_session_endpoint_url"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						TokenEndpointURL: func() types.String {
-							if v, ok := nestedBlockData["token_endpoint_url"].(string); ok && v != "" {
+							if v, ok := OIDCAuthParamsData["token_endpoint_url"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()

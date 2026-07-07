@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_ip_prefix_set Resource - terraform-provider-f5xc"
+page_title: "xcsh_ip_prefix_set Resource - xcsh"
 subcategory: "Networking"
 description: |-
   Manages ip_prefix_set creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_ip_prefix_set (Resource)
+# xcsh_ip_prefix_set (Resource)
 
 Manages ip_prefix_set creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.
 
@@ -14,36 +14,24 @@ Manages ip_prefix_set creates a new object in the storage backend for metadata.n
 ## Example Usage
 
 ```terraform
-# IP Prefix Set Resource Example
-# Manages ip_prefix_set creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.
+# IPPrefixSet Resource Example
+# Manages ip_prefix_set creates a new object in the storage backend for metadata.namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic IP Prefix Set configuration
-resource "f5xc_ip_prefix_set" "example" {
+# Basic IPPrefixSet configuration
+resource "xcsh_ip_prefix_set" "example" {
   name      = "example-ip-prefix-set"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # IP Prefix Set configuration
-  prefix = ["192.168.1.0/24", "10.0.0.0/8"]
 }
 ```
 
@@ -191,5 +179,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_ip_prefix_set.example system/example
+terraform import xcsh_ip_prefix_set.example system/example
 ```

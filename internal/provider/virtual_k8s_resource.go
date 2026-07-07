@@ -22,9 +22,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -354,52 +354,50 @@ func (r *VirtualK8SResource) Create(ctx context.Context, req resource.CreateRequ
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.DefaultFlavorRef != nil {
-		default_flavor_refMap := make(map[string]interface{})
+		DefaultFlavorRefMap := make(map[string]interface{})
 		if !data.DefaultFlavorRef.Name.IsNull() && !data.DefaultFlavorRef.Name.IsUnknown() {
-			default_flavor_refMap["name"] = data.DefaultFlavorRef.Name.ValueString()
+			DefaultFlavorRefMap["name"] = data.DefaultFlavorRef.Name.ValueString()
 		}
 		if !data.DefaultFlavorRef.Namespace.IsNull() && !data.DefaultFlavorRef.Namespace.IsUnknown() {
-			default_flavor_refMap["namespace"] = data.DefaultFlavorRef.Namespace.ValueString()
+			DefaultFlavorRefMap["namespace"] = data.DefaultFlavorRef.Namespace.ValueString()
 		}
 		if !data.DefaultFlavorRef.Tenant.IsNull() && !data.DefaultFlavorRef.Tenant.IsUnknown() {
-			default_flavor_refMap["tenant"] = data.DefaultFlavorRef.Tenant.ValueString()
+			DefaultFlavorRefMap["tenant"] = data.DefaultFlavorRef.Tenant.ValueString()
 		}
-		createReq.Spec["default_flavor_ref"] = default_flavor_refMap
+		createReq.Spec["default_flavor_ref"] = DefaultFlavorRefMap
 	}
 	if data.Disabled != nil {
-		disabledMap := make(map[string]interface{})
-		createReq.Spec["disabled"] = disabledMap
+		createReq.Spec["disabled"] = map[string]interface{}{}
 	}
 	if data.Isolated != nil {
-		isolatedMap := make(map[string]interface{})
-		createReq.Spec["isolated"] = isolatedMap
+		createReq.Spec["isolated"] = map[string]interface{}{}
 	}
 	if !data.VsiteRefs.IsNull() && !data.VsiteRefs.IsUnknown() {
-		var vsite_refsItems []VirtualK8SVsiteRefsModel
-		diags := data.VsiteRefs.ElementsAs(ctx, &vsite_refsItems, false)
+		var VsiteRefsElems []VirtualK8SVsiteRefsModel
+		diags := data.VsiteRefs.ElementsAs(ctx, &VsiteRefsElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(vsite_refsItems) > 0 {
-			var vsite_refsList []map[string]interface{}
-			for _, item := range vsite_refsItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(VsiteRefsElems) > 0 {
+			var VsiteRefsList []map[string]interface{}
+			for _, VsiteRefsItem := range VsiteRefsElems {
+				VsiteRefsItemMap := make(map[string]interface{})
+				if !VsiteRefsItem.Kind.IsNull() && !VsiteRefsItem.Kind.IsUnknown() {
+					VsiteRefsItemMap["kind"] = VsiteRefsItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !VsiteRefsItem.Name.IsNull() && !VsiteRefsItem.Name.IsUnknown() {
+					VsiteRefsItemMap["name"] = VsiteRefsItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !VsiteRefsItem.Namespace.IsNull() && !VsiteRefsItem.Namespace.IsUnknown() {
+					VsiteRefsItemMap["namespace"] = VsiteRefsItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !VsiteRefsItem.Tenant.IsNull() && !VsiteRefsItem.Tenant.IsUnknown() {
+					VsiteRefsItemMap["tenant"] = VsiteRefsItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !VsiteRefsItem.Uid.IsNull() && !VsiteRefsItem.Uid.IsUnknown() {
+					VsiteRefsItemMap["uid"] = VsiteRefsItem.Uid.ValueString()
 				}
-				vsite_refsList = append(vsite_refsList, itemMap)
+				VsiteRefsList = append(VsiteRefsList, VsiteRefsItemMap)
 			}
-			createReq.Spec["vsite_refs"] = vsite_refsList
+			createReq.Spec["vsite_refs"] = VsiteRefsList
 		}
 	}
 
@@ -438,25 +436,23 @@ func (r *VirtualK8SResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 	}
 	if _, ok := apiResource.Spec["disabled"].(map[string]interface{}); ok && isImport && data.Disabled == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.Disabled = &VirtualK8SEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["isolated"].(map[string]interface{}); ok && isImport && data.Isolated == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.Isolated = &VirtualK8SEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["vsite_refs"].([]interface{}); ok && len(listData) > 0 {
-		var vsite_refsList []VirtualK8SVsiteRefsModel
+	if !isImport && (data.VsiteRefs.IsNull() || len(data.VsiteRefs.Elements()) == 0) {
+		data.VsiteRefs = types.ListNull(types.ObjectType{AttrTypes: VirtualK8SVsiteRefsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["vsite_refs"].([]interface{}); ok && len(listData) > 0 {
+		var VsiteRefsList []VirtualK8SVsiteRefsModel
 		var existingVsiteRefsItems []VirtualK8SVsiteRefsModel
 		if !data.VsiteRefs.IsNull() && !data.VsiteRefs.IsUnknown() {
 			data.VsiteRefs.ElementsAs(ctx, &existingVsiteRefsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				vsite_refsList = append(vsite_refsList, VirtualK8SVsiteRefsModel{
+				VsiteRefsList = append(VsiteRefsList, VirtualK8SVsiteRefsModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -490,13 +486,12 @@ func (r *VirtualK8SResource) Create(ctx context.Context, req resource.CreateRequ
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VirtualK8SVsiteRefsModelAttrTypes}, vsite_refsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VirtualK8SVsiteRefsModelAttrTypes}, VsiteRefsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.VsiteRefs = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.VsiteRefs = types.ListNull(types.ObjectType{AttrTypes: VirtualK8SVsiteRefsModelAttrTypes})
 	}
 
@@ -602,25 +597,23 @@ func (r *VirtualK8SResource) Read(ctx context.Context, req resource.ReadRequest,
 		}
 	}
 	if _, ok := apiResource.Spec["disabled"].(map[string]interface{}); ok && isImport && data.Disabled == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.Disabled = &VirtualK8SEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["isolated"].(map[string]interface{}); ok && isImport && data.Isolated == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.Isolated = &VirtualK8SEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["vsite_refs"].([]interface{}); ok && len(listData) > 0 {
-		var vsite_refsList []VirtualK8SVsiteRefsModel
+	if !isImport && (data.VsiteRefs.IsNull() || len(data.VsiteRefs.Elements()) == 0) {
+		data.VsiteRefs = types.ListNull(types.ObjectType{AttrTypes: VirtualK8SVsiteRefsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["vsite_refs"].([]interface{}); ok && len(listData) > 0 {
+		var VsiteRefsList []VirtualK8SVsiteRefsModel
 		var existingVsiteRefsItems []VirtualK8SVsiteRefsModel
 		if !data.VsiteRefs.IsNull() && !data.VsiteRefs.IsUnknown() {
 			data.VsiteRefs.ElementsAs(ctx, &existingVsiteRefsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				vsite_refsList = append(vsite_refsList, VirtualK8SVsiteRefsModel{
+				VsiteRefsList = append(VsiteRefsList, VirtualK8SVsiteRefsModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -654,14 +647,21 @@ func (r *VirtualK8SResource) Read(ctx context.Context, req resource.ReadRequest,
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VirtualK8SVsiteRefsModelAttrTypes}, vsite_refsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VirtualK8SVsiteRefsModelAttrTypes}, VsiteRefsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.VsiteRefs = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.VsiteRefs = types.ListNull(types.ObjectType{AttrTypes: VirtualK8SVsiteRefsModelAttrTypes})
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -715,52 +715,50 @@ func (r *VirtualK8SResource) Update(ctx context.Context, req resource.UpdateRequ
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.DefaultFlavorRef != nil {
-		default_flavor_refMap := make(map[string]interface{})
+		DefaultFlavorRefMap := make(map[string]interface{})
 		if !data.DefaultFlavorRef.Name.IsNull() && !data.DefaultFlavorRef.Name.IsUnknown() {
-			default_flavor_refMap["name"] = data.DefaultFlavorRef.Name.ValueString()
+			DefaultFlavorRefMap["name"] = data.DefaultFlavorRef.Name.ValueString()
 		}
 		if !data.DefaultFlavorRef.Namespace.IsNull() && !data.DefaultFlavorRef.Namespace.IsUnknown() {
-			default_flavor_refMap["namespace"] = data.DefaultFlavorRef.Namespace.ValueString()
+			DefaultFlavorRefMap["namespace"] = data.DefaultFlavorRef.Namespace.ValueString()
 		}
 		if !data.DefaultFlavorRef.Tenant.IsNull() && !data.DefaultFlavorRef.Tenant.IsUnknown() {
-			default_flavor_refMap["tenant"] = data.DefaultFlavorRef.Tenant.ValueString()
+			DefaultFlavorRefMap["tenant"] = data.DefaultFlavorRef.Tenant.ValueString()
 		}
-		apiResource.Spec["default_flavor_ref"] = default_flavor_refMap
+		apiResource.Spec["default_flavor_ref"] = DefaultFlavorRefMap
 	}
 	if data.Disabled != nil {
-		disabledMap := make(map[string]interface{})
-		apiResource.Spec["disabled"] = disabledMap
+		apiResource.Spec["disabled"] = map[string]interface{}{}
 	}
 	if data.Isolated != nil {
-		isolatedMap := make(map[string]interface{})
-		apiResource.Spec["isolated"] = isolatedMap
+		apiResource.Spec["isolated"] = map[string]interface{}{}
 	}
 	if !data.VsiteRefs.IsNull() && !data.VsiteRefs.IsUnknown() {
-		var vsite_refsItems []VirtualK8SVsiteRefsModel
-		diags := data.VsiteRefs.ElementsAs(ctx, &vsite_refsItems, false)
+		var VsiteRefsElems []VirtualK8SVsiteRefsModel
+		diags := data.VsiteRefs.ElementsAs(ctx, &VsiteRefsElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(vsite_refsItems) > 0 {
-			var vsite_refsList []map[string]interface{}
-			for _, item := range vsite_refsItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(VsiteRefsElems) > 0 {
+			var VsiteRefsList []map[string]interface{}
+			for _, VsiteRefsItem := range VsiteRefsElems {
+				VsiteRefsItemMap := make(map[string]interface{})
+				if !VsiteRefsItem.Kind.IsNull() && !VsiteRefsItem.Kind.IsUnknown() {
+					VsiteRefsItemMap["kind"] = VsiteRefsItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !VsiteRefsItem.Name.IsNull() && !VsiteRefsItem.Name.IsUnknown() {
+					VsiteRefsItemMap["name"] = VsiteRefsItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !VsiteRefsItem.Namespace.IsNull() && !VsiteRefsItem.Namespace.IsUnknown() {
+					VsiteRefsItemMap["namespace"] = VsiteRefsItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !VsiteRefsItem.Tenant.IsNull() && !VsiteRefsItem.Tenant.IsUnknown() {
+					VsiteRefsItemMap["tenant"] = VsiteRefsItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !VsiteRefsItem.Uid.IsNull() && !VsiteRefsItem.Uid.IsUnknown() {
+					VsiteRefsItemMap["uid"] = VsiteRefsItem.Uid.ValueString()
 				}
-				vsite_refsList = append(vsite_refsList, itemMap)
+				VsiteRefsList = append(VsiteRefsList, VsiteRefsItemMap)
 			}
-			apiResource.Spec["vsite_refs"] = vsite_refsList
+			apiResource.Spec["vsite_refs"] = VsiteRefsList
 		}
 	}
 
@@ -810,25 +808,23 @@ func (r *VirtualK8SResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 	}
 	if _, ok := apiResource.Spec["disabled"].(map[string]interface{}); ok && isImport && data.Disabled == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.Disabled = &VirtualK8SEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["isolated"].(map[string]interface{}); ok && isImport && data.Isolated == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.Isolated = &VirtualK8SEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["vsite_refs"].([]interface{}); ok && len(listData) > 0 {
-		var vsite_refsList []VirtualK8SVsiteRefsModel
+	if !isImport && (data.VsiteRefs.IsNull() || len(data.VsiteRefs.Elements()) == 0) {
+		data.VsiteRefs = types.ListNull(types.ObjectType{AttrTypes: VirtualK8SVsiteRefsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["vsite_refs"].([]interface{}); ok && len(listData) > 0 {
+		var VsiteRefsList []VirtualK8SVsiteRefsModel
 		var existingVsiteRefsItems []VirtualK8SVsiteRefsModel
 		if !data.VsiteRefs.IsNull() && !data.VsiteRefs.IsUnknown() {
 			data.VsiteRefs.ElementsAs(ctx, &existingVsiteRefsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				vsite_refsList = append(vsite_refsList, VirtualK8SVsiteRefsModel{
+				VsiteRefsList = append(VsiteRefsList, VirtualK8SVsiteRefsModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -862,13 +858,12 @@ func (r *VirtualK8SResource) Update(ctx context.Context, req resource.UpdateRequ
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VirtualK8SVsiteRefsModelAttrTypes}, vsite_refsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VirtualK8SVsiteRefsModelAttrTypes}, VsiteRefsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.VsiteRefs = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.VsiteRefs = types.ListNull(types.ObjectType{AttrTypes: VirtualK8SVsiteRefsModelAttrTypes})
 	}
 

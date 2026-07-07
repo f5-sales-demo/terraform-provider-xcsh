@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_filter_set Resource - terraform-provider-f5xc"
+page_title: "xcsh_filter_set Resource - xcsh"
 subcategory: "Applications"
 description: |-
   Manages specification. in F5 Distributed Cloud.
 ---
 
-# f5xc_filter_set (Resource)
+# xcsh_filter_set (Resource)
 
 Manages specification. in F5 Distributed Cloud.
 
@@ -14,47 +14,26 @@ Manages specification. in F5 Distributed Cloud.
 ## Example Usage
 
 ```terraform
-# Filter Set Resource Example
-# Manages specification. in F5 Distributed Cloud.
+# FilterSet Resource Example
+# Manages specification.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Filter Set configuration
-resource "f5xc_filter_set" "example" {
+# Basic FilterSet configuration
+resource "xcsh_filter_set" "example" {
   name      = "example-filter-set"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # List of fields and their values selected by the user .
-  filter_fields {
-    # Configure filter_fields settings
-  }
-  # Either an absolute time range or a relative time interval.
-  date_field {
-    # Configure date_field settings
-  }
-  # Date range is for selecting a date range.
-  absolute {
-    # Configure absolute settings
-  }
+  context_key = "example-value"
 }
 ```
 
@@ -236,5 +215,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_filter_set.example system/example
+terraform import xcsh_filter_set.example system/example
 ```

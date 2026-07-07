@@ -1,4 +1,4 @@
-# f5xc_k8s_cluster_role_binding
+# xcsh_k8s_cluster_role_binding
 
 Category: Kubernetes
 K8s_cluster_role_binding will create the object in the storage backend for namespace metadata.namespace
@@ -6,30 +6,13 @@ K8s_cluster_role_binding will create the object in the storage backend for names
 ## Required
 
 - name
-- namespace
 
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_k8s_cluster_role_binding" "example" {
+resource "xcsh_k8s_cluster_role_binding" "example" {
   name      = "example-k8s-cluster-role-binding"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  subjects {
-  }
-  service_account {
-  }
-  k8s_cluster_role {
-  }
+  namespace = "system"
 }
 ```
 

@@ -1,4 +1,4 @@
-# f5xc_api_testing
+# xcsh_api_testing
 
 Category: API Security
 API Testing resource
@@ -6,31 +6,16 @@ API Testing resource
 ## Required
 
 - name
-- namespace
 - custom_header_value
 
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_api_testing" "example" {
+resource "xcsh_api_testing" "example" {
   name      = "example-api-testing"
-  namespace = "staging"
+  namespace = "system"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  domains {
-  }
-  credentials {
-  }
-  admin {
-  }
+  custom_header_value = "example-value"
 }
 ```
 

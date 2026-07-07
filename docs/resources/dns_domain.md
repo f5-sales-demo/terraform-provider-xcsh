@@ -1,52 +1,39 @@
 ---
-page_title: "f5xc_dns_domain Resource - terraform-provider-f5xc"
+page_title: "xcsh_dns_domain Resource - xcsh"
 subcategory: "DNS"
 description: |-
   Manages DNS Domain in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud.
 ---
 
-# f5xc_dns_domain (Resource)
+# xcsh_dns_domain (Resource)
 
 Manages DNS Domain in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud.
 
-~> **Note** Please refer to [DNS Domain API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/dns/) to learn more.
+~> **Note** Please refer to [DNS Domain API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/dns/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# DNS Domain Resource Example
-# Manages DNS Domain in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud.
+# DNSDomain Resource Example
+# Manages DNS Domain in a given namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic DNS Domain configuration
-resource "f5xc_dns_domain" "example" {
+# Basic DNSDomain configuration
+resource "xcsh_dns_domain" "example" {
   name      = "example-dns-domain"
-  namespace = "staging"
+  namespace = "system"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # Configuration parameter for volterra managed.
-  volterra_managed {
-    # Configure volterra_managed settings
-  }
+  dnssec_mode = "DNSSEC_DISABLE"
 }
 ```
 
@@ -61,8 +48,6 @@ resource "f5xc_dns_domain" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Domain name for the DNS Domain (e.g., example.com). Must be a valid DNS domain name
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the DNS Domain will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -70,6 +55,8 @@ resource "f5xc_dns_domain" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the DNS Domain. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -188,5 +175,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_dns_domain.example system/example
+terraform import xcsh_dns_domain.example system/example
 ```

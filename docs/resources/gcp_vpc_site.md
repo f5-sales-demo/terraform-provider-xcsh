@@ -1,89 +1,43 @@
 ---
-page_title: "f5xc_gcp_vpc_site Resource - terraform-provider-f5xc"
+page_title: "xcsh_gcp_vpc_site Resource - xcsh"
 subcategory: "Sites"
 description: |-
   Manages a GCP VPC Site resource in F5 Distributed Cloud for deploying F5 sites within Google Cloud VPC environments.
 ---
 
-# f5xc_gcp_vpc_site (Resource)
+# xcsh_gcp_vpc_site (Resource)
 
 Manages a GCP VPC Site resource in F5 Distributed Cloud for deploying F5 sites within Google Cloud VPC environments.
 
-~> **Note** Please refer to [GCP VPC Site API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/cloud_infrastructure/) to learn more.
+~> **Note** Please refer to [GCP VPC Site API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/cloud_infrastructure/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# GCP VPC Site Resource Example
+# GCPVPCSite Resource Example
 # Manages a GCP VPC Site resource in F5 Distributed Cloud for deploying F5 sites within Google Cloud VPC environments.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic GCP VPC Site configuration
-resource "f5xc_gcp_vpc_site" "example" {
+# Basic GCPVPCSite configuration
+resource "xcsh_gcp_vpc_site" "example" {
   name      = "example-gcp-vpc-site"
-  namespace = "staging"
+  namespace = "system"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # GCP VPC Site configuration
-  gcp_region = "us-west1"
-
-  # GCP credentials reference
-  cloud_credentials {
-    name      = "gcp-credentials"
-    namespace = "staging"
-  }
-
-  # Instance type
-  instance_type = "n1-standard-4"
-
-  # Ingress/Egress gateway
-  ingress_egress_gw {
-    gcp_certified_hw = "gcp-byol-multi-nic-voltmesh"
-    node_number      = 1
-    inside_network {
-      new_network {
-        name = "inside-network"
-      }
-    }
-    outside_network {
-      new_network {
-        name = "outside-network"
-      }
-    }
-    inside_subnet {
-      new_subnet {
-        subnet_name  = "inside-subnet"
-        primary_ipv4 = "10.0.1.0/24"
-      }
-    }
-    outside_subnet {
-      new_subnet {
-        subnet_name  = "outside-subnet"
-        primary_ipv4 = "10.0.2.0/24"
-      }
-    }
-  }
-
-  # No worker nodes by default
-  no_worker_nodes {}
+  gcp_region    = "example-value"
+  instance_type = "example-value"
+  ssh_key       = "example-value"
+  address       = "example-value"
+  disk_size     = 1
 }
 ```
 
@@ -100,8 +54,6 @@ resource "f5xc_gcp_vpc_site" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the GCP VPC Site. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the GCP VPC Site will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -109,6 +61,8 @@ resource "f5xc_gcp_vpc_site" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the GCP VPC Site. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -1089,5 +1043,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_gcp_vpc_site.example system/example
+terraform import xcsh_gcp_vpc_site.example system/example
 ```

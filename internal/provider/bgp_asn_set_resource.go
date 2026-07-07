@@ -10,18 +10,20 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
+	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -72,13 +74,16 @@ func (r *BGPAsnSetResource) Schema(ctx context.Context, req resource.SchemaReque
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the BGP Asn Set will be created.",
-				Required:            true,
+				MarkdownDescription: "Namespace for the BGP Asn Set. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
+				Optional:            true,
+				Computed:            true,
+				Default:             stringdefault.StaticString("system"),
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
+					stringvalidator.OneOf("system"),
 				},
 			},
 			"as_numbers": schema.ListAttribute{
@@ -229,10 +234,10 @@ func (r *BGPAsnSetResource) Create(ctx context.Context, req resource.CreateReque
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.AsNumbers.IsNull() && !data.AsNumbers.IsUnknown() {
-		var as_numbersList []int64
-		resp.Diagnostics.Append(data.AsNumbers.ElementsAs(ctx, &as_numbersList, false)...)
-		if !resp.Diagnostics.HasError() {
-			createReq.Spec["as_numbers"] = as_numbersList
+		var AsNumbersItems []int64
+		diags := data.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+		if !diags.HasError() {
+			createReq.Spec["as_numbers"] = AsNumbersItems
 		}
 	}
 
@@ -251,8 +256,8 @@ func (r *BGPAsnSetResource) Create(ctx context.Context, req resource.CreateReque
 	if v, ok := apiResource.Spec["as_numbers"].([]interface{}); ok && len(v) > 0 {
 		var as_numbersList []int64
 		for _, item := range v {
-			if n, ok := item.(float64); ok {
-				as_numbersList = append(as_numbersList, int64(n))
+			if s, ok := item.(float64); ok {
+				as_numbersList = append(as_numbersList, int64(s))
 			}
 		}
 		listVal, diags := types.ListValueFrom(ctx, types.Int64Type, as_numbersList)
@@ -346,8 +351,8 @@ func (r *BGPAsnSetResource) Read(ctx context.Context, req resource.ReadRequest, 
 	if v, ok := apiResource.Spec["as_numbers"].([]interface{}); ok && len(v) > 0 {
 		var as_numbersList []int64
 		for _, item := range v {
-			if n, ok := item.(float64); ok {
-				as_numbersList = append(as_numbersList, int64(n))
+			if s, ok := item.(float64); ok {
+				as_numbersList = append(as_numbersList, int64(s))
 			}
 		}
 		listVal, diags := types.ListValueFrom(ctx, types.Int64Type, as_numbersList)
@@ -357,6 +362,14 @@ func (r *BGPAsnSetResource) Read(ctx context.Context, req resource.ReadRequest, 
 		}
 	} else {
 		data.AsNumbers = types.ListNull(types.Int64Type)
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -410,10 +423,10 @@ func (r *BGPAsnSetResource) Update(ctx context.Context, req resource.UpdateReque
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.AsNumbers.IsNull() && !data.AsNumbers.IsUnknown() {
-		var as_numbersList []int64
-		resp.Diagnostics.Append(data.AsNumbers.ElementsAs(ctx, &as_numbersList, false)...)
-		if !resp.Diagnostics.HasError() {
-			apiResource.Spec["as_numbers"] = as_numbersList
+		var AsNumbersItems []int64
+		diags := data.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+		if !diags.HasError() {
+			apiResource.Spec["as_numbers"] = AsNumbersItems
 		}
 	}
 
@@ -443,8 +456,8 @@ func (r *BGPAsnSetResource) Update(ctx context.Context, req resource.UpdateReque
 	if v, ok := apiResource.Spec["as_numbers"].([]interface{}); ok && len(v) > 0 {
 		var as_numbersList []int64
 		for _, item := range v {
-			if n, ok := item.(float64); ok {
-				as_numbersList = append(as_numbersList, int64(n))
+			if s, ok := item.(float64); ok {
+				as_numbersList = append(as_numbersList, int64(s))
 			}
 		}
 		listVal, diags := types.ListValueFrom(ctx, types.Int64Type, as_numbersList)

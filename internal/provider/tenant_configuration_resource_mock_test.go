@@ -7,8 +7,8 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/acctest"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/mocks"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/acctest"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/mocks"
 )
 
 // =============================================================================
@@ -22,14 +22,14 @@ import (
 // 4. Run tests in CI/CD without special permissions
 //
 // Run with:
-//   F5XC_MOCK_MODE=1 go test -v ./internal/provider/ -run TestMockTenantConfiguration -timeout 5m
+//   XCSH_MOCK_MODE=1 go test -v ./internal/provider/ -run TestMockTenantConfiguration -timeout 5m
 // =============================================================================
 
 // TestMockTenantConfigurationResource_basic tests basic tenant configuration operations
 func TestMockTenantConfigurationResource_basic(t *testing.T) {
 	acctest.SkipIfNoMockMode(t)
 
-	resourceName := "f5xc_tenant_configuration.test"
+	resourceName := "xcsh_tenant_configuration.test"
 
 	mockCfg := acctest.SetupMockTest(t)
 	defer mockCfg.Cleanup()
@@ -52,7 +52,7 @@ func TestMockTenantConfigurationResource_basic(t *testing.T) {
 func TestMockTenantConfigurationDataSource_basic(t *testing.T) {
 	acctest.SkipIfNoMockMode(t)
 
-	dataSourceName := "data.f5xc_tenant_configuration.test"
+	dataSourceName := "data.xcsh_tenant_configuration.test"
 
 	mockCfg := acctest.SetupMockTest(t)
 	defer mockCfg.Cleanup()
@@ -104,7 +104,7 @@ func testAccMockTenantConfigurationConfig_basic(mockCfg *acctest.MockTestConfig)
 	return acctest.ConfigCompose(
 		mockCfg.MockProviderConfig(),
 		`
-resource "f5xc_tenant_configuration" "test" {
+resource "xcsh_tenant_configuration" "test" {
   name      = "tenant-config"
   namespace = "system"
 }
@@ -115,7 +115,7 @@ func testAccMockTenantConfigurationDataSourceConfig(mockCfg *acctest.MockTestCon
 	return acctest.ConfigCompose(
 		mockCfg.MockProviderConfig(),
 		`
-data "f5xc_tenant_configuration" "test" {
+data "xcsh_tenant_configuration" "test" {
   name      = "tenant-config"
   namespace = "system"
 }

@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/acctest"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
 )
@@ -15,7 +15,7 @@ func TestAccSegmentResource_basic(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	resourceName := "f5xc_segment.test"
+	resourceName := "xcsh_segment.test"
 	nsName := acctest.RandomName("tf-acc")
 	name := acctest.RandomName("tf-acc")
 
@@ -58,7 +58,7 @@ func testAccSegmentResourceConfig_basic(nsName, name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "f5xc_segment" "test" {
+resource "xcsh_segment" "test" {
   name      = %[1]q
   namespace = "system"
 }

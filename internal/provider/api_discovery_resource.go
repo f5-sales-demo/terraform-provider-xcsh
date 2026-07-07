@@ -15,14 +15,15 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -89,13 +90,16 @@ func (r *APIDiscoveryResource) Schema(ctx context.Context, req resource.SchemaRe
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the API Discovery will be created.",
-				Required:            true,
+				MarkdownDescription: "Namespace for the API Discovery. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
+				Optional:            true,
+				Computed:            true,
+				Default:             stringdefault.StaticString("system"),
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
+					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
@@ -259,22 +263,22 @@ func (r *APIDiscoveryResource) Create(ctx context.Context, req resource.CreateRe
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.CustomAuthTypes.IsNull() && !data.CustomAuthTypes.IsUnknown() {
-		var custom_auth_typesItems []APIDiscoveryCustomAuthTypesModel
-		diags := data.CustomAuthTypes.ElementsAs(ctx, &custom_auth_typesItems, false)
+		var CustomAuthTypesElems []APIDiscoveryCustomAuthTypesModel
+		diags := data.CustomAuthTypes.ElementsAs(ctx, &CustomAuthTypesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(custom_auth_typesItems) > 0 {
-			var custom_auth_typesList []map[string]interface{}
-			for _, item := range custom_auth_typesItems {
-				itemMap := make(map[string]interface{})
-				if !item.ParameterName.IsNull() && !item.ParameterName.IsUnknown() {
-					itemMap["parameter_name"] = item.ParameterName.ValueString()
+		if !resp.Diagnostics.HasError() && len(CustomAuthTypesElems) > 0 {
+			var CustomAuthTypesList []map[string]interface{}
+			for _, CustomAuthTypesItem := range CustomAuthTypesElems {
+				CustomAuthTypesItemMap := make(map[string]interface{})
+				if !CustomAuthTypesItem.ParameterName.IsNull() && !CustomAuthTypesItem.ParameterName.IsUnknown() {
+					CustomAuthTypesItemMap["parameter_name"] = CustomAuthTypesItem.ParameterName.ValueString()
 				}
-				if !item.ParameterType.IsNull() && !item.ParameterType.IsUnknown() {
-					itemMap["parameter_type"] = item.ParameterType.ValueString()
+				if !CustomAuthTypesItem.ParameterType.IsNull() && !CustomAuthTypesItem.ParameterType.IsUnknown() {
+					CustomAuthTypesItemMap["parameter_type"] = CustomAuthTypesItem.ParameterType.ValueString()
 				}
-				custom_auth_typesList = append(custom_auth_typesList, itemMap)
+				CustomAuthTypesList = append(CustomAuthTypesList, CustomAuthTypesItemMap)
 			}
-			createReq.Spec["custom_auth_types"] = custom_auth_typesList
+			createReq.Spec["custom_auth_types"] = CustomAuthTypesList
 		}
 	}
 
@@ -290,16 +294,18 @@ func (r *APIDiscoveryResource) Create(ctx context.Context, req resource.CreateRe
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["custom_auth_types"].([]interface{}); ok && len(listData) > 0 {
-		var custom_auth_typesList []APIDiscoveryCustomAuthTypesModel
+	if !isImport && (data.CustomAuthTypes.IsNull() || len(data.CustomAuthTypes.Elements()) == 0) {
+		data.CustomAuthTypes = types.ListNull(types.ObjectType{AttrTypes: APIDiscoveryCustomAuthTypesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["custom_auth_types"].([]interface{}); ok && len(listData) > 0 {
+		var CustomAuthTypesList []APIDiscoveryCustomAuthTypesModel
 		var existingCustomAuthTypesItems []APIDiscoveryCustomAuthTypesModel
 		if !data.CustomAuthTypes.IsNull() && !data.CustomAuthTypes.IsUnknown() {
 			data.CustomAuthTypes.ElementsAs(ctx, &existingCustomAuthTypesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				custom_auth_typesList = append(custom_auth_typesList, APIDiscoveryCustomAuthTypesModel{
+				CustomAuthTypesList = append(CustomAuthTypesList, APIDiscoveryCustomAuthTypesModel{
 					ParameterName: func() types.String {
 						if v, ok := itemMap["parameter_name"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -315,13 +321,12 @@ func (r *APIDiscoveryResource) Create(ctx context.Context, req resource.CreateRe
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APIDiscoveryCustomAuthTypesModelAttrTypes}, custom_auth_typesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APIDiscoveryCustomAuthTypesModelAttrTypes}, CustomAuthTypesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.CustomAuthTypes = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.CustomAuthTypes = types.ListNull(types.ObjectType{AttrTypes: APIDiscoveryCustomAuthTypesModelAttrTypes})
 	}
 
@@ -404,16 +409,18 @@ func (r *APIDiscoveryResource) Read(ctx context.Context, req resource.ReadReques
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["custom_auth_types"].([]interface{}); ok && len(listData) > 0 {
-		var custom_auth_typesList []APIDiscoveryCustomAuthTypesModel
+	if !isImport && (data.CustomAuthTypes.IsNull() || len(data.CustomAuthTypes.Elements()) == 0) {
+		data.CustomAuthTypes = types.ListNull(types.ObjectType{AttrTypes: APIDiscoveryCustomAuthTypesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["custom_auth_types"].([]interface{}); ok && len(listData) > 0 {
+		var CustomAuthTypesList []APIDiscoveryCustomAuthTypesModel
 		var existingCustomAuthTypesItems []APIDiscoveryCustomAuthTypesModel
 		if !data.CustomAuthTypes.IsNull() && !data.CustomAuthTypes.IsUnknown() {
 			data.CustomAuthTypes.ElementsAs(ctx, &existingCustomAuthTypesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				custom_auth_typesList = append(custom_auth_typesList, APIDiscoveryCustomAuthTypesModel{
+				CustomAuthTypesList = append(CustomAuthTypesList, APIDiscoveryCustomAuthTypesModel{
 					ParameterName: func() types.String {
 						if v, ok := itemMap["parameter_name"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -429,14 +436,21 @@ func (r *APIDiscoveryResource) Read(ctx context.Context, req resource.ReadReques
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APIDiscoveryCustomAuthTypesModelAttrTypes}, custom_auth_typesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APIDiscoveryCustomAuthTypesModelAttrTypes}, CustomAuthTypesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.CustomAuthTypes = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.CustomAuthTypes = types.ListNull(types.ObjectType{AttrTypes: APIDiscoveryCustomAuthTypesModelAttrTypes})
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -490,22 +504,22 @@ func (r *APIDiscoveryResource) Update(ctx context.Context, req resource.UpdateRe
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.CustomAuthTypes.IsNull() && !data.CustomAuthTypes.IsUnknown() {
-		var custom_auth_typesItems []APIDiscoveryCustomAuthTypesModel
-		diags := data.CustomAuthTypes.ElementsAs(ctx, &custom_auth_typesItems, false)
+		var CustomAuthTypesElems []APIDiscoveryCustomAuthTypesModel
+		diags := data.CustomAuthTypes.ElementsAs(ctx, &CustomAuthTypesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(custom_auth_typesItems) > 0 {
-			var custom_auth_typesList []map[string]interface{}
-			for _, item := range custom_auth_typesItems {
-				itemMap := make(map[string]interface{})
-				if !item.ParameterName.IsNull() && !item.ParameterName.IsUnknown() {
-					itemMap["parameter_name"] = item.ParameterName.ValueString()
+		if !resp.Diagnostics.HasError() && len(CustomAuthTypesElems) > 0 {
+			var CustomAuthTypesList []map[string]interface{}
+			for _, CustomAuthTypesItem := range CustomAuthTypesElems {
+				CustomAuthTypesItemMap := make(map[string]interface{})
+				if !CustomAuthTypesItem.ParameterName.IsNull() && !CustomAuthTypesItem.ParameterName.IsUnknown() {
+					CustomAuthTypesItemMap["parameter_name"] = CustomAuthTypesItem.ParameterName.ValueString()
 				}
-				if !item.ParameterType.IsNull() && !item.ParameterType.IsUnknown() {
-					itemMap["parameter_type"] = item.ParameterType.ValueString()
+				if !CustomAuthTypesItem.ParameterType.IsNull() && !CustomAuthTypesItem.ParameterType.IsUnknown() {
+					CustomAuthTypesItemMap["parameter_type"] = CustomAuthTypesItem.ParameterType.ValueString()
 				}
-				custom_auth_typesList = append(custom_auth_typesList, itemMap)
+				CustomAuthTypesList = append(CustomAuthTypesList, CustomAuthTypesItemMap)
 			}
-			apiResource.Spec["custom_auth_types"] = custom_auth_typesList
+			apiResource.Spec["custom_auth_types"] = CustomAuthTypesList
 		}
 	}
 
@@ -532,16 +546,18 @@ func (r *APIDiscoveryResource) Update(ctx context.Context, req resource.UpdateRe
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["custom_auth_types"].([]interface{}); ok && len(listData) > 0 {
-		var custom_auth_typesList []APIDiscoveryCustomAuthTypesModel
+	if !isImport && (data.CustomAuthTypes.IsNull() || len(data.CustomAuthTypes.Elements()) == 0) {
+		data.CustomAuthTypes = types.ListNull(types.ObjectType{AttrTypes: APIDiscoveryCustomAuthTypesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["custom_auth_types"].([]interface{}); ok && len(listData) > 0 {
+		var CustomAuthTypesList []APIDiscoveryCustomAuthTypesModel
 		var existingCustomAuthTypesItems []APIDiscoveryCustomAuthTypesModel
 		if !data.CustomAuthTypes.IsNull() && !data.CustomAuthTypes.IsUnknown() {
 			data.CustomAuthTypes.ElementsAs(ctx, &existingCustomAuthTypesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				custom_auth_typesList = append(custom_auth_typesList, APIDiscoveryCustomAuthTypesModel{
+				CustomAuthTypesList = append(CustomAuthTypesList, APIDiscoveryCustomAuthTypesModel{
 					ParameterName: func() types.String {
 						if v, ok := itemMap["parameter_name"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -557,13 +573,12 @@ func (r *APIDiscoveryResource) Update(ctx context.Context, req resource.UpdateRe
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APIDiscoveryCustomAuthTypesModelAttrTypes}, custom_auth_typesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APIDiscoveryCustomAuthTypesModelAttrTypes}, CustomAuthTypesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.CustomAuthTypes = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.CustomAuthTypes = types.ListNull(types.ObjectType{AttrTypes: APIDiscoveryCustomAuthTypesModelAttrTypes})
 	}
 

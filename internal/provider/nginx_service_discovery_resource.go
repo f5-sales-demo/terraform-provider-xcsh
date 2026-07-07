@@ -17,14 +17,15 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -62,7 +63,7 @@ var NginxServiceDiscoveryDiscoveryTargetModelAttrTypes = map[string]attr.Type{
 
 // NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupModel represents config_sync_group block
 type NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupModel struct {
-	ConfigSyncGroup []NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModel `tfsdk:"config_sync_group"`
+	ConfigSyncGroup types.List `tfsdk:"config_sync_group"`
 }
 
 // NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupModelAttrTypes defines the attribute types for NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupModel
@@ -90,7 +91,7 @@ var NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModelAttrT
 
 // NginxServiceDiscoveryDiscoveryTargetNginxInstanceModel represents nginx_instance block
 type NginxServiceDiscoveryDiscoveryTargetNginxInstanceModel struct {
-	NginxInstance []NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModel `tfsdk:"nginx_instance"`
+	NginxInstance types.List `tfsdk:"nginx_instance"`
 }
 
 // NginxServiceDiscoveryDiscoveryTargetNginxInstanceModelAttrTypes defines the attribute types for NginxServiceDiscoveryDiscoveryTargetNginxInstanceModel
@@ -160,13 +161,16 @@ func (r *NginxServiceDiscoveryResource) Schema(ctx context.Context, req resource
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Nginx Service Discovery will be created.",
-				Required:            true,
+				MarkdownDescription: "Namespace for the Nginx Service Discovery. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
+				Optional:            true,
+				Computed:            true,
+				Default:             stringdefault.StaticString("system"),
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
+					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
@@ -450,34 +454,90 @@ func (r *NginxServiceDiscoveryResource) Create(ctx context.Context, req resource
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.DiscoveryTarget != nil {
-		discovery_targetMap := make(map[string]interface{})
+		DiscoveryTargetMap := make(map[string]interface{})
 		if data.DiscoveryTarget.ConfigSyncGroup != nil {
-			config_sync_groupNestedMap := make(map[string]interface{})
-			discovery_targetMap["config_sync_group"] = config_sync_groupNestedMap
+			ConfigSyncGroupMap := make(map[string]interface{})
+			if !data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.IsNull() && !data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.IsUnknown() {
+				var ConfigSyncGroupElems []NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModel
+				diags := data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.ElementsAs(ctx, &ConfigSyncGroupElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ConfigSyncGroupElems) > 0 {
+					var ConfigSyncGroupList []map[string]interface{}
+					for _, ConfigSyncGroupItem := range ConfigSyncGroupElems {
+						ConfigSyncGroupItemMap := make(map[string]interface{})
+						if !ConfigSyncGroupItem.Kind.IsNull() && !ConfigSyncGroupItem.Kind.IsUnknown() {
+							ConfigSyncGroupItemMap["kind"] = ConfigSyncGroupItem.Kind.ValueString()
+						}
+						if !ConfigSyncGroupItem.Name.IsNull() && !ConfigSyncGroupItem.Name.IsUnknown() {
+							ConfigSyncGroupItemMap["name"] = ConfigSyncGroupItem.Name.ValueString()
+						}
+						if !ConfigSyncGroupItem.Namespace.IsNull() && !ConfigSyncGroupItem.Namespace.IsUnknown() {
+							ConfigSyncGroupItemMap["namespace"] = ConfigSyncGroupItem.Namespace.ValueString()
+						}
+						if !ConfigSyncGroupItem.Tenant.IsNull() && !ConfigSyncGroupItem.Tenant.IsUnknown() {
+							ConfigSyncGroupItemMap["tenant"] = ConfigSyncGroupItem.Tenant.ValueString()
+						}
+						if !ConfigSyncGroupItem.Uid.IsNull() && !ConfigSyncGroupItem.Uid.IsUnknown() {
+							ConfigSyncGroupItemMap["uid"] = ConfigSyncGroupItem.Uid.ValueString()
+						}
+						ConfigSyncGroupList = append(ConfigSyncGroupList, ConfigSyncGroupItemMap)
+					}
+					ConfigSyncGroupMap["config_sync_group"] = ConfigSyncGroupList
+				}
+			}
+			DiscoveryTargetMap["config_sync_group"] = ConfigSyncGroupMap
 		}
 		if data.DiscoveryTarget.NginxInstance != nil {
-			nginx_instanceNestedMap := make(map[string]interface{})
-			discovery_targetMap["nginx_instance"] = nginx_instanceNestedMap
+			NginxInstanceMap := make(map[string]interface{})
+			if !data.DiscoveryTarget.NginxInstance.NginxInstance.IsNull() && !data.DiscoveryTarget.NginxInstance.NginxInstance.IsUnknown() {
+				var NginxInstanceElems []NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModel
+				diags := data.DiscoveryTarget.NginxInstance.NginxInstance.ElementsAs(ctx, &NginxInstanceElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NginxInstanceElems) > 0 {
+					var NginxInstanceList []map[string]interface{}
+					for _, NginxInstanceItem := range NginxInstanceElems {
+						NginxInstanceItemMap := make(map[string]interface{})
+						if !NginxInstanceItem.Kind.IsNull() && !NginxInstanceItem.Kind.IsUnknown() {
+							NginxInstanceItemMap["kind"] = NginxInstanceItem.Kind.ValueString()
+						}
+						if !NginxInstanceItem.Name.IsNull() && !NginxInstanceItem.Name.IsUnknown() {
+							NginxInstanceItemMap["name"] = NginxInstanceItem.Name.ValueString()
+						}
+						if !NginxInstanceItem.Namespace.IsNull() && !NginxInstanceItem.Namespace.IsUnknown() {
+							NginxInstanceItemMap["namespace"] = NginxInstanceItem.Namespace.ValueString()
+						}
+						if !NginxInstanceItem.Tenant.IsNull() && !NginxInstanceItem.Tenant.IsUnknown() {
+							NginxInstanceItemMap["tenant"] = NginxInstanceItem.Tenant.ValueString()
+						}
+						if !NginxInstanceItem.Uid.IsNull() && !NginxInstanceItem.Uid.IsUnknown() {
+							NginxInstanceItemMap["uid"] = NginxInstanceItem.Uid.ValueString()
+						}
+						NginxInstanceList = append(NginxInstanceList, NginxInstanceItemMap)
+					}
+					NginxInstanceMap["nginx_instance"] = NginxInstanceList
+				}
+			}
+			DiscoveryTargetMap["nginx_instance"] = NginxInstanceMap
 		}
-		createReq.Spec["discovery_target"] = discovery_targetMap
+		createReq.Spec["discovery_target"] = DiscoveryTargetMap
 	}
 	if !data.ServerBlockFilters.IsNull() && !data.ServerBlockFilters.IsUnknown() {
-		var server_block_filtersItems []NginxServiceDiscoveryServerBlockFiltersModel
-		diags := data.ServerBlockFilters.ElementsAs(ctx, &server_block_filtersItems, false)
+		var ServerBlockFiltersElems []NginxServiceDiscoveryServerBlockFiltersModel
+		diags := data.ServerBlockFilters.ElementsAs(ctx, &ServerBlockFiltersElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(server_block_filtersItems) > 0 {
-			var server_block_filtersList []map[string]interface{}
-			for _, item := range server_block_filtersItems {
-				itemMap := make(map[string]interface{})
-				if !item.NameRegex.IsNull() && !item.NameRegex.IsUnknown() {
-					itemMap["name_regex"] = item.NameRegex.ValueString()
+		if !resp.Diagnostics.HasError() && len(ServerBlockFiltersElems) > 0 {
+			var ServerBlockFiltersList []map[string]interface{}
+			for _, ServerBlockFiltersItem := range ServerBlockFiltersElems {
+				ServerBlockFiltersItemMap := make(map[string]interface{})
+				if !ServerBlockFiltersItem.NameRegex.IsNull() && !ServerBlockFiltersItem.NameRegex.IsUnknown() {
+					ServerBlockFiltersItemMap["name_regex"] = ServerBlockFiltersItem.NameRegex.ValueString()
 				}
-				if !item.PortRanges.IsNull() && !item.PortRanges.IsUnknown() {
-					itemMap["port_ranges"] = item.PortRanges.ValueString()
+				if !ServerBlockFiltersItem.PortRanges.IsNull() && !ServerBlockFiltersItem.PortRanges.IsUnknown() {
+					ServerBlockFiltersItemMap["port_ranges"] = ServerBlockFiltersItem.PortRanges.ValueString()
 				}
-				server_block_filtersList = append(server_block_filtersList, itemMap)
+				ServerBlockFiltersList = append(ServerBlockFiltersList, ServerBlockFiltersItemMap)
 			}
-			createReq.Spec["server_block_filters"] = server_block_filtersList
+			createReq.Spec["server_block_filters"] = ServerBlockFiltersList
 		}
 	}
 
@@ -493,21 +553,130 @@ func (r *NginxServiceDiscoveryResource) Create(ctx context.Context, req resource
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["discovery_target"].(map[string]interface{}); ok && isImport && data.DiscoveryTarget == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.DiscoveryTarget = &NginxServiceDiscoveryDiscoveryTargetModel{}
+	if blockData, ok := apiResource.Spec["discovery_target"].(map[string]interface{}); ok && (isImport || data.DiscoveryTarget != nil) {
+		data.DiscoveryTarget = &NginxServiceDiscoveryDiscoveryTargetModel{
+			ConfigSyncGroup: func() *NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupModel {
+				if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.ConfigSyncGroup != nil {
+					return data.DiscoveryTarget.ConfigSyncGroup
+				}
+				if ConfigSyncGroupData, ok := blockData["config_sync_group"].(map[string]interface{}); ok {
+					return &NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupModel{
+						ConfigSyncGroup: func() types.List {
+							if rawList, ok := ConfigSyncGroupData["config_sync_group"].([]interface{}); ok && len(rawList) > 0 {
+								var ConfigSyncGroupResult []NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModel
+								for _, ConfigSyncGroupItem := range rawList {
+									if ConfigSyncGroupItemMap, ok := ConfigSyncGroupItem.(map[string]interface{}); ok {
+										ConfigSyncGroupResult = append(ConfigSyncGroupResult, NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModel{
+											Kind: func() types.String {
+												if v, ok := ConfigSyncGroupItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ConfigSyncGroupItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ConfigSyncGroupItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ConfigSyncGroupItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ConfigSyncGroupItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModelAttrTypes}, ConfigSyncGroupResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			NginxInstance: func() *NginxServiceDiscoveryDiscoveryTargetNginxInstanceModel {
+				if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.NginxInstance != nil {
+					return data.DiscoveryTarget.NginxInstance
+				}
+				if NginxInstanceData, ok := blockData["nginx_instance"].(map[string]interface{}); ok {
+					return &NginxServiceDiscoveryDiscoveryTargetNginxInstanceModel{
+						NginxInstance: func() types.List {
+							if rawList, ok := NginxInstanceData["nginx_instance"].([]interface{}); ok && len(rawList) > 0 {
+								var NginxInstanceResult []NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModel
+								for _, NginxInstanceItem := range rawList {
+									if NginxInstanceItemMap, ok := NginxInstanceItem.(map[string]interface{}); ok {
+										NginxInstanceResult = append(NginxInstanceResult, NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModel{
+											Kind: func() types.String {
+												if v, ok := NginxInstanceItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := NginxInstanceItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := NginxInstanceItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := NginxInstanceItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := NginxInstanceItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModelAttrTypes}, NginxInstanceResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["server_block_filters"].([]interface{}); ok && len(listData) > 0 {
-		var server_block_filtersList []NginxServiceDiscoveryServerBlockFiltersModel
+	if !isImport && (data.ServerBlockFilters.IsNull() || len(data.ServerBlockFilters.Elements()) == 0) {
+		data.ServerBlockFilters = types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryServerBlockFiltersModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["server_block_filters"].([]interface{}); ok && len(listData) > 0 {
+		var ServerBlockFiltersList []NginxServiceDiscoveryServerBlockFiltersModel
 		var existingServerBlockFiltersItems []NginxServiceDiscoveryServerBlockFiltersModel
 		if !data.ServerBlockFilters.IsNull() && !data.ServerBlockFilters.IsUnknown() {
 			data.ServerBlockFilters.ElementsAs(ctx, &existingServerBlockFiltersItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				server_block_filtersList = append(server_block_filtersList, NginxServiceDiscoveryServerBlockFiltersModel{
+				ServerBlockFiltersList = append(ServerBlockFiltersList, NginxServiceDiscoveryServerBlockFiltersModel{
 					NameRegex: func() types.String {
 						if v, ok := itemMap["name_regex"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -523,13 +692,12 @@ func (r *NginxServiceDiscoveryResource) Create(ctx context.Context, req resource
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NginxServiceDiscoveryServerBlockFiltersModelAttrTypes}, server_block_filtersList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NginxServiceDiscoveryServerBlockFiltersModelAttrTypes}, ServerBlockFiltersList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.ServerBlockFilters = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.ServerBlockFilters = types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryServerBlockFiltersModelAttrTypes})
 	}
 
@@ -612,21 +780,130 @@ func (r *NginxServiceDiscoveryResource) Read(ctx context.Context, req resource.R
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["discovery_target"].(map[string]interface{}); ok && isImport && data.DiscoveryTarget == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.DiscoveryTarget = &NginxServiceDiscoveryDiscoveryTargetModel{}
+	if blockData, ok := apiResource.Spec["discovery_target"].(map[string]interface{}); ok && (isImport || data.DiscoveryTarget != nil) {
+		data.DiscoveryTarget = &NginxServiceDiscoveryDiscoveryTargetModel{
+			ConfigSyncGroup: func() *NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupModel {
+				if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.ConfigSyncGroup != nil {
+					return data.DiscoveryTarget.ConfigSyncGroup
+				}
+				if ConfigSyncGroupData, ok := blockData["config_sync_group"].(map[string]interface{}); ok {
+					return &NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupModel{
+						ConfigSyncGroup: func() types.List {
+							if rawList, ok := ConfigSyncGroupData["config_sync_group"].([]interface{}); ok && len(rawList) > 0 {
+								var ConfigSyncGroupResult []NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModel
+								for _, ConfigSyncGroupItem := range rawList {
+									if ConfigSyncGroupItemMap, ok := ConfigSyncGroupItem.(map[string]interface{}); ok {
+										ConfigSyncGroupResult = append(ConfigSyncGroupResult, NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModel{
+											Kind: func() types.String {
+												if v, ok := ConfigSyncGroupItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ConfigSyncGroupItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ConfigSyncGroupItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ConfigSyncGroupItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ConfigSyncGroupItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModelAttrTypes}, ConfigSyncGroupResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			NginxInstance: func() *NginxServiceDiscoveryDiscoveryTargetNginxInstanceModel {
+				if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.NginxInstance != nil {
+					return data.DiscoveryTarget.NginxInstance
+				}
+				if NginxInstanceData, ok := blockData["nginx_instance"].(map[string]interface{}); ok {
+					return &NginxServiceDiscoveryDiscoveryTargetNginxInstanceModel{
+						NginxInstance: func() types.List {
+							if rawList, ok := NginxInstanceData["nginx_instance"].([]interface{}); ok && len(rawList) > 0 {
+								var NginxInstanceResult []NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModel
+								for _, NginxInstanceItem := range rawList {
+									if NginxInstanceItemMap, ok := NginxInstanceItem.(map[string]interface{}); ok {
+										NginxInstanceResult = append(NginxInstanceResult, NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModel{
+											Kind: func() types.String {
+												if v, ok := NginxInstanceItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := NginxInstanceItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := NginxInstanceItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := NginxInstanceItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := NginxInstanceItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModelAttrTypes}, NginxInstanceResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["server_block_filters"].([]interface{}); ok && len(listData) > 0 {
-		var server_block_filtersList []NginxServiceDiscoveryServerBlockFiltersModel
+	if !isImport && (data.ServerBlockFilters.IsNull() || len(data.ServerBlockFilters.Elements()) == 0) {
+		data.ServerBlockFilters = types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryServerBlockFiltersModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["server_block_filters"].([]interface{}); ok && len(listData) > 0 {
+		var ServerBlockFiltersList []NginxServiceDiscoveryServerBlockFiltersModel
 		var existingServerBlockFiltersItems []NginxServiceDiscoveryServerBlockFiltersModel
 		if !data.ServerBlockFilters.IsNull() && !data.ServerBlockFilters.IsUnknown() {
 			data.ServerBlockFilters.ElementsAs(ctx, &existingServerBlockFiltersItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				server_block_filtersList = append(server_block_filtersList, NginxServiceDiscoveryServerBlockFiltersModel{
+				ServerBlockFiltersList = append(ServerBlockFiltersList, NginxServiceDiscoveryServerBlockFiltersModel{
 					NameRegex: func() types.String {
 						if v, ok := itemMap["name_regex"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -642,14 +919,21 @@ func (r *NginxServiceDiscoveryResource) Read(ctx context.Context, req resource.R
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NginxServiceDiscoveryServerBlockFiltersModelAttrTypes}, server_block_filtersList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NginxServiceDiscoveryServerBlockFiltersModelAttrTypes}, ServerBlockFiltersList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.ServerBlockFilters = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.ServerBlockFilters = types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryServerBlockFiltersModelAttrTypes})
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -703,34 +987,90 @@ func (r *NginxServiceDiscoveryResource) Update(ctx context.Context, req resource
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.DiscoveryTarget != nil {
-		discovery_targetMap := make(map[string]interface{})
+		DiscoveryTargetMap := make(map[string]interface{})
 		if data.DiscoveryTarget.ConfigSyncGroup != nil {
-			config_sync_groupNestedMap := make(map[string]interface{})
-			discovery_targetMap["config_sync_group"] = config_sync_groupNestedMap
+			ConfigSyncGroupMap := make(map[string]interface{})
+			if !data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.IsNull() && !data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.IsUnknown() {
+				var ConfigSyncGroupElems []NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModel
+				diags := data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.ElementsAs(ctx, &ConfigSyncGroupElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ConfigSyncGroupElems) > 0 {
+					var ConfigSyncGroupList []map[string]interface{}
+					for _, ConfigSyncGroupItem := range ConfigSyncGroupElems {
+						ConfigSyncGroupItemMap := make(map[string]interface{})
+						if !ConfigSyncGroupItem.Kind.IsNull() && !ConfigSyncGroupItem.Kind.IsUnknown() {
+							ConfigSyncGroupItemMap["kind"] = ConfigSyncGroupItem.Kind.ValueString()
+						}
+						if !ConfigSyncGroupItem.Name.IsNull() && !ConfigSyncGroupItem.Name.IsUnknown() {
+							ConfigSyncGroupItemMap["name"] = ConfigSyncGroupItem.Name.ValueString()
+						}
+						if !ConfigSyncGroupItem.Namespace.IsNull() && !ConfigSyncGroupItem.Namespace.IsUnknown() {
+							ConfigSyncGroupItemMap["namespace"] = ConfigSyncGroupItem.Namespace.ValueString()
+						}
+						if !ConfigSyncGroupItem.Tenant.IsNull() && !ConfigSyncGroupItem.Tenant.IsUnknown() {
+							ConfigSyncGroupItemMap["tenant"] = ConfigSyncGroupItem.Tenant.ValueString()
+						}
+						if !ConfigSyncGroupItem.Uid.IsNull() && !ConfigSyncGroupItem.Uid.IsUnknown() {
+							ConfigSyncGroupItemMap["uid"] = ConfigSyncGroupItem.Uid.ValueString()
+						}
+						ConfigSyncGroupList = append(ConfigSyncGroupList, ConfigSyncGroupItemMap)
+					}
+					ConfigSyncGroupMap["config_sync_group"] = ConfigSyncGroupList
+				}
+			}
+			DiscoveryTargetMap["config_sync_group"] = ConfigSyncGroupMap
 		}
 		if data.DiscoveryTarget.NginxInstance != nil {
-			nginx_instanceNestedMap := make(map[string]interface{})
-			discovery_targetMap["nginx_instance"] = nginx_instanceNestedMap
+			NginxInstanceMap := make(map[string]interface{})
+			if !data.DiscoveryTarget.NginxInstance.NginxInstance.IsNull() && !data.DiscoveryTarget.NginxInstance.NginxInstance.IsUnknown() {
+				var NginxInstanceElems []NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModel
+				diags := data.DiscoveryTarget.NginxInstance.NginxInstance.ElementsAs(ctx, &NginxInstanceElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NginxInstanceElems) > 0 {
+					var NginxInstanceList []map[string]interface{}
+					for _, NginxInstanceItem := range NginxInstanceElems {
+						NginxInstanceItemMap := make(map[string]interface{})
+						if !NginxInstanceItem.Kind.IsNull() && !NginxInstanceItem.Kind.IsUnknown() {
+							NginxInstanceItemMap["kind"] = NginxInstanceItem.Kind.ValueString()
+						}
+						if !NginxInstanceItem.Name.IsNull() && !NginxInstanceItem.Name.IsUnknown() {
+							NginxInstanceItemMap["name"] = NginxInstanceItem.Name.ValueString()
+						}
+						if !NginxInstanceItem.Namespace.IsNull() && !NginxInstanceItem.Namespace.IsUnknown() {
+							NginxInstanceItemMap["namespace"] = NginxInstanceItem.Namespace.ValueString()
+						}
+						if !NginxInstanceItem.Tenant.IsNull() && !NginxInstanceItem.Tenant.IsUnknown() {
+							NginxInstanceItemMap["tenant"] = NginxInstanceItem.Tenant.ValueString()
+						}
+						if !NginxInstanceItem.Uid.IsNull() && !NginxInstanceItem.Uid.IsUnknown() {
+							NginxInstanceItemMap["uid"] = NginxInstanceItem.Uid.ValueString()
+						}
+						NginxInstanceList = append(NginxInstanceList, NginxInstanceItemMap)
+					}
+					NginxInstanceMap["nginx_instance"] = NginxInstanceList
+				}
+			}
+			DiscoveryTargetMap["nginx_instance"] = NginxInstanceMap
 		}
-		apiResource.Spec["discovery_target"] = discovery_targetMap
+		apiResource.Spec["discovery_target"] = DiscoveryTargetMap
 	}
 	if !data.ServerBlockFilters.IsNull() && !data.ServerBlockFilters.IsUnknown() {
-		var server_block_filtersItems []NginxServiceDiscoveryServerBlockFiltersModel
-		diags := data.ServerBlockFilters.ElementsAs(ctx, &server_block_filtersItems, false)
+		var ServerBlockFiltersElems []NginxServiceDiscoveryServerBlockFiltersModel
+		diags := data.ServerBlockFilters.ElementsAs(ctx, &ServerBlockFiltersElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(server_block_filtersItems) > 0 {
-			var server_block_filtersList []map[string]interface{}
-			for _, item := range server_block_filtersItems {
-				itemMap := make(map[string]interface{})
-				if !item.NameRegex.IsNull() && !item.NameRegex.IsUnknown() {
-					itemMap["name_regex"] = item.NameRegex.ValueString()
+		if !resp.Diagnostics.HasError() && len(ServerBlockFiltersElems) > 0 {
+			var ServerBlockFiltersList []map[string]interface{}
+			for _, ServerBlockFiltersItem := range ServerBlockFiltersElems {
+				ServerBlockFiltersItemMap := make(map[string]interface{})
+				if !ServerBlockFiltersItem.NameRegex.IsNull() && !ServerBlockFiltersItem.NameRegex.IsUnknown() {
+					ServerBlockFiltersItemMap["name_regex"] = ServerBlockFiltersItem.NameRegex.ValueString()
 				}
-				if !item.PortRanges.IsNull() && !item.PortRanges.IsUnknown() {
-					itemMap["port_ranges"] = item.PortRanges.ValueString()
+				if !ServerBlockFiltersItem.PortRanges.IsNull() && !ServerBlockFiltersItem.PortRanges.IsUnknown() {
+					ServerBlockFiltersItemMap["port_ranges"] = ServerBlockFiltersItem.PortRanges.ValueString()
 				}
-				server_block_filtersList = append(server_block_filtersList, itemMap)
+				ServerBlockFiltersList = append(ServerBlockFiltersList, ServerBlockFiltersItemMap)
 			}
-			apiResource.Spec["server_block_filters"] = server_block_filtersList
+			apiResource.Spec["server_block_filters"] = ServerBlockFiltersList
 		}
 	}
 
@@ -757,21 +1097,130 @@ func (r *NginxServiceDiscoveryResource) Update(ctx context.Context, req resource
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["discovery_target"].(map[string]interface{}); ok && isImport && data.DiscoveryTarget == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.DiscoveryTarget = &NginxServiceDiscoveryDiscoveryTargetModel{}
+	if blockData, ok := apiResource.Spec["discovery_target"].(map[string]interface{}); ok && (isImport || data.DiscoveryTarget != nil) {
+		data.DiscoveryTarget = &NginxServiceDiscoveryDiscoveryTargetModel{
+			ConfigSyncGroup: func() *NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupModel {
+				if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.ConfigSyncGroup != nil {
+					return data.DiscoveryTarget.ConfigSyncGroup
+				}
+				if ConfigSyncGroupData, ok := blockData["config_sync_group"].(map[string]interface{}); ok {
+					return &NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupModel{
+						ConfigSyncGroup: func() types.List {
+							if rawList, ok := ConfigSyncGroupData["config_sync_group"].([]interface{}); ok && len(rawList) > 0 {
+								var ConfigSyncGroupResult []NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModel
+								for _, ConfigSyncGroupItem := range rawList {
+									if ConfigSyncGroupItemMap, ok := ConfigSyncGroupItem.(map[string]interface{}); ok {
+										ConfigSyncGroupResult = append(ConfigSyncGroupResult, NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModel{
+											Kind: func() types.String {
+												if v, ok := ConfigSyncGroupItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ConfigSyncGroupItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ConfigSyncGroupItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ConfigSyncGroupItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ConfigSyncGroupItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModelAttrTypes}, ConfigSyncGroupResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			NginxInstance: func() *NginxServiceDiscoveryDiscoveryTargetNginxInstanceModel {
+				if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.NginxInstance != nil {
+					return data.DiscoveryTarget.NginxInstance
+				}
+				if NginxInstanceData, ok := blockData["nginx_instance"].(map[string]interface{}); ok {
+					return &NginxServiceDiscoveryDiscoveryTargetNginxInstanceModel{
+						NginxInstance: func() types.List {
+							if rawList, ok := NginxInstanceData["nginx_instance"].([]interface{}); ok && len(rawList) > 0 {
+								var NginxInstanceResult []NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModel
+								for _, NginxInstanceItem := range rawList {
+									if NginxInstanceItemMap, ok := NginxInstanceItem.(map[string]interface{}); ok {
+										NginxInstanceResult = append(NginxInstanceResult, NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModel{
+											Kind: func() types.String {
+												if v, ok := NginxInstanceItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := NginxInstanceItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := NginxInstanceItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := NginxInstanceItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := NginxInstanceItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModelAttrTypes}, NginxInstanceResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["server_block_filters"].([]interface{}); ok && len(listData) > 0 {
-		var server_block_filtersList []NginxServiceDiscoveryServerBlockFiltersModel
+	if !isImport && (data.ServerBlockFilters.IsNull() || len(data.ServerBlockFilters.Elements()) == 0) {
+		data.ServerBlockFilters = types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryServerBlockFiltersModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["server_block_filters"].([]interface{}); ok && len(listData) > 0 {
+		var ServerBlockFiltersList []NginxServiceDiscoveryServerBlockFiltersModel
 		var existingServerBlockFiltersItems []NginxServiceDiscoveryServerBlockFiltersModel
 		if !data.ServerBlockFilters.IsNull() && !data.ServerBlockFilters.IsUnknown() {
 			data.ServerBlockFilters.ElementsAs(ctx, &existingServerBlockFiltersItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				server_block_filtersList = append(server_block_filtersList, NginxServiceDiscoveryServerBlockFiltersModel{
+				ServerBlockFiltersList = append(ServerBlockFiltersList, NginxServiceDiscoveryServerBlockFiltersModel{
 					NameRegex: func() types.String {
 						if v, ok := itemMap["name_regex"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -787,13 +1236,12 @@ func (r *NginxServiceDiscoveryResource) Update(ctx context.Context, req resource
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NginxServiceDiscoveryServerBlockFiltersModelAttrTypes}, server_block_filtersList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NginxServiceDiscoveryServerBlockFiltersModelAttrTypes}, ServerBlockFiltersList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.ServerBlockFilters = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.ServerBlockFilters = types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryServerBlockFiltersModelAttrTypes})
 	}
 

@@ -16,14 +16,15 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -288,13 +289,16 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Network Connector will be created.",
-				Required:            true,
+				MarkdownDescription: "Namespace for the Network Connector. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
+				Optional:            true,
+				Computed:            true,
+				Default:             stringdefault.StaticString("system"),
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
+					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
@@ -714,86 +718,179 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.DisableForwardProxy != nil {
-		disable_forward_proxyMap := make(map[string]interface{})
-		createReq.Spec["disable_forward_proxy"] = disable_forward_proxyMap
+		createReq.Spec["disable_forward_proxy"] = map[string]interface{}{}
 	}
 	if data.EnableForwardProxy != nil {
-		enable_forward_proxyMap := make(map[string]interface{})
+		EnableForwardProxyMap := make(map[string]interface{})
 		if !data.EnableForwardProxy.ConnectionTimeout.IsNull() && !data.EnableForwardProxy.ConnectionTimeout.IsUnknown() {
-			enable_forward_proxyMap["connection_timeout"] = data.EnableForwardProxy.ConnectionTimeout.ValueInt64()
+			EnableForwardProxyMap["connection_timeout"] = data.EnableForwardProxy.ConnectionTimeout.ValueInt64()
 		}
 		if !data.EnableForwardProxy.MaxConnectAttempts.IsNull() && !data.EnableForwardProxy.MaxConnectAttempts.IsUnknown() {
-			enable_forward_proxyMap["max_connect_attempts"] = data.EnableForwardProxy.MaxConnectAttempts.ValueInt64()
+			EnableForwardProxyMap["max_connect_attempts"] = data.EnableForwardProxy.MaxConnectAttempts.ValueInt64()
 		}
 		if data.EnableForwardProxy.NoInterception != nil {
-			enable_forward_proxyMap["no_interception"] = map[string]interface{}{}
+			EnableForwardProxyMap["no_interception"] = map[string]interface{}{}
 		}
 		if data.EnableForwardProxy.TLSIntercept != nil {
-			tls_interceptNestedMap := make(map[string]interface{})
-			if !data.EnableForwardProxy.TLSIntercept.TrustedCAURL.IsNull() && !data.EnableForwardProxy.TLSIntercept.TrustedCAURL.IsUnknown() {
-				tls_interceptNestedMap["trusted_ca_url"] = data.EnableForwardProxy.TLSIntercept.TrustedCAURL.ValueString()
+			TLSInterceptMap := make(map[string]interface{})
+			if data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil {
+				CustomCertificateMap := make(map[string]interface{})
+				if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.CertificateURL.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.CertificateURL.IsUnknown() {
+					CustomCertificateMap["certificate_url"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.CertificateURL.ValueString()
+				}
+				if data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms != nil {
+					CustomHashAlgorithmsMap := make(map[string]interface{})
+					if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+						var HashAlgorithmsItems []string
+						diags := data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+						if !diags.HasError() {
+							CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+						}
+					}
+					CustomCertificateMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+				}
+				if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.DescriptionSpec.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.DescriptionSpec.IsUnknown() {
+					CustomCertificateMap["description"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.DescriptionSpec.ValueString()
+				}
+				if data.EnableForwardProxy.TLSIntercept.CustomCertificate.DisableOCSPStapling != nil {
+					CustomCertificateMap["disable_ocsp_stapling"] = map[string]interface{}{}
+				}
+				if data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil {
+					PrivateKeyMap := make(map[string]interface{})
+					if data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo != nil {
+						BlindfoldSecretInfoMap := make(map[string]interface{})
+						if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["decryption_provider"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						}
+						if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+							BlindfoldSecretInfoMap["location"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+						}
+						if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["store_provider"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+						}
+						PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					}
+					if data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo != nil {
+						ClearSecretInfoMap := make(map[string]interface{})
+						if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.Provider.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+							ClearSecretInfoMap["provider"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.Provider.ValueString()
+						}
+						if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.URL.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+							ClearSecretInfoMap["url"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.URL.ValueString()
+						}
+						PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+					}
+					CustomCertificateMap["private_key"] = PrivateKeyMap
+				}
+				if data.EnableForwardProxy.TLSIntercept.CustomCertificate.UseSystemDefaults != nil {
+					CustomCertificateMap["use_system_defaults"] = map[string]interface{}{}
+				}
+				TLSInterceptMap["custom_certificate"] = CustomCertificateMap
 			}
-			enable_forward_proxyMap["tls_intercept"] = tls_interceptNestedMap
+			if data.EnableForwardProxy.TLSIntercept.EnableForAllDomains != nil {
+				TLSInterceptMap["enable_for_all_domains"] = map[string]interface{}{}
+			}
+			if data.EnableForwardProxy.TLSIntercept.Policy != nil {
+				PolicyMap := make(map[string]interface{})
+				if len(data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules) > 0 {
+					var InterceptionRulesList []map[string]interface{}
+					for _, InterceptionRulesItem := range data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules {
+						InterceptionRulesItemMap := make(map[string]interface{})
+						if InterceptionRulesItem.DisableInterception != nil {
+							InterceptionRulesItemMap["disable_interception"] = map[string]interface{}{}
+						}
+						if InterceptionRulesItem.DomainMatch != nil {
+							DomainMatchMap := make(map[string]interface{})
+							if !InterceptionRulesItem.DomainMatch.ExactValue.IsNull() && !InterceptionRulesItem.DomainMatch.ExactValue.IsUnknown() {
+								DomainMatchMap["exact_value"] = InterceptionRulesItem.DomainMatch.ExactValue.ValueString()
+							}
+							if !InterceptionRulesItem.DomainMatch.RegexValue.IsNull() && !InterceptionRulesItem.DomainMatch.RegexValue.IsUnknown() {
+								DomainMatchMap["regex_value"] = InterceptionRulesItem.DomainMatch.RegexValue.ValueString()
+							}
+							if !InterceptionRulesItem.DomainMatch.SuffixValue.IsNull() && !InterceptionRulesItem.DomainMatch.SuffixValue.IsUnknown() {
+								DomainMatchMap["suffix_value"] = InterceptionRulesItem.DomainMatch.SuffixValue.ValueString()
+							}
+							InterceptionRulesItemMap["domain_match"] = DomainMatchMap
+						}
+						if InterceptionRulesItem.EnableInterception != nil {
+							InterceptionRulesItemMap["enable_interception"] = map[string]interface{}{}
+						}
+						InterceptionRulesList = append(InterceptionRulesList, InterceptionRulesItemMap)
+					}
+					PolicyMap["interception_rules"] = InterceptionRulesList
+				}
+				TLSInterceptMap["policy"] = PolicyMap
+			}
+			if !data.EnableForwardProxy.TLSIntercept.TrustedCAURL.IsNull() && !data.EnableForwardProxy.TLSIntercept.TrustedCAURL.IsUnknown() {
+				TLSInterceptMap["trusted_ca_url"] = data.EnableForwardProxy.TLSIntercept.TrustedCAURL.ValueString()
+			}
+			if data.EnableForwardProxy.TLSIntercept.VolterraCertificate != nil {
+				TLSInterceptMap["volterra_certificate"] = map[string]interface{}{}
+			}
+			if data.EnableForwardProxy.TLSIntercept.VolterraTrustedCA != nil {
+				TLSInterceptMap["volterra_trusted_ca"] = map[string]interface{}{}
+			}
+			EnableForwardProxyMap["tls_intercept"] = TLSInterceptMap
 		}
 		if !data.EnableForwardProxy.WhiteListedPorts.IsNull() && !data.EnableForwardProxy.WhiteListedPorts.IsUnknown() {
-			var white_listed_portsItems []int64
-			diags := data.EnableForwardProxy.WhiteListedPorts.ElementsAs(ctx, &white_listed_portsItems, false)
+			var WhiteListedPortsItems []int64
+			diags := data.EnableForwardProxy.WhiteListedPorts.ElementsAs(ctx, &WhiteListedPortsItems, false)
 			if !diags.HasError() {
-				enable_forward_proxyMap["white_listed_ports"] = white_listed_portsItems
+				EnableForwardProxyMap["white_listed_ports"] = WhiteListedPortsItems
 			}
 		}
 		if !data.EnableForwardProxy.WhiteListedPrefixes.IsNull() && !data.EnableForwardProxy.WhiteListedPrefixes.IsUnknown() {
-			var white_listed_prefixesItems []string
-			diags := data.EnableForwardProxy.WhiteListedPrefixes.ElementsAs(ctx, &white_listed_prefixesItems, false)
+			var WhiteListedPrefixesItems []string
+			diags := data.EnableForwardProxy.WhiteListedPrefixes.ElementsAs(ctx, &WhiteListedPrefixesItems, false)
 			if !diags.HasError() {
-				enable_forward_proxyMap["white_listed_prefixes"] = white_listed_prefixesItems
+				EnableForwardProxyMap["white_listed_prefixes"] = WhiteListedPrefixesItems
 			}
 		}
-		createReq.Spec["enable_forward_proxy"] = enable_forward_proxyMap
+		createReq.Spec["enable_forward_proxy"] = EnableForwardProxyMap
 	}
 	if data.SLIToGlobalDR != nil {
-		sli_to_global_drMap := make(map[string]interface{})
+		SLIToGlobalDRMap := make(map[string]interface{})
 		if data.SLIToGlobalDR.GlobalVn != nil {
-			global_vnNestedMap := make(map[string]interface{})
+			GlobalVnMap := make(map[string]interface{})
 			if !data.SLIToGlobalDR.GlobalVn.Name.IsNull() && !data.SLIToGlobalDR.GlobalVn.Name.IsUnknown() {
-				global_vnNestedMap["name"] = data.SLIToGlobalDR.GlobalVn.Name.ValueString()
+				GlobalVnMap["name"] = data.SLIToGlobalDR.GlobalVn.Name.ValueString()
 			}
 			if !data.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !data.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-				global_vnNestedMap["namespace"] = data.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
+				GlobalVnMap["namespace"] = data.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 			}
 			if !data.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !data.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-				global_vnNestedMap["tenant"] = data.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
+				GlobalVnMap["tenant"] = data.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
 			}
-			sli_to_global_drMap["global_vn"] = global_vnNestedMap
+			SLIToGlobalDRMap["global_vn"] = GlobalVnMap
 		}
-		createReq.Spec["sli_to_global_dr"] = sli_to_global_drMap
+		createReq.Spec["sli_to_global_dr"] = SLIToGlobalDRMap
 	}
 	if data.SLIToSloSnat != nil {
-		sli_to_slo_snatMap := make(map[string]interface{})
+		SLIToSloSnatMap := make(map[string]interface{})
 		if data.SLIToSloSnat.DefaultGwSnat != nil {
-			sli_to_slo_snatMap["default_gw_snat"] = map[string]interface{}{}
+			SLIToSloSnatMap["default_gw_snat"] = map[string]interface{}{}
 		}
 		if data.SLIToSloSnat.InterfaceIP != nil {
-			sli_to_slo_snatMap["interface_ip"] = map[string]interface{}{}
+			SLIToSloSnatMap["interface_ip"] = map[string]interface{}{}
 		}
-		createReq.Spec["sli_to_slo_snat"] = sli_to_slo_snatMap
+		createReq.Spec["sli_to_slo_snat"] = SLIToSloSnatMap
 	}
 	if data.SloToGlobalDR != nil {
-		slo_to_global_drMap := make(map[string]interface{})
+		SloToGlobalDRMap := make(map[string]interface{})
 		if data.SloToGlobalDR.GlobalVn != nil {
-			global_vnNestedMap := make(map[string]interface{})
+			GlobalVnMap := make(map[string]interface{})
 			if !data.SloToGlobalDR.GlobalVn.Name.IsNull() && !data.SloToGlobalDR.GlobalVn.Name.IsUnknown() {
-				global_vnNestedMap["name"] = data.SloToGlobalDR.GlobalVn.Name.ValueString()
+				GlobalVnMap["name"] = data.SloToGlobalDR.GlobalVn.Name.ValueString()
 			}
 			if !data.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !data.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-				global_vnNestedMap["namespace"] = data.SloToGlobalDR.GlobalVn.Namespace.ValueString()
+				GlobalVnMap["namespace"] = data.SloToGlobalDR.GlobalVn.Namespace.ValueString()
 			}
 			if !data.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !data.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-				global_vnNestedMap["tenant"] = data.SloToGlobalDR.GlobalVn.Tenant.ValueString()
+				GlobalVnMap["tenant"] = data.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 			}
-			slo_to_global_drMap["global_vn"] = global_vnNestedMap
+			SloToGlobalDRMap["global_vn"] = GlobalVnMap
 		}
-		createReq.Spec["slo_to_global_dr"] = slo_to_global_drMap
+		createReq.Spec["slo_to_global_dr"] = SloToGlobalDRMap
 	}
 
 	apiResource, err := r.client.CreateNetworkConnector(ctx, createReq)
@@ -809,51 +906,32 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["disable_forward_proxy"].(map[string]interface{}); ok && isImport && data.DisableForwardProxy == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableForwardProxy = &NetworkConnectorEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["enable_forward_proxy"].(map[string]interface{}); ok && (isImport || data.EnableForwardProxy != nil) {
 		data.EnableForwardProxy = &NetworkConnectorEnableForwardProxyModel{
 			ConnectionTimeout: func() types.Int64 {
 				if !isImport && data.EnableForwardProxy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.EnableForwardProxy.ConnectionTimeout
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["connection_timeout"].(float64); ok {
+				if v, ok := blockData["connection_timeout"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			MaxConnectAttempts: func() types.Int64 {
 				if !isImport && data.EnableForwardProxy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.EnableForwardProxy.MaxConnectAttempts
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["max_connect_attempts"].(float64); ok {
+				if v, ok := blockData["max_connect_attempts"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			NoInterception: func() *NetworkConnectorEmptyModel {
 				if !isImport && data.EnableForwardProxy != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EnableForwardProxy.NoInterception
 				}
-				// Import case: read from API
 				if _, ok := blockData["no_interception"].(map[string]interface{}); ok {
 					return &NetworkConnectorEmptyModel{}
 				}
@@ -861,17 +939,192 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			TLSIntercept: func() *NetworkConnectorEnableForwardProxyTLSInterceptModel {
 				if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
-					// Normal Read: preserve existing state value
 					return data.EnableForwardProxy.TLSIntercept
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["tls_intercept"].(map[string]interface{}); ok {
+				if TLSInterceptData, ok := blockData["tls_intercept"].(map[string]interface{}); ok {
 					return &NetworkConnectorEnableForwardProxyTLSInterceptModel{
+						CustomCertificate: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateModel {
+							if CustomCertificateData, ok := TLSInterceptData["custom_certificate"].(map[string]interface{}); ok {
+								return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateModel{
+									CertificateURL: func() types.String {
+										if v, ok := CustomCertificateData["certificate_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									CustomHashAlgorithms: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel {
+										if CustomHashAlgorithmsData, ok := CustomCertificateData["custom_hash_algorithms"].(map[string]interface{}); ok {
+											return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel{
+												HashAlgorithms: func() types.List {
+													if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DescriptionSpec: func() types.String {
+										if v, ok := CustomCertificateData["description"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									DisableOCSPStapling: func() *NetworkConnectorEmptyModel {
+										if _, ok := CustomCertificateData["disable_ocsp_stapling"].(map[string]interface{}); ok {
+											return &NetworkConnectorEmptyModel{}
+										}
+										return nil
+									}(),
+									PrivateKey: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModel {
+										if PrivateKeyData, ok := CustomCertificateData["private_key"].(map[string]interface{}); ok {
+											return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModel{
+												BlindfoldSecretInfo: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel {
+													if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+														return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									UseSystemDefaults: func() *NetworkConnectorEmptyModel {
+										if _, ok := CustomCertificateData["use_system_defaults"].(map[string]interface{}); ok {
+											return &NetworkConnectorEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						EnableForAllDomains: func() *NetworkConnectorEmptyModel {
+							if _, ok := TLSInterceptData["enable_for_all_domains"].(map[string]interface{}); ok {
+								return &NetworkConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						Policy: func() *NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel {
+							if PolicyData, ok := TLSInterceptData["policy"].(map[string]interface{}); ok {
+								return &NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel{
+									InterceptionRules: func() []NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel {
+										if rawList, ok := PolicyData["interception_rules"].([]interface{}); ok && len(rawList) > 0 {
+											var InterceptionRulesResult []NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel
+											for _, InterceptionRulesItem := range rawList {
+												if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
+													InterceptionRulesResult = append(InterceptionRulesResult, NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel{
+														DisableInterception: func() *NetworkConnectorEmptyModel {
+															if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
+																return &NetworkConnectorEmptyModel{}
+															}
+															return nil
+														}(),
+														DomainMatch: func() *NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchModel {
+															if DomainMatchData, ok := InterceptionRulesItemMap["domain_match"].(map[string]interface{}); ok {
+																return &NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchModel{
+																	ExactValue: func() types.String {
+																		if v, ok := DomainMatchData["exact_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	RegexValue: func() types.String {
+																		if v, ok := DomainMatchData["regex_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SuffixValue: func() types.String {
+																		if v, ok := DomainMatchData["suffix_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														EnableInterception: func() *NetworkConnectorEmptyModel {
+															if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
+																return &NetworkConnectorEmptyModel{}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											return InterceptionRulesResult
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						TrustedCAURL: func() types.String {
-							if v, ok := nestedBlockData["trusted_ca_url"].(string); ok && v != "" {
+							if v, ok := TLSInterceptData["trusted_ca_url"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						VolterraCertificate: func() *NetworkConnectorEmptyModel {
+							if _, ok := TLSInterceptData["volterra_certificate"].(map[string]interface{}); ok {
+								return &NetworkConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						VolterraTrustedCA: func() *NetworkConnectorEmptyModel {
+							if _, ok := TLSInterceptData["volterra_trusted_ca"].(map[string]interface{}); ok {
+								return &NetworkConnectorEmptyModel{}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -881,8 +1134,8 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 				if v, ok := blockData["white_listed_ports"].([]interface{}); ok && len(v) > 0 {
 					var items []int64
 					for _, item := range v {
-						if n, ok := item.(float64); ok {
-							items = append(items, int64(n))
+						if s, ok := item.(float64); ok {
+							items = append(items, int64(s))
 						}
 					}
 					listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
@@ -905,21 +1158,92 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["sli_to_global_dr"].(map[string]interface{}); ok && isImport && data.SLIToGlobalDR == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.SLIToGlobalDR = &NetworkConnectorSLIToGlobalDRModel{}
+	if blockData, ok := apiResource.Spec["sli_to_global_dr"].(map[string]interface{}); ok && (isImport || data.SLIToGlobalDR != nil) {
+		data.SLIToGlobalDR = &NetworkConnectorSLIToGlobalDRModel{
+			GlobalVn: func() *NetworkConnectorSLIToGlobalDRGlobalVnModel {
+				if !isImport && data.SLIToGlobalDR != nil && data.SLIToGlobalDR.GlobalVn != nil {
+					return data.SLIToGlobalDR.GlobalVn
+				}
+				if GlobalVnData, ok := blockData["global_vn"].(map[string]interface{}); ok {
+					return &NetworkConnectorSLIToGlobalDRGlobalVnModel{
+						Name: func() types.String {
+							if v, ok := GlobalVnData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := GlobalVnData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := GlobalVnData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["sli_to_slo_snat"].(map[string]interface{}); ok && isImport && data.SLIToSloSnat == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.SLIToSloSnat = &NetworkConnectorSLIToSloSnatModel{}
+	if blockData, ok := apiResource.Spec["sli_to_slo_snat"].(map[string]interface{}); ok && (isImport || data.SLIToSloSnat != nil) {
+		data.SLIToSloSnat = &NetworkConnectorSLIToSloSnatModel{
+			DefaultGwSnat: func() *NetworkConnectorEmptyModel {
+				if !isImport && data.SLIToSloSnat != nil {
+					return data.SLIToSloSnat.DefaultGwSnat
+				}
+				if _, ok := blockData["default_gw_snat"].(map[string]interface{}); ok {
+					return &NetworkConnectorEmptyModel{}
+				}
+				return nil
+			}(),
+			InterfaceIP: func() *NetworkConnectorEmptyModel {
+				if !isImport && data.SLIToSloSnat != nil {
+					return data.SLIToSloSnat.InterfaceIP
+				}
+				if _, ok := blockData["interface_ip"].(map[string]interface{}); ok {
+					return &NetworkConnectorEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["slo_to_global_dr"].(map[string]interface{}); ok && isImport && data.SloToGlobalDR == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.SloToGlobalDR = &NetworkConnectorSloToGlobalDRModel{}
+	if blockData, ok := apiResource.Spec["slo_to_global_dr"].(map[string]interface{}); ok && (isImport || data.SloToGlobalDR != nil) {
+		data.SloToGlobalDR = &NetworkConnectorSloToGlobalDRModel{
+			GlobalVn: func() *NetworkConnectorSloToGlobalDRGlobalVnModel {
+				if !isImport && data.SloToGlobalDR != nil && data.SloToGlobalDR.GlobalVn != nil {
+					return data.SloToGlobalDR.GlobalVn
+				}
+				if GlobalVnData, ok := blockData["global_vn"].(map[string]interface{}); ok {
+					return &NetworkConnectorSloToGlobalDRGlobalVnModel{
+						Name: func() types.String {
+							if v, ok := GlobalVnData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := GlobalVnData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := GlobalVnData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 
 	tflog.Trace(ctx, "created NetworkConnector resource")
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -1001,51 +1325,32 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["disable_forward_proxy"].(map[string]interface{}); ok && isImport && data.DisableForwardProxy == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableForwardProxy = &NetworkConnectorEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["enable_forward_proxy"].(map[string]interface{}); ok && (isImport || data.EnableForwardProxy != nil) {
 		data.EnableForwardProxy = &NetworkConnectorEnableForwardProxyModel{
 			ConnectionTimeout: func() types.Int64 {
 				if !isImport && data.EnableForwardProxy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.EnableForwardProxy.ConnectionTimeout
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["connection_timeout"].(float64); ok {
+				if v, ok := blockData["connection_timeout"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			MaxConnectAttempts: func() types.Int64 {
 				if !isImport && data.EnableForwardProxy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.EnableForwardProxy.MaxConnectAttempts
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["max_connect_attempts"].(float64); ok {
+				if v, ok := blockData["max_connect_attempts"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			NoInterception: func() *NetworkConnectorEmptyModel {
 				if !isImport && data.EnableForwardProxy != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EnableForwardProxy.NoInterception
 				}
-				// Import case: read from API
 				if _, ok := blockData["no_interception"].(map[string]interface{}); ok {
 					return &NetworkConnectorEmptyModel{}
 				}
@@ -1053,17 +1358,192 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			TLSIntercept: func() *NetworkConnectorEnableForwardProxyTLSInterceptModel {
 				if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
-					// Normal Read: preserve existing state value
 					return data.EnableForwardProxy.TLSIntercept
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["tls_intercept"].(map[string]interface{}); ok {
+				if TLSInterceptData, ok := blockData["tls_intercept"].(map[string]interface{}); ok {
 					return &NetworkConnectorEnableForwardProxyTLSInterceptModel{
+						CustomCertificate: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateModel {
+							if CustomCertificateData, ok := TLSInterceptData["custom_certificate"].(map[string]interface{}); ok {
+								return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateModel{
+									CertificateURL: func() types.String {
+										if v, ok := CustomCertificateData["certificate_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									CustomHashAlgorithms: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel {
+										if CustomHashAlgorithmsData, ok := CustomCertificateData["custom_hash_algorithms"].(map[string]interface{}); ok {
+											return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel{
+												HashAlgorithms: func() types.List {
+													if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DescriptionSpec: func() types.String {
+										if v, ok := CustomCertificateData["description"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									DisableOCSPStapling: func() *NetworkConnectorEmptyModel {
+										if _, ok := CustomCertificateData["disable_ocsp_stapling"].(map[string]interface{}); ok {
+											return &NetworkConnectorEmptyModel{}
+										}
+										return nil
+									}(),
+									PrivateKey: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModel {
+										if PrivateKeyData, ok := CustomCertificateData["private_key"].(map[string]interface{}); ok {
+											return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModel{
+												BlindfoldSecretInfo: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel {
+													if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+														return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									UseSystemDefaults: func() *NetworkConnectorEmptyModel {
+										if _, ok := CustomCertificateData["use_system_defaults"].(map[string]interface{}); ok {
+											return &NetworkConnectorEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						EnableForAllDomains: func() *NetworkConnectorEmptyModel {
+							if _, ok := TLSInterceptData["enable_for_all_domains"].(map[string]interface{}); ok {
+								return &NetworkConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						Policy: func() *NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel {
+							if PolicyData, ok := TLSInterceptData["policy"].(map[string]interface{}); ok {
+								return &NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel{
+									InterceptionRules: func() []NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel {
+										if rawList, ok := PolicyData["interception_rules"].([]interface{}); ok && len(rawList) > 0 {
+											var InterceptionRulesResult []NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel
+											for _, InterceptionRulesItem := range rawList {
+												if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
+													InterceptionRulesResult = append(InterceptionRulesResult, NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel{
+														DisableInterception: func() *NetworkConnectorEmptyModel {
+															if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
+																return &NetworkConnectorEmptyModel{}
+															}
+															return nil
+														}(),
+														DomainMatch: func() *NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchModel {
+															if DomainMatchData, ok := InterceptionRulesItemMap["domain_match"].(map[string]interface{}); ok {
+																return &NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchModel{
+																	ExactValue: func() types.String {
+																		if v, ok := DomainMatchData["exact_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	RegexValue: func() types.String {
+																		if v, ok := DomainMatchData["regex_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SuffixValue: func() types.String {
+																		if v, ok := DomainMatchData["suffix_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														EnableInterception: func() *NetworkConnectorEmptyModel {
+															if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
+																return &NetworkConnectorEmptyModel{}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											return InterceptionRulesResult
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						TrustedCAURL: func() types.String {
-							if v, ok := nestedBlockData["trusted_ca_url"].(string); ok && v != "" {
+							if v, ok := TLSInterceptData["trusted_ca_url"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						VolterraCertificate: func() *NetworkConnectorEmptyModel {
+							if _, ok := TLSInterceptData["volterra_certificate"].(map[string]interface{}); ok {
+								return &NetworkConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						VolterraTrustedCA: func() *NetworkConnectorEmptyModel {
+							if _, ok := TLSInterceptData["volterra_trusted_ca"].(map[string]interface{}); ok {
+								return &NetworkConnectorEmptyModel{}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -1073,8 +1553,8 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 				if v, ok := blockData["white_listed_ports"].([]interface{}); ok && len(v) > 0 {
 					var items []int64
 					for _, item := range v {
-						if n, ok := item.(float64); ok {
-							items = append(items, int64(n))
+						if s, ok := item.(float64); ok {
+							items = append(items, int64(s))
 						}
 					}
 					listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
@@ -1097,21 +1577,100 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["sli_to_global_dr"].(map[string]interface{}); ok && isImport && data.SLIToGlobalDR == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.SLIToGlobalDR = &NetworkConnectorSLIToGlobalDRModel{}
+	if blockData, ok := apiResource.Spec["sli_to_global_dr"].(map[string]interface{}); ok && (isImport || data.SLIToGlobalDR != nil) {
+		data.SLIToGlobalDR = &NetworkConnectorSLIToGlobalDRModel{
+			GlobalVn: func() *NetworkConnectorSLIToGlobalDRGlobalVnModel {
+				if !isImport && data.SLIToGlobalDR != nil && data.SLIToGlobalDR.GlobalVn != nil {
+					return data.SLIToGlobalDR.GlobalVn
+				}
+				if GlobalVnData, ok := blockData["global_vn"].(map[string]interface{}); ok {
+					return &NetworkConnectorSLIToGlobalDRGlobalVnModel{
+						Name: func() types.String {
+							if v, ok := GlobalVnData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := GlobalVnData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := GlobalVnData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["sli_to_slo_snat"].(map[string]interface{}); ok && isImport && data.SLIToSloSnat == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.SLIToSloSnat = &NetworkConnectorSLIToSloSnatModel{}
+	if blockData, ok := apiResource.Spec["sli_to_slo_snat"].(map[string]interface{}); ok && (isImport || data.SLIToSloSnat != nil) {
+		data.SLIToSloSnat = &NetworkConnectorSLIToSloSnatModel{
+			DefaultGwSnat: func() *NetworkConnectorEmptyModel {
+				if !isImport && data.SLIToSloSnat != nil {
+					return data.SLIToSloSnat.DefaultGwSnat
+				}
+				if _, ok := blockData["default_gw_snat"].(map[string]interface{}); ok {
+					return &NetworkConnectorEmptyModel{}
+				}
+				return nil
+			}(),
+			InterfaceIP: func() *NetworkConnectorEmptyModel {
+				if !isImport && data.SLIToSloSnat != nil {
+					return data.SLIToSloSnat.InterfaceIP
+				}
+				if _, ok := blockData["interface_ip"].(map[string]interface{}); ok {
+					return &NetworkConnectorEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["slo_to_global_dr"].(map[string]interface{}); ok && isImport && data.SloToGlobalDR == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.SloToGlobalDR = &NetworkConnectorSloToGlobalDRModel{}
+	if blockData, ok := apiResource.Spec["slo_to_global_dr"].(map[string]interface{}); ok && (isImport || data.SloToGlobalDR != nil) {
+		data.SloToGlobalDR = &NetworkConnectorSloToGlobalDRModel{
+			GlobalVn: func() *NetworkConnectorSloToGlobalDRGlobalVnModel {
+				if !isImport && data.SloToGlobalDR != nil && data.SloToGlobalDR.GlobalVn != nil {
+					return data.SloToGlobalDR.GlobalVn
+				}
+				if GlobalVnData, ok := blockData["global_vn"].(map[string]interface{}); ok {
+					return &NetworkConnectorSloToGlobalDRGlobalVnModel{
+						Name: func() types.String {
+							if v, ok := GlobalVnData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := GlobalVnData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := GlobalVnData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
+	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
@@ -1164,86 +1723,179 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.DisableForwardProxy != nil {
-		disable_forward_proxyMap := make(map[string]interface{})
-		apiResource.Spec["disable_forward_proxy"] = disable_forward_proxyMap
+		apiResource.Spec["disable_forward_proxy"] = map[string]interface{}{}
 	}
 	if data.EnableForwardProxy != nil {
-		enable_forward_proxyMap := make(map[string]interface{})
+		EnableForwardProxyMap := make(map[string]interface{})
 		if !data.EnableForwardProxy.ConnectionTimeout.IsNull() && !data.EnableForwardProxy.ConnectionTimeout.IsUnknown() {
-			enable_forward_proxyMap["connection_timeout"] = data.EnableForwardProxy.ConnectionTimeout.ValueInt64()
+			EnableForwardProxyMap["connection_timeout"] = data.EnableForwardProxy.ConnectionTimeout.ValueInt64()
 		}
 		if !data.EnableForwardProxy.MaxConnectAttempts.IsNull() && !data.EnableForwardProxy.MaxConnectAttempts.IsUnknown() {
-			enable_forward_proxyMap["max_connect_attempts"] = data.EnableForwardProxy.MaxConnectAttempts.ValueInt64()
+			EnableForwardProxyMap["max_connect_attempts"] = data.EnableForwardProxy.MaxConnectAttempts.ValueInt64()
 		}
 		if data.EnableForwardProxy.NoInterception != nil {
-			enable_forward_proxyMap["no_interception"] = map[string]interface{}{}
+			EnableForwardProxyMap["no_interception"] = map[string]interface{}{}
 		}
 		if data.EnableForwardProxy.TLSIntercept != nil {
-			tls_interceptNestedMap := make(map[string]interface{})
-			if !data.EnableForwardProxy.TLSIntercept.TrustedCAURL.IsNull() && !data.EnableForwardProxy.TLSIntercept.TrustedCAURL.IsUnknown() {
-				tls_interceptNestedMap["trusted_ca_url"] = data.EnableForwardProxy.TLSIntercept.TrustedCAURL.ValueString()
+			TLSInterceptMap := make(map[string]interface{})
+			if data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil {
+				CustomCertificateMap := make(map[string]interface{})
+				if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.CertificateURL.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.CertificateURL.IsUnknown() {
+					CustomCertificateMap["certificate_url"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.CertificateURL.ValueString()
+				}
+				if data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms != nil {
+					CustomHashAlgorithmsMap := make(map[string]interface{})
+					if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+						var HashAlgorithmsItems []string
+						diags := data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+						if !diags.HasError() {
+							CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+						}
+					}
+					CustomCertificateMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+				}
+				if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.DescriptionSpec.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.DescriptionSpec.IsUnknown() {
+					CustomCertificateMap["description"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.DescriptionSpec.ValueString()
+				}
+				if data.EnableForwardProxy.TLSIntercept.CustomCertificate.DisableOCSPStapling != nil {
+					CustomCertificateMap["disable_ocsp_stapling"] = map[string]interface{}{}
+				}
+				if data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil {
+					PrivateKeyMap := make(map[string]interface{})
+					if data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo != nil {
+						BlindfoldSecretInfoMap := make(map[string]interface{})
+						if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["decryption_provider"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						}
+						if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+							BlindfoldSecretInfoMap["location"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+						}
+						if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["store_provider"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+						}
+						PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					}
+					if data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo != nil {
+						ClearSecretInfoMap := make(map[string]interface{})
+						if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.Provider.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+							ClearSecretInfoMap["provider"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.Provider.ValueString()
+						}
+						if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.URL.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+							ClearSecretInfoMap["url"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.URL.ValueString()
+						}
+						PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+					}
+					CustomCertificateMap["private_key"] = PrivateKeyMap
+				}
+				if data.EnableForwardProxy.TLSIntercept.CustomCertificate.UseSystemDefaults != nil {
+					CustomCertificateMap["use_system_defaults"] = map[string]interface{}{}
+				}
+				TLSInterceptMap["custom_certificate"] = CustomCertificateMap
 			}
-			enable_forward_proxyMap["tls_intercept"] = tls_interceptNestedMap
+			if data.EnableForwardProxy.TLSIntercept.EnableForAllDomains != nil {
+				TLSInterceptMap["enable_for_all_domains"] = map[string]interface{}{}
+			}
+			if data.EnableForwardProxy.TLSIntercept.Policy != nil {
+				PolicyMap := make(map[string]interface{})
+				if len(data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules) > 0 {
+					var InterceptionRulesList []map[string]interface{}
+					for _, InterceptionRulesItem := range data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules {
+						InterceptionRulesItemMap := make(map[string]interface{})
+						if InterceptionRulesItem.DisableInterception != nil {
+							InterceptionRulesItemMap["disable_interception"] = map[string]interface{}{}
+						}
+						if InterceptionRulesItem.DomainMatch != nil {
+							DomainMatchMap := make(map[string]interface{})
+							if !InterceptionRulesItem.DomainMatch.ExactValue.IsNull() && !InterceptionRulesItem.DomainMatch.ExactValue.IsUnknown() {
+								DomainMatchMap["exact_value"] = InterceptionRulesItem.DomainMatch.ExactValue.ValueString()
+							}
+							if !InterceptionRulesItem.DomainMatch.RegexValue.IsNull() && !InterceptionRulesItem.DomainMatch.RegexValue.IsUnknown() {
+								DomainMatchMap["regex_value"] = InterceptionRulesItem.DomainMatch.RegexValue.ValueString()
+							}
+							if !InterceptionRulesItem.DomainMatch.SuffixValue.IsNull() && !InterceptionRulesItem.DomainMatch.SuffixValue.IsUnknown() {
+								DomainMatchMap["suffix_value"] = InterceptionRulesItem.DomainMatch.SuffixValue.ValueString()
+							}
+							InterceptionRulesItemMap["domain_match"] = DomainMatchMap
+						}
+						if InterceptionRulesItem.EnableInterception != nil {
+							InterceptionRulesItemMap["enable_interception"] = map[string]interface{}{}
+						}
+						InterceptionRulesList = append(InterceptionRulesList, InterceptionRulesItemMap)
+					}
+					PolicyMap["interception_rules"] = InterceptionRulesList
+				}
+				TLSInterceptMap["policy"] = PolicyMap
+			}
+			if !data.EnableForwardProxy.TLSIntercept.TrustedCAURL.IsNull() && !data.EnableForwardProxy.TLSIntercept.TrustedCAURL.IsUnknown() {
+				TLSInterceptMap["trusted_ca_url"] = data.EnableForwardProxy.TLSIntercept.TrustedCAURL.ValueString()
+			}
+			if data.EnableForwardProxy.TLSIntercept.VolterraCertificate != nil {
+				TLSInterceptMap["volterra_certificate"] = map[string]interface{}{}
+			}
+			if data.EnableForwardProxy.TLSIntercept.VolterraTrustedCA != nil {
+				TLSInterceptMap["volterra_trusted_ca"] = map[string]interface{}{}
+			}
+			EnableForwardProxyMap["tls_intercept"] = TLSInterceptMap
 		}
 		if !data.EnableForwardProxy.WhiteListedPorts.IsNull() && !data.EnableForwardProxy.WhiteListedPorts.IsUnknown() {
-			var white_listed_portsItems []int64
-			diags := data.EnableForwardProxy.WhiteListedPorts.ElementsAs(ctx, &white_listed_portsItems, false)
+			var WhiteListedPortsItems []int64
+			diags := data.EnableForwardProxy.WhiteListedPorts.ElementsAs(ctx, &WhiteListedPortsItems, false)
 			if !diags.HasError() {
-				enable_forward_proxyMap["white_listed_ports"] = white_listed_portsItems
+				EnableForwardProxyMap["white_listed_ports"] = WhiteListedPortsItems
 			}
 		}
 		if !data.EnableForwardProxy.WhiteListedPrefixes.IsNull() && !data.EnableForwardProxy.WhiteListedPrefixes.IsUnknown() {
-			var white_listed_prefixesItems []string
-			diags := data.EnableForwardProxy.WhiteListedPrefixes.ElementsAs(ctx, &white_listed_prefixesItems, false)
+			var WhiteListedPrefixesItems []string
+			diags := data.EnableForwardProxy.WhiteListedPrefixes.ElementsAs(ctx, &WhiteListedPrefixesItems, false)
 			if !diags.HasError() {
-				enable_forward_proxyMap["white_listed_prefixes"] = white_listed_prefixesItems
+				EnableForwardProxyMap["white_listed_prefixes"] = WhiteListedPrefixesItems
 			}
 		}
-		apiResource.Spec["enable_forward_proxy"] = enable_forward_proxyMap
+		apiResource.Spec["enable_forward_proxy"] = EnableForwardProxyMap
 	}
 	if data.SLIToGlobalDR != nil {
-		sli_to_global_drMap := make(map[string]interface{})
+		SLIToGlobalDRMap := make(map[string]interface{})
 		if data.SLIToGlobalDR.GlobalVn != nil {
-			global_vnNestedMap := make(map[string]interface{})
+			GlobalVnMap := make(map[string]interface{})
 			if !data.SLIToGlobalDR.GlobalVn.Name.IsNull() && !data.SLIToGlobalDR.GlobalVn.Name.IsUnknown() {
-				global_vnNestedMap["name"] = data.SLIToGlobalDR.GlobalVn.Name.ValueString()
+				GlobalVnMap["name"] = data.SLIToGlobalDR.GlobalVn.Name.ValueString()
 			}
 			if !data.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !data.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-				global_vnNestedMap["namespace"] = data.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
+				GlobalVnMap["namespace"] = data.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 			}
 			if !data.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !data.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-				global_vnNestedMap["tenant"] = data.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
+				GlobalVnMap["tenant"] = data.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
 			}
-			sli_to_global_drMap["global_vn"] = global_vnNestedMap
+			SLIToGlobalDRMap["global_vn"] = GlobalVnMap
 		}
-		apiResource.Spec["sli_to_global_dr"] = sli_to_global_drMap
+		apiResource.Spec["sli_to_global_dr"] = SLIToGlobalDRMap
 	}
 	if data.SLIToSloSnat != nil {
-		sli_to_slo_snatMap := make(map[string]interface{})
+		SLIToSloSnatMap := make(map[string]interface{})
 		if data.SLIToSloSnat.DefaultGwSnat != nil {
-			sli_to_slo_snatMap["default_gw_snat"] = map[string]interface{}{}
+			SLIToSloSnatMap["default_gw_snat"] = map[string]interface{}{}
 		}
 		if data.SLIToSloSnat.InterfaceIP != nil {
-			sli_to_slo_snatMap["interface_ip"] = map[string]interface{}{}
+			SLIToSloSnatMap["interface_ip"] = map[string]interface{}{}
 		}
-		apiResource.Spec["sli_to_slo_snat"] = sli_to_slo_snatMap
+		apiResource.Spec["sli_to_slo_snat"] = SLIToSloSnatMap
 	}
 	if data.SloToGlobalDR != nil {
-		slo_to_global_drMap := make(map[string]interface{})
+		SloToGlobalDRMap := make(map[string]interface{})
 		if data.SloToGlobalDR.GlobalVn != nil {
-			global_vnNestedMap := make(map[string]interface{})
+			GlobalVnMap := make(map[string]interface{})
 			if !data.SloToGlobalDR.GlobalVn.Name.IsNull() && !data.SloToGlobalDR.GlobalVn.Name.IsUnknown() {
-				global_vnNestedMap["name"] = data.SloToGlobalDR.GlobalVn.Name.ValueString()
+				GlobalVnMap["name"] = data.SloToGlobalDR.GlobalVn.Name.ValueString()
 			}
 			if !data.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !data.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-				global_vnNestedMap["namespace"] = data.SloToGlobalDR.GlobalVn.Namespace.ValueString()
+				GlobalVnMap["namespace"] = data.SloToGlobalDR.GlobalVn.Namespace.ValueString()
 			}
 			if !data.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !data.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-				global_vnNestedMap["tenant"] = data.SloToGlobalDR.GlobalVn.Tenant.ValueString()
+				GlobalVnMap["tenant"] = data.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 			}
-			slo_to_global_drMap["global_vn"] = global_vnNestedMap
+			SloToGlobalDRMap["global_vn"] = GlobalVnMap
 		}
-		apiResource.Spec["slo_to_global_dr"] = slo_to_global_drMap
+		apiResource.Spec["slo_to_global_dr"] = SloToGlobalDRMap
 	}
 
 	_, err := r.client.UpdateNetworkConnector(ctx, apiResource)
@@ -1270,51 +1922,32 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["disable_forward_proxy"].(map[string]interface{}); ok && isImport && data.DisableForwardProxy == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableForwardProxy = &NetworkConnectorEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["enable_forward_proxy"].(map[string]interface{}); ok && (isImport || data.EnableForwardProxy != nil) {
 		data.EnableForwardProxy = &NetworkConnectorEnableForwardProxyModel{
 			ConnectionTimeout: func() types.Int64 {
 				if !isImport && data.EnableForwardProxy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.EnableForwardProxy.ConnectionTimeout
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["connection_timeout"].(float64); ok {
+				if v, ok := blockData["connection_timeout"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			MaxConnectAttempts: func() types.Int64 {
 				if !isImport && data.EnableForwardProxy != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.EnableForwardProxy.MaxConnectAttempts
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["max_connect_attempts"].(float64); ok {
+				if v, ok := blockData["max_connect_attempts"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			NoInterception: func() *NetworkConnectorEmptyModel {
 				if !isImport && data.EnableForwardProxy != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.EnableForwardProxy.NoInterception
 				}
-				// Import case: read from API
 				if _, ok := blockData["no_interception"].(map[string]interface{}); ok {
 					return &NetworkConnectorEmptyModel{}
 				}
@@ -1322,17 +1955,192 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			TLSIntercept: func() *NetworkConnectorEnableForwardProxyTLSInterceptModel {
 				if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
-					// Normal Read: preserve existing state value
 					return data.EnableForwardProxy.TLSIntercept
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["tls_intercept"].(map[string]interface{}); ok {
+				if TLSInterceptData, ok := blockData["tls_intercept"].(map[string]interface{}); ok {
 					return &NetworkConnectorEnableForwardProxyTLSInterceptModel{
+						CustomCertificate: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateModel {
+							if CustomCertificateData, ok := TLSInterceptData["custom_certificate"].(map[string]interface{}); ok {
+								return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateModel{
+									CertificateURL: func() types.String {
+										if v, ok := CustomCertificateData["certificate_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									CustomHashAlgorithms: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel {
+										if CustomHashAlgorithmsData, ok := CustomCertificateData["custom_hash_algorithms"].(map[string]interface{}); ok {
+											return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel{
+												HashAlgorithms: func() types.List {
+													if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DescriptionSpec: func() types.String {
+										if v, ok := CustomCertificateData["description"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									DisableOCSPStapling: func() *NetworkConnectorEmptyModel {
+										if _, ok := CustomCertificateData["disable_ocsp_stapling"].(map[string]interface{}); ok {
+											return &NetworkConnectorEmptyModel{}
+										}
+										return nil
+									}(),
+									PrivateKey: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModel {
+										if PrivateKeyData, ok := CustomCertificateData["private_key"].(map[string]interface{}); ok {
+											return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModel{
+												BlindfoldSecretInfo: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel {
+													if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+														return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									UseSystemDefaults: func() *NetworkConnectorEmptyModel {
+										if _, ok := CustomCertificateData["use_system_defaults"].(map[string]interface{}); ok {
+											return &NetworkConnectorEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						EnableForAllDomains: func() *NetworkConnectorEmptyModel {
+							if _, ok := TLSInterceptData["enable_for_all_domains"].(map[string]interface{}); ok {
+								return &NetworkConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						Policy: func() *NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel {
+							if PolicyData, ok := TLSInterceptData["policy"].(map[string]interface{}); ok {
+								return &NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel{
+									InterceptionRules: func() []NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel {
+										if rawList, ok := PolicyData["interception_rules"].([]interface{}); ok && len(rawList) > 0 {
+											var InterceptionRulesResult []NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel
+											for _, InterceptionRulesItem := range rawList {
+												if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
+													InterceptionRulesResult = append(InterceptionRulesResult, NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel{
+														DisableInterception: func() *NetworkConnectorEmptyModel {
+															if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
+																return &NetworkConnectorEmptyModel{}
+															}
+															return nil
+														}(),
+														DomainMatch: func() *NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchModel {
+															if DomainMatchData, ok := InterceptionRulesItemMap["domain_match"].(map[string]interface{}); ok {
+																return &NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchModel{
+																	ExactValue: func() types.String {
+																		if v, ok := DomainMatchData["exact_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	RegexValue: func() types.String {
+																		if v, ok := DomainMatchData["regex_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SuffixValue: func() types.String {
+																		if v, ok := DomainMatchData["suffix_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														EnableInterception: func() *NetworkConnectorEmptyModel {
+															if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
+																return &NetworkConnectorEmptyModel{}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											return InterceptionRulesResult
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						TrustedCAURL: func() types.String {
-							if v, ok := nestedBlockData["trusted_ca_url"].(string); ok && v != "" {
+							if v, ok := TLSInterceptData["trusted_ca_url"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						VolterraCertificate: func() *NetworkConnectorEmptyModel {
+							if _, ok := TLSInterceptData["volterra_certificate"].(map[string]interface{}); ok {
+								return &NetworkConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						VolterraTrustedCA: func() *NetworkConnectorEmptyModel {
+							if _, ok := TLSInterceptData["volterra_trusted_ca"].(map[string]interface{}); ok {
+								return &NetworkConnectorEmptyModel{}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -1342,8 +2150,8 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 				if v, ok := blockData["white_listed_ports"].([]interface{}); ok && len(v) > 0 {
 					var items []int64
 					for _, item := range v {
-						if n, ok := item.(float64); ok {
-							items = append(items, int64(n))
+						if s, ok := item.(float64); ok {
+							items = append(items, int64(s))
 						}
 					}
 					listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
@@ -1366,21 +2174,92 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["sli_to_global_dr"].(map[string]interface{}); ok && isImport && data.SLIToGlobalDR == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.SLIToGlobalDR = &NetworkConnectorSLIToGlobalDRModel{}
+	if blockData, ok := apiResource.Spec["sli_to_global_dr"].(map[string]interface{}); ok && (isImport || data.SLIToGlobalDR != nil) {
+		data.SLIToGlobalDR = &NetworkConnectorSLIToGlobalDRModel{
+			GlobalVn: func() *NetworkConnectorSLIToGlobalDRGlobalVnModel {
+				if !isImport && data.SLIToGlobalDR != nil && data.SLIToGlobalDR.GlobalVn != nil {
+					return data.SLIToGlobalDR.GlobalVn
+				}
+				if GlobalVnData, ok := blockData["global_vn"].(map[string]interface{}); ok {
+					return &NetworkConnectorSLIToGlobalDRGlobalVnModel{
+						Name: func() types.String {
+							if v, ok := GlobalVnData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := GlobalVnData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := GlobalVnData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["sli_to_slo_snat"].(map[string]interface{}); ok && isImport && data.SLIToSloSnat == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.SLIToSloSnat = &NetworkConnectorSLIToSloSnatModel{}
+	if blockData, ok := apiResource.Spec["sli_to_slo_snat"].(map[string]interface{}); ok && (isImport || data.SLIToSloSnat != nil) {
+		data.SLIToSloSnat = &NetworkConnectorSLIToSloSnatModel{
+			DefaultGwSnat: func() *NetworkConnectorEmptyModel {
+				if !isImport && data.SLIToSloSnat != nil {
+					return data.SLIToSloSnat.DefaultGwSnat
+				}
+				if _, ok := blockData["default_gw_snat"].(map[string]interface{}); ok {
+					return &NetworkConnectorEmptyModel{}
+				}
+				return nil
+			}(),
+			InterfaceIP: func() *NetworkConnectorEmptyModel {
+				if !isImport && data.SLIToSloSnat != nil {
+					return data.SLIToSloSnat.InterfaceIP
+				}
+				if _, ok := blockData["interface_ip"].(map[string]interface{}); ok {
+					return &NetworkConnectorEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["slo_to_global_dr"].(map[string]interface{}); ok && isImport && data.SloToGlobalDR == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.SloToGlobalDR = &NetworkConnectorSloToGlobalDRModel{}
+	if blockData, ok := apiResource.Spec["slo_to_global_dr"].(map[string]interface{}); ok && (isImport || data.SloToGlobalDR != nil) {
+		data.SloToGlobalDR = &NetworkConnectorSloToGlobalDRModel{
+			GlobalVn: func() *NetworkConnectorSloToGlobalDRGlobalVnModel {
+				if !isImport && data.SloToGlobalDR != nil && data.SloToGlobalDR.GlobalVn != nil {
+					return data.SloToGlobalDR.GlobalVn
+				}
+				if GlobalVnData, ok := blockData["global_vn"].(map[string]interface{}); ok {
+					return &NetworkConnectorSloToGlobalDRGlobalVnModel{
+						Name: func() types.String {
+							if v, ok := GlobalVnData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := GlobalVnData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := GlobalVnData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }

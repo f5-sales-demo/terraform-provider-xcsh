@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_secret_management_access Resource - terraform-provider-f5xc"
+page_title: "xcsh_secret_management_access Resource - xcsh"
 subcategory: "Authentication"
 description: |-
   Manages secret_management_access creates a new object in storage backend for metadata.namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_secret_management_access (Resource)
+# xcsh_secret_management_access (Resource)
 
 Manages secret_management_access creates a new object in storage backend for metadata.namespace. in F5 Distributed Cloud.
 
@@ -14,47 +14,26 @@ Manages secret_management_access creates a new object in storage backend for met
 ## Example Usage
 
 ```terraform
-# Secret Management Access Resource Example
-# Manages secret_management_access creates a new object in storage backend for metadata.namespace. in F5 Distributed Cloud.
+# SecretManagementAccess Resource Example
+# Manages secret_management_access creates a new object in storage backend for metadata.namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Secret Management Access configuration
-resource "f5xc_secret_management_access" "example" {
+# Basic SecretManagementAccess configuration
+resource "xcsh_secret_management_access" "example" {
   name      = "example-secret-management-access"
-  namespace = "staging"
+  namespace = "system"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # HostAccessInfoType contains the information about how to ...
-  access_info {
-    # Configure access_info settings
-  }
-  # Authentication parameters for REST based hosts.
-  rest_auth_info {
-    # Configure rest_auth_info settings
-  }
-  # AuthnTypeBasicAuth is used for using basic_auth mode of H...
-  basic_auth {
-    # Configure basic_auth settings
-  }
+  provider_name = "example-value"
 }
 ```
 
@@ -69,8 +48,6 @@ resource "f5xc_secret_management_access" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Secret Management Access. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Secret Management Access will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -78,6 +55,8 @@ resource "f5xc_secret_management_access" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Secret Management Access. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -87,7 +66,7 @@ resource "f5xc_secret_management_access" "example" {
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
-<a id="where"></a>&#x2022; [`where`](#where) - Optional Block<br>NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules \* Direct reference to virtual_network object \* Site local network when refering to site object \* All site local<br>See [Where](#where) below for
+<a id="where"></a>&#x2022; [`where`](#where) - Optional Block<br>NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules \* Direct reference to virtual_network object \* Site local network when referring to site object \* All site local<br>See [Where](#where) below for
 details.
 
 ### Attributes Reference
@@ -487,5 +466,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_secret_management_access.example system/example
+terraform import xcsh_secret_management_access.example system/example
 ```

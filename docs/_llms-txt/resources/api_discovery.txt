@@ -1,4 +1,4 @@
-# f5xc_api_discovery
+# xcsh_api_discovery
 
 Category: API Security
 API discovery creates a new object in the storage backend for metadata.namespace
@@ -9,28 +9,12 @@ API discovery creates a new object in the storage backend for metadata.namespace
 - namespace
 - user_defined_api_discovery_policy
 
-## Server Defaults (safe to omit)
-
-- custom_auth_types
-
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_api_discovery" "example" {
+resource "xcsh_api_discovery" "example" {
   name      = "example-api-discovery"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  custom_auth_types {
-  }
+  namespace = "system"
 }
 ```
 

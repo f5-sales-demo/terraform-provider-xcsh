@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_api_testing Data Source - terraform-provider-f5xc"
+page_title: "xcsh_api_testing Data Source - xcsh"
 subcategory: "API Security"
 description: |-
   Retrieves information about an existing API Testing resource in F5 Distributed Cloud.
 ---
 
-# f5xc_api_testing (Data Source)
+# xcsh_api_testing (Data Source)
 
 Retrieves information about an API Testing resource in F5 Distributed Cloud. This is a read-only data source.
 
@@ -14,28 +14,23 @@ Retrieves information about an API Testing resource in F5 Distributed Cloud. Thi
 ## Example Usage
 
 ```terraform
-# API Testing Data Source Example
-# Retrieves information about an existing API Testing
+# APITesting Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing API Testing by name
-data "f5xc_api_testing" "example" {
+# Look up an existing APITesting by name
+data "xcsh_api_testing" "example" {
   name      = "example-api-testing"
   namespace = "staging"
-}
-
-output "api_testing_id" {
-  value = data.f5xc_api_testing.example.id
 }
 ```
 

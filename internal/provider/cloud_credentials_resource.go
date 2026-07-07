@@ -15,14 +15,15 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -311,13 +312,16 @@ func (r *CloudCredentialsResource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Cloud Credentials will be created.",
-				Required:            true,
+				MarkdownDescription: "Namespace for the Cloud Credentials. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
+				Optional:            true,
+				Computed:            true,
+				Default:             stringdefault.StaticString("system"),
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
+					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
@@ -752,85 +756,177 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.AWSAssumeRole != nil {
-		aws_assume_roleMap := make(map[string]interface{})
+		AWSAssumeRoleMap := make(map[string]interface{})
 		if !data.AWSAssumeRole.CustomExternalID.IsNull() && !data.AWSAssumeRole.CustomExternalID.IsUnknown() {
-			aws_assume_roleMap["custom_external_id"] = data.AWSAssumeRole.CustomExternalID.ValueString()
+			AWSAssumeRoleMap["custom_external_id"] = data.AWSAssumeRole.CustomExternalID.ValueString()
 		}
 		if !data.AWSAssumeRole.DurationSeconds.IsNull() && !data.AWSAssumeRole.DurationSeconds.IsUnknown() {
-			aws_assume_roleMap["duration_seconds"] = data.AWSAssumeRole.DurationSeconds.ValueInt64()
+			AWSAssumeRoleMap["duration_seconds"] = data.AWSAssumeRole.DurationSeconds.ValueInt64()
 		}
 		if data.AWSAssumeRole.ExternalIDIsOptional != nil {
-			aws_assume_roleMap["external_id_is_optional"] = map[string]interface{}{}
+			AWSAssumeRoleMap["external_id_is_optional"] = map[string]interface{}{}
 		}
 		if data.AWSAssumeRole.ExternalIDIsTenantID != nil {
-			aws_assume_roleMap["external_id_is_tenant_id"] = map[string]interface{}{}
+			AWSAssumeRoleMap["external_id_is_tenant_id"] = map[string]interface{}{}
 		}
 		if !data.AWSAssumeRole.RoleArn.IsNull() && !data.AWSAssumeRole.RoleArn.IsUnknown() {
-			aws_assume_roleMap["role_arn"] = data.AWSAssumeRole.RoleArn.ValueString()
+			AWSAssumeRoleMap["role_arn"] = data.AWSAssumeRole.RoleArn.ValueString()
 		}
 		if !data.AWSAssumeRole.SessionName.IsNull() && !data.AWSAssumeRole.SessionName.IsUnknown() {
-			aws_assume_roleMap["session_name"] = data.AWSAssumeRole.SessionName.ValueString()
+			AWSAssumeRoleMap["session_name"] = data.AWSAssumeRole.SessionName.ValueString()
 		}
 		if data.AWSAssumeRole.SessionTags != nil {
-			aws_assume_roleMap["session_tags"] = map[string]interface{}{}
+			AWSAssumeRoleMap["session_tags"] = map[string]interface{}{}
 		}
-		createReq.Spec["aws_assume_role"] = aws_assume_roleMap
+		createReq.Spec["aws_assume_role"] = AWSAssumeRoleMap
 	}
 	if data.AWSSecretKey != nil {
-		aws_secret_keyMap := make(map[string]interface{})
+		AWSSecretKeyMap := make(map[string]interface{})
 		if !data.AWSSecretKey.AccessKey.IsNull() && !data.AWSSecretKey.AccessKey.IsUnknown() {
-			aws_secret_keyMap["access_key"] = data.AWSSecretKey.AccessKey.ValueString()
+			AWSSecretKeyMap["access_key"] = data.AWSSecretKey.AccessKey.ValueString()
 		}
 		if data.AWSSecretKey.SecretKey != nil {
-			secret_keyNestedMap := make(map[string]interface{})
-			aws_secret_keyMap["secret_key"] = secret_keyNestedMap
+			SecretKeyMap := make(map[string]interface{})
+			if data.AWSSecretKey.SecretKey.BlindfoldSecretInfo != nil {
+				BlindfoldSecretInfoMap := make(map[string]interface{})
+				if !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["decryption_provider"] = data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				}
+				if !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.Location.IsNull() && !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.Location.IsUnknown() {
+					BlindfoldSecretInfoMap["location"] = data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.Location.ValueString()
+				}
+				if !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["store_provider"] = data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+				}
+				SecretKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			}
+			if data.AWSSecretKey.SecretKey.ClearSecretInfo != nil {
+				ClearSecretInfoMap := make(map[string]interface{})
+				if !data.AWSSecretKey.SecretKey.ClearSecretInfo.Provider.IsNull() && !data.AWSSecretKey.SecretKey.ClearSecretInfo.Provider.IsUnknown() {
+					ClearSecretInfoMap["provider"] = data.AWSSecretKey.SecretKey.ClearSecretInfo.Provider.ValueString()
+				}
+				if !data.AWSSecretKey.SecretKey.ClearSecretInfo.URL.IsNull() && !data.AWSSecretKey.SecretKey.ClearSecretInfo.URL.IsUnknown() {
+					ClearSecretInfoMap["url"] = data.AWSSecretKey.SecretKey.ClearSecretInfo.URL.ValueString()
+				}
+				SecretKeyMap["clear_secret_info"] = ClearSecretInfoMap
+			}
+			AWSSecretKeyMap["secret_key"] = SecretKeyMap
 		}
-		createReq.Spec["aws_secret_key"] = aws_secret_keyMap
+		createReq.Spec["aws_secret_key"] = AWSSecretKeyMap
 	}
 	if data.AzureClientSecret != nil {
-		azure_client_secretMap := make(map[string]interface{})
+		AzureClientSecretMap := make(map[string]interface{})
 		if !data.AzureClientSecret.ClientID.IsNull() && !data.AzureClientSecret.ClientID.IsUnknown() {
-			azure_client_secretMap["client_id"] = data.AzureClientSecret.ClientID.ValueString()
+			AzureClientSecretMap["client_id"] = data.AzureClientSecret.ClientID.ValueString()
 		}
 		if data.AzureClientSecret.ClientSecret != nil {
-			client_secretNestedMap := make(map[string]interface{})
-			azure_client_secretMap["client_secret"] = client_secretNestedMap
+			ClientSecretMap := make(map[string]interface{})
+			if data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo != nil {
+				BlindfoldSecretInfoMap := make(map[string]interface{})
+				if !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["decryption_provider"] = data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				}
+				if !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.Location.IsNull() && !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.Location.IsUnknown() {
+					BlindfoldSecretInfoMap["location"] = data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.Location.ValueString()
+				}
+				if !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["store_provider"] = data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
+				}
+				ClientSecretMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			}
+			if data.AzureClientSecret.ClientSecret.ClearSecretInfo != nil {
+				ClearSecretInfoMap := make(map[string]interface{})
+				if !data.AzureClientSecret.ClientSecret.ClearSecretInfo.Provider.IsNull() && !data.AzureClientSecret.ClientSecret.ClearSecretInfo.Provider.IsUnknown() {
+					ClearSecretInfoMap["provider"] = data.AzureClientSecret.ClientSecret.ClearSecretInfo.Provider.ValueString()
+				}
+				if !data.AzureClientSecret.ClientSecret.ClearSecretInfo.URL.IsNull() && !data.AzureClientSecret.ClientSecret.ClearSecretInfo.URL.IsUnknown() {
+					ClearSecretInfoMap["url"] = data.AzureClientSecret.ClientSecret.ClearSecretInfo.URL.ValueString()
+				}
+				ClientSecretMap["clear_secret_info"] = ClearSecretInfoMap
+			}
+			AzureClientSecretMap["client_secret"] = ClientSecretMap
 		}
 		if !data.AzureClientSecret.SubscriptionID.IsNull() && !data.AzureClientSecret.SubscriptionID.IsUnknown() {
-			azure_client_secretMap["subscription_id"] = data.AzureClientSecret.SubscriptionID.ValueString()
+			AzureClientSecretMap["subscription_id"] = data.AzureClientSecret.SubscriptionID.ValueString()
 		}
 		if !data.AzureClientSecret.TenantID.IsNull() && !data.AzureClientSecret.TenantID.IsUnknown() {
-			azure_client_secretMap["tenant_id"] = data.AzureClientSecret.TenantID.ValueString()
+			AzureClientSecretMap["tenant_id"] = data.AzureClientSecret.TenantID.ValueString()
 		}
-		createReq.Spec["azure_client_secret"] = azure_client_secretMap
+		createReq.Spec["azure_client_secret"] = AzureClientSecretMap
 	}
 	if data.AzurePfxCertificate != nil {
-		azure_pfx_certificateMap := make(map[string]interface{})
+		AzurePfxCertificateMap := make(map[string]interface{})
 		if !data.AzurePfxCertificate.CertificateURL.IsNull() && !data.AzurePfxCertificate.CertificateURL.IsUnknown() {
-			azure_pfx_certificateMap["certificate_url"] = data.AzurePfxCertificate.CertificateURL.ValueString()
+			AzurePfxCertificateMap["certificate_url"] = data.AzurePfxCertificate.CertificateURL.ValueString()
 		}
 		if !data.AzurePfxCertificate.ClientID.IsNull() && !data.AzurePfxCertificate.ClientID.IsUnknown() {
-			azure_pfx_certificateMap["client_id"] = data.AzurePfxCertificate.ClientID.ValueString()
+			AzurePfxCertificateMap["client_id"] = data.AzurePfxCertificate.ClientID.ValueString()
 		}
 		if data.AzurePfxCertificate.Password != nil {
-			passwordNestedMap := make(map[string]interface{})
-			azure_pfx_certificateMap["password"] = passwordNestedMap
+			PasswordMap := make(map[string]interface{})
+			if data.AzurePfxCertificate.Password.BlindfoldSecretInfo != nil {
+				BlindfoldSecretInfoMap := make(map[string]interface{})
+				if !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["decryption_provider"] = data.AzurePfxCertificate.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				}
+				if !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.Location.IsNull() && !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+					BlindfoldSecretInfoMap["location"] = data.AzurePfxCertificate.Password.BlindfoldSecretInfo.Location.ValueString()
+				}
+				if !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["store_provider"] = data.AzurePfxCertificate.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+				}
+				PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			}
+			if data.AzurePfxCertificate.Password.ClearSecretInfo != nil {
+				ClearSecretInfoMap := make(map[string]interface{})
+				if !data.AzurePfxCertificate.Password.ClearSecretInfo.Provider.IsNull() && !data.AzurePfxCertificate.Password.ClearSecretInfo.Provider.IsUnknown() {
+					ClearSecretInfoMap["provider"] = data.AzurePfxCertificate.Password.ClearSecretInfo.Provider.ValueString()
+				}
+				if !data.AzurePfxCertificate.Password.ClearSecretInfo.URL.IsNull() && !data.AzurePfxCertificate.Password.ClearSecretInfo.URL.IsUnknown() {
+					ClearSecretInfoMap["url"] = data.AzurePfxCertificate.Password.ClearSecretInfo.URL.ValueString()
+				}
+				PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+			}
+			AzurePfxCertificateMap["password"] = PasswordMap
 		}
 		if !data.AzurePfxCertificate.SubscriptionID.IsNull() && !data.AzurePfxCertificate.SubscriptionID.IsUnknown() {
-			azure_pfx_certificateMap["subscription_id"] = data.AzurePfxCertificate.SubscriptionID.ValueString()
+			AzurePfxCertificateMap["subscription_id"] = data.AzurePfxCertificate.SubscriptionID.ValueString()
 		}
 		if !data.AzurePfxCertificate.TenantID.IsNull() && !data.AzurePfxCertificate.TenantID.IsUnknown() {
-			azure_pfx_certificateMap["tenant_id"] = data.AzurePfxCertificate.TenantID.ValueString()
+			AzurePfxCertificateMap["tenant_id"] = data.AzurePfxCertificate.TenantID.ValueString()
 		}
-		createReq.Spec["azure_pfx_certificate"] = azure_pfx_certificateMap
+		createReq.Spec["azure_pfx_certificate"] = AzurePfxCertificateMap
 	}
 	if data.GCPCredFile != nil {
-		gcp_cred_fileMap := make(map[string]interface{})
+		GCPCredFileMap := make(map[string]interface{})
 		if data.GCPCredFile.CredentialFile != nil {
-			credential_fileNestedMap := make(map[string]interface{})
-			gcp_cred_fileMap["credential_file"] = credential_fileNestedMap
+			CredentialFileMap := make(map[string]interface{})
+			if data.GCPCredFile.CredentialFile.BlindfoldSecretInfo != nil {
+				BlindfoldSecretInfoMap := make(map[string]interface{})
+				if !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["decryption_provider"] = data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				}
+				if !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.Location.IsNull() && !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.Location.IsUnknown() {
+					BlindfoldSecretInfoMap["location"] = data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.Location.ValueString()
+				}
+				if !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["store_provider"] = data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.StoreProvider.ValueString()
+				}
+				CredentialFileMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			}
+			if data.GCPCredFile.CredentialFile.ClearSecretInfo != nil {
+				ClearSecretInfoMap := make(map[string]interface{})
+				if !data.GCPCredFile.CredentialFile.ClearSecretInfo.Provider.IsNull() && !data.GCPCredFile.CredentialFile.ClearSecretInfo.Provider.IsUnknown() {
+					ClearSecretInfoMap["provider"] = data.GCPCredFile.CredentialFile.ClearSecretInfo.Provider.ValueString()
+				}
+				if !data.GCPCredFile.CredentialFile.ClearSecretInfo.URL.IsNull() && !data.GCPCredFile.CredentialFile.ClearSecretInfo.URL.IsUnknown() {
+					ClearSecretInfoMap["url"] = data.GCPCredFile.CredentialFile.ClearSecretInfo.URL.ValueString()
+				}
+				CredentialFileMap["clear_secret_info"] = ClearSecretInfoMap
+			}
+			GCPCredFileMap["credential_file"] = CredentialFileMap
 		}
-		createReq.Spec["gcp_cred_file"] = gcp_cred_fileMap
+		createReq.Spec["gcp_cred_file"] = GCPCredFileMap
 	}
 
 	apiResource, err := r.client.CreateCloudCredentials(ctx, createReq)
@@ -855,27 +951,17 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			DurationSeconds: func() types.Int64 {
 				if !isImport && data.AWSAssumeRole != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.AWSAssumeRole.DurationSeconds
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["duration_seconds"].(float64); ok {
+				if v, ok := blockData["duration_seconds"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			ExternalIDIsOptional: func() *CloudCredentialsEmptyModel {
 				if !isImport && data.AWSAssumeRole != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.AWSAssumeRole.ExternalIDIsOptional
 				}
-				// Import case: read from API
 				if _, ok := blockData["external_id_is_optional"].(map[string]interface{}); ok {
 					return &CloudCredentialsEmptyModel{}
 				}
@@ -883,11 +969,8 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			ExternalIDIsTenantID: func() *CloudCredentialsEmptyModel {
 				if !isImport && data.AWSAssumeRole != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.AWSAssumeRole.ExternalIDIsTenantID
 				}
-				// Import case: read from API
 				if _, ok := blockData["external_id_is_tenant_id"].(map[string]interface{}); ok {
 					return &CloudCredentialsEmptyModel{}
 				}
@@ -907,11 +990,8 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			SessionTags: func() *CloudCredentialsEmptyModel {
 				if !isImport && data.AWSAssumeRole != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.AWSAssumeRole.SessionTags
 				}
-				// Import case: read from API
 				if _, ok := blockData["session_tags"].(map[string]interface{}); ok {
 					return &CloudCredentialsEmptyModel{}
 				}
@@ -929,12 +1009,55 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			SecretKey: func() *CloudCredentialsAWSSecretKeySecretKeyModel {
 				if !isImport && data.AWSSecretKey != nil && data.AWSSecretKey.SecretKey != nil {
-					// Normal Read: preserve existing state value
 					return data.AWSSecretKey.SecretKey
 				}
-				// Import case: read from API
-				if _, ok := blockData["secret_key"].(map[string]interface{}); ok {
-					return &CloudCredentialsAWSSecretKeySecretKeyModel{}
+				if SecretKeyData, ok := blockData["secret_key"].(map[string]interface{}); ok {
+					return &CloudCredentialsAWSSecretKeySecretKeyModel{
+						BlindfoldSecretInfo: func() *CloudCredentialsAWSSecretKeySecretKeyBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := SecretKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAWSSecretKeySecretKeyBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *CloudCredentialsAWSSecretKeySecretKeyClearSecretInfoModel {
+							if ClearSecretInfoData, ok := SecretKeyData["clear_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAWSSecretKeySecretKeyClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -950,12 +1073,55 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			ClientSecret: func() *CloudCredentialsAzureClientSecretClientSecretModel {
 				if !isImport && data.AzureClientSecret != nil && data.AzureClientSecret.ClientSecret != nil {
-					// Normal Read: preserve existing state value
 					return data.AzureClientSecret.ClientSecret
 				}
-				// Import case: read from API
-				if _, ok := blockData["client_secret"].(map[string]interface{}); ok {
-					return &CloudCredentialsAzureClientSecretClientSecretModel{}
+				if ClientSecretData, ok := blockData["client_secret"].(map[string]interface{}); ok {
+					return &CloudCredentialsAzureClientSecretClientSecretModel{
+						BlindfoldSecretInfo: func() *CloudCredentialsAzureClientSecretClientSecretBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := ClientSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAzureClientSecretClientSecretBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *CloudCredentialsAzureClientSecretClientSecretClearSecretInfoModel {
+							if ClearSecretInfoData, ok := ClientSecretData["clear_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAzureClientSecretClientSecretClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -989,12 +1155,55 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 			}(),
 			Password: func() *CloudCredentialsAzurePfxCertificatePasswordModel {
 				if !isImport && data.AzurePfxCertificate != nil && data.AzurePfxCertificate.Password != nil {
-					// Normal Read: preserve existing state value
 					return data.AzurePfxCertificate.Password
 				}
-				// Import case: read from API
-				if _, ok := blockData["password"].(map[string]interface{}); ok {
-					return &CloudCredentialsAzurePfxCertificatePasswordModel{}
+				if PasswordData, ok := blockData["password"].(map[string]interface{}); ok {
+					return &CloudCredentialsAzurePfxCertificatePasswordModel{
+						BlindfoldSecretInfo: func() *CloudCredentialsAzurePfxCertificatePasswordBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAzurePfxCertificatePasswordBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *CloudCredentialsAzurePfxCertificatePasswordClearSecretInfoModel {
+							if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAzurePfxCertificatePasswordClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -1012,11 +1221,64 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["gcp_cred_file"].(map[string]interface{}); ok && isImport && data.GCPCredFile == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.GCPCredFile = &CloudCredentialsGCPCredFileModel{}
+	if blockData, ok := apiResource.Spec["gcp_cred_file"].(map[string]interface{}); ok && (isImport || data.GCPCredFile != nil) {
+		data.GCPCredFile = &CloudCredentialsGCPCredFileModel{
+			CredentialFile: func() *CloudCredentialsGCPCredFileCredentialFileModel {
+				if !isImport && data.GCPCredFile != nil && data.GCPCredFile.CredentialFile != nil {
+					return data.GCPCredFile.CredentialFile
+				}
+				if CredentialFileData, ok := blockData["credential_file"].(map[string]interface{}); ok {
+					return &CloudCredentialsGCPCredFileCredentialFileModel{
+						BlindfoldSecretInfo: func() *CloudCredentialsGCPCredFileCredentialFileBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := CredentialFileData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsGCPCredFileCredentialFileBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *CloudCredentialsGCPCredFileCredentialFileClearSecretInfoModel {
+							if ClearSecretInfoData, ok := CredentialFileData["clear_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsGCPCredFileCredentialFileClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 
 	tflog.Trace(ctx, "created CloudCredentials resource")
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -1107,27 +1369,17 @@ func (r *CloudCredentialsResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			DurationSeconds: func() types.Int64 {
 				if !isImport && data.AWSAssumeRole != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.AWSAssumeRole.DurationSeconds
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["duration_seconds"].(float64); ok {
+				if v, ok := blockData["duration_seconds"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			ExternalIDIsOptional: func() *CloudCredentialsEmptyModel {
 				if !isImport && data.AWSAssumeRole != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.AWSAssumeRole.ExternalIDIsOptional
 				}
-				// Import case: read from API
 				if _, ok := blockData["external_id_is_optional"].(map[string]interface{}); ok {
 					return &CloudCredentialsEmptyModel{}
 				}
@@ -1135,11 +1387,8 @@ func (r *CloudCredentialsResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			ExternalIDIsTenantID: func() *CloudCredentialsEmptyModel {
 				if !isImport && data.AWSAssumeRole != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.AWSAssumeRole.ExternalIDIsTenantID
 				}
-				// Import case: read from API
 				if _, ok := blockData["external_id_is_tenant_id"].(map[string]interface{}); ok {
 					return &CloudCredentialsEmptyModel{}
 				}
@@ -1159,11 +1408,8 @@ func (r *CloudCredentialsResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			SessionTags: func() *CloudCredentialsEmptyModel {
 				if !isImport && data.AWSAssumeRole != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.AWSAssumeRole.SessionTags
 				}
-				// Import case: read from API
 				if _, ok := blockData["session_tags"].(map[string]interface{}); ok {
 					return &CloudCredentialsEmptyModel{}
 				}
@@ -1181,12 +1427,55 @@ func (r *CloudCredentialsResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			SecretKey: func() *CloudCredentialsAWSSecretKeySecretKeyModel {
 				if !isImport && data.AWSSecretKey != nil && data.AWSSecretKey.SecretKey != nil {
-					// Normal Read: preserve existing state value
 					return data.AWSSecretKey.SecretKey
 				}
-				// Import case: read from API
-				if _, ok := blockData["secret_key"].(map[string]interface{}); ok {
-					return &CloudCredentialsAWSSecretKeySecretKeyModel{}
+				if SecretKeyData, ok := blockData["secret_key"].(map[string]interface{}); ok {
+					return &CloudCredentialsAWSSecretKeySecretKeyModel{
+						BlindfoldSecretInfo: func() *CloudCredentialsAWSSecretKeySecretKeyBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := SecretKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAWSSecretKeySecretKeyBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *CloudCredentialsAWSSecretKeySecretKeyClearSecretInfoModel {
+							if ClearSecretInfoData, ok := SecretKeyData["clear_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAWSSecretKeySecretKeyClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -1202,12 +1491,55 @@ func (r *CloudCredentialsResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			ClientSecret: func() *CloudCredentialsAzureClientSecretClientSecretModel {
 				if !isImport && data.AzureClientSecret != nil && data.AzureClientSecret.ClientSecret != nil {
-					// Normal Read: preserve existing state value
 					return data.AzureClientSecret.ClientSecret
 				}
-				// Import case: read from API
-				if _, ok := blockData["client_secret"].(map[string]interface{}); ok {
-					return &CloudCredentialsAzureClientSecretClientSecretModel{}
+				if ClientSecretData, ok := blockData["client_secret"].(map[string]interface{}); ok {
+					return &CloudCredentialsAzureClientSecretClientSecretModel{
+						BlindfoldSecretInfo: func() *CloudCredentialsAzureClientSecretClientSecretBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := ClientSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAzureClientSecretClientSecretBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *CloudCredentialsAzureClientSecretClientSecretClearSecretInfoModel {
+							if ClearSecretInfoData, ok := ClientSecretData["clear_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAzureClientSecretClientSecretClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -1241,12 +1573,55 @@ func (r *CloudCredentialsResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 			Password: func() *CloudCredentialsAzurePfxCertificatePasswordModel {
 				if !isImport && data.AzurePfxCertificate != nil && data.AzurePfxCertificate.Password != nil {
-					// Normal Read: preserve existing state value
 					return data.AzurePfxCertificate.Password
 				}
-				// Import case: read from API
-				if _, ok := blockData["password"].(map[string]interface{}); ok {
-					return &CloudCredentialsAzurePfxCertificatePasswordModel{}
+				if PasswordData, ok := blockData["password"].(map[string]interface{}); ok {
+					return &CloudCredentialsAzurePfxCertificatePasswordModel{
+						BlindfoldSecretInfo: func() *CloudCredentialsAzurePfxCertificatePasswordBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAzurePfxCertificatePasswordBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *CloudCredentialsAzurePfxCertificatePasswordClearSecretInfoModel {
+							if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAzurePfxCertificatePasswordClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -1264,11 +1639,72 @@ func (r *CloudCredentialsResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["gcp_cred_file"].(map[string]interface{}); ok && isImport && data.GCPCredFile == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.GCPCredFile = &CloudCredentialsGCPCredFileModel{}
+	if blockData, ok := apiResource.Spec["gcp_cred_file"].(map[string]interface{}); ok && (isImport || data.GCPCredFile != nil) {
+		data.GCPCredFile = &CloudCredentialsGCPCredFileModel{
+			CredentialFile: func() *CloudCredentialsGCPCredFileCredentialFileModel {
+				if !isImport && data.GCPCredFile != nil && data.GCPCredFile.CredentialFile != nil {
+					return data.GCPCredFile.CredentialFile
+				}
+				if CredentialFileData, ok := blockData["credential_file"].(map[string]interface{}); ok {
+					return &CloudCredentialsGCPCredFileCredentialFileModel{
+						BlindfoldSecretInfo: func() *CloudCredentialsGCPCredFileCredentialFileBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := CredentialFileData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsGCPCredFileCredentialFileBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *CloudCredentialsGCPCredFileCredentialFileClearSecretInfoModel {
+							if ClearSecretInfoData, ok := CredentialFileData["clear_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsGCPCredFileCredentialFileClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
+	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
@@ -1321,85 +1757,177 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.AWSAssumeRole != nil {
-		aws_assume_roleMap := make(map[string]interface{})
+		AWSAssumeRoleMap := make(map[string]interface{})
 		if !data.AWSAssumeRole.CustomExternalID.IsNull() && !data.AWSAssumeRole.CustomExternalID.IsUnknown() {
-			aws_assume_roleMap["custom_external_id"] = data.AWSAssumeRole.CustomExternalID.ValueString()
+			AWSAssumeRoleMap["custom_external_id"] = data.AWSAssumeRole.CustomExternalID.ValueString()
 		}
 		if !data.AWSAssumeRole.DurationSeconds.IsNull() && !data.AWSAssumeRole.DurationSeconds.IsUnknown() {
-			aws_assume_roleMap["duration_seconds"] = data.AWSAssumeRole.DurationSeconds.ValueInt64()
+			AWSAssumeRoleMap["duration_seconds"] = data.AWSAssumeRole.DurationSeconds.ValueInt64()
 		}
 		if data.AWSAssumeRole.ExternalIDIsOptional != nil {
-			aws_assume_roleMap["external_id_is_optional"] = map[string]interface{}{}
+			AWSAssumeRoleMap["external_id_is_optional"] = map[string]interface{}{}
 		}
 		if data.AWSAssumeRole.ExternalIDIsTenantID != nil {
-			aws_assume_roleMap["external_id_is_tenant_id"] = map[string]interface{}{}
+			AWSAssumeRoleMap["external_id_is_tenant_id"] = map[string]interface{}{}
 		}
 		if !data.AWSAssumeRole.RoleArn.IsNull() && !data.AWSAssumeRole.RoleArn.IsUnknown() {
-			aws_assume_roleMap["role_arn"] = data.AWSAssumeRole.RoleArn.ValueString()
+			AWSAssumeRoleMap["role_arn"] = data.AWSAssumeRole.RoleArn.ValueString()
 		}
 		if !data.AWSAssumeRole.SessionName.IsNull() && !data.AWSAssumeRole.SessionName.IsUnknown() {
-			aws_assume_roleMap["session_name"] = data.AWSAssumeRole.SessionName.ValueString()
+			AWSAssumeRoleMap["session_name"] = data.AWSAssumeRole.SessionName.ValueString()
 		}
 		if data.AWSAssumeRole.SessionTags != nil {
-			aws_assume_roleMap["session_tags"] = map[string]interface{}{}
+			AWSAssumeRoleMap["session_tags"] = map[string]interface{}{}
 		}
-		apiResource.Spec["aws_assume_role"] = aws_assume_roleMap
+		apiResource.Spec["aws_assume_role"] = AWSAssumeRoleMap
 	}
 	if data.AWSSecretKey != nil {
-		aws_secret_keyMap := make(map[string]interface{})
+		AWSSecretKeyMap := make(map[string]interface{})
 		if !data.AWSSecretKey.AccessKey.IsNull() && !data.AWSSecretKey.AccessKey.IsUnknown() {
-			aws_secret_keyMap["access_key"] = data.AWSSecretKey.AccessKey.ValueString()
+			AWSSecretKeyMap["access_key"] = data.AWSSecretKey.AccessKey.ValueString()
 		}
 		if data.AWSSecretKey.SecretKey != nil {
-			secret_keyNestedMap := make(map[string]interface{})
-			aws_secret_keyMap["secret_key"] = secret_keyNestedMap
+			SecretKeyMap := make(map[string]interface{})
+			if data.AWSSecretKey.SecretKey.BlindfoldSecretInfo != nil {
+				BlindfoldSecretInfoMap := make(map[string]interface{})
+				if !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["decryption_provider"] = data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				}
+				if !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.Location.IsNull() && !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.Location.IsUnknown() {
+					BlindfoldSecretInfoMap["location"] = data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.Location.ValueString()
+				}
+				if !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["store_provider"] = data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+				}
+				SecretKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			}
+			if data.AWSSecretKey.SecretKey.ClearSecretInfo != nil {
+				ClearSecretInfoMap := make(map[string]interface{})
+				if !data.AWSSecretKey.SecretKey.ClearSecretInfo.Provider.IsNull() && !data.AWSSecretKey.SecretKey.ClearSecretInfo.Provider.IsUnknown() {
+					ClearSecretInfoMap["provider"] = data.AWSSecretKey.SecretKey.ClearSecretInfo.Provider.ValueString()
+				}
+				if !data.AWSSecretKey.SecretKey.ClearSecretInfo.URL.IsNull() && !data.AWSSecretKey.SecretKey.ClearSecretInfo.URL.IsUnknown() {
+					ClearSecretInfoMap["url"] = data.AWSSecretKey.SecretKey.ClearSecretInfo.URL.ValueString()
+				}
+				SecretKeyMap["clear_secret_info"] = ClearSecretInfoMap
+			}
+			AWSSecretKeyMap["secret_key"] = SecretKeyMap
 		}
-		apiResource.Spec["aws_secret_key"] = aws_secret_keyMap
+		apiResource.Spec["aws_secret_key"] = AWSSecretKeyMap
 	}
 	if data.AzureClientSecret != nil {
-		azure_client_secretMap := make(map[string]interface{})
+		AzureClientSecretMap := make(map[string]interface{})
 		if !data.AzureClientSecret.ClientID.IsNull() && !data.AzureClientSecret.ClientID.IsUnknown() {
-			azure_client_secretMap["client_id"] = data.AzureClientSecret.ClientID.ValueString()
+			AzureClientSecretMap["client_id"] = data.AzureClientSecret.ClientID.ValueString()
 		}
 		if data.AzureClientSecret.ClientSecret != nil {
-			client_secretNestedMap := make(map[string]interface{})
-			azure_client_secretMap["client_secret"] = client_secretNestedMap
+			ClientSecretMap := make(map[string]interface{})
+			if data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo != nil {
+				BlindfoldSecretInfoMap := make(map[string]interface{})
+				if !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["decryption_provider"] = data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				}
+				if !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.Location.IsNull() && !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.Location.IsUnknown() {
+					BlindfoldSecretInfoMap["location"] = data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.Location.ValueString()
+				}
+				if !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["store_provider"] = data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
+				}
+				ClientSecretMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			}
+			if data.AzureClientSecret.ClientSecret.ClearSecretInfo != nil {
+				ClearSecretInfoMap := make(map[string]interface{})
+				if !data.AzureClientSecret.ClientSecret.ClearSecretInfo.Provider.IsNull() && !data.AzureClientSecret.ClientSecret.ClearSecretInfo.Provider.IsUnknown() {
+					ClearSecretInfoMap["provider"] = data.AzureClientSecret.ClientSecret.ClearSecretInfo.Provider.ValueString()
+				}
+				if !data.AzureClientSecret.ClientSecret.ClearSecretInfo.URL.IsNull() && !data.AzureClientSecret.ClientSecret.ClearSecretInfo.URL.IsUnknown() {
+					ClearSecretInfoMap["url"] = data.AzureClientSecret.ClientSecret.ClearSecretInfo.URL.ValueString()
+				}
+				ClientSecretMap["clear_secret_info"] = ClearSecretInfoMap
+			}
+			AzureClientSecretMap["client_secret"] = ClientSecretMap
 		}
 		if !data.AzureClientSecret.SubscriptionID.IsNull() && !data.AzureClientSecret.SubscriptionID.IsUnknown() {
-			azure_client_secretMap["subscription_id"] = data.AzureClientSecret.SubscriptionID.ValueString()
+			AzureClientSecretMap["subscription_id"] = data.AzureClientSecret.SubscriptionID.ValueString()
 		}
 		if !data.AzureClientSecret.TenantID.IsNull() && !data.AzureClientSecret.TenantID.IsUnknown() {
-			azure_client_secretMap["tenant_id"] = data.AzureClientSecret.TenantID.ValueString()
+			AzureClientSecretMap["tenant_id"] = data.AzureClientSecret.TenantID.ValueString()
 		}
-		apiResource.Spec["azure_client_secret"] = azure_client_secretMap
+		apiResource.Spec["azure_client_secret"] = AzureClientSecretMap
 	}
 	if data.AzurePfxCertificate != nil {
-		azure_pfx_certificateMap := make(map[string]interface{})
+		AzurePfxCertificateMap := make(map[string]interface{})
 		if !data.AzurePfxCertificate.CertificateURL.IsNull() && !data.AzurePfxCertificate.CertificateURL.IsUnknown() {
-			azure_pfx_certificateMap["certificate_url"] = data.AzurePfxCertificate.CertificateURL.ValueString()
+			AzurePfxCertificateMap["certificate_url"] = data.AzurePfxCertificate.CertificateURL.ValueString()
 		}
 		if !data.AzurePfxCertificate.ClientID.IsNull() && !data.AzurePfxCertificate.ClientID.IsUnknown() {
-			azure_pfx_certificateMap["client_id"] = data.AzurePfxCertificate.ClientID.ValueString()
+			AzurePfxCertificateMap["client_id"] = data.AzurePfxCertificate.ClientID.ValueString()
 		}
 		if data.AzurePfxCertificate.Password != nil {
-			passwordNestedMap := make(map[string]interface{})
-			azure_pfx_certificateMap["password"] = passwordNestedMap
+			PasswordMap := make(map[string]interface{})
+			if data.AzurePfxCertificate.Password.BlindfoldSecretInfo != nil {
+				BlindfoldSecretInfoMap := make(map[string]interface{})
+				if !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["decryption_provider"] = data.AzurePfxCertificate.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				}
+				if !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.Location.IsNull() && !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+					BlindfoldSecretInfoMap["location"] = data.AzurePfxCertificate.Password.BlindfoldSecretInfo.Location.ValueString()
+				}
+				if !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["store_provider"] = data.AzurePfxCertificate.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+				}
+				PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			}
+			if data.AzurePfxCertificate.Password.ClearSecretInfo != nil {
+				ClearSecretInfoMap := make(map[string]interface{})
+				if !data.AzurePfxCertificate.Password.ClearSecretInfo.Provider.IsNull() && !data.AzurePfxCertificate.Password.ClearSecretInfo.Provider.IsUnknown() {
+					ClearSecretInfoMap["provider"] = data.AzurePfxCertificate.Password.ClearSecretInfo.Provider.ValueString()
+				}
+				if !data.AzurePfxCertificate.Password.ClearSecretInfo.URL.IsNull() && !data.AzurePfxCertificate.Password.ClearSecretInfo.URL.IsUnknown() {
+					ClearSecretInfoMap["url"] = data.AzurePfxCertificate.Password.ClearSecretInfo.URL.ValueString()
+				}
+				PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+			}
+			AzurePfxCertificateMap["password"] = PasswordMap
 		}
 		if !data.AzurePfxCertificate.SubscriptionID.IsNull() && !data.AzurePfxCertificate.SubscriptionID.IsUnknown() {
-			azure_pfx_certificateMap["subscription_id"] = data.AzurePfxCertificate.SubscriptionID.ValueString()
+			AzurePfxCertificateMap["subscription_id"] = data.AzurePfxCertificate.SubscriptionID.ValueString()
 		}
 		if !data.AzurePfxCertificate.TenantID.IsNull() && !data.AzurePfxCertificate.TenantID.IsUnknown() {
-			azure_pfx_certificateMap["tenant_id"] = data.AzurePfxCertificate.TenantID.ValueString()
+			AzurePfxCertificateMap["tenant_id"] = data.AzurePfxCertificate.TenantID.ValueString()
 		}
-		apiResource.Spec["azure_pfx_certificate"] = azure_pfx_certificateMap
+		apiResource.Spec["azure_pfx_certificate"] = AzurePfxCertificateMap
 	}
 	if data.GCPCredFile != nil {
-		gcp_cred_fileMap := make(map[string]interface{})
+		GCPCredFileMap := make(map[string]interface{})
 		if data.GCPCredFile.CredentialFile != nil {
-			credential_fileNestedMap := make(map[string]interface{})
-			gcp_cred_fileMap["credential_file"] = credential_fileNestedMap
+			CredentialFileMap := make(map[string]interface{})
+			if data.GCPCredFile.CredentialFile.BlindfoldSecretInfo != nil {
+				BlindfoldSecretInfoMap := make(map[string]interface{})
+				if !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["decryption_provider"] = data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				}
+				if !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.Location.IsNull() && !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.Location.IsUnknown() {
+					BlindfoldSecretInfoMap["location"] = data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.Location.ValueString()
+				}
+				if !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["store_provider"] = data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.StoreProvider.ValueString()
+				}
+				CredentialFileMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			}
+			if data.GCPCredFile.CredentialFile.ClearSecretInfo != nil {
+				ClearSecretInfoMap := make(map[string]interface{})
+				if !data.GCPCredFile.CredentialFile.ClearSecretInfo.Provider.IsNull() && !data.GCPCredFile.CredentialFile.ClearSecretInfo.Provider.IsUnknown() {
+					ClearSecretInfoMap["provider"] = data.GCPCredFile.CredentialFile.ClearSecretInfo.Provider.ValueString()
+				}
+				if !data.GCPCredFile.CredentialFile.ClearSecretInfo.URL.IsNull() && !data.GCPCredFile.CredentialFile.ClearSecretInfo.URL.IsUnknown() {
+					ClearSecretInfoMap["url"] = data.GCPCredFile.CredentialFile.ClearSecretInfo.URL.ValueString()
+				}
+				CredentialFileMap["clear_secret_info"] = ClearSecretInfoMap
+			}
+			GCPCredFileMap["credential_file"] = CredentialFileMap
 		}
-		apiResource.Spec["gcp_cred_file"] = gcp_cred_fileMap
+		apiResource.Spec["gcp_cred_file"] = GCPCredFileMap
 	}
 
 	_, err := r.client.UpdateCloudCredentials(ctx, apiResource)
@@ -1435,27 +1963,17 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			DurationSeconds: func() types.Int64 {
 				if !isImport && data.AWSAssumeRole != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.AWSAssumeRole.DurationSeconds
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["duration_seconds"].(float64); ok {
+				if v, ok := blockData["duration_seconds"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			ExternalIDIsOptional: func() *CloudCredentialsEmptyModel {
 				if !isImport && data.AWSAssumeRole != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.AWSAssumeRole.ExternalIDIsOptional
 				}
-				// Import case: read from API
 				if _, ok := blockData["external_id_is_optional"].(map[string]interface{}); ok {
 					return &CloudCredentialsEmptyModel{}
 				}
@@ -1463,11 +1981,8 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			ExternalIDIsTenantID: func() *CloudCredentialsEmptyModel {
 				if !isImport && data.AWSAssumeRole != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.AWSAssumeRole.ExternalIDIsTenantID
 				}
-				// Import case: read from API
 				if _, ok := blockData["external_id_is_tenant_id"].(map[string]interface{}); ok {
 					return &CloudCredentialsEmptyModel{}
 				}
@@ -1487,11 +2002,8 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			SessionTags: func() *CloudCredentialsEmptyModel {
 				if !isImport && data.AWSAssumeRole != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.AWSAssumeRole.SessionTags
 				}
-				// Import case: read from API
 				if _, ok := blockData["session_tags"].(map[string]interface{}); ok {
 					return &CloudCredentialsEmptyModel{}
 				}
@@ -1509,12 +2021,55 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			SecretKey: func() *CloudCredentialsAWSSecretKeySecretKeyModel {
 				if !isImport && data.AWSSecretKey != nil && data.AWSSecretKey.SecretKey != nil {
-					// Normal Read: preserve existing state value
 					return data.AWSSecretKey.SecretKey
 				}
-				// Import case: read from API
-				if _, ok := blockData["secret_key"].(map[string]interface{}); ok {
-					return &CloudCredentialsAWSSecretKeySecretKeyModel{}
+				if SecretKeyData, ok := blockData["secret_key"].(map[string]interface{}); ok {
+					return &CloudCredentialsAWSSecretKeySecretKeyModel{
+						BlindfoldSecretInfo: func() *CloudCredentialsAWSSecretKeySecretKeyBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := SecretKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAWSSecretKeySecretKeyBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *CloudCredentialsAWSSecretKeySecretKeyClearSecretInfoModel {
+							if ClearSecretInfoData, ok := SecretKeyData["clear_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAWSSecretKeySecretKeyClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -1530,12 +2085,55 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			ClientSecret: func() *CloudCredentialsAzureClientSecretClientSecretModel {
 				if !isImport && data.AzureClientSecret != nil && data.AzureClientSecret.ClientSecret != nil {
-					// Normal Read: preserve existing state value
 					return data.AzureClientSecret.ClientSecret
 				}
-				// Import case: read from API
-				if _, ok := blockData["client_secret"].(map[string]interface{}); ok {
-					return &CloudCredentialsAzureClientSecretClientSecretModel{}
+				if ClientSecretData, ok := blockData["client_secret"].(map[string]interface{}); ok {
+					return &CloudCredentialsAzureClientSecretClientSecretModel{
+						BlindfoldSecretInfo: func() *CloudCredentialsAzureClientSecretClientSecretBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := ClientSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAzureClientSecretClientSecretBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *CloudCredentialsAzureClientSecretClientSecretClearSecretInfoModel {
+							if ClearSecretInfoData, ok := ClientSecretData["clear_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAzureClientSecretClientSecretClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -1569,12 +2167,55 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 			}(),
 			Password: func() *CloudCredentialsAzurePfxCertificatePasswordModel {
 				if !isImport && data.AzurePfxCertificate != nil && data.AzurePfxCertificate.Password != nil {
-					// Normal Read: preserve existing state value
 					return data.AzurePfxCertificate.Password
 				}
-				// Import case: read from API
-				if _, ok := blockData["password"].(map[string]interface{}); ok {
-					return &CloudCredentialsAzurePfxCertificatePasswordModel{}
+				if PasswordData, ok := blockData["password"].(map[string]interface{}); ok {
+					return &CloudCredentialsAzurePfxCertificatePasswordModel{
+						BlindfoldSecretInfo: func() *CloudCredentialsAzurePfxCertificatePasswordBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAzurePfxCertificatePasswordBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *CloudCredentialsAzurePfxCertificatePasswordClearSecretInfoModel {
+							if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAzurePfxCertificatePasswordClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -1592,11 +2233,64 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["gcp_cred_file"].(map[string]interface{}); ok && isImport && data.GCPCredFile == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.GCPCredFile = &CloudCredentialsGCPCredFileModel{}
+	if blockData, ok := apiResource.Spec["gcp_cred_file"].(map[string]interface{}); ok && (isImport || data.GCPCredFile != nil) {
+		data.GCPCredFile = &CloudCredentialsGCPCredFileModel{
+			CredentialFile: func() *CloudCredentialsGCPCredFileCredentialFileModel {
+				if !isImport && data.GCPCredFile != nil && data.GCPCredFile.CredentialFile != nil {
+					return data.GCPCredFile.CredentialFile
+				}
+				if CredentialFileData, ok := blockData["credential_file"].(map[string]interface{}); ok {
+					return &CloudCredentialsGCPCredFileCredentialFileModel{
+						BlindfoldSecretInfo: func() *CloudCredentialsGCPCredFileCredentialFileBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := CredentialFileData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsGCPCredFileCredentialFileBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *CloudCredentialsGCPCredFileCredentialFileClearSecretInfoModel {
+							if ClearSecretInfoData, ok := CredentialFileData["clear_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsGCPCredFileCredentialFileClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }

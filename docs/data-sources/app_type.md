@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_app_type Data Source - terraform-provider-f5xc"
+page_title: "xcsh_app_type Data Source - xcsh"
 subcategory: "Applications"
 description: |-
   Retrieves information about App type will create the configuration in namespace metadata.namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_app_type (Data Source)
+# xcsh_app_type (Data Source)
 
 Manages App type will create the configuration in namespace metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
 
@@ -14,28 +14,23 @@ Manages App type will create the configuration in namespace metadata.namespace. 
 ## Example Usage
 
 ```terraform
-# App Type Data Source Example
-# Retrieves information about an existing App Type
+# AppType Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing App Type by name
-data "f5xc_app_type" "example" {
+# Look up an existing AppType by name
+data "xcsh_app_type" "example" {
   name      = "example-app-type"
   namespace = "staging"
-}
-
-output "app_type_id" {
-  value = data.f5xc_app_type.example.id
 }
 ```
 

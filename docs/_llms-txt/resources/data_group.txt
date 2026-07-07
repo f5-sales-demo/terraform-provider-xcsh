@@ -1,4 +1,4 @@
-# f5xc_data_group
+# xcsh_data_group
 
 Category: BIG-IP Integration
 Data group in a given namespace. If one already exists it will give an error
@@ -11,25 +11,9 @@ Data group in a given namespace. If one already exists it will give an error
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_data_group" "example" {
+resource "xcsh_data_group" "example" {
   name      = "example-data-group"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  address_records {
-  }
-  records {
-  }
-  integer_records {
-  }
 }
 ```
 

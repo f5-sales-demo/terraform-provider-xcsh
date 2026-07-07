@@ -1,4 +1,4 @@
-# f5xc_site
+# xcsh_site
 
 Category: Sites
 Virtual site object in given namespace
@@ -6,27 +6,16 @@ Virtual site object in given namespace
 ## Required
 
 - name
-- namespace
 - site_type
 
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_site" "example" {
+resource "xcsh_site" "example" {
   name      = "example-site"
-  namespace = "staging"
+  namespace = "system"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  site_selector {
-  }
+  site_type = "INVALID"
 }
 ```
 

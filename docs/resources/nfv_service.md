@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_nfv_service Resource - terraform-provider-f5xc"
+page_title: "xcsh_nfv_service Resource - xcsh"
 subcategory: "Networking"
 description: |-
   Manages new NFV service with configured parameters. in F5 Distributed Cloud.
 ---
 
-# f5xc_nfv_service (Resource)
+# xcsh_nfv_service (Resource)
 
 Manages new NFV service with configured parameters. in F5 Distributed Cloud.
 
@@ -14,47 +14,24 @@ Manages new NFV service with configured parameters. in F5 Distributed Cloud.
 ## Example Usage
 
 ```terraform
-# Nfv Service Resource Example
-# Manages new NFV service with configured parameters. in F5 Distributed Cloud.
+# NfvService Resource Example
+# Manages new NFV service with configured parameters.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Nfv Service configuration
-resource "f5xc_nfv_service" "example" {
+# Basic NfvService configuration
+resource "xcsh_nfv_service" "example" {
   name      = "example-nfv-service"
-  namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # [OneOf: disable_https_management, https_management; Defau...
-  disable_https_management {
-    # Configure disable_https_management settings
-  }
-  # [OneOf: disable_ssh_access, enabled_ssh_access; Default: ...
-  disable_ssh_access {
-    # Configure disable_ssh_access settings
-  }
-  # Configuration parameter for enabled ssh access.
-  enabled_ssh_access {
-    # Configure enabled_ssh_access settings
-  }
+  namespace = "system"
 }
 ```
 
@@ -69,8 +46,6 @@ resource "f5xc_nfv_service" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Nfv Service. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Nfv Service will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -78,6 +53,8 @@ resource "f5xc_nfv_service" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Nfv Service. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -728,5 +705,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_nfv_service.example system/example
+terraform import xcsh_nfv_service.example system/example
 ```

@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_workload_flavor Resource - terraform-provider-f5xc"
+page_title: "xcsh_workload_flavor Resource - xcsh"
 subcategory: "Kubernetes"
 description: |-
   Manages workload_flavor. in F5 Distributed Cloud.
 ---
 
-# f5xc_workload_flavor (Resource)
+# xcsh_workload_flavor (Resource)
 
 Manages workload_flavor. in F5 Distributed Cloud.
 
@@ -14,37 +14,28 @@ Manages workload_flavor. in F5 Distributed Cloud.
 ## Example Usage
 
 ```terraform
-# Workload Flavor Resource Example
-# Manages workload_flavor. in F5 Distributed Cloud.
+# WorkloadFlavor Resource Example
+# Manages workload_flavor.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Workload Flavor configuration
-resource "f5xc_workload_flavor" "example" {
+# Basic WorkloadFlavor configuration
+resource "xcsh_workload_flavor" "example" {
   name      = "example-workload-flavor"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
+  ephemeral_storage = "example-value"
+  memory            = "example-value"
   vcpus             = 1
-  memory            = "1024"
-  ephemeral_storage = "1024"
 }
 ```
 
@@ -188,5 +179,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_workload_flavor.example system/example
+terraform import xcsh_workload_flavor.example system/example
 ```

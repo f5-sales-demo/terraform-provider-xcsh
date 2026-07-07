@@ -1,41 +1,36 @@
 ---
-page_title: "f5xc_network_policy Data Source - terraform-provider-f5xc"
+page_title: "xcsh_network_policy Data Source - xcsh"
 subcategory: "Security"
 description: |-
   Retrieves information about an existing network policy with configured parameters in specified namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_network_policy (Data Source)
+# xcsh_network_policy (Data Source)
 
 Retrieves information about new network policy with configured parameters in specified namespace. in F5 Distributed Cloud. This is a read-only data source.
 
-~> **Note** Please refer to [Network Policy API docs](https://f5xc-salesdemos.GitHub.io/api-specs-enriched/api-reference/network_security/) to learn more.
+~> **Note** Please refer to [Network Policy API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/network_security/) to learn more.
 
 ## Example Usage
 
 ```terraform
-# Network Policy Data Source Example
-# Retrieves information about an existing Network Policy
+# NetworkPolicy Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Network Policy by name
-data "f5xc_network_policy" "example" {
+# Look up an existing NetworkPolicy by name
+data "xcsh_network_policy" "example" {
   name      = "example-network-policy"
   namespace = "staging"
-}
-
-output "network_policy_id" {
-  value = data.f5xc_network_policy.example.id
 }
 ```
 

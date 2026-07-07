@@ -1,4 +1,4 @@
-# f5xc_network_policy
+# xcsh_network_policy
 
 Category: Security
 New network policy with configured parameters in specified namespace
@@ -11,42 +11,9 @@ New network policy with configured parameters in specified namespace
 ## Minimal Valid Config
 
 ```terraform
-resource "f5xc_network_policy" "example" {
+resource "xcsh_network_policy" "example" {
   name      = "example-network-policy"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  endpoint {
-    any {}
-  }
-
-  ingress_rules {
-    metadata {
-      name = "allow-http"
-    }
-    spec {
-      action = "ALLOW"
-      any    = {}
-    }
-  }
-
-  egress_rules {
-    metadata {
-      name = "allow-all-egress"
-    }
-    spec {
-      action = "ALLOW"
-      any    = {}
-    }
-  }
 }
 ```
 

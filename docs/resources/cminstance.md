@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_cminstance Resource - terraform-provider-f5xc"
+page_title: "xcsh_cminstance Resource - xcsh"
 subcategory: "Subscriptions"
 description: |-
   Manages App type will create the configuration in namespace metadata.namespace. in F5 Distributed Cloud.
 ---
 
-# f5xc_cminstance (Resource)
+# xcsh_cminstance (Resource)
 
 Manages App type will create the configuration in namespace metadata.namespace. in F5 Distributed Cloud.
 
@@ -15,46 +15,26 @@ Manages App type will create the configuration in namespace metadata.namespace. 
 
 ```terraform
 # Cminstance Resource Example
-# Manages App type will create the configuration in namespace metadata.namespace. in F5 Distributed Cloud.
+# Manages App type will create the configuration in namespace metadata.namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
-    f5xc = {
-      source  = "f5xc-salesdemos/f5xc"
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
 # Basic Cminstance configuration
-resource "f5xc_cminstance" "example" {
+resource "xcsh_cminstance" "example" {
   name      = "example-cminstance"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # SecretType is used in an object to indicate a sensitive/c...
-  api_token {
-    # Configure api_token settings
-  }
-  # BlindfoldSecretInfoType specifies information about the S...
-  blindfold_secret_info {
-    # Configure blindfold_secret_info settings
-  }
-  # ClearSecretInfoType specifies information about the Secre...
-  clear_secret_info {
-    # Configure clear_secret_info settings
-  }
+  port     = 1
+  username = "example-value"
 }
 ```
 
@@ -260,5 +240,5 @@ Import is supported using the following syntax:
 
 ```shell
 # Import using namespace/name format
-terraform import f5xc_cminstance.example system/example
+terraform import xcsh_cminstance.example system/example
 ```

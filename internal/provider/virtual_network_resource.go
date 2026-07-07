@@ -18,14 +18,15 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/client"
-	inttimeouts "github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/timeouts"
-	"github.com/f5xc-salesdemos/terraform-provider-f5xc/internal/validators"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 // Ensure provider defined types fully satisfy framework interfaces.
@@ -69,7 +70,7 @@ var VirtualNetworkStaticRoutesModelAttrTypes = map[string]attr.Type{
 
 // VirtualNetworkStaticRoutesNodeInterfaceModel represents node_interface block
 type VirtualNetworkStaticRoutesNodeInterfaceModel struct {
-	List []VirtualNetworkStaticRoutesNodeInterfaceListModel `tfsdk:"list"`
+	List types.List `tfsdk:"list"`
 }
 
 // VirtualNetworkStaticRoutesNodeInterfaceModelAttrTypes defines the attribute types for VirtualNetworkStaticRoutesNodeInterfaceModel
@@ -79,8 +80,8 @@ var VirtualNetworkStaticRoutesNodeInterfaceModelAttrTypes = map[string]attr.Type
 
 // VirtualNetworkStaticRoutesNodeInterfaceListModel represents list block
 type VirtualNetworkStaticRoutesNodeInterfaceListModel struct {
-	Node      types.String                                                `tfsdk:"node"`
-	Interface []VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModel `tfsdk:"interface"`
+	Node      types.String `tfsdk:"node"`
+	Interface types.List   `tfsdk:"interface"`
 }
 
 // VirtualNetworkStaticRoutesNodeInterfaceListModelAttrTypes defines the attribute types for VirtualNetworkStaticRoutesNodeInterfaceListModel
@@ -142,13 +143,16 @@ func (r *VirtualNetworkResource) Schema(ctx context.Context, req resource.Schema
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Virtual Network will be created.",
-				Required:            true,
+				MarkdownDescription: "Namespace for the Virtual Network. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
+				Optional:            true,
+				Computed:            true,
+				Default:             stringdefault.StaticString("system"),
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
+					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
@@ -412,49 +416,93 @@ func (r *VirtualNetworkResource) Create(ctx context.Context, req resource.Create
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.GlobalNetwork != nil {
-		global_networkMap := make(map[string]interface{})
-		createReq.Spec["global_network"] = global_networkMap
+		createReq.Spec["global_network"] = map[string]interface{}{}
 	}
 	if data.SiteLocalInsideNetwork != nil {
-		site_local_inside_networkMap := make(map[string]interface{})
-		createReq.Spec["site_local_inside_network"] = site_local_inside_networkMap
+		createReq.Spec["site_local_inside_network"] = map[string]interface{}{}
 	}
 	if data.SiteLocalNetwork != nil {
-		site_local_networkMap := make(map[string]interface{})
-		createReq.Spec["site_local_network"] = site_local_networkMap
+		createReq.Spec["site_local_network"] = map[string]interface{}{}
 	}
 	if !data.StaticRoutes.IsNull() && !data.StaticRoutes.IsUnknown() {
-		var static_routesItems []VirtualNetworkStaticRoutesModel
-		diags := data.StaticRoutes.ElementsAs(ctx, &static_routesItems, false)
+		var StaticRoutesElems []VirtualNetworkStaticRoutesModel
+		diags := data.StaticRoutes.ElementsAs(ctx, &StaticRoutesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(static_routesItems) > 0 {
-			var static_routesList []map[string]interface{}
-			for _, item := range static_routesItems {
-				itemMap := make(map[string]interface{})
-				if item.DefaultGateway != nil {
-					itemMap["default_gateway"] = map[string]interface{}{}
-				}
-				if !item.IPAddress.IsNull() && !item.IPAddress.IsUnknown() {
-					itemMap["ip_address"] = item.IPAddress.ValueString()
-				}
-				if item.NodeInterface != nil {
-					node_interfaceNestedMap := make(map[string]interface{})
-					if len(item.NodeInterface.List) > 0 {
-						var listDeepList []map[string]interface{}
-						for _, deepListItem := range item.NodeInterface.List {
-							deepListItemMap := make(map[string]interface{})
-							if !deepListItem.Node.IsNull() && !deepListItem.Node.IsUnknown() {
-								deepListItemMap["node"] = deepListItem.Node.ValueString()
-							}
-							listDeepList = append(listDeepList, deepListItemMap)
-						}
-						node_interfaceNestedMap["list"] = listDeepList
+		if !resp.Diagnostics.HasError() && len(StaticRoutesElems) > 0 {
+			var StaticRoutesList []map[string]interface{}
+			for _, StaticRoutesItem := range StaticRoutesElems {
+				StaticRoutesItemMap := make(map[string]interface{})
+				if !StaticRoutesItem.Attrs.IsNull() && !StaticRoutesItem.Attrs.IsUnknown() {
+					var AttrsItems []string
+					diags := StaticRoutesItem.Attrs.ElementsAs(ctx, &AttrsItems, false)
+					if !diags.HasError() {
+						StaticRoutesItemMap["attrs"] = AttrsItems
 					}
-					itemMap["node_interface"] = node_interfaceNestedMap
 				}
-				static_routesList = append(static_routesList, itemMap)
+				if StaticRoutesItem.DefaultGateway != nil {
+					StaticRoutesItemMap["default_gateway"] = map[string]interface{}{}
+				}
+				if !StaticRoutesItem.IPAddress.IsNull() && !StaticRoutesItem.IPAddress.IsUnknown() {
+					StaticRoutesItemMap["ip_address"] = StaticRoutesItem.IPAddress.ValueString()
+				}
+				if !StaticRoutesItem.IPPrefixes.IsNull() && !StaticRoutesItem.IPPrefixes.IsUnknown() {
+					var IPPrefixesItems []string
+					diags := StaticRoutesItem.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+					if !diags.HasError() {
+						StaticRoutesItemMap["ip_prefixes"] = IPPrefixesItems
+					}
+				}
+				if StaticRoutesItem.NodeInterface != nil {
+					NodeInterfaceMap := make(map[string]interface{})
+					if !StaticRoutesItem.NodeInterface.List.IsNull() && !StaticRoutesItem.NodeInterface.List.IsUnknown() {
+						var ListElems []VirtualNetworkStaticRoutesNodeInterfaceListModel
+						diags := StaticRoutesItem.NodeInterface.List.ElementsAs(ctx, &ListElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(ListElems) > 0 {
+							var ListList []map[string]interface{}
+							for _, ListItem := range ListElems {
+								ListItemMap := make(map[string]interface{})
+								if !ListItem.Interface.IsNull() && !ListItem.Interface.IsUnknown() {
+									var InterfaceElems []VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModel
+									diags := ListItem.Interface.ElementsAs(ctx, &InterfaceElems, false)
+									resp.Diagnostics.Append(diags...)
+									if !resp.Diagnostics.HasError() && len(InterfaceElems) > 0 {
+										var InterfaceList []map[string]interface{}
+										for _, InterfaceItem := range InterfaceElems {
+											InterfaceItemMap := make(map[string]interface{})
+											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
+												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
+											}
+											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
+												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
+											}
+											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
+												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
+											}
+											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
+												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
+											}
+											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
+												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
+											}
+											InterfaceList = append(InterfaceList, InterfaceItemMap)
+										}
+										ListItemMap["interface"] = InterfaceList
+									}
+								}
+								if !ListItem.Node.IsNull() && !ListItem.Node.IsUnknown() {
+									ListItemMap["node"] = ListItem.Node.ValueString()
+								}
+								ListList = append(ListList, ListItemMap)
+							}
+							NodeInterfaceMap["list"] = ListList
+						}
+					}
+					StaticRoutesItemMap["node_interface"] = NodeInterfaceMap
+				}
+				StaticRoutesList = append(StaticRoutesList, StaticRoutesItemMap)
 			}
-			createReq.Spec["static_routes"] = static_routesList
+			createReq.Spec["static_routes"] = StaticRoutesList
 		}
 	}
 	if !data.LegacyType.IsNull() && !data.LegacyType.IsUnknown() {
@@ -474,30 +522,26 @@ func (r *VirtualNetworkResource) Create(ctx context.Context, req resource.Create
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["global_network"].(map[string]interface{}); ok && isImport && data.GlobalNetwork == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.GlobalNetwork = &VirtualNetworkEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["site_local_inside_network"].(map[string]interface{}); ok && isImport && data.SiteLocalInsideNetwork == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.SiteLocalInsideNetwork = &VirtualNetworkEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["site_local_network"].(map[string]interface{}); ok && isImport && data.SiteLocalNetwork == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.SiteLocalNetwork = &VirtualNetworkEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["static_routes"].([]interface{}); ok && len(listData) > 0 {
-		var static_routesList []VirtualNetworkStaticRoutesModel
+	if !isImport && (data.StaticRoutes.IsNull() || len(data.StaticRoutes.Elements()) == 0) {
+		data.StaticRoutes = types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["static_routes"].([]interface{}); ok && len(listData) > 0 {
+		var StaticRoutesList []VirtualNetworkStaticRoutesModel
 		var existingStaticRoutesItems []VirtualNetworkStaticRoutesModel
 		if !data.StaticRoutes.IsNull() && !data.StaticRoutes.IsUnknown() {
 			data.StaticRoutes.ElementsAs(ctx, &existingStaticRoutesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				static_routesList = append(static_routesList, VirtualNetworkStaticRoutesModel{
+				StaticRoutesList = append(StaticRoutesList, VirtualNetworkStaticRoutesModel{
 					Attrs: func() types.List {
 						if v, ok := itemMap["attrs"].([]interface{}); ok && len(v) > 0 {
 							var items []string
@@ -513,6 +557,9 @@ func (r *VirtualNetworkResource) Create(ctx context.Context, req resource.Create
 					}(),
 					DefaultGateway: func() *VirtualNetworkEmptyModel {
 						if !isImport && len(existingStaticRoutesItems) > listIdx && existingStaticRoutesItems[listIdx].DefaultGateway != nil {
+							return &VirtualNetworkEmptyModel{}
+						}
+						if _, ok := itemMap["default_gateway"].(map[string]interface{}); ok {
 							return &VirtualNetworkEmptyModel{}
 						}
 						return nil
@@ -537,21 +584,85 @@ func (r *VirtualNetworkResource) Create(ctx context.Context, req resource.Create
 						return types.ListNull(types.StringType)
 					}(),
 					NodeInterface: func() *VirtualNetworkStaticRoutesNodeInterfaceModel {
-						if _, ok := itemMap["node_interface"].(map[string]interface{}); ok {
-							return &VirtualNetworkStaticRoutesNodeInterfaceModel{}
+						if NodeInterfaceData, ok := itemMap["node_interface"].(map[string]interface{}); ok {
+							return &VirtualNetworkStaticRoutesNodeInterfaceModel{
+								List: func() types.List {
+									if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
+										var ListResult []VirtualNetworkStaticRoutesNodeInterfaceListModel
+										for _, ListItem := range rawList {
+											if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
+												ListResult = append(ListResult, VirtualNetworkStaticRoutesNodeInterfaceListModel{
+													Interface: func() types.List {
+														if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
+															var InterfaceResult []VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModel
+															for _, InterfaceItem := range rawList {
+																if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
+																	InterfaceResult = append(InterfaceResult, VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModel{
+																		Kind: func() types.String {
+																			if v, ok := InterfaceItemMap["kind"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Name: func() types.String {
+																			if v, ok := InterfaceItemMap["name"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Namespace: func() types.String {
+																			if v, ok := InterfaceItemMap["namespace"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Tenant: func() types.String {
+																			if v, ok := InterfaceItemMap["tenant"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Uid: func() types.String {
+																			if v, ok := InterfaceItemMap["uid"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																	})
+																}
+															}
+															listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModelAttrTypes}, InterfaceResult)
+															return listVal
+														}
+														return types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+													}(),
+													Node: func() types.String {
+														if v, ok := ListItemMap["node"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												})
+											}
+										}
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesNodeInterfaceListModelAttrTypes}, ListResult)
+										return listVal
+									}
+									return types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesNodeInterfaceListModelAttrTypes})
+								}(),
+							}
 						}
 						return nil
 					}(),
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesModelAttrTypes}, static_routesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesModelAttrTypes}, StaticRoutesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.StaticRoutes = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.StaticRoutes = types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesModelAttrTypes})
 	}
 	if v, ok := apiResource.Spec["legacy_type"].(string); ok && v != "" {
@@ -640,30 +751,26 @@ func (r *VirtualNetworkResource) Read(ctx context.Context, req resource.ReadRequ
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["global_network"].(map[string]interface{}); ok && isImport && data.GlobalNetwork == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.GlobalNetwork = &VirtualNetworkEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["site_local_inside_network"].(map[string]interface{}); ok && isImport && data.SiteLocalInsideNetwork == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.SiteLocalInsideNetwork = &VirtualNetworkEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["site_local_network"].(map[string]interface{}); ok && isImport && data.SiteLocalNetwork == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.SiteLocalNetwork = &VirtualNetworkEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["static_routes"].([]interface{}); ok && len(listData) > 0 {
-		var static_routesList []VirtualNetworkStaticRoutesModel
+	if !isImport && (data.StaticRoutes.IsNull() || len(data.StaticRoutes.Elements()) == 0) {
+		data.StaticRoutes = types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["static_routes"].([]interface{}); ok && len(listData) > 0 {
+		var StaticRoutesList []VirtualNetworkStaticRoutesModel
 		var existingStaticRoutesItems []VirtualNetworkStaticRoutesModel
 		if !data.StaticRoutes.IsNull() && !data.StaticRoutes.IsUnknown() {
 			data.StaticRoutes.ElementsAs(ctx, &existingStaticRoutesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				static_routesList = append(static_routesList, VirtualNetworkStaticRoutesModel{
+				StaticRoutesList = append(StaticRoutesList, VirtualNetworkStaticRoutesModel{
 					Attrs: func() types.List {
 						if v, ok := itemMap["attrs"].([]interface{}); ok && len(v) > 0 {
 							var items []string
@@ -679,6 +786,9 @@ func (r *VirtualNetworkResource) Read(ctx context.Context, req resource.ReadRequ
 					}(),
 					DefaultGateway: func() *VirtualNetworkEmptyModel {
 						if !isImport && len(existingStaticRoutesItems) > listIdx && existingStaticRoutesItems[listIdx].DefaultGateway != nil {
+							return &VirtualNetworkEmptyModel{}
+						}
+						if _, ok := itemMap["default_gateway"].(map[string]interface{}); ok {
 							return &VirtualNetworkEmptyModel{}
 						}
 						return nil
@@ -703,27 +813,99 @@ func (r *VirtualNetworkResource) Read(ctx context.Context, req resource.ReadRequ
 						return types.ListNull(types.StringType)
 					}(),
 					NodeInterface: func() *VirtualNetworkStaticRoutesNodeInterfaceModel {
-						if _, ok := itemMap["node_interface"].(map[string]interface{}); ok {
-							return &VirtualNetworkStaticRoutesNodeInterfaceModel{}
+						if NodeInterfaceData, ok := itemMap["node_interface"].(map[string]interface{}); ok {
+							return &VirtualNetworkStaticRoutesNodeInterfaceModel{
+								List: func() types.List {
+									if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
+										var ListResult []VirtualNetworkStaticRoutesNodeInterfaceListModel
+										for _, ListItem := range rawList {
+											if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
+												ListResult = append(ListResult, VirtualNetworkStaticRoutesNodeInterfaceListModel{
+													Interface: func() types.List {
+														if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
+															var InterfaceResult []VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModel
+															for _, InterfaceItem := range rawList {
+																if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
+																	InterfaceResult = append(InterfaceResult, VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModel{
+																		Kind: func() types.String {
+																			if v, ok := InterfaceItemMap["kind"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Name: func() types.String {
+																			if v, ok := InterfaceItemMap["name"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Namespace: func() types.String {
+																			if v, ok := InterfaceItemMap["namespace"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Tenant: func() types.String {
+																			if v, ok := InterfaceItemMap["tenant"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Uid: func() types.String {
+																			if v, ok := InterfaceItemMap["uid"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																	})
+																}
+															}
+															listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModelAttrTypes}, InterfaceResult)
+															return listVal
+														}
+														return types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+													}(),
+													Node: func() types.String {
+														if v, ok := ListItemMap["node"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												})
+											}
+										}
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesNodeInterfaceListModelAttrTypes}, ListResult)
+										return listVal
+									}
+									return types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesNodeInterfaceListModelAttrTypes})
+								}(),
+							}
 						}
 						return nil
 					}(),
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesModelAttrTypes}, static_routesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesModelAttrTypes}, StaticRoutesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.StaticRoutes = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.StaticRoutes = types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesModelAttrTypes})
 	}
 	if v, ok := apiResource.Spec["legacy_type"].(string); ok && v != "" {
 		data.LegacyType = types.StringValue(v)
 	} else {
 		data.LegacyType = types.StringNull()
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -777,49 +959,93 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.GlobalNetwork != nil {
-		global_networkMap := make(map[string]interface{})
-		apiResource.Spec["global_network"] = global_networkMap
+		apiResource.Spec["global_network"] = map[string]interface{}{}
 	}
 	if data.SiteLocalInsideNetwork != nil {
-		site_local_inside_networkMap := make(map[string]interface{})
-		apiResource.Spec["site_local_inside_network"] = site_local_inside_networkMap
+		apiResource.Spec["site_local_inside_network"] = map[string]interface{}{}
 	}
 	if data.SiteLocalNetwork != nil {
-		site_local_networkMap := make(map[string]interface{})
-		apiResource.Spec["site_local_network"] = site_local_networkMap
+		apiResource.Spec["site_local_network"] = map[string]interface{}{}
 	}
 	if !data.StaticRoutes.IsNull() && !data.StaticRoutes.IsUnknown() {
-		var static_routesItems []VirtualNetworkStaticRoutesModel
-		diags := data.StaticRoutes.ElementsAs(ctx, &static_routesItems, false)
+		var StaticRoutesElems []VirtualNetworkStaticRoutesModel
+		diags := data.StaticRoutes.ElementsAs(ctx, &StaticRoutesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(static_routesItems) > 0 {
-			var static_routesList []map[string]interface{}
-			for _, item := range static_routesItems {
-				itemMap := make(map[string]interface{})
-				if item.DefaultGateway != nil {
-					itemMap["default_gateway"] = map[string]interface{}{}
-				}
-				if !item.IPAddress.IsNull() && !item.IPAddress.IsUnknown() {
-					itemMap["ip_address"] = item.IPAddress.ValueString()
-				}
-				if item.NodeInterface != nil {
-					node_interfaceNestedMap := make(map[string]interface{})
-					if len(item.NodeInterface.List) > 0 {
-						var listDeepList []map[string]interface{}
-						for _, deepListItem := range item.NodeInterface.List {
-							deepListItemMap := make(map[string]interface{})
-							if !deepListItem.Node.IsNull() && !deepListItem.Node.IsUnknown() {
-								deepListItemMap["node"] = deepListItem.Node.ValueString()
-							}
-							listDeepList = append(listDeepList, deepListItemMap)
-						}
-						node_interfaceNestedMap["list"] = listDeepList
+		if !resp.Diagnostics.HasError() && len(StaticRoutesElems) > 0 {
+			var StaticRoutesList []map[string]interface{}
+			for _, StaticRoutesItem := range StaticRoutesElems {
+				StaticRoutesItemMap := make(map[string]interface{})
+				if !StaticRoutesItem.Attrs.IsNull() && !StaticRoutesItem.Attrs.IsUnknown() {
+					var AttrsItems []string
+					diags := StaticRoutesItem.Attrs.ElementsAs(ctx, &AttrsItems, false)
+					if !diags.HasError() {
+						StaticRoutesItemMap["attrs"] = AttrsItems
 					}
-					itemMap["node_interface"] = node_interfaceNestedMap
 				}
-				static_routesList = append(static_routesList, itemMap)
+				if StaticRoutesItem.DefaultGateway != nil {
+					StaticRoutesItemMap["default_gateway"] = map[string]interface{}{}
+				}
+				if !StaticRoutesItem.IPAddress.IsNull() && !StaticRoutesItem.IPAddress.IsUnknown() {
+					StaticRoutesItemMap["ip_address"] = StaticRoutesItem.IPAddress.ValueString()
+				}
+				if !StaticRoutesItem.IPPrefixes.IsNull() && !StaticRoutesItem.IPPrefixes.IsUnknown() {
+					var IPPrefixesItems []string
+					diags := StaticRoutesItem.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+					if !diags.HasError() {
+						StaticRoutesItemMap["ip_prefixes"] = IPPrefixesItems
+					}
+				}
+				if StaticRoutesItem.NodeInterface != nil {
+					NodeInterfaceMap := make(map[string]interface{})
+					if !StaticRoutesItem.NodeInterface.List.IsNull() && !StaticRoutesItem.NodeInterface.List.IsUnknown() {
+						var ListElems []VirtualNetworkStaticRoutesNodeInterfaceListModel
+						diags := StaticRoutesItem.NodeInterface.List.ElementsAs(ctx, &ListElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(ListElems) > 0 {
+							var ListList []map[string]interface{}
+							for _, ListItem := range ListElems {
+								ListItemMap := make(map[string]interface{})
+								if !ListItem.Interface.IsNull() && !ListItem.Interface.IsUnknown() {
+									var InterfaceElems []VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModel
+									diags := ListItem.Interface.ElementsAs(ctx, &InterfaceElems, false)
+									resp.Diagnostics.Append(diags...)
+									if !resp.Diagnostics.HasError() && len(InterfaceElems) > 0 {
+										var InterfaceList []map[string]interface{}
+										for _, InterfaceItem := range InterfaceElems {
+											InterfaceItemMap := make(map[string]interface{})
+											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
+												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
+											}
+											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
+												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
+											}
+											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
+												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
+											}
+											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
+												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
+											}
+											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
+												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
+											}
+											InterfaceList = append(InterfaceList, InterfaceItemMap)
+										}
+										ListItemMap["interface"] = InterfaceList
+									}
+								}
+								if !ListItem.Node.IsNull() && !ListItem.Node.IsUnknown() {
+									ListItemMap["node"] = ListItem.Node.ValueString()
+								}
+								ListList = append(ListList, ListItemMap)
+							}
+							NodeInterfaceMap["list"] = ListList
+						}
+					}
+					StaticRoutesItemMap["node_interface"] = NodeInterfaceMap
+				}
+				StaticRoutesList = append(StaticRoutesList, StaticRoutesItemMap)
 			}
-			apiResource.Spec["static_routes"] = static_routesList
+			apiResource.Spec["static_routes"] = StaticRoutesList
 		}
 	}
 	if !data.LegacyType.IsNull() && !data.LegacyType.IsUnknown() {
@@ -850,30 +1076,26 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["global_network"].(map[string]interface{}); ok && isImport && data.GlobalNetwork == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.GlobalNetwork = &VirtualNetworkEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["site_local_inside_network"].(map[string]interface{}); ok && isImport && data.SiteLocalInsideNetwork == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.SiteLocalInsideNetwork = &VirtualNetworkEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["site_local_network"].(map[string]interface{}); ok && isImport && data.SiteLocalNetwork == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.SiteLocalNetwork = &VirtualNetworkEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["static_routes"].([]interface{}); ok && len(listData) > 0 {
-		var static_routesList []VirtualNetworkStaticRoutesModel
+	if !isImport && (data.StaticRoutes.IsNull() || len(data.StaticRoutes.Elements()) == 0) {
+		data.StaticRoutes = types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["static_routes"].([]interface{}); ok && len(listData) > 0 {
+		var StaticRoutesList []VirtualNetworkStaticRoutesModel
 		var existingStaticRoutesItems []VirtualNetworkStaticRoutesModel
 		if !data.StaticRoutes.IsNull() && !data.StaticRoutes.IsUnknown() {
 			data.StaticRoutes.ElementsAs(ctx, &existingStaticRoutesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				static_routesList = append(static_routesList, VirtualNetworkStaticRoutesModel{
+				StaticRoutesList = append(StaticRoutesList, VirtualNetworkStaticRoutesModel{
 					Attrs: func() types.List {
 						if v, ok := itemMap["attrs"].([]interface{}); ok && len(v) > 0 {
 							var items []string
@@ -889,6 +1111,9 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 					}(),
 					DefaultGateway: func() *VirtualNetworkEmptyModel {
 						if !isImport && len(existingStaticRoutesItems) > listIdx && existingStaticRoutesItems[listIdx].DefaultGateway != nil {
+							return &VirtualNetworkEmptyModel{}
+						}
+						if _, ok := itemMap["default_gateway"].(map[string]interface{}); ok {
 							return &VirtualNetworkEmptyModel{}
 						}
 						return nil
@@ -913,21 +1138,85 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 						return types.ListNull(types.StringType)
 					}(),
 					NodeInterface: func() *VirtualNetworkStaticRoutesNodeInterfaceModel {
-						if _, ok := itemMap["node_interface"].(map[string]interface{}); ok {
-							return &VirtualNetworkStaticRoutesNodeInterfaceModel{}
+						if NodeInterfaceData, ok := itemMap["node_interface"].(map[string]interface{}); ok {
+							return &VirtualNetworkStaticRoutesNodeInterfaceModel{
+								List: func() types.List {
+									if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
+										var ListResult []VirtualNetworkStaticRoutesNodeInterfaceListModel
+										for _, ListItem := range rawList {
+											if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
+												ListResult = append(ListResult, VirtualNetworkStaticRoutesNodeInterfaceListModel{
+													Interface: func() types.List {
+														if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
+															var InterfaceResult []VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModel
+															for _, InterfaceItem := range rawList {
+																if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
+																	InterfaceResult = append(InterfaceResult, VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModel{
+																		Kind: func() types.String {
+																			if v, ok := InterfaceItemMap["kind"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Name: func() types.String {
+																			if v, ok := InterfaceItemMap["name"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Namespace: func() types.String {
+																			if v, ok := InterfaceItemMap["namespace"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Tenant: func() types.String {
+																			if v, ok := InterfaceItemMap["tenant"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																		Uid: func() types.String {
+																			if v, ok := InterfaceItemMap["uid"].(string); ok && v != "" {
+																				return types.StringValue(v)
+																			}
+																			return types.StringNull()
+																		}(),
+																	})
+																}
+															}
+															listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModelAttrTypes}, InterfaceResult)
+															return listVal
+														}
+														return types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+													}(),
+													Node: func() types.String {
+														if v, ok := ListItemMap["node"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												})
+											}
+										}
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesNodeInterfaceListModelAttrTypes}, ListResult)
+										return listVal
+									}
+									return types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesNodeInterfaceListModelAttrTypes})
+								}(),
+							}
 						}
 						return nil
 					}(),
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesModelAttrTypes}, static_routesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesModelAttrTypes}, StaticRoutesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.StaticRoutes = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.StaticRoutes = types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesModelAttrTypes})
 	}
 	if v, ok := apiResource.Spec["legacy_type"].(string); ok && v != "" {
