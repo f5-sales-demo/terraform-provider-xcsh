@@ -39,7 +39,7 @@ type Schema struct {
 	Required             []string          `json:"required"`
 	AdditionalProperties interface{}       `json:"additionalProperties"`
 	// AllOf wraps $ref for OAS3 compliance (x-ves-* sibling preservation pattern)
-	AllOf                []Schema          `json:"allOf"`
+	AllOf []Schema `json:"allOf"`
 
 	// Original F5 vendor extensions (x-ves-*) - technical metadata from upstream
 	XDisplayName        string            `json:"x-displayname"`
@@ -48,18 +48,18 @@ type Schema struct {
 	XVesProtoMessage    string            `json:"x-ves-proto-message"`
 
 	// Enrichment extensions (x-f5xc-*) - added by api-specs-enriched repository
-	XF5XCCategory         string   `json:"x-f5xc-category"`
-	XF5XCRequiresTier     string   `json:"x-f5xc-requires-tier"`
-	XF5XCComplexity       string   `json:"x-f5xc-complexity"`
-	XF5XCExample          string   `json:"x-f5xc-example"`
-	XF5XCDescriptionShort string   `json:"x-f5xc-description-short"`
-	XF5XCDescriptionMed   string   `json:"x-f5xc-description-medium"`
-	XF5XCUseCases         []string `json:"x-f5xc-use-cases"`
-	XF5XCRelatedDomains   []string `json:"x-f5xc-related-domains"`
-	XF5XCIsPreview          bool                  `json:"x-f5xc-is-preview"`
-	XF5XCNamespaceProfile   *NamespaceProfileSpec `json:"x-f5xc-namespace-profile"`
-	XF5XCIcon               string                `json:"x-f5xc-icon"`
-	XF5XCCLIDomain          string                `json:"x-f5xc-cli-domain"`
+	XF5XCCategory         string                `json:"x-f5xc-category"`
+	XF5XCRequiresTier     string                `json:"x-f5xc-requires-tier"`
+	XF5XCComplexity       string                `json:"x-f5xc-complexity"`
+	XF5XCExample          string                `json:"x-f5xc-example"`
+	XF5XCDescriptionShort string                `json:"x-f5xc-description-short"`
+	XF5XCDescriptionMed   string                `json:"x-f5xc-description-medium"`
+	XF5XCUseCases         []string              `json:"x-f5xc-use-cases"`
+	XF5XCRelatedDomains   []string              `json:"x-f5xc-related-domains"`
+	XF5XCIsPreview        bool                  `json:"x-f5xc-is-preview"`
+	XF5XCNamespaceProfile *NamespaceProfileSpec `json:"x-f5xc-namespace-profile"`
+	XF5XCIcon             string                `json:"x-f5xc-icon"`
+	XF5XCCLIDomain        string                `json:"x-f5xc-cli-domain"`
 
 	// Additional upstream extensions
 	XVesDeprecated   string            `json:"x-ves-deprecated"`
@@ -88,17 +88,17 @@ type Schema struct {
 
 	// Deserialized from enriched specs for lossless round-tripping.
 	// No generation code consumes these yet.
-	XF5XCValidation      map[string]interface{} `json:"x-f5xc-validation"`
-	XF5XCDefaults        map[string]interface{} `json:"x-f5xc-defaults"`
-	XF5XCConditions      map[string]interface{} `json:"x-f5xc-conditions"`
-	XF5XCDeprecated      string                 `json:"x-f5xc-deprecated"`
-	XF5XCCompletion      map[string]interface{} `json:"x-f5xc-completion"`
-	XF5XCDisplayName     string                 `json:"x-f5xc-display-name"`
-	XF5XCDescription     string                 `json:"x-f5xc-description"`
-	XF5XCExamples        []interface{}          `json:"x-f5xc-examples"`
-	XF5XCRequiredForOps  map[string]interface{} `json:"x-f5xc-required-for-operations"`
-	XF5XCDisplayOrder    int                    `json:"x-f5xc-displayorder"`
-	XF5XCUniqueness      string                 `json:"x-f5xc-uniqueness"`
+	XF5XCValidation        map[string]interface{} `json:"x-f5xc-validation"`
+	XF5XCDefaults          map[string]interface{} `json:"x-f5xc-defaults"`
+	XF5XCConditions        map[string]interface{} `json:"x-f5xc-conditions"`
+	XF5XCDeprecated        string                 `json:"x-f5xc-deprecated"`
+	XF5XCCompletion        map[string]interface{} `json:"x-f5xc-completion"`
+	XF5XCDisplayName       string                 `json:"x-f5xc-display-name"`
+	XF5XCDescription       string                 `json:"x-f5xc-description"`
+	XF5XCExamples          []interface{}          `json:"x-f5xc-examples"`
+	XF5XCRequiredForOps    map[string]interface{} `json:"x-f5xc-required-for-operations"`
+	XF5XCDisplayOrder      int                    `json:"x-f5xc-displayorder"`
+	XF5XCUniqueness        string                 `json:"x-f5xc-uniqueness"`
 	XF5XCTerraformResource string                 `json:"x-f5xc-terraform-resource"`
 
 	// ---- SP-1 additions: operation-level extensions ----
@@ -133,24 +133,25 @@ type TerraformAttribute struct {
 	UseDomainValidator bool   // True if name field should use DomainValidator (for DNS resources)
 
 	// ---- SP-1 additions: enrichment-driven attribute metadata ----
-	ServerDefault        bool              // x-f5xc-server-default
-	Default              interface{}       // Resolved default value
-	MinimumConfigRequired bool             // Derived from x-f5xc-required-for.minimum_config
-	RecommendedValue     interface{}       // x-f5xc-recommended-value
-	ValidationRules      map[string]string // Merged x-ves-validation-rules + x-validation-rules
-	Complexity           string            // x-f5xc-complexity
-	UseCases             []string          // x-f5xc-use-cases
-	DeprecationMessage   string            // x-f5xc-deprecated or x-ves-deprecated
-	ConflictsWith        []string          // x-f5xc-conflicts-with
-	MaxLength            int               // From x-original-maxLength or validation rules
-	Immutable            bool              // x-field-mutability == "immutable"
-	EnumValues           []string          // Resolved from enum + x-ves-proto-enum
-	MinLength            int               // From validation rules
-	Pattern              string            // From validation rules
-	MinItems             int               // From x-f5xc-constraints.min_items
-	MaxItems             int               // From x-f5xc-constraints.max_items
-	Minimum  int
-	Maximum  int
+	ServerDefault         bool              // x-f5xc-server-default
+	Default               interface{}       // Resolved default value
+	MinimumConfigRequired bool              // Derived from x-f5xc-required-for.minimum_config
+	RecommendedValue      interface{}       // x-f5xc-recommended-value
+	ValidationRules       map[string]string // Merged x-ves-validation-rules + x-validation-rules
+	Complexity            string            // x-f5xc-complexity
+	UseCases              []string          // x-f5xc-use-cases
+	DeprecationMessage    string            // x-f5xc-deprecated or x-ves-deprecated
+	ConflictsWith         []string          // x-f5xc-conflicts-with
+	MaxLength             int               // From x-original-maxLength or validation rules
+	Immutable             bool              // x-field-mutability == "immutable"
+	EnumValues            []string          // Resolved from enum + x-ves-proto-enum
+	StringDefault         string            // Spec-driven static string default (e.g. namespace fixed to "system"); empty = none
+	MinLength             int               // From validation rules
+	Pattern               string            // From validation rules
+	MinItems              int               // From x-f5xc-constraints.min_items
+	MaxItems              int               // From x-f5xc-constraints.max_items
+	Minimum               int
+	Maximum               int
 }
 
 // ResourceTemplate contains data for generating a Terraform resource.
@@ -177,15 +178,16 @@ type ResourceTemplate struct {
 	UsesMapPlanModifier    bool   // True if any map attribute uses a plan modifier
 
 	// ---- SP-1 additions: generation control flags ----
-	HasBlocks              bool   // True if any attribute is a block
-	HasMaxLengthValidators bool   // True if any attribute has MaxLength > 0
-	HasEnumValidators      bool   // True if any attribute has EnumValues
-	HasPatternValidators   bool   // True if any attribute has Pattern
-	HasListSizeValidators  bool   // True if any attribute has MinItems or MaxItems
+	HasBlocks               bool // True if any attribute is a block
+	HasMaxLengthValidators  bool // True if any attribute has MaxLength > 0
+	HasEnumValidators       bool // True if any attribute has EnumValues
+	HasPatternValidators    bool // True if any attribute has Pattern
+	HasListSizeValidators   bool // True if any attribute has MinItems or MaxItems
 	HasInt64RangeValidators bool
-	HasConflicts           bool   // True if any attribute has ConflictsWith
-	ConflictCheckCode      string // Generated Go code for conflict checks
-	IsReadOnly             bool   // True if resource has GetSpecType only (data source, no resource)
+	HasStringDefaults       bool   // True if any attribute has a StringDefault (needs stringdefault import)
+	HasConflicts            bool   // True if any attribute has ConflictsWith
+	ConflictCheckCode       string // Generated Go code for conflict checks
+	IsReadOnly              bool   // True if resource has GetSpecType only (data source, no resource)
 }
 
 // GenerationResult tracks the result of generating a resource.
@@ -238,50 +240,50 @@ func (s *Schema) HasProperties() bool {
 // Index represents the index.json manifest file in v2 spec structure.
 // This file provides metadata about all domain specifications.
 type Index struct {
-	Version            string                 `json:"version"`
-	Timestamp          string                 `json:"timestamp"`
-	Specifications     []DomainMetadata       `json:"specifications"`
-	CriticalResources  []string               `json:"x-f5xc-critical-resources"`
-	ErrorResolution    map[string]interface{} `json:"x-f5xc-error-resolution"`
-	GuidedWorkflows    map[string]interface{} `json:"x-f5xc-guided-workflows"`
-	Acronyms           map[string]interface{} `json:"x-f5xc-acronyms"`
+	Version           string                 `json:"version"`
+	Timestamp         string                 `json:"timestamp"`
+	Specifications    []DomainMetadata       `json:"specifications"`
+	CriticalResources []string               `json:"x-f5xc-critical-resources"`
+	ErrorResolution   map[string]interface{} `json:"x-f5xc-error-resolution"`
+	GuidedWorkflows   map[string]interface{} `json:"x-f5xc-guided-workflows"`
+	Acronyms          map[string]interface{} `json:"x-f5xc-acronyms"`
 }
 
 // DomainMetadata represents metadata about a domain specification file.
 // Field names map to the x-f5xc-* extensions in index.json.
 type DomainMetadata struct {
-	Name              string                      `json:"domain"` // Domain name from "domain" field
-	File              string                      `json:"file"`
-	Category          string                      `json:"x-f5xc-category"`
-	Description       string                      `json:"description"`
-	DescriptionShort  string                      `json:"x-f5xc-description-short"`
-	DescriptionMedium string                      `json:"x-f5xc-description-medium"`
-	Icon              string                      `json:"x-f5xc-icon"`
-	RequiresTier      string                      `json:"x-f5xc-requires-tier"`
-	Complexity        string                      `json:"x-f5xc-complexity"`
-	IsPreview         bool                        `json:"x-f5xc-is-preview"`
-	CLIDomain         string                      `json:"x-f5xc-cli-domain"`
-	Title             string                      `json:"title"`
-	PathCount         int                         `json:"path_count"`
-	SchemaCount       int                         `json:"schema_count"`
-	RelatedDomains    []string                    `json:"x-f5xc-related-domains"`
-	UseCases          []string                    `json:"x-f5xc-use-cases"`
-	PrimaryResources  []PrimaryResourceMetadata   `json:"x-f5xc-primary-resources"`
+	Name              string                    `json:"domain"` // Domain name from "domain" field
+	File              string                    `json:"file"`
+	Category          string                    `json:"x-f5xc-category"`
+	Description       string                    `json:"description"`
+	DescriptionShort  string                    `json:"x-f5xc-description-short"`
+	DescriptionMedium string                    `json:"x-f5xc-description-medium"`
+	Icon              string                    `json:"x-f5xc-icon"`
+	RequiresTier      string                    `json:"x-f5xc-requires-tier"`
+	Complexity        string                    `json:"x-f5xc-complexity"`
+	IsPreview         bool                      `json:"x-f5xc-is-preview"`
+	CLIDomain         string                    `json:"x-f5xc-cli-domain"`
+	Title             string                    `json:"title"`
+	PathCount         int                       `json:"path_count"`
+	SchemaCount       int                       `json:"schema_count"`
+	RelatedDomains    []string                  `json:"x-f5xc-related-domains"`
+	UseCases          []string                  `json:"x-f5xc-use-cases"`
+	PrimaryResources  []PrimaryResourceMetadata `json:"x-f5xc-primary-resources"`
 }
 
 // PrimaryResourceMetadata represents resource-level metadata from x-f5xc-primary-resources in index.json.
 // This is extracted from index.json and provides per-resource tier and dependency info.
 type PrimaryResourceMetadata struct {
-	Name             string               `json:"name"`
-	Description      string               `json:"description"`
-	DescriptionShort string               `json:"description_short"`
-	Tier             string               `json:"tier"`
-	Icon             string               `json:"icon"`
-	Category         string               `json:"category"`
-	SupportsLogs     bool                 `json:"supports_logs"`
-	SupportsMetrics  bool                 `json:"supports_metrics"`
-	Dependencies     ResourceDependencies `json:"dependencies"`
-	RelationshipHints []string            `json:"relationship_hints"`
+	Name              string               `json:"name"`
+	Description       string               `json:"description"`
+	DescriptionShort  string               `json:"description_short"`
+	Tier              string               `json:"tier"`
+	Icon              string               `json:"icon"`
+	Category          string               `json:"category"`
+	SupportsLogs      bool                 `json:"supports_logs"`
+	SupportsMetrics   bool                 `json:"supports_metrics"`
+	Dependencies      ResourceDependencies `json:"dependencies"`
+	RelationshipHints []string             `json:"relationship_hints"`
 
 	// ---- SP-1 additions: schema and API path references ----
 	SchemaComponents []string `json:"schema_components"`
@@ -315,12 +317,12 @@ type DomainSpec struct {
 	Components Components             `json:"components"`
 
 	// Domain-level enrichment metadata
-	XF5XCCategory       string   `json:"x-f5xc-category"`
-	XF5XCRequiresTier   string   `json:"x-f5xc-requires-tier"`
-	XF5XCComplexity     string   `json:"x-f5xc-complexity"`
-	XF5XCIsPreview      bool     `json:"x-f5xc-is-preview"`
-	XF5XCRelatedDomains []string `json:"x-f5xc-related-domains"`
-	XF5XCUseCases       []string `json:"x-f5xc-use-cases"`
+	XF5XCCategory         string                `json:"x-f5xc-category"`
+	XF5XCRequiresTier     string                `json:"x-f5xc-requires-tier"`
+	XF5XCComplexity       string                `json:"x-f5xc-complexity"`
+	XF5XCIsPreview        bool                  `json:"x-f5xc-is-preview"`
+	XF5XCRelatedDomains   []string              `json:"x-f5xc-related-domains"`
+	XF5XCUseCases         []string              `json:"x-f5xc-use-cases"`
 	XF5XCNamespaceProfile *NamespaceProfileSpec `json:"x-f5xc-namespace-profile"`
 
 	// ---- SP-1 additions: domain-level spec metadata ----
@@ -338,12 +340,12 @@ type DomainInfo struct {
 	Version     string `json:"version"`
 
 	// Enrichment extensions at info level
-	XF5XCDescriptionShort  string         `json:"x-f5xc-description-short"`
-	XF5XCDescriptionMedium string         `json:"x-f5xc-description-medium"`
-	XF5XCIcon              string         `json:"x-f5xc-icon"`
-	XF5XCLogoSVG           string         `json:"x-f5xc-logo-svg"`
-	XF5XCDescriptionLong   string         `json:"x-f5xc-description-long"`
-	XF5XCSummary           string         `json:"x-f5xc-summary"`
+	XF5XCDescriptionShort  string                `json:"x-f5xc-description-short"`
+	XF5XCDescriptionMedium string                `json:"x-f5xc-description-medium"`
+	XF5XCIcon              string                `json:"x-f5xc-icon"`
+	XF5XCLogoSVG           string                `json:"x-f5xc-logo-svg"`
+	XF5XCDescriptionLong   string                `json:"x-f5xc-description-long"`
+	XF5XCSummary           string                `json:"x-f5xc-summary"`
 	XF5XCBestPractices     *BestPractices        `json:"x-f5xc-best-practices"`
 	XF5XCNamespaceProfile  *NamespaceProfileSpec `json:"x-f5xc-namespace-profile"`
 

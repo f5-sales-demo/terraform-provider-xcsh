@@ -33,6 +33,9 @@ import (
 {{- end}}
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
+{{- if .HasStringDefaults}}
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
+{{- end}}
 {{- if .HasBlocks}}
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 {{- end}}
@@ -107,6 +110,9 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 {{- if .Computed}}
 				Computed: true,
 {{- end}}
+{{- if ne .StringDefault ""}}
+				Default: stringdefault.StaticString("{{.StringDefault}}"),
+{{- end}}
 {{- if eq .Type "map"}}
 				ElementType: types.StringType,
 {{- end}}
@@ -133,6 +139,9 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 {{- else if eq .TfsdkTag "namespace"}}
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
+{{- if gt (len .EnumValues) 0}}
+					stringvalidator.OneOf({{enumValuesLiteral .EnumValues}}),
+{{- end}}
 				},
 {{- else if and (eq .Type "string") (or (gt .MinLength 0) (gt .MaxLength 0) (ne .Pattern "") (gt (len .EnumValues) 0))}}
 				Validators: []validator.String{

@@ -9,6 +9,7 @@ import (
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/conflicts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/description"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/namespace"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 )
@@ -149,8 +150,24 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 			Required:    true, PlanModifier: "RequiresReplace", UseDomainValidator: useDomainValidator},
 	}
 
-	// For resources without namespace in API path (like namespace itself), namespace is optional
-	if hasNamespace {
+	// Namespace emission is driven by the spec-declared namespace constraint
+	// (x-f5xc-namespace-profile). Precedence:
+	//   1. Profile restricts the resource to a single namespace (e.g. system-only DNS
+	//      objects) -> Optional+Computed, defaulted to that value + OneOf, so it may be
+	//      omitted and can't be set wrong.
+	//   2. Path has {namespace} but the resource allows multiple namespaces -> Required.
+	//   3. No namespace in the API path -> Optional+Computed (omit/empty).
+	if prof, ok := namespace.GetProfile(resourceName); ok && len(prof.Allowed) == 1 {
+		fixedNS := string(prof.Allowed[0])
+		idComponentAttrs = append(idComponentAttrs, openapi.TerraformAttribute{
+			Name: "namespace", GoName: "Namespace", TfsdkTag: "namespace", Type: "string",
+			Description:   fmt.Sprintf("Namespace for the %s. The F5 XC API restricts this resource to the %s namespace; it defaults to that value and may be omitted.", naming.ToHumanReadableName(resourceName), fixedNS),
+			Optional:      true,
+			Computed:      true,
+			StringDefault: fixedNS,
+			EnumValues:    []string{fixedNS},
+			PlanModifier:  "RequiresReplace"})
+	} else if hasNamespace {
 		idComponentAttrs = append(idComponentAttrs, openapi.TerraformAttribute{
 			Name: "namespace", GoName: "Namespace", TfsdkTag: "namespace", Type: "string",
 			Description: fmt.Sprintf("Namespace where the %s will be created.", naming.ToHumanReadableName(resourceName)),
@@ -268,30 +285,31 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 	conflictCode := conflicts.GenerateChecks(conflictAttrs, goNameLookup)
 
 	return &openapi.ResourceTemplate{
-		Name:                   resourceName,
-		TitleCase:              naming.ToResourceTypeName(resourceName),
-		APIPath:                apiPath,
-		APIPathPlural:          resourceName + "s",
-		APIPathItem:            apiPathItem,
-		HasNamespaceInPath:     hasNamespace,
-		Description:            resourceDescription,
-		Attributes:             attributes,
-		OneOfGroups:            oneOfGroups, // Now properly preserving extracted OneOf groups
-		ExampleUsage:           exampleUsage,
-		APIDocsURL:             apiDocsURL,
-		UsesBoolPlanModifier:   usesBool,
-		UsesInt64PlanModifier:  usesInt64,
-		UsesStringPlanModifier: usesString,
-		UsesListPlanModifier:   usesList,
-		UsesMapPlanModifier:    usesMap,
-		HasBlocks:              hasBlocks,
-		HasMaxLengthValidators: hasMaxLengthValidators,
-		HasEnumValidators:      HasEnumValidatorsAny(attributes),
-		HasPatternValidators:   HasPatternValidatorsAny(attributes),
-		HasListSizeValidators:  HasListSizeValidatorsAny(attributes),
+		Name:                    resourceName,
+		TitleCase:               naming.ToResourceTypeName(resourceName),
+		APIPath:                 apiPath,
+		APIPathPlural:           resourceName + "s",
+		APIPathItem:             apiPathItem,
+		HasNamespaceInPath:      hasNamespace,
+		Description:             resourceDescription,
+		Attributes:              attributes,
+		OneOfGroups:             oneOfGroups, // Now properly preserving extracted OneOf groups
+		ExampleUsage:            exampleUsage,
+		APIDocsURL:              apiDocsURL,
+		UsesBoolPlanModifier:    usesBool,
+		UsesInt64PlanModifier:   usesInt64,
+		UsesStringPlanModifier:  usesString,
+		UsesListPlanModifier:    usesList,
+		UsesMapPlanModifier:     usesMap,
+		HasBlocks:               hasBlocks,
+		HasMaxLengthValidators:  hasMaxLengthValidators,
+		HasEnumValidators:       HasEnumValidatorsAny(attributes),
+		HasPatternValidators:    HasPatternValidatorsAny(attributes),
+		HasListSizeValidators:   HasListSizeValidatorsAny(attributes),
 		HasInt64RangeValidators: HasInt64RangeValidatorsAny(attributes),
-		HasConflicts:           conflictCode != "",
-		ConflictCheckCode:      conflictCode,
+		HasStringDefaults:       HasStringDefaultsAny(attributes),
+		HasConflicts:            conflictCode != "",
+		ConflictCheckCode:       conflictCode,
 	}, nil
 }
 
