@@ -6,14 +6,13 @@ Site Mesh Group in system namespace of user
 ## Required
 
 - name
-- namespace
 
 ## Minimal Valid Config
 
 ```terraform
 resource "xcsh_site_mesh_group" "example" {
   name      = "example-site-mesh-group"
-  namespace = "staging"
+  namespace = "system"
 }
 ```
 

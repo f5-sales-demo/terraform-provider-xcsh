@@ -15,7 +15,7 @@ terraform {
 # Basic VoltstackSite configuration
 resource "xcsh_voltstack_site" "example" {
   name      = "example-voltstack-site"
-  namespace = "staging"
+  namespace = "system"
 
   volterra_certified_hw = "example-value"
   worker_nodes          = ["example-value"]

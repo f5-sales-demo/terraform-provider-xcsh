@@ -19,6 +19,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -3313,13 +3314,16 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Azure VNET Site will be created.",
-				Required:            true,
+				MarkdownDescription: "Namespace for the Azure VNET Site. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
+				Optional:            true,
+				Computed:            true,
+				Default:             stringdefault.StaticString("system"),
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
+					stringvalidator.OneOf("system"),
 				},
 			},
 			"machine_type": schema.StringAttribute{

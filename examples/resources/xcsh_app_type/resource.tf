@@ -15,5 +15,5 @@ terraform {
 # Basic AppType configuration
 resource "xcsh_app_type" "example" {
   name      = "example-app-type"
-  namespace = "staging"
+  namespace = "system"
 }

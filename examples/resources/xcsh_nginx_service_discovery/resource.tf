@@ -15,5 +15,5 @@ terraform {
 # Basic NginxServiceDiscovery configuration
 resource "xcsh_nginx_service_discovery" "example" {
   name      = "example-nginx-service-discovery"
-  namespace = "staging"
+  namespace = "system"
 }

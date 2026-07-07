@@ -15,5 +15,5 @@ terraform {
 # Basic AppAPIGroup configuration
 resource "xcsh_app_api_group" "example" {
   name      = "example-app-api-group"
-  namespace = "staging"
+  namespace = "system"
 }

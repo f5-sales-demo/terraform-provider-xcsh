@@ -15,5 +15,5 @@ terraform {
 # Basic K8SCluster configuration
 resource "xcsh_k8s_cluster" "example" {
   name      = "example-k8s-cluster"
-  namespace = "staging"
+  namespace = "system"
 }

@@ -6,7 +6,6 @@ Deploying F5 sites within Google Cloud VPC environments
 ## Required
 
 - name
-- namespace
 - address
 - disk_size
 - gcp_region
@@ -18,7 +17,7 @@ Deploying F5 sites within Google Cloud VPC environments
 ```terraform
 resource "xcsh_gcp_vpc_site" "example" {
   name      = "example-gcp-vpc-site"
-  namespace = "staging"
+  namespace = "system"
 
   gcp_region    = "example-value"
   instance_type = "example-value"

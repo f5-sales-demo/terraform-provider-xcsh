@@ -15,7 +15,7 @@ terraform {
 # Basic APITesting configuration
 resource "xcsh_api_testing" "example" {
   name      = "example-api-testing"
-  namespace = "staging"
+  namespace = "system"
 
   custom_header_value = "example-value"
 }

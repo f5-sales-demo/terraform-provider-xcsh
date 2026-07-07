@@ -15,7 +15,7 @@ terraform {
 # Basic CloudElasticIP configuration
 resource "xcsh_cloud_elastic_ip" "example" {
   name      = "example-cloud-elastic-ip"
-  namespace = "staging"
+  namespace = "system"
 
   item_count = 1
 }

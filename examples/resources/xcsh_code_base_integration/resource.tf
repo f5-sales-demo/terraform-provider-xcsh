@@ -15,5 +15,5 @@ terraform {
 # Basic CodeBaseIntegration configuration
 resource "xcsh_code_base_integration" "example" {
   name      = "example-code-base-integration"
-  namespace = "staging"
+  namespace = "system"
 }

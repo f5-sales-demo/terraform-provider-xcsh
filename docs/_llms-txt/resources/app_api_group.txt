@@ -6,14 +6,13 @@ App_api_group creates a new object in the storage backend for metadata.namespace
 ## Required
 
 - name
-- namespace
 
 ## Minimal Valid Config
 
 ```terraform
 resource "xcsh_app_api_group" "example" {
   name      = "example-app-api-group"
-  namespace = "staging"
+  namespace = "system"
 }
 ```
 

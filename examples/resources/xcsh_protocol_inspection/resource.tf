@@ -15,5 +15,5 @@ terraform {
 # Basic ProtocolInspection configuration
 resource "xcsh_protocol_inspection" "example" {
   name      = "example-protocol-inspection"
-  namespace = "staging"
+  namespace = "system"
 }

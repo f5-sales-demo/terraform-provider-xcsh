@@ -6,14 +6,13 @@ Deploying secure mesh edge sites with enhanced security and networking features
 ## Required
 
 - name
-- namespace
 
 ## Minimal Valid Config
 
 ```terraform
 resource "xcsh_securemesh_site_v2" "example" {
   name      = "example-securemesh-site-v2"
-  namespace = "staging"
+  namespace = "system"
 }
 ```
 

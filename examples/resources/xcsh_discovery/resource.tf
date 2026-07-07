@@ -15,5 +15,5 @@ terraform {
 # Basic Discovery configuration
 resource "xcsh_discovery" "example" {
   name      = "example-discovery"
-  namespace = "staging"
+  namespace = "system"
 }

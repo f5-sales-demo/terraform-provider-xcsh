@@ -6,14 +6,13 @@ DNS Load Balancer Health Check in a given namespace. If one already exist it wil
 ## Required
 
 - name
-- namespace
 
 ## Minimal Valid Config
 
 ```terraform
 resource "xcsh_dns_lb_health_check" "example" {
   name      = "example-dns-lb-health-check"
-  namespace = "staging"
+  namespace = "system"
 }
 ```
 

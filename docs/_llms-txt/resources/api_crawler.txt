@@ -6,14 +6,13 @@ API Crawler resource
 ## Required
 
 - name
-- namespace
 
 ## Minimal Valid Config
 
 ```terraform
 resource "xcsh_api_crawler" "example" {
   name      = "example-api-crawler"
-  namespace = "staging"
+  namespace = "system"
 }
 ```
 

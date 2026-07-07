@@ -15,5 +15,5 @@ terraform {
 # Basic APICrawler configuration
 resource "xcsh_api_crawler" "example" {
   name      = "example-api-crawler"
-  namespace = "staging"
+  namespace = "system"
 }

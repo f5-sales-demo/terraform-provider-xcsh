@@ -10,10 +10,12 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
+	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -72,13 +74,16 @@ func (r *BGPAsnSetResource) Schema(ctx context.Context, req resource.SchemaReque
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the BGP Asn Set will be created.",
-				Required:            true,
+				MarkdownDescription: "Namespace for the BGP Asn Set. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
+				Optional:            true,
+				Computed:            true,
+				Default:             stringdefault.StaticString("system"),
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
+					stringvalidator.OneOf("system"),
 				},
 			},
 			"as_numbers": schema.ListAttribute{

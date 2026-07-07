@@ -6,14 +6,13 @@ Tenant configuration specification. configuration
 ## Required
 
 - name
-- namespace
 
 ## Minimal Valid Config
 
 ```terraform
 resource "xcsh_tenant_configuration" "example" {
   name      = "example-tenant-configuration"
-  namespace = "staging"
+  namespace = "system"
 }
 ```
 

@@ -6,7 +6,6 @@ DNS Domain in a given namespace. If one already exist it will give a error
 ## Required
 
 - name
-- namespace
 - dnssec_mode
 
 ## Minimal Valid Config
@@ -14,7 +13,7 @@ DNS Domain in a given namespace. If one already exist it will give a error
 ```terraform
 resource "xcsh_dns_domain" "example" {
   name      = "example-dns-domain"
-  namespace = "staging"
+  namespace = "system"
 
   dnssec_mode = "DNSSEC_DISABLE"
 }

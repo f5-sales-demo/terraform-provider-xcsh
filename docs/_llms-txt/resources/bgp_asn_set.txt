@@ -6,14 +6,13 @@ Bgp_asn_set creates a new object in the storage backend for metadata.namespace
 ## Required
 
 - name
-- namespace
 
 ## Minimal Valid Config
 
 ```terraform
 resource "xcsh_bgp_asn_set" "example" {
   name      = "example-bgp-asn-set"
-  namespace = "staging"
+  namespace = "system"
 
   as_numbers = [1]
 }

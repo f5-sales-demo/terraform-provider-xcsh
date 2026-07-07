@@ -13,7 +13,7 @@ Network firewall is created by users in system namespace. configuration
 ```terraform
 resource "xcsh_network_firewall" "example" {
   name      = "example-network-firewall"
-  namespace = "staging"
+  namespace = "system"
 }
 ```
 
