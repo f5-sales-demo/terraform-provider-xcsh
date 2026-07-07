@@ -1,0 +1,30 @@
+---
+# Manual release entrypoint.
+#
+# on-merge.yml only tags/releases on a bot regeneration or a substantive
+# non-workflow merge. When content is already on main but no such merge is
+# pending (e.g. after a failed/OOM'd release, or when subsequent commits are
+# workflow/governance-only), there is otherwise no way to cut a release. This
+# workflow_dispatch invokes the same reusable tag+release pipeline (which builds
+# with --parallelism 1) to publish the next semver version from current main.
+name: Manual Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      create-release:
+        description: 'Create a GitHub release after tagging'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    uses: ./.github/workflows/_tag-release.yml
+    with:
+      create-release: ${{ inputs.create-release }}
+    secrets:
+      gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+      gpg-passphrase: ${{ secrets.PASSPHRASE }}
