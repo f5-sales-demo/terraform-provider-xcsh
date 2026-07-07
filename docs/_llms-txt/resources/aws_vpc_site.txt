@@ -6,7 +6,6 @@ Deploying F5 sites within AWS VPC environments
 ## Required
 
 - name
-- namespace
 - address
 - aws_region
 - disk_size
@@ -18,7 +17,7 @@ Deploying F5 sites within AWS VPC environments
 ```terraform
 resource "xcsh_aws_vpc_site" "example" {
   name      = "example-aws-vpc-site"
-  namespace = "staging"
+  namespace = "system"
 
   aws_region    = "example-value"
   instance_type = "example-value"

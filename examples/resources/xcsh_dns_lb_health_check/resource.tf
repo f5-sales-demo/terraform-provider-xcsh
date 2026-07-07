@@ -15,5 +15,5 @@ terraform {
 # Basic DNSLBHealthCheck configuration
 resource "xcsh_dns_lb_health_check" "example" {
   name      = "example-dns-lb-health-check"
-  namespace = "staging"
+  namespace = "system"
 }

@@ -15,5 +15,5 @@ terraform {
 # Basic NATPolicy configuration
 resource "xcsh_nat_policy" "example" {
   name      = "example-nat-policy"
-  namespace = "staging"
+  namespace = "system"
 }

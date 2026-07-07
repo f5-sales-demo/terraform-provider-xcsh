@@ -15,7 +15,7 @@ terraform {
 # Basic AWSVPCSite configuration
 resource "xcsh_aws_vpc_site" "example" {
   name      = "example-aws-vpc-site"
-  namespace = "staging"
+  namespace = "system"
 
   aws_region    = "example-value"
   instance_type = "example-value"

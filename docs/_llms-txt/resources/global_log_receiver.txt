@@ -15,7 +15,7 @@ New Global Log Receiver object
 ```terraform
 resource "xcsh_global_log_receiver" "example" {
   name      = "example-global-log-receiver"
-  namespace = "staging"
+  namespace = "system"
 }
 ```
 

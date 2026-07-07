@@ -15,5 +15,5 @@ terraform {
 # Basic APIDefinition configuration
 resource "xcsh_api_definition" "example" {
   name      = "example-api-definition"
-  namespace = "staging"
+  namespace = "system"
 }

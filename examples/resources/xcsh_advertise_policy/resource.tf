@@ -15,7 +15,7 @@ terraform {
 # Basic AdvertisePolicy configuration
 resource "xcsh_advertise_policy" "example" {
   name      = "example-advertise-policy"
-  namespace = "staging"
+  namespace = "system"
 
   address         = "example-value"
   protocol        = "example-value"

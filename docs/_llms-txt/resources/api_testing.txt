@@ -6,7 +6,6 @@ API Testing resource
 ## Required
 
 - name
-- namespace
 - custom_header_value
 
 ## Minimal Valid Config
@@ -14,7 +13,7 @@ API Testing resource
 ```terraform
 resource "xcsh_api_testing" "example" {
   name      = "example-api-testing"
-  namespace = "staging"
+  namespace = "system"
 
   custom_header_value = "example-value"
 }

@@ -15,5 +15,5 @@ terraform {
 # Basic BGP configuration
 resource "xcsh_bgp" "example" {
   name      = "example-bgp"
-  namespace = "staging"
+  namespace = "system"
 }

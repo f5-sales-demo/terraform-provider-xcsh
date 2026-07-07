@@ -15,5 +15,5 @@ terraform {
 # Basic NetworkFirewall configuration
 resource "xcsh_network_firewall" "example" {
   name      = "example-network-firewall"
-  namespace = "staging"
+  namespace = "system"
 }

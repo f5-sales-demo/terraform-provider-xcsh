@@ -31,7 +31,7 @@ terraform {
 # Basic VirtualNetwork configuration
 resource "xcsh_virtual_network" "example" {
   name      = "example-virtual-network"
-  namespace = "staging"
+  namespace = "system"
 
   legacy_type = "VIRTUAL_NETWORK_SITE_LOCAL"
 }
@@ -48,8 +48,6 @@ resource "xcsh_virtual_network" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Virtual Network. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Virtual Network will be created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -57,6 +55,8 @@ resource "xcsh_virtual_network" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Virtual Network. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 

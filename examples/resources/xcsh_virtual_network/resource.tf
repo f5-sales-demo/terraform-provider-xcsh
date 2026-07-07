@@ -15,7 +15,7 @@ terraform {
 # Basic VirtualNetwork configuration
 resource "xcsh_virtual_network" "example" {
   name      = "example-virtual-network"
-  namespace = "staging"
+  namespace = "system"
 
   legacy_type = "VIRTUAL_NETWORK_SITE_LOCAL"
 }

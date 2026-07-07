@@ -15,5 +15,5 @@ terraform {
 # Basic NetworkInterface configuration
 resource "xcsh_network_interface" "example" {
   name      = "example-network-interface"
-  namespace = "staging"
+  namespace = "system"
 }

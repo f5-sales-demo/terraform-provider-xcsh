@@ -15,7 +15,7 @@ terraform {
 # Basic DNSLBPool configuration
 resource "xcsh_dns_lb_pool" "example" {
   name      = "example-dns-lb-pool"
-  namespace = "staging"
+  namespace = "system"
 
   load_balancing_mode = "ROUND_ROBIN"
 }

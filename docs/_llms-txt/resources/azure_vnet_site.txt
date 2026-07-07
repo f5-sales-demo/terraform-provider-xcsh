@@ -6,7 +6,6 @@ Deploying F5 sites within Azure Virtual Network environments
 ## Required
 
 - name
-- namespace
 - machine_type
 - resource_group
 - ssh_key
@@ -16,7 +15,7 @@ Deploying F5 sites within Azure Virtual Network environments
 ```terraform
 resource "xcsh_azure_vnet_site" "example" {
   name      = "example-Azure-vnet-site"
-  namespace = "staging"
+  namespace = "system"
 
   machine_type   = "example-value"
   resource_group = "example-value"

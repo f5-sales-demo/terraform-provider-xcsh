@@ -6,14 +6,13 @@ New NFV service with configured parameters
 ## Required
 
 - name
-- namespace
 
 ## Minimal Valid Config
 
 ```terraform
 resource "xcsh_nfv_service" "example" {
   name      = "example-nfv-service"
-  namespace = "staging"
+  namespace = "system"
 }
 ```
 

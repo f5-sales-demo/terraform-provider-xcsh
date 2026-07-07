@@ -15,5 +15,5 @@ terraform {
 # Basic K8SClusterRoleBinding configuration
 resource "xcsh_k8s_cluster_role_binding" "example" {
   name      = "example-k8s-cluster-role-binding"
-  namespace = "staging"
+  namespace = "system"
 }

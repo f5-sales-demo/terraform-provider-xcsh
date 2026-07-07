@@ -15,5 +15,5 @@ terraform {
 # Basic NetworkPolicyRule configuration
 resource "xcsh_network_policy_rule" "example" {
   name      = "example-network-policy-rule"
-  namespace = "staging"
+  namespace = "system"
 }

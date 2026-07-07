@@ -15,7 +15,7 @@ terraform {
 # Basic GCPVPCSite configuration
 resource "xcsh_gcp_vpc_site" "example" {
   name      = "example-gcp-vpc-site"
-  namespace = "staging"
+  namespace = "system"
 
   gcp_region    = "example-value"
   instance_type = "example-value"

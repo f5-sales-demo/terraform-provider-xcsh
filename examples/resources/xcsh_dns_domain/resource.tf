@@ -15,7 +15,7 @@ terraform {
 # Basic DNSDomain configuration
 resource "xcsh_dns_domain" "example" {
   name      = "example-dns-domain"
-  namespace = "staging"
+  namespace = "system"
 
   dnssec_mode = "DNSSEC_DISABLE"
 }

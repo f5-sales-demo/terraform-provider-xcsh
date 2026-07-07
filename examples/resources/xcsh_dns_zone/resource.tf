@@ -15,5 +15,5 @@ terraform {
 # Basic DNSZone configuration
 resource "xcsh_dns_zone" "example" {
   name      = "example-dns-zone"
-  namespace = "staging"
+  namespace = "system"
 }
