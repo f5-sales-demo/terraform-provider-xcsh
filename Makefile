@@ -141,14 +141,11 @@ generate-schemas:
 		echo "No v2 OpenAPI specs found in $(SPEC_DIR). Skipping generation."; \
 		echo "Run 'make download-specs' first, or set SPEC_DIR to a directory with index.json + domains/"; \
 	fi
-	@# Examples are generated (schema-driven) by generate-all-schemas.go alongside the
-	@# resources, guaranteeing they never drift from the schema. Format them so the HCL
-	@# matches the terraform fmt gate.
-	@if command -v terraform >/dev/null 2>&1; then \
-		terraform fmt -recursive examples >/dev/null && echo "Formatted examples with terraform fmt"; \
-	else \
-		echo "WARNING: terraform not found — run 'terraform fmt -recursive examples' before committing"; \
-	fi
+	@# Examples are generated schema-driven from the committed provider schema (spec-free),
+	@# so this runs after the provider is generated and needs no specs. generate-examples
+	@# also prunes orphan example dirs and runs terraform fmt.
+	@echo "Generating Terraform examples from provider schema..."
+	$(GO) run $(TOOLS_DIR)/generate-examples.go
 
 # Generate Terraform documentation
 docs:
