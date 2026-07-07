@@ -8,7 +8,7 @@
 // It is also the single source of truth for generated Terraform examples (resource +
 // data-source), rendered schema-driven from the TerraformAttribute tree so they cannot
 // drift from the schema; orphan example dirs are pruned each run.
-// Last synced: api-specs-enriched v2.1.167
+// Last synced: api-specs-enriched v2.1.168 (spec asset renamed f5xc-api-specs -> xcsh-api-specs; downloads accept either during transition)
 //
 // CI/CD Integration:
 //   Changes to this file trigger the generate.yml workflow which regenerates all
