@@ -108,7 +108,7 @@ download-specs:
 	@LATEST=$$(gh api repos/$(ENRICHED_REPO)/releases --jq '.[0].tag_name'); \
 	echo "Version: $$LATEST"; \
 	ASSET_ID=$$(gh api repos/$(ENRICHED_REPO)/releases --jq \
-		'[.[0].assets[] | select(.name | startswith("f5xc-api-specs"))] | .[0].id'); \
+		'[.[0].assets[] | select(.name | startswith("xcsh-api-specs") or startswith("f5xc-api-specs"))] | .[0].id'); \
 	gh api repos/$(ENRICHED_REPO)/releases/assets/$$ASSET_ID \
 		-H "Accept: application/octet-stream" > /tmp/specs.zip; \
 	rm -rf $(SPEC_DIR)/*; \
