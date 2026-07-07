@@ -60,7 +60,7 @@ wheels/
 *.test
 *.out
 vendor/
-/terraform-provider-f5xc
+/terraform-provider-xcsh
 
 # Terraform
 .terraform/
