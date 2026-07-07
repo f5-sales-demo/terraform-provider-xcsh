@@ -94,5 +94,6 @@ jobs:
           # concurrency — exit 143 — which was skipping the on-merge regeneration
           # cascade. Excluding them as targets, plus GOGC=20 and serial
           # concurrency, keeps peak memory bounded.
-          pkgs=$(go list ./internal/... . | grep -vE '/internal/(provider|client)$')
+          # Use directories ({{.Dir}}), not import paths — golangci-lint expects paths.
+          pkgs=$(go list -f '{{.Dir}}' ./internal/... . | grep -vE '/internal/(provider|client)$')
           golangci-lint run --timeout=15m --concurrency=1 $pkgs
