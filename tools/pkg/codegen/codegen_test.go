@@ -469,6 +469,31 @@ func TestResourceTemplate_ClearsImportMarkerAfterImport(t *testing.T) {
 	}
 }
 
+// The resource template must (a) emit a guarded static string default for attributes
+// carrying a StringDefault, and (b) let the namespace attribute carry a OneOf validator
+// (for spec-driven fixed-namespace resources) in addition to the format validator.
+func TestResourceTemplate_StringDefaultAndNamespaceOneOf(t *testing.T) {
+	if !strings.Contains(ResourceTemplate, "stringdefault.StaticString(") {
+		t.Error("ResourceTemplate must emit stringdefault.StaticString for StringDefault attributes")
+	}
+	if !strings.Contains(ResourceTemplate, `if ne .StringDefault ""`) {
+		t.Error("the StringDefault emission must be guarded by a non-empty check")
+	}
+	// The namespace validator branch must also emit OneOf when EnumValues are present,
+	// not only NamespaceValidator(). Inspect the window until the next branch.
+	nsIdx := strings.Index(ResourceTemplate, `eq .TfsdkTag "namespace"`)
+	if nsIdx == -1 {
+		t.Fatal("namespace validator branch not found in ResourceTemplate")
+	}
+	window := ResourceTemplate[nsIdx:]
+	if end := strings.Index(window, "else if and (eq .Type"); end != -1 {
+		window = window[:end]
+	}
+	if !strings.Contains(window, "stringvalidator.OneOf(") {
+		t.Error("namespace branch must emit stringvalidator.OneOf when EnumValues are present")
+	}
+}
+
 // The recursive emitters must reach the deep list block and convert it: marshal via
 // ElementsAs, unmarshal via ListValueFrom, referencing the deep model's AttrTypes.
 func TestRecursiveEmitters_DeepListConversion(t *testing.T) {
