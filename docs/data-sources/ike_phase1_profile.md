@@ -14,28 +14,23 @@ Retrieves information about a IKE Phase1 Profile resource in F5 Distributed Clou
 ## Example Usage
 
 ```terraform
-# IKE Phase1 Profile Data Source Example
-# Retrieves information about an existing IKE Phase1 Profile
+# IKEPhase1Profile Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing IKE Phase1 Profile by name
+# Look up an existing IKEPhase1Profile by name
 data "xcsh_ike_phase1_profile" "example" {
   name      = "example-ike-phase1-profile"
   namespace = "staging"
-}
-
-output "ike_phase1_profile_id" {
-  value = data.xcsh_ike_phase1_profile.example.id
 }
 ```
 

@@ -16,21 +16,7 @@ resource "xcsh_dns_proxy" "example" {
   name      = "example-dns-proxy"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  cache_profile {
-  }
-  disable_cache_profile {
-  }
-  ddos_profile {
-  }
+  transport_type = "UDP"
 }
 ```
 

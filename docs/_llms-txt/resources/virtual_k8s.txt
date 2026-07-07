@@ -14,22 +14,6 @@ Virtual_k8s will create the object in the storage backend for namespace metadata
 resource "xcsh_virtual_k8s" "example" {
   name      = "example-virtual-k8s"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  default_flavor_ref {
-  }
-  disabled {
-  }
-  isolated {
-  }
 }
 ```
 

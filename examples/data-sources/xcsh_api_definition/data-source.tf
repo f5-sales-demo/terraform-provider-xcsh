@@ -1,18 +1,17 @@
-# API Definition Data Source Example
-# Retrieves information about an existing API Definition
+# APIDefinition Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing API Definition by name
+# Look up an existing APIDefinition by name
 data "xcsh_api_definition" "example" {
   name      = "example-api-definition"
   namespace = "staging"

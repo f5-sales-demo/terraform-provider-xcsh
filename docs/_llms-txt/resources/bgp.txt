@@ -14,34 +14,6 @@ Bgp object is the configuration for peering with external bgp servers. it is cre
 resource "xcsh_bgp" "example" {
   name      = "example-bgp"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  bgp_router_id = "192.168.1.1"
-
-  bgp_peers {
-    metadata {
-      name = "upstream-peer"
-    }
-    spec {
-      peer_asn     = 65000
-      peer_address = "192.168.1.2"
-    }
-  }
-
-  local_asn = 65001
-
-  site {
-    name      = "example-site"
-    namespace = "staging"
-  }
 }
 ```
 

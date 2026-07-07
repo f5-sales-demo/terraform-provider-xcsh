@@ -17,21 +17,8 @@ resource "xcsh_cminstance" "example" {
   name      = "example-cminstance"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  api_token {
-  }
-  blindfold_secret_info {
-  }
-  clear_secret_info {
-  }
+  port     = 1
+  username = "example-value"
 }
 ```
 

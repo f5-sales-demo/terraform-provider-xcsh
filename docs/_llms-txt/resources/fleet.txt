@@ -19,28 +19,10 @@ resource "xcsh_fleet" "example" {
   name      = "example-fleet"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  fleet_label = "env=production"
-
-  inside_virtual_network {
-    name      = "inside-network"
-    namespace = "staging"
-  }
-
-  outside_virtual_network {
-    name      = "outside-network"
-    namespace = "staging"
-  }
-
-  default_config {}
+  fleet_label                          = "example-value"
+  enable_default_fleet_config_download = true
+  operating_system_version             = "example-value"
+  volterra_software_version            = "example-value"
 }
 ```
 

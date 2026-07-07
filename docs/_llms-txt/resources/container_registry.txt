@@ -18,21 +18,9 @@ resource "xcsh_container_registry" "example" {
   name      = "example-container-registry"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  password {
-  }
-  blindfold_secret_info {
-  }
-  clear_secret_info {
-  }
+  registry  = "example-value"
+  user_name = "example-value"
+  email     = "example-value"
 }
 ```
 

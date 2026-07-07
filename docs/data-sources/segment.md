@@ -15,14 +15,13 @@ Retrieves information about a Segment resource in F5 Distributed Cloud for segme
 
 ```terraform
 # Segment Data Source Example
-# Retrieves information about an existing Segment
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
@@ -32,10 +31,6 @@ terraform {
 data "xcsh_segment" "example" {
   name      = "example-segment"
   namespace = "staging"
-}
-
-output "segment_id" {
-  value = data.xcsh_segment.example.id
 }
 ```
 

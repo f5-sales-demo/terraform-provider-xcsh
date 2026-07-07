@@ -15,14 +15,13 @@ Retrieves information about new policer with traffic rate limits. in F5 Distribu
 
 ```terraform
 # Policer Data Source Example
-# Retrieves information about an existing Policer
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
@@ -32,10 +31,6 @@ terraform {
 data "xcsh_policer" "example" {
   name      = "example-policer"
   namespace = "staging"
-}
-
-output "policer_id" {
-  value = data.xcsh_policer.example.id
 }
 ```
 

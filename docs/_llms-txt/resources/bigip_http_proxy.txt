@@ -14,22 +14,6 @@ BIG-IP HTTP Proxy in a given namespace. If one already exists, it will give an e
 resource "xcsh_bigip_http_proxy" "example" {
   name      = "example-bigip-http-proxy"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  advanced_profile {
-  }
-  disable_spec {
-  }
-  enable_default_profile {
-  }
 }
 ```
 

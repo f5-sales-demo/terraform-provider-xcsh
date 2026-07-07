@@ -14,28 +14,23 @@ Retrieves information about a TCP Load Balancer resource in F5 Distributed Cloud
 ## Example Usage
 
 ```terraform
-# TCP Loadbalancer Data Source Example
-# Retrieves information about an existing TCP Loadbalancer
+# TCPLoadBalancer Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing TCP Loadbalancer by name
+# Look up an existing TCPLoadBalancer by name
 data "xcsh_tcp_loadbalancer" "example" {
   name      = "example-tcp-loadbalancer"
   namespace = "staging"
-}
-
-output "tcp_loadbalancer_id" {
-  value = data.xcsh_tcp_loadbalancer.example.id
 }
 ```
 

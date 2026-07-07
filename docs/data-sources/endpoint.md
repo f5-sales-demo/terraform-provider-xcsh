@@ -15,14 +15,13 @@ Manages endpoint will create the object in the storage backend for namespace met
 
 ```terraform
 # Endpoint Data Source Example
-# Retrieves information about an existing Endpoint
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
@@ -32,10 +31,6 @@ terraform {
 data "xcsh_endpoint" "example" {
   name      = "example-endpoint"
   namespace = "staging"
-}
-
-output "endpoint_id" {
-  value = data.xcsh_endpoint.example.id
 }
 ```
 

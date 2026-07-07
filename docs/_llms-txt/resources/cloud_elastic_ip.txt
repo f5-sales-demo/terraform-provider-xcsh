@@ -16,17 +16,7 @@ resource "xcsh_cloud_elastic_ip" "example" {
   name      = "example-cloud-elastic-ip"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  site_ref {
-  }
+  item_count = 1
 }
 ```
 

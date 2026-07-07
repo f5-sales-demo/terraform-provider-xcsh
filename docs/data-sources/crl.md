@@ -15,14 +15,13 @@ Retrieves information about a CRL resource in F5 Distributed Cloud for api to cr
 
 ```terraform
 # CRL Data Source Example
-# Retrieves information about an existing CRL
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
@@ -32,10 +31,6 @@ terraform {
 data "xcsh_crl" "example" {
   name      = "example-crl"
   namespace = "staging"
-}
-
-output "crl_id" {
-  value = data.xcsh_crl.example.id
 }
 ```
 

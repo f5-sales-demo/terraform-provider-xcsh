@@ -14,7 +14,7 @@ Manages a Container Registry resource in F5 Distributed Cloud for container imag
 ## Example Usage
 
 ```terraform
-# Container Registry Resource Example
+# ContainerRegistry Resource Example
 # Manages a Container Registry resource in F5 Distributed Cloud for container image registry configuration.
 
 terraform {
@@ -22,39 +22,20 @@ terraform {
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Container Registry configuration
+# Basic ContainerRegistry configuration
 resource "xcsh_container_registry" "example" {
   name      = "example-container-registry"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # SecretType is used in an object to indicate a sensitive/c...
-  password {
-    # Configure password settings
-  }
-  # BlindfoldSecretInfoType specifies information about the S...
-  blindfold_secret_info {
-    # Configure blindfold_secret_info settings
-  }
-  # ClearSecretInfoType specifies information about the Secre...
-  clear_secret_info {
-    # Configure clear_secret_info settings
-  }
+  registry  = "example-value"
+  user_name = "example-value"
+  email     = "example-value"
 }
 ```
 

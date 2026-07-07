@@ -14,20 +14,6 @@ Segment. configuration
 resource "xcsh_segment" "example" {
   name      = "example-segment"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  disable_spec {
-  }
-  enable {
-  }
 }
 ```
 

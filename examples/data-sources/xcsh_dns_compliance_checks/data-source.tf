@@ -1,18 +1,17 @@
-# DNS Compliance Checks Data Source Example
-# Retrieves information about an existing DNS Compliance Checks
+# DNSComplianceChecks Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing DNS Compliance Checks by name
+# Look up an existing DNSComplianceChecks by name
 data "xcsh_dns_compliance_checks" "example" {
   name      = "example-dns-compliance-checks"
   namespace = "staging"

@@ -14,41 +14,26 @@ Manages virtual site object in given namespace. in F5 Distributed Cloud.
 ## Example Usage
 
 ```terraform
-# Virtual Site Resource Example
-# Manages virtual site object in given namespace. in F5 Distributed Cloud.
+# VirtualSite Resource Example
+# Manages virtual site object in given namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Virtual Site configuration
+# Basic VirtualSite configuration
 resource "xcsh_virtual_site" "example" {
   name      = "example-virtual-site"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Virtual Site configuration
-  site_type = "CUSTOMER_EDGE"
-
-  # Site selector expression
-  site_selector {
-    expressions = ["region in (us-west-2, us-east-1)"]
-  }
+  site_type = "INVALID"
 }
 ```
 

@@ -14,28 +14,23 @@ Retrieves information about new Fast ACL rule, has specification to match source
 ## Example Usage
 
 ```terraform
-# Fast ACL Rule Data Source Example
-# Retrieves information about an existing Fast ACL Rule
+# FastACLRule Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Fast ACL Rule by name
+# Look up an existing FastACLRule by name
 data "xcsh_fast_acl_rule" "example" {
   name      = "example-fast-acl-rule"
   namespace = "staging"
-}
-
-output "fast_acl_rule_id" {
-  value = data.xcsh_fast_acl_rule.example.id
 }
 ```
 

@@ -1,18 +1,17 @@
-# API Testing Data Source Example
-# Retrieves information about an existing API Testing
+# APITesting Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing API Testing by name
+# Look up an existing APITesting by name
 data "xcsh_api_testing" "example" {
   name      = "example-api-testing"
   namespace = "staging"

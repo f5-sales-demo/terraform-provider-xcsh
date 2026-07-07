@@ -16,17 +16,8 @@ resource "xcsh_address_allocator" "example" {
   name      = "example-address-allocator"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  address_allocation_scheme {
-  }
+  address_pool = ["example-value"]
+  mode         = "LOCAL"
 }
 ```
 

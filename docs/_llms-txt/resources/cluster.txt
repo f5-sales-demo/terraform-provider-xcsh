@@ -20,21 +20,11 @@ resource "xcsh_cluster" "example" {
   name      = "example-cluster"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  auto_http_config {
-  }
-  circuit_breaker {
-  }
-  default_subset {
-  }
+  connection_timeout     = 1
+  endpoint_selection     = "DISTRIBUTED"
+  fallback_policy        = "NO_FALLBACK"
+  http_idle_timeout      = 1
+  loadbalancer_algorithm = "ROUND_ROBIN"
 }
 ```
 

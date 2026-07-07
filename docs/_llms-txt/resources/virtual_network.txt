@@ -16,15 +16,6 @@ resource "xcsh_virtual_network" "example" {
   name      = "example-virtual-network"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
   legacy_type = "VIRTUAL_NETWORK_SITE_LOCAL"
 }
 ```

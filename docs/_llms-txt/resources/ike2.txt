@@ -14,22 +14,6 @@ Ike phase2 profile specification. configuration
 resource "xcsh_ike2" "example" {
   name      = "example-ike2"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  dh_group_set {
-  }
-  disable_pfs {
-  }
-  ike_keylifetime_hours {
-  }
 }
 ```
 

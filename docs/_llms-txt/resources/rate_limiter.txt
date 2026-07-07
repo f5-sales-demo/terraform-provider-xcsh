@@ -8,31 +8,12 @@ Rate_limiter creates a new object in the storage backend for metadata.namespace
 - name
 - namespace
 
-## Server Defaults (safe to omit)
-
-- user_identification
-
 ## Minimal Valid Config
 
 ```terraform
 resource "xcsh_rate_limiter" "example" {
   name      = "example-rate-limiter"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  limits {
-    total_number     = 100
-    unit             = "MINUTE"
-    burst_multiplier = 10
-  }
 }
 ```
 

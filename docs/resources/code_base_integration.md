@@ -14,47 +14,24 @@ Manages integration details. in F5 Distributed Cloud.
 ## Example Usage
 
 ```terraform
-# codebase Integration Resource Example
-# Manages integration details. in F5 Distributed Cloud.
+# CodeBaseIntegration Resource Example
+# Manages integration details.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic codebase Integration configuration
+# Basic CodeBaseIntegration configuration
 resource "xcsh_code_base_integration" "example" {
   name      = "example-code-base-integration"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # Choose your codebase (e.g. GitHub, GitLab, Bitbucket, Az...
-  code_base_integration {
-    # Configure code_base_integration settings
-  }
-  # Configuration parameter for Azure repos.
-  azure_repos {
-    # Configure azure_repos settings
-  }
-  # SecretType is used in an object to indicate a sensitive/c...
-  access_token {
-    # Configure access_token settings
-  }
 }
 ```
 

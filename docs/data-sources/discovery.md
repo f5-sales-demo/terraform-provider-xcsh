@@ -15,14 +15,13 @@ Retrieves information about a Discovery resource in F5 Distributed Cloud for api
 
 ```terraform
 # Discovery Data Source Example
-# Retrieves information about an existing Discovery
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
@@ -32,10 +31,6 @@ terraform {
 data "xcsh_discovery" "example" {
   name      = "example-discovery"
   namespace = "staging"
-}
-
-output "discovery_id" {
-  value = data.xcsh_discovery.example.id
 }
 ```
 

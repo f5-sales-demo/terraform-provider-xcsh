@@ -1,18 +1,17 @@
-# Enhanced Firewall Policy Data Source Example
-# Retrieves information about an existing Enhanced Firewall Policy
+# EnhancedFirewallPolicy Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Enhanced Firewall Policy by name
+# Look up an existing EnhancedFirewallPolicy by name
 data "xcsh_enhanced_firewall_policy" "example" {
   name      = "example-enhanced-firewall-policy"
   namespace = "staging"

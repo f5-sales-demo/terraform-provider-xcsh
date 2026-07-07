@@ -15,14 +15,13 @@ Retrieves information about a Subnet resource in F5 Distributed Cloud for subnet
 
 ```terraform
 # Subnet Data Source Example
-# Retrieves information about an existing Subnet
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
@@ -32,10 +31,6 @@ terraform {
 data "xcsh_subnet" "example" {
   name      = "example-subnet"
   namespace = "staging"
-}
-
-output "subnet_id" {
-  value = data.xcsh_subnet.example.id
 }
 ```
 

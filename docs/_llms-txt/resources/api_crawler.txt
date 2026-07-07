@@ -14,22 +14,6 @@ API Crawler resource
 resource "xcsh_api_crawler" "example" {
   name      = "example-api-crawler"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  domains {
-  }
-  simple_login {
-  }
-  password {
-  }
 }
 ```
 

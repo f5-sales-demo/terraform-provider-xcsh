@@ -15,14 +15,14 @@ Manages iRule in a given namespace. If one already exists it will give an error.
 
 ```terraform
 # Irule Resource Example
-# Manages iRule in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud.
+# Manages iRule in a given namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
@@ -33,14 +33,9 @@ resource "xcsh_irule" "example" {
   name      = "example-irule"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
+  description_spec = "example-value"
+  irule            = "example-value"
+  description      = "example-value"
 }
 ```
 

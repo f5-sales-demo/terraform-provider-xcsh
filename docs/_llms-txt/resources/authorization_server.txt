@@ -16,14 +16,7 @@ resource "xcsh_authorization_server" "example" {
   name      = "example-authorization-server"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
+  jwks_uri = "example-value"
 }
 ```
 

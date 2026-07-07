@@ -16,21 +16,7 @@ resource "xcsh_filter_set" "example" {
   name      = "example-filter-set"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  filter_fields {
-  }
-  date_field {
-  }
-  absolute {
-  }
+  context_key = "example-value"
 }
 ```
 

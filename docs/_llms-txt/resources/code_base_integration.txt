@@ -14,22 +14,6 @@ Integration details
 resource "xcsh_code_base_integration" "example" {
   name      = "example-code-base-integration"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  code_base_integration {
-  }
-  azure_repos {
-  }
-  access_token {
-  }
 }
 ```
 

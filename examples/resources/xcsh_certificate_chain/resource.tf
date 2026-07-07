@@ -1,4 +1,4 @@
-# Certificate Chain Resource Example
+# CertificateChain Resource Example
 # Manages a Certificate Chain resource in F5 Distributed Cloud for certificate chain configuration for TLS.
 
 terraform {
@@ -6,23 +6,16 @@ terraform {
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Certificate Chain configuration
+# Basic CertificateChain configuration
 resource "xcsh_certificate_chain" "example" {
   name      = "example-certificate-chain"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
+  certificate_url = "example-value"
 }

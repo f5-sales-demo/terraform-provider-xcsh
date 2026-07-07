@@ -15,14 +15,9 @@ resource "xcsh_dns_compliance_checks" "example" {
   name      = "example-dns-compliance-checks"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
+  domain_denylist                      = ["example-value"]
+  disallowed_query_type_list           = ["example-value"]
+  disallowed_resource_record_type_list = ["example-value"]
 }
 ```
 

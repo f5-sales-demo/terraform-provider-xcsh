@@ -16,17 +16,7 @@ resource "xcsh_site" "example" {
   name      = "example-site"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  site_selector {
-  }
+  site_type = "INVALID"
 }
 ```
 

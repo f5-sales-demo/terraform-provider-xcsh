@@ -1,18 +1,17 @@
-# BGP Routing Policy Data Source Example
-# Retrieves information about an existing BGP Routing Policy
+# BGPRoutingPolicy Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing BGP Routing Policy by name
+# Look up an existing BGPRoutingPolicy by name
 data "xcsh_bgp_routing_policy" "example" {
   name      = "example-bgp-routing-policy"
   namespace = "staging"

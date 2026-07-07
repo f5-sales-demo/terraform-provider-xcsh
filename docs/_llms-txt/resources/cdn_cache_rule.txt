@@ -14,22 +14,6 @@ CDN loadbalancer specification. configuration
 resource "xcsh_cdn_cache_rule" "example" {
   name      = "example-CDN-cache-rule"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  cache_rules {
-  }
-  cache_bypass {
-  }
-  eligible_for_cache {
-  }
 }
 ```
 

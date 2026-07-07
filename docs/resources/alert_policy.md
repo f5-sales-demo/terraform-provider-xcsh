@@ -14,53 +14,24 @@ Manages new Alert Policy Object. in F5 Distributed Cloud.
 ## Example Usage
 
 ```terraform
-# Alert Policy Resource Example
-# Manages new Alert Policy Object. in F5 Distributed Cloud.
+# AlertPolicy Resource Example
+# Manages new Alert Policy Object.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Alert Policy configuration
+# Basic AlertPolicy configuration
 resource "xcsh_alert_policy" "example" {
   name      = "example-alert-policy"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Alert Policy configuration
-  # Alert receivers
-  receivers {
-    name      = "slack-receiver"
-    namespace = "staging"
-  }
-
-  # Alert routes
-  routes {
-    any {}
-    send {}
-  }
-
-  # Notification parameters
-  notification_parameters {
-    default {}
-    group_wait     = "30s"
-    group_interval = "1m"
-  }
 }
 ```
 

@@ -14,28 +14,23 @@ Retrieves information about a Network Firewall resource in F5 Distributed Cloud 
 ## Example Usage
 
 ```terraform
-# Network Firewall Data Source Example
-# Retrieves information about an existing Network Firewall
+# NetworkFirewall Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Network Firewall by name
+# Look up an existing NetworkFirewall by name
 data "xcsh_network_firewall" "example" {
   name      = "example-network-firewall"
   namespace = "staging"
-}
-
-output "network_firewall_id" {
-  value = data.xcsh_network_firewall.example.id
 }
 ```
 

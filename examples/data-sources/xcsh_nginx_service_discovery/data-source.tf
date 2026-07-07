@@ -1,18 +1,17 @@
-# Nginx Service Discovery Data Source Example
-# Retrieves information about an existing Nginx Service Discovery
+# NginxServiceDiscovery Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Nginx Service Discovery by name
+# Look up an existing NginxServiceDiscovery by name
 data "xcsh_nginx_service_discovery" "example" {
   name      = "example-nginx-service-discovery"
   namespace = "staging"

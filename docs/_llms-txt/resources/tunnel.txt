@@ -16,15 +16,6 @@ resource "xcsh_tunnel" "example" {
   name      = "example-tunnel"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
   tunnel_type = "IPSEC_PSK"
 }
 ```

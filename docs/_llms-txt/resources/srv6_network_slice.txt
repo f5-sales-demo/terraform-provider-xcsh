@@ -18,14 +18,10 @@ resource "xcsh_srv6_network_slice" "example" {
   name      = "example-srv6-network-slice"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
+  sid_prefixes                   = ["example-value"]
+  connect_to_access_networks     = true
+  connect_to_enterprise_networks = true
+  connect_to_internet            = true
 }
 ```
 

@@ -8,32 +8,12 @@ Protocol Inspection Specification in a given namespace. If one already exists it
 - name
 - namespace
 
-## Server Defaults (safe to omit)
-
-- action
-
 ## Minimal Valid Config
 
 ```terraform
 resource "xcsh_protocol_inspection" "example" {
   name      = "example-protocol-inspection"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  enable_disable_compliance_checks {
-  }
-  disable_compliance_checks {
-  }
-  enable_compliance_checks {
-  }
 }
 ```
 

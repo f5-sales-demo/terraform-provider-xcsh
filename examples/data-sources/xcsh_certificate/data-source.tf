@@ -1,12 +1,11 @@
 # Certificate Data Source Example
-# Retrieves information about an existing Certificate
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
@@ -21,18 +20,3 @@ data "xcsh_certificate" "example" {
 output "certificate_id" {
   value = data.xcsh_certificate.example.id
 }
-
-# Example: Reference certificate in HTTPS configuration
-# resource "xcsh_http_loadbalancer" "example" {
-#   name      = "https-lb"
-#   namespace = "staging"
-#
-#   https {
-#     tls_cert_params {
-#       certificates {
-#         name      = data.xcsh_certificate.example.name
-#         namespace = data.xcsh_certificate.example.namespace
-#       }
-#     }
-#   }
-# }

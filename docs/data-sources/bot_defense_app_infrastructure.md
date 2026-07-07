@@ -14,28 +14,23 @@ Manages Bot Defense App Infrastructure in a given namespace. in F5 Distributed C
 ## Example Usage
 
 ```terraform
-# Bot Defense App Infrastructure Data Source Example
-# Retrieves information about an existing Bot Defense App Infrastructure
+# BotDefenseAppInfrastructure Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Bot Defense App Infrastructure by name
+# Look up an existing BotDefenseAppInfrastructure by name
 data "xcsh_bot_defense_app_infrastructure" "example" {
   name      = "example-bot-defense-app-infrastructure"
   namespace = "staging"
-}
-
-output "bot_defense_app_infrastructure_id" {
-  value = data.xcsh_bot_defense_app_infrastructure.example.id
 }
 ```
 

@@ -18,21 +18,9 @@ resource "xcsh_endpoint" "example" {
   name      = "example-endpoint"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  dns_name_advanced {
-  }
-  service_info {
-  }
-  service_selector {
-  }
+  health_check_port = 1
+  port              = 1
+  protocol          = "example-value"
 }
 ```
 

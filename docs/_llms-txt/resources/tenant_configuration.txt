@@ -14,22 +14,6 @@ Tenant configuration specification. configuration
 resource "xcsh_tenant_configuration" "example" {
   name      = "example-tenant-configuration"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  basic_configuration {
-  }
-  brute_force_detection {
-  }
-  brute_force_detection_settings {
-  }
 }
 ```
 

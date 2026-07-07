@@ -15,14 +15,13 @@ Retrieves information about an Authentication resource in F5 Distributed Cloud. 
 
 ```terraform
 # Authentication Data Source Example
-# Retrieves information about an existing Authentication
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
@@ -32,10 +31,6 @@ terraform {
 data "xcsh_authentication" "example" {
   name      = "example-authentication"
   namespace = "staging"
-}
-
-output "authentication_id" {
-  value = data.xcsh_authentication.example.id
 }
 ```
 

@@ -1,42 +1,19 @@
-# K8S Pod Security Policy Resource Example
-# Manages k8s_pod_security_policy will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
+# K8SPodSecurityPolicy Resource Example
+# Manages k8s_pod_security_policy will create the object in the storage backend for namespace metadata.namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic K8S Pod Security Policy configuration
+# Basic K8SPodSecurityPolicy configuration
 resource "xcsh_k8s_pod_security_policy" "example" {
   name      = "example-k8s-pod-security-policy"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # [OneOf: psp_spec, yaml] Pod Security Policy Specification...
-  psp_spec {
-    # Configure psp_spec settings
-  }
-  # List of capabilities that docker container has.
-  allowed_capabilities {
-    # Configure allowed_capabilities settings
-  }
-  # Restrict list of host paths, default all host paths are a...
-  allowed_host_paths {
-    # Configure allowed_host_paths settings
-  }
 }

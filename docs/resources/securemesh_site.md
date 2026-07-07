@@ -14,7 +14,7 @@ Manages a Securemesh Site resource in F5 Distributed Cloud for deploying secure 
 ## Example Usage
 
 ```terraform
-# Securemesh Site Resource Example
+# SecuremeshSite Resource Example
 # Manages a Securemesh Site resource in F5 Distributed Cloud for deploying secure mesh edge sites with distributed security capabilities.
 
 terraform {
@@ -22,46 +22,20 @@ terraform {
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Securemesh Site configuration
+# Basic SecuremeshSite configuration
 resource "xcsh_securemesh_site" "example" {
   name      = "example-securemesh-site"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Secure Mesh Site configuration
-  # Generic provider
-  generic {
-    not_managed {
-      node_list {
-        hostname  = "node1.example.com"
-        public_ip = "203.0.113.10"
-        type      = "Control"
-      }
-    }
-  }
-
-  # Master nodes
-  master_nodes_count = 1
-
-  # Default fleet config
-  default_fleet_config {}
-
-  # Disable HA
-  disable_ha {}
+  volterra_certified_hw = "example-value"
+  worker_nodes          = ["example-value"]
+  address               = "example-value"
 }
 ```
 

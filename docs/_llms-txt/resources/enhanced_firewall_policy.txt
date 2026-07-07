@@ -8,44 +8,12 @@ Enhanced firewall policy specification. configuration
 - name
 - namespace
 
-## Server Defaults (safe to omit)
-
-- allow_all
-
 ## Minimal Valid Config
 
 ```terraform
 resource "xcsh_enhanced_firewall_policy" "example" {
   name      = "example-enhanced-firewall-policy"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  rule_list {
-    rules {
-      metadata {
-        name = "allow-web-traffic"
-      }
-      allow {}
-      advanced_action {
-        action = "LOG"
-      }
-      source_prefix_list {
-        ip_prefix_set {
-          name      = "trusted-ips"
-          namespace = "staging"
-        }
-      }
-      all_traffic {}
-    }
-  }
 }
 ```
 

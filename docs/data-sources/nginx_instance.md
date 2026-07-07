@@ -14,28 +14,23 @@ Retrieves information about a Nginx Instance resource in F5 Distributed Cloud fo
 ## Example Usage
 
 ```terraform
-# Nginx Instance Data Source Example
-# Retrieves information about an existing Nginx Instance
+# NginxInstance Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Nginx Instance by name
+# Look up an existing NginxInstance by name
 data "xcsh_nginx_instance" "example" {
   name      = "example-nginx-instance"
   namespace = "staging"
-}
-
-output "nginx_instance_id" {
-  value = data.xcsh_nginx_instance.example.id
 }
 ```
 

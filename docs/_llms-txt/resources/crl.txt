@@ -19,17 +19,10 @@ resource "xcsh_crl" "example" {
   name      = "example-crl"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  http_access {
-  }
+  refresh_interval = 1
+  server_address   = "example-value"
+  server_port      = 1
+  timeout          = 1
 }
 ```
 
