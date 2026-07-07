@@ -85,4 +85,16 @@ jobs:
           echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
 
       - name: Run golangci-lint
-        run: golangci-lint run --timeout=5m ./internal/... .
+        env:
+          GOGC: "20"
+        run: |
+          # Lint hand-written code only. The generated internal/provider and
+          # internal/client packages (// Code generated ... DO NOT EDIT, ~400k
+          # lines) OOM the whole-program linters (unused/staticcheck) at default
+          # concurrency — exit 143 — which was skipping the on-merge regeneration
+          # cascade. Excluding them as targets, plus GOGC=20 and serial
+          # concurrency, keeps peak memory bounded.
+          # Use directories ({{.Dir}}), not import paths — golangci-lint expects paths.
+          # Read into an array so each dir is a separate quoted arg (shellcheck-clean).
+          mapfile -t pkgs < <(go list -f '{{.Dir}}' ./internal/... . | grep -vE '/internal/(provider|client)$')
+          golangci-lint run --timeout=15m --concurrency=1 "${pkgs[@]}"
