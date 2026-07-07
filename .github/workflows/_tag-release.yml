@@ -160,6 +160,11 @@ jobs:
       gpg-private-key-passphrase: ${{ secrets.gpg-passphrase }}
     with:
       setup-go-version-file: 'go.mod'
+      # Build one target at a time. GoReleaser defaults to NumCPU concurrent builds;
+      # compiling the large generated provider (~121 resources) on that many at once
+      # OOM-kills the runner (exit 143). Serial builds match the proven single-build
+      # footprint and keep releases reliably green (raise to 2 only if runner RAM allows).
+      goreleaser-release-args: '--parallelism 1'
 
   upload-mcp-data:
     name: Upload MCP Data Artifact
