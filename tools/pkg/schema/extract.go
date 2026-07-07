@@ -152,12 +152,14 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 
 	// Namespace emission is driven by the spec-declared namespace constraint
 	// (x-f5xc-namespace-profile). Precedence:
-	//   1. Profile restricts the resource to a single namespace (e.g. system-only DNS
-	//      objects) -> Optional+Computed, defaulted to that value + OneOf, so it may be
-	//      omitted and can't be set wrong.
-	//   2. Path has {namespace} but the resource allows multiple namespaces -> Required.
+	//   1. Profile restricts the resource to a single namespace AND that constraint is
+	//      enforced (verification-gated in the spec: only verified classifications set
+	//      enforced=true) -> Optional+Computed, defaulted to that value + OneOf, so it
+	//      may be omitted and can't be set wrong.
+	//   2. Path has {namespace} but the resource is multi-namespace or its single-namespace
+	//      constraint is unverified (enforced=false) -> Required (don't over-restrict).
 	//   3. No namespace in the API path -> Optional+Computed (omit/empty).
-	if prof, ok := namespace.GetProfile(resourceName); ok && len(prof.Allowed) == 1 {
+	if prof, ok := namespace.GetProfile(resourceName); ok && len(prof.Allowed) == 1 && prof.Enforced {
 		fixedNS := string(prof.Allowed[0])
 		idComponentAttrs = append(idComponentAttrs, openapi.TerraformAttribute{
 			Name: "namespace", GoName: "Namespace", TfsdkTag: "namespace", Type: "string",
