@@ -39,6 +39,29 @@ data "xcsh_global_log_receiver" "example" {
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
 
+🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
+
+### Minimum Configuration
+
+Required fields:
+
+- `name`
+- `namespace`
+- `log_type`
+- `receiver_choice`
+
+**Example (API format):**
+
+```yaml
+metadata:
+  name: my-log-receiver
+  namespace: system
+spec:
+  request_logs: {}
+  http_receiver:
+    uri: `http://logs.example.com/ingest`
+```
+
 ### Metadata Argument Reference
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the GlobalLogReceiver

@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// AppAPIGroup represents a XCSH AppAPIGroup
+// AppAPIGroup represents a F5XC AppAPIGroup
 type AppAPIGroup struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

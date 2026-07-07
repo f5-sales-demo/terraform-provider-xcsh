@@ -47,7 +47,7 @@ func (p *XCSHProvider) Metadata(ctx context.Context, req provider.MetadataReques
 
 func (p *XCSHProvider) Schema(ctx context.Context, req provider.SchemaRequest, resp *provider.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Terraform provider for F5 Distributed Cloud (xcsh) enabling infrastructure as code " +
+		MarkdownDescription: "Terraform provider for F5 Distributed Cloud (F5XC) enabling infrastructure as code " +
 			"for load balancers, security policies, sites, and networking. Community-maintained provider " +
 			"built from public F5 API documentation.",
 		Attributes: map[string]schema.Attribute{
@@ -91,7 +91,7 @@ func (p *XCSHProvider) Schema(ctx context.Context, req provider.SchemaRequest, r
 				Sensitive: true,
 			},
 			"api_ca_cert": schema.StringAttribute{
-				MarkdownDescription: "Path to PEM-encoded CA certificate file for verifying the F5 Distributed Cloud API server. " +
+				MarkdownDescription: "Path to PEM-encoded CA certificate file for verifying the F5XC API server. " +
 					"Can also be set via XCSH_CACERT environment variable. Optional.",
 				Optional: true,
 			},
@@ -100,7 +100,7 @@ func (p *XCSHProvider) Schema(ctx context.Context, req provider.SchemaRequest, r
 }
 
 func (p *XCSHProvider) Configure(ctx context.Context, req provider.ConfigureRequest, resp *provider.ConfigureResponse) {
-	tflog.Info(ctx, "Configuring xcsh client")
+	tflog.Info(ctx, "Configuring F5XC client")
 
 	var config XCSHProviderModel
 
@@ -110,7 +110,7 @@ func (p *XCSHProvider) Configure(ctx context.Context, req provider.ConfigureRequ
 		return
 	}
 
-	// Get configuration values from environment variables
+	// Get configuration values from environment variables first
 	apiURL := os.Getenv("XCSH_API_URL")
 	apiToken := os.Getenv("XCSH_API_TOKEN")
 	apiP12File := os.Getenv("XCSH_P12_FILE")
@@ -169,29 +169,29 @@ func (p *XCSHProvider) Configure(ctx context.Context, req provider.ConfigureRequ
 		c, err = client.NewClientWithP12(apiURL, apiP12File, p12Password)
 		if err != nil {
 			resp.Diagnostics.AddError(
-				"Failed to Create xcsh Client",
-				"Could not create xcsh client with P12 certificate: "+err.Error(),
+				"Failed to Create F5XC Client",
+				"Could not create F5XC client with P12 certificate: "+err.Error(),
 			)
 			return
 		}
-		tflog.Info(ctx, "Configured xcsh client with P12 certificate authentication", map[string]any{"success": true, "api_url": apiURL})
+		tflog.Info(ctx, "Configured F5XC client with P12 certificate authentication", map[string]any{"success": true, "api_url": apiURL})
 
 	case apiCert != "" && apiKey != "":
 		// PEM certificate/key authentication
 		c, err = client.NewClientWithCert(apiURL, apiCert, apiKey, apiCACert)
 		if err != nil {
 			resp.Diagnostics.AddError(
-				"Failed to Create xcsh Client",
-				"Could not create xcsh client with certificate: "+err.Error(),
+				"Failed to Create F5XC Client",
+				"Could not create F5XC client with certificate: "+err.Error(),
 			)
 			return
 		}
-		tflog.Info(ctx, "Configured xcsh client with certificate authentication", map[string]any{"success": true, "api_url": apiURL})
+		tflog.Info(ctx, "Configured F5XC client with certificate authentication", map[string]any{"success": true, "api_url": apiURL})
 
 	case apiToken != "":
 		// API token authentication
 		c = client.NewClient(apiURL, apiToken)
-		tflog.Info(ctx, "Configured xcsh client with API token authentication", map[string]any{"success": true, "api_url": apiURL})
+		tflog.Info(ctx, "Configured F5XC client with API token authentication", map[string]any{"success": true, "api_url": apiURL})
 
 	default:
 		resp.Diagnostics.AddError(
@@ -251,7 +251,11 @@ func (p *XCSHProvider) Resources(ctx context.Context) []func() resource.Resource
 		NewContainerRegistryResource,
 		NewDNSComplianceChecksResource,
 		NewDNSDomainResource,
+		NewDNSLBHealthCheckResource,
+		NewDNSLBPoolResource,
+		NewDNSLoadBalancerResource,
 		NewDNSProxyResource,
+		NewDNSZoneResource,
 		NewDataGroupResource,
 		NewDataTypeResource,
 		NewDcClusterGroupResource,
@@ -266,6 +270,7 @@ func (p *XCSHProvider) Resources(ctx context.Context) []func() resource.Resource
 		NewForwardProxyPolicyResource,
 		NewForwardingClassResource,
 		NewGCPVPCSiteResource,
+		NewGeoLocationSetResource,
 		NewGlobalLogReceiverResource,
 		NewHTTPLoadBalancerResource,
 		NewHealthcheckResource,
@@ -374,7 +379,11 @@ func (p *XCSHProvider) DataSources(ctx context.Context) []func() datasource.Data
 		NewContainerRegistryDataSource,
 		NewDNSComplianceChecksDataSource,
 		NewDNSDomainDataSource,
+		NewDNSLBHealthCheckDataSource,
+		NewDNSLBPoolDataSource,
+		NewDNSLoadBalancerDataSource,
 		NewDNSProxyDataSource,
+		NewDNSZoneDataSource,
 		NewDataGroupDataSource,
 		NewDataTypeDataSource,
 		NewDcClusterGroupDataSource,
@@ -390,6 +399,7 @@ func (p *XCSHProvider) DataSources(ctx context.Context) []func() datasource.Data
 		NewForwardProxyPolicyDataSource,
 		NewForwardingClassDataSource,
 		NewGCPVPCSiteDataSource,
+		NewGeoLocationSetDataSource,
 		NewGlobalLogReceiverDataSource,
 		NewHTTPLoadBalancerDataSource,
 		NewHealthcheckDataSource,

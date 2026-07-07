@@ -40,6 +40,8 @@ resource "xcsh_route" "example" {
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
 
+🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
+
 ### Metadata Argument Reference
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Route. Must be unique within the namespace
@@ -204,7 +206,7 @@ A [`request_cookies_to_add`](#routes-request-cookies-to-add) block (within [`rou
 
 A [`secret_value`](#value-4c340b) block (within [`routes.request_cookies_to_add`](#routes-request-cookies-to-add)) supports the following:
 
-<a id="info-8a6590"></a>&#x2022; [`blindfold_secret_info`](#info-8a6590) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info](#info-8a6590) below.
+<a id="info-8a6590"></a>&#x2022; [`blindfold_secret_info`](#info-8a6590) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-8a6590) below.
 
 <a id="info-f8c679"></a>&#x2022; [`clear_secret_info`](#info-f8c679) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-f8c679) below.
 
@@ -232,7 +234,7 @@ A [`request_headers_to_add`](#routes-request-headers-to-add) block (within [`rou
 
 A [`secret_value`](#value-ce9ebf) block (within [`routes.request_headers_to_add`](#routes-request-headers-to-add)) supports the following:
 
-<a id="info-452306"></a>&#x2022; [`blindfold_secret_info`](#info-452306) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info](#info-452306) below.
+<a id="info-452306"></a>&#x2022; [`blindfold_secret_info`](#info-452306) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-452306) below.
 
 <a id="info-eaa03d"></a>&#x2022; [`clear_secret_info`](#info-eaa03d) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-eaa03d) below.
 
@@ -298,7 +300,7 @@ A [`response_cookies_to_add`](#routes-response-cookies-to-add) block (within [`r
 
 A [`secret_value`](#value-172895) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
 
-<a id="info-2f1e53"></a>&#x2022; [`blindfold_secret_info`](#info-2f1e53) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info](#info-2f1e53) below.
+<a id="info-2f1e53"></a>&#x2022; [`blindfold_secret_info`](#info-2f1e53) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-2f1e53) below.
 
 <a id="info-a85975"></a>&#x2022; [`clear_secret_info`](#info-a85975) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-a85975) below.
 
@@ -326,7 +328,7 @@ A [`response_headers_to_add`](#routes-response-headers-to-add) block (within [`r
 
 A [`secret_value`](#value-6b60b8) block (within [`routes.response_headers_to_add`](#routes-response-headers-to-add)) supports the following:
 
-<a id="info-02903c"></a>&#x2022; [`blindfold_secret_info`](#info-02903c) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info](#info-02903c) below.
+<a id="info-02903c"></a>&#x2022; [`blindfold_secret_info`](#info-02903c) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-02903c) below.
 
 <a id="info-4128a5"></a>&#x2022; [`clear_secret_info`](#info-4128a5) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-4128a5) below.
 

@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// NetworkPolicyView represents a XCSH NetworkPolicyView
+// NetworkPolicyView represents a F5XC NetworkPolicyView
 type NetworkPolicyView struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

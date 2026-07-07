@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// RateLimiter represents a XCSH RateLimiter
+// RateLimiter represents a F5XC RateLimiter
 type RateLimiter struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

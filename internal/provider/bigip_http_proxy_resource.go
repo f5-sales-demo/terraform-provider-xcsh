@@ -75,7 +75,7 @@ var BigIPHTTPProxyDDOSProfileModelAttrTypes = map[string]attr.Type{
 
 // BigIPHTTPProxyIrulesModel represents irules block
 type BigIPHTTPProxyIrulesModel struct {
-	Irules []BigIPHTTPProxyIrulesIrulesModel `tfsdk:"irules"`
+	Irules types.List `tfsdk:"irules"`
 }
 
 // BigIPHTTPProxyIrulesModelAttrTypes defines the attribute types for BigIPHTTPProxyIrulesModel
@@ -109,7 +109,7 @@ var BigIPHTTPProxyLBAlgorithmModelAttrTypes = map[string]attr.Type{
 
 // BigIPHTTPProxyOriginPoolsModel represents origin_pools block
 type BigIPHTTPProxyOriginPoolsModel struct {
-	Pools []BigIPHTTPProxyOriginPoolsPoolsModel `tfsdk:"pools"`
+	Pools types.List `tfsdk:"pools"`
 }
 
 // BigIPHTTPProxyOriginPoolsModelAttrTypes defines the attribute types for BigIPHTTPProxyOriginPoolsModel
@@ -135,11 +135,11 @@ var BigIPHTTPProxyOriginPoolsPoolsModelAttrTypes = map[string]attr.Type{
 
 // BigIPHTTPProxyOriginPoolsPoolsOriginServersModel represents origin_servers block
 type BigIPHTTPProxyOriginPoolsPoolsOriginServersModel struct {
-	Port          types.Int64                                                     `tfsdk:"port"`
-	AutomaticPort *BigIPHTTPProxyEmptyModel                                       `tfsdk:"automatic_port"`
-	HealthChecks  *BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModel   `tfsdk:"health_checks"`
-	LBPort        *BigIPHTTPProxyEmptyModel                                       `tfsdk:"lb_port"`
-	OriginServers []BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersModel `tfsdk:"origin_servers"`
+	Port          types.Int64                                                   `tfsdk:"port"`
+	AutomaticPort *BigIPHTTPProxyEmptyModel                                     `tfsdk:"automatic_port"`
+	HealthChecks  *BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModel `tfsdk:"health_checks"`
+	LBPort        *BigIPHTTPProxyEmptyModel                                     `tfsdk:"lb_port"`
+	OriginServers types.List                                                    `tfsdk:"origin_servers"`
 }
 
 // BigIPHTTPProxyOriginPoolsPoolsOriginServersModelAttrTypes defines the attribute types for BigIPHTTPProxyOriginPoolsPoolsOriginServersModel
@@ -425,7 +425,7 @@ var BigIPHTTPProxyProxyAdvertisementModelAttrTypes = map[string]attr.Type{
 
 // BigIPHTTPProxyProxyAdvertisementAdvertiseCustomModel represents advertise_custom block
 type BigIPHTTPProxyProxyAdvertisementAdvertiseCustomModel struct {
-	AdvertiseWhere []BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel `tfsdk:"advertise_where"`
+	AdvertiseWhere types.List `tfsdk:"advertise_where"`
 }
 
 // BigIPHTTPProxyProxyAdvertisementAdvertiseCustomModelAttrTypes defines the attribute types for BigIPHTTPProxyProxyAdvertisementAdvertiseCustomModel
@@ -763,10 +763,10 @@ var BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHea
 
 // BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsModel represents tls_cert_params block
 type BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsModel struct {
-	Certificates []BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsCertificatesModel `tfsdk:"certificates"`
-	NoMtls       *BigIPHTTPProxyEmptyModel                                      `tfsdk:"no_mtls"`
-	TLSConfig    *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigModel     `tfsdk:"tls_config"`
-	UseMtls      *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsModel       `tfsdk:"use_mtls"`
+	Certificates types.List                                                 `tfsdk:"certificates"`
+	NoMtls       *BigIPHTTPProxyEmptyModel                                  `tfsdk:"no_mtls"`
+	TLSConfig    *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigModel `tfsdk:"tls_config"`
+	UseMtls      *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsModel   `tfsdk:"use_mtls"`
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsModelAttrTypes defines the attribute types for BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsModel
@@ -2548,7 +2548,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
-															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -3099,171 +3099,1015 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.AdvancedProfile != nil {
-		advanced_profileMap := make(map[string]interface{})
+		AdvancedProfileMap := make(map[string]interface{})
 		if data.AdvancedProfile.DisableSpec != nil {
-			advanced_profileMap["disable"] = map[string]interface{}{}
+			AdvancedProfileMap["disable"] = map[string]interface{}{}
 		}
 		if data.AdvancedProfile.EnableDefaultProfile != nil {
-			advanced_profileMap["enable_default_profile"] = map[string]interface{}{}
+			AdvancedProfileMap["enable_default_profile"] = map[string]interface{}{}
 		}
-		createReq.Spec["advanced_profile"] = advanced_profileMap
+		createReq.Spec["advanced_profile"] = AdvancedProfileMap
 	}
 	if data.DDOSProfile != nil {
-		ddos_profileMap := make(map[string]interface{})
+		DDOSProfileMap := make(map[string]interface{})
 		if data.DDOSProfile.DisableDDOSMitigation != nil {
-			ddos_profileMap["disable_ddos_mitigation"] = map[string]interface{}{}
+			DDOSProfileMap["disable_ddos_mitigation"] = map[string]interface{}{}
 		}
 		if data.DDOSProfile.EnableDDOSMitigation != nil {
-			ddos_profileMap["enable_ddos_mitigation"] = map[string]interface{}{}
+			DDOSProfileMap["enable_ddos_mitigation"] = map[string]interface{}{}
 		}
-		createReq.Spec["ddos_profile"] = ddos_profileMap
+		createReq.Spec["ddos_profile"] = DDOSProfileMap
 	}
 	if data.Irules != nil {
-		irulesMap := make(map[string]interface{})
-		if len(data.Irules.Irules) > 0 {
-			var irulesList []map[string]interface{}
-			for _, listItem := range data.Irules.Irules {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
+		IrulesMap := make(map[string]interface{})
+		if !data.Irules.Irules.IsNull() && !data.Irules.Irules.IsUnknown() {
+			var IrulesElems []BigIPHTTPProxyIrulesIrulesModel
+			diags := data.Irules.Irules.ElementsAs(ctx, &IrulesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(IrulesElems) > 0 {
+				var IrulesList []map[string]interface{}
+				for _, IrulesItem := range IrulesElems {
+					IrulesItemMap := make(map[string]interface{})
+					if !IrulesItem.Name.IsNull() && !IrulesItem.Name.IsUnknown() {
+						IrulesItemMap["name"] = IrulesItem.Name.ValueString()
+					}
+					if !IrulesItem.Namespace.IsNull() && !IrulesItem.Namespace.IsUnknown() {
+						IrulesItemMap["namespace"] = IrulesItem.Namespace.ValueString()
+					}
+					if !IrulesItem.Tenant.IsNull() && !IrulesItem.Tenant.IsUnknown() {
+						IrulesItemMap["tenant"] = IrulesItem.Tenant.ValueString()
+					}
+					IrulesList = append(IrulesList, IrulesItemMap)
 				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				irulesList = append(irulesList, listItemMap)
+				IrulesMap["irules"] = IrulesList
 			}
-			irulesMap["irules"] = irulesList
 		}
-		createReq.Spec["irules"] = irulesMap
+		createReq.Spec["irules"] = IrulesMap
 	}
 	if data.LBAlgorithm != nil {
-		lb_algorithmMap := make(map[string]interface{})
+		LBAlgorithmMap := make(map[string]interface{})
 		if data.LBAlgorithm.RoundRobin != nil {
-			lb_algorithmMap["round_robin"] = map[string]interface{}{}
+			LBAlgorithmMap["round_robin"] = map[string]interface{}{}
 		}
-		createReq.Spec["lb_algorithm"] = lb_algorithmMap
+		createReq.Spec["lb_algorithm"] = LBAlgorithmMap
 	}
 	if data.OriginPools != nil {
-		origin_poolsMap := make(map[string]interface{})
-		if len(data.OriginPools.Pools) > 0 {
-			var poolsList []map[string]interface{}
-			for _, listItem := range data.OriginPools.Pools {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
-				}
-				if listItem.OriginServers != nil {
-					origin_serversDeepMap := make(map[string]interface{})
-					if listItem.OriginServers.AutomaticPort != nil {
-						origin_serversDeepMap["automatic_port"] = map[string]interface{}{}
+		OriginPoolsMap := make(map[string]interface{})
+		if !data.OriginPools.Pools.IsNull() && !data.OriginPools.Pools.IsUnknown() {
+			var PoolsElems []BigIPHTTPProxyOriginPoolsPoolsModel
+			diags := data.OriginPools.Pools.ElementsAs(ctx, &PoolsElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+				var PoolsList []map[string]interface{}
+				for _, PoolsItem := range PoolsElems {
+					PoolsItemMap := make(map[string]interface{})
+					if !PoolsItem.Name.IsNull() && !PoolsItem.Name.IsUnknown() {
+						PoolsItemMap["name"] = PoolsItem.Name.ValueString()
 					}
-					if listItem.OriginServers.LBPort != nil {
-						origin_serversDeepMap["lb_port"] = map[string]interface{}{}
+					if PoolsItem.OriginServers != nil {
+						OriginServersMap := make(map[string]interface{})
+						if PoolsItem.OriginServers.AutomaticPort != nil {
+							OriginServersMap["automatic_port"] = map[string]interface{}{}
+						}
+						if PoolsItem.OriginServers.HealthChecks != nil {
+							HealthChecksMap := make(map[string]interface{})
+							if len(PoolsItem.OriginServers.HealthChecks.HealthCheck) > 0 {
+								var HealthCheckList []map[string]interface{}
+								for _, HealthCheckItem := range PoolsItem.OriginServers.HealthChecks.HealthCheck {
+									HealthCheckItemMap := make(map[string]interface{})
+									if HealthCheckItem.ICMPHealthCheck != nil {
+										HealthCheckItemMap["icmp_health_check"] = map[string]interface{}{}
+									}
+									if HealthCheckItem.TCPHealthCheck != nil {
+										TCPHealthCheckMap := make(map[string]interface{})
+										if !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsUnknown() {
+											TCPHealthCheckMap["expected_response"] = HealthCheckItem.TCPHealthCheck.ExpectedResponse.ValueString()
+										}
+										if !HealthCheckItem.TCPHealthCheck.SendPayload.IsNull() && !HealthCheckItem.TCPHealthCheck.SendPayload.IsUnknown() {
+											TCPHealthCheckMap["send_payload"] = HealthCheckItem.TCPHealthCheck.SendPayload.ValueString()
+										}
+										HealthCheckItemMap["tcp_health_check"] = TCPHealthCheckMap
+									}
+									HealthCheckList = append(HealthCheckList, HealthCheckItemMap)
+								}
+								HealthChecksMap["health_check"] = HealthCheckList
+							}
+							if !PoolsItem.OriginServers.HealthChecks.HealthyThreshold.IsNull() && !PoolsItem.OriginServers.HealthChecks.HealthyThreshold.IsUnknown() {
+								HealthChecksMap["healthy_threshold"] = PoolsItem.OriginServers.HealthChecks.HealthyThreshold.ValueInt64()
+							}
+							if !PoolsItem.OriginServers.HealthChecks.Interval.IsNull() && !PoolsItem.OriginServers.HealthChecks.Interval.IsUnknown() {
+								HealthChecksMap["interval"] = PoolsItem.OriginServers.HealthChecks.Interval.ValueInt64()
+							}
+							if !PoolsItem.OriginServers.HealthChecks.Timeout.IsNull() && !PoolsItem.OriginServers.HealthChecks.Timeout.IsUnknown() {
+								HealthChecksMap["timeout"] = PoolsItem.OriginServers.HealthChecks.Timeout.ValueInt64()
+							}
+							if !PoolsItem.OriginServers.HealthChecks.UnhealthyThreshold.IsNull() && !PoolsItem.OriginServers.HealthChecks.UnhealthyThreshold.IsUnknown() {
+								HealthChecksMap["unhealthy_threshold"] = PoolsItem.OriginServers.HealthChecks.UnhealthyThreshold.ValueInt64()
+							}
+							OriginServersMap["health_checks"] = HealthChecksMap
+						}
+						if PoolsItem.OriginServers.LBPort != nil {
+							OriginServersMap["lb_port"] = map[string]interface{}{}
+						}
+						if !PoolsItem.OriginServers.OriginServers.IsNull() && !PoolsItem.OriginServers.OriginServers.IsUnknown() {
+							var OriginServersElems []BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersModel
+							diags := PoolsItem.OriginServers.OriginServers.ElementsAs(ctx, &OriginServersElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(OriginServersElems) > 0 {
+								var OriginServersList []map[string]interface{}
+								for _, OriginServersItem := range OriginServersElems {
+									OriginServersItemMap := make(map[string]interface{})
+									if OriginServersItem.K8SService != nil {
+										K8SServiceMap := make(map[string]interface{})
+										if OriginServersItem.K8SService.InsideNetwork != nil {
+											K8SServiceMap["inside_network"] = map[string]interface{}{}
+										}
+										if OriginServersItem.K8SService.OutsideNetwork != nil {
+											K8SServiceMap["outside_network"] = map[string]interface{}{}
+										}
+										if !OriginServersItem.K8SService.Protocol.IsNull() && !OriginServersItem.K8SService.Protocol.IsUnknown() {
+											K8SServiceMap["protocol"] = OriginServersItem.K8SService.Protocol.ValueString()
+										}
+										if !OriginServersItem.K8SService.ServiceName.IsNull() && !OriginServersItem.K8SService.ServiceName.IsUnknown() {
+											K8SServiceMap["service_name"] = OriginServersItem.K8SService.ServiceName.ValueString()
+										}
+										if OriginServersItem.K8SService.SiteLocator != nil {
+											SiteLocatorMap := make(map[string]interface{})
+											if OriginServersItem.K8SService.SiteLocator.Site != nil {
+												SiteMap := make(map[string]interface{})
+												if !OriginServersItem.K8SService.SiteLocator.Site.Name.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Name.IsUnknown() {
+													SiteMap["name"] = OriginServersItem.K8SService.SiteLocator.Site.Name.ValueString()
+												}
+												if !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsUnknown() {
+													SiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
+												}
+												if !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsUnknown() {
+													SiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
+												}
+												SiteLocatorMap["site"] = SiteMap
+											}
+											if OriginServersItem.K8SService.SiteLocator.VirtualSite != nil {
+												VirtualSiteMap := make(map[string]interface{})
+												if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.IsUnknown() {
+													VirtualSiteMap["name"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.ValueString()
+												}
+												if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
+													VirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
+												}
+												if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
+													VirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
+												}
+												SiteLocatorMap["virtual_site"] = VirtualSiteMap
+											}
+											K8SServiceMap["site_locator"] = SiteLocatorMap
+										}
+										if OriginServersItem.K8SService.SnatPool != nil {
+											SnatPoolMap := make(map[string]interface{})
+											if OriginServersItem.K8SService.SnatPool.NoSnatPool != nil {
+												SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
+											}
+											if OriginServersItem.K8SService.SnatPool.SnatPool != nil {
+												SnatPoolMap := make(map[string]interface{})
+												if !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsUnknown() {
+													var PrefixesItems []string
+													diags := OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+													if !diags.HasError() {
+														SnatPoolMap["prefixes"] = PrefixesItems
+													}
+												}
+												SnatPoolMap["snat_pool"] = SnatPoolMap
+											}
+											K8SServiceMap["snat_pool"] = SnatPoolMap
+										}
+										if OriginServersItem.K8SService.Vk8sNetworks != nil {
+											K8SServiceMap["vk8s_networks"] = map[string]interface{}{}
+										}
+										OriginServersItemMap["k8s_service"] = K8SServiceMap
+									}
+									if OriginServersItem.PrivateIP != nil {
+										PrivateIPMap := make(map[string]interface{})
+										if OriginServersItem.PrivateIP.InsideNetwork != nil {
+											PrivateIPMap["inside_network"] = map[string]interface{}{}
+										}
+										if !OriginServersItem.PrivateIP.IP.IsNull() && !OriginServersItem.PrivateIP.IP.IsUnknown() {
+											PrivateIPMap["ip"] = OriginServersItem.PrivateIP.IP.ValueString()
+										}
+										if OriginServersItem.PrivateIP.OutsideNetwork != nil {
+											PrivateIPMap["outside_network"] = map[string]interface{}{}
+										}
+										if OriginServersItem.PrivateIP.Segment != nil {
+											SegmentMap := make(map[string]interface{})
+											if !OriginServersItem.PrivateIP.Segment.Name.IsNull() && !OriginServersItem.PrivateIP.Segment.Name.IsUnknown() {
+												SegmentMap["name"] = OriginServersItem.PrivateIP.Segment.Name.ValueString()
+											}
+											if !OriginServersItem.PrivateIP.Segment.Namespace.IsNull() && !OriginServersItem.PrivateIP.Segment.Namespace.IsUnknown() {
+												SegmentMap["namespace"] = OriginServersItem.PrivateIP.Segment.Namespace.ValueString()
+											}
+											if !OriginServersItem.PrivateIP.Segment.Tenant.IsNull() && !OriginServersItem.PrivateIP.Segment.Tenant.IsUnknown() {
+												SegmentMap["tenant"] = OriginServersItem.PrivateIP.Segment.Tenant.ValueString()
+											}
+											PrivateIPMap["segment"] = SegmentMap
+										}
+										if OriginServersItem.PrivateIP.SiteLocator != nil {
+											SiteLocatorMap := make(map[string]interface{})
+											if OriginServersItem.PrivateIP.SiteLocator.Site != nil {
+												SiteMap := make(map[string]interface{})
+												if !OriginServersItem.PrivateIP.SiteLocator.Site.Name.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Name.IsUnknown() {
+													SiteMap["name"] = OriginServersItem.PrivateIP.SiteLocator.Site.Name.ValueString()
+												}
+												if !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsUnknown() {
+													SiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.ValueString()
+												}
+												if !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsUnknown() {
+													SiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.ValueString()
+												}
+												SiteLocatorMap["site"] = SiteMap
+											}
+											if OriginServersItem.PrivateIP.SiteLocator.VirtualSite != nil {
+												VirtualSiteMap := make(map[string]interface{})
+												if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Name.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Name.IsUnknown() {
+													VirtualSiteMap["name"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Name.ValueString()
+												}
+												if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsUnknown() {
+													VirtualSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.ValueString()
+												}
+												if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsUnknown() {
+													VirtualSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.ValueString()
+												}
+												SiteLocatorMap["virtual_site"] = VirtualSiteMap
+											}
+											PrivateIPMap["site_locator"] = SiteLocatorMap
+										}
+										if OriginServersItem.PrivateIP.SnatPool != nil {
+											SnatPoolMap := make(map[string]interface{})
+											if OriginServersItem.PrivateIP.SnatPool.NoSnatPool != nil {
+												SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
+											}
+											if OriginServersItem.PrivateIP.SnatPool.SnatPool != nil {
+												SnatPoolMap := make(map[string]interface{})
+												if !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsUnknown() {
+													var PrefixesItems []string
+													diags := OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+													if !diags.HasError() {
+														SnatPoolMap["prefixes"] = PrefixesItems
+													}
+												}
+												SnatPoolMap["snat_pool"] = SnatPoolMap
+											}
+											PrivateIPMap["snat_pool"] = SnatPoolMap
+										}
+										OriginServersItemMap["private_ip"] = PrivateIPMap
+									}
+									if OriginServersItem.PublicIP != nil {
+										PublicIPMap := make(map[string]interface{})
+										if !OriginServersItem.PublicIP.IP.IsNull() && !OriginServersItem.PublicIP.IP.IsUnknown() {
+											PublicIPMap["ip"] = OriginServersItem.PublicIP.IP.ValueString()
+										}
+										OriginServersItemMap["public_ip"] = PublicIPMap
+									}
+									if OriginServersItem.PublicName != nil {
+										PublicNameMap := make(map[string]interface{})
+										if !OriginServersItem.PublicName.DNSName.IsNull() && !OriginServersItem.PublicName.DNSName.IsUnknown() {
+											PublicNameMap["dns_name"] = OriginServersItem.PublicName.DNSName.ValueString()
+										}
+										if !OriginServersItem.PublicName.RefreshInterval.IsNull() && !OriginServersItem.PublicName.RefreshInterval.IsUnknown() {
+											PublicNameMap["refresh_interval"] = OriginServersItem.PublicName.RefreshInterval.ValueInt64()
+										}
+										OriginServersItemMap["public_name"] = PublicNameMap
+									}
+									OriginServersList = append(OriginServersList, OriginServersItemMap)
+								}
+								OriginServersMap["origin_servers"] = OriginServersList
+							}
+						}
+						if !PoolsItem.OriginServers.Port.IsNull() && !PoolsItem.OriginServers.Port.IsUnknown() {
+							OriginServersMap["port"] = PoolsItem.OriginServers.Port.ValueInt64()
+						}
+						PoolsItemMap["origin_servers"] = OriginServersMap
 					}
-					if !listItem.OriginServers.Port.IsNull() && !listItem.OriginServers.Port.IsUnknown() {
-						origin_serversDeepMap["port"] = listItem.OriginServers.Port.ValueInt64()
+					if !PoolsItem.Priority.IsNull() && !PoolsItem.Priority.IsUnknown() {
+						PoolsItemMap["priority"] = PoolsItem.Priority.ValueInt64()
 					}
-					listItemMap["origin_servers"] = origin_serversDeepMap
+					if !PoolsItem.Weight.IsNull() && !PoolsItem.Weight.IsUnknown() {
+						PoolsItemMap["weight"] = PoolsItem.Weight.ValueInt64()
+					}
+					PoolsList = append(PoolsList, PoolsItemMap)
 				}
-				if !listItem.Priority.IsNull() && !listItem.Priority.IsUnknown() {
-					listItemMap["priority"] = listItem.Priority.ValueInt64()
-				}
-				if !listItem.Weight.IsNull() && !listItem.Weight.IsUnknown() {
-					listItemMap["weight"] = listItem.Weight.ValueInt64()
-				}
-				poolsList = append(poolsList, listItemMap)
+				OriginPoolsMap["pools"] = PoolsList
 			}
-			origin_poolsMap["pools"] = poolsList
 		}
-		createReq.Spec["origin_pools"] = origin_poolsMap
+		createReq.Spec["origin_pools"] = OriginPoolsMap
 	}
 	if data.ProxyAdvertisement != nil {
-		proxy_advertisementMap := make(map[string]interface{})
+		ProxyAdvertisementMap := make(map[string]interface{})
 		if data.ProxyAdvertisement.AdvertiseCustom != nil {
-			advertise_customNestedMap := make(map[string]interface{})
-			proxy_advertisementMap["advertise_custom"] = advertise_customNestedMap
+			AdvertiseCustomMap := make(map[string]interface{})
+			if !data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsNull() && !data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsUnknown() {
+				var AdvertiseWhereElems []BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel
+				diags := data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(AdvertiseWhereElems) > 0 {
+					var AdvertiseWhereList []map[string]interface{}
+					for _, AdvertiseWhereItem := range AdvertiseWhereElems {
+						AdvertiseWhereItemMap := make(map[string]interface{})
+						if AdvertiseWhereItem.AdvertiseOnPublic != nil {
+							AdvertiseOnPublicMap := make(map[string]interface{})
+							if AdvertiseWhereItem.AdvertiseOnPublic.PublicIP != nil {
+								PublicIPMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
+									PublicIPMap["name"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
+									PublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
+									PublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+								}
+								AdvertiseOnPublicMap["public_ip"] = PublicIPMap
+							}
+							AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseOnPublicMap
+						}
+						if !AdvertiseWhereItem.Port.IsNull() && !AdvertiseWhereItem.Port.IsUnknown() {
+							AdvertiseWhereItemMap["port"] = AdvertiseWhereItem.Port.ValueInt64()
+						}
+						if !AdvertiseWhereItem.PortRanges.IsNull() && !AdvertiseWhereItem.PortRanges.IsUnknown() {
+							AdvertiseWhereItemMap["port_ranges"] = AdvertiseWhereItem.PortRanges.ValueString()
+						}
+						if AdvertiseWhereItem.Site != nil {
+							SiteMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.Site.IP.IsNull() && !AdvertiseWhereItem.Site.IP.IsUnknown() {
+								SiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
+							}
+							if !AdvertiseWhereItem.Site.Network.IsNull() && !AdvertiseWhereItem.Site.Network.IsUnknown() {
+								SiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
+							}
+							if AdvertiseWhereItem.Site.Site != nil {
+								SiteMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.Site.Site.Name.IsNull() && !AdvertiseWhereItem.Site.Site.Name.IsUnknown() {
+									SiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
+									SiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
+									SiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
+								}
+								SiteMap["site"] = SiteMap
+							}
+							AdvertiseWhereItemMap["site"] = SiteMap
+						}
+						if AdvertiseWhereItem.UseDefaultPort != nil {
+							AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
+						}
+						if AdvertiseWhereItem.VirtualNetwork != nil {
+							VirtualNetworkMap := make(map[string]interface{})
+							if AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP != nil {
+								VirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
+							}
+							if AdvertiseWhereItem.VirtualNetwork.DefaultVIP != nil {
+								VirtualNetworkMap["default_vip"] = map[string]interface{}{}
+							}
+							if !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
+								VirtualNetworkMap["specific_v6_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsUnknown() {
+								VirtualNetworkMap["specific_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificVIP.ValueString()
+							}
+							if AdvertiseWhereItem.VirtualNetwork.VirtualNetwork != nil {
+								VirtualNetworkMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsUnknown() {
+									VirtualNetworkMap["name"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
+									VirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
+									VirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
+								}
+								VirtualNetworkMap["virtual_network"] = VirtualNetworkMap
+							}
+							AdvertiseWhereItemMap["virtual_network"] = VirtualNetworkMap
+						}
+						if AdvertiseWhereItem.VirtualSite != nil {
+							VirtualSiteMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.VirtualSite.Network.IsNull() && !AdvertiseWhereItem.VirtualSite.Network.IsUnknown() {
+								VirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
+							}
+							if AdvertiseWhereItem.VirtualSite.VirtualSite != nil {
+								VirtualSiteMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsUnknown() {
+									VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
+									VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
+									VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
+								}
+								VirtualSiteMap["virtual_site"] = VirtualSiteMap
+							}
+							AdvertiseWhereItemMap["virtual_site"] = VirtualSiteMap
+						}
+						if AdvertiseWhereItem.VirtualSiteWithVIP != nil {
+							VirtualSiteWithVIPMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsUnknown() {
+								VirtualSiteWithVIPMap["ip"] = AdvertiseWhereItem.VirtualSiteWithVIP.IP.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsUnknown() {
+								VirtualSiteWithVIPMap["network"] = AdvertiseWhereItem.VirtualSiteWithVIP.Network.ValueString()
+							}
+							if AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite != nil {
+								VirtualSiteMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsUnknown() {
+									VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
+									VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
+									VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
+								}
+								VirtualSiteWithVIPMap["virtual_site"] = VirtualSiteMap
+							}
+							AdvertiseWhereItemMap["virtual_site_with_vip"] = VirtualSiteWithVIPMap
+						}
+						if AdvertiseWhereItem.Vk8sService != nil {
+							Vk8sServiceMap := make(map[string]interface{})
+							if AdvertiseWhereItem.Vk8sService.Site != nil {
+								SiteMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.Vk8sService.Site.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Name.IsUnknown() {
+									SiteMap["name"] = AdvertiseWhereItem.Vk8sService.Site.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
+									SiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
+									SiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
+								}
+								Vk8sServiceMap["site"] = SiteMap
+							}
+							if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
+								VirtualSiteMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsUnknown() {
+									VirtualSiteMap["name"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
+									VirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
+									VirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
+								}
+								Vk8sServiceMap["virtual_site"] = VirtualSiteMap
+							}
+							AdvertiseWhereItemMap["vk8s_service"] = Vk8sServiceMap
+						}
+						AdvertiseWhereList = append(AdvertiseWhereList, AdvertiseWhereItemMap)
+					}
+					AdvertiseCustomMap["advertise_where"] = AdvertiseWhereList
+				}
+			}
+			ProxyAdvertisementMap["advertise_custom"] = AdvertiseCustomMap
 		}
 		if data.ProxyAdvertisement.DoNotAdvertise != nil {
-			proxy_advertisementMap["do_not_advertise"] = map[string]interface{}{}
+			ProxyAdvertisementMap["do_not_advertise"] = map[string]interface{}{}
 		}
-		createReq.Spec["proxy_advertisement"] = proxy_advertisementMap
+		createReq.Spec["proxy_advertisement"] = ProxyAdvertisementMap
 	}
 	if data.ProxyConfig != nil {
-		proxy_configMap := make(map[string]interface{})
+		ProxyConfigMap := make(map[string]interface{})
 		if !data.ProxyConfig.Domains.IsNull() && !data.ProxyConfig.Domains.IsUnknown() {
-			var domainsItems []string
-			diags := data.ProxyConfig.Domains.ElementsAs(ctx, &domainsItems, false)
+			var DomainsItems []string
+			diags := data.ProxyConfig.Domains.ElementsAs(ctx, &DomainsItems, false)
 			if !diags.HasError() {
-				proxy_configMap["domains"] = domainsItems
+				ProxyConfigMap["domains"] = DomainsItems
 			}
 		}
 		if data.ProxyConfig.HTTP != nil {
-			httpNestedMap := make(map[string]interface{})
+			HTTPMap := make(map[string]interface{})
 			if !data.ProxyConfig.HTTP.DNSVolterraManaged.IsNull() && !data.ProxyConfig.HTTP.DNSVolterraManaged.IsUnknown() {
-				httpNestedMap["dns_volterra_managed"] = data.ProxyConfig.HTTP.DNSVolterraManaged.ValueBool()
+				HTTPMap["dns_volterra_managed"] = data.ProxyConfig.HTTP.DNSVolterraManaged.ValueBool()
 			}
 			if !data.ProxyConfig.HTTP.Port.IsNull() && !data.ProxyConfig.HTTP.Port.IsUnknown() {
-				httpNestedMap["port"] = data.ProxyConfig.HTTP.Port.ValueInt64()
+				HTTPMap["port"] = data.ProxyConfig.HTTP.Port.ValueInt64()
 			}
 			if !data.ProxyConfig.HTTP.PortRanges.IsNull() && !data.ProxyConfig.HTTP.PortRanges.IsUnknown() {
-				httpNestedMap["port_ranges"] = data.ProxyConfig.HTTP.PortRanges.ValueString()
+				HTTPMap["port_ranges"] = data.ProxyConfig.HTTP.PortRanges.ValueString()
 			}
-			proxy_configMap["http"] = httpNestedMap
+			ProxyConfigMap["http"] = HTTPMap
 		}
 		if data.ProxyConfig.HTTPS != nil {
-			httpsNestedMap := make(map[string]interface{})
+			HTTPSMap := make(map[string]interface{})
 			if !data.ProxyConfig.HTTPS.AddHsts.IsNull() && !data.ProxyConfig.HTTPS.AddHsts.IsUnknown() {
-				httpsNestedMap["add_hsts"] = data.ProxyConfig.HTTPS.AddHsts.ValueBool()
+				HTTPSMap["add_hsts"] = data.ProxyConfig.HTTPS.AddHsts.ValueBool()
 			}
 			if !data.ProxyConfig.HTTPS.AppendServerName.IsNull() && !data.ProxyConfig.HTTPS.AppendServerName.IsUnknown() {
-				httpsNestedMap["append_server_name"] = data.ProxyConfig.HTTPS.AppendServerName.ValueString()
+				HTTPSMap["append_server_name"] = data.ProxyConfig.HTTPS.AppendServerName.ValueString()
+			}
+			if data.ProxyConfig.HTTPS.CoalescingOptions != nil {
+				CoalescingOptionsMap := make(map[string]interface{})
+				if data.ProxyConfig.HTTPS.CoalescingOptions.DefaultCoalescing != nil {
+					CoalescingOptionsMap["default_coalescing"] = map[string]interface{}{}
+				}
+				if data.ProxyConfig.HTTPS.CoalescingOptions.StrictCoalescing != nil {
+					CoalescingOptionsMap["strict_coalescing"] = map[string]interface{}{}
+				}
+				HTTPSMap["coalescing_options"] = CoalescingOptionsMap
 			}
 			if !data.ProxyConfig.HTTPS.ConnectionIdleTimeout.IsNull() && !data.ProxyConfig.HTTPS.ConnectionIdleTimeout.IsUnknown() {
-				httpsNestedMap["connection_idle_timeout"] = data.ProxyConfig.HTTPS.ConnectionIdleTimeout.ValueInt64()
+				HTTPSMap["connection_idle_timeout"] = data.ProxyConfig.HTTPS.ConnectionIdleTimeout.ValueInt64()
+			}
+			if data.ProxyConfig.HTTPS.DefaultHeader != nil {
+				HTTPSMap["default_header"] = map[string]interface{}{}
+			}
+			if data.ProxyConfig.HTTPS.DefaultLoadBalancer != nil {
+				HTTPSMap["default_loadbalancer"] = map[string]interface{}{}
+			}
+			if data.ProxyConfig.HTTPS.DisablePathNormalize != nil {
+				HTTPSMap["disable_path_normalize"] = map[string]interface{}{}
+			}
+			if data.ProxyConfig.HTTPS.EnablePathNormalize != nil {
+				HTTPSMap["enable_path_normalize"] = map[string]interface{}{}
+			}
+			if data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil {
+				HTTPProtocolOptionsMap := make(map[string]interface{})
+				if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil {
+					HTTPProtocolEnableV1OnlyMap := make(map[string]interface{})
+					if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+						HeaderTransformationMap := make(map[string]interface{})
+						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
+							HeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
+						}
+						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
+							HeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
+						}
+						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
+							HeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
+						}
+						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation != nil {
+							HeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
+						}
+						HTTPProtocolEnableV1OnlyMap["header_transformation"] = HeaderTransformationMap
+					}
+					HTTPProtocolOptionsMap["http_protocol_enable_v1_only"] = HTTPProtocolEnableV1OnlyMap
+				}
+				if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1V2 != nil {
+					HTTPProtocolOptionsMap["http_protocol_enable_v1_v2"] = map[string]interface{}{}
+				}
+				if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV2Only != nil {
+					HTTPProtocolOptionsMap["http_protocol_enable_v2_only"] = map[string]interface{}{}
+				}
+				HTTPSMap["http_protocol_options"] = HTTPProtocolOptionsMap
 			}
 			if !data.ProxyConfig.HTTPS.HTTPRedirect.IsNull() && !data.ProxyConfig.HTTPS.HTTPRedirect.IsUnknown() {
-				httpsNestedMap["http_redirect"] = data.ProxyConfig.HTTPS.HTTPRedirect.ValueBool()
+				HTTPSMap["http_redirect"] = data.ProxyConfig.HTTPS.HTTPRedirect.ValueBool()
+			}
+			if data.ProxyConfig.HTTPS.NonDefaultLoadBalancer != nil {
+				HTTPSMap["non_default_loadbalancer"] = map[string]interface{}{}
+			}
+			if data.ProxyConfig.HTTPS.PassThrough != nil {
+				HTTPSMap["pass_through"] = map[string]interface{}{}
 			}
 			if !data.ProxyConfig.HTTPS.Port.IsNull() && !data.ProxyConfig.HTTPS.Port.IsUnknown() {
-				httpsNestedMap["port"] = data.ProxyConfig.HTTPS.Port.ValueInt64()
+				HTTPSMap["port"] = data.ProxyConfig.HTTPS.Port.ValueInt64()
 			}
 			if !data.ProxyConfig.HTTPS.PortRanges.IsNull() && !data.ProxyConfig.HTTPS.PortRanges.IsUnknown() {
-				httpsNestedMap["port_ranges"] = data.ProxyConfig.HTTPS.PortRanges.ValueString()
+				HTTPSMap["port_ranges"] = data.ProxyConfig.HTTPS.PortRanges.ValueString()
 			}
 			if !data.ProxyConfig.HTTPS.ServerName.IsNull() && !data.ProxyConfig.HTTPS.ServerName.IsUnknown() {
-				httpsNestedMap["server_name"] = data.ProxyConfig.HTTPS.ServerName.ValueString()
+				HTTPSMap["server_name"] = data.ProxyConfig.HTTPS.ServerName.ValueString()
 			}
-			proxy_configMap["https"] = httpsNestedMap
+			if data.ProxyConfig.HTTPS.TLSCertParams != nil {
+				TLSCertParamsMap := make(map[string]interface{})
+				if !data.ProxyConfig.HTTPS.TLSCertParams.Certificates.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.Certificates.IsUnknown() {
+					var CertificatesElems []BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsCertificatesModel
+					diags := data.ProxyConfig.HTTPS.TLSCertParams.Certificates.ElementsAs(ctx, &CertificatesElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(CertificatesElems) > 0 {
+						var CertificatesList []map[string]interface{}
+						for _, CertificatesItem := range CertificatesElems {
+							CertificatesItemMap := make(map[string]interface{})
+							if !CertificatesItem.Name.IsNull() && !CertificatesItem.Name.IsUnknown() {
+								CertificatesItemMap["name"] = CertificatesItem.Name.ValueString()
+							}
+							if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
+								CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
+							}
+							if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
+								CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
+							}
+							CertificatesList = append(CertificatesList, CertificatesItemMap)
+						}
+						TLSCertParamsMap["certificates"] = CertificatesList
+					}
+				}
+				if data.ProxyConfig.HTTPS.TLSCertParams.NoMtls != nil {
+					TLSCertParamsMap["no_mtls"] = map[string]interface{}{}
+				}
+				if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil {
+					TLSConfigMap := make(map[string]interface{})
+					if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity != nil {
+						CustomSecurityMap := make(map[string]interface{})
+						if !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
+							var CipherSuitesItems []string
+							diags := data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+							if !diags.HasError() {
+								CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+							}
+						}
+						if !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
+							CustomSecurityMap["max_version"] = data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+						}
+						if !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
+							CustomSecurityMap["min_version"] = data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.ValueString()
+						}
+						TLSConfigMap["custom_security"] = CustomSecurityMap
+					}
+					if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.DefaultSecurity != nil {
+						TLSConfigMap["default_security"] = map[string]interface{}{}
+					}
+					if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.LowSecurity != nil {
+						TLSConfigMap["low_security"] = map[string]interface{}{}
+					}
+					if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.MediumSecurity != nil {
+						TLSConfigMap["medium_security"] = map[string]interface{}{}
+					}
+					TLSCertParamsMap["tls_config"] = TLSConfigMap
+				}
+				if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls != nil {
+					UseMtlsMap := make(map[string]interface{})
+					if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.ClientCertificateOptional.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.ClientCertificateOptional.IsUnknown() {
+						UseMtlsMap["client_certificate_optional"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.ClientCertificateOptional.ValueBool()
+					}
+					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL != nil {
+						CRLMap := make(map[string]interface{})
+						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Name.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Name.IsUnknown() {
+							CRLMap["name"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Name.ValueString()
+						}
+						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
+							CRLMap["namespace"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
+						}
+						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
+							CRLMap["tenant"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
+						}
+						UseMtlsMap["crl"] = CRLMap
+					}
+					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.NoCRL != nil {
+						UseMtlsMap["no_crl"] = map[string]interface{}{}
+					}
+					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA != nil {
+						TrustedCAMap := make(map[string]interface{})
+						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Name.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Name.IsUnknown() {
+							TrustedCAMap["name"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Name.ValueString()
+						}
+						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
+							TrustedCAMap["namespace"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
+						}
+						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
+							TrustedCAMap["tenant"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
+						}
+						UseMtlsMap["trusted_ca"] = TrustedCAMap
+					}
+					if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCAURL.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCAURL.IsUnknown() {
+						UseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCAURL.ValueString()
+					}
+					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccDisabled != nil {
+						UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+					}
+					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions != nil {
+						XfccOptionsMap := make(map[string]interface{})
+						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
+							var XfccHeaderElementsItems []string
+							diags := data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+							if !diags.HasError() {
+								XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+							}
+						}
+						UseMtlsMap["xfcc_options"] = XfccOptionsMap
+					}
+					TLSCertParamsMap["use_mtls"] = UseMtlsMap
+				}
+				HTTPSMap["tls_cert_params"] = TLSCertParamsMap
+			}
+			if data.ProxyConfig.HTTPS.TLSParameters != nil {
+				TLSParametersMap := make(map[string]interface{})
+				if data.ProxyConfig.HTTPS.TLSParameters.NoMtls != nil {
+					TLSParametersMap["no_mtls"] = map[string]interface{}{}
+				}
+				if len(data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates) > 0 {
+					var TLSCertificatesList []map[string]interface{}
+					for _, TLSCertificatesItem := range data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates {
+						TLSCertificatesItemMap := make(map[string]interface{})
+						if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
+						}
+						if TLSCertificatesItem.CustomHashAlgorithms != nil {
+							CustomHashAlgorithmsMap := make(map[string]interface{})
+							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+								var HashAlgorithmsItems []string
+								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								if !diags.HasError() {
+									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+								}
+							}
+							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+						}
+						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
+						}
+						if TLSCertificatesItem.DisableOCSPStapling != nil {
+							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+						}
+						if TLSCertificatesItem.PrivateKey != nil {
+							PrivateKeyMap := make(map[string]interface{})
+							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+								}
+								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+						}
+						if TLSCertificatesItem.UseSystemDefaults != nil {
+							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+						}
+						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+					}
+					TLSParametersMap["tls_certificates"] = TLSCertificatesList
+				}
+				if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil {
+					TLSConfigMap := make(map[string]interface{})
+					if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity != nil {
+						CustomSecurityMap := make(map[string]interface{})
+						if !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
+							var CipherSuitesItems []string
+							diags := data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+							if !diags.HasError() {
+								CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+							}
+						}
+						if !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
+							CustomSecurityMap["max_version"] = data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+						}
+						if !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
+							CustomSecurityMap["min_version"] = data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MinVersion.ValueString()
+						}
+						TLSConfigMap["custom_security"] = CustomSecurityMap
+					}
+					if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.DefaultSecurity != nil {
+						TLSConfigMap["default_security"] = map[string]interface{}{}
+					}
+					if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.LowSecurity != nil {
+						TLSConfigMap["low_security"] = map[string]interface{}{}
+					}
+					if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.MediumSecurity != nil {
+						TLSConfigMap["medium_security"] = map[string]interface{}{}
+					}
+					TLSParametersMap["tls_config"] = TLSConfigMap
+				}
+				if data.ProxyConfig.HTTPS.TLSParameters.UseMtls != nil {
+					UseMtlsMap := make(map[string]interface{})
+					if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.ClientCertificateOptional.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.ClientCertificateOptional.IsUnknown() {
+						UseMtlsMap["client_certificate_optional"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.ClientCertificateOptional.ValueBool()
+					}
+					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL != nil {
+						CRLMap := make(map[string]interface{})
+						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Name.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Name.IsUnknown() {
+							CRLMap["name"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Name.ValueString()
+						}
+						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
+							CRLMap["namespace"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Namespace.ValueString()
+						}
+						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
+							CRLMap["tenant"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Tenant.ValueString()
+						}
+						UseMtlsMap["crl"] = CRLMap
+					}
+					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.NoCRL != nil {
+						UseMtlsMap["no_crl"] = map[string]interface{}{}
+					}
+					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA != nil {
+						TrustedCAMap := make(map[string]interface{})
+						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Name.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Name.IsUnknown() {
+							TrustedCAMap["name"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Name.ValueString()
+						}
+						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
+							TrustedCAMap["namespace"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
+						}
+						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
+							TrustedCAMap["tenant"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
+						}
+						UseMtlsMap["trusted_ca"] = TrustedCAMap
+					}
+					if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCAURL.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCAURL.IsUnknown() {
+						UseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCAURL.ValueString()
+					}
+					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccDisabled != nil {
+						UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+					}
+					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions != nil {
+						XfccOptionsMap := make(map[string]interface{})
+						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
+							var XfccHeaderElementsItems []string
+							diags := data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+							if !diags.HasError() {
+								XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+							}
+						}
+						UseMtlsMap["xfcc_options"] = XfccOptionsMap
+					}
+					TLSParametersMap["use_mtls"] = UseMtlsMap
+				}
+				HTTPSMap["tls_parameters"] = TLSParametersMap
+			}
+			ProxyConfigMap["https"] = HTTPSMap
 		}
 		if data.ProxyConfig.HTTPSAutoCert != nil {
-			https_auto_certNestedMap := make(map[string]interface{})
+			HTTPSAutoCertMap := make(map[string]interface{})
 			if !data.ProxyConfig.HTTPSAutoCert.AddHsts.IsNull() && !data.ProxyConfig.HTTPSAutoCert.AddHsts.IsUnknown() {
-				https_auto_certNestedMap["add_hsts"] = data.ProxyConfig.HTTPSAutoCert.AddHsts.ValueBool()
+				HTTPSAutoCertMap["add_hsts"] = data.ProxyConfig.HTTPSAutoCert.AddHsts.ValueBool()
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.AppendServerName.IsNull() && !data.ProxyConfig.HTTPSAutoCert.AppendServerName.IsUnknown() {
-				https_auto_certNestedMap["append_server_name"] = data.ProxyConfig.HTTPSAutoCert.AppendServerName.ValueString()
+				HTTPSAutoCertMap["append_server_name"] = data.ProxyConfig.HTTPSAutoCert.AppendServerName.ValueString()
+			}
+			if data.ProxyConfig.HTTPSAutoCert.CoalescingOptions != nil {
+				CoalescingOptionsMap := make(map[string]interface{})
+				if data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.DefaultCoalescing != nil {
+					CoalescingOptionsMap["default_coalescing"] = map[string]interface{}{}
+				}
+				if data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.StrictCoalescing != nil {
+					CoalescingOptionsMap["strict_coalescing"] = map[string]interface{}{}
+				}
+				HTTPSAutoCertMap["coalescing_options"] = CoalescingOptionsMap
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.ConnectionIdleTimeout.IsNull() && !data.ProxyConfig.HTTPSAutoCert.ConnectionIdleTimeout.IsUnknown() {
-				https_auto_certNestedMap["connection_idle_timeout"] = data.ProxyConfig.HTTPSAutoCert.ConnectionIdleTimeout.ValueInt64()
+				HTTPSAutoCertMap["connection_idle_timeout"] = data.ProxyConfig.HTTPSAutoCert.ConnectionIdleTimeout.ValueInt64()
+			}
+			if data.ProxyConfig.HTTPSAutoCert.DefaultHeader != nil {
+				HTTPSAutoCertMap["default_header"] = map[string]interface{}{}
+			}
+			if data.ProxyConfig.HTTPSAutoCert.DefaultLoadBalancer != nil {
+				HTTPSAutoCertMap["default_loadbalancer"] = map[string]interface{}{}
+			}
+			if data.ProxyConfig.HTTPSAutoCert.DisablePathNormalize != nil {
+				HTTPSAutoCertMap["disable_path_normalize"] = map[string]interface{}{}
+			}
+			if data.ProxyConfig.HTTPSAutoCert.EnablePathNormalize != nil {
+				HTTPSAutoCertMap["enable_path_normalize"] = map[string]interface{}{}
+			}
+			if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil {
+				HTTPProtocolOptionsMap := make(map[string]interface{})
+				if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil {
+					HTTPProtocolEnableV1OnlyMap := make(map[string]interface{})
+					if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+						HeaderTransformationMap := make(map[string]interface{})
+						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
+							HeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
+						}
+						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
+							HeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
+						}
+						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
+							HeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
+						}
+						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation != nil {
+							HeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
+						}
+						HTTPProtocolEnableV1OnlyMap["header_transformation"] = HeaderTransformationMap
+					}
+					HTTPProtocolOptionsMap["http_protocol_enable_v1_only"] = HTTPProtocolEnableV1OnlyMap
+				}
+				if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1V2 != nil {
+					HTTPProtocolOptionsMap["http_protocol_enable_v1_v2"] = map[string]interface{}{}
+				}
+				if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV2Only != nil {
+					HTTPProtocolOptionsMap["http_protocol_enable_v2_only"] = map[string]interface{}{}
+				}
+				HTTPSAutoCertMap["http_protocol_options"] = HTTPProtocolOptionsMap
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.HTTPRedirect.IsNull() && !data.ProxyConfig.HTTPSAutoCert.HTTPRedirect.IsUnknown() {
-				https_auto_certNestedMap["http_redirect"] = data.ProxyConfig.HTTPSAutoCert.HTTPRedirect.ValueBool()
+				HTTPSAutoCertMap["http_redirect"] = data.ProxyConfig.HTTPSAutoCert.HTTPRedirect.ValueBool()
+			}
+			if data.ProxyConfig.HTTPSAutoCert.NoMtls != nil {
+				HTTPSAutoCertMap["no_mtls"] = map[string]interface{}{}
+			}
+			if data.ProxyConfig.HTTPSAutoCert.NonDefaultLoadBalancer != nil {
+				HTTPSAutoCertMap["non_default_loadbalancer"] = map[string]interface{}{}
+			}
+			if data.ProxyConfig.HTTPSAutoCert.PassThrough != nil {
+				HTTPSAutoCertMap["pass_through"] = map[string]interface{}{}
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.Port.IsNull() && !data.ProxyConfig.HTTPSAutoCert.Port.IsUnknown() {
-				https_auto_certNestedMap["port"] = data.ProxyConfig.HTTPSAutoCert.Port.ValueInt64()
+				HTTPSAutoCertMap["port"] = data.ProxyConfig.HTTPSAutoCert.Port.ValueInt64()
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.PortRanges.IsNull() && !data.ProxyConfig.HTTPSAutoCert.PortRanges.IsUnknown() {
-				https_auto_certNestedMap["port_ranges"] = data.ProxyConfig.HTTPSAutoCert.PortRanges.ValueString()
+				HTTPSAutoCertMap["port_ranges"] = data.ProxyConfig.HTTPSAutoCert.PortRanges.ValueString()
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.ServerName.IsNull() && !data.ProxyConfig.HTTPSAutoCert.ServerName.IsUnknown() {
-				https_auto_certNestedMap["server_name"] = data.ProxyConfig.HTTPSAutoCert.ServerName.ValueString()
+				HTTPSAutoCertMap["server_name"] = data.ProxyConfig.HTTPSAutoCert.ServerName.ValueString()
 			}
-			proxy_configMap["https_auto_cert"] = https_auto_certNestedMap
+			if data.ProxyConfig.HTTPSAutoCert.TLSConfig != nil {
+				TLSConfigMap := make(map[string]interface{})
+				if data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity != nil {
+					CustomSecurityMap := make(map[string]interface{})
+					if !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
+						var CipherSuitesItems []string
+						diags := data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						if !diags.HasError() {
+							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+						}
+					}
+					if !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
+						CustomSecurityMap["max_version"] = data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+					}
+					if !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
+						CustomSecurityMap["min_version"] = data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MinVersion.ValueString()
+					}
+					TLSConfigMap["custom_security"] = CustomSecurityMap
+				}
+				if data.ProxyConfig.HTTPSAutoCert.TLSConfig.DefaultSecurity != nil {
+					TLSConfigMap["default_security"] = map[string]interface{}{}
+				}
+				if data.ProxyConfig.HTTPSAutoCert.TLSConfig.LowSecurity != nil {
+					TLSConfigMap["low_security"] = map[string]interface{}{}
+				}
+				if data.ProxyConfig.HTTPSAutoCert.TLSConfig.MediumSecurity != nil {
+					TLSConfigMap["medium_security"] = map[string]interface{}{}
+				}
+				HTTPSAutoCertMap["tls_config"] = TLSConfigMap
+			}
+			if data.ProxyConfig.HTTPSAutoCert.UseMtls != nil {
+				UseMtlsMap := make(map[string]interface{})
+				if !data.ProxyConfig.HTTPSAutoCert.UseMtls.ClientCertificateOptional.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.ClientCertificateOptional.IsUnknown() {
+					UseMtlsMap["client_certificate_optional"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.ClientCertificateOptional.ValueBool()
+				}
+				if data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL != nil {
+					CRLMap := make(map[string]interface{})
+					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Name.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Name.IsUnknown() {
+						CRLMap["name"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Name.ValueString()
+					}
+					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Namespace.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
+						CRLMap["namespace"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Namespace.ValueString()
+					}
+					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Tenant.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
+						CRLMap["tenant"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Tenant.ValueString()
+					}
+					UseMtlsMap["crl"] = CRLMap
+				}
+				if data.ProxyConfig.HTTPSAutoCert.UseMtls.NoCRL != nil {
+					UseMtlsMap["no_crl"] = map[string]interface{}{}
+				}
+				if data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA != nil {
+					TrustedCAMap := make(map[string]interface{})
+					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Name.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Name.IsUnknown() {
+						TrustedCAMap["name"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Name.ValueString()
+					}
+					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
+						TrustedCAMap["namespace"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
+					}
+					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
+						TrustedCAMap["tenant"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
+					}
+					UseMtlsMap["trusted_ca"] = TrustedCAMap
+				}
+				if !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCAURL.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCAURL.IsUnknown() {
+					UseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCAURL.ValueString()
+				}
+				if data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccDisabled != nil {
+					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+				}
+				if data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions != nil {
+					XfccOptionsMap := make(map[string]interface{})
+					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
+						var XfccHeaderElementsItems []string
+						diags := data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						if !diags.HasError() {
+							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+						}
+					}
+					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+				}
+				HTTPSAutoCertMap["use_mtls"] = UseMtlsMap
+			}
+			ProxyConfigMap["https_auto_cert"] = HTTPSAutoCertMap
 		}
-		createReq.Spec["proxy_config"] = proxy_configMap
+		createReq.Spec["proxy_config"] = ProxyConfigMap
 	}
 
 	apiResource, err := r.client.CreateBigIPHTTPProxy(ctx, createReq)
@@ -3278,38 +4122,75 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["advanced_profile"].(map[string]interface{}); ok && isImport && data.AdvancedProfile == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AdvancedProfile = &BigIPHTTPProxyAdvancedProfileModel{}
+	if blockData, ok := apiResource.Spec["advanced_profile"].(map[string]interface{}); ok && (isImport || data.AdvancedProfile != nil) {
+		data.AdvancedProfile = &BigIPHTTPProxyAdvancedProfileModel{
+			DisableSpec: func() *BigIPHTTPProxyEmptyModel {
+				if !isImport && data.AdvancedProfile != nil {
+					return data.AdvancedProfile.DisableSpec
+				}
+				if _, ok := blockData["disable"].(map[string]interface{}); ok {
+					return &BigIPHTTPProxyEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableDefaultProfile: func() *BigIPHTTPProxyEmptyModel {
+				if !isImport && data.AdvancedProfile != nil {
+					return data.AdvancedProfile.EnableDefaultProfile
+				}
+				if _, ok := blockData["enable_default_profile"].(map[string]interface{}); ok {
+					return &BigIPHTTPProxyEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && isImport && data.DDOSProfile == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.DDOSProfile = &BigIPHTTPProxyDDOSProfileModel{}
+	if blockData, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && (isImport || data.DDOSProfile != nil) {
+		data.DDOSProfile = &BigIPHTTPProxyDDOSProfileModel{
+			DisableDDOSMitigation: func() *BigIPHTTPProxyEmptyModel {
+				if !isImport && data.DDOSProfile != nil {
+					return data.DDOSProfile.DisableDDOSMitigation
+				}
+				if _, ok := blockData["disable_ddos_mitigation"].(map[string]interface{}); ok {
+					return &BigIPHTTPProxyEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableDDOSMitigation: func() *BigIPHTTPProxyEmptyModel {
+				if !isImport && data.DDOSProfile != nil {
+					return data.DDOSProfile.EnableDDOSMitigation
+				}
+				if _, ok := blockData["enable_ddos_mitigation"].(map[string]interface{}); ok {
+					return &BigIPHTTPProxyEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["irules"].(map[string]interface{}); ok && (isImport || data.Irules != nil) {
 		data.Irules = &BigIPHTTPProxyIrulesModel{
-			Irules: func() []BigIPHTTPProxyIrulesIrulesModel {
-				if listData, ok := blockData["irules"].([]interface{}); ok && len(listData) > 0 {
-					var result []BigIPHTTPProxyIrulesIrulesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, BigIPHTTPProxyIrulesIrulesModel{
+			Irules: func() types.List {
+				if !isImport && data.Irules != nil && (data.Irules.Irules.IsNull() || len(data.Irules.Irules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyIrulesIrulesModelAttrTypes})
+				}
+				if rawList, ok := blockData["irules"].([]interface{}); ok && len(rawList) > 0 {
+					var IrulesResult []BigIPHTTPProxyIrulesIrulesModel
+					for _, IrulesItem := range rawList {
+						if IrulesItemMap, ok := IrulesItem.(map[string]interface{}); ok {
+							IrulesResult = append(IrulesResult, BigIPHTTPProxyIrulesIrulesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := IrulesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := IrulesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := IrulesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -3317,48 +4198,442 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPHTTPProxyIrulesIrulesModelAttrTypes}, IrulesResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyIrulesIrulesModelAttrTypes})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["lb_algorithm"].(map[string]interface{}); ok && (isImport || data.LBAlgorithm != nil) {
+		data.LBAlgorithm = &BigIPHTTPProxyLBAlgorithmModel{
+			RoundRobin: func() *BigIPHTTPProxyEmptyModel {
+				if !isImport && data.LBAlgorithm != nil {
+					return data.LBAlgorithm.RoundRobin
+				}
+				if _, ok := blockData["round_robin"].(map[string]interface{}); ok {
+					return &BigIPHTTPProxyEmptyModel{}
 				}
 				return nil
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["lb_algorithm"].(map[string]interface{}); ok && isImport && data.LBAlgorithm == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.LBAlgorithm = &BigIPHTTPProxyLBAlgorithmModel{}
-	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["origin_pools"].(map[string]interface{}); ok && (isImport || data.OriginPools != nil) {
 		data.OriginPools = &BigIPHTTPProxyOriginPoolsModel{
-			Pools: func() []BigIPHTTPProxyOriginPoolsPoolsModel {
-				if listData, ok := blockData["pools"].([]interface{}); ok && len(listData) > 0 {
-					var result []BigIPHTTPProxyOriginPoolsPoolsModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, BigIPHTTPProxyOriginPoolsPoolsModel{
+			Pools: func() types.List {
+				if !isImport && data.OriginPools != nil && (data.OriginPools.Pools.IsNull() || len(data.OriginPools.Pools.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsModelAttrTypes})
+				}
+				if rawList, ok := blockData["pools"].([]interface{}); ok && len(rawList) > 0 {
+					var PoolsResult []BigIPHTTPProxyOriginPoolsPoolsModel
+					for _, PoolsItem := range rawList {
+						if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+							PoolsResult = append(PoolsResult, BigIPHTTPProxyOriginPoolsPoolsModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := PoolsItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								OriginServers: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersModel {
-									if deepMap, ok := itemMap["origin_servers"].(map[string]interface{}); ok {
+									if OriginServersData, ok := PoolsItemMap["origin_servers"].(map[string]interface{}); ok {
 										return &BigIPHTTPProxyOriginPoolsPoolsOriginServersModel{
 											AutomaticPort: func() *BigIPHTTPProxyEmptyModel {
-												if _, ok := deepMap["automatic_port"].(map[string]interface{}); ok {
+												if _, ok := OriginServersData["automatic_port"].(map[string]interface{}); ok {
 													return &BigIPHTTPProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											HealthChecks: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModel {
+												if HealthChecksData, ok := OriginServersData["health_checks"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModel{
+														HealthCheck: func() []BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel {
+															if rawList, ok := HealthChecksData["health_check"].([]interface{}); ok && len(rawList) > 0 {
+																var HealthCheckResult []BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel
+																for _, HealthCheckItem := range rawList {
+																	if HealthCheckItemMap, ok := HealthCheckItem.(map[string]interface{}); ok {
+																		HealthCheckResult = append(HealthCheckResult, BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel{
+																			ICMPHealthCheck: func() *BigIPHTTPProxyEmptyModel {
+																				if _, ok := HealthCheckItemMap["icmp_health_check"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			TCPHealthCheck: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckTCPHealthCheckModel {
+																				if TCPHealthCheckData, ok := HealthCheckItemMap["tcp_health_check"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckTCPHealthCheckModel{
+																						ExpectedResponse: func() types.String {
+																							if v, ok := TCPHealthCheckData["expected_response"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SendPayload: func() types.String {
+																							if v, ok := TCPHealthCheckData["send_payload"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																		})
+																	}
+																}
+																return HealthCheckResult
+															}
+															return nil
+														}(),
+														HealthyThreshold: func() types.Int64 {
+															if v, ok := HealthChecksData["healthy_threshold"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														Interval: func() types.Int64 {
+															if v, ok := HealthChecksData["interval"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														Timeout: func() types.Int64 {
+															if v, ok := HealthChecksData["timeout"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														UnhealthyThreshold: func() types.Int64 {
+															if v, ok := HealthChecksData["unhealthy_threshold"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+													}
 												}
 												return nil
 											}(),
 											LBPort: func() *BigIPHTTPProxyEmptyModel {
-												if _, ok := deepMap["lb_port"].(map[string]interface{}); ok {
+												if _, ok := OriginServersData["lb_port"].(map[string]interface{}); ok {
 													return &BigIPHTTPProxyEmptyModel{}
 												}
 												return nil
 											}(),
+											OriginServers: func() types.List {
+												if rawList, ok := OriginServersData["origin_servers"].([]interface{}); ok && len(rawList) > 0 {
+													var OriginServersResult []BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersModel
+													for _, OriginServersItem := range rawList {
+														if OriginServersItemMap, ok := OriginServersItem.(map[string]interface{}); ok {
+															OriginServersResult = append(OriginServersResult, BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersModel{
+																K8SService: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceModel {
+																	if K8SServiceData, ok := OriginServersItemMap["k8s_service"].(map[string]interface{}); ok {
+																		return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceModel{
+																			InsideNetwork: func() *BigIPHTTPProxyEmptyModel {
+																				if _, ok := K8SServiceData["inside_network"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			OutsideNetwork: func() *BigIPHTTPProxyEmptyModel {
+																				if _, ok := K8SServiceData["outside_network"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			Protocol: func() types.String {
+																				if v, ok := K8SServiceData["protocol"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			ServiceName: func() types.String {
+																				if v, ok := K8SServiceData["service_name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			SiteLocator: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorModel {
+																				if SiteLocatorData, ok := K8SServiceData["site_locator"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorModel{
+																						Site: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorSiteModel {
+																							if SiteData, ok := SiteLocatorData["site"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorSiteModel{
+																									Name: func() types.String {
+																										if v, ok := SiteData["name"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Namespace: func() types.String {
+																										if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Tenant: func() types.String {
+																										if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																						VirtualSite: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteModel {
+																							if VirtualSiteData, ok := SiteLocatorData["virtual_site"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteModel{
+																									Name: func() types.String {
+																										if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Namespace: func() types.String {
+																										if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Tenant: func() types.String {
+																										if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																			SnatPool: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolModel {
+																				if SnatPoolData, ok := K8SServiceData["snat_pool"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolModel{
+																						NoSnatPool: func() *BigIPHTTPProxyEmptyModel {
+																							if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyEmptyModel{}
+																							}
+																							return nil
+																						}(),
+																						SnatPool: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel {
+																							if SnatPoolData, ok := SnatPoolData["snat_pool"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel{
+																									Prefixes: func() types.List {
+																										if v, ok := SnatPoolData["prefixes"].([]interface{}); ok && len(v) > 0 {
+																											var items []string
+																											for _, item := range v {
+																												if s, ok := item.(string); ok {
+																													items = append(items, s)
+																												}
+																											}
+																											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																											return listVal
+																										}
+																										return types.ListNull(types.StringType)
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																			Vk8sNetworks: func() *BigIPHTTPProxyEmptyModel {
+																				if _, ok := K8SServiceData["vk8s_networks"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																PrivateIP: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPModel {
+																	if PrivateIPData, ok := OriginServersItemMap["private_ip"].(map[string]interface{}); ok {
+																		return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPModel{
+																			InsideNetwork: func() *BigIPHTTPProxyEmptyModel {
+																				if _, ok := PrivateIPData["inside_network"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			IP: func() types.String {
+																				if v, ok := PrivateIPData["ip"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			OutsideNetwork: func() *BigIPHTTPProxyEmptyModel {
+																				if _, ok := PrivateIPData["outside_network"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			Segment: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentModel {
+																				if SegmentData, ok := PrivateIPData["segment"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentModel{
+																						Name: func() types.String {
+																							if v, ok := SegmentData["name"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						Namespace: func() types.String {
+																							if v, ok := SegmentData["namespace"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						Tenant: func() types.String {
+																							if v, ok := SegmentData["tenant"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																			SiteLocator: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorModel {
+																				if SiteLocatorData, ok := PrivateIPData["site_locator"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorModel{
+																						Site: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorSiteModel {
+																							if SiteData, ok := SiteLocatorData["site"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorSiteModel{
+																									Name: func() types.String {
+																										if v, ok := SiteData["name"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Namespace: func() types.String {
+																										if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Tenant: func() types.String {
+																										if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																						VirtualSite: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorVirtualSiteModel {
+																							if VirtualSiteData, ok := SiteLocatorData["virtual_site"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorVirtualSiteModel{
+																									Name: func() types.String {
+																										if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Namespace: func() types.String {
+																										if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Tenant: func() types.String {
+																										if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																			SnatPool: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolModel {
+																				if SnatPoolData, ok := PrivateIPData["snat_pool"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolModel{
+																						NoSnatPool: func() *BigIPHTTPProxyEmptyModel {
+																							if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyEmptyModel{}
+																							}
+																							return nil
+																						}(),
+																						SnatPool: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolSnatPoolModel {
+																							if SnatPoolData, ok := SnatPoolData["snat_pool"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolSnatPoolModel{
+																									Prefixes: func() types.List {
+																										if v, ok := SnatPoolData["prefixes"].([]interface{}); ok && len(v) > 0 {
+																											var items []string
+																											for _, item := range v {
+																												if s, ok := item.(string); ok {
+																													items = append(items, s)
+																												}
+																											}
+																											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																											return listVal
+																										}
+																										return types.ListNull(types.StringType)
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																PublicIP: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPublicIPModel {
+																	if PublicIPData, ok := OriginServersItemMap["public_ip"].(map[string]interface{}); ok {
+																		return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPublicIPModel{
+																			IP: func() types.String {
+																				if v, ok := PublicIPData["ip"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																PublicName: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPublicNameModel {
+																	if PublicNameData, ok := OriginServersItemMap["public_name"].(map[string]interface{}); ok {
+																		return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPublicNameModel{
+																			DNSName: func() types.String {
+																				if v, ok := PublicNameData["dns_name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			RefreshInterval: func() types.Int64 {
+																				if v, ok := PublicNameData["refresh_interval"].(float64); ok && v != 0 {
+																					return types.Int64Value(int64(v))
+																				}
+																				return types.Int64Null()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersModelAttrTypes}, OriginServersResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersModelAttrTypes})
+											}(),
 											Port: func() types.Int64 {
-												if v, ok := deepMap["port"].(float64); ok {
+												if v, ok := OriginServersData["port"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
@@ -3368,13 +4643,13 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 									return nil
 								}(),
 								Priority: func() types.Int64 {
-									if v, ok := itemMap["priority"].(float64); ok {
+									if v, ok := PoolsItemMap["priority"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								Weight: func() types.Int64 {
-									if v, ok := itemMap["weight"].(float64); ok {
+									if v, ok := PoolsItemMap["weight"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
@@ -3382,17 +4657,339 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsModelAttrTypes}, PoolsResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsModelAttrTypes})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["proxy_advertisement"].(map[string]interface{}); ok && (isImport || data.ProxyAdvertisement != nil) {
+		data.ProxyAdvertisement = &BigIPHTTPProxyProxyAdvertisementModel{
+			AdvertiseCustom: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomModel {
+				if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseCustom != nil {
+					return data.ProxyAdvertisement.AdvertiseCustom
+				}
+				if AdvertiseCustomData, ok := blockData["advertise_custom"].(map[string]interface{}); ok {
+					return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomModel{
+						AdvertiseWhere: func() types.List {
+							if rawList, ok := AdvertiseCustomData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
+								var AdvertiseWhereResult []BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel
+								for _, AdvertiseWhereItem := range rawList {
+									if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
+										AdvertiseWhereResult = append(AdvertiseWhereResult, BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel{
+											AdvertiseOnPublic: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
+												if AdvertiseOnPublicData, ok := AdvertiseWhereItemMap["advertise_on_public"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel{
+														PublicIP: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel {
+															if PublicIPData, ok := AdvertiseOnPublicData["public_ip"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel{
+																	Name: func() types.String {
+																		if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Port: func() types.Int64 {
+												if v, ok := AdvertiseWhereItemMap["port"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+											PortRanges: func() types.String {
+												if v, ok := AdvertiseWhereItemMap["port_ranges"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Site: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteModel {
+												if SiteData, ok := AdvertiseWhereItemMap["site"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteModel{
+														IP: func() types.String {
+															if v, ok := SiteData["ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Network: func() types.String {
+															if v, ok := SiteData["network"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Site: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteModel {
+															if SiteData, ok := SiteData["site"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteModel{
+																	Name: func() types.String {
+																		if v, ok := SiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseDefaultPort: func() *BigIPHTTPProxyEmptyModel {
+												if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											VirtualNetwork: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel {
+												if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
+														DefaultV6VIP: func() *BigIPHTTPProxyEmptyModel {
+															if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														DefaultVIP: func() *BigIPHTTPProxyEmptyModel {
+															if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SpecificV6VIP: func() types.String {
+															if v, ok := VirtualNetworkData["specific_v6_vip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SpecificVIP: func() types.String {
+															if v, ok := VirtualNetworkData["specific_vip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VirtualNetwork: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel {
+															if VirtualNetworkData, ok := VirtualNetworkData["virtual_network"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualNetworkData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualNetworkData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualNetworkData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											VirtualSite: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteModel {
+												if VirtualSiteData, ok := AdvertiseWhereItemMap["virtual_site"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteModel{
+														Network: func() types.String {
+															if v, ok := VirtualSiteData["network"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VirtualSite: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteModel {
+															if VirtualSiteData, ok := VirtualSiteData["virtual_site"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											VirtualSiteWithVIP: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel {
+												if VirtualSiteWithVIPData, ok := AdvertiseWhereItemMap["virtual_site_with_vip"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel{
+														IP: func() types.String {
+															if v, ok := VirtualSiteWithVIPData["ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Network: func() types.String {
+															if v, ok := VirtualSiteWithVIPData["network"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VirtualSite: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteModel {
+															if VirtualSiteData, ok := VirtualSiteWithVIPData["virtual_site"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Vk8sService: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceModel {
+												if Vk8sServiceData, ok := AdvertiseWhereItemMap["vk8s_service"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceModel{
+														Site: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteModel {
+															if SiteData, ok := Vk8sServiceData["site"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteModel{
+																	Name: func() types.String {
+																		if v, ok := SiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														VirtualSite: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteModel {
+															if VirtualSiteData, ok := Vk8sServiceData["virtual_site"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModelAttrTypes}, AdvertiseWhereResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			DoNotAdvertise: func() *BigIPHTTPProxyEmptyModel {
+				if !isImport && data.ProxyAdvertisement != nil {
+					return data.ProxyAdvertisement.DoNotAdvertise
+				}
+				if _, ok := blockData["do_not_advertise"].(map[string]interface{}); ok {
+					return &BigIPHTTPProxyEmptyModel{}
 				}
 				return nil
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["proxy_advertisement"].(map[string]interface{}); ok && isImport && data.ProxyAdvertisement == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.ProxyAdvertisement = &BigIPHTTPProxyProxyAdvertisementModel{}
-	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["proxy_config"].(map[string]interface{}); ok && (isImport || data.ProxyConfig != nil) {
 		data.ProxyConfig = &BigIPHTTPProxyProxyConfigModel{
 			Domains: func() types.List {
@@ -3410,26 +5007,24 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 			}(),
 			HTTP: func() *BigIPHTTPProxyProxyConfigHTTPModel {
 				if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTP != nil {
-					// Normal Read: preserve existing state value
 					return data.ProxyConfig.HTTP
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["http"].(map[string]interface{}); ok {
+				if HTTPData, ok := blockData["http"].(map[string]interface{}); ok {
 					return &BigIPHTTPProxyProxyConfigHTTPModel{
 						DNSVolterraManaged: func() types.Bool {
-							if v, ok := nestedBlockData["dns_volterra_managed"].(bool); ok {
+							if v, ok := HTTPData["dns_volterra_managed"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
 						Port: func() types.Int64 {
-							if v, ok := nestedBlockData["port"].(float64); ok {
+							if v, ok := HTTPData["port"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						PortRanges: func() types.String {
-							if v, ok := nestedBlockData["port_ranges"].(string); ok && v != "" {
+							if v, ok := HTTPData["port_ranges"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -3440,53 +5035,645 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 			}(),
 			HTTPS: func() *BigIPHTTPProxyProxyConfigHTTPSModel {
 				if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
-					// Normal Read: preserve existing state value
 					return data.ProxyConfig.HTTPS
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["https"].(map[string]interface{}); ok {
+				if HTTPSData, ok := blockData["https"].(map[string]interface{}); ok {
 					return &BigIPHTTPProxyProxyConfigHTTPSModel{
 						AddHsts: func() types.Bool {
-							if v, ok := nestedBlockData["add_hsts"].(bool); ok {
+							if v, ok := HTTPSData["add_hsts"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
 						AppendServerName: func() types.String {
-							if v, ok := nestedBlockData["append_server_name"].(string); ok && v != "" {
+							if v, ok := HTTPSData["append_server_name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
+						CoalescingOptions: func() *BigIPHTTPProxyProxyConfigHTTPSCoalescingOptionsModel {
+							if CoalescingOptionsData, ok := HTTPSData["coalescing_options"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSCoalescingOptionsModel{
+									DefaultCoalescing: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := CoalescingOptionsData["default_coalescing"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									StrictCoalescing: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := CoalescingOptionsData["strict_coalescing"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						ConnectionIdleTimeout: func() types.Int64 {
-							if v, ok := nestedBlockData["connection_idle_timeout"].(float64); ok {
+							if v, ok := HTTPSData["connection_idle_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
+						DefaultHeader: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSData["default_header"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						DefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSData["default_loadbalancer"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						DisablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSData["disable_path_normalize"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						EnablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSData["enable_path_normalize"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						HTTPProtocolOptions: func() *BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsModel {
+							if HTTPProtocolOptionsData, ok := HTTPSData["http_protocol_options"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsModel{
+									HTTPProtocolEnableV1Only: func() *BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModel {
+										if HTTPProtocolEnableV1OnlyData, ok := HTTPProtocolOptionsData["http_protocol_enable_v1_only"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModel{
+												HeaderTransformation: func() *BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel {
+													if HeaderTransformationData, ok := HTTPProtocolEnableV1OnlyData["header_transformation"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel{
+															DefaultHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+															LegacyHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+															PreserveCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+															ProperCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									HTTPProtocolEnableV1V2: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v1_v2"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									HTTPProtocolEnableV2Only: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v2_only"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						HTTPRedirect: func() types.Bool {
-							if v, ok := nestedBlockData["http_redirect"].(bool); ok {
+							if v, ok := HTTPSData["http_redirect"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
+						NonDefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSData["non_default_loadbalancer"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						PassThrough: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSData["pass_through"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
 						Port: func() types.Int64 {
-							if v, ok := nestedBlockData["port"].(float64); ok {
+							if v, ok := HTTPSData["port"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						PortRanges: func() types.String {
-							if v, ok := nestedBlockData["port_ranges"].(string); ok && v != "" {
+							if v, ok := HTTPSData["port_ranges"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						ServerName: func() types.String {
-							if v, ok := nestedBlockData["server_name"].(string); ok && v != "" {
+							if v, ok := HTTPSData["server_name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						TLSCertParams: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsModel {
+							if TLSCertParamsData, ok := HTTPSData["tls_cert_params"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsModel{
+									Certificates: func() types.List {
+										if rawList, ok := TLSCertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
+											var CertificatesResult []BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsCertificatesModel
+											for _, CertificatesItem := range rawList {
+												if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
+													CertificatesResult = append(CertificatesResult, BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsCertificatesModel{
+														Name: func() types.String {
+															if v, ok := CertificatesItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := CertificatesItemMap["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := CertificatesItemMap["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsCertificatesModelAttrTypes}, CertificatesResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsCertificatesModelAttrTypes})
+									}(),
+									NoMtls: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := TLSCertParamsData["no_mtls"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									TLSConfig: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigModel {
+										if TLSConfigData, ok := TLSCertParamsData["tls_config"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigModel{
+												CustomSecurity: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityModel {
+													if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityModel{
+															CipherSuites: func() types.List {
+																if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+																	var items []string
+																	for _, item := range v {
+																		if s, ok := item.(string); ok {
+																			items = append(items, s)
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	return listVal
+																}
+																return types.ListNull(types.StringType)
+															}(),
+															MaxVersion: func() types.String {
+																if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															MinVersion: func() types.String {
+																if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												DefaultSecurity: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												LowSecurity: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												MediumSecurity: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									UseMtls: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsModel {
+										if UseMtlsData, ok := TLSCertParamsData["use_mtls"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsModel{
+												ClientCertificateOptional: func() types.Bool {
+													if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												CRL: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsCRLModel {
+													if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsCRLModel{
+															Name: func() types.String {
+																if v, ok := CRLData["name"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Namespace: func() types.String {
+																if v, ok := CRLData["namespace"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Tenant: func() types.String {
+																if v, ok := CRLData["tenant"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												NoCRL: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												TrustedCA: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAModel {
+													if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAModel{
+															Name: func() types.String {
+																if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Namespace: func() types.String {
+																if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Tenant: func() types.String {
+																if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												TrustedCAURL: func() types.String {
+													if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												XfccDisabled: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												XfccOptions: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsXfccOptionsModel {
+													if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsXfccOptionsModel{
+															XfccHeaderElements: func() types.List {
+																if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+																	var items []string
+																	for _, item := range v {
+																		if s, ok := item.(string); ok {
+																			items = append(items, s)
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	return listVal
+																}
+																return types.ListNull(types.StringType)
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						TLSParameters: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersModel {
+							if TLSParametersData, ok := HTTPSData["tls_parameters"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersModel{
+									NoMtls: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := TLSParametersData["no_mtls"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									TLSCertificates: func() []BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModel {
+										if rawList, ok := TLSParametersData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+											var TLSCertificatesResult []BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModel
+											for _, TLSCertificatesItem := range rawList {
+												if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+													TLSCertificatesResult = append(TLSCertificatesResult, BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModel{
+														CertificateURL: func() types.String {
+															if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														CustomHashAlgorithms: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsModel {
+															if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsModel{
+																	HashAlgorithms: func() types.List {
+																		if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														DescriptionSpec: func() types.String {
+															if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														DisableOCSPStapling: func() *BigIPHTTPProxyEmptyModel {
+															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														PrivateKey: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyModel {
+															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyModel{
+																	BlindfoldSecretInfo: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														UseSystemDefaults: func() *BigIPHTTPProxyEmptyModel {
+															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyEmptyModel{}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											return TLSCertificatesResult
+										}
+										return nil
+									}(),
+									TLSConfig: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigModel {
+										if TLSConfigData, ok := TLSParametersData["tls_config"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigModel{
+												CustomSecurity: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityModel {
+													if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityModel{
+															CipherSuites: func() types.List {
+																if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+																	var items []string
+																	for _, item := range v {
+																		if s, ok := item.(string); ok {
+																			items = append(items, s)
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	return listVal
+																}
+																return types.ListNull(types.StringType)
+															}(),
+															MaxVersion: func() types.String {
+																if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															MinVersion: func() types.String {
+																if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												DefaultSecurity: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												LowSecurity: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												MediumSecurity: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									UseMtls: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsModel {
+										if UseMtlsData, ok := TLSParametersData["use_mtls"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsModel{
+												ClientCertificateOptional: func() types.Bool {
+													if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												CRL: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsCRLModel {
+													if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsCRLModel{
+															Name: func() types.String {
+																if v, ok := CRLData["name"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Namespace: func() types.String {
+																if v, ok := CRLData["namespace"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Tenant: func() types.String {
+																if v, ok := CRLData["tenant"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												NoCRL: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												TrustedCA: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsTrustedCAModel {
+													if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsTrustedCAModel{
+															Name: func() types.String {
+																if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Namespace: func() types.String {
+																if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Tenant: func() types.String {
+																if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												TrustedCAURL: func() types.String {
+													if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												XfccDisabled: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												XfccOptions: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsXfccOptionsModel {
+													if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsXfccOptionsModel{
+															XfccHeaderElements: func() types.List {
+																if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+																	var items []string
+																	for _, item := range v {
+																		if s, ok := item.(string); ok {
+																			items = append(items, s)
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	return listVal
+																}
+																return types.ListNull(types.StringType)
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -3494,53 +5681,327 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 			}(),
 			HTTPSAutoCert: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertModel {
 				if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
-					// Normal Read: preserve existing state value
 					return data.ProxyConfig.HTTPSAutoCert
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["https_auto_cert"].(map[string]interface{}); ok {
+				if HTTPSAutoCertData, ok := blockData["https_auto_cert"].(map[string]interface{}); ok {
 					return &BigIPHTTPProxyProxyConfigHTTPSAutoCertModel{
 						AddHsts: func() types.Bool {
-							if v, ok := nestedBlockData["add_hsts"].(bool); ok {
+							if v, ok := HTTPSAutoCertData["add_hsts"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
 						AppendServerName: func() types.String {
-							if v, ok := nestedBlockData["append_server_name"].(string); ok && v != "" {
+							if v, ok := HTTPSAutoCertData["append_server_name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
+						CoalescingOptions: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertCoalescingOptionsModel {
+							if CoalescingOptionsData, ok := HTTPSAutoCertData["coalescing_options"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSAutoCertCoalescingOptionsModel{
+									DefaultCoalescing: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := CoalescingOptionsData["default_coalescing"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									StrictCoalescing: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := CoalescingOptionsData["strict_coalescing"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						ConnectionIdleTimeout: func() types.Int64 {
-							if v, ok := nestedBlockData["connection_idle_timeout"].(float64); ok {
+							if v, ok := HTTPSAutoCertData["connection_idle_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
+						DefaultHeader: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSAutoCertData["default_header"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						DefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSAutoCertData["default_loadbalancer"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						DisablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSAutoCertData["disable_path_normalize"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						EnablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSAutoCertData["enable_path_normalize"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						HTTPProtocolOptions: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsModel {
+							if HTTPProtocolOptionsData, ok := HTTPSAutoCertData["http_protocol_options"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsModel{
+									HTTPProtocolEnableV1Only: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModel {
+										if HTTPProtocolEnableV1OnlyData, ok := HTTPProtocolOptionsData["http_protocol_enable_v1_only"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModel{
+												HeaderTransformation: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel {
+													if HeaderTransformationData, ok := HTTPProtocolEnableV1OnlyData["header_transformation"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel{
+															DefaultHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+															LegacyHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+															PreserveCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+															ProperCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									HTTPProtocolEnableV1V2: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v1_v2"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									HTTPProtocolEnableV2Only: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v2_only"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						HTTPRedirect: func() types.Bool {
-							if v, ok := nestedBlockData["http_redirect"].(bool); ok {
+							if v, ok := HTTPSAutoCertData["http_redirect"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
+						NoMtls: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSAutoCertData["no_mtls"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						NonDefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSAutoCertData["non_default_loadbalancer"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						PassThrough: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSAutoCertData["pass_through"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
 						Port: func() types.Int64 {
-							if v, ok := nestedBlockData["port"].(float64); ok {
+							if v, ok := HTTPSAutoCertData["port"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						PortRanges: func() types.String {
-							if v, ok := nestedBlockData["port_ranges"].(string); ok && v != "" {
+							if v, ok := HTTPSAutoCertData["port_ranges"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						ServerName: func() types.String {
-							if v, ok := nestedBlockData["server_name"].(string); ok && v != "" {
+							if v, ok := HTTPSAutoCertData["server_name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						TLSConfig: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigModel {
+							if TLSConfigData, ok := HTTPSAutoCertData["tls_config"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigModel{
+									CustomSecurity: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigCustomSecurityModel {
+										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigCustomSecurityModel{
+												CipherSuites: func() types.List {
+													if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												MaxVersion: func() types.String {
+													if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												MinVersion: func() types.String {
+													if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultSecurity: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									LowSecurity: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									MediumSecurity: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseMtls: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsModel {
+							if UseMtlsData, ok := HTTPSAutoCertData["use_mtls"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsModel{
+									ClientCertificateOptional: func() types.Bool {
+										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									CRL: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsCRLModel {
+										if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsCRLModel{
+												Name: func() types.String {
+													if v, ok := CRLData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := CRLData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := CRLData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NoCRL: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									TrustedCA: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsTrustedCAModel {
+										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsTrustedCAModel{
+												Name: func() types.String {
+													if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									XfccDisabled: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									XfccOptions: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsXfccOptionsModel {
+										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsXfccOptionsModel{
+												XfccHeaderElements: func() types.List {
+													if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -3628,38 +6089,75 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["advanced_profile"].(map[string]interface{}); ok && isImport && data.AdvancedProfile == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AdvancedProfile = &BigIPHTTPProxyAdvancedProfileModel{}
+	if blockData, ok := apiResource.Spec["advanced_profile"].(map[string]interface{}); ok && (isImport || data.AdvancedProfile != nil) {
+		data.AdvancedProfile = &BigIPHTTPProxyAdvancedProfileModel{
+			DisableSpec: func() *BigIPHTTPProxyEmptyModel {
+				if !isImport && data.AdvancedProfile != nil {
+					return data.AdvancedProfile.DisableSpec
+				}
+				if _, ok := blockData["disable"].(map[string]interface{}); ok {
+					return &BigIPHTTPProxyEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableDefaultProfile: func() *BigIPHTTPProxyEmptyModel {
+				if !isImport && data.AdvancedProfile != nil {
+					return data.AdvancedProfile.EnableDefaultProfile
+				}
+				if _, ok := blockData["enable_default_profile"].(map[string]interface{}); ok {
+					return &BigIPHTTPProxyEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && isImport && data.DDOSProfile == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.DDOSProfile = &BigIPHTTPProxyDDOSProfileModel{}
+	if blockData, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && (isImport || data.DDOSProfile != nil) {
+		data.DDOSProfile = &BigIPHTTPProxyDDOSProfileModel{
+			DisableDDOSMitigation: func() *BigIPHTTPProxyEmptyModel {
+				if !isImport && data.DDOSProfile != nil {
+					return data.DDOSProfile.DisableDDOSMitigation
+				}
+				if _, ok := blockData["disable_ddos_mitigation"].(map[string]interface{}); ok {
+					return &BigIPHTTPProxyEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableDDOSMitigation: func() *BigIPHTTPProxyEmptyModel {
+				if !isImport && data.DDOSProfile != nil {
+					return data.DDOSProfile.EnableDDOSMitigation
+				}
+				if _, ok := blockData["enable_ddos_mitigation"].(map[string]interface{}); ok {
+					return &BigIPHTTPProxyEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["irules"].(map[string]interface{}); ok && (isImport || data.Irules != nil) {
 		data.Irules = &BigIPHTTPProxyIrulesModel{
-			Irules: func() []BigIPHTTPProxyIrulesIrulesModel {
-				if listData, ok := blockData["irules"].([]interface{}); ok && len(listData) > 0 {
-					var result []BigIPHTTPProxyIrulesIrulesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, BigIPHTTPProxyIrulesIrulesModel{
+			Irules: func() types.List {
+				if !isImport && data.Irules != nil && (data.Irules.Irules.IsNull() || len(data.Irules.Irules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyIrulesIrulesModelAttrTypes})
+				}
+				if rawList, ok := blockData["irules"].([]interface{}); ok && len(rawList) > 0 {
+					var IrulesResult []BigIPHTTPProxyIrulesIrulesModel
+					for _, IrulesItem := range rawList {
+						if IrulesItemMap, ok := IrulesItem.(map[string]interface{}); ok {
+							IrulesResult = append(IrulesResult, BigIPHTTPProxyIrulesIrulesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := IrulesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := IrulesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := IrulesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -3667,48 +6165,442 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPHTTPProxyIrulesIrulesModelAttrTypes}, IrulesResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyIrulesIrulesModelAttrTypes})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["lb_algorithm"].(map[string]interface{}); ok && (isImport || data.LBAlgorithm != nil) {
+		data.LBAlgorithm = &BigIPHTTPProxyLBAlgorithmModel{
+			RoundRobin: func() *BigIPHTTPProxyEmptyModel {
+				if !isImport && data.LBAlgorithm != nil {
+					return data.LBAlgorithm.RoundRobin
+				}
+				if _, ok := blockData["round_robin"].(map[string]interface{}); ok {
+					return &BigIPHTTPProxyEmptyModel{}
 				}
 				return nil
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["lb_algorithm"].(map[string]interface{}); ok && isImport && data.LBAlgorithm == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.LBAlgorithm = &BigIPHTTPProxyLBAlgorithmModel{}
-	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["origin_pools"].(map[string]interface{}); ok && (isImport || data.OriginPools != nil) {
 		data.OriginPools = &BigIPHTTPProxyOriginPoolsModel{
-			Pools: func() []BigIPHTTPProxyOriginPoolsPoolsModel {
-				if listData, ok := blockData["pools"].([]interface{}); ok && len(listData) > 0 {
-					var result []BigIPHTTPProxyOriginPoolsPoolsModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, BigIPHTTPProxyOriginPoolsPoolsModel{
+			Pools: func() types.List {
+				if !isImport && data.OriginPools != nil && (data.OriginPools.Pools.IsNull() || len(data.OriginPools.Pools.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsModelAttrTypes})
+				}
+				if rawList, ok := blockData["pools"].([]interface{}); ok && len(rawList) > 0 {
+					var PoolsResult []BigIPHTTPProxyOriginPoolsPoolsModel
+					for _, PoolsItem := range rawList {
+						if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+							PoolsResult = append(PoolsResult, BigIPHTTPProxyOriginPoolsPoolsModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := PoolsItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								OriginServers: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersModel {
-									if deepMap, ok := itemMap["origin_servers"].(map[string]interface{}); ok {
+									if OriginServersData, ok := PoolsItemMap["origin_servers"].(map[string]interface{}); ok {
 										return &BigIPHTTPProxyOriginPoolsPoolsOriginServersModel{
 											AutomaticPort: func() *BigIPHTTPProxyEmptyModel {
-												if _, ok := deepMap["automatic_port"].(map[string]interface{}); ok {
+												if _, ok := OriginServersData["automatic_port"].(map[string]interface{}); ok {
 													return &BigIPHTTPProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											HealthChecks: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModel {
+												if HealthChecksData, ok := OriginServersData["health_checks"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModel{
+														HealthCheck: func() []BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel {
+															if rawList, ok := HealthChecksData["health_check"].([]interface{}); ok && len(rawList) > 0 {
+																var HealthCheckResult []BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel
+																for _, HealthCheckItem := range rawList {
+																	if HealthCheckItemMap, ok := HealthCheckItem.(map[string]interface{}); ok {
+																		HealthCheckResult = append(HealthCheckResult, BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel{
+																			ICMPHealthCheck: func() *BigIPHTTPProxyEmptyModel {
+																				if _, ok := HealthCheckItemMap["icmp_health_check"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			TCPHealthCheck: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckTCPHealthCheckModel {
+																				if TCPHealthCheckData, ok := HealthCheckItemMap["tcp_health_check"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckTCPHealthCheckModel{
+																						ExpectedResponse: func() types.String {
+																							if v, ok := TCPHealthCheckData["expected_response"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SendPayload: func() types.String {
+																							if v, ok := TCPHealthCheckData["send_payload"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																		})
+																	}
+																}
+																return HealthCheckResult
+															}
+															return nil
+														}(),
+														HealthyThreshold: func() types.Int64 {
+															if v, ok := HealthChecksData["healthy_threshold"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														Interval: func() types.Int64 {
+															if v, ok := HealthChecksData["interval"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														Timeout: func() types.Int64 {
+															if v, ok := HealthChecksData["timeout"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														UnhealthyThreshold: func() types.Int64 {
+															if v, ok := HealthChecksData["unhealthy_threshold"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+													}
 												}
 												return nil
 											}(),
 											LBPort: func() *BigIPHTTPProxyEmptyModel {
-												if _, ok := deepMap["lb_port"].(map[string]interface{}); ok {
+												if _, ok := OriginServersData["lb_port"].(map[string]interface{}); ok {
 													return &BigIPHTTPProxyEmptyModel{}
 												}
 												return nil
 											}(),
+											OriginServers: func() types.List {
+												if rawList, ok := OriginServersData["origin_servers"].([]interface{}); ok && len(rawList) > 0 {
+													var OriginServersResult []BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersModel
+													for _, OriginServersItem := range rawList {
+														if OriginServersItemMap, ok := OriginServersItem.(map[string]interface{}); ok {
+															OriginServersResult = append(OriginServersResult, BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersModel{
+																K8SService: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceModel {
+																	if K8SServiceData, ok := OriginServersItemMap["k8s_service"].(map[string]interface{}); ok {
+																		return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceModel{
+																			InsideNetwork: func() *BigIPHTTPProxyEmptyModel {
+																				if _, ok := K8SServiceData["inside_network"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			OutsideNetwork: func() *BigIPHTTPProxyEmptyModel {
+																				if _, ok := K8SServiceData["outside_network"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			Protocol: func() types.String {
+																				if v, ok := K8SServiceData["protocol"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			ServiceName: func() types.String {
+																				if v, ok := K8SServiceData["service_name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			SiteLocator: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorModel {
+																				if SiteLocatorData, ok := K8SServiceData["site_locator"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorModel{
+																						Site: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorSiteModel {
+																							if SiteData, ok := SiteLocatorData["site"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorSiteModel{
+																									Name: func() types.String {
+																										if v, ok := SiteData["name"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Namespace: func() types.String {
+																										if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Tenant: func() types.String {
+																										if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																						VirtualSite: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteModel {
+																							if VirtualSiteData, ok := SiteLocatorData["virtual_site"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteModel{
+																									Name: func() types.String {
+																										if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Namespace: func() types.String {
+																										if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Tenant: func() types.String {
+																										if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																			SnatPool: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolModel {
+																				if SnatPoolData, ok := K8SServiceData["snat_pool"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolModel{
+																						NoSnatPool: func() *BigIPHTTPProxyEmptyModel {
+																							if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyEmptyModel{}
+																							}
+																							return nil
+																						}(),
+																						SnatPool: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel {
+																							if SnatPoolData, ok := SnatPoolData["snat_pool"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel{
+																									Prefixes: func() types.List {
+																										if v, ok := SnatPoolData["prefixes"].([]interface{}); ok && len(v) > 0 {
+																											var items []string
+																											for _, item := range v {
+																												if s, ok := item.(string); ok {
+																													items = append(items, s)
+																												}
+																											}
+																											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																											return listVal
+																										}
+																										return types.ListNull(types.StringType)
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																			Vk8sNetworks: func() *BigIPHTTPProxyEmptyModel {
+																				if _, ok := K8SServiceData["vk8s_networks"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																PrivateIP: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPModel {
+																	if PrivateIPData, ok := OriginServersItemMap["private_ip"].(map[string]interface{}); ok {
+																		return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPModel{
+																			InsideNetwork: func() *BigIPHTTPProxyEmptyModel {
+																				if _, ok := PrivateIPData["inside_network"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			IP: func() types.String {
+																				if v, ok := PrivateIPData["ip"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			OutsideNetwork: func() *BigIPHTTPProxyEmptyModel {
+																				if _, ok := PrivateIPData["outside_network"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			Segment: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentModel {
+																				if SegmentData, ok := PrivateIPData["segment"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentModel{
+																						Name: func() types.String {
+																							if v, ok := SegmentData["name"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						Namespace: func() types.String {
+																							if v, ok := SegmentData["namespace"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						Tenant: func() types.String {
+																							if v, ok := SegmentData["tenant"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																			SiteLocator: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorModel {
+																				if SiteLocatorData, ok := PrivateIPData["site_locator"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorModel{
+																						Site: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorSiteModel {
+																							if SiteData, ok := SiteLocatorData["site"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorSiteModel{
+																									Name: func() types.String {
+																										if v, ok := SiteData["name"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Namespace: func() types.String {
+																										if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Tenant: func() types.String {
+																										if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																						VirtualSite: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorVirtualSiteModel {
+																							if VirtualSiteData, ok := SiteLocatorData["virtual_site"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorVirtualSiteModel{
+																									Name: func() types.String {
+																										if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Namespace: func() types.String {
+																										if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Tenant: func() types.String {
+																										if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																			SnatPool: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolModel {
+																				if SnatPoolData, ok := PrivateIPData["snat_pool"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolModel{
+																						NoSnatPool: func() *BigIPHTTPProxyEmptyModel {
+																							if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyEmptyModel{}
+																							}
+																							return nil
+																						}(),
+																						SnatPool: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolSnatPoolModel {
+																							if SnatPoolData, ok := SnatPoolData["snat_pool"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolSnatPoolModel{
+																									Prefixes: func() types.List {
+																										if v, ok := SnatPoolData["prefixes"].([]interface{}); ok && len(v) > 0 {
+																											var items []string
+																											for _, item := range v {
+																												if s, ok := item.(string); ok {
+																													items = append(items, s)
+																												}
+																											}
+																											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																											return listVal
+																										}
+																										return types.ListNull(types.StringType)
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																PublicIP: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPublicIPModel {
+																	if PublicIPData, ok := OriginServersItemMap["public_ip"].(map[string]interface{}); ok {
+																		return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPublicIPModel{
+																			IP: func() types.String {
+																				if v, ok := PublicIPData["ip"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																PublicName: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPublicNameModel {
+																	if PublicNameData, ok := OriginServersItemMap["public_name"].(map[string]interface{}); ok {
+																		return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPublicNameModel{
+																			DNSName: func() types.String {
+																				if v, ok := PublicNameData["dns_name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			RefreshInterval: func() types.Int64 {
+																				if v, ok := PublicNameData["refresh_interval"].(float64); ok && v != 0 {
+																					return types.Int64Value(int64(v))
+																				}
+																				return types.Int64Null()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersModelAttrTypes}, OriginServersResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersModelAttrTypes})
+											}(),
 											Port: func() types.Int64 {
-												if v, ok := deepMap["port"].(float64); ok {
+												if v, ok := OriginServersData["port"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
@@ -3718,13 +6610,13 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 									return nil
 								}(),
 								Priority: func() types.Int64 {
-									if v, ok := itemMap["priority"].(float64); ok {
+									if v, ok := PoolsItemMap["priority"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								Weight: func() types.Int64 {
-									if v, ok := itemMap["weight"].(float64); ok {
+									if v, ok := PoolsItemMap["weight"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
@@ -3732,17 +6624,339 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsModelAttrTypes}, PoolsResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsModelAttrTypes})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["proxy_advertisement"].(map[string]interface{}); ok && (isImport || data.ProxyAdvertisement != nil) {
+		data.ProxyAdvertisement = &BigIPHTTPProxyProxyAdvertisementModel{
+			AdvertiseCustom: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomModel {
+				if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseCustom != nil {
+					return data.ProxyAdvertisement.AdvertiseCustom
+				}
+				if AdvertiseCustomData, ok := blockData["advertise_custom"].(map[string]interface{}); ok {
+					return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomModel{
+						AdvertiseWhere: func() types.List {
+							if rawList, ok := AdvertiseCustomData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
+								var AdvertiseWhereResult []BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel
+								for _, AdvertiseWhereItem := range rawList {
+									if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
+										AdvertiseWhereResult = append(AdvertiseWhereResult, BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel{
+											AdvertiseOnPublic: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
+												if AdvertiseOnPublicData, ok := AdvertiseWhereItemMap["advertise_on_public"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel{
+														PublicIP: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel {
+															if PublicIPData, ok := AdvertiseOnPublicData["public_ip"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel{
+																	Name: func() types.String {
+																		if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Port: func() types.Int64 {
+												if v, ok := AdvertiseWhereItemMap["port"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+											PortRanges: func() types.String {
+												if v, ok := AdvertiseWhereItemMap["port_ranges"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Site: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteModel {
+												if SiteData, ok := AdvertiseWhereItemMap["site"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteModel{
+														IP: func() types.String {
+															if v, ok := SiteData["ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Network: func() types.String {
+															if v, ok := SiteData["network"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Site: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteModel {
+															if SiteData, ok := SiteData["site"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteModel{
+																	Name: func() types.String {
+																		if v, ok := SiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseDefaultPort: func() *BigIPHTTPProxyEmptyModel {
+												if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											VirtualNetwork: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel {
+												if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
+														DefaultV6VIP: func() *BigIPHTTPProxyEmptyModel {
+															if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														DefaultVIP: func() *BigIPHTTPProxyEmptyModel {
+															if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SpecificV6VIP: func() types.String {
+															if v, ok := VirtualNetworkData["specific_v6_vip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SpecificVIP: func() types.String {
+															if v, ok := VirtualNetworkData["specific_vip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VirtualNetwork: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel {
+															if VirtualNetworkData, ok := VirtualNetworkData["virtual_network"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualNetworkData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualNetworkData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualNetworkData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											VirtualSite: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteModel {
+												if VirtualSiteData, ok := AdvertiseWhereItemMap["virtual_site"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteModel{
+														Network: func() types.String {
+															if v, ok := VirtualSiteData["network"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VirtualSite: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteModel {
+															if VirtualSiteData, ok := VirtualSiteData["virtual_site"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											VirtualSiteWithVIP: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel {
+												if VirtualSiteWithVIPData, ok := AdvertiseWhereItemMap["virtual_site_with_vip"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel{
+														IP: func() types.String {
+															if v, ok := VirtualSiteWithVIPData["ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Network: func() types.String {
+															if v, ok := VirtualSiteWithVIPData["network"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VirtualSite: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteModel {
+															if VirtualSiteData, ok := VirtualSiteWithVIPData["virtual_site"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Vk8sService: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceModel {
+												if Vk8sServiceData, ok := AdvertiseWhereItemMap["vk8s_service"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceModel{
+														Site: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteModel {
+															if SiteData, ok := Vk8sServiceData["site"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteModel{
+																	Name: func() types.String {
+																		if v, ok := SiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														VirtualSite: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteModel {
+															if VirtualSiteData, ok := Vk8sServiceData["virtual_site"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModelAttrTypes}, AdvertiseWhereResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			DoNotAdvertise: func() *BigIPHTTPProxyEmptyModel {
+				if !isImport && data.ProxyAdvertisement != nil {
+					return data.ProxyAdvertisement.DoNotAdvertise
+				}
+				if _, ok := blockData["do_not_advertise"].(map[string]interface{}); ok {
+					return &BigIPHTTPProxyEmptyModel{}
 				}
 				return nil
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["proxy_advertisement"].(map[string]interface{}); ok && isImport && data.ProxyAdvertisement == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.ProxyAdvertisement = &BigIPHTTPProxyProxyAdvertisementModel{}
-	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["proxy_config"].(map[string]interface{}); ok && (isImport || data.ProxyConfig != nil) {
 		data.ProxyConfig = &BigIPHTTPProxyProxyConfigModel{
 			Domains: func() types.List {
@@ -3760,26 +6974,24 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 			}(),
 			HTTP: func() *BigIPHTTPProxyProxyConfigHTTPModel {
 				if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTP != nil {
-					// Normal Read: preserve existing state value
 					return data.ProxyConfig.HTTP
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["http"].(map[string]interface{}); ok {
+				if HTTPData, ok := blockData["http"].(map[string]interface{}); ok {
 					return &BigIPHTTPProxyProxyConfigHTTPModel{
 						DNSVolterraManaged: func() types.Bool {
-							if v, ok := nestedBlockData["dns_volterra_managed"].(bool); ok {
+							if v, ok := HTTPData["dns_volterra_managed"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
 						Port: func() types.Int64 {
-							if v, ok := nestedBlockData["port"].(float64); ok {
+							if v, ok := HTTPData["port"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						PortRanges: func() types.String {
-							if v, ok := nestedBlockData["port_ranges"].(string); ok && v != "" {
+							if v, ok := HTTPData["port_ranges"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -3790,53 +7002,645 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 			}(),
 			HTTPS: func() *BigIPHTTPProxyProxyConfigHTTPSModel {
 				if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
-					// Normal Read: preserve existing state value
 					return data.ProxyConfig.HTTPS
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["https"].(map[string]interface{}); ok {
+				if HTTPSData, ok := blockData["https"].(map[string]interface{}); ok {
 					return &BigIPHTTPProxyProxyConfigHTTPSModel{
 						AddHsts: func() types.Bool {
-							if v, ok := nestedBlockData["add_hsts"].(bool); ok {
+							if v, ok := HTTPSData["add_hsts"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
 						AppendServerName: func() types.String {
-							if v, ok := nestedBlockData["append_server_name"].(string); ok && v != "" {
+							if v, ok := HTTPSData["append_server_name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
+						CoalescingOptions: func() *BigIPHTTPProxyProxyConfigHTTPSCoalescingOptionsModel {
+							if CoalescingOptionsData, ok := HTTPSData["coalescing_options"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSCoalescingOptionsModel{
+									DefaultCoalescing: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := CoalescingOptionsData["default_coalescing"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									StrictCoalescing: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := CoalescingOptionsData["strict_coalescing"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						ConnectionIdleTimeout: func() types.Int64 {
-							if v, ok := nestedBlockData["connection_idle_timeout"].(float64); ok {
+							if v, ok := HTTPSData["connection_idle_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
+						DefaultHeader: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSData["default_header"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						DefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSData["default_loadbalancer"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						DisablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSData["disable_path_normalize"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						EnablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSData["enable_path_normalize"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						HTTPProtocolOptions: func() *BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsModel {
+							if HTTPProtocolOptionsData, ok := HTTPSData["http_protocol_options"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsModel{
+									HTTPProtocolEnableV1Only: func() *BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModel {
+										if HTTPProtocolEnableV1OnlyData, ok := HTTPProtocolOptionsData["http_protocol_enable_v1_only"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModel{
+												HeaderTransformation: func() *BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel {
+													if HeaderTransformationData, ok := HTTPProtocolEnableV1OnlyData["header_transformation"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel{
+															DefaultHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+															LegacyHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+															PreserveCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+															ProperCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									HTTPProtocolEnableV1V2: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v1_v2"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									HTTPProtocolEnableV2Only: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v2_only"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						HTTPRedirect: func() types.Bool {
-							if v, ok := nestedBlockData["http_redirect"].(bool); ok {
+							if v, ok := HTTPSData["http_redirect"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
+						NonDefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSData["non_default_loadbalancer"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						PassThrough: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSData["pass_through"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
 						Port: func() types.Int64 {
-							if v, ok := nestedBlockData["port"].(float64); ok {
+							if v, ok := HTTPSData["port"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						PortRanges: func() types.String {
-							if v, ok := nestedBlockData["port_ranges"].(string); ok && v != "" {
+							if v, ok := HTTPSData["port_ranges"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						ServerName: func() types.String {
-							if v, ok := nestedBlockData["server_name"].(string); ok && v != "" {
+							if v, ok := HTTPSData["server_name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						TLSCertParams: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsModel {
+							if TLSCertParamsData, ok := HTTPSData["tls_cert_params"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsModel{
+									Certificates: func() types.List {
+										if rawList, ok := TLSCertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
+											var CertificatesResult []BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsCertificatesModel
+											for _, CertificatesItem := range rawList {
+												if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
+													CertificatesResult = append(CertificatesResult, BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsCertificatesModel{
+														Name: func() types.String {
+															if v, ok := CertificatesItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := CertificatesItemMap["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := CertificatesItemMap["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsCertificatesModelAttrTypes}, CertificatesResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsCertificatesModelAttrTypes})
+									}(),
+									NoMtls: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := TLSCertParamsData["no_mtls"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									TLSConfig: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigModel {
+										if TLSConfigData, ok := TLSCertParamsData["tls_config"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigModel{
+												CustomSecurity: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityModel {
+													if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityModel{
+															CipherSuites: func() types.List {
+																if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+																	var items []string
+																	for _, item := range v {
+																		if s, ok := item.(string); ok {
+																			items = append(items, s)
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	return listVal
+																}
+																return types.ListNull(types.StringType)
+															}(),
+															MaxVersion: func() types.String {
+																if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															MinVersion: func() types.String {
+																if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												DefaultSecurity: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												LowSecurity: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												MediumSecurity: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									UseMtls: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsModel {
+										if UseMtlsData, ok := TLSCertParamsData["use_mtls"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsModel{
+												ClientCertificateOptional: func() types.Bool {
+													if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												CRL: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsCRLModel {
+													if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsCRLModel{
+															Name: func() types.String {
+																if v, ok := CRLData["name"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Namespace: func() types.String {
+																if v, ok := CRLData["namespace"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Tenant: func() types.String {
+																if v, ok := CRLData["tenant"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												NoCRL: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												TrustedCA: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAModel {
+													if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAModel{
+															Name: func() types.String {
+																if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Namespace: func() types.String {
+																if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Tenant: func() types.String {
+																if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												TrustedCAURL: func() types.String {
+													if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												XfccDisabled: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												XfccOptions: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsXfccOptionsModel {
+													if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsXfccOptionsModel{
+															XfccHeaderElements: func() types.List {
+																if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+																	var items []string
+																	for _, item := range v {
+																		if s, ok := item.(string); ok {
+																			items = append(items, s)
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	return listVal
+																}
+																return types.ListNull(types.StringType)
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						TLSParameters: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersModel {
+							if TLSParametersData, ok := HTTPSData["tls_parameters"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersModel{
+									NoMtls: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := TLSParametersData["no_mtls"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									TLSCertificates: func() []BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModel {
+										if rawList, ok := TLSParametersData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+											var TLSCertificatesResult []BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModel
+											for _, TLSCertificatesItem := range rawList {
+												if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+													TLSCertificatesResult = append(TLSCertificatesResult, BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModel{
+														CertificateURL: func() types.String {
+															if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														CustomHashAlgorithms: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsModel {
+															if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsModel{
+																	HashAlgorithms: func() types.List {
+																		if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														DescriptionSpec: func() types.String {
+															if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														DisableOCSPStapling: func() *BigIPHTTPProxyEmptyModel {
+															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														PrivateKey: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyModel {
+															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyModel{
+																	BlindfoldSecretInfo: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														UseSystemDefaults: func() *BigIPHTTPProxyEmptyModel {
+															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyEmptyModel{}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											return TLSCertificatesResult
+										}
+										return nil
+									}(),
+									TLSConfig: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigModel {
+										if TLSConfigData, ok := TLSParametersData["tls_config"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigModel{
+												CustomSecurity: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityModel {
+													if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityModel{
+															CipherSuites: func() types.List {
+																if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+																	var items []string
+																	for _, item := range v {
+																		if s, ok := item.(string); ok {
+																			items = append(items, s)
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	return listVal
+																}
+																return types.ListNull(types.StringType)
+															}(),
+															MaxVersion: func() types.String {
+																if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															MinVersion: func() types.String {
+																if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												DefaultSecurity: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												LowSecurity: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												MediumSecurity: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									UseMtls: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsModel {
+										if UseMtlsData, ok := TLSParametersData["use_mtls"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsModel{
+												ClientCertificateOptional: func() types.Bool {
+													if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												CRL: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsCRLModel {
+													if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsCRLModel{
+															Name: func() types.String {
+																if v, ok := CRLData["name"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Namespace: func() types.String {
+																if v, ok := CRLData["namespace"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Tenant: func() types.String {
+																if v, ok := CRLData["tenant"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												NoCRL: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												TrustedCA: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsTrustedCAModel {
+													if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsTrustedCAModel{
+															Name: func() types.String {
+																if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Namespace: func() types.String {
+																if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Tenant: func() types.String {
+																if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												TrustedCAURL: func() types.String {
+													if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												XfccDisabled: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												XfccOptions: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsXfccOptionsModel {
+													if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsXfccOptionsModel{
+															XfccHeaderElements: func() types.List {
+																if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+																	var items []string
+																	for _, item := range v {
+																		if s, ok := item.(string); ok {
+																			items = append(items, s)
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	return listVal
+																}
+																return types.ListNull(types.StringType)
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -3844,59 +7648,341 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 			}(),
 			HTTPSAutoCert: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertModel {
 				if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
-					// Normal Read: preserve existing state value
 					return data.ProxyConfig.HTTPSAutoCert
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["https_auto_cert"].(map[string]interface{}); ok {
+				if HTTPSAutoCertData, ok := blockData["https_auto_cert"].(map[string]interface{}); ok {
 					return &BigIPHTTPProxyProxyConfigHTTPSAutoCertModel{
 						AddHsts: func() types.Bool {
-							if v, ok := nestedBlockData["add_hsts"].(bool); ok {
+							if v, ok := HTTPSAutoCertData["add_hsts"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
 						AppendServerName: func() types.String {
-							if v, ok := nestedBlockData["append_server_name"].(string); ok && v != "" {
+							if v, ok := HTTPSAutoCertData["append_server_name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
+						CoalescingOptions: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertCoalescingOptionsModel {
+							if CoalescingOptionsData, ok := HTTPSAutoCertData["coalescing_options"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSAutoCertCoalescingOptionsModel{
+									DefaultCoalescing: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := CoalescingOptionsData["default_coalescing"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									StrictCoalescing: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := CoalescingOptionsData["strict_coalescing"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						ConnectionIdleTimeout: func() types.Int64 {
-							if v, ok := nestedBlockData["connection_idle_timeout"].(float64); ok {
+							if v, ok := HTTPSAutoCertData["connection_idle_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
+						DefaultHeader: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSAutoCertData["default_header"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						DefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSAutoCertData["default_loadbalancer"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						DisablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSAutoCertData["disable_path_normalize"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						EnablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSAutoCertData["enable_path_normalize"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						HTTPProtocolOptions: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsModel {
+							if HTTPProtocolOptionsData, ok := HTTPSAutoCertData["http_protocol_options"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsModel{
+									HTTPProtocolEnableV1Only: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModel {
+										if HTTPProtocolEnableV1OnlyData, ok := HTTPProtocolOptionsData["http_protocol_enable_v1_only"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModel{
+												HeaderTransformation: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel {
+													if HeaderTransformationData, ok := HTTPProtocolEnableV1OnlyData["header_transformation"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel{
+															DefaultHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+															LegacyHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+															PreserveCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+															ProperCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									HTTPProtocolEnableV1V2: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v1_v2"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									HTTPProtocolEnableV2Only: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v2_only"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						HTTPRedirect: func() types.Bool {
-							if v, ok := nestedBlockData["http_redirect"].(bool); ok {
+							if v, ok := HTTPSAutoCertData["http_redirect"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
+						NoMtls: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSAutoCertData["no_mtls"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						NonDefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSAutoCertData["non_default_loadbalancer"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						PassThrough: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSAutoCertData["pass_through"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
 						Port: func() types.Int64 {
-							if v, ok := nestedBlockData["port"].(float64); ok {
+							if v, ok := HTTPSAutoCertData["port"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						PortRanges: func() types.String {
-							if v, ok := nestedBlockData["port_ranges"].(string); ok && v != "" {
+							if v, ok := HTTPSAutoCertData["port_ranges"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						ServerName: func() types.String {
-							if v, ok := nestedBlockData["server_name"].(string); ok && v != "" {
+							if v, ok := HTTPSAutoCertData["server_name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						TLSConfig: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigModel {
+							if TLSConfigData, ok := HTTPSAutoCertData["tls_config"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigModel{
+									CustomSecurity: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigCustomSecurityModel {
+										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigCustomSecurityModel{
+												CipherSuites: func() types.List {
+													if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												MaxVersion: func() types.String {
+													if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												MinVersion: func() types.String {
+													if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultSecurity: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									LowSecurity: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									MediumSecurity: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseMtls: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsModel {
+							if UseMtlsData, ok := HTTPSAutoCertData["use_mtls"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsModel{
+									ClientCertificateOptional: func() types.Bool {
+										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									CRL: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsCRLModel {
+										if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsCRLModel{
+												Name: func() types.String {
+													if v, ok := CRLData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := CRLData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := CRLData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NoCRL: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									TrustedCA: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsTrustedCAModel {
+										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsTrustedCAModel{
+												Name: func() types.String {
+													if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									XfccDisabled: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									XfccOptions: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsXfccOptionsModel {
+										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsXfccOptionsModel{
+												XfccHeaderElements: func() types.List {
+													if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
 						}(),
 					}
 				}
 				return nil
 			}(),
 		}
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -3950,171 +8036,1015 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.AdvancedProfile != nil {
-		advanced_profileMap := make(map[string]interface{})
+		AdvancedProfileMap := make(map[string]interface{})
 		if data.AdvancedProfile.DisableSpec != nil {
-			advanced_profileMap["disable"] = map[string]interface{}{}
+			AdvancedProfileMap["disable"] = map[string]interface{}{}
 		}
 		if data.AdvancedProfile.EnableDefaultProfile != nil {
-			advanced_profileMap["enable_default_profile"] = map[string]interface{}{}
+			AdvancedProfileMap["enable_default_profile"] = map[string]interface{}{}
 		}
-		apiResource.Spec["advanced_profile"] = advanced_profileMap
+		apiResource.Spec["advanced_profile"] = AdvancedProfileMap
 	}
 	if data.DDOSProfile != nil {
-		ddos_profileMap := make(map[string]interface{})
+		DDOSProfileMap := make(map[string]interface{})
 		if data.DDOSProfile.DisableDDOSMitigation != nil {
-			ddos_profileMap["disable_ddos_mitigation"] = map[string]interface{}{}
+			DDOSProfileMap["disable_ddos_mitigation"] = map[string]interface{}{}
 		}
 		if data.DDOSProfile.EnableDDOSMitigation != nil {
-			ddos_profileMap["enable_ddos_mitigation"] = map[string]interface{}{}
+			DDOSProfileMap["enable_ddos_mitigation"] = map[string]interface{}{}
 		}
-		apiResource.Spec["ddos_profile"] = ddos_profileMap
+		apiResource.Spec["ddos_profile"] = DDOSProfileMap
 	}
 	if data.Irules != nil {
-		irulesMap := make(map[string]interface{})
-		if len(data.Irules.Irules) > 0 {
-			var irulesList []map[string]interface{}
-			for _, listItem := range data.Irules.Irules {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
+		IrulesMap := make(map[string]interface{})
+		if !data.Irules.Irules.IsNull() && !data.Irules.Irules.IsUnknown() {
+			var IrulesElems []BigIPHTTPProxyIrulesIrulesModel
+			diags := data.Irules.Irules.ElementsAs(ctx, &IrulesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(IrulesElems) > 0 {
+				var IrulesList []map[string]interface{}
+				for _, IrulesItem := range IrulesElems {
+					IrulesItemMap := make(map[string]interface{})
+					if !IrulesItem.Name.IsNull() && !IrulesItem.Name.IsUnknown() {
+						IrulesItemMap["name"] = IrulesItem.Name.ValueString()
+					}
+					if !IrulesItem.Namespace.IsNull() && !IrulesItem.Namespace.IsUnknown() {
+						IrulesItemMap["namespace"] = IrulesItem.Namespace.ValueString()
+					}
+					if !IrulesItem.Tenant.IsNull() && !IrulesItem.Tenant.IsUnknown() {
+						IrulesItemMap["tenant"] = IrulesItem.Tenant.ValueString()
+					}
+					IrulesList = append(IrulesList, IrulesItemMap)
 				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				irulesList = append(irulesList, listItemMap)
+				IrulesMap["irules"] = IrulesList
 			}
-			irulesMap["irules"] = irulesList
 		}
-		apiResource.Spec["irules"] = irulesMap
+		apiResource.Spec["irules"] = IrulesMap
 	}
 	if data.LBAlgorithm != nil {
-		lb_algorithmMap := make(map[string]interface{})
+		LBAlgorithmMap := make(map[string]interface{})
 		if data.LBAlgorithm.RoundRobin != nil {
-			lb_algorithmMap["round_robin"] = map[string]interface{}{}
+			LBAlgorithmMap["round_robin"] = map[string]interface{}{}
 		}
-		apiResource.Spec["lb_algorithm"] = lb_algorithmMap
+		apiResource.Spec["lb_algorithm"] = LBAlgorithmMap
 	}
 	if data.OriginPools != nil {
-		origin_poolsMap := make(map[string]interface{})
-		if len(data.OriginPools.Pools) > 0 {
-			var poolsList []map[string]interface{}
-			for _, listItem := range data.OriginPools.Pools {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
-				}
-				if listItem.OriginServers != nil {
-					origin_serversDeepMap := make(map[string]interface{})
-					if listItem.OriginServers.AutomaticPort != nil {
-						origin_serversDeepMap["automatic_port"] = map[string]interface{}{}
+		OriginPoolsMap := make(map[string]interface{})
+		if !data.OriginPools.Pools.IsNull() && !data.OriginPools.Pools.IsUnknown() {
+			var PoolsElems []BigIPHTTPProxyOriginPoolsPoolsModel
+			diags := data.OriginPools.Pools.ElementsAs(ctx, &PoolsElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+				var PoolsList []map[string]interface{}
+				for _, PoolsItem := range PoolsElems {
+					PoolsItemMap := make(map[string]interface{})
+					if !PoolsItem.Name.IsNull() && !PoolsItem.Name.IsUnknown() {
+						PoolsItemMap["name"] = PoolsItem.Name.ValueString()
 					}
-					if listItem.OriginServers.LBPort != nil {
-						origin_serversDeepMap["lb_port"] = map[string]interface{}{}
+					if PoolsItem.OriginServers != nil {
+						OriginServersMap := make(map[string]interface{})
+						if PoolsItem.OriginServers.AutomaticPort != nil {
+							OriginServersMap["automatic_port"] = map[string]interface{}{}
+						}
+						if PoolsItem.OriginServers.HealthChecks != nil {
+							HealthChecksMap := make(map[string]interface{})
+							if len(PoolsItem.OriginServers.HealthChecks.HealthCheck) > 0 {
+								var HealthCheckList []map[string]interface{}
+								for _, HealthCheckItem := range PoolsItem.OriginServers.HealthChecks.HealthCheck {
+									HealthCheckItemMap := make(map[string]interface{})
+									if HealthCheckItem.ICMPHealthCheck != nil {
+										HealthCheckItemMap["icmp_health_check"] = map[string]interface{}{}
+									}
+									if HealthCheckItem.TCPHealthCheck != nil {
+										TCPHealthCheckMap := make(map[string]interface{})
+										if !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsUnknown() {
+											TCPHealthCheckMap["expected_response"] = HealthCheckItem.TCPHealthCheck.ExpectedResponse.ValueString()
+										}
+										if !HealthCheckItem.TCPHealthCheck.SendPayload.IsNull() && !HealthCheckItem.TCPHealthCheck.SendPayload.IsUnknown() {
+											TCPHealthCheckMap["send_payload"] = HealthCheckItem.TCPHealthCheck.SendPayload.ValueString()
+										}
+										HealthCheckItemMap["tcp_health_check"] = TCPHealthCheckMap
+									}
+									HealthCheckList = append(HealthCheckList, HealthCheckItemMap)
+								}
+								HealthChecksMap["health_check"] = HealthCheckList
+							}
+							if !PoolsItem.OriginServers.HealthChecks.HealthyThreshold.IsNull() && !PoolsItem.OriginServers.HealthChecks.HealthyThreshold.IsUnknown() {
+								HealthChecksMap["healthy_threshold"] = PoolsItem.OriginServers.HealthChecks.HealthyThreshold.ValueInt64()
+							}
+							if !PoolsItem.OriginServers.HealthChecks.Interval.IsNull() && !PoolsItem.OriginServers.HealthChecks.Interval.IsUnknown() {
+								HealthChecksMap["interval"] = PoolsItem.OriginServers.HealthChecks.Interval.ValueInt64()
+							}
+							if !PoolsItem.OriginServers.HealthChecks.Timeout.IsNull() && !PoolsItem.OriginServers.HealthChecks.Timeout.IsUnknown() {
+								HealthChecksMap["timeout"] = PoolsItem.OriginServers.HealthChecks.Timeout.ValueInt64()
+							}
+							if !PoolsItem.OriginServers.HealthChecks.UnhealthyThreshold.IsNull() && !PoolsItem.OriginServers.HealthChecks.UnhealthyThreshold.IsUnknown() {
+								HealthChecksMap["unhealthy_threshold"] = PoolsItem.OriginServers.HealthChecks.UnhealthyThreshold.ValueInt64()
+							}
+							OriginServersMap["health_checks"] = HealthChecksMap
+						}
+						if PoolsItem.OriginServers.LBPort != nil {
+							OriginServersMap["lb_port"] = map[string]interface{}{}
+						}
+						if !PoolsItem.OriginServers.OriginServers.IsNull() && !PoolsItem.OriginServers.OriginServers.IsUnknown() {
+							var OriginServersElems []BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersModel
+							diags := PoolsItem.OriginServers.OriginServers.ElementsAs(ctx, &OriginServersElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(OriginServersElems) > 0 {
+								var OriginServersList []map[string]interface{}
+								for _, OriginServersItem := range OriginServersElems {
+									OriginServersItemMap := make(map[string]interface{})
+									if OriginServersItem.K8SService != nil {
+										K8SServiceMap := make(map[string]interface{})
+										if OriginServersItem.K8SService.InsideNetwork != nil {
+											K8SServiceMap["inside_network"] = map[string]interface{}{}
+										}
+										if OriginServersItem.K8SService.OutsideNetwork != nil {
+											K8SServiceMap["outside_network"] = map[string]interface{}{}
+										}
+										if !OriginServersItem.K8SService.Protocol.IsNull() && !OriginServersItem.K8SService.Protocol.IsUnknown() {
+											K8SServiceMap["protocol"] = OriginServersItem.K8SService.Protocol.ValueString()
+										}
+										if !OriginServersItem.K8SService.ServiceName.IsNull() && !OriginServersItem.K8SService.ServiceName.IsUnknown() {
+											K8SServiceMap["service_name"] = OriginServersItem.K8SService.ServiceName.ValueString()
+										}
+										if OriginServersItem.K8SService.SiteLocator != nil {
+											SiteLocatorMap := make(map[string]interface{})
+											if OriginServersItem.K8SService.SiteLocator.Site != nil {
+												SiteMap := make(map[string]interface{})
+												if !OriginServersItem.K8SService.SiteLocator.Site.Name.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Name.IsUnknown() {
+													SiteMap["name"] = OriginServersItem.K8SService.SiteLocator.Site.Name.ValueString()
+												}
+												if !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsUnknown() {
+													SiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
+												}
+												if !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsUnknown() {
+													SiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
+												}
+												SiteLocatorMap["site"] = SiteMap
+											}
+											if OriginServersItem.K8SService.SiteLocator.VirtualSite != nil {
+												VirtualSiteMap := make(map[string]interface{})
+												if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.IsUnknown() {
+													VirtualSiteMap["name"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.ValueString()
+												}
+												if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
+													VirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
+												}
+												if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
+													VirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
+												}
+												SiteLocatorMap["virtual_site"] = VirtualSiteMap
+											}
+											K8SServiceMap["site_locator"] = SiteLocatorMap
+										}
+										if OriginServersItem.K8SService.SnatPool != nil {
+											SnatPoolMap := make(map[string]interface{})
+											if OriginServersItem.K8SService.SnatPool.NoSnatPool != nil {
+												SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
+											}
+											if OriginServersItem.K8SService.SnatPool.SnatPool != nil {
+												SnatPoolMap := make(map[string]interface{})
+												if !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsUnknown() {
+													var PrefixesItems []string
+													diags := OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+													if !diags.HasError() {
+														SnatPoolMap["prefixes"] = PrefixesItems
+													}
+												}
+												SnatPoolMap["snat_pool"] = SnatPoolMap
+											}
+											K8SServiceMap["snat_pool"] = SnatPoolMap
+										}
+										if OriginServersItem.K8SService.Vk8sNetworks != nil {
+											K8SServiceMap["vk8s_networks"] = map[string]interface{}{}
+										}
+										OriginServersItemMap["k8s_service"] = K8SServiceMap
+									}
+									if OriginServersItem.PrivateIP != nil {
+										PrivateIPMap := make(map[string]interface{})
+										if OriginServersItem.PrivateIP.InsideNetwork != nil {
+											PrivateIPMap["inside_network"] = map[string]interface{}{}
+										}
+										if !OriginServersItem.PrivateIP.IP.IsNull() && !OriginServersItem.PrivateIP.IP.IsUnknown() {
+											PrivateIPMap["ip"] = OriginServersItem.PrivateIP.IP.ValueString()
+										}
+										if OriginServersItem.PrivateIP.OutsideNetwork != nil {
+											PrivateIPMap["outside_network"] = map[string]interface{}{}
+										}
+										if OriginServersItem.PrivateIP.Segment != nil {
+											SegmentMap := make(map[string]interface{})
+											if !OriginServersItem.PrivateIP.Segment.Name.IsNull() && !OriginServersItem.PrivateIP.Segment.Name.IsUnknown() {
+												SegmentMap["name"] = OriginServersItem.PrivateIP.Segment.Name.ValueString()
+											}
+											if !OriginServersItem.PrivateIP.Segment.Namespace.IsNull() && !OriginServersItem.PrivateIP.Segment.Namespace.IsUnknown() {
+												SegmentMap["namespace"] = OriginServersItem.PrivateIP.Segment.Namespace.ValueString()
+											}
+											if !OriginServersItem.PrivateIP.Segment.Tenant.IsNull() && !OriginServersItem.PrivateIP.Segment.Tenant.IsUnknown() {
+												SegmentMap["tenant"] = OriginServersItem.PrivateIP.Segment.Tenant.ValueString()
+											}
+											PrivateIPMap["segment"] = SegmentMap
+										}
+										if OriginServersItem.PrivateIP.SiteLocator != nil {
+											SiteLocatorMap := make(map[string]interface{})
+											if OriginServersItem.PrivateIP.SiteLocator.Site != nil {
+												SiteMap := make(map[string]interface{})
+												if !OriginServersItem.PrivateIP.SiteLocator.Site.Name.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Name.IsUnknown() {
+													SiteMap["name"] = OriginServersItem.PrivateIP.SiteLocator.Site.Name.ValueString()
+												}
+												if !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsUnknown() {
+													SiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.ValueString()
+												}
+												if !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsUnknown() {
+													SiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.ValueString()
+												}
+												SiteLocatorMap["site"] = SiteMap
+											}
+											if OriginServersItem.PrivateIP.SiteLocator.VirtualSite != nil {
+												VirtualSiteMap := make(map[string]interface{})
+												if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Name.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Name.IsUnknown() {
+													VirtualSiteMap["name"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Name.ValueString()
+												}
+												if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsUnknown() {
+													VirtualSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.ValueString()
+												}
+												if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsUnknown() {
+													VirtualSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.ValueString()
+												}
+												SiteLocatorMap["virtual_site"] = VirtualSiteMap
+											}
+											PrivateIPMap["site_locator"] = SiteLocatorMap
+										}
+										if OriginServersItem.PrivateIP.SnatPool != nil {
+											SnatPoolMap := make(map[string]interface{})
+											if OriginServersItem.PrivateIP.SnatPool.NoSnatPool != nil {
+												SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
+											}
+											if OriginServersItem.PrivateIP.SnatPool.SnatPool != nil {
+												SnatPoolMap := make(map[string]interface{})
+												if !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsUnknown() {
+													var PrefixesItems []string
+													diags := OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+													if !diags.HasError() {
+														SnatPoolMap["prefixes"] = PrefixesItems
+													}
+												}
+												SnatPoolMap["snat_pool"] = SnatPoolMap
+											}
+											PrivateIPMap["snat_pool"] = SnatPoolMap
+										}
+										OriginServersItemMap["private_ip"] = PrivateIPMap
+									}
+									if OriginServersItem.PublicIP != nil {
+										PublicIPMap := make(map[string]interface{})
+										if !OriginServersItem.PublicIP.IP.IsNull() && !OriginServersItem.PublicIP.IP.IsUnknown() {
+											PublicIPMap["ip"] = OriginServersItem.PublicIP.IP.ValueString()
+										}
+										OriginServersItemMap["public_ip"] = PublicIPMap
+									}
+									if OriginServersItem.PublicName != nil {
+										PublicNameMap := make(map[string]interface{})
+										if !OriginServersItem.PublicName.DNSName.IsNull() && !OriginServersItem.PublicName.DNSName.IsUnknown() {
+											PublicNameMap["dns_name"] = OriginServersItem.PublicName.DNSName.ValueString()
+										}
+										if !OriginServersItem.PublicName.RefreshInterval.IsNull() && !OriginServersItem.PublicName.RefreshInterval.IsUnknown() {
+											PublicNameMap["refresh_interval"] = OriginServersItem.PublicName.RefreshInterval.ValueInt64()
+										}
+										OriginServersItemMap["public_name"] = PublicNameMap
+									}
+									OriginServersList = append(OriginServersList, OriginServersItemMap)
+								}
+								OriginServersMap["origin_servers"] = OriginServersList
+							}
+						}
+						if !PoolsItem.OriginServers.Port.IsNull() && !PoolsItem.OriginServers.Port.IsUnknown() {
+							OriginServersMap["port"] = PoolsItem.OriginServers.Port.ValueInt64()
+						}
+						PoolsItemMap["origin_servers"] = OriginServersMap
 					}
-					if !listItem.OriginServers.Port.IsNull() && !listItem.OriginServers.Port.IsUnknown() {
-						origin_serversDeepMap["port"] = listItem.OriginServers.Port.ValueInt64()
+					if !PoolsItem.Priority.IsNull() && !PoolsItem.Priority.IsUnknown() {
+						PoolsItemMap["priority"] = PoolsItem.Priority.ValueInt64()
 					}
-					listItemMap["origin_servers"] = origin_serversDeepMap
+					if !PoolsItem.Weight.IsNull() && !PoolsItem.Weight.IsUnknown() {
+						PoolsItemMap["weight"] = PoolsItem.Weight.ValueInt64()
+					}
+					PoolsList = append(PoolsList, PoolsItemMap)
 				}
-				if !listItem.Priority.IsNull() && !listItem.Priority.IsUnknown() {
-					listItemMap["priority"] = listItem.Priority.ValueInt64()
-				}
-				if !listItem.Weight.IsNull() && !listItem.Weight.IsUnknown() {
-					listItemMap["weight"] = listItem.Weight.ValueInt64()
-				}
-				poolsList = append(poolsList, listItemMap)
+				OriginPoolsMap["pools"] = PoolsList
 			}
-			origin_poolsMap["pools"] = poolsList
 		}
-		apiResource.Spec["origin_pools"] = origin_poolsMap
+		apiResource.Spec["origin_pools"] = OriginPoolsMap
 	}
 	if data.ProxyAdvertisement != nil {
-		proxy_advertisementMap := make(map[string]interface{})
+		ProxyAdvertisementMap := make(map[string]interface{})
 		if data.ProxyAdvertisement.AdvertiseCustom != nil {
-			advertise_customNestedMap := make(map[string]interface{})
-			proxy_advertisementMap["advertise_custom"] = advertise_customNestedMap
+			AdvertiseCustomMap := make(map[string]interface{})
+			if !data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsNull() && !data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsUnknown() {
+				var AdvertiseWhereElems []BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel
+				diags := data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(AdvertiseWhereElems) > 0 {
+					var AdvertiseWhereList []map[string]interface{}
+					for _, AdvertiseWhereItem := range AdvertiseWhereElems {
+						AdvertiseWhereItemMap := make(map[string]interface{})
+						if AdvertiseWhereItem.AdvertiseOnPublic != nil {
+							AdvertiseOnPublicMap := make(map[string]interface{})
+							if AdvertiseWhereItem.AdvertiseOnPublic.PublicIP != nil {
+								PublicIPMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
+									PublicIPMap["name"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
+									PublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
+									PublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+								}
+								AdvertiseOnPublicMap["public_ip"] = PublicIPMap
+							}
+							AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseOnPublicMap
+						}
+						if !AdvertiseWhereItem.Port.IsNull() && !AdvertiseWhereItem.Port.IsUnknown() {
+							AdvertiseWhereItemMap["port"] = AdvertiseWhereItem.Port.ValueInt64()
+						}
+						if !AdvertiseWhereItem.PortRanges.IsNull() && !AdvertiseWhereItem.PortRanges.IsUnknown() {
+							AdvertiseWhereItemMap["port_ranges"] = AdvertiseWhereItem.PortRanges.ValueString()
+						}
+						if AdvertiseWhereItem.Site != nil {
+							SiteMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.Site.IP.IsNull() && !AdvertiseWhereItem.Site.IP.IsUnknown() {
+								SiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
+							}
+							if !AdvertiseWhereItem.Site.Network.IsNull() && !AdvertiseWhereItem.Site.Network.IsUnknown() {
+								SiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
+							}
+							if AdvertiseWhereItem.Site.Site != nil {
+								SiteMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.Site.Site.Name.IsNull() && !AdvertiseWhereItem.Site.Site.Name.IsUnknown() {
+									SiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
+									SiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
+									SiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
+								}
+								SiteMap["site"] = SiteMap
+							}
+							AdvertiseWhereItemMap["site"] = SiteMap
+						}
+						if AdvertiseWhereItem.UseDefaultPort != nil {
+							AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
+						}
+						if AdvertiseWhereItem.VirtualNetwork != nil {
+							VirtualNetworkMap := make(map[string]interface{})
+							if AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP != nil {
+								VirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
+							}
+							if AdvertiseWhereItem.VirtualNetwork.DefaultVIP != nil {
+								VirtualNetworkMap["default_vip"] = map[string]interface{}{}
+							}
+							if !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
+								VirtualNetworkMap["specific_v6_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsUnknown() {
+								VirtualNetworkMap["specific_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificVIP.ValueString()
+							}
+							if AdvertiseWhereItem.VirtualNetwork.VirtualNetwork != nil {
+								VirtualNetworkMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsUnknown() {
+									VirtualNetworkMap["name"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
+									VirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
+									VirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
+								}
+								VirtualNetworkMap["virtual_network"] = VirtualNetworkMap
+							}
+							AdvertiseWhereItemMap["virtual_network"] = VirtualNetworkMap
+						}
+						if AdvertiseWhereItem.VirtualSite != nil {
+							VirtualSiteMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.VirtualSite.Network.IsNull() && !AdvertiseWhereItem.VirtualSite.Network.IsUnknown() {
+								VirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
+							}
+							if AdvertiseWhereItem.VirtualSite.VirtualSite != nil {
+								VirtualSiteMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsUnknown() {
+									VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
+									VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
+									VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
+								}
+								VirtualSiteMap["virtual_site"] = VirtualSiteMap
+							}
+							AdvertiseWhereItemMap["virtual_site"] = VirtualSiteMap
+						}
+						if AdvertiseWhereItem.VirtualSiteWithVIP != nil {
+							VirtualSiteWithVIPMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsUnknown() {
+								VirtualSiteWithVIPMap["ip"] = AdvertiseWhereItem.VirtualSiteWithVIP.IP.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsUnknown() {
+								VirtualSiteWithVIPMap["network"] = AdvertiseWhereItem.VirtualSiteWithVIP.Network.ValueString()
+							}
+							if AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite != nil {
+								VirtualSiteMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsUnknown() {
+									VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
+									VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
+									VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
+								}
+								VirtualSiteWithVIPMap["virtual_site"] = VirtualSiteMap
+							}
+							AdvertiseWhereItemMap["virtual_site_with_vip"] = VirtualSiteWithVIPMap
+						}
+						if AdvertiseWhereItem.Vk8sService != nil {
+							Vk8sServiceMap := make(map[string]interface{})
+							if AdvertiseWhereItem.Vk8sService.Site != nil {
+								SiteMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.Vk8sService.Site.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Name.IsUnknown() {
+									SiteMap["name"] = AdvertiseWhereItem.Vk8sService.Site.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
+									SiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
+									SiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
+								}
+								Vk8sServiceMap["site"] = SiteMap
+							}
+							if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
+								VirtualSiteMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsUnknown() {
+									VirtualSiteMap["name"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
+									VirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
+								}
+								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
+									VirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
+								}
+								Vk8sServiceMap["virtual_site"] = VirtualSiteMap
+							}
+							AdvertiseWhereItemMap["vk8s_service"] = Vk8sServiceMap
+						}
+						AdvertiseWhereList = append(AdvertiseWhereList, AdvertiseWhereItemMap)
+					}
+					AdvertiseCustomMap["advertise_where"] = AdvertiseWhereList
+				}
+			}
+			ProxyAdvertisementMap["advertise_custom"] = AdvertiseCustomMap
 		}
 		if data.ProxyAdvertisement.DoNotAdvertise != nil {
-			proxy_advertisementMap["do_not_advertise"] = map[string]interface{}{}
+			ProxyAdvertisementMap["do_not_advertise"] = map[string]interface{}{}
 		}
-		apiResource.Spec["proxy_advertisement"] = proxy_advertisementMap
+		apiResource.Spec["proxy_advertisement"] = ProxyAdvertisementMap
 	}
 	if data.ProxyConfig != nil {
-		proxy_configMap := make(map[string]interface{})
+		ProxyConfigMap := make(map[string]interface{})
 		if !data.ProxyConfig.Domains.IsNull() && !data.ProxyConfig.Domains.IsUnknown() {
-			var domainsItems []string
-			diags := data.ProxyConfig.Domains.ElementsAs(ctx, &domainsItems, false)
+			var DomainsItems []string
+			diags := data.ProxyConfig.Domains.ElementsAs(ctx, &DomainsItems, false)
 			if !diags.HasError() {
-				proxy_configMap["domains"] = domainsItems
+				ProxyConfigMap["domains"] = DomainsItems
 			}
 		}
 		if data.ProxyConfig.HTTP != nil {
-			httpNestedMap := make(map[string]interface{})
+			HTTPMap := make(map[string]interface{})
 			if !data.ProxyConfig.HTTP.DNSVolterraManaged.IsNull() && !data.ProxyConfig.HTTP.DNSVolterraManaged.IsUnknown() {
-				httpNestedMap["dns_volterra_managed"] = data.ProxyConfig.HTTP.DNSVolterraManaged.ValueBool()
+				HTTPMap["dns_volterra_managed"] = data.ProxyConfig.HTTP.DNSVolterraManaged.ValueBool()
 			}
 			if !data.ProxyConfig.HTTP.Port.IsNull() && !data.ProxyConfig.HTTP.Port.IsUnknown() {
-				httpNestedMap["port"] = data.ProxyConfig.HTTP.Port.ValueInt64()
+				HTTPMap["port"] = data.ProxyConfig.HTTP.Port.ValueInt64()
 			}
 			if !data.ProxyConfig.HTTP.PortRanges.IsNull() && !data.ProxyConfig.HTTP.PortRanges.IsUnknown() {
-				httpNestedMap["port_ranges"] = data.ProxyConfig.HTTP.PortRanges.ValueString()
+				HTTPMap["port_ranges"] = data.ProxyConfig.HTTP.PortRanges.ValueString()
 			}
-			proxy_configMap["http"] = httpNestedMap
+			ProxyConfigMap["http"] = HTTPMap
 		}
 		if data.ProxyConfig.HTTPS != nil {
-			httpsNestedMap := make(map[string]interface{})
+			HTTPSMap := make(map[string]interface{})
 			if !data.ProxyConfig.HTTPS.AddHsts.IsNull() && !data.ProxyConfig.HTTPS.AddHsts.IsUnknown() {
-				httpsNestedMap["add_hsts"] = data.ProxyConfig.HTTPS.AddHsts.ValueBool()
+				HTTPSMap["add_hsts"] = data.ProxyConfig.HTTPS.AddHsts.ValueBool()
 			}
 			if !data.ProxyConfig.HTTPS.AppendServerName.IsNull() && !data.ProxyConfig.HTTPS.AppendServerName.IsUnknown() {
-				httpsNestedMap["append_server_name"] = data.ProxyConfig.HTTPS.AppendServerName.ValueString()
+				HTTPSMap["append_server_name"] = data.ProxyConfig.HTTPS.AppendServerName.ValueString()
+			}
+			if data.ProxyConfig.HTTPS.CoalescingOptions != nil {
+				CoalescingOptionsMap := make(map[string]interface{})
+				if data.ProxyConfig.HTTPS.CoalescingOptions.DefaultCoalescing != nil {
+					CoalescingOptionsMap["default_coalescing"] = map[string]interface{}{}
+				}
+				if data.ProxyConfig.HTTPS.CoalescingOptions.StrictCoalescing != nil {
+					CoalescingOptionsMap["strict_coalescing"] = map[string]interface{}{}
+				}
+				HTTPSMap["coalescing_options"] = CoalescingOptionsMap
 			}
 			if !data.ProxyConfig.HTTPS.ConnectionIdleTimeout.IsNull() && !data.ProxyConfig.HTTPS.ConnectionIdleTimeout.IsUnknown() {
-				httpsNestedMap["connection_idle_timeout"] = data.ProxyConfig.HTTPS.ConnectionIdleTimeout.ValueInt64()
+				HTTPSMap["connection_idle_timeout"] = data.ProxyConfig.HTTPS.ConnectionIdleTimeout.ValueInt64()
+			}
+			if data.ProxyConfig.HTTPS.DefaultHeader != nil {
+				HTTPSMap["default_header"] = map[string]interface{}{}
+			}
+			if data.ProxyConfig.HTTPS.DefaultLoadBalancer != nil {
+				HTTPSMap["default_loadbalancer"] = map[string]interface{}{}
+			}
+			if data.ProxyConfig.HTTPS.DisablePathNormalize != nil {
+				HTTPSMap["disable_path_normalize"] = map[string]interface{}{}
+			}
+			if data.ProxyConfig.HTTPS.EnablePathNormalize != nil {
+				HTTPSMap["enable_path_normalize"] = map[string]interface{}{}
+			}
+			if data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil {
+				HTTPProtocolOptionsMap := make(map[string]interface{})
+				if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil {
+					HTTPProtocolEnableV1OnlyMap := make(map[string]interface{})
+					if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+						HeaderTransformationMap := make(map[string]interface{})
+						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
+							HeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
+						}
+						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
+							HeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
+						}
+						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
+							HeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
+						}
+						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation != nil {
+							HeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
+						}
+						HTTPProtocolEnableV1OnlyMap["header_transformation"] = HeaderTransformationMap
+					}
+					HTTPProtocolOptionsMap["http_protocol_enable_v1_only"] = HTTPProtocolEnableV1OnlyMap
+				}
+				if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1V2 != nil {
+					HTTPProtocolOptionsMap["http_protocol_enable_v1_v2"] = map[string]interface{}{}
+				}
+				if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV2Only != nil {
+					HTTPProtocolOptionsMap["http_protocol_enable_v2_only"] = map[string]interface{}{}
+				}
+				HTTPSMap["http_protocol_options"] = HTTPProtocolOptionsMap
 			}
 			if !data.ProxyConfig.HTTPS.HTTPRedirect.IsNull() && !data.ProxyConfig.HTTPS.HTTPRedirect.IsUnknown() {
-				httpsNestedMap["http_redirect"] = data.ProxyConfig.HTTPS.HTTPRedirect.ValueBool()
+				HTTPSMap["http_redirect"] = data.ProxyConfig.HTTPS.HTTPRedirect.ValueBool()
+			}
+			if data.ProxyConfig.HTTPS.NonDefaultLoadBalancer != nil {
+				HTTPSMap["non_default_loadbalancer"] = map[string]interface{}{}
+			}
+			if data.ProxyConfig.HTTPS.PassThrough != nil {
+				HTTPSMap["pass_through"] = map[string]interface{}{}
 			}
 			if !data.ProxyConfig.HTTPS.Port.IsNull() && !data.ProxyConfig.HTTPS.Port.IsUnknown() {
-				httpsNestedMap["port"] = data.ProxyConfig.HTTPS.Port.ValueInt64()
+				HTTPSMap["port"] = data.ProxyConfig.HTTPS.Port.ValueInt64()
 			}
 			if !data.ProxyConfig.HTTPS.PortRanges.IsNull() && !data.ProxyConfig.HTTPS.PortRanges.IsUnknown() {
-				httpsNestedMap["port_ranges"] = data.ProxyConfig.HTTPS.PortRanges.ValueString()
+				HTTPSMap["port_ranges"] = data.ProxyConfig.HTTPS.PortRanges.ValueString()
 			}
 			if !data.ProxyConfig.HTTPS.ServerName.IsNull() && !data.ProxyConfig.HTTPS.ServerName.IsUnknown() {
-				httpsNestedMap["server_name"] = data.ProxyConfig.HTTPS.ServerName.ValueString()
+				HTTPSMap["server_name"] = data.ProxyConfig.HTTPS.ServerName.ValueString()
 			}
-			proxy_configMap["https"] = httpsNestedMap
+			if data.ProxyConfig.HTTPS.TLSCertParams != nil {
+				TLSCertParamsMap := make(map[string]interface{})
+				if !data.ProxyConfig.HTTPS.TLSCertParams.Certificates.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.Certificates.IsUnknown() {
+					var CertificatesElems []BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsCertificatesModel
+					diags := data.ProxyConfig.HTTPS.TLSCertParams.Certificates.ElementsAs(ctx, &CertificatesElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(CertificatesElems) > 0 {
+						var CertificatesList []map[string]interface{}
+						for _, CertificatesItem := range CertificatesElems {
+							CertificatesItemMap := make(map[string]interface{})
+							if !CertificatesItem.Name.IsNull() && !CertificatesItem.Name.IsUnknown() {
+								CertificatesItemMap["name"] = CertificatesItem.Name.ValueString()
+							}
+							if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
+								CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
+							}
+							if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
+								CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
+							}
+							CertificatesList = append(CertificatesList, CertificatesItemMap)
+						}
+						TLSCertParamsMap["certificates"] = CertificatesList
+					}
+				}
+				if data.ProxyConfig.HTTPS.TLSCertParams.NoMtls != nil {
+					TLSCertParamsMap["no_mtls"] = map[string]interface{}{}
+				}
+				if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil {
+					TLSConfigMap := make(map[string]interface{})
+					if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity != nil {
+						CustomSecurityMap := make(map[string]interface{})
+						if !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
+							var CipherSuitesItems []string
+							diags := data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+							if !diags.HasError() {
+								CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+							}
+						}
+						if !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
+							CustomSecurityMap["max_version"] = data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+						}
+						if !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
+							CustomSecurityMap["min_version"] = data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.ValueString()
+						}
+						TLSConfigMap["custom_security"] = CustomSecurityMap
+					}
+					if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.DefaultSecurity != nil {
+						TLSConfigMap["default_security"] = map[string]interface{}{}
+					}
+					if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.LowSecurity != nil {
+						TLSConfigMap["low_security"] = map[string]interface{}{}
+					}
+					if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.MediumSecurity != nil {
+						TLSConfigMap["medium_security"] = map[string]interface{}{}
+					}
+					TLSCertParamsMap["tls_config"] = TLSConfigMap
+				}
+				if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls != nil {
+					UseMtlsMap := make(map[string]interface{})
+					if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.ClientCertificateOptional.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.ClientCertificateOptional.IsUnknown() {
+						UseMtlsMap["client_certificate_optional"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.ClientCertificateOptional.ValueBool()
+					}
+					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL != nil {
+						CRLMap := make(map[string]interface{})
+						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Name.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Name.IsUnknown() {
+							CRLMap["name"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Name.ValueString()
+						}
+						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
+							CRLMap["namespace"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
+						}
+						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
+							CRLMap["tenant"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
+						}
+						UseMtlsMap["crl"] = CRLMap
+					}
+					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.NoCRL != nil {
+						UseMtlsMap["no_crl"] = map[string]interface{}{}
+					}
+					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA != nil {
+						TrustedCAMap := make(map[string]interface{})
+						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Name.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Name.IsUnknown() {
+							TrustedCAMap["name"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Name.ValueString()
+						}
+						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
+							TrustedCAMap["namespace"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
+						}
+						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
+							TrustedCAMap["tenant"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
+						}
+						UseMtlsMap["trusted_ca"] = TrustedCAMap
+					}
+					if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCAURL.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCAURL.IsUnknown() {
+						UseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCAURL.ValueString()
+					}
+					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccDisabled != nil {
+						UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+					}
+					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions != nil {
+						XfccOptionsMap := make(map[string]interface{})
+						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
+							var XfccHeaderElementsItems []string
+							diags := data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+							if !diags.HasError() {
+								XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+							}
+						}
+						UseMtlsMap["xfcc_options"] = XfccOptionsMap
+					}
+					TLSCertParamsMap["use_mtls"] = UseMtlsMap
+				}
+				HTTPSMap["tls_cert_params"] = TLSCertParamsMap
+			}
+			if data.ProxyConfig.HTTPS.TLSParameters != nil {
+				TLSParametersMap := make(map[string]interface{})
+				if data.ProxyConfig.HTTPS.TLSParameters.NoMtls != nil {
+					TLSParametersMap["no_mtls"] = map[string]interface{}{}
+				}
+				if len(data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates) > 0 {
+					var TLSCertificatesList []map[string]interface{}
+					for _, TLSCertificatesItem := range data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates {
+						TLSCertificatesItemMap := make(map[string]interface{})
+						if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
+						}
+						if TLSCertificatesItem.CustomHashAlgorithms != nil {
+							CustomHashAlgorithmsMap := make(map[string]interface{})
+							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+								var HashAlgorithmsItems []string
+								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								if !diags.HasError() {
+									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+								}
+							}
+							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+						}
+						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
+						}
+						if TLSCertificatesItem.DisableOCSPStapling != nil {
+							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+						}
+						if TLSCertificatesItem.PrivateKey != nil {
+							PrivateKeyMap := make(map[string]interface{})
+							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+								}
+								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+						}
+						if TLSCertificatesItem.UseSystemDefaults != nil {
+							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+						}
+						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+					}
+					TLSParametersMap["tls_certificates"] = TLSCertificatesList
+				}
+				if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil {
+					TLSConfigMap := make(map[string]interface{})
+					if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity != nil {
+						CustomSecurityMap := make(map[string]interface{})
+						if !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
+							var CipherSuitesItems []string
+							diags := data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+							if !diags.HasError() {
+								CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+							}
+						}
+						if !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
+							CustomSecurityMap["max_version"] = data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+						}
+						if !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
+							CustomSecurityMap["min_version"] = data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MinVersion.ValueString()
+						}
+						TLSConfigMap["custom_security"] = CustomSecurityMap
+					}
+					if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.DefaultSecurity != nil {
+						TLSConfigMap["default_security"] = map[string]interface{}{}
+					}
+					if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.LowSecurity != nil {
+						TLSConfigMap["low_security"] = map[string]interface{}{}
+					}
+					if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.MediumSecurity != nil {
+						TLSConfigMap["medium_security"] = map[string]interface{}{}
+					}
+					TLSParametersMap["tls_config"] = TLSConfigMap
+				}
+				if data.ProxyConfig.HTTPS.TLSParameters.UseMtls != nil {
+					UseMtlsMap := make(map[string]interface{})
+					if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.ClientCertificateOptional.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.ClientCertificateOptional.IsUnknown() {
+						UseMtlsMap["client_certificate_optional"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.ClientCertificateOptional.ValueBool()
+					}
+					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL != nil {
+						CRLMap := make(map[string]interface{})
+						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Name.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Name.IsUnknown() {
+							CRLMap["name"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Name.ValueString()
+						}
+						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
+							CRLMap["namespace"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Namespace.ValueString()
+						}
+						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
+							CRLMap["tenant"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Tenant.ValueString()
+						}
+						UseMtlsMap["crl"] = CRLMap
+					}
+					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.NoCRL != nil {
+						UseMtlsMap["no_crl"] = map[string]interface{}{}
+					}
+					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA != nil {
+						TrustedCAMap := make(map[string]interface{})
+						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Name.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Name.IsUnknown() {
+							TrustedCAMap["name"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Name.ValueString()
+						}
+						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
+							TrustedCAMap["namespace"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
+						}
+						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
+							TrustedCAMap["tenant"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
+						}
+						UseMtlsMap["trusted_ca"] = TrustedCAMap
+					}
+					if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCAURL.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCAURL.IsUnknown() {
+						UseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCAURL.ValueString()
+					}
+					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccDisabled != nil {
+						UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+					}
+					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions != nil {
+						XfccOptionsMap := make(map[string]interface{})
+						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
+							var XfccHeaderElementsItems []string
+							diags := data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+							if !diags.HasError() {
+								XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+							}
+						}
+						UseMtlsMap["xfcc_options"] = XfccOptionsMap
+					}
+					TLSParametersMap["use_mtls"] = UseMtlsMap
+				}
+				HTTPSMap["tls_parameters"] = TLSParametersMap
+			}
+			ProxyConfigMap["https"] = HTTPSMap
 		}
 		if data.ProxyConfig.HTTPSAutoCert != nil {
-			https_auto_certNestedMap := make(map[string]interface{})
+			HTTPSAutoCertMap := make(map[string]interface{})
 			if !data.ProxyConfig.HTTPSAutoCert.AddHsts.IsNull() && !data.ProxyConfig.HTTPSAutoCert.AddHsts.IsUnknown() {
-				https_auto_certNestedMap["add_hsts"] = data.ProxyConfig.HTTPSAutoCert.AddHsts.ValueBool()
+				HTTPSAutoCertMap["add_hsts"] = data.ProxyConfig.HTTPSAutoCert.AddHsts.ValueBool()
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.AppendServerName.IsNull() && !data.ProxyConfig.HTTPSAutoCert.AppendServerName.IsUnknown() {
-				https_auto_certNestedMap["append_server_name"] = data.ProxyConfig.HTTPSAutoCert.AppendServerName.ValueString()
+				HTTPSAutoCertMap["append_server_name"] = data.ProxyConfig.HTTPSAutoCert.AppendServerName.ValueString()
+			}
+			if data.ProxyConfig.HTTPSAutoCert.CoalescingOptions != nil {
+				CoalescingOptionsMap := make(map[string]interface{})
+				if data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.DefaultCoalescing != nil {
+					CoalescingOptionsMap["default_coalescing"] = map[string]interface{}{}
+				}
+				if data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.StrictCoalescing != nil {
+					CoalescingOptionsMap["strict_coalescing"] = map[string]interface{}{}
+				}
+				HTTPSAutoCertMap["coalescing_options"] = CoalescingOptionsMap
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.ConnectionIdleTimeout.IsNull() && !data.ProxyConfig.HTTPSAutoCert.ConnectionIdleTimeout.IsUnknown() {
-				https_auto_certNestedMap["connection_idle_timeout"] = data.ProxyConfig.HTTPSAutoCert.ConnectionIdleTimeout.ValueInt64()
+				HTTPSAutoCertMap["connection_idle_timeout"] = data.ProxyConfig.HTTPSAutoCert.ConnectionIdleTimeout.ValueInt64()
+			}
+			if data.ProxyConfig.HTTPSAutoCert.DefaultHeader != nil {
+				HTTPSAutoCertMap["default_header"] = map[string]interface{}{}
+			}
+			if data.ProxyConfig.HTTPSAutoCert.DefaultLoadBalancer != nil {
+				HTTPSAutoCertMap["default_loadbalancer"] = map[string]interface{}{}
+			}
+			if data.ProxyConfig.HTTPSAutoCert.DisablePathNormalize != nil {
+				HTTPSAutoCertMap["disable_path_normalize"] = map[string]interface{}{}
+			}
+			if data.ProxyConfig.HTTPSAutoCert.EnablePathNormalize != nil {
+				HTTPSAutoCertMap["enable_path_normalize"] = map[string]interface{}{}
+			}
+			if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil {
+				HTTPProtocolOptionsMap := make(map[string]interface{})
+				if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil {
+					HTTPProtocolEnableV1OnlyMap := make(map[string]interface{})
+					if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+						HeaderTransformationMap := make(map[string]interface{})
+						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
+							HeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
+						}
+						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
+							HeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
+						}
+						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
+							HeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
+						}
+						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation != nil {
+							HeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
+						}
+						HTTPProtocolEnableV1OnlyMap["header_transformation"] = HeaderTransformationMap
+					}
+					HTTPProtocolOptionsMap["http_protocol_enable_v1_only"] = HTTPProtocolEnableV1OnlyMap
+				}
+				if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1V2 != nil {
+					HTTPProtocolOptionsMap["http_protocol_enable_v1_v2"] = map[string]interface{}{}
+				}
+				if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV2Only != nil {
+					HTTPProtocolOptionsMap["http_protocol_enable_v2_only"] = map[string]interface{}{}
+				}
+				HTTPSAutoCertMap["http_protocol_options"] = HTTPProtocolOptionsMap
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.HTTPRedirect.IsNull() && !data.ProxyConfig.HTTPSAutoCert.HTTPRedirect.IsUnknown() {
-				https_auto_certNestedMap["http_redirect"] = data.ProxyConfig.HTTPSAutoCert.HTTPRedirect.ValueBool()
+				HTTPSAutoCertMap["http_redirect"] = data.ProxyConfig.HTTPSAutoCert.HTTPRedirect.ValueBool()
+			}
+			if data.ProxyConfig.HTTPSAutoCert.NoMtls != nil {
+				HTTPSAutoCertMap["no_mtls"] = map[string]interface{}{}
+			}
+			if data.ProxyConfig.HTTPSAutoCert.NonDefaultLoadBalancer != nil {
+				HTTPSAutoCertMap["non_default_loadbalancer"] = map[string]interface{}{}
+			}
+			if data.ProxyConfig.HTTPSAutoCert.PassThrough != nil {
+				HTTPSAutoCertMap["pass_through"] = map[string]interface{}{}
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.Port.IsNull() && !data.ProxyConfig.HTTPSAutoCert.Port.IsUnknown() {
-				https_auto_certNestedMap["port"] = data.ProxyConfig.HTTPSAutoCert.Port.ValueInt64()
+				HTTPSAutoCertMap["port"] = data.ProxyConfig.HTTPSAutoCert.Port.ValueInt64()
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.PortRanges.IsNull() && !data.ProxyConfig.HTTPSAutoCert.PortRanges.IsUnknown() {
-				https_auto_certNestedMap["port_ranges"] = data.ProxyConfig.HTTPSAutoCert.PortRanges.ValueString()
+				HTTPSAutoCertMap["port_ranges"] = data.ProxyConfig.HTTPSAutoCert.PortRanges.ValueString()
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.ServerName.IsNull() && !data.ProxyConfig.HTTPSAutoCert.ServerName.IsUnknown() {
-				https_auto_certNestedMap["server_name"] = data.ProxyConfig.HTTPSAutoCert.ServerName.ValueString()
+				HTTPSAutoCertMap["server_name"] = data.ProxyConfig.HTTPSAutoCert.ServerName.ValueString()
 			}
-			proxy_configMap["https_auto_cert"] = https_auto_certNestedMap
+			if data.ProxyConfig.HTTPSAutoCert.TLSConfig != nil {
+				TLSConfigMap := make(map[string]interface{})
+				if data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity != nil {
+					CustomSecurityMap := make(map[string]interface{})
+					if !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
+						var CipherSuitesItems []string
+						diags := data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						if !diags.HasError() {
+							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+						}
+					}
+					if !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
+						CustomSecurityMap["max_version"] = data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+					}
+					if !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
+						CustomSecurityMap["min_version"] = data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MinVersion.ValueString()
+					}
+					TLSConfigMap["custom_security"] = CustomSecurityMap
+				}
+				if data.ProxyConfig.HTTPSAutoCert.TLSConfig.DefaultSecurity != nil {
+					TLSConfigMap["default_security"] = map[string]interface{}{}
+				}
+				if data.ProxyConfig.HTTPSAutoCert.TLSConfig.LowSecurity != nil {
+					TLSConfigMap["low_security"] = map[string]interface{}{}
+				}
+				if data.ProxyConfig.HTTPSAutoCert.TLSConfig.MediumSecurity != nil {
+					TLSConfigMap["medium_security"] = map[string]interface{}{}
+				}
+				HTTPSAutoCertMap["tls_config"] = TLSConfigMap
+			}
+			if data.ProxyConfig.HTTPSAutoCert.UseMtls != nil {
+				UseMtlsMap := make(map[string]interface{})
+				if !data.ProxyConfig.HTTPSAutoCert.UseMtls.ClientCertificateOptional.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.ClientCertificateOptional.IsUnknown() {
+					UseMtlsMap["client_certificate_optional"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.ClientCertificateOptional.ValueBool()
+				}
+				if data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL != nil {
+					CRLMap := make(map[string]interface{})
+					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Name.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Name.IsUnknown() {
+						CRLMap["name"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Name.ValueString()
+					}
+					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Namespace.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
+						CRLMap["namespace"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Namespace.ValueString()
+					}
+					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Tenant.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
+						CRLMap["tenant"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Tenant.ValueString()
+					}
+					UseMtlsMap["crl"] = CRLMap
+				}
+				if data.ProxyConfig.HTTPSAutoCert.UseMtls.NoCRL != nil {
+					UseMtlsMap["no_crl"] = map[string]interface{}{}
+				}
+				if data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA != nil {
+					TrustedCAMap := make(map[string]interface{})
+					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Name.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Name.IsUnknown() {
+						TrustedCAMap["name"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Name.ValueString()
+					}
+					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
+						TrustedCAMap["namespace"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
+					}
+					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
+						TrustedCAMap["tenant"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
+					}
+					UseMtlsMap["trusted_ca"] = TrustedCAMap
+				}
+				if !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCAURL.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCAURL.IsUnknown() {
+					UseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCAURL.ValueString()
+				}
+				if data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccDisabled != nil {
+					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+				}
+				if data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions != nil {
+					XfccOptionsMap := make(map[string]interface{})
+					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
+						var XfccHeaderElementsItems []string
+						diags := data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						if !diags.HasError() {
+							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+						}
+					}
+					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+				}
+				HTTPSAutoCertMap["use_mtls"] = UseMtlsMap
+			}
+			ProxyConfigMap["https_auto_cert"] = HTTPSAutoCertMap
 		}
-		apiResource.Spec["proxy_config"] = proxy_configMap
+		apiResource.Spec["proxy_config"] = ProxyConfigMap
 	}
 
 	_, err := r.client.UpdateBigIPHTTPProxy(ctx, apiResource)
@@ -4140,38 +9070,75 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["advanced_profile"].(map[string]interface{}); ok && isImport && data.AdvancedProfile == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AdvancedProfile = &BigIPHTTPProxyAdvancedProfileModel{}
+	if blockData, ok := apiResource.Spec["advanced_profile"].(map[string]interface{}); ok && (isImport || data.AdvancedProfile != nil) {
+		data.AdvancedProfile = &BigIPHTTPProxyAdvancedProfileModel{
+			DisableSpec: func() *BigIPHTTPProxyEmptyModel {
+				if !isImport && data.AdvancedProfile != nil {
+					return data.AdvancedProfile.DisableSpec
+				}
+				if _, ok := blockData["disable"].(map[string]interface{}); ok {
+					return &BigIPHTTPProxyEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableDefaultProfile: func() *BigIPHTTPProxyEmptyModel {
+				if !isImport && data.AdvancedProfile != nil {
+					return data.AdvancedProfile.EnableDefaultProfile
+				}
+				if _, ok := blockData["enable_default_profile"].(map[string]interface{}); ok {
+					return &BigIPHTTPProxyEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && isImport && data.DDOSProfile == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.DDOSProfile = &BigIPHTTPProxyDDOSProfileModel{}
+	if blockData, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && (isImport || data.DDOSProfile != nil) {
+		data.DDOSProfile = &BigIPHTTPProxyDDOSProfileModel{
+			DisableDDOSMitigation: func() *BigIPHTTPProxyEmptyModel {
+				if !isImport && data.DDOSProfile != nil {
+					return data.DDOSProfile.DisableDDOSMitigation
+				}
+				if _, ok := blockData["disable_ddos_mitigation"].(map[string]interface{}); ok {
+					return &BigIPHTTPProxyEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableDDOSMitigation: func() *BigIPHTTPProxyEmptyModel {
+				if !isImport && data.DDOSProfile != nil {
+					return data.DDOSProfile.EnableDDOSMitigation
+				}
+				if _, ok := blockData["enable_ddos_mitigation"].(map[string]interface{}); ok {
+					return &BigIPHTTPProxyEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["irules"].(map[string]interface{}); ok && (isImport || data.Irules != nil) {
 		data.Irules = &BigIPHTTPProxyIrulesModel{
-			Irules: func() []BigIPHTTPProxyIrulesIrulesModel {
-				if listData, ok := blockData["irules"].([]interface{}); ok && len(listData) > 0 {
-					var result []BigIPHTTPProxyIrulesIrulesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, BigIPHTTPProxyIrulesIrulesModel{
+			Irules: func() types.List {
+				if !isImport && data.Irules != nil && (data.Irules.Irules.IsNull() || len(data.Irules.Irules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyIrulesIrulesModelAttrTypes})
+				}
+				if rawList, ok := blockData["irules"].([]interface{}); ok && len(rawList) > 0 {
+					var IrulesResult []BigIPHTTPProxyIrulesIrulesModel
+					for _, IrulesItem := range rawList {
+						if IrulesItemMap, ok := IrulesItem.(map[string]interface{}); ok {
+							IrulesResult = append(IrulesResult, BigIPHTTPProxyIrulesIrulesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := IrulesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := IrulesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := IrulesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -4179,48 +9146,442 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPHTTPProxyIrulesIrulesModelAttrTypes}, IrulesResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyIrulesIrulesModelAttrTypes})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["lb_algorithm"].(map[string]interface{}); ok && (isImport || data.LBAlgorithm != nil) {
+		data.LBAlgorithm = &BigIPHTTPProxyLBAlgorithmModel{
+			RoundRobin: func() *BigIPHTTPProxyEmptyModel {
+				if !isImport && data.LBAlgorithm != nil {
+					return data.LBAlgorithm.RoundRobin
+				}
+				if _, ok := blockData["round_robin"].(map[string]interface{}); ok {
+					return &BigIPHTTPProxyEmptyModel{}
 				}
 				return nil
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["lb_algorithm"].(map[string]interface{}); ok && isImport && data.LBAlgorithm == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.LBAlgorithm = &BigIPHTTPProxyLBAlgorithmModel{}
-	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["origin_pools"].(map[string]interface{}); ok && (isImport || data.OriginPools != nil) {
 		data.OriginPools = &BigIPHTTPProxyOriginPoolsModel{
-			Pools: func() []BigIPHTTPProxyOriginPoolsPoolsModel {
-				if listData, ok := blockData["pools"].([]interface{}); ok && len(listData) > 0 {
-					var result []BigIPHTTPProxyOriginPoolsPoolsModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, BigIPHTTPProxyOriginPoolsPoolsModel{
+			Pools: func() types.List {
+				if !isImport && data.OriginPools != nil && (data.OriginPools.Pools.IsNull() || len(data.OriginPools.Pools.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsModelAttrTypes})
+				}
+				if rawList, ok := blockData["pools"].([]interface{}); ok && len(rawList) > 0 {
+					var PoolsResult []BigIPHTTPProxyOriginPoolsPoolsModel
+					for _, PoolsItem := range rawList {
+						if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+							PoolsResult = append(PoolsResult, BigIPHTTPProxyOriginPoolsPoolsModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := PoolsItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								OriginServers: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersModel {
-									if deepMap, ok := itemMap["origin_servers"].(map[string]interface{}); ok {
+									if OriginServersData, ok := PoolsItemMap["origin_servers"].(map[string]interface{}); ok {
 										return &BigIPHTTPProxyOriginPoolsPoolsOriginServersModel{
 											AutomaticPort: func() *BigIPHTTPProxyEmptyModel {
-												if _, ok := deepMap["automatic_port"].(map[string]interface{}); ok {
+												if _, ok := OriginServersData["automatic_port"].(map[string]interface{}); ok {
 													return &BigIPHTTPProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											HealthChecks: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModel {
+												if HealthChecksData, ok := OriginServersData["health_checks"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModel{
+														HealthCheck: func() []BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel {
+															if rawList, ok := HealthChecksData["health_check"].([]interface{}); ok && len(rawList) > 0 {
+																var HealthCheckResult []BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel
+																for _, HealthCheckItem := range rawList {
+																	if HealthCheckItemMap, ok := HealthCheckItem.(map[string]interface{}); ok {
+																		HealthCheckResult = append(HealthCheckResult, BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel{
+																			ICMPHealthCheck: func() *BigIPHTTPProxyEmptyModel {
+																				if _, ok := HealthCheckItemMap["icmp_health_check"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			TCPHealthCheck: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckTCPHealthCheckModel {
+																				if TCPHealthCheckData, ok := HealthCheckItemMap["tcp_health_check"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckTCPHealthCheckModel{
+																						ExpectedResponse: func() types.String {
+																							if v, ok := TCPHealthCheckData["expected_response"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SendPayload: func() types.String {
+																							if v, ok := TCPHealthCheckData["send_payload"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																		})
+																	}
+																}
+																return HealthCheckResult
+															}
+															return nil
+														}(),
+														HealthyThreshold: func() types.Int64 {
+															if v, ok := HealthChecksData["healthy_threshold"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														Interval: func() types.Int64 {
+															if v, ok := HealthChecksData["interval"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														Timeout: func() types.Int64 {
+															if v, ok := HealthChecksData["timeout"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														UnhealthyThreshold: func() types.Int64 {
+															if v, ok := HealthChecksData["unhealthy_threshold"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+													}
 												}
 												return nil
 											}(),
 											LBPort: func() *BigIPHTTPProxyEmptyModel {
-												if _, ok := deepMap["lb_port"].(map[string]interface{}); ok {
+												if _, ok := OriginServersData["lb_port"].(map[string]interface{}); ok {
 													return &BigIPHTTPProxyEmptyModel{}
 												}
 												return nil
 											}(),
+											OriginServers: func() types.List {
+												if rawList, ok := OriginServersData["origin_servers"].([]interface{}); ok && len(rawList) > 0 {
+													var OriginServersResult []BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersModel
+													for _, OriginServersItem := range rawList {
+														if OriginServersItemMap, ok := OriginServersItem.(map[string]interface{}); ok {
+															OriginServersResult = append(OriginServersResult, BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersModel{
+																K8SService: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceModel {
+																	if K8SServiceData, ok := OriginServersItemMap["k8s_service"].(map[string]interface{}); ok {
+																		return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceModel{
+																			InsideNetwork: func() *BigIPHTTPProxyEmptyModel {
+																				if _, ok := K8SServiceData["inside_network"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			OutsideNetwork: func() *BigIPHTTPProxyEmptyModel {
+																				if _, ok := K8SServiceData["outside_network"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			Protocol: func() types.String {
+																				if v, ok := K8SServiceData["protocol"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			ServiceName: func() types.String {
+																				if v, ok := K8SServiceData["service_name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			SiteLocator: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorModel {
+																				if SiteLocatorData, ok := K8SServiceData["site_locator"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorModel{
+																						Site: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorSiteModel {
+																							if SiteData, ok := SiteLocatorData["site"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorSiteModel{
+																									Name: func() types.String {
+																										if v, ok := SiteData["name"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Namespace: func() types.String {
+																										if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Tenant: func() types.String {
+																										if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																						VirtualSite: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteModel {
+																							if VirtualSiteData, ok := SiteLocatorData["virtual_site"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteModel{
+																									Name: func() types.String {
+																										if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Namespace: func() types.String {
+																										if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Tenant: func() types.String {
+																										if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																			SnatPool: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolModel {
+																				if SnatPoolData, ok := K8SServiceData["snat_pool"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolModel{
+																						NoSnatPool: func() *BigIPHTTPProxyEmptyModel {
+																							if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyEmptyModel{}
+																							}
+																							return nil
+																						}(),
+																						SnatPool: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel {
+																							if SnatPoolData, ok := SnatPoolData["snat_pool"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel{
+																									Prefixes: func() types.List {
+																										if v, ok := SnatPoolData["prefixes"].([]interface{}); ok && len(v) > 0 {
+																											var items []string
+																											for _, item := range v {
+																												if s, ok := item.(string); ok {
+																													items = append(items, s)
+																												}
+																											}
+																											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																											return listVal
+																										}
+																										return types.ListNull(types.StringType)
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																			Vk8sNetworks: func() *BigIPHTTPProxyEmptyModel {
+																				if _, ok := K8SServiceData["vk8s_networks"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																PrivateIP: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPModel {
+																	if PrivateIPData, ok := OriginServersItemMap["private_ip"].(map[string]interface{}); ok {
+																		return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPModel{
+																			InsideNetwork: func() *BigIPHTTPProxyEmptyModel {
+																				if _, ok := PrivateIPData["inside_network"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			IP: func() types.String {
+																				if v, ok := PrivateIPData["ip"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			OutsideNetwork: func() *BigIPHTTPProxyEmptyModel {
+																				if _, ok := PrivateIPData["outside_network"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyEmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			Segment: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentModel {
+																				if SegmentData, ok := PrivateIPData["segment"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentModel{
+																						Name: func() types.String {
+																							if v, ok := SegmentData["name"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						Namespace: func() types.String {
+																							if v, ok := SegmentData["namespace"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						Tenant: func() types.String {
+																							if v, ok := SegmentData["tenant"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																			SiteLocator: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorModel {
+																				if SiteLocatorData, ok := PrivateIPData["site_locator"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorModel{
+																						Site: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorSiteModel {
+																							if SiteData, ok := SiteLocatorData["site"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorSiteModel{
+																									Name: func() types.String {
+																										if v, ok := SiteData["name"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Namespace: func() types.String {
+																										if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Tenant: func() types.String {
+																										if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																						VirtualSite: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorVirtualSiteModel {
+																							if VirtualSiteData, ok := SiteLocatorData["virtual_site"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorVirtualSiteModel{
+																									Name: func() types.String {
+																										if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Namespace: func() types.String {
+																										if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Tenant: func() types.String {
+																										if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																			SnatPool: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolModel {
+																				if SnatPoolData, ok := PrivateIPData["snat_pool"].(map[string]interface{}); ok {
+																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolModel{
+																						NoSnatPool: func() *BigIPHTTPProxyEmptyModel {
+																							if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyEmptyModel{}
+																							}
+																							return nil
+																						}(),
+																						SnatPool: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolSnatPoolModel {
+																							if SnatPoolData, ok := SnatPoolData["snat_pool"].(map[string]interface{}); ok {
+																								return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolSnatPoolModel{
+																									Prefixes: func() types.List {
+																										if v, ok := SnatPoolData["prefixes"].([]interface{}); ok && len(v) > 0 {
+																											var items []string
+																											for _, item := range v {
+																												if s, ok := item.(string); ok {
+																													items = append(items, s)
+																												}
+																											}
+																											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																											return listVal
+																										}
+																										return types.ListNull(types.StringType)
+																									}(),
+																								}
+																							}
+																							return nil
+																						}(),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																PublicIP: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPublicIPModel {
+																	if PublicIPData, ok := OriginServersItemMap["public_ip"].(map[string]interface{}); ok {
+																		return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPublicIPModel{
+																			IP: func() types.String {
+																				if v, ok := PublicIPData["ip"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																PublicName: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPublicNameModel {
+																	if PublicNameData, ok := OriginServersItemMap["public_name"].(map[string]interface{}); ok {
+																		return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPublicNameModel{
+																			DNSName: func() types.String {
+																				if v, ok := PublicNameData["dns_name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			RefreshInterval: func() types.Int64 {
+																				if v, ok := PublicNameData["refresh_interval"].(float64); ok && v != 0 {
+																					return types.Int64Value(int64(v))
+																				}
+																				return types.Int64Null()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersModelAttrTypes}, OriginServersResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersModelAttrTypes})
+											}(),
 											Port: func() types.Int64 {
-												if v, ok := deepMap["port"].(float64); ok {
+												if v, ok := OriginServersData["port"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
@@ -4230,13 +9591,13 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 									return nil
 								}(),
 								Priority: func() types.Int64 {
-									if v, ok := itemMap["priority"].(float64); ok {
+									if v, ok := PoolsItemMap["priority"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								Weight: func() types.Int64 {
-									if v, ok := itemMap["weight"].(float64); ok {
+									if v, ok := PoolsItemMap["weight"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
@@ -4244,17 +9605,339 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsModelAttrTypes}, PoolsResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsModelAttrTypes})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["proxy_advertisement"].(map[string]interface{}); ok && (isImport || data.ProxyAdvertisement != nil) {
+		data.ProxyAdvertisement = &BigIPHTTPProxyProxyAdvertisementModel{
+			AdvertiseCustom: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomModel {
+				if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseCustom != nil {
+					return data.ProxyAdvertisement.AdvertiseCustom
+				}
+				if AdvertiseCustomData, ok := blockData["advertise_custom"].(map[string]interface{}); ok {
+					return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomModel{
+						AdvertiseWhere: func() types.List {
+							if rawList, ok := AdvertiseCustomData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
+								var AdvertiseWhereResult []BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel
+								for _, AdvertiseWhereItem := range rawList {
+									if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
+										AdvertiseWhereResult = append(AdvertiseWhereResult, BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel{
+											AdvertiseOnPublic: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
+												if AdvertiseOnPublicData, ok := AdvertiseWhereItemMap["advertise_on_public"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel{
+														PublicIP: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel {
+															if PublicIPData, ok := AdvertiseOnPublicData["public_ip"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel{
+																	Name: func() types.String {
+																		if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Port: func() types.Int64 {
+												if v, ok := AdvertiseWhereItemMap["port"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+											PortRanges: func() types.String {
+												if v, ok := AdvertiseWhereItemMap["port_ranges"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Site: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteModel {
+												if SiteData, ok := AdvertiseWhereItemMap["site"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteModel{
+														IP: func() types.String {
+															if v, ok := SiteData["ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Network: func() types.String {
+															if v, ok := SiteData["network"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Site: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteModel {
+															if SiteData, ok := SiteData["site"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteModel{
+																	Name: func() types.String {
+																		if v, ok := SiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseDefaultPort: func() *BigIPHTTPProxyEmptyModel {
+												if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											VirtualNetwork: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel {
+												if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
+														DefaultV6VIP: func() *BigIPHTTPProxyEmptyModel {
+															if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														DefaultVIP: func() *BigIPHTTPProxyEmptyModel {
+															if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SpecificV6VIP: func() types.String {
+															if v, ok := VirtualNetworkData["specific_v6_vip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SpecificVIP: func() types.String {
+															if v, ok := VirtualNetworkData["specific_vip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VirtualNetwork: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel {
+															if VirtualNetworkData, ok := VirtualNetworkData["virtual_network"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualNetworkData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualNetworkData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualNetworkData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											VirtualSite: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteModel {
+												if VirtualSiteData, ok := AdvertiseWhereItemMap["virtual_site"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteModel{
+														Network: func() types.String {
+															if v, ok := VirtualSiteData["network"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VirtualSite: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteModel {
+															if VirtualSiteData, ok := VirtualSiteData["virtual_site"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											VirtualSiteWithVIP: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel {
+												if VirtualSiteWithVIPData, ok := AdvertiseWhereItemMap["virtual_site_with_vip"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel{
+														IP: func() types.String {
+															if v, ok := VirtualSiteWithVIPData["ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Network: func() types.String {
+															if v, ok := VirtualSiteWithVIPData["network"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														VirtualSite: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteModel {
+															if VirtualSiteData, ok := VirtualSiteWithVIPData["virtual_site"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Vk8sService: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceModel {
+												if Vk8sServiceData, ok := AdvertiseWhereItemMap["vk8s_service"].(map[string]interface{}); ok {
+													return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceModel{
+														Site: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteModel {
+															if SiteData, ok := Vk8sServiceData["site"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteModel{
+																	Name: func() types.String {
+																		if v, ok := SiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														VirtualSite: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteModel {
+															if VirtualSiteData, ok := Vk8sServiceData["virtual_site"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteModel{
+																	Name: func() types.String {
+																		if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModelAttrTypes}, AdvertiseWhereResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			DoNotAdvertise: func() *BigIPHTTPProxyEmptyModel {
+				if !isImport && data.ProxyAdvertisement != nil {
+					return data.ProxyAdvertisement.DoNotAdvertise
+				}
+				if _, ok := blockData["do_not_advertise"].(map[string]interface{}); ok {
+					return &BigIPHTTPProxyEmptyModel{}
 				}
 				return nil
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["proxy_advertisement"].(map[string]interface{}); ok && isImport && data.ProxyAdvertisement == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.ProxyAdvertisement = &BigIPHTTPProxyProxyAdvertisementModel{}
-	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["proxy_config"].(map[string]interface{}); ok && (isImport || data.ProxyConfig != nil) {
 		data.ProxyConfig = &BigIPHTTPProxyProxyConfigModel{
 			Domains: func() types.List {
@@ -4272,26 +9955,24 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 			}(),
 			HTTP: func() *BigIPHTTPProxyProxyConfigHTTPModel {
 				if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTP != nil {
-					// Normal Read: preserve existing state value
 					return data.ProxyConfig.HTTP
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["http"].(map[string]interface{}); ok {
+				if HTTPData, ok := blockData["http"].(map[string]interface{}); ok {
 					return &BigIPHTTPProxyProxyConfigHTTPModel{
 						DNSVolterraManaged: func() types.Bool {
-							if v, ok := nestedBlockData["dns_volterra_managed"].(bool); ok {
+							if v, ok := HTTPData["dns_volterra_managed"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
 						Port: func() types.Int64 {
-							if v, ok := nestedBlockData["port"].(float64); ok {
+							if v, ok := HTTPData["port"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						PortRanges: func() types.String {
-							if v, ok := nestedBlockData["port_ranges"].(string); ok && v != "" {
+							if v, ok := HTTPData["port_ranges"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -4302,53 +9983,645 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 			}(),
 			HTTPS: func() *BigIPHTTPProxyProxyConfigHTTPSModel {
 				if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
-					// Normal Read: preserve existing state value
 					return data.ProxyConfig.HTTPS
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["https"].(map[string]interface{}); ok {
+				if HTTPSData, ok := blockData["https"].(map[string]interface{}); ok {
 					return &BigIPHTTPProxyProxyConfigHTTPSModel{
 						AddHsts: func() types.Bool {
-							if v, ok := nestedBlockData["add_hsts"].(bool); ok {
+							if v, ok := HTTPSData["add_hsts"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
 						AppendServerName: func() types.String {
-							if v, ok := nestedBlockData["append_server_name"].(string); ok && v != "" {
+							if v, ok := HTTPSData["append_server_name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
+						CoalescingOptions: func() *BigIPHTTPProxyProxyConfigHTTPSCoalescingOptionsModel {
+							if CoalescingOptionsData, ok := HTTPSData["coalescing_options"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSCoalescingOptionsModel{
+									DefaultCoalescing: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := CoalescingOptionsData["default_coalescing"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									StrictCoalescing: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := CoalescingOptionsData["strict_coalescing"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						ConnectionIdleTimeout: func() types.Int64 {
-							if v, ok := nestedBlockData["connection_idle_timeout"].(float64); ok {
+							if v, ok := HTTPSData["connection_idle_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
+						DefaultHeader: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSData["default_header"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						DefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSData["default_loadbalancer"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						DisablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSData["disable_path_normalize"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						EnablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSData["enable_path_normalize"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						HTTPProtocolOptions: func() *BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsModel {
+							if HTTPProtocolOptionsData, ok := HTTPSData["http_protocol_options"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsModel{
+									HTTPProtocolEnableV1Only: func() *BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModel {
+										if HTTPProtocolEnableV1OnlyData, ok := HTTPProtocolOptionsData["http_protocol_enable_v1_only"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModel{
+												HeaderTransformation: func() *BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel {
+													if HeaderTransformationData, ok := HTTPProtocolEnableV1OnlyData["header_transformation"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel{
+															DefaultHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+															LegacyHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+															PreserveCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+															ProperCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									HTTPProtocolEnableV1V2: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v1_v2"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									HTTPProtocolEnableV2Only: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v2_only"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						HTTPRedirect: func() types.Bool {
-							if v, ok := nestedBlockData["http_redirect"].(bool); ok {
+							if v, ok := HTTPSData["http_redirect"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
+						NonDefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSData["non_default_loadbalancer"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						PassThrough: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSData["pass_through"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
 						Port: func() types.Int64 {
-							if v, ok := nestedBlockData["port"].(float64); ok {
+							if v, ok := HTTPSData["port"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						PortRanges: func() types.String {
-							if v, ok := nestedBlockData["port_ranges"].(string); ok && v != "" {
+							if v, ok := HTTPSData["port_ranges"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						ServerName: func() types.String {
-							if v, ok := nestedBlockData["server_name"].(string); ok && v != "" {
+							if v, ok := HTTPSData["server_name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						TLSCertParams: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsModel {
+							if TLSCertParamsData, ok := HTTPSData["tls_cert_params"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsModel{
+									Certificates: func() types.List {
+										if rawList, ok := TLSCertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
+											var CertificatesResult []BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsCertificatesModel
+											for _, CertificatesItem := range rawList {
+												if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
+													CertificatesResult = append(CertificatesResult, BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsCertificatesModel{
+														Name: func() types.String {
+															if v, ok := CertificatesItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := CertificatesItemMap["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := CertificatesItemMap["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsCertificatesModelAttrTypes}, CertificatesResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsCertificatesModelAttrTypes})
+									}(),
+									NoMtls: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := TLSCertParamsData["no_mtls"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									TLSConfig: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigModel {
+										if TLSConfigData, ok := TLSCertParamsData["tls_config"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigModel{
+												CustomSecurity: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityModel {
+													if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityModel{
+															CipherSuites: func() types.List {
+																if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+																	var items []string
+																	for _, item := range v {
+																		if s, ok := item.(string); ok {
+																			items = append(items, s)
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	return listVal
+																}
+																return types.ListNull(types.StringType)
+															}(),
+															MaxVersion: func() types.String {
+																if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															MinVersion: func() types.String {
+																if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												DefaultSecurity: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												LowSecurity: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												MediumSecurity: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									UseMtls: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsModel {
+										if UseMtlsData, ok := TLSCertParamsData["use_mtls"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsModel{
+												ClientCertificateOptional: func() types.Bool {
+													if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												CRL: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsCRLModel {
+													if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsCRLModel{
+															Name: func() types.String {
+																if v, ok := CRLData["name"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Namespace: func() types.String {
+																if v, ok := CRLData["namespace"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Tenant: func() types.String {
+																if v, ok := CRLData["tenant"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												NoCRL: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												TrustedCA: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAModel {
+													if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAModel{
+															Name: func() types.String {
+																if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Namespace: func() types.String {
+																if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Tenant: func() types.String {
+																if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												TrustedCAURL: func() types.String {
+													if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												XfccDisabled: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												XfccOptions: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsXfccOptionsModel {
+													if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsXfccOptionsModel{
+															XfccHeaderElements: func() types.List {
+																if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+																	var items []string
+																	for _, item := range v {
+																		if s, ok := item.(string); ok {
+																			items = append(items, s)
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	return listVal
+																}
+																return types.ListNull(types.StringType)
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						TLSParameters: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersModel {
+							if TLSParametersData, ok := HTTPSData["tls_parameters"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersModel{
+									NoMtls: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := TLSParametersData["no_mtls"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									TLSCertificates: func() []BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModel {
+										if rawList, ok := TLSParametersData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+											var TLSCertificatesResult []BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModel
+											for _, TLSCertificatesItem := range rawList {
+												if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+													TLSCertificatesResult = append(TLSCertificatesResult, BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModel{
+														CertificateURL: func() types.String {
+															if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														CustomHashAlgorithms: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsModel {
+															if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsModel{
+																	HashAlgorithms: func() types.List {
+																		if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														DescriptionSpec: func() types.String {
+															if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														DisableOCSPStapling: func() *BigIPHTTPProxyEmptyModel {
+															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														PrivateKey: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyModel {
+															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyModel{
+																	BlindfoldSecretInfo: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														UseSystemDefaults: func() *BigIPHTTPProxyEmptyModel {
+															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+																return &BigIPHTTPProxyEmptyModel{}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											return TLSCertificatesResult
+										}
+										return nil
+									}(),
+									TLSConfig: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigModel {
+										if TLSConfigData, ok := TLSParametersData["tls_config"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigModel{
+												CustomSecurity: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityModel {
+													if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityModel{
+															CipherSuites: func() types.List {
+																if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+																	var items []string
+																	for _, item := range v {
+																		if s, ok := item.(string); ok {
+																			items = append(items, s)
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	return listVal
+																}
+																return types.ListNull(types.StringType)
+															}(),
+															MaxVersion: func() types.String {
+																if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															MinVersion: func() types.String {
+																if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												DefaultSecurity: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												LowSecurity: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												MediumSecurity: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									UseMtls: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsModel {
+										if UseMtlsData, ok := TLSParametersData["use_mtls"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsModel{
+												ClientCertificateOptional: func() types.Bool {
+													if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												CRL: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsCRLModel {
+													if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsCRLModel{
+															Name: func() types.String {
+																if v, ok := CRLData["name"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Namespace: func() types.String {
+																if v, ok := CRLData["namespace"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Tenant: func() types.String {
+																if v, ok := CRLData["tenant"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												NoCRL: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												TrustedCA: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsTrustedCAModel {
+													if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsTrustedCAModel{
+															Name: func() types.String {
+																if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Namespace: func() types.String {
+																if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Tenant: func() types.String {
+																if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												TrustedCAURL: func() types.String {
+													if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												XfccDisabled: func() *BigIPHTTPProxyEmptyModel {
+													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												XfccOptions: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsXfccOptionsModel {
+													if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsXfccOptionsModel{
+															XfccHeaderElements: func() types.List {
+																if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+																	var items []string
+																	for _, item := range v {
+																		if s, ok := item.(string); ok {
+																			items = append(items, s)
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	return listVal
+																}
+																return types.ListNull(types.StringType)
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -4356,53 +10629,327 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 			}(),
 			HTTPSAutoCert: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertModel {
 				if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
-					// Normal Read: preserve existing state value
 					return data.ProxyConfig.HTTPSAutoCert
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["https_auto_cert"].(map[string]interface{}); ok {
+				if HTTPSAutoCertData, ok := blockData["https_auto_cert"].(map[string]interface{}); ok {
 					return &BigIPHTTPProxyProxyConfigHTTPSAutoCertModel{
 						AddHsts: func() types.Bool {
-							if v, ok := nestedBlockData["add_hsts"].(bool); ok {
+							if v, ok := HTTPSAutoCertData["add_hsts"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
 						AppendServerName: func() types.String {
-							if v, ok := nestedBlockData["append_server_name"].(string); ok && v != "" {
+							if v, ok := HTTPSAutoCertData["append_server_name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
+						CoalescingOptions: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertCoalescingOptionsModel {
+							if CoalescingOptionsData, ok := HTTPSAutoCertData["coalescing_options"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSAutoCertCoalescingOptionsModel{
+									DefaultCoalescing: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := CoalescingOptionsData["default_coalescing"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									StrictCoalescing: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := CoalescingOptionsData["strict_coalescing"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						ConnectionIdleTimeout: func() types.Int64 {
-							if v, ok := nestedBlockData["connection_idle_timeout"].(float64); ok {
+							if v, ok := HTTPSAutoCertData["connection_idle_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
+						DefaultHeader: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSAutoCertData["default_header"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						DefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSAutoCertData["default_loadbalancer"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						DisablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSAutoCertData["disable_path_normalize"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						EnablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSAutoCertData["enable_path_normalize"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						HTTPProtocolOptions: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsModel {
+							if HTTPProtocolOptionsData, ok := HTTPSAutoCertData["http_protocol_options"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsModel{
+									HTTPProtocolEnableV1Only: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModel {
+										if HTTPProtocolEnableV1OnlyData, ok := HTTPProtocolOptionsData["http_protocol_enable_v1_only"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModel{
+												HeaderTransformation: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel {
+													if HeaderTransformationData, ok := HTTPProtocolEnableV1OnlyData["header_transformation"].(map[string]interface{}); ok {
+														return &BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel{
+															DefaultHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+															LegacyHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+															PreserveCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+															ProperCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
+																if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
+																	return &BigIPHTTPProxyEmptyModel{}
+																}
+																return nil
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									HTTPProtocolEnableV1V2: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v1_v2"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									HTTPProtocolEnableV2Only: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v2_only"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						HTTPRedirect: func() types.Bool {
-							if v, ok := nestedBlockData["http_redirect"].(bool); ok {
+							if v, ok := HTTPSAutoCertData["http_redirect"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
+						NoMtls: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSAutoCertData["no_mtls"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						NonDefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSAutoCertData["non_default_loadbalancer"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						PassThrough: func() *BigIPHTTPProxyEmptyModel {
+							if _, ok := HTTPSAutoCertData["pass_through"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyEmptyModel{}
+							}
+							return nil
+						}(),
 						Port: func() types.Int64 {
-							if v, ok := nestedBlockData["port"].(float64); ok {
+							if v, ok := HTTPSAutoCertData["port"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						PortRanges: func() types.String {
-							if v, ok := nestedBlockData["port_ranges"].(string); ok && v != "" {
+							if v, ok := HTTPSAutoCertData["port_ranges"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						ServerName: func() types.String {
-							if v, ok := nestedBlockData["server_name"].(string); ok && v != "" {
+							if v, ok := HTTPSAutoCertData["server_name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						TLSConfig: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigModel {
+							if TLSConfigData, ok := HTTPSAutoCertData["tls_config"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigModel{
+									CustomSecurity: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigCustomSecurityModel {
+										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigCustomSecurityModel{
+												CipherSuites: func() types.List {
+													if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												MaxVersion: func() types.String {
+													if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												MinVersion: func() types.String {
+													if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultSecurity: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									LowSecurity: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									MediumSecurity: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseMtls: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsModel {
+							if UseMtlsData, ok := HTTPSAutoCertData["use_mtls"].(map[string]interface{}); ok {
+								return &BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsModel{
+									ClientCertificateOptional: func() types.Bool {
+										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									CRL: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsCRLModel {
+										if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsCRLModel{
+												Name: func() types.String {
+													if v, ok := CRLData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := CRLData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := CRLData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NoCRL: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									TrustedCA: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsTrustedCAModel {
+										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsTrustedCAModel{
+												Name: func() types.String {
+													if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									XfccDisabled: func() *BigIPHTTPProxyEmptyModel {
+										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									XfccOptions: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsXfccOptionsModel {
+										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+											return &BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsXfccOptionsModel{
+												XfccHeaderElements: func() types.List {
+													if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
 						}(),
 					}
 				}

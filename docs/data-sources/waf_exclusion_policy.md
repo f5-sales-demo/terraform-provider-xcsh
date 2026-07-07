@@ -39,6 +39,32 @@ data "xcsh_waf_exclusion_policy" "example" {
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
 
+🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
+
+### Minimum Configuration
+
+Required fields:
+
+- `name`
+- `namespace`
+- `waf_exclusion_rules`
+
+**Example (API format):**
+
+```yaml
+apiVersion: v1
+kind: waf_exclusion_policy
+metadata:
+  name: example-waf-exclusion
+  namespace: default
+spec:
+  waf_exclusion_rules:
+    - metadata:
+        name: exclude-health
+      exact_path: "/health"
+
+```
+
 ### Metadata Argument Reference
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the WAFExclusionPolicy

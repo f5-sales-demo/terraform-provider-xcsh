@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// AddressAllocator represents a XCSH AddressAllocator
+// AddressAllocator represents a F5XC AddressAllocator
 type AddressAllocator struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

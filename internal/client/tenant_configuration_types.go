@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// TenantConfiguration represents a XCSH TenantConfiguration
+// TenantConfiguration represents a F5XC TenantConfiguration
 type TenantConfiguration struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

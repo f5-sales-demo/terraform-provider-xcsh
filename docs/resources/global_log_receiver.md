@@ -40,6 +40,29 @@ resource "xcsh_global_log_receiver" "example" {
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
 
+🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
+
+### Minimum Configuration
+
+Required fields:
+
+- `name`
+- `namespace`
+- `log_type`
+- `receiver_choice`
+
+**Example (API format):**
+
+```yaml
+metadata:
+  name: my-log-receiver
+  namespace: system
+spec:
+  request_logs: {}
+  http_receiver:
+    uri: `http://logs.example.com/ingest`
+```
+
 ### Metadata Argument Reference
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Global Log Receiver. Must be unique within the namespace
@@ -157,7 +180,7 @@ An [`azure_event_hubs_receiver`](#Azure-event-hubs-receiver) block supports the 
 
 A [`connection_string`](#string-b729f9) block (within [`azure_event_hubs_receiver`](#Azure-event-hubs-receiver)) supports the following:
 
-<a id="info-0b01ca"></a>&#x2022; [`blindfold_secret_info`](#info-0b01ca) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info](#info-0b01ca) below.
+<a id="info-0b01ca"></a>&#x2022; [`blindfold_secret_info`](#info-0b01ca) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-0b01ca) below.
 
 <a id="info-a586ad"></a>&#x2022; [`clear_secret_info`](#info-a586ad) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-a586ad) below.
 
@@ -213,7 +236,7 @@ A [`compression`](#Azure-receiver-compression) block (within [`azure_receiver`](
 
 A [`connection_string`](#Azure-receiver-connection-string) block (within [`azure_receiver`](#Azure-receiver)) supports the following:
 
-<a id="info-e8810f"></a>&#x2022; [`blindfold_secret_info`](#info-e8810f) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info](#info-e8810f) below.
+<a id="info-e8810f"></a>&#x2022; [`blindfold_secret_info`](#info-e8810f) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-e8810f) below.
 
 <a id="info-e37fa5"></a>&#x2022; [`clear_secret_info`](#info-e37fa5) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-e37fa5) below.
 
@@ -293,7 +316,7 @@ A [`compression`](#datadog-receiver-compression) block (within [`datadog_receive
 
 A [`datadog_api_key`](#datadog-receiver-datadog-api-key) block (within [`datadog_receiver`](#datadog-receiver)) supports the following:
 
-<a id="info-c8197d"></a>&#x2022; [`blindfold_secret_info`](#info-c8197d) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info](#info-c8197d) below.
+<a id="info-c8197d"></a>&#x2022; [`blindfold_secret_info`](#info-c8197d) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-c8197d) below.
 
 <a id="info-400d24"></a>&#x2022; [`clear_secret_info`](#info-400d24) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-400d24) below.
 
@@ -437,7 +460,7 @@ An [`auth_basic`](#http-receiver-auth-basic) block (within [`http_receiver`](#ht
 
 A [`password`](#http-receiver-auth-basic-password) block (within [`http_receiver.auth_basic`](#http-receiver-auth-basic)) supports the following:
 
-<a id="info-265ff8"></a>&#x2022; [`blindfold_secret_info`](#info-265ff8) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info](#info-265ff8) below.
+<a id="info-265ff8"></a>&#x2022; [`blindfold_secret_info`](#info-265ff8) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-265ff8) below.
 
 <a id="info-b23662"></a>&#x2022; [`clear_secret_info`](#info-b23662) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-b23662) below.
 
@@ -459,7 +482,7 @@ An [`auth_token`](#http-receiver-auth-token) block (within [`http_receiver`](#ht
 
 A [`token`](#http-receiver-auth-token-token) block (within [`http_receiver.auth_token`](#http-receiver-auth-token)) supports the following:
 
-<a id="info-5dfb53"></a>&#x2022; [`blindfold_secret_info`](#info-5dfb53) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info](#info-5dfb53) below.
+<a id="info-5dfb53"></a>&#x2022; [`blindfold_secret_info`](#info-5dfb53) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-5dfb53) below.
 
 <a id="info-f68d67"></a>&#x2022; [`clear_secret_info`](#info-f68d67) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-f68d67) below.
 
@@ -633,7 +656,7 @@ A [`new_relic_receiver`](#new-relic-receiver) block supports the following:
 
 An [`api_key`](#new-relic-receiver-api-key) block (within [`new_relic_receiver`](#new-relic-receiver)) supports the following:
 
-<a id="info-262674"></a>&#x2022; [`blindfold_secret_info`](#info-262674) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info](#info-262674) below.
+<a id="info-262674"></a>&#x2022; [`blindfold_secret_info`](#info-262674) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-262674) below.
 
 <a id="info-6a5234"></a>&#x2022; [`clear_secret_info`](#info-6a5234) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-6a5234) below.
 
@@ -839,7 +862,7 @@ A [`compression`](#splunk-receiver-compression) block (within [`splunk_receiver`
 
 A [`splunk_hec_token`](#splunk-receiver-splunk-hec-token) block (within [`splunk_receiver`](#splunk-receiver)) supports the following:
 
-<a id="info-2c09a2"></a>&#x2022; [`blindfold_secret_info`](#info-2c09a2) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info](#info-2c09a2) below.
+<a id="info-2c09a2"></a>&#x2022; [`blindfold_secret_info`](#info-2c09a2) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-2c09a2) below.
 
 <a id="info-08aaec"></a>&#x2022; [`clear_secret_info`](#info-08aaec) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-08aaec) below.
 
@@ -901,7 +924,7 @@ A [`sumo_logic_receiver`](#sumo-logic-receiver) block supports the following:
 
 An [`url`](#sumo-logic-receiver-url) block (within [`sumo_logic_receiver`](#sumo-logic-receiver)) supports the following:
 
-<a id="info-2b8030"></a>&#x2022; [`blindfold_secret_info`](#info-2b8030) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info](#info-2b8030) below.
+<a id="info-2b8030"></a>&#x2022; [`blindfold_secret_info`](#info-2b8030) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-2b8030) below.
 
 <a id="info-b7253b"></a>&#x2022; [`clear_secret_info`](#info-b7253b) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-b7253b) below.
 

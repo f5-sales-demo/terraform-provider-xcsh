@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// APM represents a XCSH APM
+// APM represents a F5XC APM
 type APM struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

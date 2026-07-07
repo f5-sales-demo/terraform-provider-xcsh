@@ -332,34 +332,34 @@ func (r *ProtocolInspectionResource) Create(ctx context.Context, req resource.Cr
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.EnableDisableComplianceChecks != nil {
-		enable_disable_compliance_checksMap := make(map[string]interface{})
+		EnableDisableComplianceChecksMap := make(map[string]interface{})
 		if data.EnableDisableComplianceChecks.DisableComplianceChecks != nil {
-			enable_disable_compliance_checksMap["disable_compliance_checks"] = map[string]interface{}{}
+			EnableDisableComplianceChecksMap["disable_compliance_checks"] = map[string]interface{}{}
 		}
 		if data.EnableDisableComplianceChecks.EnableComplianceChecks != nil {
-			enable_compliance_checksNestedMap := make(map[string]interface{})
+			EnableComplianceChecksMap := make(map[string]interface{})
 			if !data.EnableDisableComplianceChecks.EnableComplianceChecks.Name.IsNull() && !data.EnableDisableComplianceChecks.EnableComplianceChecks.Name.IsUnknown() {
-				enable_compliance_checksNestedMap["name"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Name.ValueString()
+				EnableComplianceChecksMap["name"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Name.ValueString()
 			}
 			if !data.EnableDisableComplianceChecks.EnableComplianceChecks.Namespace.IsNull() && !data.EnableDisableComplianceChecks.EnableComplianceChecks.Namespace.IsUnknown() {
-				enable_compliance_checksNestedMap["namespace"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Namespace.ValueString()
+				EnableComplianceChecksMap["namespace"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Namespace.ValueString()
 			}
 			if !data.EnableDisableComplianceChecks.EnableComplianceChecks.Tenant.IsNull() && !data.EnableDisableComplianceChecks.EnableComplianceChecks.Tenant.IsUnknown() {
-				enable_compliance_checksNestedMap["tenant"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Tenant.ValueString()
+				EnableComplianceChecksMap["tenant"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Tenant.ValueString()
 			}
-			enable_disable_compliance_checksMap["enable_compliance_checks"] = enable_compliance_checksNestedMap
+			EnableDisableComplianceChecksMap["enable_compliance_checks"] = EnableComplianceChecksMap
 		}
-		createReq.Spec["enable_disable_compliance_checks"] = enable_disable_compliance_checksMap
+		createReq.Spec["enable_disable_compliance_checks"] = EnableDisableComplianceChecksMap
 	}
 	if data.EnableDisableSignatures != nil {
-		enable_disable_signaturesMap := make(map[string]interface{})
+		EnableDisableSignaturesMap := make(map[string]interface{})
 		if data.EnableDisableSignatures.DisableSignature != nil {
-			enable_disable_signaturesMap["disable_signature"] = map[string]interface{}{}
+			EnableDisableSignaturesMap["disable_signature"] = map[string]interface{}{}
 		}
 		if data.EnableDisableSignatures.EnableSignature != nil {
-			enable_disable_signaturesMap["enable_signature"] = map[string]interface{}{}
+			EnableDisableSignaturesMap["enable_signature"] = map[string]interface{}{}
 		}
-		createReq.Spec["enable_disable_signatures"] = enable_disable_signaturesMap
+		createReq.Spec["enable_disable_signatures"] = EnableDisableSignaturesMap
 	}
 	if !data.Action.IsNull() && !data.Action.IsUnknown() {
 		createReq.Spec["action"] = data.Action.ValueString()
@@ -377,16 +377,69 @@ func (r *ProtocolInspectionResource) Create(ctx context.Context, req resource.Cr
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["enable_disable_compliance_checks"].(map[string]interface{}); ok && isImport && data.EnableDisableComplianceChecks == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.EnableDisableComplianceChecks = &ProtocolInspectionEnableDisableComplianceChecksModel{}
+	if blockData, ok := apiResource.Spec["enable_disable_compliance_checks"].(map[string]interface{}); ok && (isImport || data.EnableDisableComplianceChecks != nil) {
+		data.EnableDisableComplianceChecks = &ProtocolInspectionEnableDisableComplianceChecksModel{
+			DisableComplianceChecks: func() *ProtocolInspectionEmptyModel {
+				if !isImport && data.EnableDisableComplianceChecks != nil {
+					return data.EnableDisableComplianceChecks.DisableComplianceChecks
+				}
+				if _, ok := blockData["disable_compliance_checks"].(map[string]interface{}); ok {
+					return &ProtocolInspectionEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableComplianceChecks: func() *ProtocolInspectionEnableDisableComplianceChecksEnableComplianceChecksModel {
+				if !isImport && data.EnableDisableComplianceChecks != nil && data.EnableDisableComplianceChecks.EnableComplianceChecks != nil {
+					return data.EnableDisableComplianceChecks.EnableComplianceChecks
+				}
+				if EnableComplianceChecksData, ok := blockData["enable_compliance_checks"].(map[string]interface{}); ok {
+					return &ProtocolInspectionEnableDisableComplianceChecksEnableComplianceChecksModel{
+						Name: func() types.String {
+							if v, ok := EnableComplianceChecksData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := EnableComplianceChecksData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := EnableComplianceChecksData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["enable_disable_signatures"].(map[string]interface{}); ok && isImport && data.EnableDisableSignatures == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.EnableDisableSignatures = &ProtocolInspectionEnableDisableSignaturesModel{}
+	if blockData, ok := apiResource.Spec["enable_disable_signatures"].(map[string]interface{}); ok && (isImport || data.EnableDisableSignatures != nil) {
+		data.EnableDisableSignatures = &ProtocolInspectionEnableDisableSignaturesModel{
+			DisableSignature: func() *ProtocolInspectionEmptyModel {
+				if !isImport && data.EnableDisableSignatures != nil {
+					return data.EnableDisableSignatures.DisableSignature
+				}
+				if _, ok := blockData["disable_signature"].(map[string]interface{}); ok {
+					return &ProtocolInspectionEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableSignature: func() *ProtocolInspectionEmptyModel {
+				if !isImport && data.EnableDisableSignatures != nil {
+					return data.EnableDisableSignatures.EnableSignature
+				}
+				if _, ok := blockData["enable_signature"].(map[string]interface{}); ok {
+					return &ProtocolInspectionEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["action"].(string); ok && v != "" {
 		data.Action = types.StringValue(v)
 	} else {
@@ -472,20 +525,81 @@ func (r *ProtocolInspectionResource) Read(ctx context.Context, req resource.Read
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["enable_disable_compliance_checks"].(map[string]interface{}); ok && isImport && data.EnableDisableComplianceChecks == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.EnableDisableComplianceChecks = &ProtocolInspectionEnableDisableComplianceChecksModel{}
+	if blockData, ok := apiResource.Spec["enable_disable_compliance_checks"].(map[string]interface{}); ok && (isImport || data.EnableDisableComplianceChecks != nil) {
+		data.EnableDisableComplianceChecks = &ProtocolInspectionEnableDisableComplianceChecksModel{
+			DisableComplianceChecks: func() *ProtocolInspectionEmptyModel {
+				if !isImport && data.EnableDisableComplianceChecks != nil {
+					return data.EnableDisableComplianceChecks.DisableComplianceChecks
+				}
+				if _, ok := blockData["disable_compliance_checks"].(map[string]interface{}); ok {
+					return &ProtocolInspectionEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableComplianceChecks: func() *ProtocolInspectionEnableDisableComplianceChecksEnableComplianceChecksModel {
+				if !isImport && data.EnableDisableComplianceChecks != nil && data.EnableDisableComplianceChecks.EnableComplianceChecks != nil {
+					return data.EnableDisableComplianceChecks.EnableComplianceChecks
+				}
+				if EnableComplianceChecksData, ok := blockData["enable_compliance_checks"].(map[string]interface{}); ok {
+					return &ProtocolInspectionEnableDisableComplianceChecksEnableComplianceChecksModel{
+						Name: func() types.String {
+							if v, ok := EnableComplianceChecksData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := EnableComplianceChecksData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := EnableComplianceChecksData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["enable_disable_signatures"].(map[string]interface{}); ok && isImport && data.EnableDisableSignatures == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.EnableDisableSignatures = &ProtocolInspectionEnableDisableSignaturesModel{}
+	if blockData, ok := apiResource.Spec["enable_disable_signatures"].(map[string]interface{}); ok && (isImport || data.EnableDisableSignatures != nil) {
+		data.EnableDisableSignatures = &ProtocolInspectionEnableDisableSignaturesModel{
+			DisableSignature: func() *ProtocolInspectionEmptyModel {
+				if !isImport && data.EnableDisableSignatures != nil {
+					return data.EnableDisableSignatures.DisableSignature
+				}
+				if _, ok := blockData["disable_signature"].(map[string]interface{}); ok {
+					return &ProtocolInspectionEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableSignature: func() *ProtocolInspectionEmptyModel {
+				if !isImport && data.EnableDisableSignatures != nil {
+					return data.EnableDisableSignatures.EnableSignature
+				}
+				if _, ok := blockData["enable_signature"].(map[string]interface{}); ok {
+					return &ProtocolInspectionEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["action"].(string); ok && v != "" {
 		data.Action = types.StringValue(v)
 	} else {
 		data.Action = types.StringNull()
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -539,34 +653,34 @@ func (r *ProtocolInspectionResource) Update(ctx context.Context, req resource.Up
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.EnableDisableComplianceChecks != nil {
-		enable_disable_compliance_checksMap := make(map[string]interface{})
+		EnableDisableComplianceChecksMap := make(map[string]interface{})
 		if data.EnableDisableComplianceChecks.DisableComplianceChecks != nil {
-			enable_disable_compliance_checksMap["disable_compliance_checks"] = map[string]interface{}{}
+			EnableDisableComplianceChecksMap["disable_compliance_checks"] = map[string]interface{}{}
 		}
 		if data.EnableDisableComplianceChecks.EnableComplianceChecks != nil {
-			enable_compliance_checksNestedMap := make(map[string]interface{})
+			EnableComplianceChecksMap := make(map[string]interface{})
 			if !data.EnableDisableComplianceChecks.EnableComplianceChecks.Name.IsNull() && !data.EnableDisableComplianceChecks.EnableComplianceChecks.Name.IsUnknown() {
-				enable_compliance_checksNestedMap["name"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Name.ValueString()
+				EnableComplianceChecksMap["name"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Name.ValueString()
 			}
 			if !data.EnableDisableComplianceChecks.EnableComplianceChecks.Namespace.IsNull() && !data.EnableDisableComplianceChecks.EnableComplianceChecks.Namespace.IsUnknown() {
-				enable_compliance_checksNestedMap["namespace"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Namespace.ValueString()
+				EnableComplianceChecksMap["namespace"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Namespace.ValueString()
 			}
 			if !data.EnableDisableComplianceChecks.EnableComplianceChecks.Tenant.IsNull() && !data.EnableDisableComplianceChecks.EnableComplianceChecks.Tenant.IsUnknown() {
-				enable_compliance_checksNestedMap["tenant"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Tenant.ValueString()
+				EnableComplianceChecksMap["tenant"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Tenant.ValueString()
 			}
-			enable_disable_compliance_checksMap["enable_compliance_checks"] = enable_compliance_checksNestedMap
+			EnableDisableComplianceChecksMap["enable_compliance_checks"] = EnableComplianceChecksMap
 		}
-		apiResource.Spec["enable_disable_compliance_checks"] = enable_disable_compliance_checksMap
+		apiResource.Spec["enable_disable_compliance_checks"] = EnableDisableComplianceChecksMap
 	}
 	if data.EnableDisableSignatures != nil {
-		enable_disable_signaturesMap := make(map[string]interface{})
+		EnableDisableSignaturesMap := make(map[string]interface{})
 		if data.EnableDisableSignatures.DisableSignature != nil {
-			enable_disable_signaturesMap["disable_signature"] = map[string]interface{}{}
+			EnableDisableSignaturesMap["disable_signature"] = map[string]interface{}{}
 		}
 		if data.EnableDisableSignatures.EnableSignature != nil {
-			enable_disable_signaturesMap["enable_signature"] = map[string]interface{}{}
+			EnableDisableSignaturesMap["enable_signature"] = map[string]interface{}{}
 		}
-		apiResource.Spec["enable_disable_signatures"] = enable_disable_signaturesMap
+		apiResource.Spec["enable_disable_signatures"] = EnableDisableSignaturesMap
 	}
 	if !data.Action.IsNull() && !data.Action.IsUnknown() {
 		apiResource.Spec["action"] = data.Action.ValueString()
@@ -602,16 +716,69 @@ func (r *ProtocolInspectionResource) Update(ctx context.Context, req resource.Up
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["enable_disable_compliance_checks"].(map[string]interface{}); ok && isImport && data.EnableDisableComplianceChecks == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.EnableDisableComplianceChecks = &ProtocolInspectionEnableDisableComplianceChecksModel{}
+	if blockData, ok := apiResource.Spec["enable_disable_compliance_checks"].(map[string]interface{}); ok && (isImport || data.EnableDisableComplianceChecks != nil) {
+		data.EnableDisableComplianceChecks = &ProtocolInspectionEnableDisableComplianceChecksModel{
+			DisableComplianceChecks: func() *ProtocolInspectionEmptyModel {
+				if !isImport && data.EnableDisableComplianceChecks != nil {
+					return data.EnableDisableComplianceChecks.DisableComplianceChecks
+				}
+				if _, ok := blockData["disable_compliance_checks"].(map[string]interface{}); ok {
+					return &ProtocolInspectionEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableComplianceChecks: func() *ProtocolInspectionEnableDisableComplianceChecksEnableComplianceChecksModel {
+				if !isImport && data.EnableDisableComplianceChecks != nil && data.EnableDisableComplianceChecks.EnableComplianceChecks != nil {
+					return data.EnableDisableComplianceChecks.EnableComplianceChecks
+				}
+				if EnableComplianceChecksData, ok := blockData["enable_compliance_checks"].(map[string]interface{}); ok {
+					return &ProtocolInspectionEnableDisableComplianceChecksEnableComplianceChecksModel{
+						Name: func() types.String {
+							if v, ok := EnableComplianceChecksData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := EnableComplianceChecksData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := EnableComplianceChecksData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["enable_disable_signatures"].(map[string]interface{}); ok && isImport && data.EnableDisableSignatures == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.EnableDisableSignatures = &ProtocolInspectionEnableDisableSignaturesModel{}
+	if blockData, ok := apiResource.Spec["enable_disable_signatures"].(map[string]interface{}); ok && (isImport || data.EnableDisableSignatures != nil) {
+		data.EnableDisableSignatures = &ProtocolInspectionEnableDisableSignaturesModel{
+			DisableSignature: func() *ProtocolInspectionEmptyModel {
+				if !isImport && data.EnableDisableSignatures != nil {
+					return data.EnableDisableSignatures.DisableSignature
+				}
+				if _, ok := blockData["disable_signature"].(map[string]interface{}); ok {
+					return &ProtocolInspectionEmptyModel{}
+				}
+				return nil
+			}(),
+			EnableSignature: func() *ProtocolInspectionEmptyModel {
+				if !isImport && data.EnableDisableSignatures != nil {
+					return data.EnableDisableSignatures.EnableSignature
+				}
+				if _, ok := blockData["enable_signature"].(map[string]interface{}); ok {
+					return &ProtocolInspectionEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["action"].(string); ok && v != "" {
 		data.Action = types.StringValue(v)
 	} else {

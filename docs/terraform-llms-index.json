@@ -141,6 +141,21 @@
       ]
     },
     {
+      "name": "DNS",
+      "slug": "dns",
+      "description": "DNS domains, zones, compliance checks, and DNS proxy configuration",
+      "resource_count": 7,
+      "resources": [
+        "dns_compliance_checks",
+        "dns_domain",
+        "dns_lb_health_check",
+        "dns_lb_pool",
+        "dns_load_balancer",
+        "dns_proxy",
+        "dns_zone"
+      ]
+    },
+    {
       "name": "API Security",
       "slug": "api-security",
       "description": "API definition, discovery, testing, and security controls for web APIs",
@@ -190,18 +205,11 @@
       "resources": ["bigip_http_proxy", "data_group", "irule"]
     },
     {
-      "name": "DNS",
-      "slug": "dns",
-      "description": "DNS domains, zones, compliance checks, and DNS proxy configuration",
-      "resource_count": 3,
-      "resources": ["dns_compliance_checks", "dns_domain", "dns_proxy"]
-    },
-    {
       "name": "Cloud Resources",
       "slug": "cloud-resources",
       "description": "Cloud elastic IPs, address allocators, and geo-location resources",
-      "resource_count": 2,
-      "resources": ["address_allocator", "cloud_elastic_ip"]
+      "resource_count": 3,
+      "resources": ["address_allocator", "cloud_elastic_ip", "geo_location_set"]
     },
     {
       "name": "Organization",
@@ -273,7 +281,7 @@
     "alert_receiver": {
       "category": "monitoring",
       "description": "New Alert Receiver object",
-      "required": ["name", "namespace"],
+      "required": ["name", "namespace", "receiver_choice"],
       "minimal_config": "resource \"xcsh_alert_receiver\" \"example\" {\n  name      = \"example-alert-receiver\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -303,7 +311,7 @@
     "api_discovery": {
       "category": "api-security",
       "description": "API discovery creates a new object in the storage backend for metadata.namespace",
-      "required": ["name", "namespace"],
+      "required": ["name", "namespace", "user_defined_api_discovery_policy"],
       "minimal_config": "resource \"xcsh_api_discovery\" \"example\" {\n  name      = \"example-api-discovery\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -452,7 +460,7 @@
     },
     "bgp_routing_policy": {
       "category": "security",
-      "description": "Bgp routing policy is a list of rules containing match criteria and action to be applied. these rules help control routes which are imported or exported to bgp peers. configuration",
+      "description": "Bgp routing policy is a list of rules containing match criteria and action to be applied. these rules help contol routes which are imported or exported to bgp peers. configuration",
       "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_bgp_routing_policy\" \"example\" {\n  name      = \"example-bgp-routing-policy\"\n  namespace = \"staging\"\n}",
       "dependencies": {
@@ -513,7 +521,7 @@
     "certificate": {
       "category": "certificates",
       "description": "Certificate. configuration",
-      "required": ["name", "namespace", "certificate_url"],
+      "required": ["name", "namespace", "certificate_url", "private_key"],
       "minimal_config": "resource \"xcsh_certificate\" \"example\" {\n  name      = \"example-certificate\"\n  namespace = \"staging\"\n\n  certificate_url = \"example-value\"\n}",
       "dependencies": {
         "requires": ["namespace"]
@@ -688,6 +696,36 @@
       },
       "import_syntax": "terraform import xcsh_dns_domain.example namespace/name"
     },
+    "dns_lb_health_check": {
+      "category": "dns",
+      "description": "DNS Load Balancer Health Check in a given namespace. If one already exist it will give a error",
+      "required": ["name", "namespace"],
+      "minimal_config": "resource \"xcsh_dns_lb_health_check\" \"example\" {\n  name      = \"example-dns-lb-health-check\"\n  namespace = \"staging\"\n}",
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_dns_lb_health_check.example namespace/name"
+    },
+    "dns_lb_pool": {
+      "category": "dns",
+      "description": "DNS Load Balancer Pool in a given namespace. If one already exist it will give a error",
+      "required": ["name", "namespace", "load_balancing_mode"],
+      "minimal_config": "resource \"xcsh_dns_lb_pool\" \"example\" {\n  name      = \"example-dns-lb-pool\"\n  namespace = \"staging\"\n\n  load_balancing_mode = \"ROUND_ROBIN\"\n}",
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_dns_lb_pool.example namespace/name"
+    },
+    "dns_load_balancer": {
+      "category": "dns",
+      "description": "DNS Load Balancer in a given namespace. If one already exist it will give a error",
+      "required": ["name", "namespace"],
+      "minimal_config": "resource \"xcsh_dns_load_balancer\" \"example\" {\n  name      = \"example-dns-load-balancer\"\n  namespace = \"staging\"\n}",
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_dns_load_balancer.example namespace/name"
+    },
     "dns_proxy": {
       "category": "dns",
       "description": "DNS Proxy in a given namespace. If one already exists it will give an error",
@@ -697,6 +735,16 @@
         "requires": []
       },
       "import_syntax": "terraform import xcsh_dns_proxy.example namespace/name"
+    },
+    "dns_zone": {
+      "category": "dns",
+      "description": "DNS Zone in a given namespace. If one already exist it will give a error",
+      "required": ["name", "namespace"],
+      "minimal_config": "resource \"xcsh_dns_zone\" \"example\" {\n  name      = \"example-dns-zone\"\n  namespace = \"staging\"\n}",
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_dns_zone.example namespace/name"
     },
     "endpoint": {
       "category": "load-balancing",
@@ -805,10 +853,20 @@
       },
       "import_syntax": "terraform import xcsh_gcp_vpc_site.example namespace/name"
     },
+    "geo_location_set": {
+      "category": "cloud-resources",
+      "description": "Geolocation Set",
+      "required": ["name", "namespace"],
+      "minimal_config": "resource \"xcsh_geo_location_set\" \"example\" {\n  name      = \"example-geo-location-set\"\n  namespace = \"staging\"\n}",
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_geo_location_set.example namespace/name"
+    },
     "global_log_receiver": {
       "category": "monitoring",
       "description": "New Global Log Receiver object",
-      "required": ["name", "namespace"],
+      "required": ["name", "namespace", "log_type", "receiver_choice"],
       "minimal_config": "resource \"xcsh_global_log_receiver\" \"example\" {\n  name      = \"example-global-log-receiver\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -818,8 +876,8 @@
     "healthcheck": {
       "category": "load-balancing",
       "description": "Healthcheck object defines method to determine if the given endpoint is healthy. single healthcheck object can be referred to by one or many cluster objects. configuration",
-      "required": ["name", "namespace", "healthy_threshold", "interval", "timeout", "unhealthy_threshold"],
-      "server_defaults": ["jitter_percent"],
+      "required": ["name", "namespace", "interval", "timeout", "healthy_threshold", "unhealthy_threshold"],
+      "server_defaults": ["jitter_percent", "use_http2"],
       "minimal_config": "resource \"xcsh_healthcheck\" \"example\" {\n  name      = \"example-healthcheck\"\n  namespace = \"staging\"\n\n  healthy_threshold   = 1\n  interval            = 1\n  timeout             = 1\n  unhealthy_threshold = 1\n}",
       "dependencies": {
         "requires": ["namespace"],
@@ -830,7 +888,8 @@
     "http_loadbalancer": {
       "category": "load-balancing",
       "description": "Load balancing HTTP/HTTPS traffic with advanced routing and security",
-      "required": ["name", "namespace"],
+      "required": ["name", "namespace", "domains"],
+      "server_defaults": ["connection_timeout", "http_idle_timeout"],
       "minimal_config": "resource \"xcsh_http_loadbalancer\" \"example\" {\n  name      = \"example-http-loadbalancer\"\n  namespace = \"staging\"\n\n  domains = [\"example-value\"]\n}",
       "dependencies": {
         "requires": ["namespace", "origin_pool"],
@@ -1084,7 +1143,8 @@
     "origin_pool": {
       "category": "load-balancing",
       "description": "Defining backend server pools for load balancer targets",
-      "required": ["name", "namespace"],
+      "required": ["name", "namespace", "origin_servers", "port"],
+      "server_defaults": ["connection_timeout", "http_idle_timeout"],
       "minimal_config": "resource \"xcsh_origin_pool\" \"example\" {\n  name      = \"example-origin-pool\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": ["namespace", "healthcheck"],
@@ -1115,7 +1175,7 @@
     "protocol_inspection": {
       "category": "security",
       "description": "Protocol Inspection Specification in a given namespace. If one already exists it will give an error",
-      "required": ["name", "namespace"],
+      "required": ["name", "namespace", "enable_disable_compliance_checks", "enable_disable_signatures"],
       "minimal_config": "resource \"xcsh_protocol_inspection\" \"example\" {\n  name      = \"example-protocol-inspection\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1155,7 +1215,7 @@
     "rate_limiter_policy": {
       "category": "security",
       "description": "Rate limiter policy create specification. configuration",
-      "required": ["name", "namespace"],
+      "required": ["name", "namespace", "burst_size", "committed_information_rate"],
       "minimal_config": "resource \"xcsh_rate_limiter_policy\" \"example\" {\n  name      = \"example-rate-limiter-policy\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1291,7 +1351,7 @@
     "tcp_loadbalancer": {
       "category": "load-balancing",
       "description": "Load balancing TCP traffic across origin pools",
-      "required": ["name", "namespace"],
+      "required": ["name", "namespace", "origin_pools"],
       "minimal_config": "resource \"xcsh_tcp_loadbalancer\" \"example\" {\n  name      = \"example-tcp-loadbalancer\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": ["namespace", "origin_pool"]
@@ -1351,7 +1411,7 @@
     "user_identification": {
       "category": "security",
       "description": "User_identification creates a new object in the storage backend for metadata.namespace",
-      "required": ["name", "namespace"],
+      "required": ["name", "namespace", "rules"],
       "minimal_config": "resource \"xcsh_user_identification\" \"example\" {\n  name      = \"example-user-identification\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1401,7 +1461,7 @@
     "virtual_site": {
       "category": "sites",
       "description": "Virtual site object in given namespace",
-      "required": ["name", "namespace", "site_type"],
+      "required": ["name", "namespace", "site_type", "site_selector"],
       "minimal_config": "resource \"xcsh_virtual_site\" \"example\" {\n  name      = \"example-virtual-site\"\n  namespace = \"staging\"\n\n  site_type = \"INVALID\"\n}",
       "dependencies": {
         "requires": []
@@ -1421,7 +1481,7 @@
     "waf_exclusion_policy": {
       "category": "security",
       "description": "WAF exclusion policy",
-      "required": ["name", "namespace"],
+      "required": ["name", "namespace", "waf_exclusion_rules"],
       "minimal_config": "resource \"xcsh_waf_exclusion_policy\" \"example\" {\n  name      = \"example-waf-exclusion-policy\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []

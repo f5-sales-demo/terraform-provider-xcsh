@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// Endpoint represents a XCSH Endpoint
+// Endpoint represents a F5XC Endpoint
 type Endpoint struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

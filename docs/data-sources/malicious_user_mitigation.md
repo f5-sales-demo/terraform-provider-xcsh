@@ -39,6 +39,27 @@ data "xcsh_malicious_user_mitigation" "example" {
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
 
+🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
+
+### Minimum Configuration
+
+Required fields:
+
+- `name`
+- `namespace`
+
+**Example (API format):**
+
+```yaml
+apiVersion: v1
+kind: malicious_user_mitigation
+metadata:
+  name: example-mitigation
+  namespace: default
+spec: {}
+
+```
+
 ### Metadata Argument Reference
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the MaliciousUserMitigation

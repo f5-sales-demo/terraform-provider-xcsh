@@ -249,14 +249,14 @@ func (r *DcClusterGroupResource) Create(ctx context.Context, req resource.Create
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.Type != nil {
-		typeMap := make(map[string]interface{})
+		TypeMap := make(map[string]interface{})
 		if data.Type.ControlAndDataPlaneMesh != nil {
-			typeMap["control_and_data_plane_mesh"] = map[string]interface{}{}
+			TypeMap["control_and_data_plane_mesh"] = map[string]interface{}{}
 		}
 		if data.Type.DataPlaneMesh != nil {
-			typeMap["data_plane_mesh"] = map[string]interface{}{}
+			TypeMap["data_plane_mesh"] = map[string]interface{}{}
 		}
-		createReq.Spec["type"] = typeMap
+		createReq.Spec["type"] = TypeMap
 	}
 
 	apiResource, err := r.client.CreateDcClusterGroup(ctx, createReq)
@@ -271,11 +271,28 @@ func (r *DcClusterGroupResource) Create(ctx context.Context, req resource.Create
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["type"].(map[string]interface{}); ok && isImport && data.Type == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Type = &DcClusterGroupTypeModel{}
+	if blockData, ok := apiResource.Spec["type"].(map[string]interface{}); ok && (isImport || data.Type != nil) {
+		data.Type = &DcClusterGroupTypeModel{
+			ControlAndDataPlaneMesh: func() *DcClusterGroupEmptyModel {
+				if !isImport && data.Type != nil {
+					return data.Type.ControlAndDataPlaneMesh
+				}
+				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
+					return &DcClusterGroupEmptyModel{}
+				}
+				return nil
+			}(),
+			DataPlaneMesh: func() *DcClusterGroupEmptyModel {
+				if !isImport && data.Type != nil {
+					return data.Type.DataPlaneMesh
+				}
+				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
+					return &DcClusterGroupEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 
 	tflog.Trace(ctx, "created DcClusterGroup resource")
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -356,11 +373,36 @@ func (r *DcClusterGroupResource) Read(ctx context.Context, req resource.ReadRequ
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["type"].(map[string]interface{}); ok && isImport && data.Type == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Type = &DcClusterGroupTypeModel{}
+	if blockData, ok := apiResource.Spec["type"].(map[string]interface{}); ok && (isImport || data.Type != nil) {
+		data.Type = &DcClusterGroupTypeModel{
+			ControlAndDataPlaneMesh: func() *DcClusterGroupEmptyModel {
+				if !isImport && data.Type != nil {
+					return data.Type.ControlAndDataPlaneMesh
+				}
+				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
+					return &DcClusterGroupEmptyModel{}
+				}
+				return nil
+			}(),
+			DataPlaneMesh: func() *DcClusterGroupEmptyModel {
+				if !isImport && data.Type != nil {
+					return data.Type.DataPlaneMesh
+				}
+				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
+					return &DcClusterGroupEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
+	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
@@ -413,14 +455,14 @@ func (r *DcClusterGroupResource) Update(ctx context.Context, req resource.Update
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.Type != nil {
-		typeMap := make(map[string]interface{})
+		TypeMap := make(map[string]interface{})
 		if data.Type.ControlAndDataPlaneMesh != nil {
-			typeMap["control_and_data_plane_mesh"] = map[string]interface{}{}
+			TypeMap["control_and_data_plane_mesh"] = map[string]interface{}{}
 		}
 		if data.Type.DataPlaneMesh != nil {
-			typeMap["data_plane_mesh"] = map[string]interface{}{}
+			TypeMap["data_plane_mesh"] = map[string]interface{}{}
 		}
-		apiResource.Spec["type"] = typeMap
+		apiResource.Spec["type"] = TypeMap
 	}
 
 	_, err := r.client.UpdateDcClusterGroup(ctx, apiResource)
@@ -446,11 +488,28 @@ func (r *DcClusterGroupResource) Update(ctx context.Context, req resource.Update
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["type"].(map[string]interface{}); ok && isImport && data.Type == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Type = &DcClusterGroupTypeModel{}
+	if blockData, ok := apiResource.Spec["type"].(map[string]interface{}); ok && (isImport || data.Type != nil) {
+		data.Type = &DcClusterGroupTypeModel{
+			ControlAndDataPlaneMesh: func() *DcClusterGroupEmptyModel {
+				if !isImport && data.Type != nil {
+					return data.Type.ControlAndDataPlaneMesh
+				}
+				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
+					return &DcClusterGroupEmptyModel{}
+				}
+				return nil
+			}(),
+			DataPlaneMesh: func() *DcClusterGroupEmptyModel {
+				if !isImport && data.Type != nil {
+					return data.Type.DataPlaneMesh
+				}
+				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
+					return &DcClusterGroupEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }

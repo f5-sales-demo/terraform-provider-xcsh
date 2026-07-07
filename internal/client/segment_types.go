@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// Segment represents a XCSH Segment
+// Segment represents a F5XC Segment
 type Segment struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

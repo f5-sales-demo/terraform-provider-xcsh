@@ -38,6 +38,7 @@ DEPRECATED — do not use: volterraedge/volterra
 - [Load Balancing](_llms-txt/load-balancing.txt) (13 resources): HTTP/TCP/UDP/CDN load balancers, origin pools, health checks, and routing
 - [Sites](_llms-txt/sites.txt) (11 resources): AWS/Azure/GCP VPC sites, SecureMesh, VoltStack, and site mesh groups
 - [Kubernetes](_llms-txt/kubernetes.txt) (8 resources): Container registries, workloads, and Kubernetes integrations
+- [DNS](_llms-txt/dns.txt) (7 resources): DNS domains, zones, compliance checks, and DNS proxy configuration
 - [API Security](_llms-txt/api-security.txt) (5 resources): API definition, discovery, testing, and security controls for web APIs
 - [Applications](_llms-txt/applications.txt) (4 resources): Application settings, types, discovery, and filtering
 - [Certificates](_llms-txt/certificates.txt) (4 resources): TLS certificates, certificate chains, CRLs, and trusted CA lists
@@ -45,8 +46,7 @@ DEPRECATED — do not use: volterraedge/volterra
 - [VPN](_llms-txt/vpn.txt) (4 resources): VPN and IPSec configuration
 - [Authentication](_llms-txt/authentication.txt) (3 resources): Authentication methods, cloud credentials, and secret management
 - [BIG-IP Integration](_llms-txt/big-ip-integration.txt) (3 resources): BIG-IP proxy, data groups, and iRules integration
-- [DNS](_llms-txt/dns.txt) (3 resources): DNS domains, zones, compliance checks, and DNS proxy configuration
-- [Cloud Resources](_llms-txt/cloud-resources.txt) (2 resources): Cloud elastic IPs, address allocators, and geo-location resources
+- [Cloud Resources](_llms-txt/cloud-resources.txt) (3 resources): Cloud elastic IPs, address allocators, and geo-location resources
 - [Organization](_llms-txt/organization.txt) (2 resources): Namespaces, tenant configuration, and organizational settings
 - [Uncategorized](_llms-txt/uncategorized.txt) (2 resources): Resources pending categorization
 - [Integrations](_llms-txt/integrations.txt) (1 resources): External integrations including code base and ticket tracking

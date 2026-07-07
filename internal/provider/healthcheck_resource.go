@@ -16,7 +16,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/listplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -154,7 +156,7 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 				},
 			},
 			"unhealthy_threshold": schema.Int64Attribute{
-				MarkdownDescription: "Number of failed responses before declaring unhealthy. In other words, this is the number of unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health checkinggggggg if a host responds with 503 this threshold is ignored and the host is considered unhealthy immediately. Recommended: `1`.",
+				MarkdownDescription: "Number of failed responses before declaring unhealthy. In other words, this is the number of unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health checkingg if a host responds with 503 this threshold is ignored and the host is considered unhealthy immediately. Recommended: `1`.",
 				Required:            true,
 				Validators: []validator.Int64{
 					int64validator.Between(1, 16),
@@ -205,16 +207,24 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 				MarkdownDescription: "[OneOf: http_health_check, tcp_health_check, udp_icmp_health_check] Healthy if 'GET' method on URL 'HTTP(s)://<host>/<path>' with optional '<header>' returns success. 'host' is not used for DNS resolution. It is used as HTTP Header in the request.",
 				Attributes: map[string]schema.Attribute{
 					"expected_response": schema.StringAttribute{
-						MarkdownDescription: "Raw bytes expected in the response of HTTP health check. Input is to be given in Hex encoded format. If left empty, then response body is not considered for evaluating health check status.",
+						MarkdownDescription: "Raw bytes expected in the response of HTTP health check. Input is to be given in Hex encoded format. If left empty, then response body is not considered for evaluating health check status. Server applies default when omitted.",
 						Optional:            true,
+						Computed:            true,
+						PlanModifiers: []planmodifier.String{
+							stringplanmodifier.UseStateForUnknown(),
+						},
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(2048),
 						},
 					},
 					"expected_status_codes": schema.ListAttribute{
-						MarkdownDescription: "Specifies a list of HTTP response status codes considered healthy. To treat default HTTP expected status code 200 as healthy, user has to configure it explicitly. This is a list of strings, each of which is single HTTP status code or a range with start and end values separated by '-'.",
+						MarkdownDescription: "Specifies a list of HTTP response status codes considered healthy. To treat default HTTP expected status code 200 as healthy, user has to configure it explicitly. This is a list of strings, each of which is single HTTP status code or a range with start and end values separated by '-'. Defaults to `[]`. Server applies default when omitted.",
 						Optional:            true,
-						ElementType:         types.StringType,
+						Computed:            true,
+						PlanModifiers: []planmodifier.List{
+							listplanmodifier.UseStateForUnknown(),
+						},
+						ElementType: types.StringType,
 						Validators: []validator.List{
 							listvalidator.SizeAtMost(16),
 						},
@@ -227,31 +237,39 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 						},
 					},
 					"path": schema.StringAttribute{
-						MarkdownDescription: "Specifies the HTTP path that will be requested during health checkinggggggg.",
+						MarkdownDescription: "Specifies the HTTP path that will be requested during health checkingg. Recommended: `/`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthBetween(1, 2048),
 						},
 					},
 					"request_headers_to_remove": schema.ListAttribute{
-						MarkdownDescription: "Specifies a list of HTTP headers that should be removed from each request that is sent to the health checked cluster. This is a list of keys of headers.",
+						MarkdownDescription: "Specifies a list of HTTP headers that should be removed from each request that is sent to the health checked cluster. This is a list of keys of headers. Defaults to `[]`. Server applies default when omitted.",
 						Optional:            true,
-						ElementType:         types.StringType,
+						Computed:            true,
+						PlanModifiers: []planmodifier.List{
+							listplanmodifier.UseStateForUnknown(),
+						},
+						ElementType: types.StringType,
 						Validators: []validator.List{
 							listvalidator.SizeAtMost(16),
 						},
 					},
 					"use_http2": schema.BoolAttribute{
-						MarkdownDescription: "If set, health checks will be made using HTTP/2.",
+						MarkdownDescription: "If set, health checks will be made using HTTP/2. Defaults to `false`. Server applies default when omitted. Recommended: `false`.",
 						Optional:            true,
+						Computed:            true,
+						PlanModifiers: []planmodifier.Bool{
+							boolplanmodifier.UseStateForUnknown(),
+						},
 					},
 				},
 				Blocks: map[string]schema.Block{
 					"headers": schema.SingleNestedBlock{
-						MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked cluster. This is a list of key-value pairs.",
+						MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked cluster. This is a list of key-value pairs. Defaults to `map[]`. Server applies default when omitted.",
 					},
 					"use_origin_server_name": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
+						MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
 					},
 				},
 			},
@@ -396,54 +414,53 @@ func (r *HealthcheckResource) Create(ctx context.Context, req resource.CreateReq
 		createReq.Spec["unhealthy_threshold"] = data.UnhealthyThreshold.ValueInt64()
 	}
 	if data.HTTPHealthCheck != nil {
-		http_health_checkMap := make(map[string]interface{})
+		HTTPHealthCheckMap := make(map[string]interface{})
 		if !data.HTTPHealthCheck.ExpectedResponse.IsNull() && !data.HTTPHealthCheck.ExpectedResponse.IsUnknown() {
-			http_health_checkMap["expected_response"] = data.HTTPHealthCheck.ExpectedResponse.ValueString()
+			HTTPHealthCheckMap["expected_response"] = data.HTTPHealthCheck.ExpectedResponse.ValueString()
 		}
 		if !data.HTTPHealthCheck.ExpectedStatusCodes.IsNull() && !data.HTTPHealthCheck.ExpectedStatusCodes.IsUnknown() {
-			var expected_status_codesItems []string
-			diags := data.HTTPHealthCheck.ExpectedStatusCodes.ElementsAs(ctx, &expected_status_codesItems, false)
+			var ExpectedStatusCodesItems []string
+			diags := data.HTTPHealthCheck.ExpectedStatusCodes.ElementsAs(ctx, &ExpectedStatusCodesItems, false)
 			if !diags.HasError() {
-				http_health_checkMap["expected_status_codes"] = expected_status_codesItems
+				HTTPHealthCheckMap["expected_status_codes"] = ExpectedStatusCodesItems
 			}
 		}
 		if data.HTTPHealthCheck.Headers != nil {
-			http_health_checkMap["headers"] = map[string]interface{}{}
+			HTTPHealthCheckMap["headers"] = map[string]interface{}{}
 		}
 		if !data.HTTPHealthCheck.HostHeader.IsNull() && !data.HTTPHealthCheck.HostHeader.IsUnknown() {
-			http_health_checkMap["host_header"] = data.HTTPHealthCheck.HostHeader.ValueString()
+			HTTPHealthCheckMap["host_header"] = data.HTTPHealthCheck.HostHeader.ValueString()
 		}
 		if !data.HTTPHealthCheck.Path.IsNull() && !data.HTTPHealthCheck.Path.IsUnknown() {
-			http_health_checkMap["path"] = data.HTTPHealthCheck.Path.ValueString()
+			HTTPHealthCheckMap["path"] = data.HTTPHealthCheck.Path.ValueString()
 		}
 		if !data.HTTPHealthCheck.RequestHeadersToRemove.IsNull() && !data.HTTPHealthCheck.RequestHeadersToRemove.IsUnknown() {
-			var request_headers_to_removeItems []string
-			diags := data.HTTPHealthCheck.RequestHeadersToRemove.ElementsAs(ctx, &request_headers_to_removeItems, false)
+			var RequestHeadersToRemoveItems []string
+			diags := data.HTTPHealthCheck.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
 			if !diags.HasError() {
-				http_health_checkMap["request_headers_to_remove"] = request_headers_to_removeItems
+				HTTPHealthCheckMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 			}
 		}
 		if !data.HTTPHealthCheck.UseHttp2.IsNull() && !data.HTTPHealthCheck.UseHttp2.IsUnknown() {
-			http_health_checkMap["use_http2"] = data.HTTPHealthCheck.UseHttp2.ValueBool()
+			HTTPHealthCheckMap["use_http2"] = data.HTTPHealthCheck.UseHttp2.ValueBool()
 		}
 		if data.HTTPHealthCheck.UseOriginServerName != nil {
-			http_health_checkMap["use_origin_server_name"] = map[string]interface{}{}
+			HTTPHealthCheckMap["use_origin_server_name"] = map[string]interface{}{}
 		}
-		createReq.Spec["http_health_check"] = http_health_checkMap
+		createReq.Spec["http_health_check"] = HTTPHealthCheckMap
 	}
 	if data.TCPHealthCheck != nil {
-		tcp_health_checkMap := make(map[string]interface{})
+		TCPHealthCheckMap := make(map[string]interface{})
 		if !data.TCPHealthCheck.ExpectedResponse.IsNull() && !data.TCPHealthCheck.ExpectedResponse.IsUnknown() {
-			tcp_health_checkMap["expected_response"] = data.TCPHealthCheck.ExpectedResponse.ValueString()
+			TCPHealthCheckMap["expected_response"] = data.TCPHealthCheck.ExpectedResponse.ValueString()
 		}
 		if !data.TCPHealthCheck.SendPayload.IsNull() && !data.TCPHealthCheck.SendPayload.IsUnknown() {
-			tcp_health_checkMap["send_payload"] = data.TCPHealthCheck.SendPayload.ValueString()
+			TCPHealthCheckMap["send_payload"] = data.TCPHealthCheck.SendPayload.ValueString()
 		}
-		createReq.Spec["tcp_health_check"] = tcp_health_checkMap
+		createReq.Spec["tcp_health_check"] = TCPHealthCheckMap
 	}
 	if data.UDPICMPHealthCheck != nil {
-		udp_icmp_health_checkMap := make(map[string]interface{})
-		createReq.Spec["udp_icmp_health_check"] = udp_icmp_health_checkMap
+		createReq.Spec["udp_icmp_health_check"] = map[string]interface{}{}
 	}
 	if !data.JitterPercent.IsNull() && !data.JitterPercent.IsUnknown() {
 		createReq.Spec["jitter_percent"] = data.JitterPercent.ValueInt64()
@@ -504,11 +521,8 @@ func (r *HealthcheckResource) Create(ctx context.Context, req resource.CreateReq
 			}(),
 			Headers: func() *HealthcheckEmptyModel {
 				if !isImport && data.HTTPHealthCheck != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.HTTPHealthCheck.Headers
 				}
-				// Import case: read from API
 				if _, ok := blockData["headers"].(map[string]interface{}); ok {
 					return &HealthcheckEmptyModel{}
 				}
@@ -541,15 +555,8 @@ func (r *HealthcheckResource) Create(ctx context.Context, req resource.CreateReq
 			}(),
 			UseHttp2: func() types.Bool {
 				if !isImport && data.HTTPHealthCheck != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults from overwriting user intent
 					return data.HTTPHealthCheck.UseHttp2
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.BoolNull()
-				}
-				// Import case: read from API
 				if v, ok := blockData["use_http2"].(bool); ok {
 					return types.BoolValue(v)
 				}
@@ -557,11 +564,8 @@ func (r *HealthcheckResource) Create(ctx context.Context, req resource.CreateReq
 			}(),
 			UseOriginServerName: func() *HealthcheckEmptyModel {
 				if !isImport && data.HTTPHealthCheck != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.HTTPHealthCheck.UseOriginServerName
 				}
-				// Import case: read from API
 				if _, ok := blockData["use_origin_server_name"].(map[string]interface{}); ok {
 					return &HealthcheckEmptyModel{}
 				}
@@ -586,10 +590,8 @@ func (r *HealthcheckResource) Create(ctx context.Context, req resource.CreateReq
 		}
 	}
 	if _, ok := apiResource.Spec["udp_icmp_health_check"].(map[string]interface{}); ok && isImport && data.UDPICMPHealthCheck == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.UDPICMPHealthCheck = &HealthcheckEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["jitter_percent"].(float64); ok {
 		data.JitterPercent = types.Int64Value(int64(v))
 	} else {
@@ -718,11 +720,8 @@ func (r *HealthcheckResource) Read(ctx context.Context, req resource.ReadRequest
 			}(),
 			Headers: func() *HealthcheckEmptyModel {
 				if !isImport && data.HTTPHealthCheck != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.HTTPHealthCheck.Headers
 				}
-				// Import case: read from API
 				if _, ok := blockData["headers"].(map[string]interface{}); ok {
 					return &HealthcheckEmptyModel{}
 				}
@@ -755,15 +754,8 @@ func (r *HealthcheckResource) Read(ctx context.Context, req resource.ReadRequest
 			}(),
 			UseHttp2: func() types.Bool {
 				if !isImport && data.HTTPHealthCheck != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults from overwriting user intent
 					return data.HTTPHealthCheck.UseHttp2
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.BoolNull()
-				}
-				// Import case: read from API
 				if v, ok := blockData["use_http2"].(bool); ok {
 					return types.BoolValue(v)
 				}
@@ -771,11 +763,8 @@ func (r *HealthcheckResource) Read(ctx context.Context, req resource.ReadRequest
 			}(),
 			UseOriginServerName: func() *HealthcheckEmptyModel {
 				if !isImport && data.HTTPHealthCheck != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.HTTPHealthCheck.UseOriginServerName
 				}
-				// Import case: read from API
 				if _, ok := blockData["use_origin_server_name"].(map[string]interface{}); ok {
 					return &HealthcheckEmptyModel{}
 				}
@@ -800,14 +789,20 @@ func (r *HealthcheckResource) Read(ctx context.Context, req resource.ReadRequest
 		}
 	}
 	if _, ok := apiResource.Spec["udp_icmp_health_check"].(map[string]interface{}); ok && isImport && data.UDPICMPHealthCheck == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.UDPICMPHealthCheck = &HealthcheckEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["jitter_percent"].(float64); ok {
 		data.JitterPercent = types.Int64Value(int64(v))
 	} else {
 		data.JitterPercent = types.Int64Null()
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -873,54 +868,53 @@ func (r *HealthcheckResource) Update(ctx context.Context, req resource.UpdateReq
 		apiResource.Spec["unhealthy_threshold"] = data.UnhealthyThreshold.ValueInt64()
 	}
 	if data.HTTPHealthCheck != nil {
-		http_health_checkMap := make(map[string]interface{})
+		HTTPHealthCheckMap := make(map[string]interface{})
 		if !data.HTTPHealthCheck.ExpectedResponse.IsNull() && !data.HTTPHealthCheck.ExpectedResponse.IsUnknown() {
-			http_health_checkMap["expected_response"] = data.HTTPHealthCheck.ExpectedResponse.ValueString()
+			HTTPHealthCheckMap["expected_response"] = data.HTTPHealthCheck.ExpectedResponse.ValueString()
 		}
 		if !data.HTTPHealthCheck.ExpectedStatusCodes.IsNull() && !data.HTTPHealthCheck.ExpectedStatusCodes.IsUnknown() {
-			var expected_status_codesItems []string
-			diags := data.HTTPHealthCheck.ExpectedStatusCodes.ElementsAs(ctx, &expected_status_codesItems, false)
+			var ExpectedStatusCodesItems []string
+			diags := data.HTTPHealthCheck.ExpectedStatusCodes.ElementsAs(ctx, &ExpectedStatusCodesItems, false)
 			if !diags.HasError() {
-				http_health_checkMap["expected_status_codes"] = expected_status_codesItems
+				HTTPHealthCheckMap["expected_status_codes"] = ExpectedStatusCodesItems
 			}
 		}
 		if data.HTTPHealthCheck.Headers != nil {
-			http_health_checkMap["headers"] = map[string]interface{}{}
+			HTTPHealthCheckMap["headers"] = map[string]interface{}{}
 		}
 		if !data.HTTPHealthCheck.HostHeader.IsNull() && !data.HTTPHealthCheck.HostHeader.IsUnknown() {
-			http_health_checkMap["host_header"] = data.HTTPHealthCheck.HostHeader.ValueString()
+			HTTPHealthCheckMap["host_header"] = data.HTTPHealthCheck.HostHeader.ValueString()
 		}
 		if !data.HTTPHealthCheck.Path.IsNull() && !data.HTTPHealthCheck.Path.IsUnknown() {
-			http_health_checkMap["path"] = data.HTTPHealthCheck.Path.ValueString()
+			HTTPHealthCheckMap["path"] = data.HTTPHealthCheck.Path.ValueString()
 		}
 		if !data.HTTPHealthCheck.RequestHeadersToRemove.IsNull() && !data.HTTPHealthCheck.RequestHeadersToRemove.IsUnknown() {
-			var request_headers_to_removeItems []string
-			diags := data.HTTPHealthCheck.RequestHeadersToRemove.ElementsAs(ctx, &request_headers_to_removeItems, false)
+			var RequestHeadersToRemoveItems []string
+			diags := data.HTTPHealthCheck.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
 			if !diags.HasError() {
-				http_health_checkMap["request_headers_to_remove"] = request_headers_to_removeItems
+				HTTPHealthCheckMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 			}
 		}
 		if !data.HTTPHealthCheck.UseHttp2.IsNull() && !data.HTTPHealthCheck.UseHttp2.IsUnknown() {
-			http_health_checkMap["use_http2"] = data.HTTPHealthCheck.UseHttp2.ValueBool()
+			HTTPHealthCheckMap["use_http2"] = data.HTTPHealthCheck.UseHttp2.ValueBool()
 		}
 		if data.HTTPHealthCheck.UseOriginServerName != nil {
-			http_health_checkMap["use_origin_server_name"] = map[string]interface{}{}
+			HTTPHealthCheckMap["use_origin_server_name"] = map[string]interface{}{}
 		}
-		apiResource.Spec["http_health_check"] = http_health_checkMap
+		apiResource.Spec["http_health_check"] = HTTPHealthCheckMap
 	}
 	if data.TCPHealthCheck != nil {
-		tcp_health_checkMap := make(map[string]interface{})
+		TCPHealthCheckMap := make(map[string]interface{})
 		if !data.TCPHealthCheck.ExpectedResponse.IsNull() && !data.TCPHealthCheck.ExpectedResponse.IsUnknown() {
-			tcp_health_checkMap["expected_response"] = data.TCPHealthCheck.ExpectedResponse.ValueString()
+			TCPHealthCheckMap["expected_response"] = data.TCPHealthCheck.ExpectedResponse.ValueString()
 		}
 		if !data.TCPHealthCheck.SendPayload.IsNull() && !data.TCPHealthCheck.SendPayload.IsUnknown() {
-			tcp_health_checkMap["send_payload"] = data.TCPHealthCheck.SendPayload.ValueString()
+			TCPHealthCheckMap["send_payload"] = data.TCPHealthCheck.SendPayload.ValueString()
 		}
-		apiResource.Spec["tcp_health_check"] = tcp_health_checkMap
+		apiResource.Spec["tcp_health_check"] = TCPHealthCheckMap
 	}
 	if data.UDPICMPHealthCheck != nil {
-		udp_icmp_health_checkMap := make(map[string]interface{})
-		apiResource.Spec["udp_icmp_health_check"] = udp_icmp_health_checkMap
+		apiResource.Spec["udp_icmp_health_check"] = map[string]interface{}{}
 	}
 	if !data.JitterPercent.IsNull() && !data.JitterPercent.IsUnknown() {
 		apiResource.Spec["jitter_percent"] = data.JitterPercent.ValueInt64()
@@ -999,11 +993,8 @@ func (r *HealthcheckResource) Update(ctx context.Context, req resource.UpdateReq
 			}(),
 			Headers: func() *HealthcheckEmptyModel {
 				if !isImport && data.HTTPHealthCheck != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.HTTPHealthCheck.Headers
 				}
-				// Import case: read from API
 				if _, ok := blockData["headers"].(map[string]interface{}); ok {
 					return &HealthcheckEmptyModel{}
 				}
@@ -1036,15 +1027,8 @@ func (r *HealthcheckResource) Update(ctx context.Context, req resource.UpdateReq
 			}(),
 			UseHttp2: func() types.Bool {
 				if !isImport && data.HTTPHealthCheck != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults from overwriting user intent
 					return data.HTTPHealthCheck.UseHttp2
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.BoolNull()
-				}
-				// Import case: read from API
 				if v, ok := blockData["use_http2"].(bool); ok {
 					return types.BoolValue(v)
 				}
@@ -1052,11 +1036,8 @@ func (r *HealthcheckResource) Update(ctx context.Context, req resource.UpdateReq
 			}(),
 			UseOriginServerName: func() *HealthcheckEmptyModel {
 				if !isImport && data.HTTPHealthCheck != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.HTTPHealthCheck.UseOriginServerName
 				}
-				// Import case: read from API
 				if _, ok := blockData["use_origin_server_name"].(map[string]interface{}); ok {
 					return &HealthcheckEmptyModel{}
 				}
@@ -1081,10 +1062,8 @@ func (r *HealthcheckResource) Update(ctx context.Context, req resource.UpdateReq
 		}
 	}
 	if _, ok := apiResource.Spec["udp_icmp_health_check"].(map[string]interface{}); ok && isImport && data.UDPICMPHealthCheck == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.UDPICMPHealthCheck = &HealthcheckEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["jitter_percent"].(float64); ok {
 		data.JitterPercent = types.Int64Value(int64(v))
 	} else {

@@ -9,7 +9,7 @@ description: |-
 
 Manages new Log Receiver object. in F5 Distributed Cloud.
 
-~> **Note** For more information about this resource, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
+~> **Note** Please refer to [Log Receiver API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/observability/) to learn more.
 
 ## Example Usage
 
@@ -39,6 +39,8 @@ resource "xcsh_log_receiver" "example" {
 ## Argument Reference
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
+
+🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
 ### Metadata Argument Reference
 
@@ -122,7 +124,7 @@ A [`mtls_enable`](#syslog-tls-server-mtls-enable) block (within [`syslog.tls_ser
 
 A [`key_url`](#syslog-tls-server-mtls-enable-key-url) block (within [`syslog.tls_server.mtls_enable`](#syslog-tls-server-mtls-enable)) supports the following:
 
-<a id="info-306978"></a>&#x2022; [`blindfold_secret_info`](#info-306978) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info](#info-306978) below.
+<a id="info-306978"></a>&#x2022; [`blindfold_secret_info`](#info-306978) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-306978) below.
 
 <a id="info-2b11e1"></a>&#x2022; [`clear_secret_info`](#info-2b11e1) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-2b11e1) below.
 

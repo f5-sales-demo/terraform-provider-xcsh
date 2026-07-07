@@ -104,7 +104,7 @@ var ExternalConnectorGreGreParametersPeerIPAddressModelAttrTypes = map[string]at
 
 // ExternalConnectorGreGreParametersSegmentModel represents segment block
 type ExternalConnectorGreGreParametersSegmentModel struct {
-	Refs []ExternalConnectorGreGreParametersSegmentRefsModel `tfsdk:"refs"`
+	Refs types.List `tfsdk:"refs"`
 }
 
 // ExternalConnectorGreGreParametersSegmentModelAttrTypes defines the attribute types for ExternalConnectorGreGreParametersSegmentModel
@@ -290,7 +290,7 @@ var ExternalConnectorIpsecIpsecTunnelParametersPeerIPAddressModelAttrTypes = map
 
 // ExternalConnectorIpsecIpsecTunnelParametersSegmentModel represents segment block
 type ExternalConnectorIpsecIpsecTunnelParametersSegmentModel struct {
-	Refs []ExternalConnectorIpsecIpsecTunnelParametersSegmentRefsModel `tfsdk:"refs"`
+	Refs types.List `tfsdk:"refs"`
 }
 
 // ExternalConnectorIpsecIpsecTunnelParametersSegmentModelAttrTypes defines the attribute types for ExternalConnectorIpsecIpsecTunnelParametersSegmentModel
@@ -915,49 +915,245 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.CESiteReference != nil {
-		ce_site_referenceMap := make(map[string]interface{})
+		CESiteReferenceMap := make(map[string]interface{})
 		if !data.CESiteReference.Name.IsNull() && !data.CESiteReference.Name.IsUnknown() {
-			ce_site_referenceMap["name"] = data.CESiteReference.Name.ValueString()
+			CESiteReferenceMap["name"] = data.CESiteReference.Name.ValueString()
 		}
 		if !data.CESiteReference.Namespace.IsNull() && !data.CESiteReference.Namespace.IsUnknown() {
-			ce_site_referenceMap["namespace"] = data.CESiteReference.Namespace.ValueString()
+			CESiteReferenceMap["namespace"] = data.CESiteReference.Namespace.ValueString()
 		}
 		if !data.CESiteReference.Tenant.IsNull() && !data.CESiteReference.Tenant.IsUnknown() {
-			ce_site_referenceMap["tenant"] = data.CESiteReference.Tenant.ValueString()
+			CESiteReferenceMap["tenant"] = data.CESiteReference.Tenant.ValueString()
 		}
-		createReq.Spec["ce_site_reference"] = ce_site_referenceMap
+		createReq.Spec["ce_site_reference"] = CESiteReferenceMap
 	}
 	if data.Gre != nil {
-		greMap := make(map[string]interface{})
+		GreMap := make(map[string]interface{})
 		if data.Gre.GreParameters != nil {
-			gre_parametersNestedMap := make(map[string]interface{})
-			if !data.Gre.GreParameters.TunnelMTU.IsNull() && !data.Gre.GreParameters.TunnelMTU.IsUnknown() {
-				gre_parametersNestedMap["tunnel_mtu"] = data.Gre.GreParameters.TunnelMTU.ValueInt64()
+			GreParametersMap := make(map[string]interface{})
+			if data.Gre.GreParameters.PeerIPAddress != nil {
+				PeerIPAddressMap := make(map[string]interface{})
+				if !data.Gre.GreParameters.PeerIPAddress.Addr.IsNull() && !data.Gre.GreParameters.PeerIPAddress.Addr.IsUnknown() {
+					PeerIPAddressMap["addr"] = data.Gre.GreParameters.PeerIPAddress.Addr.ValueString()
+				}
+				GreParametersMap["peer_ip_address"] = PeerIPAddressMap
 			}
-			greMap["gre_parameters"] = gre_parametersNestedMap
+			if data.Gre.GreParameters.Segment != nil {
+				SegmentMap := make(map[string]interface{})
+				if !data.Gre.GreParameters.Segment.Refs.IsNull() && !data.Gre.GreParameters.Segment.Refs.IsUnknown() {
+					var RefsElems []ExternalConnectorGreGreParametersSegmentRefsModel
+					diags := data.Gre.GreParameters.Segment.Refs.ElementsAs(ctx, &RefsElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(RefsElems) > 0 {
+						var RefsList []map[string]interface{}
+						for _, RefsItem := range RefsElems {
+							RefsItemMap := make(map[string]interface{})
+							if !RefsItem.Kind.IsNull() && !RefsItem.Kind.IsUnknown() {
+								RefsItemMap["kind"] = RefsItem.Kind.ValueString()
+							}
+							if !RefsItem.Name.IsNull() && !RefsItem.Name.IsUnknown() {
+								RefsItemMap["name"] = RefsItem.Name.ValueString()
+							}
+							if !RefsItem.Namespace.IsNull() && !RefsItem.Namespace.IsUnknown() {
+								RefsItemMap["namespace"] = RefsItem.Namespace.ValueString()
+							}
+							if !RefsItem.Tenant.IsNull() && !RefsItem.Tenant.IsUnknown() {
+								RefsItemMap["tenant"] = RefsItem.Tenant.ValueString()
+							}
+							if !RefsItem.Uid.IsNull() && !RefsItem.Uid.IsUnknown() {
+								RefsItemMap["uid"] = RefsItem.Uid.ValueString()
+							}
+							RefsList = append(RefsList, RefsItemMap)
+						}
+						SegmentMap["refs"] = RefsList
+					}
+				}
+				GreParametersMap["segment"] = SegmentMap
+			}
+			if data.Gre.GreParameters.SiteLocalInsideNetwork != nil {
+				GreParametersMap["site_local_inside_network"] = map[string]interface{}{}
+			}
+			if data.Gre.GreParameters.SiteLocalNetwork != nil {
+				GreParametersMap["site_local_network"] = map[string]interface{}{}
+			}
+			if len(data.Gre.GreParameters.TunnelEps) > 0 {
+				var TunnelEpsList []map[string]interface{}
+				for _, TunnelEpsItem := range data.Gre.GreParameters.TunnelEps {
+					TunnelEpsItemMap := make(map[string]interface{})
+					if !TunnelEpsItem.Interface.IsNull() && !TunnelEpsItem.Interface.IsUnknown() {
+						TunnelEpsItemMap["interface"] = TunnelEpsItem.Interface.ValueString()
+					}
+					if !TunnelEpsItem.LocalTunnelIP.IsNull() && !TunnelEpsItem.LocalTunnelIP.IsUnknown() {
+						TunnelEpsItemMap["local_tunnel_ip"] = TunnelEpsItem.LocalTunnelIP.ValueString()
+					}
+					if !TunnelEpsItem.Node.IsNull() && !TunnelEpsItem.Node.IsUnknown() {
+						TunnelEpsItemMap["node"] = TunnelEpsItem.Node.ValueString()
+					}
+					if !TunnelEpsItem.RemoteTunnelIP.IsNull() && !TunnelEpsItem.RemoteTunnelIP.IsUnknown() {
+						TunnelEpsItemMap["remote_tunnel_ip"] = TunnelEpsItem.RemoteTunnelIP.ValueString()
+					}
+					TunnelEpsList = append(TunnelEpsList, TunnelEpsItemMap)
+				}
+				GreParametersMap["tunnel_eps"] = TunnelEpsList
+			}
+			if !data.Gre.GreParameters.TunnelMTU.IsNull() && !data.Gre.GreParameters.TunnelMTU.IsUnknown() {
+				GreParametersMap["tunnel_mtu"] = data.Gre.GreParameters.TunnelMTU.ValueInt64()
+			}
+			GreMap["gre_parameters"] = GreParametersMap
 		}
-		createReq.Spec["gre"] = greMap
+		createReq.Spec["gre"] = GreMap
 	}
 	if data.Ipsec != nil {
-		ipsecMap := make(map[string]interface{})
+		IpsecMap := make(map[string]interface{})
 		if data.Ipsec.IKEParameters != nil {
-			ike_parametersNestedMap := make(map[string]interface{})
-			if !data.Ipsec.IKEParameters.RmHostname.IsNull() && !data.Ipsec.IKEParameters.RmHostname.IsUnknown() {
-				ike_parametersNestedMap["rm_hostname"] = data.Ipsec.IKEParameters.RmHostname.ValueString()
+			IKEParametersMap := make(map[string]interface{})
+			if data.Ipsec.IKEParameters.DpdDisabled != nil {
+				IKEParametersMap["dpd_disabled"] = map[string]interface{}{}
 			}
-			ipsecMap["ike_parameters"] = ike_parametersNestedMap
+			if data.Ipsec.IKEParameters.DpdKeepAliveTimer != nil {
+				DpdKeepAliveTimerMap := make(map[string]interface{})
+				if !data.Ipsec.IKEParameters.DpdKeepAliveTimer.Timeout.IsNull() && !data.Ipsec.IKEParameters.DpdKeepAliveTimer.Timeout.IsUnknown() {
+					DpdKeepAliveTimerMap["timeout"] = data.Ipsec.IKEParameters.DpdKeepAliveTimer.Timeout.ValueInt64()
+				}
+				IKEParametersMap["dpd_keep_alive_timer"] = DpdKeepAliveTimerMap
+			}
+			if data.Ipsec.IKEParameters.IKEPhase1Profile != nil {
+				IKEPhase1ProfileMap := make(map[string]interface{})
+				if !data.Ipsec.IKEParameters.IKEPhase1Profile.Name.IsNull() && !data.Ipsec.IKEParameters.IKEPhase1Profile.Name.IsUnknown() {
+					IKEPhase1ProfileMap["name"] = data.Ipsec.IKEParameters.IKEPhase1Profile.Name.ValueString()
+				}
+				if !data.Ipsec.IKEParameters.IKEPhase1Profile.Namespace.IsNull() && !data.Ipsec.IKEParameters.IKEPhase1Profile.Namespace.IsUnknown() {
+					IKEPhase1ProfileMap["namespace"] = data.Ipsec.IKEParameters.IKEPhase1Profile.Namespace.ValueString()
+				}
+				if !data.Ipsec.IKEParameters.IKEPhase1Profile.Tenant.IsNull() && !data.Ipsec.IKEParameters.IKEPhase1Profile.Tenant.IsUnknown() {
+					IKEPhase1ProfileMap["tenant"] = data.Ipsec.IKEParameters.IKEPhase1Profile.Tenant.ValueString()
+				}
+				IKEParametersMap["ike_phase1_profile"] = IKEPhase1ProfileMap
+			}
+			if data.Ipsec.IKEParameters.IKEPhase2Profile != nil {
+				IKEPhase2ProfileMap := make(map[string]interface{})
+				if !data.Ipsec.IKEParameters.IKEPhase2Profile.Name.IsNull() && !data.Ipsec.IKEParameters.IKEPhase2Profile.Name.IsUnknown() {
+					IKEPhase2ProfileMap["name"] = data.Ipsec.IKEParameters.IKEPhase2Profile.Name.ValueString()
+				}
+				if !data.Ipsec.IKEParameters.IKEPhase2Profile.Namespace.IsNull() && !data.Ipsec.IKEParameters.IKEPhase2Profile.Namespace.IsUnknown() {
+					IKEPhase2ProfileMap["namespace"] = data.Ipsec.IKEParameters.IKEPhase2Profile.Namespace.ValueString()
+				}
+				if !data.Ipsec.IKEParameters.IKEPhase2Profile.Tenant.IsNull() && !data.Ipsec.IKEParameters.IKEPhase2Profile.Tenant.IsUnknown() {
+					IKEPhase2ProfileMap["tenant"] = data.Ipsec.IKEParameters.IKEPhase2Profile.Tenant.ValueString()
+				}
+				IKEParametersMap["ike_phase2_profile"] = IKEPhase2ProfileMap
+			}
+			if data.Ipsec.IKEParameters.Initiator != nil {
+				IKEParametersMap["initiator"] = map[string]interface{}{}
+			}
+			if data.Ipsec.IKEParameters.Responder != nil {
+				IKEParametersMap["responder"] = map[string]interface{}{}
+			}
+			if !data.Ipsec.IKEParameters.RmHostname.IsNull() && !data.Ipsec.IKEParameters.RmHostname.IsUnknown() {
+				IKEParametersMap["rm_hostname"] = data.Ipsec.IKEParameters.RmHostname.ValueString()
+			}
+			if data.Ipsec.IKEParameters.RmIPAddress != nil {
+				RmIPAddressMap := make(map[string]interface{})
+				if data.Ipsec.IKEParameters.RmIPAddress.Ipv4 != nil {
+					Ipv4Map := make(map[string]interface{})
+					if !data.Ipsec.IKEParameters.RmIPAddress.Ipv4.Addr.IsNull() && !data.Ipsec.IKEParameters.RmIPAddress.Ipv4.Addr.IsUnknown() {
+						Ipv4Map["addr"] = data.Ipsec.IKEParameters.RmIPAddress.Ipv4.Addr.ValueString()
+					}
+					RmIPAddressMap["ipv4"] = Ipv4Map
+				}
+				if data.Ipsec.IKEParameters.RmIPAddress.Ipv6 != nil {
+					Ipv6Map := make(map[string]interface{})
+					if !data.Ipsec.IKEParameters.RmIPAddress.Ipv6.Addr.IsNull() && !data.Ipsec.IKEParameters.RmIPAddress.Ipv6.Addr.IsUnknown() {
+						Ipv6Map["addr"] = data.Ipsec.IKEParameters.RmIPAddress.Ipv6.Addr.ValueString()
+					}
+					RmIPAddressMap["ipv6"] = Ipv6Map
+				}
+				IKEParametersMap["rm_ip_address"] = RmIPAddressMap
+			}
+			if data.Ipsec.IKEParameters.UseDefaultLocalIKEID != nil {
+				IKEParametersMap["use_default_local_ike_id"] = map[string]interface{}{}
+			}
+			if data.Ipsec.IKEParameters.UseDefaultRemoteIKEID != nil {
+				IKEParametersMap["use_default_remote_ike_id"] = map[string]interface{}{}
+			}
+			IpsecMap["ike_parameters"] = IKEParametersMap
 		}
 		if data.Ipsec.IpsecTunnelParameters != nil {
-			ipsec_tunnel_parametersNestedMap := make(map[string]interface{})
+			IpsecTunnelParametersMap := make(map[string]interface{})
+			if data.Ipsec.IpsecTunnelParameters.PeerIPAddress != nil {
+				PeerIPAddressMap := make(map[string]interface{})
+				if !data.Ipsec.IpsecTunnelParameters.PeerIPAddress.Addr.IsNull() && !data.Ipsec.IpsecTunnelParameters.PeerIPAddress.Addr.IsUnknown() {
+					PeerIPAddressMap["addr"] = data.Ipsec.IpsecTunnelParameters.PeerIPAddress.Addr.ValueString()
+				}
+				IpsecTunnelParametersMap["peer_ip_address"] = PeerIPAddressMap
+			}
 			if !data.Ipsec.IpsecTunnelParameters.Psk.IsNull() && !data.Ipsec.IpsecTunnelParameters.Psk.IsUnknown() {
-				ipsec_tunnel_parametersNestedMap["psk"] = data.Ipsec.IpsecTunnelParameters.Psk.ValueString()
+				IpsecTunnelParametersMap["psk"] = data.Ipsec.IpsecTunnelParameters.Psk.ValueString()
+			}
+			if data.Ipsec.IpsecTunnelParameters.Segment != nil {
+				SegmentMap := make(map[string]interface{})
+				if !data.Ipsec.IpsecTunnelParameters.Segment.Refs.IsNull() && !data.Ipsec.IpsecTunnelParameters.Segment.Refs.IsUnknown() {
+					var RefsElems []ExternalConnectorIpsecIpsecTunnelParametersSegmentRefsModel
+					diags := data.Ipsec.IpsecTunnelParameters.Segment.Refs.ElementsAs(ctx, &RefsElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(RefsElems) > 0 {
+						var RefsList []map[string]interface{}
+						for _, RefsItem := range RefsElems {
+							RefsItemMap := make(map[string]interface{})
+							if !RefsItem.Kind.IsNull() && !RefsItem.Kind.IsUnknown() {
+								RefsItemMap["kind"] = RefsItem.Kind.ValueString()
+							}
+							if !RefsItem.Name.IsNull() && !RefsItem.Name.IsUnknown() {
+								RefsItemMap["name"] = RefsItem.Name.ValueString()
+							}
+							if !RefsItem.Namespace.IsNull() && !RefsItem.Namespace.IsUnknown() {
+								RefsItemMap["namespace"] = RefsItem.Namespace.ValueString()
+							}
+							if !RefsItem.Tenant.IsNull() && !RefsItem.Tenant.IsUnknown() {
+								RefsItemMap["tenant"] = RefsItem.Tenant.ValueString()
+							}
+							if !RefsItem.Uid.IsNull() && !RefsItem.Uid.IsUnknown() {
+								RefsItemMap["uid"] = RefsItem.Uid.ValueString()
+							}
+							RefsList = append(RefsList, RefsItemMap)
+						}
+						SegmentMap["refs"] = RefsList
+					}
+				}
+				IpsecTunnelParametersMap["segment"] = SegmentMap
+			}
+			if data.Ipsec.IpsecTunnelParameters.SiteLocalInsideNetwork != nil {
+				IpsecTunnelParametersMap["site_local_inside_network"] = map[string]interface{}{}
+			}
+			if data.Ipsec.IpsecTunnelParameters.SiteLocalNetwork != nil {
+				IpsecTunnelParametersMap["site_local_network"] = map[string]interface{}{}
+			}
+			if len(data.Ipsec.IpsecTunnelParameters.TunnelEps) > 0 {
+				var TunnelEpsList []map[string]interface{}
+				for _, TunnelEpsItem := range data.Ipsec.IpsecTunnelParameters.TunnelEps {
+					TunnelEpsItemMap := make(map[string]interface{})
+					if !TunnelEpsItem.Interface.IsNull() && !TunnelEpsItem.Interface.IsUnknown() {
+						TunnelEpsItemMap["interface"] = TunnelEpsItem.Interface.ValueString()
+					}
+					if !TunnelEpsItem.LocalTunnelIP.IsNull() && !TunnelEpsItem.LocalTunnelIP.IsUnknown() {
+						TunnelEpsItemMap["local_tunnel_ip"] = TunnelEpsItem.LocalTunnelIP.ValueString()
+					}
+					if !TunnelEpsItem.Node.IsNull() && !TunnelEpsItem.Node.IsUnknown() {
+						TunnelEpsItemMap["node"] = TunnelEpsItem.Node.ValueString()
+					}
+					if !TunnelEpsItem.RemoteTunnelIP.IsNull() && !TunnelEpsItem.RemoteTunnelIP.IsUnknown() {
+						TunnelEpsItemMap["remote_tunnel_ip"] = TunnelEpsItem.RemoteTunnelIP.ValueString()
+					}
+					TunnelEpsList = append(TunnelEpsList, TunnelEpsItemMap)
+				}
+				IpsecTunnelParametersMap["tunnel_eps"] = TunnelEpsList
 			}
 			if !data.Ipsec.IpsecTunnelParameters.TunnelMTU.IsNull() && !data.Ipsec.IpsecTunnelParameters.TunnelMTU.IsUnknown() {
-				ipsec_tunnel_parametersNestedMap["tunnel_mtu"] = data.Ipsec.IpsecTunnelParameters.TunnelMTU.ValueInt64()
+				IpsecTunnelParametersMap["tunnel_mtu"] = data.Ipsec.IpsecTunnelParameters.TunnelMTU.ValueInt64()
 			}
-			ipsecMap["ipsec_tunnel_parameters"] = ipsec_tunnel_parametersNestedMap
+			IpsecMap["ipsec_tunnel_parameters"] = IpsecTunnelParametersMap
 		}
-		createReq.Spec["ipsec"] = ipsecMap
+		createReq.Spec["ipsec"] = IpsecMap
 	}
 
 	apiResource, err := r.client.CreateExternalConnector(ctx, createReq)
@@ -994,16 +1190,420 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["gre"].(map[string]interface{}); ok && isImport && data.Gre == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Gre = &ExternalConnectorGreModel{}
+	if blockData, ok := apiResource.Spec["gre"].(map[string]interface{}); ok && (isImport || data.Gre != nil) {
+		data.Gre = &ExternalConnectorGreModel{
+			GreParameters: func() *ExternalConnectorGreGreParametersModel {
+				if !isImport && data.Gre != nil && data.Gre.GreParameters != nil {
+					return data.Gre.GreParameters
+				}
+				if GreParametersData, ok := blockData["gre_parameters"].(map[string]interface{}); ok {
+					return &ExternalConnectorGreGreParametersModel{
+						PeerIPAddress: func() *ExternalConnectorGreGreParametersPeerIPAddressModel {
+							if PeerIPAddressData, ok := GreParametersData["peer_ip_address"].(map[string]interface{}); ok {
+								return &ExternalConnectorGreGreParametersPeerIPAddressModel{
+									Addr: func() types.String {
+										if v, ok := PeerIPAddressData["addr"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Segment: func() *ExternalConnectorGreGreParametersSegmentModel {
+							if SegmentData, ok := GreParametersData["segment"].(map[string]interface{}); ok {
+								return &ExternalConnectorGreGreParametersSegmentModel{
+									Refs: func() types.List {
+										if rawList, ok := SegmentData["refs"].([]interface{}); ok && len(rawList) > 0 {
+											var RefsResult []ExternalConnectorGreGreParametersSegmentRefsModel
+											for _, RefsItem := range rawList {
+												if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
+													RefsResult = append(RefsResult, ExternalConnectorGreGreParametersSegmentRefsModel{
+														Kind: func() types.String {
+															if v, ok := RefsItemMap["kind"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := RefsItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := RefsItemMap["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := RefsItemMap["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Uid: func() types.String {
+															if v, ok := RefsItemMap["uid"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ExternalConnectorGreGreParametersSegmentRefsModelAttrTypes}, RefsResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: ExternalConnectorGreGreParametersSegmentRefsModelAttrTypes})
+									}(),
+								}
+							}
+							return nil
+						}(),
+						SiteLocalInsideNetwork: func() *ExternalConnectorEmptyModel {
+							if _, ok := GreParametersData["site_local_inside_network"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						SiteLocalNetwork: func() *ExternalConnectorEmptyModel {
+							if _, ok := GreParametersData["site_local_network"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						TunnelEps: func() []ExternalConnectorGreGreParametersTunnelEpsModel {
+							if rawList, ok := GreParametersData["tunnel_eps"].([]interface{}); ok && len(rawList) > 0 {
+								var TunnelEpsResult []ExternalConnectorGreGreParametersTunnelEpsModel
+								for _, TunnelEpsItem := range rawList {
+									if TunnelEpsItemMap, ok := TunnelEpsItem.(map[string]interface{}); ok {
+										TunnelEpsResult = append(TunnelEpsResult, ExternalConnectorGreGreParametersTunnelEpsModel{
+											Interface: func() types.String {
+												if v, ok := TunnelEpsItemMap["interface"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											LocalTunnelIP: func() types.String {
+												if v, ok := TunnelEpsItemMap["local_tunnel_ip"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Node: func() types.String {
+												if v, ok := TunnelEpsItemMap["node"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											RemoteTunnelIP: func() types.String {
+												if v, ok := TunnelEpsItemMap["remote_tunnel_ip"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return TunnelEpsResult
+							}
+							return nil
+						}(),
+						TunnelMTU: func() types.Int64 {
+							if v, ok := GreParametersData["tunnel_mtu"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["ipsec"].(map[string]interface{}); ok && isImport && data.Ipsec == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Ipsec = &ExternalConnectorIpsecModel{}
+	if blockData, ok := apiResource.Spec["ipsec"].(map[string]interface{}); ok && (isImport || data.Ipsec != nil) {
+		data.Ipsec = &ExternalConnectorIpsecModel{
+			IKEParameters: func() *ExternalConnectorIpsecIKEParametersModel {
+				if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil {
+					return data.Ipsec.IKEParameters
+				}
+				if IKEParametersData, ok := blockData["ike_parameters"].(map[string]interface{}); ok {
+					return &ExternalConnectorIpsecIKEParametersModel{
+						DpdDisabled: func() *ExternalConnectorEmptyModel {
+							if _, ok := IKEParametersData["dpd_disabled"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						DpdKeepAliveTimer: func() *ExternalConnectorIpsecIKEParametersDpdKeepAliveTimerModel {
+							if DpdKeepAliveTimerData, ok := IKEParametersData["dpd_keep_alive_timer"].(map[string]interface{}); ok {
+								return &ExternalConnectorIpsecIKEParametersDpdKeepAliveTimerModel{
+									Timeout: func() types.Int64 {
+										if v, ok := DpdKeepAliveTimerData["timeout"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						IKEPhase1Profile: func() *ExternalConnectorIpsecIKEParametersIKEPhase1ProfileModel {
+							if IKEPhase1ProfileData, ok := IKEParametersData["ike_phase1_profile"].(map[string]interface{}); ok {
+								return &ExternalConnectorIpsecIKEParametersIKEPhase1ProfileModel{
+									Name: func() types.String {
+										if v, ok := IKEPhase1ProfileData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := IKEPhase1ProfileData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := IKEPhase1ProfileData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						IKEPhase2Profile: func() *ExternalConnectorIpsecIKEParametersIKEPhase2ProfileModel {
+							if IKEPhase2ProfileData, ok := IKEParametersData["ike_phase2_profile"].(map[string]interface{}); ok {
+								return &ExternalConnectorIpsecIKEParametersIKEPhase2ProfileModel{
+									Name: func() types.String {
+										if v, ok := IKEPhase2ProfileData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := IKEPhase2ProfileData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := IKEPhase2ProfileData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Initiator: func() *ExternalConnectorEmptyModel {
+							if _, ok := IKEParametersData["initiator"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						Responder: func() *ExternalConnectorEmptyModel {
+							if _, ok := IKEParametersData["responder"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						RmHostname: func() types.String {
+							if v, ok := IKEParametersData["rm_hostname"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						RmIPAddress: func() *ExternalConnectorIpsecIKEParametersRmIPAddressModel {
+							if RmIPAddressData, ok := IKEParametersData["rm_ip_address"].(map[string]interface{}); ok {
+								return &ExternalConnectorIpsecIKEParametersRmIPAddressModel{
+									Ipv4: func() *ExternalConnectorIpsecIKEParametersRmIPAddressIpv4Model {
+										if Ipv4Data, ok := RmIPAddressData["ipv4"].(map[string]interface{}); ok {
+											return &ExternalConnectorIpsecIKEParametersRmIPAddressIpv4Model{
+												Addr: func() types.String {
+													if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									Ipv6: func() *ExternalConnectorIpsecIKEParametersRmIPAddressIpv6Model {
+										if Ipv6Data, ok := RmIPAddressData["ipv6"].(map[string]interface{}); ok {
+											return &ExternalConnectorIpsecIKEParametersRmIPAddressIpv6Model{
+												Addr: func() types.String {
+													if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseDefaultLocalIKEID: func() *ExternalConnectorEmptyModel {
+							if _, ok := IKEParametersData["use_default_local_ike_id"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						UseDefaultRemoteIKEID: func() *ExternalConnectorEmptyModel {
+							if _, ok := IKEParametersData["use_default_remote_ike_id"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			IpsecTunnelParameters: func() *ExternalConnectorIpsecIpsecTunnelParametersModel {
+				if !isImport && data.Ipsec != nil && data.Ipsec.IpsecTunnelParameters != nil {
+					return data.Ipsec.IpsecTunnelParameters
+				}
+				if IpsecTunnelParametersData, ok := blockData["ipsec_tunnel_parameters"].(map[string]interface{}); ok {
+					return &ExternalConnectorIpsecIpsecTunnelParametersModel{
+						PeerIPAddress: func() *ExternalConnectorIpsecIpsecTunnelParametersPeerIPAddressModel {
+							if PeerIPAddressData, ok := IpsecTunnelParametersData["peer_ip_address"].(map[string]interface{}); ok {
+								return &ExternalConnectorIpsecIpsecTunnelParametersPeerIPAddressModel{
+									Addr: func() types.String {
+										if v, ok := PeerIPAddressData["addr"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Psk: func() types.String {
+							if v, ok := IpsecTunnelParametersData["psk"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Segment: func() *ExternalConnectorIpsecIpsecTunnelParametersSegmentModel {
+							if SegmentData, ok := IpsecTunnelParametersData["segment"].(map[string]interface{}); ok {
+								return &ExternalConnectorIpsecIpsecTunnelParametersSegmentModel{
+									Refs: func() types.List {
+										if rawList, ok := SegmentData["refs"].([]interface{}); ok && len(rawList) > 0 {
+											var RefsResult []ExternalConnectorIpsecIpsecTunnelParametersSegmentRefsModel
+											for _, RefsItem := range rawList {
+												if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
+													RefsResult = append(RefsResult, ExternalConnectorIpsecIpsecTunnelParametersSegmentRefsModel{
+														Kind: func() types.String {
+															if v, ok := RefsItemMap["kind"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := RefsItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := RefsItemMap["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := RefsItemMap["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Uid: func() types.String {
+															if v, ok := RefsItemMap["uid"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ExternalConnectorIpsecIpsecTunnelParametersSegmentRefsModelAttrTypes}, RefsResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: ExternalConnectorIpsecIpsecTunnelParametersSegmentRefsModelAttrTypes})
+									}(),
+								}
+							}
+							return nil
+						}(),
+						SiteLocalInsideNetwork: func() *ExternalConnectorEmptyModel {
+							if _, ok := IpsecTunnelParametersData["site_local_inside_network"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						SiteLocalNetwork: func() *ExternalConnectorEmptyModel {
+							if _, ok := IpsecTunnelParametersData["site_local_network"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						TunnelEps: func() []ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModel {
+							if rawList, ok := IpsecTunnelParametersData["tunnel_eps"].([]interface{}); ok && len(rawList) > 0 {
+								var TunnelEpsResult []ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModel
+								for _, TunnelEpsItem := range rawList {
+									if TunnelEpsItemMap, ok := TunnelEpsItem.(map[string]interface{}); ok {
+										TunnelEpsResult = append(TunnelEpsResult, ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModel{
+											Interface: func() types.String {
+												if v, ok := TunnelEpsItemMap["interface"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											LocalTunnelIP: func() types.String {
+												if v, ok := TunnelEpsItemMap["local_tunnel_ip"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Node: func() types.String {
+												if v, ok := TunnelEpsItemMap["node"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											RemoteTunnelIP: func() types.String {
+												if v, ok := TunnelEpsItemMap["remote_tunnel_ip"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return TunnelEpsResult
+							}
+							return nil
+						}(),
+						TunnelMTU: func() types.Int64 {
+							if v, ok := IpsecTunnelParametersData["tunnel_mtu"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 
 	tflog.Trace(ctx, "created ExternalConnector resource")
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -1106,16 +1706,428 @@ func (r *ExternalConnectorResource) Read(ctx context.Context, req resource.ReadR
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["gre"].(map[string]interface{}); ok && isImport && data.Gre == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Gre = &ExternalConnectorGreModel{}
+	if blockData, ok := apiResource.Spec["gre"].(map[string]interface{}); ok && (isImport || data.Gre != nil) {
+		data.Gre = &ExternalConnectorGreModel{
+			GreParameters: func() *ExternalConnectorGreGreParametersModel {
+				if !isImport && data.Gre != nil && data.Gre.GreParameters != nil {
+					return data.Gre.GreParameters
+				}
+				if GreParametersData, ok := blockData["gre_parameters"].(map[string]interface{}); ok {
+					return &ExternalConnectorGreGreParametersModel{
+						PeerIPAddress: func() *ExternalConnectorGreGreParametersPeerIPAddressModel {
+							if PeerIPAddressData, ok := GreParametersData["peer_ip_address"].(map[string]interface{}); ok {
+								return &ExternalConnectorGreGreParametersPeerIPAddressModel{
+									Addr: func() types.String {
+										if v, ok := PeerIPAddressData["addr"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Segment: func() *ExternalConnectorGreGreParametersSegmentModel {
+							if SegmentData, ok := GreParametersData["segment"].(map[string]interface{}); ok {
+								return &ExternalConnectorGreGreParametersSegmentModel{
+									Refs: func() types.List {
+										if rawList, ok := SegmentData["refs"].([]interface{}); ok && len(rawList) > 0 {
+											var RefsResult []ExternalConnectorGreGreParametersSegmentRefsModel
+											for _, RefsItem := range rawList {
+												if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
+													RefsResult = append(RefsResult, ExternalConnectorGreGreParametersSegmentRefsModel{
+														Kind: func() types.String {
+															if v, ok := RefsItemMap["kind"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := RefsItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := RefsItemMap["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := RefsItemMap["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Uid: func() types.String {
+															if v, ok := RefsItemMap["uid"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ExternalConnectorGreGreParametersSegmentRefsModelAttrTypes}, RefsResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: ExternalConnectorGreGreParametersSegmentRefsModelAttrTypes})
+									}(),
+								}
+							}
+							return nil
+						}(),
+						SiteLocalInsideNetwork: func() *ExternalConnectorEmptyModel {
+							if _, ok := GreParametersData["site_local_inside_network"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						SiteLocalNetwork: func() *ExternalConnectorEmptyModel {
+							if _, ok := GreParametersData["site_local_network"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						TunnelEps: func() []ExternalConnectorGreGreParametersTunnelEpsModel {
+							if rawList, ok := GreParametersData["tunnel_eps"].([]interface{}); ok && len(rawList) > 0 {
+								var TunnelEpsResult []ExternalConnectorGreGreParametersTunnelEpsModel
+								for _, TunnelEpsItem := range rawList {
+									if TunnelEpsItemMap, ok := TunnelEpsItem.(map[string]interface{}); ok {
+										TunnelEpsResult = append(TunnelEpsResult, ExternalConnectorGreGreParametersTunnelEpsModel{
+											Interface: func() types.String {
+												if v, ok := TunnelEpsItemMap["interface"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											LocalTunnelIP: func() types.String {
+												if v, ok := TunnelEpsItemMap["local_tunnel_ip"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Node: func() types.String {
+												if v, ok := TunnelEpsItemMap["node"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											RemoteTunnelIP: func() types.String {
+												if v, ok := TunnelEpsItemMap["remote_tunnel_ip"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return TunnelEpsResult
+							}
+							return nil
+						}(),
+						TunnelMTU: func() types.Int64 {
+							if v, ok := GreParametersData["tunnel_mtu"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["ipsec"].(map[string]interface{}); ok && isImport && data.Ipsec == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Ipsec = &ExternalConnectorIpsecModel{}
+	if blockData, ok := apiResource.Spec["ipsec"].(map[string]interface{}); ok && (isImport || data.Ipsec != nil) {
+		data.Ipsec = &ExternalConnectorIpsecModel{
+			IKEParameters: func() *ExternalConnectorIpsecIKEParametersModel {
+				if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil {
+					return data.Ipsec.IKEParameters
+				}
+				if IKEParametersData, ok := blockData["ike_parameters"].(map[string]interface{}); ok {
+					return &ExternalConnectorIpsecIKEParametersModel{
+						DpdDisabled: func() *ExternalConnectorEmptyModel {
+							if _, ok := IKEParametersData["dpd_disabled"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						DpdKeepAliveTimer: func() *ExternalConnectorIpsecIKEParametersDpdKeepAliveTimerModel {
+							if DpdKeepAliveTimerData, ok := IKEParametersData["dpd_keep_alive_timer"].(map[string]interface{}); ok {
+								return &ExternalConnectorIpsecIKEParametersDpdKeepAliveTimerModel{
+									Timeout: func() types.Int64 {
+										if v, ok := DpdKeepAliveTimerData["timeout"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						IKEPhase1Profile: func() *ExternalConnectorIpsecIKEParametersIKEPhase1ProfileModel {
+							if IKEPhase1ProfileData, ok := IKEParametersData["ike_phase1_profile"].(map[string]interface{}); ok {
+								return &ExternalConnectorIpsecIKEParametersIKEPhase1ProfileModel{
+									Name: func() types.String {
+										if v, ok := IKEPhase1ProfileData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := IKEPhase1ProfileData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := IKEPhase1ProfileData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						IKEPhase2Profile: func() *ExternalConnectorIpsecIKEParametersIKEPhase2ProfileModel {
+							if IKEPhase2ProfileData, ok := IKEParametersData["ike_phase2_profile"].(map[string]interface{}); ok {
+								return &ExternalConnectorIpsecIKEParametersIKEPhase2ProfileModel{
+									Name: func() types.String {
+										if v, ok := IKEPhase2ProfileData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := IKEPhase2ProfileData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := IKEPhase2ProfileData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Initiator: func() *ExternalConnectorEmptyModel {
+							if _, ok := IKEParametersData["initiator"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						Responder: func() *ExternalConnectorEmptyModel {
+							if _, ok := IKEParametersData["responder"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						RmHostname: func() types.String {
+							if v, ok := IKEParametersData["rm_hostname"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						RmIPAddress: func() *ExternalConnectorIpsecIKEParametersRmIPAddressModel {
+							if RmIPAddressData, ok := IKEParametersData["rm_ip_address"].(map[string]interface{}); ok {
+								return &ExternalConnectorIpsecIKEParametersRmIPAddressModel{
+									Ipv4: func() *ExternalConnectorIpsecIKEParametersRmIPAddressIpv4Model {
+										if Ipv4Data, ok := RmIPAddressData["ipv4"].(map[string]interface{}); ok {
+											return &ExternalConnectorIpsecIKEParametersRmIPAddressIpv4Model{
+												Addr: func() types.String {
+													if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									Ipv6: func() *ExternalConnectorIpsecIKEParametersRmIPAddressIpv6Model {
+										if Ipv6Data, ok := RmIPAddressData["ipv6"].(map[string]interface{}); ok {
+											return &ExternalConnectorIpsecIKEParametersRmIPAddressIpv6Model{
+												Addr: func() types.String {
+													if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseDefaultLocalIKEID: func() *ExternalConnectorEmptyModel {
+							if _, ok := IKEParametersData["use_default_local_ike_id"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						UseDefaultRemoteIKEID: func() *ExternalConnectorEmptyModel {
+							if _, ok := IKEParametersData["use_default_remote_ike_id"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			IpsecTunnelParameters: func() *ExternalConnectorIpsecIpsecTunnelParametersModel {
+				if !isImport && data.Ipsec != nil && data.Ipsec.IpsecTunnelParameters != nil {
+					return data.Ipsec.IpsecTunnelParameters
+				}
+				if IpsecTunnelParametersData, ok := blockData["ipsec_tunnel_parameters"].(map[string]interface{}); ok {
+					return &ExternalConnectorIpsecIpsecTunnelParametersModel{
+						PeerIPAddress: func() *ExternalConnectorIpsecIpsecTunnelParametersPeerIPAddressModel {
+							if PeerIPAddressData, ok := IpsecTunnelParametersData["peer_ip_address"].(map[string]interface{}); ok {
+								return &ExternalConnectorIpsecIpsecTunnelParametersPeerIPAddressModel{
+									Addr: func() types.String {
+										if v, ok := PeerIPAddressData["addr"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Psk: func() types.String {
+							if v, ok := IpsecTunnelParametersData["psk"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Segment: func() *ExternalConnectorIpsecIpsecTunnelParametersSegmentModel {
+							if SegmentData, ok := IpsecTunnelParametersData["segment"].(map[string]interface{}); ok {
+								return &ExternalConnectorIpsecIpsecTunnelParametersSegmentModel{
+									Refs: func() types.List {
+										if rawList, ok := SegmentData["refs"].([]interface{}); ok && len(rawList) > 0 {
+											var RefsResult []ExternalConnectorIpsecIpsecTunnelParametersSegmentRefsModel
+											for _, RefsItem := range rawList {
+												if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
+													RefsResult = append(RefsResult, ExternalConnectorIpsecIpsecTunnelParametersSegmentRefsModel{
+														Kind: func() types.String {
+															if v, ok := RefsItemMap["kind"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := RefsItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := RefsItemMap["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := RefsItemMap["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Uid: func() types.String {
+															if v, ok := RefsItemMap["uid"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ExternalConnectorIpsecIpsecTunnelParametersSegmentRefsModelAttrTypes}, RefsResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: ExternalConnectorIpsecIpsecTunnelParametersSegmentRefsModelAttrTypes})
+									}(),
+								}
+							}
+							return nil
+						}(),
+						SiteLocalInsideNetwork: func() *ExternalConnectorEmptyModel {
+							if _, ok := IpsecTunnelParametersData["site_local_inside_network"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						SiteLocalNetwork: func() *ExternalConnectorEmptyModel {
+							if _, ok := IpsecTunnelParametersData["site_local_network"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						TunnelEps: func() []ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModel {
+							if rawList, ok := IpsecTunnelParametersData["tunnel_eps"].([]interface{}); ok && len(rawList) > 0 {
+								var TunnelEpsResult []ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModel
+								for _, TunnelEpsItem := range rawList {
+									if TunnelEpsItemMap, ok := TunnelEpsItem.(map[string]interface{}); ok {
+										TunnelEpsResult = append(TunnelEpsResult, ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModel{
+											Interface: func() types.String {
+												if v, ok := TunnelEpsItemMap["interface"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											LocalTunnelIP: func() types.String {
+												if v, ok := TunnelEpsItemMap["local_tunnel_ip"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Node: func() types.String {
+												if v, ok := TunnelEpsItemMap["node"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											RemoteTunnelIP: func() types.String {
+												if v, ok := TunnelEpsItemMap["remote_tunnel_ip"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return TunnelEpsResult
+							}
+							return nil
+						}(),
+						TunnelMTU: func() types.Int64 {
+							if v, ok := IpsecTunnelParametersData["tunnel_mtu"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
+	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
@@ -1168,49 +2180,245 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.CESiteReference != nil {
-		ce_site_referenceMap := make(map[string]interface{})
+		CESiteReferenceMap := make(map[string]interface{})
 		if !data.CESiteReference.Name.IsNull() && !data.CESiteReference.Name.IsUnknown() {
-			ce_site_referenceMap["name"] = data.CESiteReference.Name.ValueString()
+			CESiteReferenceMap["name"] = data.CESiteReference.Name.ValueString()
 		}
 		if !data.CESiteReference.Namespace.IsNull() && !data.CESiteReference.Namespace.IsUnknown() {
-			ce_site_referenceMap["namespace"] = data.CESiteReference.Namespace.ValueString()
+			CESiteReferenceMap["namespace"] = data.CESiteReference.Namespace.ValueString()
 		}
 		if !data.CESiteReference.Tenant.IsNull() && !data.CESiteReference.Tenant.IsUnknown() {
-			ce_site_referenceMap["tenant"] = data.CESiteReference.Tenant.ValueString()
+			CESiteReferenceMap["tenant"] = data.CESiteReference.Tenant.ValueString()
 		}
-		apiResource.Spec["ce_site_reference"] = ce_site_referenceMap
+		apiResource.Spec["ce_site_reference"] = CESiteReferenceMap
 	}
 	if data.Gre != nil {
-		greMap := make(map[string]interface{})
+		GreMap := make(map[string]interface{})
 		if data.Gre.GreParameters != nil {
-			gre_parametersNestedMap := make(map[string]interface{})
-			if !data.Gre.GreParameters.TunnelMTU.IsNull() && !data.Gre.GreParameters.TunnelMTU.IsUnknown() {
-				gre_parametersNestedMap["tunnel_mtu"] = data.Gre.GreParameters.TunnelMTU.ValueInt64()
+			GreParametersMap := make(map[string]interface{})
+			if data.Gre.GreParameters.PeerIPAddress != nil {
+				PeerIPAddressMap := make(map[string]interface{})
+				if !data.Gre.GreParameters.PeerIPAddress.Addr.IsNull() && !data.Gre.GreParameters.PeerIPAddress.Addr.IsUnknown() {
+					PeerIPAddressMap["addr"] = data.Gre.GreParameters.PeerIPAddress.Addr.ValueString()
+				}
+				GreParametersMap["peer_ip_address"] = PeerIPAddressMap
 			}
-			greMap["gre_parameters"] = gre_parametersNestedMap
+			if data.Gre.GreParameters.Segment != nil {
+				SegmentMap := make(map[string]interface{})
+				if !data.Gre.GreParameters.Segment.Refs.IsNull() && !data.Gre.GreParameters.Segment.Refs.IsUnknown() {
+					var RefsElems []ExternalConnectorGreGreParametersSegmentRefsModel
+					diags := data.Gre.GreParameters.Segment.Refs.ElementsAs(ctx, &RefsElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(RefsElems) > 0 {
+						var RefsList []map[string]interface{}
+						for _, RefsItem := range RefsElems {
+							RefsItemMap := make(map[string]interface{})
+							if !RefsItem.Kind.IsNull() && !RefsItem.Kind.IsUnknown() {
+								RefsItemMap["kind"] = RefsItem.Kind.ValueString()
+							}
+							if !RefsItem.Name.IsNull() && !RefsItem.Name.IsUnknown() {
+								RefsItemMap["name"] = RefsItem.Name.ValueString()
+							}
+							if !RefsItem.Namespace.IsNull() && !RefsItem.Namespace.IsUnknown() {
+								RefsItemMap["namespace"] = RefsItem.Namespace.ValueString()
+							}
+							if !RefsItem.Tenant.IsNull() && !RefsItem.Tenant.IsUnknown() {
+								RefsItemMap["tenant"] = RefsItem.Tenant.ValueString()
+							}
+							if !RefsItem.Uid.IsNull() && !RefsItem.Uid.IsUnknown() {
+								RefsItemMap["uid"] = RefsItem.Uid.ValueString()
+							}
+							RefsList = append(RefsList, RefsItemMap)
+						}
+						SegmentMap["refs"] = RefsList
+					}
+				}
+				GreParametersMap["segment"] = SegmentMap
+			}
+			if data.Gre.GreParameters.SiteLocalInsideNetwork != nil {
+				GreParametersMap["site_local_inside_network"] = map[string]interface{}{}
+			}
+			if data.Gre.GreParameters.SiteLocalNetwork != nil {
+				GreParametersMap["site_local_network"] = map[string]interface{}{}
+			}
+			if len(data.Gre.GreParameters.TunnelEps) > 0 {
+				var TunnelEpsList []map[string]interface{}
+				for _, TunnelEpsItem := range data.Gre.GreParameters.TunnelEps {
+					TunnelEpsItemMap := make(map[string]interface{})
+					if !TunnelEpsItem.Interface.IsNull() && !TunnelEpsItem.Interface.IsUnknown() {
+						TunnelEpsItemMap["interface"] = TunnelEpsItem.Interface.ValueString()
+					}
+					if !TunnelEpsItem.LocalTunnelIP.IsNull() && !TunnelEpsItem.LocalTunnelIP.IsUnknown() {
+						TunnelEpsItemMap["local_tunnel_ip"] = TunnelEpsItem.LocalTunnelIP.ValueString()
+					}
+					if !TunnelEpsItem.Node.IsNull() && !TunnelEpsItem.Node.IsUnknown() {
+						TunnelEpsItemMap["node"] = TunnelEpsItem.Node.ValueString()
+					}
+					if !TunnelEpsItem.RemoteTunnelIP.IsNull() && !TunnelEpsItem.RemoteTunnelIP.IsUnknown() {
+						TunnelEpsItemMap["remote_tunnel_ip"] = TunnelEpsItem.RemoteTunnelIP.ValueString()
+					}
+					TunnelEpsList = append(TunnelEpsList, TunnelEpsItemMap)
+				}
+				GreParametersMap["tunnel_eps"] = TunnelEpsList
+			}
+			if !data.Gre.GreParameters.TunnelMTU.IsNull() && !data.Gre.GreParameters.TunnelMTU.IsUnknown() {
+				GreParametersMap["tunnel_mtu"] = data.Gre.GreParameters.TunnelMTU.ValueInt64()
+			}
+			GreMap["gre_parameters"] = GreParametersMap
 		}
-		apiResource.Spec["gre"] = greMap
+		apiResource.Spec["gre"] = GreMap
 	}
 	if data.Ipsec != nil {
-		ipsecMap := make(map[string]interface{})
+		IpsecMap := make(map[string]interface{})
 		if data.Ipsec.IKEParameters != nil {
-			ike_parametersNestedMap := make(map[string]interface{})
-			if !data.Ipsec.IKEParameters.RmHostname.IsNull() && !data.Ipsec.IKEParameters.RmHostname.IsUnknown() {
-				ike_parametersNestedMap["rm_hostname"] = data.Ipsec.IKEParameters.RmHostname.ValueString()
+			IKEParametersMap := make(map[string]interface{})
+			if data.Ipsec.IKEParameters.DpdDisabled != nil {
+				IKEParametersMap["dpd_disabled"] = map[string]interface{}{}
 			}
-			ipsecMap["ike_parameters"] = ike_parametersNestedMap
+			if data.Ipsec.IKEParameters.DpdKeepAliveTimer != nil {
+				DpdKeepAliveTimerMap := make(map[string]interface{})
+				if !data.Ipsec.IKEParameters.DpdKeepAliveTimer.Timeout.IsNull() && !data.Ipsec.IKEParameters.DpdKeepAliveTimer.Timeout.IsUnknown() {
+					DpdKeepAliveTimerMap["timeout"] = data.Ipsec.IKEParameters.DpdKeepAliveTimer.Timeout.ValueInt64()
+				}
+				IKEParametersMap["dpd_keep_alive_timer"] = DpdKeepAliveTimerMap
+			}
+			if data.Ipsec.IKEParameters.IKEPhase1Profile != nil {
+				IKEPhase1ProfileMap := make(map[string]interface{})
+				if !data.Ipsec.IKEParameters.IKEPhase1Profile.Name.IsNull() && !data.Ipsec.IKEParameters.IKEPhase1Profile.Name.IsUnknown() {
+					IKEPhase1ProfileMap["name"] = data.Ipsec.IKEParameters.IKEPhase1Profile.Name.ValueString()
+				}
+				if !data.Ipsec.IKEParameters.IKEPhase1Profile.Namespace.IsNull() && !data.Ipsec.IKEParameters.IKEPhase1Profile.Namespace.IsUnknown() {
+					IKEPhase1ProfileMap["namespace"] = data.Ipsec.IKEParameters.IKEPhase1Profile.Namespace.ValueString()
+				}
+				if !data.Ipsec.IKEParameters.IKEPhase1Profile.Tenant.IsNull() && !data.Ipsec.IKEParameters.IKEPhase1Profile.Tenant.IsUnknown() {
+					IKEPhase1ProfileMap["tenant"] = data.Ipsec.IKEParameters.IKEPhase1Profile.Tenant.ValueString()
+				}
+				IKEParametersMap["ike_phase1_profile"] = IKEPhase1ProfileMap
+			}
+			if data.Ipsec.IKEParameters.IKEPhase2Profile != nil {
+				IKEPhase2ProfileMap := make(map[string]interface{})
+				if !data.Ipsec.IKEParameters.IKEPhase2Profile.Name.IsNull() && !data.Ipsec.IKEParameters.IKEPhase2Profile.Name.IsUnknown() {
+					IKEPhase2ProfileMap["name"] = data.Ipsec.IKEParameters.IKEPhase2Profile.Name.ValueString()
+				}
+				if !data.Ipsec.IKEParameters.IKEPhase2Profile.Namespace.IsNull() && !data.Ipsec.IKEParameters.IKEPhase2Profile.Namespace.IsUnknown() {
+					IKEPhase2ProfileMap["namespace"] = data.Ipsec.IKEParameters.IKEPhase2Profile.Namespace.ValueString()
+				}
+				if !data.Ipsec.IKEParameters.IKEPhase2Profile.Tenant.IsNull() && !data.Ipsec.IKEParameters.IKEPhase2Profile.Tenant.IsUnknown() {
+					IKEPhase2ProfileMap["tenant"] = data.Ipsec.IKEParameters.IKEPhase2Profile.Tenant.ValueString()
+				}
+				IKEParametersMap["ike_phase2_profile"] = IKEPhase2ProfileMap
+			}
+			if data.Ipsec.IKEParameters.Initiator != nil {
+				IKEParametersMap["initiator"] = map[string]interface{}{}
+			}
+			if data.Ipsec.IKEParameters.Responder != nil {
+				IKEParametersMap["responder"] = map[string]interface{}{}
+			}
+			if !data.Ipsec.IKEParameters.RmHostname.IsNull() && !data.Ipsec.IKEParameters.RmHostname.IsUnknown() {
+				IKEParametersMap["rm_hostname"] = data.Ipsec.IKEParameters.RmHostname.ValueString()
+			}
+			if data.Ipsec.IKEParameters.RmIPAddress != nil {
+				RmIPAddressMap := make(map[string]interface{})
+				if data.Ipsec.IKEParameters.RmIPAddress.Ipv4 != nil {
+					Ipv4Map := make(map[string]interface{})
+					if !data.Ipsec.IKEParameters.RmIPAddress.Ipv4.Addr.IsNull() && !data.Ipsec.IKEParameters.RmIPAddress.Ipv4.Addr.IsUnknown() {
+						Ipv4Map["addr"] = data.Ipsec.IKEParameters.RmIPAddress.Ipv4.Addr.ValueString()
+					}
+					RmIPAddressMap["ipv4"] = Ipv4Map
+				}
+				if data.Ipsec.IKEParameters.RmIPAddress.Ipv6 != nil {
+					Ipv6Map := make(map[string]interface{})
+					if !data.Ipsec.IKEParameters.RmIPAddress.Ipv6.Addr.IsNull() && !data.Ipsec.IKEParameters.RmIPAddress.Ipv6.Addr.IsUnknown() {
+						Ipv6Map["addr"] = data.Ipsec.IKEParameters.RmIPAddress.Ipv6.Addr.ValueString()
+					}
+					RmIPAddressMap["ipv6"] = Ipv6Map
+				}
+				IKEParametersMap["rm_ip_address"] = RmIPAddressMap
+			}
+			if data.Ipsec.IKEParameters.UseDefaultLocalIKEID != nil {
+				IKEParametersMap["use_default_local_ike_id"] = map[string]interface{}{}
+			}
+			if data.Ipsec.IKEParameters.UseDefaultRemoteIKEID != nil {
+				IKEParametersMap["use_default_remote_ike_id"] = map[string]interface{}{}
+			}
+			IpsecMap["ike_parameters"] = IKEParametersMap
 		}
 		if data.Ipsec.IpsecTunnelParameters != nil {
-			ipsec_tunnel_parametersNestedMap := make(map[string]interface{})
+			IpsecTunnelParametersMap := make(map[string]interface{})
+			if data.Ipsec.IpsecTunnelParameters.PeerIPAddress != nil {
+				PeerIPAddressMap := make(map[string]interface{})
+				if !data.Ipsec.IpsecTunnelParameters.PeerIPAddress.Addr.IsNull() && !data.Ipsec.IpsecTunnelParameters.PeerIPAddress.Addr.IsUnknown() {
+					PeerIPAddressMap["addr"] = data.Ipsec.IpsecTunnelParameters.PeerIPAddress.Addr.ValueString()
+				}
+				IpsecTunnelParametersMap["peer_ip_address"] = PeerIPAddressMap
+			}
 			if !data.Ipsec.IpsecTunnelParameters.Psk.IsNull() && !data.Ipsec.IpsecTunnelParameters.Psk.IsUnknown() {
-				ipsec_tunnel_parametersNestedMap["psk"] = data.Ipsec.IpsecTunnelParameters.Psk.ValueString()
+				IpsecTunnelParametersMap["psk"] = data.Ipsec.IpsecTunnelParameters.Psk.ValueString()
+			}
+			if data.Ipsec.IpsecTunnelParameters.Segment != nil {
+				SegmentMap := make(map[string]interface{})
+				if !data.Ipsec.IpsecTunnelParameters.Segment.Refs.IsNull() && !data.Ipsec.IpsecTunnelParameters.Segment.Refs.IsUnknown() {
+					var RefsElems []ExternalConnectorIpsecIpsecTunnelParametersSegmentRefsModel
+					diags := data.Ipsec.IpsecTunnelParameters.Segment.Refs.ElementsAs(ctx, &RefsElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(RefsElems) > 0 {
+						var RefsList []map[string]interface{}
+						for _, RefsItem := range RefsElems {
+							RefsItemMap := make(map[string]interface{})
+							if !RefsItem.Kind.IsNull() && !RefsItem.Kind.IsUnknown() {
+								RefsItemMap["kind"] = RefsItem.Kind.ValueString()
+							}
+							if !RefsItem.Name.IsNull() && !RefsItem.Name.IsUnknown() {
+								RefsItemMap["name"] = RefsItem.Name.ValueString()
+							}
+							if !RefsItem.Namespace.IsNull() && !RefsItem.Namespace.IsUnknown() {
+								RefsItemMap["namespace"] = RefsItem.Namespace.ValueString()
+							}
+							if !RefsItem.Tenant.IsNull() && !RefsItem.Tenant.IsUnknown() {
+								RefsItemMap["tenant"] = RefsItem.Tenant.ValueString()
+							}
+							if !RefsItem.Uid.IsNull() && !RefsItem.Uid.IsUnknown() {
+								RefsItemMap["uid"] = RefsItem.Uid.ValueString()
+							}
+							RefsList = append(RefsList, RefsItemMap)
+						}
+						SegmentMap["refs"] = RefsList
+					}
+				}
+				IpsecTunnelParametersMap["segment"] = SegmentMap
+			}
+			if data.Ipsec.IpsecTunnelParameters.SiteLocalInsideNetwork != nil {
+				IpsecTunnelParametersMap["site_local_inside_network"] = map[string]interface{}{}
+			}
+			if data.Ipsec.IpsecTunnelParameters.SiteLocalNetwork != nil {
+				IpsecTunnelParametersMap["site_local_network"] = map[string]interface{}{}
+			}
+			if len(data.Ipsec.IpsecTunnelParameters.TunnelEps) > 0 {
+				var TunnelEpsList []map[string]interface{}
+				for _, TunnelEpsItem := range data.Ipsec.IpsecTunnelParameters.TunnelEps {
+					TunnelEpsItemMap := make(map[string]interface{})
+					if !TunnelEpsItem.Interface.IsNull() && !TunnelEpsItem.Interface.IsUnknown() {
+						TunnelEpsItemMap["interface"] = TunnelEpsItem.Interface.ValueString()
+					}
+					if !TunnelEpsItem.LocalTunnelIP.IsNull() && !TunnelEpsItem.LocalTunnelIP.IsUnknown() {
+						TunnelEpsItemMap["local_tunnel_ip"] = TunnelEpsItem.LocalTunnelIP.ValueString()
+					}
+					if !TunnelEpsItem.Node.IsNull() && !TunnelEpsItem.Node.IsUnknown() {
+						TunnelEpsItemMap["node"] = TunnelEpsItem.Node.ValueString()
+					}
+					if !TunnelEpsItem.RemoteTunnelIP.IsNull() && !TunnelEpsItem.RemoteTunnelIP.IsUnknown() {
+						TunnelEpsItemMap["remote_tunnel_ip"] = TunnelEpsItem.RemoteTunnelIP.ValueString()
+					}
+					TunnelEpsList = append(TunnelEpsList, TunnelEpsItemMap)
+				}
+				IpsecTunnelParametersMap["tunnel_eps"] = TunnelEpsList
 			}
 			if !data.Ipsec.IpsecTunnelParameters.TunnelMTU.IsNull() && !data.Ipsec.IpsecTunnelParameters.TunnelMTU.IsUnknown() {
-				ipsec_tunnel_parametersNestedMap["tunnel_mtu"] = data.Ipsec.IpsecTunnelParameters.TunnelMTU.ValueInt64()
+				IpsecTunnelParametersMap["tunnel_mtu"] = data.Ipsec.IpsecTunnelParameters.TunnelMTU.ValueInt64()
 			}
-			ipsecMap["ipsec_tunnel_parameters"] = ipsec_tunnel_parametersNestedMap
+			IpsecMap["ipsec_tunnel_parameters"] = IpsecTunnelParametersMap
 		}
-		apiResource.Spec["ipsec"] = ipsecMap
+		apiResource.Spec["ipsec"] = IpsecMap
 	}
 
 	_, err := r.client.UpdateExternalConnector(ctx, apiResource)
@@ -1258,16 +2466,420 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["gre"].(map[string]interface{}); ok && isImport && data.Gre == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Gre = &ExternalConnectorGreModel{}
+	if blockData, ok := apiResource.Spec["gre"].(map[string]interface{}); ok && (isImport || data.Gre != nil) {
+		data.Gre = &ExternalConnectorGreModel{
+			GreParameters: func() *ExternalConnectorGreGreParametersModel {
+				if !isImport && data.Gre != nil && data.Gre.GreParameters != nil {
+					return data.Gre.GreParameters
+				}
+				if GreParametersData, ok := blockData["gre_parameters"].(map[string]interface{}); ok {
+					return &ExternalConnectorGreGreParametersModel{
+						PeerIPAddress: func() *ExternalConnectorGreGreParametersPeerIPAddressModel {
+							if PeerIPAddressData, ok := GreParametersData["peer_ip_address"].(map[string]interface{}); ok {
+								return &ExternalConnectorGreGreParametersPeerIPAddressModel{
+									Addr: func() types.String {
+										if v, ok := PeerIPAddressData["addr"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Segment: func() *ExternalConnectorGreGreParametersSegmentModel {
+							if SegmentData, ok := GreParametersData["segment"].(map[string]interface{}); ok {
+								return &ExternalConnectorGreGreParametersSegmentModel{
+									Refs: func() types.List {
+										if rawList, ok := SegmentData["refs"].([]interface{}); ok && len(rawList) > 0 {
+											var RefsResult []ExternalConnectorGreGreParametersSegmentRefsModel
+											for _, RefsItem := range rawList {
+												if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
+													RefsResult = append(RefsResult, ExternalConnectorGreGreParametersSegmentRefsModel{
+														Kind: func() types.String {
+															if v, ok := RefsItemMap["kind"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := RefsItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := RefsItemMap["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := RefsItemMap["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Uid: func() types.String {
+															if v, ok := RefsItemMap["uid"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ExternalConnectorGreGreParametersSegmentRefsModelAttrTypes}, RefsResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: ExternalConnectorGreGreParametersSegmentRefsModelAttrTypes})
+									}(),
+								}
+							}
+							return nil
+						}(),
+						SiteLocalInsideNetwork: func() *ExternalConnectorEmptyModel {
+							if _, ok := GreParametersData["site_local_inside_network"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						SiteLocalNetwork: func() *ExternalConnectorEmptyModel {
+							if _, ok := GreParametersData["site_local_network"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						TunnelEps: func() []ExternalConnectorGreGreParametersTunnelEpsModel {
+							if rawList, ok := GreParametersData["tunnel_eps"].([]interface{}); ok && len(rawList) > 0 {
+								var TunnelEpsResult []ExternalConnectorGreGreParametersTunnelEpsModel
+								for _, TunnelEpsItem := range rawList {
+									if TunnelEpsItemMap, ok := TunnelEpsItem.(map[string]interface{}); ok {
+										TunnelEpsResult = append(TunnelEpsResult, ExternalConnectorGreGreParametersTunnelEpsModel{
+											Interface: func() types.String {
+												if v, ok := TunnelEpsItemMap["interface"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											LocalTunnelIP: func() types.String {
+												if v, ok := TunnelEpsItemMap["local_tunnel_ip"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Node: func() types.String {
+												if v, ok := TunnelEpsItemMap["node"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											RemoteTunnelIP: func() types.String {
+												if v, ok := TunnelEpsItemMap["remote_tunnel_ip"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return TunnelEpsResult
+							}
+							return nil
+						}(),
+						TunnelMTU: func() types.Int64 {
+							if v, ok := GreParametersData["tunnel_mtu"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["ipsec"].(map[string]interface{}); ok && isImport && data.Ipsec == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Ipsec = &ExternalConnectorIpsecModel{}
+	if blockData, ok := apiResource.Spec["ipsec"].(map[string]interface{}); ok && (isImport || data.Ipsec != nil) {
+		data.Ipsec = &ExternalConnectorIpsecModel{
+			IKEParameters: func() *ExternalConnectorIpsecIKEParametersModel {
+				if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil {
+					return data.Ipsec.IKEParameters
+				}
+				if IKEParametersData, ok := blockData["ike_parameters"].(map[string]interface{}); ok {
+					return &ExternalConnectorIpsecIKEParametersModel{
+						DpdDisabled: func() *ExternalConnectorEmptyModel {
+							if _, ok := IKEParametersData["dpd_disabled"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						DpdKeepAliveTimer: func() *ExternalConnectorIpsecIKEParametersDpdKeepAliveTimerModel {
+							if DpdKeepAliveTimerData, ok := IKEParametersData["dpd_keep_alive_timer"].(map[string]interface{}); ok {
+								return &ExternalConnectorIpsecIKEParametersDpdKeepAliveTimerModel{
+									Timeout: func() types.Int64 {
+										if v, ok := DpdKeepAliveTimerData["timeout"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						IKEPhase1Profile: func() *ExternalConnectorIpsecIKEParametersIKEPhase1ProfileModel {
+							if IKEPhase1ProfileData, ok := IKEParametersData["ike_phase1_profile"].(map[string]interface{}); ok {
+								return &ExternalConnectorIpsecIKEParametersIKEPhase1ProfileModel{
+									Name: func() types.String {
+										if v, ok := IKEPhase1ProfileData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := IKEPhase1ProfileData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := IKEPhase1ProfileData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						IKEPhase2Profile: func() *ExternalConnectorIpsecIKEParametersIKEPhase2ProfileModel {
+							if IKEPhase2ProfileData, ok := IKEParametersData["ike_phase2_profile"].(map[string]interface{}); ok {
+								return &ExternalConnectorIpsecIKEParametersIKEPhase2ProfileModel{
+									Name: func() types.String {
+										if v, ok := IKEPhase2ProfileData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := IKEPhase2ProfileData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := IKEPhase2ProfileData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Initiator: func() *ExternalConnectorEmptyModel {
+							if _, ok := IKEParametersData["initiator"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						Responder: func() *ExternalConnectorEmptyModel {
+							if _, ok := IKEParametersData["responder"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						RmHostname: func() types.String {
+							if v, ok := IKEParametersData["rm_hostname"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						RmIPAddress: func() *ExternalConnectorIpsecIKEParametersRmIPAddressModel {
+							if RmIPAddressData, ok := IKEParametersData["rm_ip_address"].(map[string]interface{}); ok {
+								return &ExternalConnectorIpsecIKEParametersRmIPAddressModel{
+									Ipv4: func() *ExternalConnectorIpsecIKEParametersRmIPAddressIpv4Model {
+										if Ipv4Data, ok := RmIPAddressData["ipv4"].(map[string]interface{}); ok {
+											return &ExternalConnectorIpsecIKEParametersRmIPAddressIpv4Model{
+												Addr: func() types.String {
+													if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									Ipv6: func() *ExternalConnectorIpsecIKEParametersRmIPAddressIpv6Model {
+										if Ipv6Data, ok := RmIPAddressData["ipv6"].(map[string]interface{}); ok {
+											return &ExternalConnectorIpsecIKEParametersRmIPAddressIpv6Model{
+												Addr: func() types.String {
+													if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseDefaultLocalIKEID: func() *ExternalConnectorEmptyModel {
+							if _, ok := IKEParametersData["use_default_local_ike_id"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						UseDefaultRemoteIKEID: func() *ExternalConnectorEmptyModel {
+							if _, ok := IKEParametersData["use_default_remote_ike_id"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			IpsecTunnelParameters: func() *ExternalConnectorIpsecIpsecTunnelParametersModel {
+				if !isImport && data.Ipsec != nil && data.Ipsec.IpsecTunnelParameters != nil {
+					return data.Ipsec.IpsecTunnelParameters
+				}
+				if IpsecTunnelParametersData, ok := blockData["ipsec_tunnel_parameters"].(map[string]interface{}); ok {
+					return &ExternalConnectorIpsecIpsecTunnelParametersModel{
+						PeerIPAddress: func() *ExternalConnectorIpsecIpsecTunnelParametersPeerIPAddressModel {
+							if PeerIPAddressData, ok := IpsecTunnelParametersData["peer_ip_address"].(map[string]interface{}); ok {
+								return &ExternalConnectorIpsecIpsecTunnelParametersPeerIPAddressModel{
+									Addr: func() types.String {
+										if v, ok := PeerIPAddressData["addr"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Psk: func() types.String {
+							if v, ok := IpsecTunnelParametersData["psk"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Segment: func() *ExternalConnectorIpsecIpsecTunnelParametersSegmentModel {
+							if SegmentData, ok := IpsecTunnelParametersData["segment"].(map[string]interface{}); ok {
+								return &ExternalConnectorIpsecIpsecTunnelParametersSegmentModel{
+									Refs: func() types.List {
+										if rawList, ok := SegmentData["refs"].([]interface{}); ok && len(rawList) > 0 {
+											var RefsResult []ExternalConnectorIpsecIpsecTunnelParametersSegmentRefsModel
+											for _, RefsItem := range rawList {
+												if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
+													RefsResult = append(RefsResult, ExternalConnectorIpsecIpsecTunnelParametersSegmentRefsModel{
+														Kind: func() types.String {
+															if v, ok := RefsItemMap["kind"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := RefsItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := RefsItemMap["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := RefsItemMap["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Uid: func() types.String {
+															if v, ok := RefsItemMap["uid"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ExternalConnectorIpsecIpsecTunnelParametersSegmentRefsModelAttrTypes}, RefsResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: ExternalConnectorIpsecIpsecTunnelParametersSegmentRefsModelAttrTypes})
+									}(),
+								}
+							}
+							return nil
+						}(),
+						SiteLocalInsideNetwork: func() *ExternalConnectorEmptyModel {
+							if _, ok := IpsecTunnelParametersData["site_local_inside_network"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						SiteLocalNetwork: func() *ExternalConnectorEmptyModel {
+							if _, ok := IpsecTunnelParametersData["site_local_network"].(map[string]interface{}); ok {
+								return &ExternalConnectorEmptyModel{}
+							}
+							return nil
+						}(),
+						TunnelEps: func() []ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModel {
+							if rawList, ok := IpsecTunnelParametersData["tunnel_eps"].([]interface{}); ok && len(rawList) > 0 {
+								var TunnelEpsResult []ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModel
+								for _, TunnelEpsItem := range rawList {
+									if TunnelEpsItemMap, ok := TunnelEpsItem.(map[string]interface{}); ok {
+										TunnelEpsResult = append(TunnelEpsResult, ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModel{
+											Interface: func() types.String {
+												if v, ok := TunnelEpsItemMap["interface"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											LocalTunnelIP: func() types.String {
+												if v, ok := TunnelEpsItemMap["local_tunnel_ip"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Node: func() types.String {
+												if v, ok := TunnelEpsItemMap["node"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											RemoteTunnelIP: func() types.String {
+												if v, ok := TunnelEpsItemMap["remote_tunnel_ip"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return TunnelEpsResult
+							}
+							return nil
+						}(),
+						TunnelMTU: func() types.Int64 {
+							if v, ok := IpsecTunnelParametersData["tunnel_mtu"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }

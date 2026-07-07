@@ -9,7 +9,7 @@ description: |-
 
 Retrieves information about an Origin Pool resource in F5 Distributed Cloud for defining backend server pools for load balancer targets. This is a read-only data source.
 
-~> **Note** For more information about this data source, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
+~> **Note** Please refer to [Origin Pool API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/virtual/) to learn more.
 
 ## Example Usage
 
@@ -38,6 +38,35 @@ data "xcsh_origin_pool" "example" {
 ## Argument Reference
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
+
+🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
+
+### Minimum Configuration
+
+Required fields:
+
+- `name`
+- `namespace`
+- `origin_servers`
+- `port`
+
+**Example (API format):**
+
+```yaml
+apiVersion: v1
+kind: origin_pool
+metadata:
+  name: backend-pool
+  namespace: default
+spec:
+  origin_servers:
+    - public_name:
+        dns_name: backend1.example.com
+    - public_name:
+        dns_name: backend2.example.com
+  port: 8080
+
+```
 
 ### Metadata Argument Reference
 

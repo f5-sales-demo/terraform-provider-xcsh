@@ -510,7 +510,7 @@ func (r *CodeBaseIntegrationResource) Schema(ctx context.Context, req resource.S
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
-										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 										Attributes: map[string]schema.Attribute{
 											"decryption_provider": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -563,7 +563,7 @@ func (r *CodeBaseIntegrationResource) Schema(ctx context.Context, req resource.S
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
-										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 										Attributes: map[string]schema.Attribute{
 											"decryption_provider": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -628,7 +628,7 @@ func (r *CodeBaseIntegrationResource) Schema(ctx context.Context, req resource.S
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
-										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 										Attributes: map[string]schema.Attribute{
 											"decryption_provider": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -685,7 +685,7 @@ func (r *CodeBaseIntegrationResource) Schema(ctx context.Context, req resource.S
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
-										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 										Attributes: map[string]schema.Attribute{
 											"decryption_provider": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -746,7 +746,7 @@ func (r *CodeBaseIntegrationResource) Schema(ctx context.Context, req resource.S
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
-										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 										Attributes: map[string]schema.Attribute{
 											"decryption_provider": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -794,7 +794,7 @@ func (r *CodeBaseIntegrationResource) Schema(ctx context.Context, req resource.S
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
-										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 										Attributes: map[string]schema.Attribute{
 											"decryption_provider": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -851,7 +851,7 @@ func (r *CodeBaseIntegrationResource) Schema(ctx context.Context, req resource.S
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
-										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 										Attributes: map[string]schema.Attribute{
 											"decryption_provider": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -999,63 +999,252 @@ func (r *CodeBaseIntegrationResource) Create(ctx context.Context, req resource.C
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.CodeBaseIntegration != nil {
-		code_base_integrationMap := make(map[string]interface{})
+		CodeBaseIntegrationMap := make(map[string]interface{})
 		if data.CodeBaseIntegration.AzureRepos != nil {
-			azure_reposNestedMap := make(map[string]interface{})
-			code_base_integrationMap["azure_repos"] = azure_reposNestedMap
+			AzureReposMap := make(map[string]interface{})
+			if data.CodeBaseIntegration.AzureRepos.AccessToken != nil {
+				AccessTokenMap := make(map[string]interface{})
+				if data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					AccessTokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.URL.ValueString()
+					}
+					AccessTokenMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				AzureReposMap["access_token"] = AccessTokenMap
+			}
+			CodeBaseIntegrationMap["azure_repos"] = AzureReposMap
 		}
 		if data.CodeBaseIntegration.Bitbucket != nil {
-			bitbucketNestedMap := make(map[string]interface{})
-			if !data.CodeBaseIntegration.Bitbucket.Username.IsNull() && !data.CodeBaseIntegration.Bitbucket.Username.IsUnknown() {
-				bitbucketNestedMap["username"] = data.CodeBaseIntegration.Bitbucket.Username.ValueString()
+			BitbucketMap := make(map[string]interface{})
+			if data.CodeBaseIntegration.Bitbucket.Passwd != nil {
+				PasswdMap := make(map[string]interface{})
+				if data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					PasswdMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.URL.ValueString()
+					}
+					PasswdMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				BitbucketMap["passwd"] = PasswdMap
 			}
-			code_base_integrationMap["bitbucket"] = bitbucketNestedMap
+			if !data.CodeBaseIntegration.Bitbucket.Username.IsNull() && !data.CodeBaseIntegration.Bitbucket.Username.IsUnknown() {
+				BitbucketMap["username"] = data.CodeBaseIntegration.Bitbucket.Username.ValueString()
+			}
+			CodeBaseIntegrationMap["bitbucket"] = BitbucketMap
 		}
 		if data.CodeBaseIntegration.BitbucketServer != nil {
-			bitbucket_serverNestedMap := make(map[string]interface{})
+			BitbucketServerMap := make(map[string]interface{})
+			if data.CodeBaseIntegration.BitbucketServer.Passwd != nil {
+				PasswdMap := make(map[string]interface{})
+				if data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					PasswdMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.URL.ValueString()
+					}
+					PasswdMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				BitbucketServerMap["passwd"] = PasswdMap
+			}
 			if !data.CodeBaseIntegration.BitbucketServer.URL.IsNull() && !data.CodeBaseIntegration.BitbucketServer.URL.IsUnknown() {
-				bitbucket_serverNestedMap["url"] = data.CodeBaseIntegration.BitbucketServer.URL.ValueString()
+				BitbucketServerMap["url"] = data.CodeBaseIntegration.BitbucketServer.URL.ValueString()
 			}
 			if !data.CodeBaseIntegration.BitbucketServer.Username.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Username.IsUnknown() {
-				bitbucket_serverNestedMap["username"] = data.CodeBaseIntegration.BitbucketServer.Username.ValueString()
+				BitbucketServerMap["username"] = data.CodeBaseIntegration.BitbucketServer.Username.ValueString()
 			}
 			if !data.CodeBaseIntegration.BitbucketServer.VerifySSL.IsNull() && !data.CodeBaseIntegration.BitbucketServer.VerifySSL.IsUnknown() {
-				bitbucket_serverNestedMap["verify_ssl"] = data.CodeBaseIntegration.BitbucketServer.VerifySSL.ValueBool()
+				BitbucketServerMap["verify_ssl"] = data.CodeBaseIntegration.BitbucketServer.VerifySSL.ValueBool()
 			}
-			code_base_integrationMap["bitbucket_server"] = bitbucket_serverNestedMap
+			CodeBaseIntegrationMap["bitbucket_server"] = BitbucketServerMap
 		}
 		if data.CodeBaseIntegration.Github != nil {
-			githubNestedMap := make(map[string]interface{})
+			GithubMap := make(map[string]interface{})
+			if data.CodeBaseIntegration.Github.AccessToken != nil {
+				AccessTokenMap := make(map[string]interface{})
+				if data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					AccessTokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.URL.ValueString()
+					}
+					AccessTokenMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				GithubMap["access_token"] = AccessTokenMap
+			}
 			if !data.CodeBaseIntegration.Github.Username.IsNull() && !data.CodeBaseIntegration.Github.Username.IsUnknown() {
-				githubNestedMap["username"] = data.CodeBaseIntegration.Github.Username.ValueString()
+				GithubMap["username"] = data.CodeBaseIntegration.Github.Username.ValueString()
 			}
 			if !data.CodeBaseIntegration.Github.VerifySSL.IsNull() && !data.CodeBaseIntegration.Github.VerifySSL.IsUnknown() {
-				githubNestedMap["verify_ssl"] = data.CodeBaseIntegration.Github.VerifySSL.ValueBool()
+				GithubMap["verify_ssl"] = data.CodeBaseIntegration.Github.VerifySSL.ValueBool()
 			}
-			code_base_integrationMap["github"] = githubNestedMap
+			CodeBaseIntegrationMap["github"] = GithubMap
 		}
 		if data.CodeBaseIntegration.GithubEnterprise != nil {
-			github_enterpriseNestedMap := make(map[string]interface{})
+			GithubEnterpriseMap := make(map[string]interface{})
+			if data.CodeBaseIntegration.GithubEnterprise.AccessToken != nil {
+				AccessTokenMap := make(map[string]interface{})
+				if data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					AccessTokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.URL.ValueString()
+					}
+					AccessTokenMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				GithubEnterpriseMap["access_token"] = AccessTokenMap
+			}
 			if !data.CodeBaseIntegration.GithubEnterprise.Hostname.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.Hostname.IsUnknown() {
-				github_enterpriseNestedMap["hostname"] = data.CodeBaseIntegration.GithubEnterprise.Hostname.ValueString()
+				GithubEnterpriseMap["hostname"] = data.CodeBaseIntegration.GithubEnterprise.Hostname.ValueString()
 			}
 			if !data.CodeBaseIntegration.GithubEnterprise.Username.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.Username.IsUnknown() {
-				github_enterpriseNestedMap["username"] = data.CodeBaseIntegration.GithubEnterprise.Username.ValueString()
+				GithubEnterpriseMap["username"] = data.CodeBaseIntegration.GithubEnterprise.Username.ValueString()
 			}
-			code_base_integrationMap["github_enterprise"] = github_enterpriseNestedMap
+			CodeBaseIntegrationMap["github_enterprise"] = GithubEnterpriseMap
 		}
 		if data.CodeBaseIntegration.Gitlab != nil {
-			gitlabNestedMap := make(map[string]interface{})
-			code_base_integrationMap["gitlab"] = gitlabNestedMap
+			GitlabMap := make(map[string]interface{})
+			if data.CodeBaseIntegration.Gitlab.AccessToken != nil {
+				AccessTokenMap := make(map[string]interface{})
+				if data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					AccessTokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.URL.ValueString()
+					}
+					AccessTokenMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				GitlabMap["access_token"] = AccessTokenMap
+			}
+			CodeBaseIntegrationMap["gitlab"] = GitlabMap
 		}
 		if data.CodeBaseIntegration.GitlabEnterprise != nil {
-			gitlab_enterpriseNestedMap := make(map[string]interface{})
-			if !data.CodeBaseIntegration.GitlabEnterprise.URL.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.URL.IsUnknown() {
-				gitlab_enterpriseNestedMap["url"] = data.CodeBaseIntegration.GitlabEnterprise.URL.ValueString()
+			GitlabEnterpriseMap := make(map[string]interface{})
+			if data.CodeBaseIntegration.GitlabEnterprise.AccessToken != nil {
+				AccessTokenMap := make(map[string]interface{})
+				if data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					AccessTokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.URL.ValueString()
+					}
+					AccessTokenMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				GitlabEnterpriseMap["access_token"] = AccessTokenMap
 			}
-			code_base_integrationMap["gitlab_enterprise"] = gitlab_enterpriseNestedMap
+			if !data.CodeBaseIntegration.GitlabEnterprise.URL.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.URL.IsUnknown() {
+				GitlabEnterpriseMap["url"] = data.CodeBaseIntegration.GitlabEnterprise.URL.ValueString()
+			}
+			CodeBaseIntegrationMap["gitlab_enterprise"] = GitlabEnterpriseMap
 		}
-		createReq.Spec["code_base_integration"] = code_base_integrationMap
+		createReq.Spec["code_base_integration"] = CodeBaseIntegrationMap
 	}
 
 	apiResource, err := r.client.CreateCodeBaseIntegration(ctx, createReq)
@@ -1070,11 +1259,491 @@ func (r *CodeBaseIntegrationResource) Create(ctx context.Context, req resource.C
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["code_base_integration"].(map[string]interface{}); ok && isImport && data.CodeBaseIntegration == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.CodeBaseIntegration = &CodeBaseIntegrationCodeBaseIntegrationModel{}
+	if blockData, ok := apiResource.Spec["code_base_integration"].(map[string]interface{}); ok && (isImport || data.CodeBaseIntegration != nil) {
+		data.CodeBaseIntegration = &CodeBaseIntegrationCodeBaseIntegrationModel{
+			AzureRepos: func() *CodeBaseIntegrationCodeBaseIntegrationAzureReposModel {
+				if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.AzureRepos != nil {
+					return data.CodeBaseIntegration.AzureRepos
+				}
+				if AzureReposData, ok := blockData["azure_repos"].(map[string]interface{}); ok {
+					return &CodeBaseIntegrationCodeBaseIntegrationAzureReposModel{
+						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenModel {
+							if AccessTokenData, ok := AzureReposData["access_token"].(map[string]interface{}); ok {
+								return &CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenModel{
+									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenClearSecretInfoModel {
+										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Bitbucket: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketModel {
+				if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Bitbucket != nil {
+					return data.CodeBaseIntegration.Bitbucket
+				}
+				if BitbucketData, ok := blockData["bitbucket"].(map[string]interface{}); ok {
+					return &CodeBaseIntegrationCodeBaseIntegrationBitbucketModel{
+						Passwd: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdModel {
+							if PasswdData, ok := BitbucketData["passwd"].(map[string]interface{}); ok {
+								return &CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdModel{
+									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := PasswdData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdClearSecretInfoModel {
+										if ClearSecretInfoData, ok := PasswdData["clear_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Username: func() types.String {
+							if v, ok := BitbucketData["username"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			BitbucketServer: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketServerModel {
+				if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.BitbucketServer != nil {
+					return data.CodeBaseIntegration.BitbucketServer
+				}
+				if BitbucketServerData, ok := blockData["bitbucket_server"].(map[string]interface{}); ok {
+					return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerModel{
+						Passwd: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdModel {
+							if PasswdData, ok := BitbucketServerData["passwd"].(map[string]interface{}); ok {
+								return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdModel{
+									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := PasswdData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdClearSecretInfoModel {
+										if ClearSecretInfoData, ok := PasswdData["clear_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						URL: func() types.String {
+							if v, ok := BitbucketServerData["url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Username: func() types.String {
+							if v, ok := BitbucketServerData["username"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						VerifySSL: func() types.Bool {
+							if v, ok := BitbucketServerData["verify_ssl"].(bool); ok {
+								return types.BoolValue(v)
+							}
+							return types.BoolNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Github: func() *CodeBaseIntegrationCodeBaseIntegrationGithubModel {
+				if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Github != nil {
+					return data.CodeBaseIntegration.Github
+				}
+				if GithubData, ok := blockData["github"].(map[string]interface{}); ok {
+					return &CodeBaseIntegrationCodeBaseIntegrationGithubModel{
+						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenModel {
+							if AccessTokenData, ok := GithubData["access_token"].(map[string]interface{}); ok {
+								return &CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenModel{
+									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenClearSecretInfoModel {
+										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Username: func() types.String {
+							if v, ok := GithubData["username"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						VerifySSL: func() types.Bool {
+							if v, ok := GithubData["verify_ssl"].(bool); ok {
+								return types.BoolValue(v)
+							}
+							return types.BoolNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			GithubEnterprise: func() *CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseModel {
+				if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GithubEnterprise != nil {
+					return data.CodeBaseIntegration.GithubEnterprise
+				}
+				if GithubEnterpriseData, ok := blockData["github_enterprise"].(map[string]interface{}); ok {
+					return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseModel{
+						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenModel {
+							if AccessTokenData, ok := GithubEnterpriseData["access_token"].(map[string]interface{}); ok {
+								return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenModel{
+									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenClearSecretInfoModel {
+										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Hostname: func() types.String {
+							if v, ok := GithubEnterpriseData["hostname"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Username: func() types.String {
+							if v, ok := GithubEnterpriseData["username"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Gitlab: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabModel {
+				if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Gitlab != nil {
+					return data.CodeBaseIntegration.Gitlab
+				}
+				if GitlabData, ok := blockData["gitlab"].(map[string]interface{}); ok {
+					return &CodeBaseIntegrationCodeBaseIntegrationGitlabModel{
+						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenModel {
+							if AccessTokenData, ok := GitlabData["access_token"].(map[string]interface{}); ok {
+								return &CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenModel{
+									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenClearSecretInfoModel {
+										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			GitlabEnterprise: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseModel {
+				if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GitlabEnterprise != nil {
+					return data.CodeBaseIntegration.GitlabEnterprise
+				}
+				if GitlabEnterpriseData, ok := blockData["gitlab_enterprise"].(map[string]interface{}); ok {
+					return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseModel{
+						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenModel {
+							if AccessTokenData, ok := GitlabEnterpriseData["access_token"].(map[string]interface{}); ok {
+								return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenModel{
+									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenClearSecretInfoModel {
+										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						URL: func() types.String {
+							if v, ok := GitlabEnterpriseData["url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 
 	tflog.Trace(ctx, "created CodeBaseIntegration resource")
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -1155,11 +1824,499 @@ func (r *CodeBaseIntegrationResource) Read(ctx context.Context, req resource.Rea
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["code_base_integration"].(map[string]interface{}); ok && isImport && data.CodeBaseIntegration == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.CodeBaseIntegration = &CodeBaseIntegrationCodeBaseIntegrationModel{}
+	if blockData, ok := apiResource.Spec["code_base_integration"].(map[string]interface{}); ok && (isImport || data.CodeBaseIntegration != nil) {
+		data.CodeBaseIntegration = &CodeBaseIntegrationCodeBaseIntegrationModel{
+			AzureRepos: func() *CodeBaseIntegrationCodeBaseIntegrationAzureReposModel {
+				if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.AzureRepos != nil {
+					return data.CodeBaseIntegration.AzureRepos
+				}
+				if AzureReposData, ok := blockData["azure_repos"].(map[string]interface{}); ok {
+					return &CodeBaseIntegrationCodeBaseIntegrationAzureReposModel{
+						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenModel {
+							if AccessTokenData, ok := AzureReposData["access_token"].(map[string]interface{}); ok {
+								return &CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenModel{
+									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenClearSecretInfoModel {
+										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Bitbucket: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketModel {
+				if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Bitbucket != nil {
+					return data.CodeBaseIntegration.Bitbucket
+				}
+				if BitbucketData, ok := blockData["bitbucket"].(map[string]interface{}); ok {
+					return &CodeBaseIntegrationCodeBaseIntegrationBitbucketModel{
+						Passwd: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdModel {
+							if PasswdData, ok := BitbucketData["passwd"].(map[string]interface{}); ok {
+								return &CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdModel{
+									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := PasswdData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdClearSecretInfoModel {
+										if ClearSecretInfoData, ok := PasswdData["clear_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Username: func() types.String {
+							if v, ok := BitbucketData["username"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			BitbucketServer: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketServerModel {
+				if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.BitbucketServer != nil {
+					return data.CodeBaseIntegration.BitbucketServer
+				}
+				if BitbucketServerData, ok := blockData["bitbucket_server"].(map[string]interface{}); ok {
+					return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerModel{
+						Passwd: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdModel {
+							if PasswdData, ok := BitbucketServerData["passwd"].(map[string]interface{}); ok {
+								return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdModel{
+									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := PasswdData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdClearSecretInfoModel {
+										if ClearSecretInfoData, ok := PasswdData["clear_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						URL: func() types.String {
+							if v, ok := BitbucketServerData["url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Username: func() types.String {
+							if v, ok := BitbucketServerData["username"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						VerifySSL: func() types.Bool {
+							if v, ok := BitbucketServerData["verify_ssl"].(bool); ok {
+								return types.BoolValue(v)
+							}
+							return types.BoolNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Github: func() *CodeBaseIntegrationCodeBaseIntegrationGithubModel {
+				if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Github != nil {
+					return data.CodeBaseIntegration.Github
+				}
+				if GithubData, ok := blockData["github"].(map[string]interface{}); ok {
+					return &CodeBaseIntegrationCodeBaseIntegrationGithubModel{
+						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenModel {
+							if AccessTokenData, ok := GithubData["access_token"].(map[string]interface{}); ok {
+								return &CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenModel{
+									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenClearSecretInfoModel {
+										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Username: func() types.String {
+							if v, ok := GithubData["username"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						VerifySSL: func() types.Bool {
+							if v, ok := GithubData["verify_ssl"].(bool); ok {
+								return types.BoolValue(v)
+							}
+							return types.BoolNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			GithubEnterprise: func() *CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseModel {
+				if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GithubEnterprise != nil {
+					return data.CodeBaseIntegration.GithubEnterprise
+				}
+				if GithubEnterpriseData, ok := blockData["github_enterprise"].(map[string]interface{}); ok {
+					return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseModel{
+						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenModel {
+							if AccessTokenData, ok := GithubEnterpriseData["access_token"].(map[string]interface{}); ok {
+								return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenModel{
+									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenClearSecretInfoModel {
+										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Hostname: func() types.String {
+							if v, ok := GithubEnterpriseData["hostname"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Username: func() types.String {
+							if v, ok := GithubEnterpriseData["username"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Gitlab: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabModel {
+				if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Gitlab != nil {
+					return data.CodeBaseIntegration.Gitlab
+				}
+				if GitlabData, ok := blockData["gitlab"].(map[string]interface{}); ok {
+					return &CodeBaseIntegrationCodeBaseIntegrationGitlabModel{
+						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenModel {
+							if AccessTokenData, ok := GitlabData["access_token"].(map[string]interface{}); ok {
+								return &CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenModel{
+									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenClearSecretInfoModel {
+										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			GitlabEnterprise: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseModel {
+				if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GitlabEnterprise != nil {
+					return data.CodeBaseIntegration.GitlabEnterprise
+				}
+				if GitlabEnterpriseData, ok := blockData["gitlab_enterprise"].(map[string]interface{}); ok {
+					return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseModel{
+						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenModel {
+							if AccessTokenData, ok := GitlabEnterpriseData["access_token"].(map[string]interface{}); ok {
+								return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenModel{
+									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenClearSecretInfoModel {
+										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						URL: func() types.String {
+							if v, ok := GitlabEnterpriseData["url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
+	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
@@ -1212,63 +2369,252 @@ func (r *CodeBaseIntegrationResource) Update(ctx context.Context, req resource.U
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.CodeBaseIntegration != nil {
-		code_base_integrationMap := make(map[string]interface{})
+		CodeBaseIntegrationMap := make(map[string]interface{})
 		if data.CodeBaseIntegration.AzureRepos != nil {
-			azure_reposNestedMap := make(map[string]interface{})
-			code_base_integrationMap["azure_repos"] = azure_reposNestedMap
+			AzureReposMap := make(map[string]interface{})
+			if data.CodeBaseIntegration.AzureRepos.AccessToken != nil {
+				AccessTokenMap := make(map[string]interface{})
+				if data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					AccessTokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.URL.ValueString()
+					}
+					AccessTokenMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				AzureReposMap["access_token"] = AccessTokenMap
+			}
+			CodeBaseIntegrationMap["azure_repos"] = AzureReposMap
 		}
 		if data.CodeBaseIntegration.Bitbucket != nil {
-			bitbucketNestedMap := make(map[string]interface{})
-			if !data.CodeBaseIntegration.Bitbucket.Username.IsNull() && !data.CodeBaseIntegration.Bitbucket.Username.IsUnknown() {
-				bitbucketNestedMap["username"] = data.CodeBaseIntegration.Bitbucket.Username.ValueString()
+			BitbucketMap := make(map[string]interface{})
+			if data.CodeBaseIntegration.Bitbucket.Passwd != nil {
+				PasswdMap := make(map[string]interface{})
+				if data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					PasswdMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.URL.ValueString()
+					}
+					PasswdMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				BitbucketMap["passwd"] = PasswdMap
 			}
-			code_base_integrationMap["bitbucket"] = bitbucketNestedMap
+			if !data.CodeBaseIntegration.Bitbucket.Username.IsNull() && !data.CodeBaseIntegration.Bitbucket.Username.IsUnknown() {
+				BitbucketMap["username"] = data.CodeBaseIntegration.Bitbucket.Username.ValueString()
+			}
+			CodeBaseIntegrationMap["bitbucket"] = BitbucketMap
 		}
 		if data.CodeBaseIntegration.BitbucketServer != nil {
-			bitbucket_serverNestedMap := make(map[string]interface{})
+			BitbucketServerMap := make(map[string]interface{})
+			if data.CodeBaseIntegration.BitbucketServer.Passwd != nil {
+				PasswdMap := make(map[string]interface{})
+				if data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					PasswdMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.URL.ValueString()
+					}
+					PasswdMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				BitbucketServerMap["passwd"] = PasswdMap
+			}
 			if !data.CodeBaseIntegration.BitbucketServer.URL.IsNull() && !data.CodeBaseIntegration.BitbucketServer.URL.IsUnknown() {
-				bitbucket_serverNestedMap["url"] = data.CodeBaseIntegration.BitbucketServer.URL.ValueString()
+				BitbucketServerMap["url"] = data.CodeBaseIntegration.BitbucketServer.URL.ValueString()
 			}
 			if !data.CodeBaseIntegration.BitbucketServer.Username.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Username.IsUnknown() {
-				bitbucket_serverNestedMap["username"] = data.CodeBaseIntegration.BitbucketServer.Username.ValueString()
+				BitbucketServerMap["username"] = data.CodeBaseIntegration.BitbucketServer.Username.ValueString()
 			}
 			if !data.CodeBaseIntegration.BitbucketServer.VerifySSL.IsNull() && !data.CodeBaseIntegration.BitbucketServer.VerifySSL.IsUnknown() {
-				bitbucket_serverNestedMap["verify_ssl"] = data.CodeBaseIntegration.BitbucketServer.VerifySSL.ValueBool()
+				BitbucketServerMap["verify_ssl"] = data.CodeBaseIntegration.BitbucketServer.VerifySSL.ValueBool()
 			}
-			code_base_integrationMap["bitbucket_server"] = bitbucket_serverNestedMap
+			CodeBaseIntegrationMap["bitbucket_server"] = BitbucketServerMap
 		}
 		if data.CodeBaseIntegration.Github != nil {
-			githubNestedMap := make(map[string]interface{})
+			GithubMap := make(map[string]interface{})
+			if data.CodeBaseIntegration.Github.AccessToken != nil {
+				AccessTokenMap := make(map[string]interface{})
+				if data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					AccessTokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.URL.ValueString()
+					}
+					AccessTokenMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				GithubMap["access_token"] = AccessTokenMap
+			}
 			if !data.CodeBaseIntegration.Github.Username.IsNull() && !data.CodeBaseIntegration.Github.Username.IsUnknown() {
-				githubNestedMap["username"] = data.CodeBaseIntegration.Github.Username.ValueString()
+				GithubMap["username"] = data.CodeBaseIntegration.Github.Username.ValueString()
 			}
 			if !data.CodeBaseIntegration.Github.VerifySSL.IsNull() && !data.CodeBaseIntegration.Github.VerifySSL.IsUnknown() {
-				githubNestedMap["verify_ssl"] = data.CodeBaseIntegration.Github.VerifySSL.ValueBool()
+				GithubMap["verify_ssl"] = data.CodeBaseIntegration.Github.VerifySSL.ValueBool()
 			}
-			code_base_integrationMap["github"] = githubNestedMap
+			CodeBaseIntegrationMap["github"] = GithubMap
 		}
 		if data.CodeBaseIntegration.GithubEnterprise != nil {
-			github_enterpriseNestedMap := make(map[string]interface{})
+			GithubEnterpriseMap := make(map[string]interface{})
+			if data.CodeBaseIntegration.GithubEnterprise.AccessToken != nil {
+				AccessTokenMap := make(map[string]interface{})
+				if data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					AccessTokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.URL.ValueString()
+					}
+					AccessTokenMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				GithubEnterpriseMap["access_token"] = AccessTokenMap
+			}
 			if !data.CodeBaseIntegration.GithubEnterprise.Hostname.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.Hostname.IsUnknown() {
-				github_enterpriseNestedMap["hostname"] = data.CodeBaseIntegration.GithubEnterprise.Hostname.ValueString()
+				GithubEnterpriseMap["hostname"] = data.CodeBaseIntegration.GithubEnterprise.Hostname.ValueString()
 			}
 			if !data.CodeBaseIntegration.GithubEnterprise.Username.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.Username.IsUnknown() {
-				github_enterpriseNestedMap["username"] = data.CodeBaseIntegration.GithubEnterprise.Username.ValueString()
+				GithubEnterpriseMap["username"] = data.CodeBaseIntegration.GithubEnterprise.Username.ValueString()
 			}
-			code_base_integrationMap["github_enterprise"] = github_enterpriseNestedMap
+			CodeBaseIntegrationMap["github_enterprise"] = GithubEnterpriseMap
 		}
 		if data.CodeBaseIntegration.Gitlab != nil {
-			gitlabNestedMap := make(map[string]interface{})
-			code_base_integrationMap["gitlab"] = gitlabNestedMap
+			GitlabMap := make(map[string]interface{})
+			if data.CodeBaseIntegration.Gitlab.AccessToken != nil {
+				AccessTokenMap := make(map[string]interface{})
+				if data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					AccessTokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.URL.ValueString()
+					}
+					AccessTokenMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				GitlabMap["access_token"] = AccessTokenMap
+			}
+			CodeBaseIntegrationMap["gitlab"] = GitlabMap
 		}
 		if data.CodeBaseIntegration.GitlabEnterprise != nil {
-			gitlab_enterpriseNestedMap := make(map[string]interface{})
-			if !data.CodeBaseIntegration.GitlabEnterprise.URL.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.URL.IsUnknown() {
-				gitlab_enterpriseNestedMap["url"] = data.CodeBaseIntegration.GitlabEnterprise.URL.ValueString()
+			GitlabEnterpriseMap := make(map[string]interface{})
+			if data.CodeBaseIntegration.GitlabEnterprise.AccessToken != nil {
+				AccessTokenMap := make(map[string]interface{})
+				if data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					AccessTokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.URL.ValueString()
+					}
+					AccessTokenMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				GitlabEnterpriseMap["access_token"] = AccessTokenMap
 			}
-			code_base_integrationMap["gitlab_enterprise"] = gitlab_enterpriseNestedMap
+			if !data.CodeBaseIntegration.GitlabEnterprise.URL.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.URL.IsUnknown() {
+				GitlabEnterpriseMap["url"] = data.CodeBaseIntegration.GitlabEnterprise.URL.ValueString()
+			}
+			CodeBaseIntegrationMap["gitlab_enterprise"] = GitlabEnterpriseMap
 		}
-		apiResource.Spec["code_base_integration"] = code_base_integrationMap
+		apiResource.Spec["code_base_integration"] = CodeBaseIntegrationMap
 	}
 
 	_, err := r.client.UpdateCodeBaseIntegration(ctx, apiResource)
@@ -1294,11 +2640,491 @@ func (r *CodeBaseIntegrationResource) Update(ctx context.Context, req resource.U
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["code_base_integration"].(map[string]interface{}); ok && isImport && data.CodeBaseIntegration == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.CodeBaseIntegration = &CodeBaseIntegrationCodeBaseIntegrationModel{}
+	if blockData, ok := apiResource.Spec["code_base_integration"].(map[string]interface{}); ok && (isImport || data.CodeBaseIntegration != nil) {
+		data.CodeBaseIntegration = &CodeBaseIntegrationCodeBaseIntegrationModel{
+			AzureRepos: func() *CodeBaseIntegrationCodeBaseIntegrationAzureReposModel {
+				if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.AzureRepos != nil {
+					return data.CodeBaseIntegration.AzureRepos
+				}
+				if AzureReposData, ok := blockData["azure_repos"].(map[string]interface{}); ok {
+					return &CodeBaseIntegrationCodeBaseIntegrationAzureReposModel{
+						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenModel {
+							if AccessTokenData, ok := AzureReposData["access_token"].(map[string]interface{}); ok {
+								return &CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenModel{
+									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenClearSecretInfoModel {
+										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Bitbucket: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketModel {
+				if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Bitbucket != nil {
+					return data.CodeBaseIntegration.Bitbucket
+				}
+				if BitbucketData, ok := blockData["bitbucket"].(map[string]interface{}); ok {
+					return &CodeBaseIntegrationCodeBaseIntegrationBitbucketModel{
+						Passwd: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdModel {
+							if PasswdData, ok := BitbucketData["passwd"].(map[string]interface{}); ok {
+								return &CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdModel{
+									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := PasswdData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdClearSecretInfoModel {
+										if ClearSecretInfoData, ok := PasswdData["clear_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Username: func() types.String {
+							if v, ok := BitbucketData["username"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			BitbucketServer: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketServerModel {
+				if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.BitbucketServer != nil {
+					return data.CodeBaseIntegration.BitbucketServer
+				}
+				if BitbucketServerData, ok := blockData["bitbucket_server"].(map[string]interface{}); ok {
+					return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerModel{
+						Passwd: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdModel {
+							if PasswdData, ok := BitbucketServerData["passwd"].(map[string]interface{}); ok {
+								return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdModel{
+									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := PasswdData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdClearSecretInfoModel {
+										if ClearSecretInfoData, ok := PasswdData["clear_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						URL: func() types.String {
+							if v, ok := BitbucketServerData["url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Username: func() types.String {
+							if v, ok := BitbucketServerData["username"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						VerifySSL: func() types.Bool {
+							if v, ok := BitbucketServerData["verify_ssl"].(bool); ok {
+								return types.BoolValue(v)
+							}
+							return types.BoolNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Github: func() *CodeBaseIntegrationCodeBaseIntegrationGithubModel {
+				if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Github != nil {
+					return data.CodeBaseIntegration.Github
+				}
+				if GithubData, ok := blockData["github"].(map[string]interface{}); ok {
+					return &CodeBaseIntegrationCodeBaseIntegrationGithubModel{
+						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenModel {
+							if AccessTokenData, ok := GithubData["access_token"].(map[string]interface{}); ok {
+								return &CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenModel{
+									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenClearSecretInfoModel {
+										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Username: func() types.String {
+							if v, ok := GithubData["username"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						VerifySSL: func() types.Bool {
+							if v, ok := GithubData["verify_ssl"].(bool); ok {
+								return types.BoolValue(v)
+							}
+							return types.BoolNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			GithubEnterprise: func() *CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseModel {
+				if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GithubEnterprise != nil {
+					return data.CodeBaseIntegration.GithubEnterprise
+				}
+				if GithubEnterpriseData, ok := blockData["github_enterprise"].(map[string]interface{}); ok {
+					return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseModel{
+						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenModel {
+							if AccessTokenData, ok := GithubEnterpriseData["access_token"].(map[string]interface{}); ok {
+								return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenModel{
+									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenClearSecretInfoModel {
+										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Hostname: func() types.String {
+							if v, ok := GithubEnterpriseData["hostname"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Username: func() types.String {
+							if v, ok := GithubEnterpriseData["username"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Gitlab: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabModel {
+				if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Gitlab != nil {
+					return data.CodeBaseIntegration.Gitlab
+				}
+				if GitlabData, ok := blockData["gitlab"].(map[string]interface{}); ok {
+					return &CodeBaseIntegrationCodeBaseIntegrationGitlabModel{
+						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenModel {
+							if AccessTokenData, ok := GitlabData["access_token"].(map[string]interface{}); ok {
+								return &CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenModel{
+									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenClearSecretInfoModel {
+										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			GitlabEnterprise: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseModel {
+				if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GitlabEnterprise != nil {
+					return data.CodeBaseIntegration.GitlabEnterprise
+				}
+				if GitlabEnterpriseData, ok := blockData["gitlab_enterprise"].(map[string]interface{}); ok {
+					return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseModel{
+						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenModel {
+							if AccessTokenData, ok := GitlabEnterpriseData["access_token"].(map[string]interface{}); ok {
+								return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenModel{
+									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenClearSecretInfoModel {
+										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
+											return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						URL: func() types.String {
+							if v, ok := GitlabEnterpriseData["url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }

@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// APIDiscovery represents a XCSH APIDiscovery
+// APIDiscovery represents a F5XC APIDiscovery
 type APIDiscovery struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

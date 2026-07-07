@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// Irule represents a XCSH Irule
+// Irule represents a F5XC Irule
 type Irule struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

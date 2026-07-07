@@ -7,6 +7,7 @@ WAF exclusion policy
 
 - name
 - namespace
+- waf_exclusion_rules
 
 ## Minimal Valid Config
 

@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// DataGroup represents a XCSH DataGroup
+// DataGroup represents a F5XC DataGroup
 type DataGroup struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

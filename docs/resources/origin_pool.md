@@ -9,7 +9,7 @@ description: |-
 
 Manages an Origin Pool resource in F5 Distributed Cloud for defining backend server pools for load balancer targets.
 
-~> **Note** For more information about this resource, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
+~> **Note** Please refer to [Origin Pool API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/virtual/) to learn more.
 
 ## Example Usage
 
@@ -206,6 +206,35 @@ resource "xcsh_origin_pool" "test" {
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
 
+🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
+
+### Minimum Configuration
+
+Required fields:
+
+- `name`
+- `namespace`
+- `origin_servers`
+- `port`
+
+**Example (API format):**
+
+```yaml
+apiVersion: v1
+kind: origin_pool
+metadata:
+  name: backend-pool
+  namespace: default
+spec:
+  origin_servers:
+    - public_name:
+        dns_name: backend1.example.com
+    - public_name:
+        dns_name: backend2.example.com
+  port: 8080
+
+```
+
 ### Metadata Argument Reference
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Origin Pool. Must be unique within the namespace
@@ -264,24 +293,24 @@ In addition to all arguments above, the following attributes are exported:
 
 An [`advanced_options`](#advanced-options) block supports the following:
 
-<a id="advanced-options-auto-http-config"></a>&#x2022; [`auto_http_config`](#advanced-options-auto-http-config) - Optional Block<br>Enable this option
+<a id="advanced-options-auto-http-config"></a>&#x2022; [`auto_http_config`](#advanced-options-auto-http-config) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 <a id="advanced-options-circuit-breaker"></a>&#x2022; [`circuit_breaker`](#advanced-options-circuit-breaker) - Optional Block<br>CircuitBreaker provides a mechanism for watching failures in upstream connections or requests and if the failures reach a certain threshold, automatically fail subsequent requests which allows to apply back pressure on downstream quickly<br>See [Circuit
 Breaker](#advanced-options-circuit-breaker) below.
 
-<a id="advanced-options-connection-timeout"></a>&#x2022; [`connection_timeout`](#advanced-options-connection-timeout) - Optional Number  Defaults to `2`  Specified in milliseconds<br>The timeout for new network connections to endpoints in the cluster.  The seconds
+<a id="advanced-options-connection-timeout"></a>&#x2022; [`connection_timeout`](#advanced-options-connection-timeout) - Optional Number  Specified in milliseconds<br>The timeout for new network connections to endpoints in the cluster.  The default value is 2 seconds.  Recommended: `2000` ⚙️ **Server Default**
 
-<a id="breaker-c470cf"></a>&#x2022; [`default_circuit_breaker`](#breaker-c470cf) - Optional Block<br>Configuration parameter for default circuit breaker
+<a id="breaker-c470cf"></a>&#x2022; [`default_circuit_breaker`](#breaker-c470cf) - Optional Block  Defaults to `map[]`<br>Configuration parameter for default circuit breaker.  Server applies default when omitted
 
 <a id="breaker-222fdc"></a>&#x2022; [`disable_circuit_breaker`](#breaker-222fdc) - Optional Block<br>Configuration parameter for disable circuit breaker
 
 <a id="persistance-1139ff"></a>&#x2022; [`disable_lb_source_ip_persistance`](#persistance-1139ff) - Optional Block<br>Enable this option
 
-<a id="detection-c26369"></a>&#x2022; [`disable_outlier_detection`](#detection-c26369) - Optional Block<br>Configuration parameter for disable outlier detection
+<a id="detection-c26369"></a>&#x2022; [`disable_outlier_detection`](#detection-c26369) - Optional Block  Defaults to `map[]`<br>Configuration parameter for disable outlier detection.  Server applies default when omitted
 
 <a id="advanced-options-disable-proxy-protocol"></a>&#x2022; [`disable_proxy_protocol`](#advanced-options-disable-proxy-protocol) - Optional Block<br>Configuration parameter for disable proxy protocol
 
-<a id="advanced-options-disable-subsets"></a>&#x2022; [`disable_subsets`](#advanced-options-disable-subsets) - Optional Block<br>Configuration parameter for disable subsets
+<a id="advanced-options-disable-subsets"></a>&#x2022; [`disable_subsets`](#advanced-options-disable-subsets) - Optional Block  Defaults to `map[]`<br>Configuration parameter for disable subsets.  Server applies default when omitted
 
 <a id="persistance-62e70d"></a>&#x2022; [`enable_lb_source_ip_persistance`](#persistance-62e70d) - Optional Block<br>Enable this option
 
@@ -291,16 +320,16 @@ Breaker](#advanced-options-circuit-breaker) below.
 
 <a id="advanced-options-http2-options"></a>&#x2022; [`http2_options`](#advanced-options-http2-options) - Optional Block<br>Http2 Protocol OPTIONS for upstream connections<br>See [Http2 Options](#advanced-options-http2-options) below.
 
-<a id="advanced-options-http-idle-timeout"></a>&#x2022; [`http_idle_timeout`](#advanced-options-http-idle-timeout) - Optional Number<br>The idle timeout for upstream connection pool connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed
+<a id="advanced-options-http-idle-timeout"></a>&#x2022; [`http_idle_timeout`](#advanced-options-http-idle-timeout) - Optional Number<br>The idle timeout for upstream connection pool connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed.  Recommended: `300000` ⚙️ **Server Default**
 
 <a id="connection-324422"></a>&#x2022; [`max_requests_per_connection`](#connection-324422) - Optional Number<br>Sets the maximum number of requests allowed per connection to the origin server. Enter a value >=1 to define the request limit per connection
 
-<a id="advanced-options-no-panic-threshold"></a>&#x2022; [`no_panic_threshold`](#advanced-options-no-panic-threshold) - Optional Block<br>Configuration parameter for no panic threshold
+<a id="advanced-options-no-panic-threshold"></a>&#x2022; [`no_panic_threshold`](#advanced-options-no-panic-threshold) - Optional Block  Defaults to `map[]`<br>Configuration parameter for no panic threshold.  Server applies default when omitted
 
-<a id="connection-9ed841"></a>&#x2022; [`no_request_limit_per_connection`](#connection-9ed841) - Optional Block<br>Configuration parameter for no request limit per connection
+<a id="connection-9ed841"></a>&#x2022; [`no_request_limit_per_connection`](#connection-9ed841) - Optional Block  Defaults to `map[]`<br>Configuration parameter for no request limit per connection.  Server applies default when omitted
 
 <a id="advanced-options-outlier-detection"></a>&#x2022; [`outlier_detection`](#advanced-options-outlier-detection) - Optional Block<br>Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health
-checkinggggggg. Algorithm 1<br>See [Outlier Detection](#advanced-options-outlier-detection) below.
+checkingg. Algorithm 1<br>See [Outlier Detection](#advanced-options-outlier-detection) below.
 
 <a id="advanced-options-panic-threshold"></a>&#x2022; [`panic_threshold`](#advanced-options-panic-threshold) - Optional Number<br>Configure a threshold (percentage of unhealthy endpoints) below which all endpoints will be considered for load balancing ignoring its health status
 
@@ -739,7 +768,7 @@ An [`upstream_conn_pool_reuse_type`](#upstream-conn-pool-reuse-type) block suppo
 
 An [`use_tls`](#use-tls) block supports the following:
 
-<a id="use-tls-default-session-key-caching"></a>&#x2022; [`default_session_key_caching`](#use-tls-default-session-key-caching) - Optional Block<br>Configuration parameter for default session key caching
+<a id="use-tls-default-session-key-caching"></a>&#x2022; [`default_session_key_caching`](#use-tls-default-session-key-caching) - Optional Block  Defaults to `map[]`<br>Configuration parameter for default session key caching.  Server applies default when omitted
 
 <a id="use-tls-disable-session-key-caching"></a>&#x2022; [`disable_session_key_caching`](#use-tls-disable-session-key-caching) - Optional Block<br>Configuration parameter for disable session key caching
 
@@ -747,7 +776,7 @@ An [`use_tls`](#use-tls) block supports the following:
 
 <a id="use-tls-max-session-keys"></a>&#x2022; [`max_session_keys`](#use-tls-max-session-keys) - Optional Number<br>Number of session keys that are cached
 
-<a id="use-tls-no-mtls"></a>&#x2022; [`no_mtls`](#use-tls-no-mtls) - Optional Block<br>Enable this option
+<a id="use-tls-no-mtls"></a>&#x2022; [`no_mtls`](#use-tls-no-mtls) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 <a id="use-tls-skip-server-verification"></a>&#x2022; [`skip_server_verification`](#use-tls-skip-server-verification) - Optional Block<br>Enable this option
 
@@ -755,7 +784,7 @@ An [`use_tls`](#use-tls) block supports the following:
 
 <a id="use-tls-tls-config"></a>&#x2022; [`tls_config`](#use-tls-tls-config) - Optional Block<br>Defines various OPTIONS to configure TLS configuration parameters<br>See [TLS Config](#use-tls-tls-config) below.
 
-<a id="use-tls-use-host-header-as-sni"></a>&#x2022; [`use_host_header_as_sni`](#use-tls-use-host-header-as-sni) - Optional Block<br>Enable this option
+<a id="use-tls-use-host-header-as-sni"></a>&#x2022; [`use_host_header_as_sni`](#use-tls-use-host-header-as-sni) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 <a id="use-tls-use-mtls"></a>&#x2022; [`use_mtls`](#use-tls-use-mtls) - Optional Block<br>mTLS Certificate. mTLS Client Certificate<br>See [Use mTLS](#use-tls-use-mtls) below.
 
@@ -763,7 +792,7 @@ An [`use_tls`](#use-tls) block supports the following:
 
 <a id="use-tls-use-server-verification"></a>&#x2022; [`use_server_verification`](#use-tls-use-server-verification) - Optional Block<br>Configuration parameter for use server verification<br>See [Use Server Verification](#use-tls-use-server-verification) below.
 
-<a id="use-tls-volterra-trusted-ca"></a>&#x2022; [`volterra_trusted_ca`](#use-tls-volterra-trusted-ca) - Optional Block<br>Configuration parameter for volterra trusted CA
+<a id="use-tls-volterra-trusted-ca"></a>&#x2022; [`volterra_trusted_ca`](#use-tls-volterra-trusted-ca) - Optional Block  Defaults to `map[]`<br>Configuration parameter for volterra trusted CA.  Server applies default when omitted
 
 #### Use TLS TLS Config
 

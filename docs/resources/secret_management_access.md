@@ -42,6 +42,8 @@ resource "xcsh_secret_management_access" "example" {
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
 
+🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
+
 ### Metadata Argument Reference
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Secret Management Access. Must be unique within the namespace
@@ -263,7 +265,7 @@ A [`vault_auth_info`](#access-info-vault-auth-info) block (within [`access_info`
 
 A [`token`](#access-info-vault-auth-info-token) block (within [`access_info.vault_auth_info`](#access-info-vault-auth-info)) supports the following:
 
-<a id="info-8a86e5"></a>&#x2022; [`blindfold_secret_info`](#info-8a86e5) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info](#info-8a86e5) below.
+<a id="info-8a86e5"></a>&#x2022; [`blindfold_secret_info`](#info-8a86e5) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-8a86e5) below.
 
 <a id="info-d906d4"></a>&#x2022; [`clear_secret_info`](#info-d906d4) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-d906d4) below.
 

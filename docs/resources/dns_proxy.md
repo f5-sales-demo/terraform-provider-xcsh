@@ -42,6 +42,8 @@ resource "xcsh_dns_proxy" "example" {
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
 
+🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
+
 ### Metadata Argument Reference
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the DNS Proxy. Must be unique within the namespace
@@ -136,8 +138,7 @@ A [`health_checks`](#origin-servers-health-checks) block (within [`origin_server
 
 <a id="origin-servers-health-checks-timeout"></a>&#x2022; [`timeout`](#origin-servers-health-checks-timeout) - Optional Number<br>Timeout in seconds to wait for successful response. In other words, it is the time to wait for a health check response. If the timeout is reached the health check attempt will be considered a failure
 
-<a id="threshold-5d9f0b"></a>&#x2022; [`unhealthy_threshold`](#threshold-5d9f0b) - Optional Number<br>Number of failed responses before declaring unhealthy. In other words, this is the number of unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health checkinggggggg if a host responds with 503 this threshold is ignored and the host is considered unhealthy
-immediately
+<a id="threshold-5d9f0b"></a>&#x2022; [`unhealthy_threshold`](#threshold-5d9f0b) - Optional Number<br>Number of failed responses before declaring unhealthy. In other words, this is the number of unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health checkingg if a host responds with 503 this threshold is ignored and the host is considered unhealthy immediately
 
 #### Origin Servers Health Checks Health Check
 

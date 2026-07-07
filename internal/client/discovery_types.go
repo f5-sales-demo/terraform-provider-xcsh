@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// Discovery represents a XCSH Discovery
+// Discovery represents a F5XC Discovery
 type Discovery struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

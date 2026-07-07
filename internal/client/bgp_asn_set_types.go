@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// BGPAsnSet represents a XCSH BGPAsnSet
+// BGPAsnSet represents a F5XC BGPAsnSet
 type BGPAsnSet struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

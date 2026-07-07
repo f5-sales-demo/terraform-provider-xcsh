@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// WorkloadFlavor represents a XCSH WorkloadFlavor
+// WorkloadFlavor represents a F5XC WorkloadFlavor
 type WorkloadFlavor struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

@@ -466,99 +466,96 @@ func (r *SiteMeshGroupResource) Create(ctx context.Context, req resource.CreateR
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.BfdDisabled != nil {
-		bfd_disabledMap := make(map[string]interface{})
-		createReq.Spec["bfd_disabled"] = bfd_disabledMap
+		createReq.Spec["bfd_disabled"] = map[string]interface{}{}
 	}
 	if data.BfdEnabled != nil {
-		bfd_enabledMap := make(map[string]interface{})
+		BfdEnabledMap := make(map[string]interface{})
 		if !data.BfdEnabled.Multiplier.IsNull() && !data.BfdEnabled.Multiplier.IsUnknown() {
-			bfd_enabledMap["multiplier"] = data.BfdEnabled.Multiplier.ValueInt64()
+			BfdEnabledMap["multiplier"] = data.BfdEnabled.Multiplier.ValueInt64()
 		}
 		if !data.BfdEnabled.ReceiveIntervalMilliseconds.IsNull() && !data.BfdEnabled.ReceiveIntervalMilliseconds.IsUnknown() {
-			bfd_enabledMap["receive_interval_milliseconds"] = data.BfdEnabled.ReceiveIntervalMilliseconds.ValueInt64()
+			BfdEnabledMap["receive_interval_milliseconds"] = data.BfdEnabled.ReceiveIntervalMilliseconds.ValueInt64()
 		}
 		if !data.BfdEnabled.TransmitIntervalMilliseconds.IsNull() && !data.BfdEnabled.TransmitIntervalMilliseconds.IsUnknown() {
-			bfd_enabledMap["transmit_interval_milliseconds"] = data.BfdEnabled.TransmitIntervalMilliseconds.ValueInt64()
+			BfdEnabledMap["transmit_interval_milliseconds"] = data.BfdEnabled.TransmitIntervalMilliseconds.ValueInt64()
 		}
-		createReq.Spec["bfd_enabled"] = bfd_enabledMap
+		createReq.Spec["bfd_enabled"] = BfdEnabledMap
 	}
 	if data.DisableREFallback != nil {
-		disable_re_fallbackMap := make(map[string]interface{})
-		createReq.Spec["disable_re_fallback"] = disable_re_fallbackMap
+		createReq.Spec["disable_re_fallback"] = map[string]interface{}{}
 	}
 	if data.EnableREFallback != nil {
-		enable_re_fallbackMap := make(map[string]interface{})
-		createReq.Spec["enable_re_fallback"] = enable_re_fallbackMap
+		createReq.Spec["enable_re_fallback"] = map[string]interface{}{}
 	}
 	if data.FullMesh != nil {
-		full_meshMap := make(map[string]interface{})
+		FullMeshMap := make(map[string]interface{})
 		if data.FullMesh.ControlAndDataPlaneMesh != nil {
-			full_meshMap["control_and_data_plane_mesh"] = map[string]interface{}{}
+			FullMeshMap["control_and_data_plane_mesh"] = map[string]interface{}{}
 		}
 		if data.FullMesh.DataPlaneMesh != nil {
-			full_meshMap["data_plane_mesh"] = map[string]interface{}{}
+			FullMeshMap["data_plane_mesh"] = map[string]interface{}{}
 		}
-		createReq.Spec["full_mesh"] = full_meshMap
+		createReq.Spec["full_mesh"] = FullMeshMap
 	}
 	if data.HubMesh != nil {
-		hub_meshMap := make(map[string]interface{})
+		HubMeshMap := make(map[string]interface{})
 		if data.HubMesh.ControlAndDataPlaneMesh != nil {
-			hub_meshMap["control_and_data_plane_mesh"] = map[string]interface{}{}
+			HubMeshMap["control_and_data_plane_mesh"] = map[string]interface{}{}
 		}
 		if data.HubMesh.DataPlaneMesh != nil {
-			hub_meshMap["data_plane_mesh"] = map[string]interface{}{}
+			HubMeshMap["data_plane_mesh"] = map[string]interface{}{}
 		}
-		createReq.Spec["hub_mesh"] = hub_meshMap
+		createReq.Spec["hub_mesh"] = HubMeshMap
 	}
 	if data.SpokeMesh != nil {
-		spoke_meshMap := make(map[string]interface{})
+		SpokeMeshMap := make(map[string]interface{})
 		if data.SpokeMesh.ControlAndDataPlaneMesh != nil {
-			spoke_meshMap["control_and_data_plane_mesh"] = map[string]interface{}{}
+			SpokeMeshMap["control_and_data_plane_mesh"] = map[string]interface{}{}
 		}
 		if data.SpokeMesh.DataPlaneMesh != nil {
-			spoke_meshMap["data_plane_mesh"] = map[string]interface{}{}
+			SpokeMeshMap["data_plane_mesh"] = map[string]interface{}{}
 		}
 		if data.SpokeMesh.HubMeshGroup != nil {
-			hub_mesh_groupNestedMap := make(map[string]interface{})
+			HubMeshGroupMap := make(map[string]interface{})
 			if !data.SpokeMesh.HubMeshGroup.Name.IsNull() && !data.SpokeMesh.HubMeshGroup.Name.IsUnknown() {
-				hub_mesh_groupNestedMap["name"] = data.SpokeMesh.HubMeshGroup.Name.ValueString()
+				HubMeshGroupMap["name"] = data.SpokeMesh.HubMeshGroup.Name.ValueString()
 			}
 			if !data.SpokeMesh.HubMeshGroup.Namespace.IsNull() && !data.SpokeMesh.HubMeshGroup.Namespace.IsUnknown() {
-				hub_mesh_groupNestedMap["namespace"] = data.SpokeMesh.HubMeshGroup.Namespace.ValueString()
+				HubMeshGroupMap["namespace"] = data.SpokeMesh.HubMeshGroup.Namespace.ValueString()
 			}
 			if !data.SpokeMesh.HubMeshGroup.Tenant.IsNull() && !data.SpokeMesh.HubMeshGroup.Tenant.IsUnknown() {
-				hub_mesh_groupNestedMap["tenant"] = data.SpokeMesh.HubMeshGroup.Tenant.ValueString()
+				HubMeshGroupMap["tenant"] = data.SpokeMesh.HubMeshGroup.Tenant.ValueString()
 			}
-			spoke_meshMap["hub_mesh_group"] = hub_mesh_groupNestedMap
+			SpokeMeshMap["hub_mesh_group"] = HubMeshGroupMap
 		}
-		createReq.Spec["spoke_mesh"] = spoke_meshMap
+		createReq.Spec["spoke_mesh"] = SpokeMeshMap
 	}
 	if !data.VirtualSite.IsNull() && !data.VirtualSite.IsUnknown() {
-		var virtual_siteItems []SiteMeshGroupVirtualSiteModel
-		diags := data.VirtualSite.ElementsAs(ctx, &virtual_siteItems, false)
+		var VirtualSiteElems []SiteMeshGroupVirtualSiteModel
+		diags := data.VirtualSite.ElementsAs(ctx, &VirtualSiteElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(virtual_siteItems) > 0 {
-			var virtual_siteList []map[string]interface{}
-			for _, item := range virtual_siteItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(VirtualSiteElems) > 0 {
+			var VirtualSiteList []map[string]interface{}
+			for _, VirtualSiteItem := range VirtualSiteElems {
+				VirtualSiteItemMap := make(map[string]interface{})
+				if !VirtualSiteItem.Kind.IsNull() && !VirtualSiteItem.Kind.IsUnknown() {
+					VirtualSiteItemMap["kind"] = VirtualSiteItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !VirtualSiteItem.Name.IsNull() && !VirtualSiteItem.Name.IsUnknown() {
+					VirtualSiteItemMap["name"] = VirtualSiteItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !VirtualSiteItem.Namespace.IsNull() && !VirtualSiteItem.Namespace.IsUnknown() {
+					VirtualSiteItemMap["namespace"] = VirtualSiteItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !VirtualSiteItem.Tenant.IsNull() && !VirtualSiteItem.Tenant.IsUnknown() {
+					VirtualSiteItemMap["tenant"] = VirtualSiteItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !VirtualSiteItem.Uid.IsNull() && !VirtualSiteItem.Uid.IsUnknown() {
+					VirtualSiteItemMap["uid"] = VirtualSiteItem.Uid.ValueString()
 				}
-				virtual_siteList = append(virtual_siteList, itemMap)
+				VirtualSiteList = append(VirtualSiteList, VirtualSiteItemMap)
 			}
-			createReq.Spec["virtual_site"] = virtual_siteList
+			createReq.Spec["virtual_site"] = VirtualSiteList
 		}
 	}
 
@@ -575,56 +572,33 @@ func (r *SiteMeshGroupResource) Create(ctx context.Context, req resource.CreateR
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["bfd_disabled"].(map[string]interface{}); ok && isImport && data.BfdDisabled == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.BfdDisabled = &SiteMeshGroupEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["bfd_enabled"].(map[string]interface{}); ok && (isImport || data.BfdEnabled != nil) {
 		data.BfdEnabled = &SiteMeshGroupBfdEnabledModel{
 			Multiplier: func() types.Int64 {
 				if !isImport && data.BfdEnabled != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.BfdEnabled.Multiplier
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["multiplier"].(float64); ok {
+				if v, ok := blockData["multiplier"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			ReceiveIntervalMilliseconds: func() types.Int64 {
 				if !isImport && data.BfdEnabled != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.BfdEnabled.ReceiveIntervalMilliseconds
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["receive_interval_milliseconds"].(float64); ok {
+				if v, ok := blockData["receive_interval_milliseconds"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			TransmitIntervalMilliseconds: func() types.Int64 {
 				if !isImport && data.BfdEnabled != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.BfdEnabled.TransmitIntervalMilliseconds
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["transmit_interval_milliseconds"].(float64); ok {
+				if v, ok := blockData["transmit_interval_milliseconds"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -632,40 +606,117 @@ func (r *SiteMeshGroupResource) Create(ctx context.Context, req resource.CreateR
 		}
 	}
 	if _, ok := apiResource.Spec["disable_re_fallback"].(map[string]interface{}); ok && isImport && data.DisableREFallback == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableREFallback = &SiteMeshGroupEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["enable_re_fallback"].(map[string]interface{}); ok && isImport && data.EnableREFallback == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.EnableREFallback = &SiteMeshGroupEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["full_mesh"].(map[string]interface{}); ok && isImport && data.FullMesh == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.FullMesh = &SiteMeshGroupFullMeshModel{}
+	if blockData, ok := apiResource.Spec["full_mesh"].(map[string]interface{}); ok && (isImport || data.FullMesh != nil) {
+		data.FullMesh = &SiteMeshGroupFullMeshModel{
+			ControlAndDataPlaneMesh: func() *SiteMeshGroupEmptyModel {
+				if !isImport && data.FullMesh != nil {
+					return data.FullMesh.ControlAndDataPlaneMesh
+				}
+				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
+					return &SiteMeshGroupEmptyModel{}
+				}
+				return nil
+			}(),
+			DataPlaneMesh: func() *SiteMeshGroupEmptyModel {
+				if !isImport && data.FullMesh != nil {
+					return data.FullMesh.DataPlaneMesh
+				}
+				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
+					return &SiteMeshGroupEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["hub_mesh"].(map[string]interface{}); ok && isImport && data.HubMesh == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.HubMesh = &SiteMeshGroupHubMeshModel{}
+	if blockData, ok := apiResource.Spec["hub_mesh"].(map[string]interface{}); ok && (isImport || data.HubMesh != nil) {
+		data.HubMesh = &SiteMeshGroupHubMeshModel{
+			ControlAndDataPlaneMesh: func() *SiteMeshGroupEmptyModel {
+				if !isImport && data.HubMesh != nil {
+					return data.HubMesh.ControlAndDataPlaneMesh
+				}
+				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
+					return &SiteMeshGroupEmptyModel{}
+				}
+				return nil
+			}(),
+			DataPlaneMesh: func() *SiteMeshGroupEmptyModel {
+				if !isImport && data.HubMesh != nil {
+					return data.HubMesh.DataPlaneMesh
+				}
+				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
+					return &SiteMeshGroupEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["spoke_mesh"].(map[string]interface{}); ok && isImport && data.SpokeMesh == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.SpokeMesh = &SiteMeshGroupSpokeMeshModel{}
+	if blockData, ok := apiResource.Spec["spoke_mesh"].(map[string]interface{}); ok && (isImport || data.SpokeMesh != nil) {
+		data.SpokeMesh = &SiteMeshGroupSpokeMeshModel{
+			ControlAndDataPlaneMesh: func() *SiteMeshGroupEmptyModel {
+				if !isImport && data.SpokeMesh != nil {
+					return data.SpokeMesh.ControlAndDataPlaneMesh
+				}
+				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
+					return &SiteMeshGroupEmptyModel{}
+				}
+				return nil
+			}(),
+			DataPlaneMesh: func() *SiteMeshGroupEmptyModel {
+				if !isImport && data.SpokeMesh != nil {
+					return data.SpokeMesh.DataPlaneMesh
+				}
+				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
+					return &SiteMeshGroupEmptyModel{}
+				}
+				return nil
+			}(),
+			HubMeshGroup: func() *SiteMeshGroupSpokeMeshHubMeshGroupModel {
+				if !isImport && data.SpokeMesh != nil && data.SpokeMesh.HubMeshGroup != nil {
+					return data.SpokeMesh.HubMeshGroup
+				}
+				if HubMeshGroupData, ok := blockData["hub_mesh_group"].(map[string]interface{}); ok {
+					return &SiteMeshGroupSpokeMeshHubMeshGroupModel{
+						Name: func() types.String {
+							if v, ok := HubMeshGroupData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := HubMeshGroupData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := HubMeshGroupData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["virtual_site"].([]interface{}); ok && len(listData) > 0 {
-		var virtual_siteList []SiteMeshGroupVirtualSiteModel
+	if !isImport && (data.VirtualSite.IsNull() || len(data.VirtualSite.Elements()) == 0) {
+		data.VirtualSite = types.ListNull(types.ObjectType{AttrTypes: SiteMeshGroupVirtualSiteModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["virtual_site"].([]interface{}); ok && len(listData) > 0 {
+		var VirtualSiteList []SiteMeshGroupVirtualSiteModel
 		var existingVirtualSiteItems []SiteMeshGroupVirtualSiteModel
 		if !data.VirtualSite.IsNull() && !data.VirtualSite.IsUnknown() {
 			data.VirtualSite.ElementsAs(ctx, &existingVirtualSiteItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				virtual_siteList = append(virtual_siteList, SiteMeshGroupVirtualSiteModel{
+				VirtualSiteList = append(VirtualSiteList, SiteMeshGroupVirtualSiteModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -699,13 +750,12 @@ func (r *SiteMeshGroupResource) Create(ctx context.Context, req resource.CreateR
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SiteMeshGroupVirtualSiteModelAttrTypes}, virtual_siteList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SiteMeshGroupVirtualSiteModelAttrTypes}, VirtualSiteList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.VirtualSite = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.VirtualSite = types.ListNull(types.ObjectType{AttrTypes: SiteMeshGroupVirtualSiteModelAttrTypes})
 	}
 
@@ -789,56 +839,33 @@ func (r *SiteMeshGroupResource) Read(ctx context.Context, req resource.ReadReque
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["bfd_disabled"].(map[string]interface{}); ok && isImport && data.BfdDisabled == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.BfdDisabled = &SiteMeshGroupEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["bfd_enabled"].(map[string]interface{}); ok && (isImport || data.BfdEnabled != nil) {
 		data.BfdEnabled = &SiteMeshGroupBfdEnabledModel{
 			Multiplier: func() types.Int64 {
 				if !isImport && data.BfdEnabled != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.BfdEnabled.Multiplier
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["multiplier"].(float64); ok {
+				if v, ok := blockData["multiplier"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			ReceiveIntervalMilliseconds: func() types.Int64 {
 				if !isImport && data.BfdEnabled != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.BfdEnabled.ReceiveIntervalMilliseconds
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["receive_interval_milliseconds"].(float64); ok {
+				if v, ok := blockData["receive_interval_milliseconds"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			TransmitIntervalMilliseconds: func() types.Int64 {
 				if !isImport && data.BfdEnabled != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.BfdEnabled.TransmitIntervalMilliseconds
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["transmit_interval_milliseconds"].(float64); ok {
+				if v, ok := blockData["transmit_interval_milliseconds"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -846,40 +873,117 @@ func (r *SiteMeshGroupResource) Read(ctx context.Context, req resource.ReadReque
 		}
 	}
 	if _, ok := apiResource.Spec["disable_re_fallback"].(map[string]interface{}); ok && isImport && data.DisableREFallback == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableREFallback = &SiteMeshGroupEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["enable_re_fallback"].(map[string]interface{}); ok && isImport && data.EnableREFallback == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.EnableREFallback = &SiteMeshGroupEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["full_mesh"].(map[string]interface{}); ok && isImport && data.FullMesh == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.FullMesh = &SiteMeshGroupFullMeshModel{}
+	if blockData, ok := apiResource.Spec["full_mesh"].(map[string]interface{}); ok && (isImport || data.FullMesh != nil) {
+		data.FullMesh = &SiteMeshGroupFullMeshModel{
+			ControlAndDataPlaneMesh: func() *SiteMeshGroupEmptyModel {
+				if !isImport && data.FullMesh != nil {
+					return data.FullMesh.ControlAndDataPlaneMesh
+				}
+				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
+					return &SiteMeshGroupEmptyModel{}
+				}
+				return nil
+			}(),
+			DataPlaneMesh: func() *SiteMeshGroupEmptyModel {
+				if !isImport && data.FullMesh != nil {
+					return data.FullMesh.DataPlaneMesh
+				}
+				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
+					return &SiteMeshGroupEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["hub_mesh"].(map[string]interface{}); ok && isImport && data.HubMesh == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.HubMesh = &SiteMeshGroupHubMeshModel{}
+	if blockData, ok := apiResource.Spec["hub_mesh"].(map[string]interface{}); ok && (isImport || data.HubMesh != nil) {
+		data.HubMesh = &SiteMeshGroupHubMeshModel{
+			ControlAndDataPlaneMesh: func() *SiteMeshGroupEmptyModel {
+				if !isImport && data.HubMesh != nil {
+					return data.HubMesh.ControlAndDataPlaneMesh
+				}
+				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
+					return &SiteMeshGroupEmptyModel{}
+				}
+				return nil
+			}(),
+			DataPlaneMesh: func() *SiteMeshGroupEmptyModel {
+				if !isImport && data.HubMesh != nil {
+					return data.HubMesh.DataPlaneMesh
+				}
+				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
+					return &SiteMeshGroupEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["spoke_mesh"].(map[string]interface{}); ok && isImport && data.SpokeMesh == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.SpokeMesh = &SiteMeshGroupSpokeMeshModel{}
+	if blockData, ok := apiResource.Spec["spoke_mesh"].(map[string]interface{}); ok && (isImport || data.SpokeMesh != nil) {
+		data.SpokeMesh = &SiteMeshGroupSpokeMeshModel{
+			ControlAndDataPlaneMesh: func() *SiteMeshGroupEmptyModel {
+				if !isImport && data.SpokeMesh != nil {
+					return data.SpokeMesh.ControlAndDataPlaneMesh
+				}
+				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
+					return &SiteMeshGroupEmptyModel{}
+				}
+				return nil
+			}(),
+			DataPlaneMesh: func() *SiteMeshGroupEmptyModel {
+				if !isImport && data.SpokeMesh != nil {
+					return data.SpokeMesh.DataPlaneMesh
+				}
+				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
+					return &SiteMeshGroupEmptyModel{}
+				}
+				return nil
+			}(),
+			HubMeshGroup: func() *SiteMeshGroupSpokeMeshHubMeshGroupModel {
+				if !isImport && data.SpokeMesh != nil && data.SpokeMesh.HubMeshGroup != nil {
+					return data.SpokeMesh.HubMeshGroup
+				}
+				if HubMeshGroupData, ok := blockData["hub_mesh_group"].(map[string]interface{}); ok {
+					return &SiteMeshGroupSpokeMeshHubMeshGroupModel{
+						Name: func() types.String {
+							if v, ok := HubMeshGroupData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := HubMeshGroupData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := HubMeshGroupData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["virtual_site"].([]interface{}); ok && len(listData) > 0 {
-		var virtual_siteList []SiteMeshGroupVirtualSiteModel
+	if !isImport && (data.VirtualSite.IsNull() || len(data.VirtualSite.Elements()) == 0) {
+		data.VirtualSite = types.ListNull(types.ObjectType{AttrTypes: SiteMeshGroupVirtualSiteModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["virtual_site"].([]interface{}); ok && len(listData) > 0 {
+		var VirtualSiteList []SiteMeshGroupVirtualSiteModel
 		var existingVirtualSiteItems []SiteMeshGroupVirtualSiteModel
 		if !data.VirtualSite.IsNull() && !data.VirtualSite.IsUnknown() {
 			data.VirtualSite.ElementsAs(ctx, &existingVirtualSiteItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				virtual_siteList = append(virtual_siteList, SiteMeshGroupVirtualSiteModel{
+				VirtualSiteList = append(VirtualSiteList, SiteMeshGroupVirtualSiteModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -913,14 +1017,21 @@ func (r *SiteMeshGroupResource) Read(ctx context.Context, req resource.ReadReque
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SiteMeshGroupVirtualSiteModelAttrTypes}, virtual_siteList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SiteMeshGroupVirtualSiteModelAttrTypes}, VirtualSiteList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.VirtualSite = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.VirtualSite = types.ListNull(types.ObjectType{AttrTypes: SiteMeshGroupVirtualSiteModelAttrTypes})
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -974,99 +1085,96 @@ func (r *SiteMeshGroupResource) Update(ctx context.Context, req resource.UpdateR
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.BfdDisabled != nil {
-		bfd_disabledMap := make(map[string]interface{})
-		apiResource.Spec["bfd_disabled"] = bfd_disabledMap
+		apiResource.Spec["bfd_disabled"] = map[string]interface{}{}
 	}
 	if data.BfdEnabled != nil {
-		bfd_enabledMap := make(map[string]interface{})
+		BfdEnabledMap := make(map[string]interface{})
 		if !data.BfdEnabled.Multiplier.IsNull() && !data.BfdEnabled.Multiplier.IsUnknown() {
-			bfd_enabledMap["multiplier"] = data.BfdEnabled.Multiplier.ValueInt64()
+			BfdEnabledMap["multiplier"] = data.BfdEnabled.Multiplier.ValueInt64()
 		}
 		if !data.BfdEnabled.ReceiveIntervalMilliseconds.IsNull() && !data.BfdEnabled.ReceiveIntervalMilliseconds.IsUnknown() {
-			bfd_enabledMap["receive_interval_milliseconds"] = data.BfdEnabled.ReceiveIntervalMilliseconds.ValueInt64()
+			BfdEnabledMap["receive_interval_milliseconds"] = data.BfdEnabled.ReceiveIntervalMilliseconds.ValueInt64()
 		}
 		if !data.BfdEnabled.TransmitIntervalMilliseconds.IsNull() && !data.BfdEnabled.TransmitIntervalMilliseconds.IsUnknown() {
-			bfd_enabledMap["transmit_interval_milliseconds"] = data.BfdEnabled.TransmitIntervalMilliseconds.ValueInt64()
+			BfdEnabledMap["transmit_interval_milliseconds"] = data.BfdEnabled.TransmitIntervalMilliseconds.ValueInt64()
 		}
-		apiResource.Spec["bfd_enabled"] = bfd_enabledMap
+		apiResource.Spec["bfd_enabled"] = BfdEnabledMap
 	}
 	if data.DisableREFallback != nil {
-		disable_re_fallbackMap := make(map[string]interface{})
-		apiResource.Spec["disable_re_fallback"] = disable_re_fallbackMap
+		apiResource.Spec["disable_re_fallback"] = map[string]interface{}{}
 	}
 	if data.EnableREFallback != nil {
-		enable_re_fallbackMap := make(map[string]interface{})
-		apiResource.Spec["enable_re_fallback"] = enable_re_fallbackMap
+		apiResource.Spec["enable_re_fallback"] = map[string]interface{}{}
 	}
 	if data.FullMesh != nil {
-		full_meshMap := make(map[string]interface{})
+		FullMeshMap := make(map[string]interface{})
 		if data.FullMesh.ControlAndDataPlaneMesh != nil {
-			full_meshMap["control_and_data_plane_mesh"] = map[string]interface{}{}
+			FullMeshMap["control_and_data_plane_mesh"] = map[string]interface{}{}
 		}
 		if data.FullMesh.DataPlaneMesh != nil {
-			full_meshMap["data_plane_mesh"] = map[string]interface{}{}
+			FullMeshMap["data_plane_mesh"] = map[string]interface{}{}
 		}
-		apiResource.Spec["full_mesh"] = full_meshMap
+		apiResource.Spec["full_mesh"] = FullMeshMap
 	}
 	if data.HubMesh != nil {
-		hub_meshMap := make(map[string]interface{})
+		HubMeshMap := make(map[string]interface{})
 		if data.HubMesh.ControlAndDataPlaneMesh != nil {
-			hub_meshMap["control_and_data_plane_mesh"] = map[string]interface{}{}
+			HubMeshMap["control_and_data_plane_mesh"] = map[string]interface{}{}
 		}
 		if data.HubMesh.DataPlaneMesh != nil {
-			hub_meshMap["data_plane_mesh"] = map[string]interface{}{}
+			HubMeshMap["data_plane_mesh"] = map[string]interface{}{}
 		}
-		apiResource.Spec["hub_mesh"] = hub_meshMap
+		apiResource.Spec["hub_mesh"] = HubMeshMap
 	}
 	if data.SpokeMesh != nil {
-		spoke_meshMap := make(map[string]interface{})
+		SpokeMeshMap := make(map[string]interface{})
 		if data.SpokeMesh.ControlAndDataPlaneMesh != nil {
-			spoke_meshMap["control_and_data_plane_mesh"] = map[string]interface{}{}
+			SpokeMeshMap["control_and_data_plane_mesh"] = map[string]interface{}{}
 		}
 		if data.SpokeMesh.DataPlaneMesh != nil {
-			spoke_meshMap["data_plane_mesh"] = map[string]interface{}{}
+			SpokeMeshMap["data_plane_mesh"] = map[string]interface{}{}
 		}
 		if data.SpokeMesh.HubMeshGroup != nil {
-			hub_mesh_groupNestedMap := make(map[string]interface{})
+			HubMeshGroupMap := make(map[string]interface{})
 			if !data.SpokeMesh.HubMeshGroup.Name.IsNull() && !data.SpokeMesh.HubMeshGroup.Name.IsUnknown() {
-				hub_mesh_groupNestedMap["name"] = data.SpokeMesh.HubMeshGroup.Name.ValueString()
+				HubMeshGroupMap["name"] = data.SpokeMesh.HubMeshGroup.Name.ValueString()
 			}
 			if !data.SpokeMesh.HubMeshGroup.Namespace.IsNull() && !data.SpokeMesh.HubMeshGroup.Namespace.IsUnknown() {
-				hub_mesh_groupNestedMap["namespace"] = data.SpokeMesh.HubMeshGroup.Namespace.ValueString()
+				HubMeshGroupMap["namespace"] = data.SpokeMesh.HubMeshGroup.Namespace.ValueString()
 			}
 			if !data.SpokeMesh.HubMeshGroup.Tenant.IsNull() && !data.SpokeMesh.HubMeshGroup.Tenant.IsUnknown() {
-				hub_mesh_groupNestedMap["tenant"] = data.SpokeMesh.HubMeshGroup.Tenant.ValueString()
+				HubMeshGroupMap["tenant"] = data.SpokeMesh.HubMeshGroup.Tenant.ValueString()
 			}
-			spoke_meshMap["hub_mesh_group"] = hub_mesh_groupNestedMap
+			SpokeMeshMap["hub_mesh_group"] = HubMeshGroupMap
 		}
-		apiResource.Spec["spoke_mesh"] = spoke_meshMap
+		apiResource.Spec["spoke_mesh"] = SpokeMeshMap
 	}
 	if !data.VirtualSite.IsNull() && !data.VirtualSite.IsUnknown() {
-		var virtual_siteItems []SiteMeshGroupVirtualSiteModel
-		diags := data.VirtualSite.ElementsAs(ctx, &virtual_siteItems, false)
+		var VirtualSiteElems []SiteMeshGroupVirtualSiteModel
+		diags := data.VirtualSite.ElementsAs(ctx, &VirtualSiteElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(virtual_siteItems) > 0 {
-			var virtual_siteList []map[string]interface{}
-			for _, item := range virtual_siteItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(VirtualSiteElems) > 0 {
+			var VirtualSiteList []map[string]interface{}
+			for _, VirtualSiteItem := range VirtualSiteElems {
+				VirtualSiteItemMap := make(map[string]interface{})
+				if !VirtualSiteItem.Kind.IsNull() && !VirtualSiteItem.Kind.IsUnknown() {
+					VirtualSiteItemMap["kind"] = VirtualSiteItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !VirtualSiteItem.Name.IsNull() && !VirtualSiteItem.Name.IsUnknown() {
+					VirtualSiteItemMap["name"] = VirtualSiteItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !VirtualSiteItem.Namespace.IsNull() && !VirtualSiteItem.Namespace.IsUnknown() {
+					VirtualSiteItemMap["namespace"] = VirtualSiteItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !VirtualSiteItem.Tenant.IsNull() && !VirtualSiteItem.Tenant.IsUnknown() {
+					VirtualSiteItemMap["tenant"] = VirtualSiteItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !VirtualSiteItem.Uid.IsNull() && !VirtualSiteItem.Uid.IsUnknown() {
+					VirtualSiteItemMap["uid"] = VirtualSiteItem.Uid.ValueString()
 				}
-				virtual_siteList = append(virtual_siteList, itemMap)
+				VirtualSiteList = append(VirtualSiteList, VirtualSiteItemMap)
 			}
-			apiResource.Spec["virtual_site"] = virtual_siteList
+			apiResource.Spec["virtual_site"] = VirtualSiteList
 		}
 	}
 
@@ -1094,56 +1202,33 @@ func (r *SiteMeshGroupResource) Update(ctx context.Context, req resource.UpdateR
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["bfd_disabled"].(map[string]interface{}); ok && isImport && data.BfdDisabled == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.BfdDisabled = &SiteMeshGroupEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["bfd_enabled"].(map[string]interface{}); ok && (isImport || data.BfdEnabled != nil) {
 		data.BfdEnabled = &SiteMeshGroupBfdEnabledModel{
 			Multiplier: func() types.Int64 {
 				if !isImport && data.BfdEnabled != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.BfdEnabled.Multiplier
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["multiplier"].(float64); ok {
+				if v, ok := blockData["multiplier"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			ReceiveIntervalMilliseconds: func() types.Int64 {
 				if !isImport && data.BfdEnabled != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.BfdEnabled.ReceiveIntervalMilliseconds
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["receive_interval_milliseconds"].(float64); ok {
+				if v, ok := blockData["receive_interval_milliseconds"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			TransmitIntervalMilliseconds: func() types.Int64 {
 				if !isImport && data.BfdEnabled != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.BfdEnabled.TransmitIntervalMilliseconds
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["transmit_interval_milliseconds"].(float64); ok {
+				if v, ok := blockData["transmit_interval_milliseconds"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -1151,40 +1236,117 @@ func (r *SiteMeshGroupResource) Update(ctx context.Context, req resource.UpdateR
 		}
 	}
 	if _, ok := apiResource.Spec["disable_re_fallback"].(map[string]interface{}); ok && isImport && data.DisableREFallback == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableREFallback = &SiteMeshGroupEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["enable_re_fallback"].(map[string]interface{}); ok && isImport && data.EnableREFallback == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.EnableREFallback = &SiteMeshGroupEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["full_mesh"].(map[string]interface{}); ok && isImport && data.FullMesh == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.FullMesh = &SiteMeshGroupFullMeshModel{}
+	if blockData, ok := apiResource.Spec["full_mesh"].(map[string]interface{}); ok && (isImport || data.FullMesh != nil) {
+		data.FullMesh = &SiteMeshGroupFullMeshModel{
+			ControlAndDataPlaneMesh: func() *SiteMeshGroupEmptyModel {
+				if !isImport && data.FullMesh != nil {
+					return data.FullMesh.ControlAndDataPlaneMesh
+				}
+				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
+					return &SiteMeshGroupEmptyModel{}
+				}
+				return nil
+			}(),
+			DataPlaneMesh: func() *SiteMeshGroupEmptyModel {
+				if !isImport && data.FullMesh != nil {
+					return data.FullMesh.DataPlaneMesh
+				}
+				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
+					return &SiteMeshGroupEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["hub_mesh"].(map[string]interface{}); ok && isImport && data.HubMesh == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.HubMesh = &SiteMeshGroupHubMeshModel{}
+	if blockData, ok := apiResource.Spec["hub_mesh"].(map[string]interface{}); ok && (isImport || data.HubMesh != nil) {
+		data.HubMesh = &SiteMeshGroupHubMeshModel{
+			ControlAndDataPlaneMesh: func() *SiteMeshGroupEmptyModel {
+				if !isImport && data.HubMesh != nil {
+					return data.HubMesh.ControlAndDataPlaneMesh
+				}
+				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
+					return &SiteMeshGroupEmptyModel{}
+				}
+				return nil
+			}(),
+			DataPlaneMesh: func() *SiteMeshGroupEmptyModel {
+				if !isImport && data.HubMesh != nil {
+					return data.HubMesh.DataPlaneMesh
+				}
+				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
+					return &SiteMeshGroupEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["spoke_mesh"].(map[string]interface{}); ok && isImport && data.SpokeMesh == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.SpokeMesh = &SiteMeshGroupSpokeMeshModel{}
+	if blockData, ok := apiResource.Spec["spoke_mesh"].(map[string]interface{}); ok && (isImport || data.SpokeMesh != nil) {
+		data.SpokeMesh = &SiteMeshGroupSpokeMeshModel{
+			ControlAndDataPlaneMesh: func() *SiteMeshGroupEmptyModel {
+				if !isImport && data.SpokeMesh != nil {
+					return data.SpokeMesh.ControlAndDataPlaneMesh
+				}
+				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
+					return &SiteMeshGroupEmptyModel{}
+				}
+				return nil
+			}(),
+			DataPlaneMesh: func() *SiteMeshGroupEmptyModel {
+				if !isImport && data.SpokeMesh != nil {
+					return data.SpokeMesh.DataPlaneMesh
+				}
+				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
+					return &SiteMeshGroupEmptyModel{}
+				}
+				return nil
+			}(),
+			HubMeshGroup: func() *SiteMeshGroupSpokeMeshHubMeshGroupModel {
+				if !isImport && data.SpokeMesh != nil && data.SpokeMesh.HubMeshGroup != nil {
+					return data.SpokeMesh.HubMeshGroup
+				}
+				if HubMeshGroupData, ok := blockData["hub_mesh_group"].(map[string]interface{}); ok {
+					return &SiteMeshGroupSpokeMeshHubMeshGroupModel{
+						Name: func() types.String {
+							if v, ok := HubMeshGroupData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := HubMeshGroupData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := HubMeshGroupData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if listData, ok := apiResource.Spec["virtual_site"].([]interface{}); ok && len(listData) > 0 {
-		var virtual_siteList []SiteMeshGroupVirtualSiteModel
+	if !isImport && (data.VirtualSite.IsNull() || len(data.VirtualSite.Elements()) == 0) {
+		data.VirtualSite = types.ListNull(types.ObjectType{AttrTypes: SiteMeshGroupVirtualSiteModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["virtual_site"].([]interface{}); ok && len(listData) > 0 {
+		var VirtualSiteList []SiteMeshGroupVirtualSiteModel
 		var existingVirtualSiteItems []SiteMeshGroupVirtualSiteModel
 		if !data.VirtualSite.IsNull() && !data.VirtualSite.IsUnknown() {
 			data.VirtualSite.ElementsAs(ctx, &existingVirtualSiteItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				virtual_siteList = append(virtual_siteList, SiteMeshGroupVirtualSiteModel{
+				VirtualSiteList = append(VirtualSiteList, SiteMeshGroupVirtualSiteModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -1218,13 +1380,12 @@ func (r *SiteMeshGroupResource) Update(ctx context.Context, req resource.UpdateR
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SiteMeshGroupVirtualSiteModelAttrTypes}, virtual_siteList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SiteMeshGroupVirtualSiteModelAttrTypes}, VirtualSiteList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.VirtualSite = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.VirtualSite = types.ListNull(types.ObjectType{AttrTypes: SiteMeshGroupVirtualSiteModelAttrTypes})
 	}
 

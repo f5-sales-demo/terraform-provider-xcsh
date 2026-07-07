@@ -354,7 +354,7 @@ var AlertReceiverWebhookHTTPConfigBasicAuthPasswordClearSecretInfoModelAttrTypes
 
 // AlertReceiverWebhookHTTPConfigClientCertObjModel represents client_cert_obj block
 type AlertReceiverWebhookHTTPConfigClientCertObjModel struct {
-	UseTLSObj []AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModel `tfsdk:"use_tls_obj"`
+	UseTLSObj types.List `tfsdk:"use_tls_obj"`
 }
 
 // AlertReceiverWebhookHTTPConfigClientCertObjModelAttrTypes defines the attribute types for AlertReceiverWebhookHTTPConfigClientCertObjModel
@@ -412,7 +412,7 @@ var AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationModelAttrTypes = ma
 
 // AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjModel represents ca_cert_obj block
 type AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjModel struct {
-	TrustedCA []AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModel `tfsdk:"trusted_ca"`
+	TrustedCA types.List `tfsdk:"trusted_ca"`
 }
 
 // AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjModelAttrTypes defines the attribute types for AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjModel
@@ -583,7 +583,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
-								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 								Attributes: map[string]schema.Attribute{
 									"decryption_provider": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -639,7 +639,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
-								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 								Attributes: map[string]schema.Attribute{
 									"decryption_provider": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -695,7 +695,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
-								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 								Attributes: map[string]schema.Attribute{
 									"decryption_provider": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -769,7 +769,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
-												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 												Attributes: map[string]schema.Attribute{
 													"decryption_provider": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -825,7 +825,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
-												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 												Attributes: map[string]schema.Attribute{
 													"decryption_provider": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1031,7 +1031,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
-								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 								Attributes: map[string]schema.Attribute{
 									"decryption_provider": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1177,69 +1177,319 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.Email != nil {
-		emailMap := make(map[string]interface{})
+		EmailMap := make(map[string]interface{})
 		if !data.Email.Email.IsNull() && !data.Email.Email.IsUnknown() {
-			emailMap["email"] = data.Email.Email.ValueString()
+			EmailMap["email"] = data.Email.Email.ValueString()
 		}
-		createReq.Spec["email"] = emailMap
+		createReq.Spec["email"] = EmailMap
 	}
 	if data.Opsgenie != nil {
-		opsgenieMap := make(map[string]interface{})
+		OpsgenieMap := make(map[string]interface{})
 		if data.Opsgenie.APIKey != nil {
-			api_keyNestedMap := make(map[string]interface{})
-			opsgenieMap["api_key"] = api_keyNestedMap
+			APIKeyMap := make(map[string]interface{})
+			if data.Opsgenie.APIKey.BlindfoldSecretInfo != nil {
+				BlindfoldSecretInfoMap := make(map[string]interface{})
+				if !data.Opsgenie.APIKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Opsgenie.APIKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["decryption_provider"] = data.Opsgenie.APIKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				}
+				if !data.Opsgenie.APIKey.BlindfoldSecretInfo.Location.IsNull() && !data.Opsgenie.APIKey.BlindfoldSecretInfo.Location.IsUnknown() {
+					BlindfoldSecretInfoMap["location"] = data.Opsgenie.APIKey.BlindfoldSecretInfo.Location.ValueString()
+				}
+				if !data.Opsgenie.APIKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Opsgenie.APIKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["store_provider"] = data.Opsgenie.APIKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+				}
+				APIKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			}
+			if data.Opsgenie.APIKey.ClearSecretInfo != nil {
+				ClearSecretInfoMap := make(map[string]interface{})
+				if !data.Opsgenie.APIKey.ClearSecretInfo.Provider.IsNull() && !data.Opsgenie.APIKey.ClearSecretInfo.Provider.IsUnknown() {
+					ClearSecretInfoMap["provider"] = data.Opsgenie.APIKey.ClearSecretInfo.Provider.ValueString()
+				}
+				if !data.Opsgenie.APIKey.ClearSecretInfo.URL.IsNull() && !data.Opsgenie.APIKey.ClearSecretInfo.URL.IsUnknown() {
+					ClearSecretInfoMap["url"] = data.Opsgenie.APIKey.ClearSecretInfo.URL.ValueString()
+				}
+				APIKeyMap["clear_secret_info"] = ClearSecretInfoMap
+			}
+			OpsgenieMap["api_key"] = APIKeyMap
 		}
 		if !data.Opsgenie.URL.IsNull() && !data.Opsgenie.URL.IsUnknown() {
-			opsgenieMap["url"] = data.Opsgenie.URL.ValueString()
+			OpsgenieMap["url"] = data.Opsgenie.URL.ValueString()
 		}
-		createReq.Spec["opsgenie"] = opsgenieMap
+		createReq.Spec["opsgenie"] = OpsgenieMap
 	}
 	if data.Pagerduty != nil {
-		pagerdutyMap := make(map[string]interface{})
+		PagerdutyMap := make(map[string]interface{})
 		if data.Pagerduty.RoutingKey != nil {
-			routing_keyNestedMap := make(map[string]interface{})
-			pagerdutyMap["routing_key"] = routing_keyNestedMap
+			RoutingKeyMap := make(map[string]interface{})
+			if data.Pagerduty.RoutingKey.BlindfoldSecretInfo != nil {
+				BlindfoldSecretInfoMap := make(map[string]interface{})
+				if !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["decryption_provider"] = data.Pagerduty.RoutingKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				}
+				if !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.Location.IsNull() && !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.Location.IsUnknown() {
+					BlindfoldSecretInfoMap["location"] = data.Pagerduty.RoutingKey.BlindfoldSecretInfo.Location.ValueString()
+				}
+				if !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["store_provider"] = data.Pagerduty.RoutingKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+				}
+				RoutingKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			}
+			if data.Pagerduty.RoutingKey.ClearSecretInfo != nil {
+				ClearSecretInfoMap := make(map[string]interface{})
+				if !data.Pagerduty.RoutingKey.ClearSecretInfo.Provider.IsNull() && !data.Pagerduty.RoutingKey.ClearSecretInfo.Provider.IsUnknown() {
+					ClearSecretInfoMap["provider"] = data.Pagerduty.RoutingKey.ClearSecretInfo.Provider.ValueString()
+				}
+				if !data.Pagerduty.RoutingKey.ClearSecretInfo.URL.IsNull() && !data.Pagerduty.RoutingKey.ClearSecretInfo.URL.IsUnknown() {
+					ClearSecretInfoMap["url"] = data.Pagerduty.RoutingKey.ClearSecretInfo.URL.ValueString()
+				}
+				RoutingKeyMap["clear_secret_info"] = ClearSecretInfoMap
+			}
+			PagerdutyMap["routing_key"] = RoutingKeyMap
 		}
 		if !data.Pagerduty.URL.IsNull() && !data.Pagerduty.URL.IsUnknown() {
-			pagerdutyMap["url"] = data.Pagerduty.URL.ValueString()
+			PagerdutyMap["url"] = data.Pagerduty.URL.ValueString()
 		}
-		createReq.Spec["pagerduty"] = pagerdutyMap
+		createReq.Spec["pagerduty"] = PagerdutyMap
 	}
 	if data.Slack != nil {
-		slackMap := make(map[string]interface{})
+		SlackMap := make(map[string]interface{})
 		if !data.Slack.Channel.IsNull() && !data.Slack.Channel.IsUnknown() {
-			slackMap["channel"] = data.Slack.Channel.ValueString()
+			SlackMap["channel"] = data.Slack.Channel.ValueString()
 		}
 		if data.Slack.URL != nil {
-			urlNestedMap := make(map[string]interface{})
-			slackMap["url"] = urlNestedMap
+			URLMap := make(map[string]interface{})
+			if data.Slack.URL.BlindfoldSecretInfo != nil {
+				BlindfoldSecretInfoMap := make(map[string]interface{})
+				if !data.Slack.URL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Slack.URL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["decryption_provider"] = data.Slack.URL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				}
+				if !data.Slack.URL.BlindfoldSecretInfo.Location.IsNull() && !data.Slack.URL.BlindfoldSecretInfo.Location.IsUnknown() {
+					BlindfoldSecretInfoMap["location"] = data.Slack.URL.BlindfoldSecretInfo.Location.ValueString()
+				}
+				if !data.Slack.URL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Slack.URL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["store_provider"] = data.Slack.URL.BlindfoldSecretInfo.StoreProvider.ValueString()
+				}
+				URLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			}
+			if data.Slack.URL.ClearSecretInfo != nil {
+				ClearSecretInfoMap := make(map[string]interface{})
+				if !data.Slack.URL.ClearSecretInfo.Provider.IsNull() && !data.Slack.URL.ClearSecretInfo.Provider.IsUnknown() {
+					ClearSecretInfoMap["provider"] = data.Slack.URL.ClearSecretInfo.Provider.ValueString()
+				}
+				if !data.Slack.URL.ClearSecretInfo.URL.IsNull() && !data.Slack.URL.ClearSecretInfo.URL.IsUnknown() {
+					ClearSecretInfoMap["url"] = data.Slack.URL.ClearSecretInfo.URL.ValueString()
+				}
+				URLMap["clear_secret_info"] = ClearSecretInfoMap
+			}
+			SlackMap["url"] = URLMap
 		}
-		createReq.Spec["slack"] = slackMap
+		createReq.Spec["slack"] = SlackMap
 	}
 	if data.Sms != nil {
-		smsMap := make(map[string]interface{})
+		SmsMap := make(map[string]interface{})
 		if !data.Sms.ContactNumber.IsNull() && !data.Sms.ContactNumber.IsUnknown() {
-			smsMap["contact_number"] = data.Sms.ContactNumber.ValueString()
+			SmsMap["contact_number"] = data.Sms.ContactNumber.ValueString()
 		}
-		createReq.Spec["sms"] = smsMap
+		createReq.Spec["sms"] = SmsMap
 	}
 	if data.Webhook != nil {
-		webhookMap := make(map[string]interface{})
+		WebhookMap := make(map[string]interface{})
 		if data.Webhook.HTTPConfig != nil {
-			http_configNestedMap := make(map[string]interface{})
+			HTTPConfigMap := make(map[string]interface{})
+			if data.Webhook.HTTPConfig.AuthToken != nil {
+				AuthTokenMap := make(map[string]interface{})
+				if data.Webhook.HTTPConfig.AuthToken.Token != nil {
+					TokenMap := make(map[string]interface{})
+					if data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo != nil {
+						BlindfoldSecretInfoMap := make(map[string]interface{})
+						if !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["decryption_provider"] = data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						}
+						if !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.Location.IsNull() && !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.Location.IsUnknown() {
+							BlindfoldSecretInfoMap["location"] = data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.Location.ValueString()
+						}
+						if !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["store_provider"] = data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.StoreProvider.ValueString()
+						}
+						TokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					}
+					if data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo != nil {
+						ClearSecretInfoMap := make(map[string]interface{})
+						if !data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.Provider.IsNull() && !data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.Provider.IsUnknown() {
+							ClearSecretInfoMap["provider"] = data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.Provider.ValueString()
+						}
+						if !data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.URL.IsNull() && !data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.URL.IsUnknown() {
+							ClearSecretInfoMap["url"] = data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.URL.ValueString()
+						}
+						TokenMap["clear_secret_info"] = ClearSecretInfoMap
+					}
+					AuthTokenMap["token"] = TokenMap
+				}
+				HTTPConfigMap["auth_token"] = AuthTokenMap
+			}
+			if data.Webhook.HTTPConfig.BasicAuth != nil {
+				BasicAuthMap := make(map[string]interface{})
+				if data.Webhook.HTTPConfig.BasicAuth.Password != nil {
+					PasswordMap := make(map[string]interface{})
+					if data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo != nil {
+						BlindfoldSecretInfoMap := make(map[string]interface{})
+						if !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["decryption_provider"] = data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						}
+						if !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.Location.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+							BlindfoldSecretInfoMap["location"] = data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.Location.ValueString()
+						}
+						if !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["store_provider"] = data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+						}
+						PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					}
+					if data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo != nil {
+						ClearSecretInfoMap := make(map[string]interface{})
+						if !data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.Provider.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.Provider.IsUnknown() {
+							ClearSecretInfoMap["provider"] = data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.Provider.ValueString()
+						}
+						if !data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.URL.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.URL.IsUnknown() {
+							ClearSecretInfoMap["url"] = data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.URL.ValueString()
+						}
+						PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+					}
+					BasicAuthMap["password"] = PasswordMap
+				}
+				if !data.Webhook.HTTPConfig.BasicAuth.UserName.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.UserName.IsUnknown() {
+					BasicAuthMap["user_name"] = data.Webhook.HTTPConfig.BasicAuth.UserName.ValueString()
+				}
+				HTTPConfigMap["basic_auth"] = BasicAuthMap
+			}
+			if data.Webhook.HTTPConfig.ClientCertObj != nil {
+				ClientCertObjMap := make(map[string]interface{})
+				if !data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.IsNull() && !data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.IsUnknown() {
+					var UseTLSObjElems []AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModel
+					diags := data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.ElementsAs(ctx, &UseTLSObjElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(UseTLSObjElems) > 0 {
+						var UseTLSObjList []map[string]interface{}
+						for _, UseTLSObjItem := range UseTLSObjElems {
+							UseTLSObjItemMap := make(map[string]interface{})
+							if !UseTLSObjItem.Kind.IsNull() && !UseTLSObjItem.Kind.IsUnknown() {
+								UseTLSObjItemMap["kind"] = UseTLSObjItem.Kind.ValueString()
+							}
+							if !UseTLSObjItem.Name.IsNull() && !UseTLSObjItem.Name.IsUnknown() {
+								UseTLSObjItemMap["name"] = UseTLSObjItem.Name.ValueString()
+							}
+							if !UseTLSObjItem.Namespace.IsNull() && !UseTLSObjItem.Namespace.IsUnknown() {
+								UseTLSObjItemMap["namespace"] = UseTLSObjItem.Namespace.ValueString()
+							}
+							if !UseTLSObjItem.Tenant.IsNull() && !UseTLSObjItem.Tenant.IsUnknown() {
+								UseTLSObjItemMap["tenant"] = UseTLSObjItem.Tenant.ValueString()
+							}
+							if !UseTLSObjItem.Uid.IsNull() && !UseTLSObjItem.Uid.IsUnknown() {
+								UseTLSObjItemMap["uid"] = UseTLSObjItem.Uid.ValueString()
+							}
+							UseTLSObjList = append(UseTLSObjList, UseTLSObjItemMap)
+						}
+						ClientCertObjMap["use_tls_obj"] = UseTLSObjList
+					}
+				}
+				HTTPConfigMap["client_cert_obj"] = ClientCertObjMap
+			}
 			if !data.Webhook.HTTPConfig.EnableHttp2.IsNull() && !data.Webhook.HTTPConfig.EnableHttp2.IsUnknown() {
-				http_configNestedMap["enable_http2"] = data.Webhook.HTTPConfig.EnableHttp2.ValueBool()
+				HTTPConfigMap["enable_http2"] = data.Webhook.HTTPConfig.EnableHttp2.ValueBool()
 			}
 			if !data.Webhook.HTTPConfig.FollowRedirects.IsNull() && !data.Webhook.HTTPConfig.FollowRedirects.IsUnknown() {
-				http_configNestedMap["follow_redirects"] = data.Webhook.HTTPConfig.FollowRedirects.ValueBool()
+				HTTPConfigMap["follow_redirects"] = data.Webhook.HTTPConfig.FollowRedirects.ValueBool()
 			}
-			webhookMap["http_config"] = http_configNestedMap
+			if data.Webhook.HTTPConfig.NoAuthorization != nil {
+				HTTPConfigMap["no_authorization"] = map[string]interface{}{}
+			}
+			if data.Webhook.HTTPConfig.NoTLS != nil {
+				HTTPConfigMap["no_tls"] = map[string]interface{}{}
+			}
+			if data.Webhook.HTTPConfig.UseTLS != nil {
+				UseTLSMap := make(map[string]interface{})
+				if data.Webhook.HTTPConfig.UseTLS.DisableSni != nil {
+					UseTLSMap["disable_sni"] = map[string]interface{}{}
+				}
+				if !data.Webhook.HTTPConfig.UseTLS.MaxVersion.IsNull() && !data.Webhook.HTTPConfig.UseTLS.MaxVersion.IsUnknown() {
+					UseTLSMap["max_version"] = data.Webhook.HTTPConfig.UseTLS.MaxVersion.ValueString()
+				}
+				if !data.Webhook.HTTPConfig.UseTLS.MinVersion.IsNull() && !data.Webhook.HTTPConfig.UseTLS.MinVersion.IsUnknown() {
+					UseTLSMap["min_version"] = data.Webhook.HTTPConfig.UseTLS.MinVersion.ValueString()
+				}
+				if !data.Webhook.HTTPConfig.UseTLS.Sni.IsNull() && !data.Webhook.HTTPConfig.UseTLS.Sni.IsUnknown() {
+					UseTLSMap["sni"] = data.Webhook.HTTPConfig.UseTLS.Sni.ValueString()
+				}
+				if data.Webhook.HTTPConfig.UseTLS.UseServerVerification != nil {
+					UseServerVerificationMap := make(map[string]interface{})
+					if data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj != nil {
+						CACertObjMap := make(map[string]interface{})
+						if !data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.IsNull() && !data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.IsUnknown() {
+							var TrustedCAElems []AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModel
+							diags := data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.ElementsAs(ctx, &TrustedCAElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(TrustedCAElems) > 0 {
+								var TrustedCAList []map[string]interface{}
+								for _, TrustedCAItem := range TrustedCAElems {
+									TrustedCAItemMap := make(map[string]interface{})
+									if !TrustedCAItem.Kind.IsNull() && !TrustedCAItem.Kind.IsUnknown() {
+										TrustedCAItemMap["kind"] = TrustedCAItem.Kind.ValueString()
+									}
+									if !TrustedCAItem.Name.IsNull() && !TrustedCAItem.Name.IsUnknown() {
+										TrustedCAItemMap["name"] = TrustedCAItem.Name.ValueString()
+									}
+									if !TrustedCAItem.Namespace.IsNull() && !TrustedCAItem.Namespace.IsUnknown() {
+										TrustedCAItemMap["namespace"] = TrustedCAItem.Namespace.ValueString()
+									}
+									if !TrustedCAItem.Tenant.IsNull() && !TrustedCAItem.Tenant.IsUnknown() {
+										TrustedCAItemMap["tenant"] = TrustedCAItem.Tenant.ValueString()
+									}
+									if !TrustedCAItem.Uid.IsNull() && !TrustedCAItem.Uid.IsUnknown() {
+										TrustedCAItemMap["uid"] = TrustedCAItem.Uid.ValueString()
+									}
+									TrustedCAList = append(TrustedCAList, TrustedCAItemMap)
+								}
+								CACertObjMap["trusted_ca"] = TrustedCAList
+							}
+						}
+						UseServerVerificationMap["ca_cert_obj"] = CACertObjMap
+					}
+					UseTLSMap["use_server_verification"] = UseServerVerificationMap
+				}
+				if data.Webhook.HTTPConfig.UseTLS.VolterraTrustedCA != nil {
+					UseTLSMap["volterra_trusted_ca"] = map[string]interface{}{}
+				}
+				HTTPConfigMap["use_tls"] = UseTLSMap
+			}
+			WebhookMap["http_config"] = HTTPConfigMap
 		}
 		if data.Webhook.URL != nil {
-			urlNestedMap := make(map[string]interface{})
-			webhookMap["url"] = urlNestedMap
+			URLMap := make(map[string]interface{})
+			if data.Webhook.URL.BlindfoldSecretInfo != nil {
+				BlindfoldSecretInfoMap := make(map[string]interface{})
+				if !data.Webhook.URL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Webhook.URL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["decryption_provider"] = data.Webhook.URL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				}
+				if !data.Webhook.URL.BlindfoldSecretInfo.Location.IsNull() && !data.Webhook.URL.BlindfoldSecretInfo.Location.IsUnknown() {
+					BlindfoldSecretInfoMap["location"] = data.Webhook.URL.BlindfoldSecretInfo.Location.ValueString()
+				}
+				if !data.Webhook.URL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Webhook.URL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["store_provider"] = data.Webhook.URL.BlindfoldSecretInfo.StoreProvider.ValueString()
+				}
+				URLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			}
+			if data.Webhook.URL.ClearSecretInfo != nil {
+				ClearSecretInfoMap := make(map[string]interface{})
+				if !data.Webhook.URL.ClearSecretInfo.Provider.IsNull() && !data.Webhook.URL.ClearSecretInfo.Provider.IsUnknown() {
+					ClearSecretInfoMap["provider"] = data.Webhook.URL.ClearSecretInfo.Provider.ValueString()
+				}
+				if !data.Webhook.URL.ClearSecretInfo.URL.IsNull() && !data.Webhook.URL.ClearSecretInfo.URL.IsUnknown() {
+					ClearSecretInfoMap["url"] = data.Webhook.URL.ClearSecretInfo.URL.ValueString()
+				}
+				URLMap["clear_secret_info"] = ClearSecretInfoMap
+			}
+			WebhookMap["url"] = URLMap
 		}
-		createReq.Spec["webhook"] = webhookMap
+		createReq.Spec["webhook"] = WebhookMap
 	}
 
 	apiResource, err := r.client.CreateAlertReceiver(ctx, createReq)
@@ -1268,12 +1518,55 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 		data.Opsgenie = &AlertReceiverOpsgenieModel{
 			APIKey: func() *AlertReceiverOpsgenieAPIKeyModel {
 				if !isImport && data.Opsgenie != nil && data.Opsgenie.APIKey != nil {
-					// Normal Read: preserve existing state value
 					return data.Opsgenie.APIKey
 				}
-				// Import case: read from API
-				if _, ok := blockData["api_key"].(map[string]interface{}); ok {
-					return &AlertReceiverOpsgenieAPIKeyModel{}
+				if APIKeyData, ok := blockData["api_key"].(map[string]interface{}); ok {
+					return &AlertReceiverOpsgenieAPIKeyModel{
+						BlindfoldSecretInfo: func() *AlertReceiverOpsgenieAPIKeyBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := APIKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverOpsgenieAPIKeyBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *AlertReceiverOpsgenieAPIKeyClearSecretInfoModel {
+							if ClearSecretInfoData, ok := APIKeyData["clear_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverOpsgenieAPIKeyClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -1289,12 +1582,55 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 		data.Pagerduty = &AlertReceiverPagerdutyModel{
 			RoutingKey: func() *AlertReceiverPagerdutyRoutingKeyModel {
 				if !isImport && data.Pagerduty != nil && data.Pagerduty.RoutingKey != nil {
-					// Normal Read: preserve existing state value
 					return data.Pagerduty.RoutingKey
 				}
-				// Import case: read from API
-				if _, ok := blockData["routing_key"].(map[string]interface{}); ok {
-					return &AlertReceiverPagerdutyRoutingKeyModel{}
+				if RoutingKeyData, ok := blockData["routing_key"].(map[string]interface{}); ok {
+					return &AlertReceiverPagerdutyRoutingKeyModel{
+						BlindfoldSecretInfo: func() *AlertReceiverPagerdutyRoutingKeyBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := RoutingKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverPagerdutyRoutingKeyBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *AlertReceiverPagerdutyRoutingKeyClearSecretInfoModel {
+							if ClearSecretInfoData, ok := RoutingKeyData["clear_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverPagerdutyRoutingKeyClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -1316,12 +1652,55 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 			}(),
 			URL: func() *AlertReceiverSlackURLModel {
 				if !isImport && data.Slack != nil && data.Slack.URL != nil {
-					// Normal Read: preserve existing state value
 					return data.Slack.URL
 				}
-				// Import case: read from API
-				if _, ok := blockData["url"].(map[string]interface{}); ok {
-					return &AlertReceiverSlackURLModel{}
+				if URLData, ok := blockData["url"].(map[string]interface{}); ok {
+					return &AlertReceiverSlackURLModel{
+						BlindfoldSecretInfo: func() *AlertReceiverSlackURLBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := URLData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverSlackURLBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *AlertReceiverSlackURLClearSecretInfoModel {
+							if ClearSecretInfoData, ok := URLData["clear_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverSlackURLClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -1337,11 +1716,366 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["webhook"].(map[string]interface{}); ok && isImport && data.Webhook == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Webhook = &AlertReceiverWebhookModel{}
+	if blockData, ok := apiResource.Spec["webhook"].(map[string]interface{}); ok && (isImport || data.Webhook != nil) {
+		data.Webhook = &AlertReceiverWebhookModel{
+			HTTPConfig: func() *AlertReceiverWebhookHTTPConfigModel {
+				if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil {
+					return data.Webhook.HTTPConfig
+				}
+				if HTTPConfigData, ok := blockData["http_config"].(map[string]interface{}); ok {
+					return &AlertReceiverWebhookHTTPConfigModel{
+						AuthToken: func() *AlertReceiverWebhookHTTPConfigAuthTokenModel {
+							if AuthTokenData, ok := HTTPConfigData["auth_token"].(map[string]interface{}); ok {
+								return &AlertReceiverWebhookHTTPConfigAuthTokenModel{
+									Token: func() *AlertReceiverWebhookHTTPConfigAuthTokenTokenModel {
+										if TokenData, ok := AuthTokenData["token"].(map[string]interface{}); ok {
+											return &AlertReceiverWebhookHTTPConfigAuthTokenTokenModel{
+												BlindfoldSecretInfo: func() *AlertReceiverWebhookHTTPConfigAuthTokenTokenBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := TokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &AlertReceiverWebhookHTTPConfigAuthTokenTokenBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *AlertReceiverWebhookHTTPConfigAuthTokenTokenClearSecretInfoModel {
+													if ClearSecretInfoData, ok := TokenData["clear_secret_info"].(map[string]interface{}); ok {
+														return &AlertReceiverWebhookHTTPConfigAuthTokenTokenClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						BasicAuth: func() *AlertReceiverWebhookHTTPConfigBasicAuthModel {
+							if BasicAuthData, ok := HTTPConfigData["basic_auth"].(map[string]interface{}); ok {
+								return &AlertReceiverWebhookHTTPConfigBasicAuthModel{
+									Password: func() *AlertReceiverWebhookHTTPConfigBasicAuthPasswordModel {
+										if PasswordData, ok := BasicAuthData["password"].(map[string]interface{}); ok {
+											return &AlertReceiverWebhookHTTPConfigBasicAuthPasswordModel{
+												BlindfoldSecretInfo: func() *AlertReceiverWebhookHTTPConfigBasicAuthPasswordBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &AlertReceiverWebhookHTTPConfigBasicAuthPasswordBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *AlertReceiverWebhookHTTPConfigBasicAuthPasswordClearSecretInfoModel {
+													if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+														return &AlertReceiverWebhookHTTPConfigBasicAuthPasswordClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									UserName: func() types.String {
+										if v, ok := BasicAuthData["user_name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClientCertObj: func() *AlertReceiverWebhookHTTPConfigClientCertObjModel {
+							if ClientCertObjData, ok := HTTPConfigData["client_cert_obj"].(map[string]interface{}); ok {
+								return &AlertReceiverWebhookHTTPConfigClientCertObjModel{
+									UseTLSObj: func() types.List {
+										if rawList, ok := ClientCertObjData["use_tls_obj"].([]interface{}); ok && len(rawList) > 0 {
+											var UseTLSObjResult []AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModel
+											for _, UseTLSObjItem := range rawList {
+												if UseTLSObjItemMap, ok := UseTLSObjItem.(map[string]interface{}); ok {
+													UseTLSObjResult = append(UseTLSObjResult, AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModel{
+														Kind: func() types.String {
+															if v, ok := UseTLSObjItemMap["kind"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := UseTLSObjItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := UseTLSObjItemMap["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := UseTLSObjItemMap["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Uid: func() types.String {
+															if v, ok := UseTLSObjItemMap["uid"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModelAttrTypes}, UseTLSObjResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModelAttrTypes})
+									}(),
+								}
+							}
+							return nil
+						}(),
+						EnableHttp2: func() types.Bool {
+							if v, ok := HTTPConfigData["enable_http2"].(bool); ok {
+								return types.BoolValue(v)
+							}
+							return types.BoolNull()
+						}(),
+						FollowRedirects: func() types.Bool {
+							if v, ok := HTTPConfigData["follow_redirects"].(bool); ok {
+								return types.BoolValue(v)
+							}
+							return types.BoolNull()
+						}(),
+						NoAuthorization: func() *AlertReceiverEmptyModel {
+							if _, ok := HTTPConfigData["no_authorization"].(map[string]interface{}); ok {
+								return &AlertReceiverEmptyModel{}
+							}
+							return nil
+						}(),
+						NoTLS: func() *AlertReceiverEmptyModel {
+							if _, ok := HTTPConfigData["no_tls"].(map[string]interface{}); ok {
+								return &AlertReceiverEmptyModel{}
+							}
+							return nil
+						}(),
+						UseTLS: func() *AlertReceiverWebhookHTTPConfigUseTLSModel {
+							if UseTLSData, ok := HTTPConfigData["use_tls"].(map[string]interface{}); ok {
+								return &AlertReceiverWebhookHTTPConfigUseTLSModel{
+									DisableSni: func() *AlertReceiverEmptyModel {
+										if _, ok := UseTLSData["disable_sni"].(map[string]interface{}); ok {
+											return &AlertReceiverEmptyModel{}
+										}
+										return nil
+									}(),
+									MaxVersion: func() types.String {
+										if v, ok := UseTLSData["max_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									MinVersion: func() types.String {
+										if v, ok := UseTLSData["min_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Sni: func() types.String {
+										if v, ok := UseTLSData["sni"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									UseServerVerification: func() *AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationModel {
+										if UseServerVerificationData, ok := UseTLSData["use_server_verification"].(map[string]interface{}); ok {
+											return &AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationModel{
+												CACertObj: func() *AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjModel {
+													if CACertObjData, ok := UseServerVerificationData["ca_cert_obj"].(map[string]interface{}); ok {
+														return &AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjModel{
+															TrustedCA: func() types.List {
+																if rawList, ok := CACertObjData["trusted_ca"].([]interface{}); ok && len(rawList) > 0 {
+																	var TrustedCAResult []AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModel
+																	for _, TrustedCAItem := range rawList {
+																		if TrustedCAItemMap, ok := TrustedCAItem.(map[string]interface{}); ok {
+																			TrustedCAResult = append(TrustedCAResult, AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModel{
+																				Kind: func() types.String {
+																					if v, ok := TrustedCAItemMap["kind"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Name: func() types.String {
+																					if v, ok := TrustedCAItemMap["name"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Namespace: func() types.String {
+																					if v, ok := TrustedCAItemMap["namespace"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Tenant: func() types.String {
+																					if v, ok := TrustedCAItemMap["tenant"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Uid: func() types.String {
+																					if v, ok := TrustedCAItemMap["uid"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			})
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModelAttrTypes}, TrustedCAResult)
+																	return listVal
+																}
+																return types.ListNull(types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModelAttrTypes})
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									VolterraTrustedCA: func() *AlertReceiverEmptyModel {
+										if _, ok := UseTLSData["volterra_trusted_ca"].(map[string]interface{}); ok {
+											return &AlertReceiverEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			URL: func() *AlertReceiverWebhookURLModel {
+				if !isImport && data.Webhook != nil && data.Webhook.URL != nil {
+					return data.Webhook.URL
+				}
+				if URLData, ok := blockData["url"].(map[string]interface{}); ok {
+					return &AlertReceiverWebhookURLModel{
+						BlindfoldSecretInfo: func() *AlertReceiverWebhookURLBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := URLData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverWebhookURLBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *AlertReceiverWebhookURLClearSecretInfoModel {
+							if ClearSecretInfoData, ok := URLData["clear_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverWebhookURLClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 
 	tflog.Trace(ctx, "created AlertReceiver resource")
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -1436,12 +2170,55 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 		data.Opsgenie = &AlertReceiverOpsgenieModel{
 			APIKey: func() *AlertReceiverOpsgenieAPIKeyModel {
 				if !isImport && data.Opsgenie != nil && data.Opsgenie.APIKey != nil {
-					// Normal Read: preserve existing state value
 					return data.Opsgenie.APIKey
 				}
-				// Import case: read from API
-				if _, ok := blockData["api_key"].(map[string]interface{}); ok {
-					return &AlertReceiverOpsgenieAPIKeyModel{}
+				if APIKeyData, ok := blockData["api_key"].(map[string]interface{}); ok {
+					return &AlertReceiverOpsgenieAPIKeyModel{
+						BlindfoldSecretInfo: func() *AlertReceiverOpsgenieAPIKeyBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := APIKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverOpsgenieAPIKeyBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *AlertReceiverOpsgenieAPIKeyClearSecretInfoModel {
+							if ClearSecretInfoData, ok := APIKeyData["clear_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverOpsgenieAPIKeyClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -1457,12 +2234,55 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 		data.Pagerduty = &AlertReceiverPagerdutyModel{
 			RoutingKey: func() *AlertReceiverPagerdutyRoutingKeyModel {
 				if !isImport && data.Pagerduty != nil && data.Pagerduty.RoutingKey != nil {
-					// Normal Read: preserve existing state value
 					return data.Pagerduty.RoutingKey
 				}
-				// Import case: read from API
-				if _, ok := blockData["routing_key"].(map[string]interface{}); ok {
-					return &AlertReceiverPagerdutyRoutingKeyModel{}
+				if RoutingKeyData, ok := blockData["routing_key"].(map[string]interface{}); ok {
+					return &AlertReceiverPagerdutyRoutingKeyModel{
+						BlindfoldSecretInfo: func() *AlertReceiverPagerdutyRoutingKeyBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := RoutingKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverPagerdutyRoutingKeyBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *AlertReceiverPagerdutyRoutingKeyClearSecretInfoModel {
+							if ClearSecretInfoData, ok := RoutingKeyData["clear_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverPagerdutyRoutingKeyClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -1484,12 +2304,55 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 			}(),
 			URL: func() *AlertReceiverSlackURLModel {
 				if !isImport && data.Slack != nil && data.Slack.URL != nil {
-					// Normal Read: preserve existing state value
 					return data.Slack.URL
 				}
-				// Import case: read from API
-				if _, ok := blockData["url"].(map[string]interface{}); ok {
-					return &AlertReceiverSlackURLModel{}
+				if URLData, ok := blockData["url"].(map[string]interface{}); ok {
+					return &AlertReceiverSlackURLModel{
+						BlindfoldSecretInfo: func() *AlertReceiverSlackURLBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := URLData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverSlackURLBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *AlertReceiverSlackURLClearSecretInfoModel {
+							if ClearSecretInfoData, ok := URLData["clear_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverSlackURLClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -1505,11 +2368,374 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["webhook"].(map[string]interface{}); ok && isImport && data.Webhook == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Webhook = &AlertReceiverWebhookModel{}
+	if blockData, ok := apiResource.Spec["webhook"].(map[string]interface{}); ok && (isImport || data.Webhook != nil) {
+		data.Webhook = &AlertReceiverWebhookModel{
+			HTTPConfig: func() *AlertReceiverWebhookHTTPConfigModel {
+				if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil {
+					return data.Webhook.HTTPConfig
+				}
+				if HTTPConfigData, ok := blockData["http_config"].(map[string]interface{}); ok {
+					return &AlertReceiverWebhookHTTPConfigModel{
+						AuthToken: func() *AlertReceiverWebhookHTTPConfigAuthTokenModel {
+							if AuthTokenData, ok := HTTPConfigData["auth_token"].(map[string]interface{}); ok {
+								return &AlertReceiverWebhookHTTPConfigAuthTokenModel{
+									Token: func() *AlertReceiverWebhookHTTPConfigAuthTokenTokenModel {
+										if TokenData, ok := AuthTokenData["token"].(map[string]interface{}); ok {
+											return &AlertReceiverWebhookHTTPConfigAuthTokenTokenModel{
+												BlindfoldSecretInfo: func() *AlertReceiverWebhookHTTPConfigAuthTokenTokenBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := TokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &AlertReceiverWebhookHTTPConfigAuthTokenTokenBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *AlertReceiverWebhookHTTPConfigAuthTokenTokenClearSecretInfoModel {
+													if ClearSecretInfoData, ok := TokenData["clear_secret_info"].(map[string]interface{}); ok {
+														return &AlertReceiverWebhookHTTPConfigAuthTokenTokenClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						BasicAuth: func() *AlertReceiverWebhookHTTPConfigBasicAuthModel {
+							if BasicAuthData, ok := HTTPConfigData["basic_auth"].(map[string]interface{}); ok {
+								return &AlertReceiverWebhookHTTPConfigBasicAuthModel{
+									Password: func() *AlertReceiverWebhookHTTPConfigBasicAuthPasswordModel {
+										if PasswordData, ok := BasicAuthData["password"].(map[string]interface{}); ok {
+											return &AlertReceiverWebhookHTTPConfigBasicAuthPasswordModel{
+												BlindfoldSecretInfo: func() *AlertReceiverWebhookHTTPConfigBasicAuthPasswordBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &AlertReceiverWebhookHTTPConfigBasicAuthPasswordBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *AlertReceiverWebhookHTTPConfigBasicAuthPasswordClearSecretInfoModel {
+													if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+														return &AlertReceiverWebhookHTTPConfigBasicAuthPasswordClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									UserName: func() types.String {
+										if v, ok := BasicAuthData["user_name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClientCertObj: func() *AlertReceiverWebhookHTTPConfigClientCertObjModel {
+							if ClientCertObjData, ok := HTTPConfigData["client_cert_obj"].(map[string]interface{}); ok {
+								return &AlertReceiverWebhookHTTPConfigClientCertObjModel{
+									UseTLSObj: func() types.List {
+										if rawList, ok := ClientCertObjData["use_tls_obj"].([]interface{}); ok && len(rawList) > 0 {
+											var UseTLSObjResult []AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModel
+											for _, UseTLSObjItem := range rawList {
+												if UseTLSObjItemMap, ok := UseTLSObjItem.(map[string]interface{}); ok {
+													UseTLSObjResult = append(UseTLSObjResult, AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModel{
+														Kind: func() types.String {
+															if v, ok := UseTLSObjItemMap["kind"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := UseTLSObjItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := UseTLSObjItemMap["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := UseTLSObjItemMap["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Uid: func() types.String {
+															if v, ok := UseTLSObjItemMap["uid"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModelAttrTypes}, UseTLSObjResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModelAttrTypes})
+									}(),
+								}
+							}
+							return nil
+						}(),
+						EnableHttp2: func() types.Bool {
+							if v, ok := HTTPConfigData["enable_http2"].(bool); ok {
+								return types.BoolValue(v)
+							}
+							return types.BoolNull()
+						}(),
+						FollowRedirects: func() types.Bool {
+							if v, ok := HTTPConfigData["follow_redirects"].(bool); ok {
+								return types.BoolValue(v)
+							}
+							return types.BoolNull()
+						}(),
+						NoAuthorization: func() *AlertReceiverEmptyModel {
+							if _, ok := HTTPConfigData["no_authorization"].(map[string]interface{}); ok {
+								return &AlertReceiverEmptyModel{}
+							}
+							return nil
+						}(),
+						NoTLS: func() *AlertReceiverEmptyModel {
+							if _, ok := HTTPConfigData["no_tls"].(map[string]interface{}); ok {
+								return &AlertReceiverEmptyModel{}
+							}
+							return nil
+						}(),
+						UseTLS: func() *AlertReceiverWebhookHTTPConfigUseTLSModel {
+							if UseTLSData, ok := HTTPConfigData["use_tls"].(map[string]interface{}); ok {
+								return &AlertReceiverWebhookHTTPConfigUseTLSModel{
+									DisableSni: func() *AlertReceiverEmptyModel {
+										if _, ok := UseTLSData["disable_sni"].(map[string]interface{}); ok {
+											return &AlertReceiverEmptyModel{}
+										}
+										return nil
+									}(),
+									MaxVersion: func() types.String {
+										if v, ok := UseTLSData["max_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									MinVersion: func() types.String {
+										if v, ok := UseTLSData["min_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Sni: func() types.String {
+										if v, ok := UseTLSData["sni"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									UseServerVerification: func() *AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationModel {
+										if UseServerVerificationData, ok := UseTLSData["use_server_verification"].(map[string]interface{}); ok {
+											return &AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationModel{
+												CACertObj: func() *AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjModel {
+													if CACertObjData, ok := UseServerVerificationData["ca_cert_obj"].(map[string]interface{}); ok {
+														return &AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjModel{
+															TrustedCA: func() types.List {
+																if rawList, ok := CACertObjData["trusted_ca"].([]interface{}); ok && len(rawList) > 0 {
+																	var TrustedCAResult []AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModel
+																	for _, TrustedCAItem := range rawList {
+																		if TrustedCAItemMap, ok := TrustedCAItem.(map[string]interface{}); ok {
+																			TrustedCAResult = append(TrustedCAResult, AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModel{
+																				Kind: func() types.String {
+																					if v, ok := TrustedCAItemMap["kind"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Name: func() types.String {
+																					if v, ok := TrustedCAItemMap["name"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Namespace: func() types.String {
+																					if v, ok := TrustedCAItemMap["namespace"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Tenant: func() types.String {
+																					if v, ok := TrustedCAItemMap["tenant"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Uid: func() types.String {
+																					if v, ok := TrustedCAItemMap["uid"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			})
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModelAttrTypes}, TrustedCAResult)
+																	return listVal
+																}
+																return types.ListNull(types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModelAttrTypes})
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									VolterraTrustedCA: func() *AlertReceiverEmptyModel {
+										if _, ok := UseTLSData["volterra_trusted_ca"].(map[string]interface{}); ok {
+											return &AlertReceiverEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			URL: func() *AlertReceiverWebhookURLModel {
+				if !isImport && data.Webhook != nil && data.Webhook.URL != nil {
+					return data.Webhook.URL
+				}
+				if URLData, ok := blockData["url"].(map[string]interface{}); ok {
+					return &AlertReceiverWebhookURLModel{
+						BlindfoldSecretInfo: func() *AlertReceiverWebhookURLBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := URLData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverWebhookURLBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *AlertReceiverWebhookURLClearSecretInfoModel {
+							if ClearSecretInfoData, ok := URLData["clear_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverWebhookURLClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
+	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
@@ -1562,69 +2788,319 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.Email != nil {
-		emailMap := make(map[string]interface{})
+		EmailMap := make(map[string]interface{})
 		if !data.Email.Email.IsNull() && !data.Email.Email.IsUnknown() {
-			emailMap["email"] = data.Email.Email.ValueString()
+			EmailMap["email"] = data.Email.Email.ValueString()
 		}
-		apiResource.Spec["email"] = emailMap
+		apiResource.Spec["email"] = EmailMap
 	}
 	if data.Opsgenie != nil {
-		opsgenieMap := make(map[string]interface{})
+		OpsgenieMap := make(map[string]interface{})
 		if data.Opsgenie.APIKey != nil {
-			api_keyNestedMap := make(map[string]interface{})
-			opsgenieMap["api_key"] = api_keyNestedMap
+			APIKeyMap := make(map[string]interface{})
+			if data.Opsgenie.APIKey.BlindfoldSecretInfo != nil {
+				BlindfoldSecretInfoMap := make(map[string]interface{})
+				if !data.Opsgenie.APIKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Opsgenie.APIKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["decryption_provider"] = data.Opsgenie.APIKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				}
+				if !data.Opsgenie.APIKey.BlindfoldSecretInfo.Location.IsNull() && !data.Opsgenie.APIKey.BlindfoldSecretInfo.Location.IsUnknown() {
+					BlindfoldSecretInfoMap["location"] = data.Opsgenie.APIKey.BlindfoldSecretInfo.Location.ValueString()
+				}
+				if !data.Opsgenie.APIKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Opsgenie.APIKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["store_provider"] = data.Opsgenie.APIKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+				}
+				APIKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			}
+			if data.Opsgenie.APIKey.ClearSecretInfo != nil {
+				ClearSecretInfoMap := make(map[string]interface{})
+				if !data.Opsgenie.APIKey.ClearSecretInfo.Provider.IsNull() && !data.Opsgenie.APIKey.ClearSecretInfo.Provider.IsUnknown() {
+					ClearSecretInfoMap["provider"] = data.Opsgenie.APIKey.ClearSecretInfo.Provider.ValueString()
+				}
+				if !data.Opsgenie.APIKey.ClearSecretInfo.URL.IsNull() && !data.Opsgenie.APIKey.ClearSecretInfo.URL.IsUnknown() {
+					ClearSecretInfoMap["url"] = data.Opsgenie.APIKey.ClearSecretInfo.URL.ValueString()
+				}
+				APIKeyMap["clear_secret_info"] = ClearSecretInfoMap
+			}
+			OpsgenieMap["api_key"] = APIKeyMap
 		}
 		if !data.Opsgenie.URL.IsNull() && !data.Opsgenie.URL.IsUnknown() {
-			opsgenieMap["url"] = data.Opsgenie.URL.ValueString()
+			OpsgenieMap["url"] = data.Opsgenie.URL.ValueString()
 		}
-		apiResource.Spec["opsgenie"] = opsgenieMap
+		apiResource.Spec["opsgenie"] = OpsgenieMap
 	}
 	if data.Pagerduty != nil {
-		pagerdutyMap := make(map[string]interface{})
+		PagerdutyMap := make(map[string]interface{})
 		if data.Pagerduty.RoutingKey != nil {
-			routing_keyNestedMap := make(map[string]interface{})
-			pagerdutyMap["routing_key"] = routing_keyNestedMap
+			RoutingKeyMap := make(map[string]interface{})
+			if data.Pagerduty.RoutingKey.BlindfoldSecretInfo != nil {
+				BlindfoldSecretInfoMap := make(map[string]interface{})
+				if !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["decryption_provider"] = data.Pagerduty.RoutingKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				}
+				if !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.Location.IsNull() && !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.Location.IsUnknown() {
+					BlindfoldSecretInfoMap["location"] = data.Pagerduty.RoutingKey.BlindfoldSecretInfo.Location.ValueString()
+				}
+				if !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["store_provider"] = data.Pagerduty.RoutingKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+				}
+				RoutingKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			}
+			if data.Pagerduty.RoutingKey.ClearSecretInfo != nil {
+				ClearSecretInfoMap := make(map[string]interface{})
+				if !data.Pagerduty.RoutingKey.ClearSecretInfo.Provider.IsNull() && !data.Pagerduty.RoutingKey.ClearSecretInfo.Provider.IsUnknown() {
+					ClearSecretInfoMap["provider"] = data.Pagerduty.RoutingKey.ClearSecretInfo.Provider.ValueString()
+				}
+				if !data.Pagerduty.RoutingKey.ClearSecretInfo.URL.IsNull() && !data.Pagerduty.RoutingKey.ClearSecretInfo.URL.IsUnknown() {
+					ClearSecretInfoMap["url"] = data.Pagerduty.RoutingKey.ClearSecretInfo.URL.ValueString()
+				}
+				RoutingKeyMap["clear_secret_info"] = ClearSecretInfoMap
+			}
+			PagerdutyMap["routing_key"] = RoutingKeyMap
 		}
 		if !data.Pagerduty.URL.IsNull() && !data.Pagerduty.URL.IsUnknown() {
-			pagerdutyMap["url"] = data.Pagerduty.URL.ValueString()
+			PagerdutyMap["url"] = data.Pagerduty.URL.ValueString()
 		}
-		apiResource.Spec["pagerduty"] = pagerdutyMap
+		apiResource.Spec["pagerduty"] = PagerdutyMap
 	}
 	if data.Slack != nil {
-		slackMap := make(map[string]interface{})
+		SlackMap := make(map[string]interface{})
 		if !data.Slack.Channel.IsNull() && !data.Slack.Channel.IsUnknown() {
-			slackMap["channel"] = data.Slack.Channel.ValueString()
+			SlackMap["channel"] = data.Slack.Channel.ValueString()
 		}
 		if data.Slack.URL != nil {
-			urlNestedMap := make(map[string]interface{})
-			slackMap["url"] = urlNestedMap
+			URLMap := make(map[string]interface{})
+			if data.Slack.URL.BlindfoldSecretInfo != nil {
+				BlindfoldSecretInfoMap := make(map[string]interface{})
+				if !data.Slack.URL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Slack.URL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["decryption_provider"] = data.Slack.URL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				}
+				if !data.Slack.URL.BlindfoldSecretInfo.Location.IsNull() && !data.Slack.URL.BlindfoldSecretInfo.Location.IsUnknown() {
+					BlindfoldSecretInfoMap["location"] = data.Slack.URL.BlindfoldSecretInfo.Location.ValueString()
+				}
+				if !data.Slack.URL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Slack.URL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["store_provider"] = data.Slack.URL.BlindfoldSecretInfo.StoreProvider.ValueString()
+				}
+				URLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			}
+			if data.Slack.URL.ClearSecretInfo != nil {
+				ClearSecretInfoMap := make(map[string]interface{})
+				if !data.Slack.URL.ClearSecretInfo.Provider.IsNull() && !data.Slack.URL.ClearSecretInfo.Provider.IsUnknown() {
+					ClearSecretInfoMap["provider"] = data.Slack.URL.ClearSecretInfo.Provider.ValueString()
+				}
+				if !data.Slack.URL.ClearSecretInfo.URL.IsNull() && !data.Slack.URL.ClearSecretInfo.URL.IsUnknown() {
+					ClearSecretInfoMap["url"] = data.Slack.URL.ClearSecretInfo.URL.ValueString()
+				}
+				URLMap["clear_secret_info"] = ClearSecretInfoMap
+			}
+			SlackMap["url"] = URLMap
 		}
-		apiResource.Spec["slack"] = slackMap
+		apiResource.Spec["slack"] = SlackMap
 	}
 	if data.Sms != nil {
-		smsMap := make(map[string]interface{})
+		SmsMap := make(map[string]interface{})
 		if !data.Sms.ContactNumber.IsNull() && !data.Sms.ContactNumber.IsUnknown() {
-			smsMap["contact_number"] = data.Sms.ContactNumber.ValueString()
+			SmsMap["contact_number"] = data.Sms.ContactNumber.ValueString()
 		}
-		apiResource.Spec["sms"] = smsMap
+		apiResource.Spec["sms"] = SmsMap
 	}
 	if data.Webhook != nil {
-		webhookMap := make(map[string]interface{})
+		WebhookMap := make(map[string]interface{})
 		if data.Webhook.HTTPConfig != nil {
-			http_configNestedMap := make(map[string]interface{})
+			HTTPConfigMap := make(map[string]interface{})
+			if data.Webhook.HTTPConfig.AuthToken != nil {
+				AuthTokenMap := make(map[string]interface{})
+				if data.Webhook.HTTPConfig.AuthToken.Token != nil {
+					TokenMap := make(map[string]interface{})
+					if data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo != nil {
+						BlindfoldSecretInfoMap := make(map[string]interface{})
+						if !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["decryption_provider"] = data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						}
+						if !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.Location.IsNull() && !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.Location.IsUnknown() {
+							BlindfoldSecretInfoMap["location"] = data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.Location.ValueString()
+						}
+						if !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["store_provider"] = data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.StoreProvider.ValueString()
+						}
+						TokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					}
+					if data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo != nil {
+						ClearSecretInfoMap := make(map[string]interface{})
+						if !data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.Provider.IsNull() && !data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.Provider.IsUnknown() {
+							ClearSecretInfoMap["provider"] = data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.Provider.ValueString()
+						}
+						if !data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.URL.IsNull() && !data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.URL.IsUnknown() {
+							ClearSecretInfoMap["url"] = data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.URL.ValueString()
+						}
+						TokenMap["clear_secret_info"] = ClearSecretInfoMap
+					}
+					AuthTokenMap["token"] = TokenMap
+				}
+				HTTPConfigMap["auth_token"] = AuthTokenMap
+			}
+			if data.Webhook.HTTPConfig.BasicAuth != nil {
+				BasicAuthMap := make(map[string]interface{})
+				if data.Webhook.HTTPConfig.BasicAuth.Password != nil {
+					PasswordMap := make(map[string]interface{})
+					if data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo != nil {
+						BlindfoldSecretInfoMap := make(map[string]interface{})
+						if !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["decryption_provider"] = data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						}
+						if !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.Location.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+							BlindfoldSecretInfoMap["location"] = data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.Location.ValueString()
+						}
+						if !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["store_provider"] = data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+						}
+						PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					}
+					if data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo != nil {
+						ClearSecretInfoMap := make(map[string]interface{})
+						if !data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.Provider.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.Provider.IsUnknown() {
+							ClearSecretInfoMap["provider"] = data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.Provider.ValueString()
+						}
+						if !data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.URL.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.URL.IsUnknown() {
+							ClearSecretInfoMap["url"] = data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.URL.ValueString()
+						}
+						PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+					}
+					BasicAuthMap["password"] = PasswordMap
+				}
+				if !data.Webhook.HTTPConfig.BasicAuth.UserName.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.UserName.IsUnknown() {
+					BasicAuthMap["user_name"] = data.Webhook.HTTPConfig.BasicAuth.UserName.ValueString()
+				}
+				HTTPConfigMap["basic_auth"] = BasicAuthMap
+			}
+			if data.Webhook.HTTPConfig.ClientCertObj != nil {
+				ClientCertObjMap := make(map[string]interface{})
+				if !data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.IsNull() && !data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.IsUnknown() {
+					var UseTLSObjElems []AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModel
+					diags := data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.ElementsAs(ctx, &UseTLSObjElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(UseTLSObjElems) > 0 {
+						var UseTLSObjList []map[string]interface{}
+						for _, UseTLSObjItem := range UseTLSObjElems {
+							UseTLSObjItemMap := make(map[string]interface{})
+							if !UseTLSObjItem.Kind.IsNull() && !UseTLSObjItem.Kind.IsUnknown() {
+								UseTLSObjItemMap["kind"] = UseTLSObjItem.Kind.ValueString()
+							}
+							if !UseTLSObjItem.Name.IsNull() && !UseTLSObjItem.Name.IsUnknown() {
+								UseTLSObjItemMap["name"] = UseTLSObjItem.Name.ValueString()
+							}
+							if !UseTLSObjItem.Namespace.IsNull() && !UseTLSObjItem.Namespace.IsUnknown() {
+								UseTLSObjItemMap["namespace"] = UseTLSObjItem.Namespace.ValueString()
+							}
+							if !UseTLSObjItem.Tenant.IsNull() && !UseTLSObjItem.Tenant.IsUnknown() {
+								UseTLSObjItemMap["tenant"] = UseTLSObjItem.Tenant.ValueString()
+							}
+							if !UseTLSObjItem.Uid.IsNull() && !UseTLSObjItem.Uid.IsUnknown() {
+								UseTLSObjItemMap["uid"] = UseTLSObjItem.Uid.ValueString()
+							}
+							UseTLSObjList = append(UseTLSObjList, UseTLSObjItemMap)
+						}
+						ClientCertObjMap["use_tls_obj"] = UseTLSObjList
+					}
+				}
+				HTTPConfigMap["client_cert_obj"] = ClientCertObjMap
+			}
 			if !data.Webhook.HTTPConfig.EnableHttp2.IsNull() && !data.Webhook.HTTPConfig.EnableHttp2.IsUnknown() {
-				http_configNestedMap["enable_http2"] = data.Webhook.HTTPConfig.EnableHttp2.ValueBool()
+				HTTPConfigMap["enable_http2"] = data.Webhook.HTTPConfig.EnableHttp2.ValueBool()
 			}
 			if !data.Webhook.HTTPConfig.FollowRedirects.IsNull() && !data.Webhook.HTTPConfig.FollowRedirects.IsUnknown() {
-				http_configNestedMap["follow_redirects"] = data.Webhook.HTTPConfig.FollowRedirects.ValueBool()
+				HTTPConfigMap["follow_redirects"] = data.Webhook.HTTPConfig.FollowRedirects.ValueBool()
 			}
-			webhookMap["http_config"] = http_configNestedMap
+			if data.Webhook.HTTPConfig.NoAuthorization != nil {
+				HTTPConfigMap["no_authorization"] = map[string]interface{}{}
+			}
+			if data.Webhook.HTTPConfig.NoTLS != nil {
+				HTTPConfigMap["no_tls"] = map[string]interface{}{}
+			}
+			if data.Webhook.HTTPConfig.UseTLS != nil {
+				UseTLSMap := make(map[string]interface{})
+				if data.Webhook.HTTPConfig.UseTLS.DisableSni != nil {
+					UseTLSMap["disable_sni"] = map[string]interface{}{}
+				}
+				if !data.Webhook.HTTPConfig.UseTLS.MaxVersion.IsNull() && !data.Webhook.HTTPConfig.UseTLS.MaxVersion.IsUnknown() {
+					UseTLSMap["max_version"] = data.Webhook.HTTPConfig.UseTLS.MaxVersion.ValueString()
+				}
+				if !data.Webhook.HTTPConfig.UseTLS.MinVersion.IsNull() && !data.Webhook.HTTPConfig.UseTLS.MinVersion.IsUnknown() {
+					UseTLSMap["min_version"] = data.Webhook.HTTPConfig.UseTLS.MinVersion.ValueString()
+				}
+				if !data.Webhook.HTTPConfig.UseTLS.Sni.IsNull() && !data.Webhook.HTTPConfig.UseTLS.Sni.IsUnknown() {
+					UseTLSMap["sni"] = data.Webhook.HTTPConfig.UseTLS.Sni.ValueString()
+				}
+				if data.Webhook.HTTPConfig.UseTLS.UseServerVerification != nil {
+					UseServerVerificationMap := make(map[string]interface{})
+					if data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj != nil {
+						CACertObjMap := make(map[string]interface{})
+						if !data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.IsNull() && !data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.IsUnknown() {
+							var TrustedCAElems []AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModel
+							diags := data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.ElementsAs(ctx, &TrustedCAElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(TrustedCAElems) > 0 {
+								var TrustedCAList []map[string]interface{}
+								for _, TrustedCAItem := range TrustedCAElems {
+									TrustedCAItemMap := make(map[string]interface{})
+									if !TrustedCAItem.Kind.IsNull() && !TrustedCAItem.Kind.IsUnknown() {
+										TrustedCAItemMap["kind"] = TrustedCAItem.Kind.ValueString()
+									}
+									if !TrustedCAItem.Name.IsNull() && !TrustedCAItem.Name.IsUnknown() {
+										TrustedCAItemMap["name"] = TrustedCAItem.Name.ValueString()
+									}
+									if !TrustedCAItem.Namespace.IsNull() && !TrustedCAItem.Namespace.IsUnknown() {
+										TrustedCAItemMap["namespace"] = TrustedCAItem.Namespace.ValueString()
+									}
+									if !TrustedCAItem.Tenant.IsNull() && !TrustedCAItem.Tenant.IsUnknown() {
+										TrustedCAItemMap["tenant"] = TrustedCAItem.Tenant.ValueString()
+									}
+									if !TrustedCAItem.Uid.IsNull() && !TrustedCAItem.Uid.IsUnknown() {
+										TrustedCAItemMap["uid"] = TrustedCAItem.Uid.ValueString()
+									}
+									TrustedCAList = append(TrustedCAList, TrustedCAItemMap)
+								}
+								CACertObjMap["trusted_ca"] = TrustedCAList
+							}
+						}
+						UseServerVerificationMap["ca_cert_obj"] = CACertObjMap
+					}
+					UseTLSMap["use_server_verification"] = UseServerVerificationMap
+				}
+				if data.Webhook.HTTPConfig.UseTLS.VolterraTrustedCA != nil {
+					UseTLSMap["volterra_trusted_ca"] = map[string]interface{}{}
+				}
+				HTTPConfigMap["use_tls"] = UseTLSMap
+			}
+			WebhookMap["http_config"] = HTTPConfigMap
 		}
 		if data.Webhook.URL != nil {
-			urlNestedMap := make(map[string]interface{})
-			webhookMap["url"] = urlNestedMap
+			URLMap := make(map[string]interface{})
+			if data.Webhook.URL.BlindfoldSecretInfo != nil {
+				BlindfoldSecretInfoMap := make(map[string]interface{})
+				if !data.Webhook.URL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Webhook.URL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["decryption_provider"] = data.Webhook.URL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				}
+				if !data.Webhook.URL.BlindfoldSecretInfo.Location.IsNull() && !data.Webhook.URL.BlindfoldSecretInfo.Location.IsUnknown() {
+					BlindfoldSecretInfoMap["location"] = data.Webhook.URL.BlindfoldSecretInfo.Location.ValueString()
+				}
+				if !data.Webhook.URL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Webhook.URL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+					BlindfoldSecretInfoMap["store_provider"] = data.Webhook.URL.BlindfoldSecretInfo.StoreProvider.ValueString()
+				}
+				URLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			}
+			if data.Webhook.URL.ClearSecretInfo != nil {
+				ClearSecretInfoMap := make(map[string]interface{})
+				if !data.Webhook.URL.ClearSecretInfo.Provider.IsNull() && !data.Webhook.URL.ClearSecretInfo.Provider.IsUnknown() {
+					ClearSecretInfoMap["provider"] = data.Webhook.URL.ClearSecretInfo.Provider.ValueString()
+				}
+				if !data.Webhook.URL.ClearSecretInfo.URL.IsNull() && !data.Webhook.URL.ClearSecretInfo.URL.IsUnknown() {
+					ClearSecretInfoMap["url"] = data.Webhook.URL.ClearSecretInfo.URL.ValueString()
+				}
+				URLMap["clear_secret_info"] = ClearSecretInfoMap
+			}
+			WebhookMap["url"] = URLMap
 		}
-		apiResource.Spec["webhook"] = webhookMap
+		apiResource.Spec["webhook"] = WebhookMap
 	}
 
 	_, err := r.client.UpdateAlertReceiver(ctx, apiResource)
@@ -1664,12 +3140,55 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 		data.Opsgenie = &AlertReceiverOpsgenieModel{
 			APIKey: func() *AlertReceiverOpsgenieAPIKeyModel {
 				if !isImport && data.Opsgenie != nil && data.Opsgenie.APIKey != nil {
-					// Normal Read: preserve existing state value
 					return data.Opsgenie.APIKey
 				}
-				// Import case: read from API
-				if _, ok := blockData["api_key"].(map[string]interface{}); ok {
-					return &AlertReceiverOpsgenieAPIKeyModel{}
+				if APIKeyData, ok := blockData["api_key"].(map[string]interface{}); ok {
+					return &AlertReceiverOpsgenieAPIKeyModel{
+						BlindfoldSecretInfo: func() *AlertReceiverOpsgenieAPIKeyBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := APIKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverOpsgenieAPIKeyBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *AlertReceiverOpsgenieAPIKeyClearSecretInfoModel {
+							if ClearSecretInfoData, ok := APIKeyData["clear_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverOpsgenieAPIKeyClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -1685,12 +3204,55 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 		data.Pagerduty = &AlertReceiverPagerdutyModel{
 			RoutingKey: func() *AlertReceiverPagerdutyRoutingKeyModel {
 				if !isImport && data.Pagerduty != nil && data.Pagerduty.RoutingKey != nil {
-					// Normal Read: preserve existing state value
 					return data.Pagerduty.RoutingKey
 				}
-				// Import case: read from API
-				if _, ok := blockData["routing_key"].(map[string]interface{}); ok {
-					return &AlertReceiverPagerdutyRoutingKeyModel{}
+				if RoutingKeyData, ok := blockData["routing_key"].(map[string]interface{}); ok {
+					return &AlertReceiverPagerdutyRoutingKeyModel{
+						BlindfoldSecretInfo: func() *AlertReceiverPagerdutyRoutingKeyBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := RoutingKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverPagerdutyRoutingKeyBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *AlertReceiverPagerdutyRoutingKeyClearSecretInfoModel {
+							if ClearSecretInfoData, ok := RoutingKeyData["clear_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverPagerdutyRoutingKeyClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -1712,12 +3274,55 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 			}(),
 			URL: func() *AlertReceiverSlackURLModel {
 				if !isImport && data.Slack != nil && data.Slack.URL != nil {
-					// Normal Read: preserve existing state value
 					return data.Slack.URL
 				}
-				// Import case: read from API
-				if _, ok := blockData["url"].(map[string]interface{}); ok {
-					return &AlertReceiverSlackURLModel{}
+				if URLData, ok := blockData["url"].(map[string]interface{}); ok {
+					return &AlertReceiverSlackURLModel{
+						BlindfoldSecretInfo: func() *AlertReceiverSlackURLBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := URLData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverSlackURLBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *AlertReceiverSlackURLClearSecretInfoModel {
+							if ClearSecretInfoData, ok := URLData["clear_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverSlackURLClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -1733,11 +3338,366 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["webhook"].(map[string]interface{}); ok && isImport && data.Webhook == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Webhook = &AlertReceiverWebhookModel{}
+	if blockData, ok := apiResource.Spec["webhook"].(map[string]interface{}); ok && (isImport || data.Webhook != nil) {
+		data.Webhook = &AlertReceiverWebhookModel{
+			HTTPConfig: func() *AlertReceiverWebhookHTTPConfigModel {
+				if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil {
+					return data.Webhook.HTTPConfig
+				}
+				if HTTPConfigData, ok := blockData["http_config"].(map[string]interface{}); ok {
+					return &AlertReceiverWebhookHTTPConfigModel{
+						AuthToken: func() *AlertReceiverWebhookHTTPConfigAuthTokenModel {
+							if AuthTokenData, ok := HTTPConfigData["auth_token"].(map[string]interface{}); ok {
+								return &AlertReceiverWebhookHTTPConfigAuthTokenModel{
+									Token: func() *AlertReceiverWebhookHTTPConfigAuthTokenTokenModel {
+										if TokenData, ok := AuthTokenData["token"].(map[string]interface{}); ok {
+											return &AlertReceiverWebhookHTTPConfigAuthTokenTokenModel{
+												BlindfoldSecretInfo: func() *AlertReceiverWebhookHTTPConfigAuthTokenTokenBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := TokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &AlertReceiverWebhookHTTPConfigAuthTokenTokenBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *AlertReceiverWebhookHTTPConfigAuthTokenTokenClearSecretInfoModel {
+													if ClearSecretInfoData, ok := TokenData["clear_secret_info"].(map[string]interface{}); ok {
+														return &AlertReceiverWebhookHTTPConfigAuthTokenTokenClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						BasicAuth: func() *AlertReceiverWebhookHTTPConfigBasicAuthModel {
+							if BasicAuthData, ok := HTTPConfigData["basic_auth"].(map[string]interface{}); ok {
+								return &AlertReceiverWebhookHTTPConfigBasicAuthModel{
+									Password: func() *AlertReceiverWebhookHTTPConfigBasicAuthPasswordModel {
+										if PasswordData, ok := BasicAuthData["password"].(map[string]interface{}); ok {
+											return &AlertReceiverWebhookHTTPConfigBasicAuthPasswordModel{
+												BlindfoldSecretInfo: func() *AlertReceiverWebhookHTTPConfigBasicAuthPasswordBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &AlertReceiverWebhookHTTPConfigBasicAuthPasswordBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *AlertReceiverWebhookHTTPConfigBasicAuthPasswordClearSecretInfoModel {
+													if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+														return &AlertReceiverWebhookHTTPConfigBasicAuthPasswordClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									UserName: func() types.String {
+										if v, ok := BasicAuthData["user_name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClientCertObj: func() *AlertReceiverWebhookHTTPConfigClientCertObjModel {
+							if ClientCertObjData, ok := HTTPConfigData["client_cert_obj"].(map[string]interface{}); ok {
+								return &AlertReceiverWebhookHTTPConfigClientCertObjModel{
+									UseTLSObj: func() types.List {
+										if rawList, ok := ClientCertObjData["use_tls_obj"].([]interface{}); ok && len(rawList) > 0 {
+											var UseTLSObjResult []AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModel
+											for _, UseTLSObjItem := range rawList {
+												if UseTLSObjItemMap, ok := UseTLSObjItem.(map[string]interface{}); ok {
+													UseTLSObjResult = append(UseTLSObjResult, AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModel{
+														Kind: func() types.String {
+															if v, ok := UseTLSObjItemMap["kind"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := UseTLSObjItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := UseTLSObjItemMap["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := UseTLSObjItemMap["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Uid: func() types.String {
+															if v, ok := UseTLSObjItemMap["uid"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModelAttrTypes}, UseTLSObjResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModelAttrTypes})
+									}(),
+								}
+							}
+							return nil
+						}(),
+						EnableHttp2: func() types.Bool {
+							if v, ok := HTTPConfigData["enable_http2"].(bool); ok {
+								return types.BoolValue(v)
+							}
+							return types.BoolNull()
+						}(),
+						FollowRedirects: func() types.Bool {
+							if v, ok := HTTPConfigData["follow_redirects"].(bool); ok {
+								return types.BoolValue(v)
+							}
+							return types.BoolNull()
+						}(),
+						NoAuthorization: func() *AlertReceiverEmptyModel {
+							if _, ok := HTTPConfigData["no_authorization"].(map[string]interface{}); ok {
+								return &AlertReceiverEmptyModel{}
+							}
+							return nil
+						}(),
+						NoTLS: func() *AlertReceiverEmptyModel {
+							if _, ok := HTTPConfigData["no_tls"].(map[string]interface{}); ok {
+								return &AlertReceiverEmptyModel{}
+							}
+							return nil
+						}(),
+						UseTLS: func() *AlertReceiverWebhookHTTPConfigUseTLSModel {
+							if UseTLSData, ok := HTTPConfigData["use_tls"].(map[string]interface{}); ok {
+								return &AlertReceiverWebhookHTTPConfigUseTLSModel{
+									DisableSni: func() *AlertReceiverEmptyModel {
+										if _, ok := UseTLSData["disable_sni"].(map[string]interface{}); ok {
+											return &AlertReceiverEmptyModel{}
+										}
+										return nil
+									}(),
+									MaxVersion: func() types.String {
+										if v, ok := UseTLSData["max_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									MinVersion: func() types.String {
+										if v, ok := UseTLSData["min_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Sni: func() types.String {
+										if v, ok := UseTLSData["sni"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									UseServerVerification: func() *AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationModel {
+										if UseServerVerificationData, ok := UseTLSData["use_server_verification"].(map[string]interface{}); ok {
+											return &AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationModel{
+												CACertObj: func() *AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjModel {
+													if CACertObjData, ok := UseServerVerificationData["ca_cert_obj"].(map[string]interface{}); ok {
+														return &AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjModel{
+															TrustedCA: func() types.List {
+																if rawList, ok := CACertObjData["trusted_ca"].([]interface{}); ok && len(rawList) > 0 {
+																	var TrustedCAResult []AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModel
+																	for _, TrustedCAItem := range rawList {
+																		if TrustedCAItemMap, ok := TrustedCAItem.(map[string]interface{}); ok {
+																			TrustedCAResult = append(TrustedCAResult, AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModel{
+																				Kind: func() types.String {
+																					if v, ok := TrustedCAItemMap["kind"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Name: func() types.String {
+																					if v, ok := TrustedCAItemMap["name"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Namespace: func() types.String {
+																					if v, ok := TrustedCAItemMap["namespace"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Tenant: func() types.String {
+																					if v, ok := TrustedCAItemMap["tenant"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Uid: func() types.String {
+																					if v, ok := TrustedCAItemMap["uid"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			})
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModelAttrTypes}, TrustedCAResult)
+																	return listVal
+																}
+																return types.ListNull(types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModelAttrTypes})
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									VolterraTrustedCA: func() *AlertReceiverEmptyModel {
+										if _, ok := UseTLSData["volterra_trusted_ca"].(map[string]interface{}); ok {
+											return &AlertReceiverEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			URL: func() *AlertReceiverWebhookURLModel {
+				if !isImport && data.Webhook != nil && data.Webhook.URL != nil {
+					return data.Webhook.URL
+				}
+				if URLData, ok := blockData["url"].(map[string]interface{}); ok {
+					return &AlertReceiverWebhookURLModel{
+						BlindfoldSecretInfo: func() *AlertReceiverWebhookURLBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := URLData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverWebhookURLBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *AlertReceiverWebhookURLClearSecretInfoModel {
+							if ClearSecretInfoData, ok := URLData["clear_secret_info"].(map[string]interface{}); ok {
+								return &AlertReceiverWebhookURLClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }

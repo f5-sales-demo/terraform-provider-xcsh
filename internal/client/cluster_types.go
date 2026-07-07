@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// Cluster represents a XCSH Cluster
+// Cluster represents a F5XC Cluster
 type Cluster struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

@@ -9,7 +9,7 @@ description: |-
 
 Manages a Forward Proxy Policy resource in F5 Distributed Cloud for forward proxy policy specification. configuration.
 
-~> **Note** For more information about this resource, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
+~> **Note** Please refer to [Forward Proxy Policy API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/network_security/) to learn more.
 
 ## Example Usage
 
@@ -39,6 +39,8 @@ resource "xcsh_forward_proxy_policy" "example" {
 ## Argument Reference
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
+
+🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
 ### Metadata Argument Reference
 

@@ -62,7 +62,7 @@ var TunnelLocalIPModelAttrTypes = map[string]attr.Type{
 
 // TunnelLocalIPIntfModel represents intf block
 type TunnelLocalIPIntfModel struct {
-	LocalIntf []TunnelLocalIPIntfLocalIntfModel `tfsdk:"local_intf"`
+	LocalIntf types.List `tfsdk:"local_intf"`
 }
 
 // TunnelLocalIPIntfModelAttrTypes defines the attribute types for TunnelLocalIPIntfModel
@@ -473,7 +473,7 @@ func (r *TunnelResource) Schema(ctx context.Context, req resource.SchemaRequest,
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
-										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 										Attributes: map[string]schema.Attribute{
 											"decryption_provider": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -666,36 +666,142 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.LocalIP != nil {
-		local_ipMap := make(map[string]interface{})
+		LocalIPMap := make(map[string]interface{})
 		if data.LocalIP.Intf != nil {
-			intfNestedMap := make(map[string]interface{})
-			local_ipMap["intf"] = intfNestedMap
+			IntfMap := make(map[string]interface{})
+			if !data.LocalIP.Intf.LocalIntf.IsNull() && !data.LocalIP.Intf.LocalIntf.IsUnknown() {
+				var LocalIntfElems []TunnelLocalIPIntfLocalIntfModel
+				diags := data.LocalIP.Intf.LocalIntf.ElementsAs(ctx, &LocalIntfElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(LocalIntfElems) > 0 {
+					var LocalIntfList []map[string]interface{}
+					for _, LocalIntfItem := range LocalIntfElems {
+						LocalIntfItemMap := make(map[string]interface{})
+						if !LocalIntfItem.Kind.IsNull() && !LocalIntfItem.Kind.IsUnknown() {
+							LocalIntfItemMap["kind"] = LocalIntfItem.Kind.ValueString()
+						}
+						if !LocalIntfItem.Name.IsNull() && !LocalIntfItem.Name.IsUnknown() {
+							LocalIntfItemMap["name"] = LocalIntfItem.Name.ValueString()
+						}
+						if !LocalIntfItem.Namespace.IsNull() && !LocalIntfItem.Namespace.IsUnknown() {
+							LocalIntfItemMap["namespace"] = LocalIntfItem.Namespace.ValueString()
+						}
+						if !LocalIntfItem.Tenant.IsNull() && !LocalIntfItem.Tenant.IsUnknown() {
+							LocalIntfItemMap["tenant"] = LocalIntfItem.Tenant.ValueString()
+						}
+						if !LocalIntfItem.Uid.IsNull() && !LocalIntfItem.Uid.IsUnknown() {
+							LocalIntfItemMap["uid"] = LocalIntfItem.Uid.ValueString()
+						}
+						LocalIntfList = append(LocalIntfList, LocalIntfItemMap)
+					}
+					IntfMap["local_intf"] = LocalIntfList
+				}
+			}
+			LocalIPMap["intf"] = IntfMap
 		}
 		if data.LocalIP.IPAddress != nil {
-			ip_addressNestedMap := make(map[string]interface{})
-			local_ipMap["ip_address"] = ip_addressNestedMap
+			IPAddressMap := make(map[string]interface{})
+			if data.LocalIP.IPAddress.Auto != nil {
+				IPAddressMap["auto"] = map[string]interface{}{}
+			}
+			if data.LocalIP.IPAddress.IPAddress != nil {
+				IPAddressMap := make(map[string]interface{})
+				if data.LocalIP.IPAddress.IPAddress.Ipv4 != nil {
+					Ipv4Map := make(map[string]interface{})
+					if !data.LocalIP.IPAddress.IPAddress.Ipv4.Addr.IsNull() && !data.LocalIP.IPAddress.IPAddress.Ipv4.Addr.IsUnknown() {
+						Ipv4Map["addr"] = data.LocalIP.IPAddress.IPAddress.Ipv4.Addr.ValueString()
+					}
+					IPAddressMap["ipv4"] = Ipv4Map
+				}
+				if data.LocalIP.IPAddress.IPAddress.Ipv6 != nil {
+					Ipv6Map := make(map[string]interface{})
+					if !data.LocalIP.IPAddress.IPAddress.Ipv6.Addr.IsNull() && !data.LocalIP.IPAddress.IPAddress.Ipv6.Addr.IsUnknown() {
+						Ipv6Map["addr"] = data.LocalIP.IPAddress.IPAddress.Ipv6.Addr.ValueString()
+					}
+					IPAddressMap["ipv6"] = Ipv6Map
+				}
+				IPAddressMap["ip_address"] = IPAddressMap
+			}
+			if data.LocalIP.IPAddress.VirtualNetworkType != nil {
+				VirtualNetworkTypeMap := make(map[string]interface{})
+				if data.LocalIP.IPAddress.VirtualNetworkType.Public != nil {
+					VirtualNetworkTypeMap["public"] = map[string]interface{}{}
+				}
+				if data.LocalIP.IPAddress.VirtualNetworkType.SiteLocal != nil {
+					VirtualNetworkTypeMap["site_local"] = map[string]interface{}{}
+				}
+				if data.LocalIP.IPAddress.VirtualNetworkType.SiteLocalInside != nil {
+					VirtualNetworkTypeMap["site_local_inside"] = map[string]interface{}{}
+				}
+				IPAddressMap["virtual_network_type"] = VirtualNetworkTypeMap
+			}
+			LocalIPMap["ip_address"] = IPAddressMap
 		}
-		createReq.Spec["local_ip"] = local_ipMap
+		createReq.Spec["local_ip"] = LocalIPMap
 	}
 	if data.Params != nil {
-		paramsMap := make(map[string]interface{})
+		ParamsMap := make(map[string]interface{})
 		if data.Params.Ipsec != nil {
-			ipsecNestedMap := make(map[string]interface{})
-			paramsMap["ipsec"] = ipsecNestedMap
+			IpsecMap := make(map[string]interface{})
+			if data.Params.Ipsec.IpsecPsk != nil {
+				IpsecPskMap := make(map[string]interface{})
+				if data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.Location.IsNull() && !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					IpsecPskMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.Params.Ipsec.IpsecPsk.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.Params.Ipsec.IpsecPsk.ClearSecretInfo.Provider.IsNull() && !data.Params.Ipsec.IpsecPsk.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.Params.Ipsec.IpsecPsk.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.Params.Ipsec.IpsecPsk.ClearSecretInfo.URL.IsNull() && !data.Params.Ipsec.IpsecPsk.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.Params.Ipsec.IpsecPsk.ClearSecretInfo.URL.ValueString()
+					}
+					IpsecPskMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				IpsecMap["ipsec_psk"] = IpsecPskMap
+			}
+			ParamsMap["ipsec"] = IpsecMap
 		}
-		createReq.Spec["params"] = paramsMap
+		createReq.Spec["params"] = ParamsMap
 	}
 	if data.RemoteIP != nil {
-		remote_ipMap := make(map[string]interface{})
+		RemoteIPMap := make(map[string]interface{})
 		if data.RemoteIP.Endpoints != nil {
-			endpointsNestedMap := make(map[string]interface{})
-			remote_ipMap["endpoints"] = endpointsNestedMap
+			EndpointsMap := make(map[string]interface{})
+			if data.RemoteIP.Endpoints.Endpoints != nil {
+				EndpointsMap["endpoints"] = map[string]interface{}{}
+			}
+			RemoteIPMap["endpoints"] = EndpointsMap
 		}
 		if data.RemoteIP.IP != nil {
-			ipNestedMap := make(map[string]interface{})
-			remote_ipMap["ip"] = ipNestedMap
+			IPMap := make(map[string]interface{})
+			if data.RemoteIP.IP.Ipv4 != nil {
+				Ipv4Map := make(map[string]interface{})
+				if !data.RemoteIP.IP.Ipv4.Addr.IsNull() && !data.RemoteIP.IP.Ipv4.Addr.IsUnknown() {
+					Ipv4Map["addr"] = data.RemoteIP.IP.Ipv4.Addr.ValueString()
+				}
+				IPMap["ipv4"] = Ipv4Map
+			}
+			if data.RemoteIP.IP.Ipv6 != nil {
+				Ipv6Map := make(map[string]interface{})
+				if !data.RemoteIP.IP.Ipv6.Addr.IsNull() && !data.RemoteIP.IP.Ipv6.Addr.IsUnknown() {
+					Ipv6Map["addr"] = data.RemoteIP.IP.Ipv6.Addr.ValueString()
+				}
+				IPMap["ipv6"] = Ipv6Map
+			}
+			RemoteIPMap["ip"] = IPMap
 		}
-		createReq.Spec["remote_ip"] = remote_ipMap
+		createReq.Spec["remote_ip"] = RemoteIPMap
 	}
 	if !data.TunnelType.IsNull() && !data.TunnelType.IsUnknown() {
 		createReq.Spec["tunnel_type"] = data.TunnelType.ValueString()
@@ -713,21 +819,259 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["local_ip"].(map[string]interface{}); ok && isImport && data.LocalIP == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.LocalIP = &TunnelLocalIPModel{}
+	if blockData, ok := apiResource.Spec["local_ip"].(map[string]interface{}); ok && (isImport || data.LocalIP != nil) {
+		data.LocalIP = &TunnelLocalIPModel{
+			Intf: func() *TunnelLocalIPIntfModel {
+				if !isImport && data.LocalIP != nil && data.LocalIP.Intf != nil {
+					return data.LocalIP.Intf
+				}
+				if IntfData, ok := blockData["intf"].(map[string]interface{}); ok {
+					return &TunnelLocalIPIntfModel{
+						LocalIntf: func() types.List {
+							if rawList, ok := IntfData["local_intf"].([]interface{}); ok && len(rawList) > 0 {
+								var LocalIntfResult []TunnelLocalIPIntfLocalIntfModel
+								for _, LocalIntfItem := range rawList {
+									if LocalIntfItemMap, ok := LocalIntfItem.(map[string]interface{}); ok {
+										LocalIntfResult = append(LocalIntfResult, TunnelLocalIPIntfLocalIntfModel{
+											Kind: func() types.String {
+												if v, ok := LocalIntfItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := LocalIntfItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := LocalIntfItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := LocalIntfItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := LocalIntfItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: TunnelLocalIPIntfLocalIntfModelAttrTypes}, LocalIntfResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: TunnelLocalIPIntfLocalIntfModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			IPAddress: func() *TunnelLocalIPIPAddressModel {
+				if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil {
+					return data.LocalIP.IPAddress
+				}
+				if IPAddressData, ok := blockData["ip_address"].(map[string]interface{}); ok {
+					return &TunnelLocalIPIPAddressModel{
+						Auto: func() *TunnelEmptyModel {
+							if _, ok := IPAddressData["auto"].(map[string]interface{}); ok {
+								return &TunnelEmptyModel{}
+							}
+							return nil
+						}(),
+						IPAddress: func() *TunnelLocalIPIPAddressIPAddressModel {
+							if IPAddressData, ok := IPAddressData["ip_address"].(map[string]interface{}); ok {
+								return &TunnelLocalIPIPAddressIPAddressModel{
+									Ipv4: func() *TunnelLocalIPIPAddressIPAddressIpv4Model {
+										if Ipv4Data, ok := IPAddressData["ipv4"].(map[string]interface{}); ok {
+											return &TunnelLocalIPIPAddressIPAddressIpv4Model{
+												Addr: func() types.String {
+													if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									Ipv6: func() *TunnelLocalIPIPAddressIPAddressIpv6Model {
+										if Ipv6Data, ok := IPAddressData["ipv6"].(map[string]interface{}); ok {
+											return &TunnelLocalIPIPAddressIPAddressIpv6Model{
+												Addr: func() types.String {
+													if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						VirtualNetworkType: func() *TunnelLocalIPIPAddressVirtualNetworkTypeModel {
+							if VirtualNetworkTypeData, ok := IPAddressData["virtual_network_type"].(map[string]interface{}); ok {
+								return &TunnelLocalIPIPAddressVirtualNetworkTypeModel{
+									Public: func() *TunnelEmptyModel {
+										if _, ok := VirtualNetworkTypeData["public"].(map[string]interface{}); ok {
+											return &TunnelEmptyModel{}
+										}
+										return nil
+									}(),
+									SiteLocal: func() *TunnelEmptyModel {
+										if _, ok := VirtualNetworkTypeData["site_local"].(map[string]interface{}); ok {
+											return &TunnelEmptyModel{}
+										}
+										return nil
+									}(),
+									SiteLocalInside: func() *TunnelEmptyModel {
+										if _, ok := VirtualNetworkTypeData["site_local_inside"].(map[string]interface{}); ok {
+											return &TunnelEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["params"].(map[string]interface{}); ok && isImport && data.Params == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Params = &TunnelParamsModel{}
+	if blockData, ok := apiResource.Spec["params"].(map[string]interface{}); ok && (isImport || data.Params != nil) {
+		data.Params = &TunnelParamsModel{
+			Ipsec: func() *TunnelParamsIpsecModel {
+				if !isImport && data.Params != nil && data.Params.Ipsec != nil {
+					return data.Params.Ipsec
+				}
+				if IpsecData, ok := blockData["ipsec"].(map[string]interface{}); ok {
+					return &TunnelParamsIpsecModel{
+						IpsecPsk: func() *TunnelParamsIpsecIpsecPskModel {
+							if IpsecPskData, ok := IpsecData["ipsec_psk"].(map[string]interface{}); ok {
+								return &TunnelParamsIpsecIpsecPskModel{
+									BlindfoldSecretInfo: func() *TunnelParamsIpsecIpsecPskBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := IpsecPskData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &TunnelParamsIpsecIpsecPskBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *TunnelParamsIpsecIpsecPskClearSecretInfoModel {
+										if ClearSecretInfoData, ok := IpsecPskData["clear_secret_info"].(map[string]interface{}); ok {
+											return &TunnelParamsIpsecIpsecPskClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["remote_ip"].(map[string]interface{}); ok && isImport && data.RemoteIP == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.RemoteIP = &TunnelRemoteIPModel{}
+	if blockData, ok := apiResource.Spec["remote_ip"].(map[string]interface{}); ok && (isImport || data.RemoteIP != nil) {
+		data.RemoteIP = &TunnelRemoteIPModel{
+			Endpoints: func() *TunnelRemoteIPEndpointsModel {
+				if !isImport && data.RemoteIP != nil && data.RemoteIP.Endpoints != nil {
+					return data.RemoteIP.Endpoints
+				}
+				if EndpointsData, ok := blockData["endpoints"].(map[string]interface{}); ok {
+					return &TunnelRemoteIPEndpointsModel{
+						Endpoints: func() *TunnelEmptyModel {
+							if _, ok := EndpointsData["endpoints"].(map[string]interface{}); ok {
+								return &TunnelEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			IP: func() *TunnelRemoteIPIPModel {
+				if !isImport && data.RemoteIP != nil && data.RemoteIP.IP != nil {
+					return data.RemoteIP.IP
+				}
+				if IPData, ok := blockData["ip"].(map[string]interface{}); ok {
+					return &TunnelRemoteIPIPModel{
+						Ipv4: func() *TunnelRemoteIPIPIpv4Model {
+							if Ipv4Data, ok := IPData["ipv4"].(map[string]interface{}); ok {
+								return &TunnelRemoteIPIPIpv4Model{
+									Addr: func() types.String {
+										if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Ipv6: func() *TunnelRemoteIPIPIpv6Model {
+							if Ipv6Data, ok := IPData["ipv6"].(map[string]interface{}); ok {
+								return &TunnelRemoteIPIPIpv6Model{
+									Addr: func() types.String {
+										if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["tunnel_type"].(string); ok && v != "" {
 		data.TunnelType = types.StringValue(v)
 	} else {
@@ -813,25 +1157,271 @@ func (r *TunnelResource) Read(ctx context.Context, req resource.ReadRequest, res
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["local_ip"].(map[string]interface{}); ok && isImport && data.LocalIP == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.LocalIP = &TunnelLocalIPModel{}
+	if blockData, ok := apiResource.Spec["local_ip"].(map[string]interface{}); ok && (isImport || data.LocalIP != nil) {
+		data.LocalIP = &TunnelLocalIPModel{
+			Intf: func() *TunnelLocalIPIntfModel {
+				if !isImport && data.LocalIP != nil && data.LocalIP.Intf != nil {
+					return data.LocalIP.Intf
+				}
+				if IntfData, ok := blockData["intf"].(map[string]interface{}); ok {
+					return &TunnelLocalIPIntfModel{
+						LocalIntf: func() types.List {
+							if rawList, ok := IntfData["local_intf"].([]interface{}); ok && len(rawList) > 0 {
+								var LocalIntfResult []TunnelLocalIPIntfLocalIntfModel
+								for _, LocalIntfItem := range rawList {
+									if LocalIntfItemMap, ok := LocalIntfItem.(map[string]interface{}); ok {
+										LocalIntfResult = append(LocalIntfResult, TunnelLocalIPIntfLocalIntfModel{
+											Kind: func() types.String {
+												if v, ok := LocalIntfItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := LocalIntfItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := LocalIntfItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := LocalIntfItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := LocalIntfItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: TunnelLocalIPIntfLocalIntfModelAttrTypes}, LocalIntfResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: TunnelLocalIPIntfLocalIntfModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			IPAddress: func() *TunnelLocalIPIPAddressModel {
+				if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil {
+					return data.LocalIP.IPAddress
+				}
+				if IPAddressData, ok := blockData["ip_address"].(map[string]interface{}); ok {
+					return &TunnelLocalIPIPAddressModel{
+						Auto: func() *TunnelEmptyModel {
+							if _, ok := IPAddressData["auto"].(map[string]interface{}); ok {
+								return &TunnelEmptyModel{}
+							}
+							return nil
+						}(),
+						IPAddress: func() *TunnelLocalIPIPAddressIPAddressModel {
+							if IPAddressData, ok := IPAddressData["ip_address"].(map[string]interface{}); ok {
+								return &TunnelLocalIPIPAddressIPAddressModel{
+									Ipv4: func() *TunnelLocalIPIPAddressIPAddressIpv4Model {
+										if Ipv4Data, ok := IPAddressData["ipv4"].(map[string]interface{}); ok {
+											return &TunnelLocalIPIPAddressIPAddressIpv4Model{
+												Addr: func() types.String {
+													if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									Ipv6: func() *TunnelLocalIPIPAddressIPAddressIpv6Model {
+										if Ipv6Data, ok := IPAddressData["ipv6"].(map[string]interface{}); ok {
+											return &TunnelLocalIPIPAddressIPAddressIpv6Model{
+												Addr: func() types.String {
+													if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						VirtualNetworkType: func() *TunnelLocalIPIPAddressVirtualNetworkTypeModel {
+							if VirtualNetworkTypeData, ok := IPAddressData["virtual_network_type"].(map[string]interface{}); ok {
+								return &TunnelLocalIPIPAddressVirtualNetworkTypeModel{
+									Public: func() *TunnelEmptyModel {
+										if _, ok := VirtualNetworkTypeData["public"].(map[string]interface{}); ok {
+											return &TunnelEmptyModel{}
+										}
+										return nil
+									}(),
+									SiteLocal: func() *TunnelEmptyModel {
+										if _, ok := VirtualNetworkTypeData["site_local"].(map[string]interface{}); ok {
+											return &TunnelEmptyModel{}
+										}
+										return nil
+									}(),
+									SiteLocalInside: func() *TunnelEmptyModel {
+										if _, ok := VirtualNetworkTypeData["site_local_inside"].(map[string]interface{}); ok {
+											return &TunnelEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["params"].(map[string]interface{}); ok && isImport && data.Params == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Params = &TunnelParamsModel{}
+	if blockData, ok := apiResource.Spec["params"].(map[string]interface{}); ok && (isImport || data.Params != nil) {
+		data.Params = &TunnelParamsModel{
+			Ipsec: func() *TunnelParamsIpsecModel {
+				if !isImport && data.Params != nil && data.Params.Ipsec != nil {
+					return data.Params.Ipsec
+				}
+				if IpsecData, ok := blockData["ipsec"].(map[string]interface{}); ok {
+					return &TunnelParamsIpsecModel{
+						IpsecPsk: func() *TunnelParamsIpsecIpsecPskModel {
+							if IpsecPskData, ok := IpsecData["ipsec_psk"].(map[string]interface{}); ok {
+								return &TunnelParamsIpsecIpsecPskModel{
+									BlindfoldSecretInfo: func() *TunnelParamsIpsecIpsecPskBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := IpsecPskData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &TunnelParamsIpsecIpsecPskBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *TunnelParamsIpsecIpsecPskClearSecretInfoModel {
+										if ClearSecretInfoData, ok := IpsecPskData["clear_secret_info"].(map[string]interface{}); ok {
+											return &TunnelParamsIpsecIpsecPskClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["remote_ip"].(map[string]interface{}); ok && isImport && data.RemoteIP == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.RemoteIP = &TunnelRemoteIPModel{}
+	if blockData, ok := apiResource.Spec["remote_ip"].(map[string]interface{}); ok && (isImport || data.RemoteIP != nil) {
+		data.RemoteIP = &TunnelRemoteIPModel{
+			Endpoints: func() *TunnelRemoteIPEndpointsModel {
+				if !isImport && data.RemoteIP != nil && data.RemoteIP.Endpoints != nil {
+					return data.RemoteIP.Endpoints
+				}
+				if EndpointsData, ok := blockData["endpoints"].(map[string]interface{}); ok {
+					return &TunnelRemoteIPEndpointsModel{
+						Endpoints: func() *TunnelEmptyModel {
+							if _, ok := EndpointsData["endpoints"].(map[string]interface{}); ok {
+								return &TunnelEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			IP: func() *TunnelRemoteIPIPModel {
+				if !isImport && data.RemoteIP != nil && data.RemoteIP.IP != nil {
+					return data.RemoteIP.IP
+				}
+				if IPData, ok := blockData["ip"].(map[string]interface{}); ok {
+					return &TunnelRemoteIPIPModel{
+						Ipv4: func() *TunnelRemoteIPIPIpv4Model {
+							if Ipv4Data, ok := IPData["ipv4"].(map[string]interface{}); ok {
+								return &TunnelRemoteIPIPIpv4Model{
+									Addr: func() types.String {
+										if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Ipv6: func() *TunnelRemoteIPIPIpv6Model {
+							if Ipv6Data, ok := IPData["ipv6"].(map[string]interface{}); ok {
+								return &TunnelRemoteIPIPIpv6Model{
+									Addr: func() types.String {
+										if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["tunnel_type"].(string); ok && v != "" {
 		data.TunnelType = types.StringValue(v)
 	} else {
 		data.TunnelType = types.StringNull()
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -885,36 +1475,142 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.LocalIP != nil {
-		local_ipMap := make(map[string]interface{})
+		LocalIPMap := make(map[string]interface{})
 		if data.LocalIP.Intf != nil {
-			intfNestedMap := make(map[string]interface{})
-			local_ipMap["intf"] = intfNestedMap
+			IntfMap := make(map[string]interface{})
+			if !data.LocalIP.Intf.LocalIntf.IsNull() && !data.LocalIP.Intf.LocalIntf.IsUnknown() {
+				var LocalIntfElems []TunnelLocalIPIntfLocalIntfModel
+				diags := data.LocalIP.Intf.LocalIntf.ElementsAs(ctx, &LocalIntfElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(LocalIntfElems) > 0 {
+					var LocalIntfList []map[string]interface{}
+					for _, LocalIntfItem := range LocalIntfElems {
+						LocalIntfItemMap := make(map[string]interface{})
+						if !LocalIntfItem.Kind.IsNull() && !LocalIntfItem.Kind.IsUnknown() {
+							LocalIntfItemMap["kind"] = LocalIntfItem.Kind.ValueString()
+						}
+						if !LocalIntfItem.Name.IsNull() && !LocalIntfItem.Name.IsUnknown() {
+							LocalIntfItemMap["name"] = LocalIntfItem.Name.ValueString()
+						}
+						if !LocalIntfItem.Namespace.IsNull() && !LocalIntfItem.Namespace.IsUnknown() {
+							LocalIntfItemMap["namespace"] = LocalIntfItem.Namespace.ValueString()
+						}
+						if !LocalIntfItem.Tenant.IsNull() && !LocalIntfItem.Tenant.IsUnknown() {
+							LocalIntfItemMap["tenant"] = LocalIntfItem.Tenant.ValueString()
+						}
+						if !LocalIntfItem.Uid.IsNull() && !LocalIntfItem.Uid.IsUnknown() {
+							LocalIntfItemMap["uid"] = LocalIntfItem.Uid.ValueString()
+						}
+						LocalIntfList = append(LocalIntfList, LocalIntfItemMap)
+					}
+					IntfMap["local_intf"] = LocalIntfList
+				}
+			}
+			LocalIPMap["intf"] = IntfMap
 		}
 		if data.LocalIP.IPAddress != nil {
-			ip_addressNestedMap := make(map[string]interface{})
-			local_ipMap["ip_address"] = ip_addressNestedMap
+			IPAddressMap := make(map[string]interface{})
+			if data.LocalIP.IPAddress.Auto != nil {
+				IPAddressMap["auto"] = map[string]interface{}{}
+			}
+			if data.LocalIP.IPAddress.IPAddress != nil {
+				IPAddressMap := make(map[string]interface{})
+				if data.LocalIP.IPAddress.IPAddress.Ipv4 != nil {
+					Ipv4Map := make(map[string]interface{})
+					if !data.LocalIP.IPAddress.IPAddress.Ipv4.Addr.IsNull() && !data.LocalIP.IPAddress.IPAddress.Ipv4.Addr.IsUnknown() {
+						Ipv4Map["addr"] = data.LocalIP.IPAddress.IPAddress.Ipv4.Addr.ValueString()
+					}
+					IPAddressMap["ipv4"] = Ipv4Map
+				}
+				if data.LocalIP.IPAddress.IPAddress.Ipv6 != nil {
+					Ipv6Map := make(map[string]interface{})
+					if !data.LocalIP.IPAddress.IPAddress.Ipv6.Addr.IsNull() && !data.LocalIP.IPAddress.IPAddress.Ipv6.Addr.IsUnknown() {
+						Ipv6Map["addr"] = data.LocalIP.IPAddress.IPAddress.Ipv6.Addr.ValueString()
+					}
+					IPAddressMap["ipv6"] = Ipv6Map
+				}
+				IPAddressMap["ip_address"] = IPAddressMap
+			}
+			if data.LocalIP.IPAddress.VirtualNetworkType != nil {
+				VirtualNetworkTypeMap := make(map[string]interface{})
+				if data.LocalIP.IPAddress.VirtualNetworkType.Public != nil {
+					VirtualNetworkTypeMap["public"] = map[string]interface{}{}
+				}
+				if data.LocalIP.IPAddress.VirtualNetworkType.SiteLocal != nil {
+					VirtualNetworkTypeMap["site_local"] = map[string]interface{}{}
+				}
+				if data.LocalIP.IPAddress.VirtualNetworkType.SiteLocalInside != nil {
+					VirtualNetworkTypeMap["site_local_inside"] = map[string]interface{}{}
+				}
+				IPAddressMap["virtual_network_type"] = VirtualNetworkTypeMap
+			}
+			LocalIPMap["ip_address"] = IPAddressMap
 		}
-		apiResource.Spec["local_ip"] = local_ipMap
+		apiResource.Spec["local_ip"] = LocalIPMap
 	}
 	if data.Params != nil {
-		paramsMap := make(map[string]interface{})
+		ParamsMap := make(map[string]interface{})
 		if data.Params.Ipsec != nil {
-			ipsecNestedMap := make(map[string]interface{})
-			paramsMap["ipsec"] = ipsecNestedMap
+			IpsecMap := make(map[string]interface{})
+			if data.Params.Ipsec.IpsecPsk != nil {
+				IpsecPskMap := make(map[string]interface{})
+				if data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.Location.IsNull() && !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					IpsecPskMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.Params.Ipsec.IpsecPsk.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.Params.Ipsec.IpsecPsk.ClearSecretInfo.Provider.IsNull() && !data.Params.Ipsec.IpsecPsk.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.Params.Ipsec.IpsecPsk.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.Params.Ipsec.IpsecPsk.ClearSecretInfo.URL.IsNull() && !data.Params.Ipsec.IpsecPsk.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.Params.Ipsec.IpsecPsk.ClearSecretInfo.URL.ValueString()
+					}
+					IpsecPskMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				IpsecMap["ipsec_psk"] = IpsecPskMap
+			}
+			ParamsMap["ipsec"] = IpsecMap
 		}
-		apiResource.Spec["params"] = paramsMap
+		apiResource.Spec["params"] = ParamsMap
 	}
 	if data.RemoteIP != nil {
-		remote_ipMap := make(map[string]interface{})
+		RemoteIPMap := make(map[string]interface{})
 		if data.RemoteIP.Endpoints != nil {
-			endpointsNestedMap := make(map[string]interface{})
-			remote_ipMap["endpoints"] = endpointsNestedMap
+			EndpointsMap := make(map[string]interface{})
+			if data.RemoteIP.Endpoints.Endpoints != nil {
+				EndpointsMap["endpoints"] = map[string]interface{}{}
+			}
+			RemoteIPMap["endpoints"] = EndpointsMap
 		}
 		if data.RemoteIP.IP != nil {
-			ipNestedMap := make(map[string]interface{})
-			remote_ipMap["ip"] = ipNestedMap
+			IPMap := make(map[string]interface{})
+			if data.RemoteIP.IP.Ipv4 != nil {
+				Ipv4Map := make(map[string]interface{})
+				if !data.RemoteIP.IP.Ipv4.Addr.IsNull() && !data.RemoteIP.IP.Ipv4.Addr.IsUnknown() {
+					Ipv4Map["addr"] = data.RemoteIP.IP.Ipv4.Addr.ValueString()
+				}
+				IPMap["ipv4"] = Ipv4Map
+			}
+			if data.RemoteIP.IP.Ipv6 != nil {
+				Ipv6Map := make(map[string]interface{})
+				if !data.RemoteIP.IP.Ipv6.Addr.IsNull() && !data.RemoteIP.IP.Ipv6.Addr.IsUnknown() {
+					Ipv6Map["addr"] = data.RemoteIP.IP.Ipv6.Addr.ValueString()
+				}
+				IPMap["ipv6"] = Ipv6Map
+			}
+			RemoteIPMap["ip"] = IPMap
 		}
-		apiResource.Spec["remote_ip"] = remote_ipMap
+		apiResource.Spec["remote_ip"] = RemoteIPMap
 	}
 	if !data.TunnelType.IsNull() && !data.TunnelType.IsUnknown() {
 		apiResource.Spec["tunnel_type"] = data.TunnelType.ValueString()
@@ -943,21 +1639,259 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["local_ip"].(map[string]interface{}); ok && isImport && data.LocalIP == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.LocalIP = &TunnelLocalIPModel{}
+	if blockData, ok := apiResource.Spec["local_ip"].(map[string]interface{}); ok && (isImport || data.LocalIP != nil) {
+		data.LocalIP = &TunnelLocalIPModel{
+			Intf: func() *TunnelLocalIPIntfModel {
+				if !isImport && data.LocalIP != nil && data.LocalIP.Intf != nil {
+					return data.LocalIP.Intf
+				}
+				if IntfData, ok := blockData["intf"].(map[string]interface{}); ok {
+					return &TunnelLocalIPIntfModel{
+						LocalIntf: func() types.List {
+							if rawList, ok := IntfData["local_intf"].([]interface{}); ok && len(rawList) > 0 {
+								var LocalIntfResult []TunnelLocalIPIntfLocalIntfModel
+								for _, LocalIntfItem := range rawList {
+									if LocalIntfItemMap, ok := LocalIntfItem.(map[string]interface{}); ok {
+										LocalIntfResult = append(LocalIntfResult, TunnelLocalIPIntfLocalIntfModel{
+											Kind: func() types.String {
+												if v, ok := LocalIntfItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := LocalIntfItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := LocalIntfItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := LocalIntfItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := LocalIntfItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: TunnelLocalIPIntfLocalIntfModelAttrTypes}, LocalIntfResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: TunnelLocalIPIntfLocalIntfModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			IPAddress: func() *TunnelLocalIPIPAddressModel {
+				if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil {
+					return data.LocalIP.IPAddress
+				}
+				if IPAddressData, ok := blockData["ip_address"].(map[string]interface{}); ok {
+					return &TunnelLocalIPIPAddressModel{
+						Auto: func() *TunnelEmptyModel {
+							if _, ok := IPAddressData["auto"].(map[string]interface{}); ok {
+								return &TunnelEmptyModel{}
+							}
+							return nil
+						}(),
+						IPAddress: func() *TunnelLocalIPIPAddressIPAddressModel {
+							if IPAddressData, ok := IPAddressData["ip_address"].(map[string]interface{}); ok {
+								return &TunnelLocalIPIPAddressIPAddressModel{
+									Ipv4: func() *TunnelLocalIPIPAddressIPAddressIpv4Model {
+										if Ipv4Data, ok := IPAddressData["ipv4"].(map[string]interface{}); ok {
+											return &TunnelLocalIPIPAddressIPAddressIpv4Model{
+												Addr: func() types.String {
+													if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									Ipv6: func() *TunnelLocalIPIPAddressIPAddressIpv6Model {
+										if Ipv6Data, ok := IPAddressData["ipv6"].(map[string]interface{}); ok {
+											return &TunnelLocalIPIPAddressIPAddressIpv6Model{
+												Addr: func() types.String {
+													if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						VirtualNetworkType: func() *TunnelLocalIPIPAddressVirtualNetworkTypeModel {
+							if VirtualNetworkTypeData, ok := IPAddressData["virtual_network_type"].(map[string]interface{}); ok {
+								return &TunnelLocalIPIPAddressVirtualNetworkTypeModel{
+									Public: func() *TunnelEmptyModel {
+										if _, ok := VirtualNetworkTypeData["public"].(map[string]interface{}); ok {
+											return &TunnelEmptyModel{}
+										}
+										return nil
+									}(),
+									SiteLocal: func() *TunnelEmptyModel {
+										if _, ok := VirtualNetworkTypeData["site_local"].(map[string]interface{}); ok {
+											return &TunnelEmptyModel{}
+										}
+										return nil
+									}(),
+									SiteLocalInside: func() *TunnelEmptyModel {
+										if _, ok := VirtualNetworkTypeData["site_local_inside"].(map[string]interface{}); ok {
+											return &TunnelEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["params"].(map[string]interface{}); ok && isImport && data.Params == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Params = &TunnelParamsModel{}
+	if blockData, ok := apiResource.Spec["params"].(map[string]interface{}); ok && (isImport || data.Params != nil) {
+		data.Params = &TunnelParamsModel{
+			Ipsec: func() *TunnelParamsIpsecModel {
+				if !isImport && data.Params != nil && data.Params.Ipsec != nil {
+					return data.Params.Ipsec
+				}
+				if IpsecData, ok := blockData["ipsec"].(map[string]interface{}); ok {
+					return &TunnelParamsIpsecModel{
+						IpsecPsk: func() *TunnelParamsIpsecIpsecPskModel {
+							if IpsecPskData, ok := IpsecData["ipsec_psk"].(map[string]interface{}); ok {
+								return &TunnelParamsIpsecIpsecPskModel{
+									BlindfoldSecretInfo: func() *TunnelParamsIpsecIpsecPskBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := IpsecPskData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &TunnelParamsIpsecIpsecPskBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *TunnelParamsIpsecIpsecPskClearSecretInfoModel {
+										if ClearSecretInfoData, ok := IpsecPskData["clear_secret_info"].(map[string]interface{}); ok {
+											return &TunnelParamsIpsecIpsecPskClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["remote_ip"].(map[string]interface{}); ok && isImport && data.RemoteIP == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.RemoteIP = &TunnelRemoteIPModel{}
+	if blockData, ok := apiResource.Spec["remote_ip"].(map[string]interface{}); ok && (isImport || data.RemoteIP != nil) {
+		data.RemoteIP = &TunnelRemoteIPModel{
+			Endpoints: func() *TunnelRemoteIPEndpointsModel {
+				if !isImport && data.RemoteIP != nil && data.RemoteIP.Endpoints != nil {
+					return data.RemoteIP.Endpoints
+				}
+				if EndpointsData, ok := blockData["endpoints"].(map[string]interface{}); ok {
+					return &TunnelRemoteIPEndpointsModel{
+						Endpoints: func() *TunnelEmptyModel {
+							if _, ok := EndpointsData["endpoints"].(map[string]interface{}); ok {
+								return &TunnelEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			IP: func() *TunnelRemoteIPIPModel {
+				if !isImport && data.RemoteIP != nil && data.RemoteIP.IP != nil {
+					return data.RemoteIP.IP
+				}
+				if IPData, ok := blockData["ip"].(map[string]interface{}); ok {
+					return &TunnelRemoteIPIPModel{
+						Ipv4: func() *TunnelRemoteIPIPIpv4Model {
+							if Ipv4Data, ok := IPData["ipv4"].(map[string]interface{}); ok {
+								return &TunnelRemoteIPIPIpv4Model{
+									Addr: func() types.String {
+										if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Ipv6: func() *TunnelRemoteIPIPIpv6Model {
+							if Ipv6Data, ok := IPData["ipv6"].(map[string]interface{}); ok {
+								return &TunnelRemoteIPIPIpv6Model{
+									Addr: func() types.String {
+										if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["tunnel_type"].(string); ok && v != "" {
 		data.TunnelType = types.StringValue(v)
 	} else {

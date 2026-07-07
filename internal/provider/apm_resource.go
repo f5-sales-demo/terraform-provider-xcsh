@@ -267,7 +267,7 @@ type APMBaremetalSiteTypeChoiceF5BareMetalSiteModel struct {
 	AdminPassword     *APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordModel `tfsdk:"admin_password"`
 	BareMetalSite     *APMBaremetalSiteTypeChoiceF5BareMetalSiteBareMetalSiteModel `tfsdk:"bare_metal_site"`
 	BigiqInstance     *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstanceModel `tfsdk:"bigiq_instance"`
-	Nodes             []APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModel        `tfsdk:"nodes"`
+	Nodes             types.List                                                   `tfsdk:"nodes"`
 }
 
 // APMBaremetalSiteTypeChoiceF5BareMetalSiteModelAttrTypes defines the attribute types for APMBaremetalSiteTypeChoiceF5BareMetalSiteModel
@@ -1312,7 +1312,7 @@ func (r *APMResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
-										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 										Attributes: map[string]schema.Attribute{
 											"decryption_provider": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1566,7 +1566,7 @@ func (r *APMResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
-										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 										Attributes: map[string]schema.Attribute{
 											"decryption_provider": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1675,7 +1675,7 @@ func (r *APMResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
-												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 												Attributes: map[string]schema.Attribute{
 													"decryption_provider": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1956,7 +1956,7 @@ func (r *APMResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
-													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 													Attributes: map[string]schema.Attribute{
 														"decryption_provider": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2187,7 +2187,7 @@ func (r *APMResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
-													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 													Attributes: map[string]schema.Attribute{
 														"decryption_provider": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2418,7 +2418,7 @@ func (r *APMResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
-													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 													Attributes: map[string]schema.Attribute{
 														"decryption_provider": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2649,7 +2649,7 @@ func (r *APMResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
-													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 													Attributes: map[string]schema.Attribute{
 														"decryption_provider": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2947,75 +2947,961 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.AWSSiteTypeChoice != nil {
-		aws_site_type_choiceMap := make(map[string]interface{})
+		AWSSiteTypeChoiceMap := make(map[string]interface{})
 		if data.AWSSiteTypeChoice.APMAWSSite != nil {
-			apm_aws_siteNestedMap := make(map[string]interface{})
+			APMAWSSiteMap := make(map[string]interface{})
+			if data.AWSSiteTypeChoice.APMAWSSite.AdminPassword != nil {
+				AdminPasswordMap := make(map[string]interface{})
+				if data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo.Location.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					AdminPasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.ClearSecretInfo.Provider.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.ClearSecretInfo.URL.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.ClearSecretInfo.URL.ValueString()
+					}
+					AdminPasswordMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				APMAWSSiteMap["admin_password"] = AdminPasswordMap
+			}
 			if !data.AWSSiteTypeChoice.APMAWSSite.AdminUsername.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.AdminUsername.IsUnknown() {
-				apm_aws_siteNestedMap["admin_username"] = data.AWSSiteTypeChoice.APMAWSSite.AdminUsername.ValueString()
+				APMAWSSiteMap["admin_username"] = data.AWSSiteTypeChoice.APMAWSSite.AdminUsername.ValueString()
+			}
+			if data.AWSSiteTypeChoice.APMAWSSite.AWSTGWSite != nil {
+				AWSTGWSiteMap := make(map[string]interface{})
+				if data.AWSSiteTypeChoice.APMAWSSite.AWSTGWSite.AWSTGWSite != nil {
+					AWSTGWSiteMap := make(map[string]interface{})
+					if !data.AWSSiteTypeChoice.APMAWSSite.AWSTGWSite.AWSTGWSite.Name.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.AWSTGWSite.AWSTGWSite.Name.IsUnknown() {
+						AWSTGWSiteMap["name"] = data.AWSSiteTypeChoice.APMAWSSite.AWSTGWSite.AWSTGWSite.Name.ValueString()
+					}
+					if !data.AWSSiteTypeChoice.APMAWSSite.AWSTGWSite.AWSTGWSite.Namespace.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.AWSTGWSite.AWSTGWSite.Namespace.IsUnknown() {
+						AWSTGWSiteMap["namespace"] = data.AWSSiteTypeChoice.APMAWSSite.AWSTGWSite.AWSTGWSite.Namespace.ValueString()
+					}
+					if !data.AWSSiteTypeChoice.APMAWSSite.AWSTGWSite.AWSTGWSite.Tenant.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.AWSTGWSite.AWSTGWSite.Tenant.IsUnknown() {
+						AWSTGWSiteMap["tenant"] = data.AWSSiteTypeChoice.APMAWSSite.AWSTGWSite.AWSTGWSite.Tenant.ValueString()
+					}
+					AWSTGWSiteMap["aws_tgw_site"] = AWSTGWSiteMap
+				}
+				APMAWSSiteMap["aws_tgw_site"] = AWSTGWSiteMap
+			}
+			if data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+				EndpointServiceMap := make(map[string]interface{})
+				if data.AWSSiteTypeChoice.APMAWSSite.EndpointService.AdvertiseOnSloIP != nil {
+					EndpointServiceMap["advertise_on_slo_ip"] = map[string]interface{}{}
+				}
+				if data.AWSSiteTypeChoice.APMAWSSite.EndpointService.AdvertiseOnSloIPExternal != nil {
+					EndpointServiceMap["advertise_on_slo_ip_external"] = map[string]interface{}{}
+				}
+				if data.AWSSiteTypeChoice.APMAWSSite.EndpointService.AutomaticVIP != nil {
+					EndpointServiceMap["automatic_vip"] = map[string]interface{}{}
+				}
+				if !data.AWSSiteTypeChoice.APMAWSSite.EndpointService.ConfiguredVIP.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.EndpointService.ConfiguredVIP.IsUnknown() {
+					EndpointServiceMap["configured_vip"] = data.AWSSiteTypeChoice.APMAWSSite.EndpointService.ConfiguredVIP.ValueString()
+				}
+				if data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomTCPPorts != nil {
+					CustomTCPPortsMap := make(map[string]interface{})
+					if !data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomTCPPorts.Ports.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomTCPPorts.Ports.IsUnknown() {
+						var PortsItems []string
+						diags := data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomTCPPorts.Ports.ElementsAs(ctx, &PortsItems, false)
+						if !diags.HasError() {
+							CustomTCPPortsMap["ports"] = PortsItems
+						}
+					}
+					EndpointServiceMap["custom_tcp_ports"] = CustomTCPPortsMap
+				}
+				if data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomUDPPorts != nil {
+					CustomUDPPortsMap := make(map[string]interface{})
+					if !data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomUDPPorts.Ports.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomUDPPorts.Ports.IsUnknown() {
+						var PortsItems []string
+						diags := data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomUDPPorts.Ports.ElementsAs(ctx, &PortsItems, false)
+						if !diags.HasError() {
+							CustomUDPPortsMap["ports"] = PortsItems
+						}
+					}
+					EndpointServiceMap["custom_udp_ports"] = CustomUDPPortsMap
+				}
+				if data.AWSSiteTypeChoice.APMAWSSite.EndpointService.DefaultTCPPorts != nil {
+					EndpointServiceMap["default_tcp_ports"] = map[string]interface{}{}
+				}
+				if data.AWSSiteTypeChoice.APMAWSSite.EndpointService.DisableAdvertiseOnSloIP != nil {
+					EndpointServiceMap["disable_advertise_on_slo_ip"] = map[string]interface{}{}
+				}
+				if data.AWSSiteTypeChoice.APMAWSSite.EndpointService.HTTPPort != nil {
+					EndpointServiceMap["http_port"] = map[string]interface{}{}
+				}
+				if data.AWSSiteTypeChoice.APMAWSSite.EndpointService.HTTPSPort != nil {
+					EndpointServiceMap["https_port"] = map[string]interface{}{}
+				}
+				if data.AWSSiteTypeChoice.APMAWSSite.EndpointService.NoTCPPorts != nil {
+					EndpointServiceMap["no_tcp_ports"] = map[string]interface{}{}
+				}
+				if data.AWSSiteTypeChoice.APMAWSSite.EndpointService.NoUDPPorts != nil {
+					EndpointServiceMap["no_udp_ports"] = map[string]interface{}{}
+				}
+				APMAWSSiteMap["endpoint_service"] = EndpointServiceMap
+			}
+			if len(data.AWSSiteTypeChoice.APMAWSSite.Nodes) > 0 {
+				var NodesList []map[string]interface{}
+				for _, NodesItem := range data.AWSSiteTypeChoice.APMAWSSite.Nodes {
+					NodesItemMap := make(map[string]interface{})
+					if NodesItem.AutomaticPrefix != nil {
+						NodesItemMap["automatic_prefix"] = map[string]interface{}{}
+					}
+					if !NodesItem.AWSAzName.IsNull() && !NodesItem.AWSAzName.IsUnknown() {
+						NodesItemMap["aws_az_name"] = NodesItem.AWSAzName.ValueString()
+					}
+					if NodesItem.MgmtSubnet != nil {
+						MgmtSubnetMap := make(map[string]interface{})
+						if !NodesItem.MgmtSubnet.ExistingSubnetID.IsNull() && !NodesItem.MgmtSubnet.ExistingSubnetID.IsUnknown() {
+							MgmtSubnetMap["existing_subnet_id"] = NodesItem.MgmtSubnet.ExistingSubnetID.ValueString()
+						}
+						if NodesItem.MgmtSubnet.SubnetParam != nil {
+							SubnetParamMap := make(map[string]interface{})
+							if !NodesItem.MgmtSubnet.SubnetParam.Ipv4.IsNull() && !NodesItem.MgmtSubnet.SubnetParam.Ipv4.IsUnknown() {
+								SubnetParamMap["ipv4"] = NodesItem.MgmtSubnet.SubnetParam.Ipv4.ValueString()
+							}
+							MgmtSubnetMap["subnet_param"] = SubnetParamMap
+						}
+						NodesItemMap["mgmt_subnet"] = MgmtSubnetMap
+					}
+					if !NodesItem.NodeName.IsNull() && !NodesItem.NodeName.IsUnknown() {
+						NodesItemMap["node_name"] = NodesItem.NodeName.ValueString()
+					}
+					if NodesItem.ReservedMgmtSubnet != nil {
+						NodesItemMap["reserved_mgmt_subnet"] = map[string]interface{}{}
+					}
+					if !NodesItem.TunnelPrefix.IsNull() && !NodesItem.TunnelPrefix.IsUnknown() {
+						NodesItemMap["tunnel_prefix"] = NodesItem.TunnelPrefix.ValueString()
+					}
+					NodesList = append(NodesList, NodesItemMap)
+				}
+				APMAWSSiteMap["nodes"] = NodesList
 			}
 			if !data.AWSSiteTypeChoice.APMAWSSite.SSHKey.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.SSHKey.IsUnknown() {
-				apm_aws_siteNestedMap["ssh_key"] = data.AWSSiteTypeChoice.APMAWSSite.SSHKey.ValueString()
+				APMAWSSiteMap["ssh_key"] = data.AWSSiteTypeChoice.APMAWSSite.SSHKey.ValueString()
 			}
-			aws_site_type_choiceMap["apm_aws_site"] = apm_aws_siteNestedMap
+			if data.AWSSiteTypeChoice.APMAWSSite.Tags != nil {
+				APMAWSSiteMap["tags"] = map[string]interface{}{}
+			}
+			AWSSiteTypeChoiceMap["apm_aws_site"] = APMAWSSiteMap
 		}
 		if data.AWSSiteTypeChoice.MarketPlaceImage != nil {
-			market_place_imageNestedMap := make(map[string]interface{})
-			aws_site_type_choiceMap["market_place_image"] = market_place_imageNestedMap
+			MarketPlaceImageMap := make(map[string]interface{})
+			if data.AWSSiteTypeChoice.MarketPlaceImage.Bestpluspayg200mbps != nil {
+				MarketPlaceImageMap["BestPlusPayG200Mbps"] = map[string]interface{}{}
+			}
+			if data.AWSSiteTypeChoice.MarketPlaceImage.BestPlusPayg1gbps != nil {
+				MarketPlaceImageMap["best_plus_payg_1gbps"] = map[string]interface{}{}
+			}
+			AWSSiteTypeChoiceMap["market_place_image"] = MarketPlaceImageMap
 		}
-		createReq.Spec["aws_site_type_choice"] = aws_site_type_choiceMap
+		createReq.Spec["aws_site_type_choice"] = AWSSiteTypeChoiceMap
 	}
 	if data.BaremetalSiteTypeChoice != nil {
-		baremetal_site_type_choiceMap := make(map[string]interface{})
+		BaremetalSiteTypeChoiceMap := make(map[string]interface{})
 		if data.BaremetalSiteTypeChoice.F5BareMetalSite != nil {
-			f5_bare_metal_siteNestedMap := make(map[string]interface{})
+			F5BareMetalSiteMap := make(map[string]interface{})
+			if data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword != nil {
+				AdminPasswordMap := make(map[string]interface{})
+				if data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo.Location.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					AdminPasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.ClearSecretInfo.Provider.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.ClearSecretInfo.URL.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.ClearSecretInfo.URL.ValueString()
+					}
+					AdminPasswordMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				F5BareMetalSiteMap["admin_password"] = AdminPasswordMap
+			}
 			if !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminUsername.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminUsername.IsUnknown() {
-				f5_bare_metal_siteNestedMap["admin_username"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminUsername.ValueString()
+				F5BareMetalSiteMap["admin_username"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminUsername.ValueString()
+			}
+			if data.BaremetalSiteTypeChoice.F5BareMetalSite.BareMetalSite != nil {
+				BareMetalSiteMap := make(map[string]interface{})
+				if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BareMetalSite.Name.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BareMetalSite.Name.IsUnknown() {
+					BareMetalSiteMap["name"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BareMetalSite.Name.ValueString()
+				}
+				if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BareMetalSite.Namespace.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BareMetalSite.Namespace.IsUnknown() {
+					BareMetalSiteMap["namespace"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BareMetalSite.Namespace.ValueString()
+				}
+				if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BareMetalSite.Tenant.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BareMetalSite.Tenant.IsUnknown() {
+					BareMetalSiteMap["tenant"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BareMetalSite.Tenant.ValueString()
+				}
+				F5BareMetalSiteMap["bare_metal_site"] = BareMetalSiteMap
+			}
+			if data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance != nil {
+				BigiqInstanceMap := make(map[string]interface{})
+				if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.LicensePoolName.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.LicensePoolName.IsUnknown() {
+					BigiqInstanceMap["license_pool_name"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.LicensePoolName.ValueString()
+				}
+				if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.LicenseServerIP.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.LicenseServerIP.IsUnknown() {
+					BigiqInstanceMap["license_server_ip"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.LicenseServerIP.ValueString()
+				}
+				if data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password != nil {
+					PasswordMap := make(map[string]interface{})
+					if data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo != nil {
+						BlindfoldSecretInfoMap := make(map[string]interface{})
+						if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["decryption_provider"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						}
+						if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo.Location.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+							BlindfoldSecretInfoMap["location"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo.Location.ValueString()
+						}
+						if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["store_provider"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+						}
+						PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					}
+					if data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.ClearSecretInfo != nil {
+						ClearSecretInfoMap := make(map[string]interface{})
+						if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.ClearSecretInfo.Provider.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.ClearSecretInfo.Provider.IsUnknown() {
+							ClearSecretInfoMap["provider"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.ClearSecretInfo.Provider.ValueString()
+						}
+						if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.ClearSecretInfo.URL.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.ClearSecretInfo.URL.IsUnknown() {
+							ClearSecretInfoMap["url"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.ClearSecretInfo.URL.ValueString()
+						}
+						PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+					}
+					BigiqInstanceMap["password"] = PasswordMap
+				}
+				if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.SkuName.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.SkuName.IsUnknown() {
+					BigiqInstanceMap["sku_name"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.SkuName.ValueString()
+				}
+				if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Username.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Username.IsUnknown() {
+					BigiqInstanceMap["username"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Username.ValueString()
+				}
+				F5BareMetalSiteMap["bigiq_instance"] = BigiqInstanceMap
+			}
+			if !data.BaremetalSiteTypeChoice.F5BareMetalSite.Nodes.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.Nodes.IsUnknown() {
+				var NodesElems []APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModel
+				diags := data.BaremetalSiteTypeChoice.F5BareMetalSite.Nodes.ElementsAs(ctx, &NodesElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodesElems) > 0 {
+					var NodesList []map[string]interface{}
+					for _, NodesItem := range NodesElems {
+						NodesItemMap := make(map[string]interface{})
+						if !NodesItem.BmNodeMemorySize.IsNull() && !NodesItem.BmNodeMemorySize.IsUnknown() {
+							NodesItemMap["bm_node_memory_size"] = NodesItem.BmNodeMemorySize.ValueString()
+						}
+						if !NodesItem.BmVirtualCPUCount.IsNull() && !NodesItem.BmVirtualCPUCount.IsUnknown() {
+							NodesItemMap["bm_virtual_cpu_count"] = NodesItem.BmVirtualCPUCount.ValueString()
+						}
+						if NodesItem.ExternalInterface != nil {
+							ExternalInterfaceMap := make(map[string]interface{})
+							if NodesItem.ExternalInterface.Interface != nil {
+								InterfaceMap := make(map[string]interface{})
+								if !NodesItem.ExternalInterface.Interface.Name.IsNull() && !NodesItem.ExternalInterface.Interface.Name.IsUnknown() {
+									InterfaceMap["name"] = NodesItem.ExternalInterface.Interface.Name.ValueString()
+								}
+								if !NodesItem.ExternalInterface.Interface.Namespace.IsNull() && !NodesItem.ExternalInterface.Interface.Namespace.IsUnknown() {
+									InterfaceMap["namespace"] = NodesItem.ExternalInterface.Interface.Namespace.ValueString()
+								}
+								if !NodesItem.ExternalInterface.Interface.Tenant.IsNull() && !NodesItem.ExternalInterface.Interface.Tenant.IsUnknown() {
+									InterfaceMap["tenant"] = NodesItem.ExternalInterface.Interface.Tenant.ValueString()
+								}
+								ExternalInterfaceMap["interface"] = InterfaceMap
+							}
+							if !NodesItem.ExternalInterface.NetworkGateway.IsNull() && !NodesItem.ExternalInterface.NetworkGateway.IsUnknown() {
+								ExternalInterfaceMap["network_gateway"] = NodesItem.ExternalInterface.NetworkGateway.ValueString()
+							}
+							if !NodesItem.ExternalInterface.NetworkSelfIP.IsNull() && !NodesItem.ExternalInterface.NetworkSelfIP.IsUnknown() {
+								ExternalInterfaceMap["network_self_ip"] = NodesItem.ExternalInterface.NetworkSelfIP.ValueString()
+							}
+							NodesItemMap["external_interface"] = ExternalInterfaceMap
+						}
+						if NodesItem.InternalInterface != nil {
+							InternalInterfaceMap := make(map[string]interface{})
+							if NodesItem.InternalInterface.Interface != nil {
+								InterfaceMap := make(map[string]interface{})
+								if !NodesItem.InternalInterface.Interface.Name.IsNull() && !NodesItem.InternalInterface.Interface.Name.IsUnknown() {
+									InterfaceMap["name"] = NodesItem.InternalInterface.Interface.Name.ValueString()
+								}
+								if !NodesItem.InternalInterface.Interface.Namespace.IsNull() && !NodesItem.InternalInterface.Interface.Namespace.IsUnknown() {
+									InterfaceMap["namespace"] = NodesItem.InternalInterface.Interface.Namespace.ValueString()
+								}
+								if !NodesItem.InternalInterface.Interface.Tenant.IsNull() && !NodesItem.InternalInterface.Interface.Tenant.IsUnknown() {
+									InterfaceMap["tenant"] = NodesItem.InternalInterface.Interface.Tenant.ValueString()
+								}
+								InternalInterfaceMap["interface"] = InterfaceMap
+							}
+							if !NodesItem.InternalInterface.NetworkGateway.IsNull() && !NodesItem.InternalInterface.NetworkGateway.IsUnknown() {
+								InternalInterfaceMap["network_gateway"] = NodesItem.InternalInterface.NetworkGateway.ValueString()
+							}
+							if !NodesItem.InternalInterface.NetworkSelfIP.IsNull() && !NodesItem.InternalInterface.NetworkSelfIP.IsUnknown() {
+								InternalInterfaceMap["network_self_ip"] = NodesItem.InternalInterface.NetworkSelfIP.ValueString()
+							}
+							NodesItemMap["internal_interface"] = InternalInterfaceMap
+						}
+						if !NodesItem.NodeName.IsNull() && !NodesItem.NodeName.IsUnknown() {
+							NodesItemMap["node_name"] = NodesItem.NodeName.ValueString()
+						}
+						NodesList = append(NodesList, NodesItemMap)
+					}
+					F5BareMetalSiteMap["nodes"] = NodesList
+				}
 			}
 			if !data.BaremetalSiteTypeChoice.F5BareMetalSite.PublicDownloadURL.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.PublicDownloadURL.IsUnknown() {
-				f5_bare_metal_siteNestedMap["public_download_url"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.PublicDownloadURL.ValueString()
+				F5BareMetalSiteMap["public_download_url"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.PublicDownloadURL.ValueString()
 			}
 			if !data.BaremetalSiteTypeChoice.F5BareMetalSite.SSHKey.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.SSHKey.IsUnknown() {
-				f5_bare_metal_siteNestedMap["ssh_key"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.SSHKey.ValueString()
+				F5BareMetalSiteMap["ssh_key"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.SSHKey.ValueString()
 			}
-			baremetal_site_type_choiceMap["f5_bare_metal_site"] = f5_bare_metal_siteNestedMap
+			BaremetalSiteTypeChoiceMap["f5_bare_metal_site"] = F5BareMetalSiteMap
 		}
-		createReq.Spec["baremetal_site_type_choice"] = baremetal_site_type_choiceMap
+		createReq.Spec["baremetal_site_type_choice"] = BaremetalSiteTypeChoiceMap
 	}
 	if data.HTTPSManagement != nil {
-		https_managementMap := make(map[string]interface{})
+		HTTPSManagementMap := make(map[string]interface{})
 		if data.HTTPSManagement.AdvertiseOnInternet != nil {
-			advertise_on_internetNestedMap := make(map[string]interface{})
-			https_managementMap["advertise_on_internet"] = advertise_on_internetNestedMap
+			AdvertiseOnInternetMap := make(map[string]interface{})
+			if data.HTTPSManagement.AdvertiseOnInternet.PublicIP != nil {
+				PublicIPMap := make(map[string]interface{})
+				if !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Name.IsUnknown() {
+					PublicIPMap["name"] = data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Name.ValueString()
+				}
+				if !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Namespace.IsUnknown() {
+					PublicIPMap["namespace"] = data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Namespace.ValueString()
+				}
+				if !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Tenant.IsUnknown() {
+					PublicIPMap["tenant"] = data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Tenant.ValueString()
+				}
+				AdvertiseOnInternetMap["public_ip"] = PublicIPMap
+			}
+			HTTPSManagementMap["advertise_on_internet"] = AdvertiseOnInternetMap
 		}
 		if data.HTTPSManagement.AdvertiseOnInternetDefaultVIP != nil {
-			https_managementMap["advertise_on_internet_default_vip"] = map[string]interface{}{}
+			HTTPSManagementMap["advertise_on_internet_default_vip"] = map[string]interface{}{}
 		}
 		if data.HTTPSManagement.AdvertiseOnSLIVIP != nil {
-			advertise_on_sli_vipNestedMap := make(map[string]interface{})
-			https_managementMap["advertise_on_sli_vip"] = advertise_on_sli_vipNestedMap
+			AdvertiseOnSLIVIPMap := make(map[string]interface{})
+			if data.HTTPSManagement.AdvertiseOnSLIVIP.NoMtls != nil {
+				AdvertiseOnSLIVIPMap["no_mtls"] = map[string]interface{}{}
+			}
+			if len(data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates) > 0 {
+				var TLSCertificatesList []map[string]interface{}
+				for _, TLSCertificatesItem := range data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates {
+					TLSCertificatesItemMap := make(map[string]interface{})
+					if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+						TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
+					}
+					if TLSCertificatesItem.CustomHashAlgorithms != nil {
+						CustomHashAlgorithmsMap := make(map[string]interface{})
+						if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+							var HashAlgorithmsItems []string
+							diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+							if !diags.HasError() {
+								CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+							}
+						}
+						TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+					}
+					if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+						TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
+					}
+					if TLSCertificatesItem.DisableOCSPStapling != nil {
+						TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+					}
+					if TLSCertificatesItem.PrivateKey != nil {
+						PrivateKeyMap := make(map[string]interface{})
+						if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+							}
+							PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+					}
+					if TLSCertificatesItem.UseSystemDefaults != nil {
+						TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+					}
+					TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+				}
+				AdvertiseOnSLIVIPMap["tls_certificates"] = TLSCertificatesList
+			}
+			if data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+				TLSConfigMap := make(map[string]interface{})
+				if data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity != nil {
+					CustomSecurityMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
+						var CipherSuitesItems []string
+						diags := data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						if !diags.HasError() {
+							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+						}
+					}
+					if !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
+						CustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
+						CustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MinVersion.ValueString()
+					}
+					TLSConfigMap["custom_security"] = CustomSecurityMap
+				}
+				if data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.DefaultSecurity != nil {
+					TLSConfigMap["default_security"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.LowSecurity != nil {
+					TLSConfigMap["low_security"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.MediumSecurity != nil {
+					TLSConfigMap["medium_security"] = map[string]interface{}{}
+				}
+				AdvertiseOnSLIVIPMap["tls_config"] = TLSConfigMap
+			}
+			if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil {
+				UseMtlsMap := make(map[string]interface{})
+				if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+					UseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional.ValueBool()
+				}
+				if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL != nil {
+					CRLMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Name.IsUnknown() {
+						CRLMap["name"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Name.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Namespace.IsUnknown() {
+						CRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Namespace.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Tenant.IsUnknown() {
+						CRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Tenant.ValueString()
+					}
+					UseMtlsMap["crl"] = CRLMap
+				}
+				if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.NoCRL != nil {
+					UseMtlsMap["no_crl"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA != nil {
+					TrustedCAMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Name.IsUnknown() {
+						TrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Name.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Namespace.IsUnknown() {
+						TrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Namespace.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Tenant.IsUnknown() {
+						TrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Tenant.ValueString()
+					}
+					UseMtlsMap["trusted_ca"] = TrustedCAMap
+				}
+				if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCAURL.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCAURL.IsUnknown() {
+					UseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCAURL.ValueString()
+				}
+				if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccDisabled != nil {
+					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions != nil {
+					XfccOptionsMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
+						var XfccHeaderElementsItems []string
+						diags := data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						if !diags.HasError() {
+							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+						}
+					}
+					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+				}
+				AdvertiseOnSLIVIPMap["use_mtls"] = UseMtlsMap
+			}
+			HTTPSManagementMap["advertise_on_sli_vip"] = AdvertiseOnSLIVIPMap
 		}
 		if data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil {
-			advertise_on_slo_internet_vipNestedMap := make(map[string]interface{})
-			https_managementMap["advertise_on_slo_internet_vip"] = advertise_on_slo_internet_vipNestedMap
+			AdvertiseOnSloInternetVIPMap := make(map[string]interface{})
+			if data.HTTPSManagement.AdvertiseOnSloInternetVIP.NoMtls != nil {
+				AdvertiseOnSloInternetVIPMap["no_mtls"] = map[string]interface{}{}
+			}
+			if len(data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates) > 0 {
+				var TLSCertificatesList []map[string]interface{}
+				for _, TLSCertificatesItem := range data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates {
+					TLSCertificatesItemMap := make(map[string]interface{})
+					if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+						TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
+					}
+					if TLSCertificatesItem.CustomHashAlgorithms != nil {
+						CustomHashAlgorithmsMap := make(map[string]interface{})
+						if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+							var HashAlgorithmsItems []string
+							diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+							if !diags.HasError() {
+								CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+							}
+						}
+						TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+					}
+					if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+						TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
+					}
+					if TLSCertificatesItem.DisableOCSPStapling != nil {
+						TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+					}
+					if TLSCertificatesItem.PrivateKey != nil {
+						PrivateKeyMap := make(map[string]interface{})
+						if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+							}
+							PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+					}
+					if TLSCertificatesItem.UseSystemDefaults != nil {
+						TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+					}
+					TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+				}
+				AdvertiseOnSloInternetVIPMap["tls_certificates"] = TLSCertificatesList
+			}
+			if data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+				TLSConfigMap := make(map[string]interface{})
+				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity != nil {
+					CustomSecurityMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
+						var CipherSuitesItems []string
+						diags := data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						if !diags.HasError() {
+							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+						}
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
+						CustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
+						CustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MinVersion.ValueString()
+					}
+					TLSConfigMap["custom_security"] = CustomSecurityMap
+				}
+				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.DefaultSecurity != nil {
+					TLSConfigMap["default_security"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.LowSecurity != nil {
+					TLSConfigMap["low_security"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.MediumSecurity != nil {
+					TLSConfigMap["medium_security"] = map[string]interface{}{}
+				}
+				AdvertiseOnSloInternetVIPMap["tls_config"] = TLSConfigMap
+			}
+			if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil {
+				UseMtlsMap := make(map[string]interface{})
+				if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+					UseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional.ValueBool()
+				}
+				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL != nil {
+					CRLMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Name.IsUnknown() {
+						CRLMap["name"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Name.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Namespace.IsUnknown() {
+						CRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Namespace.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Tenant.IsUnknown() {
+						CRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Tenant.ValueString()
+					}
+					UseMtlsMap["crl"] = CRLMap
+				}
+				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.NoCRL != nil {
+					UseMtlsMap["no_crl"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA != nil {
+					TrustedCAMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Name.IsUnknown() {
+						TrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Name.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Namespace.IsUnknown() {
+						TrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Namespace.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Tenant.IsUnknown() {
+						TrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Tenant.ValueString()
+					}
+					UseMtlsMap["trusted_ca"] = TrustedCAMap
+				}
+				if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCAURL.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCAURL.IsUnknown() {
+					UseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCAURL.ValueString()
+				}
+				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccDisabled != nil {
+					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions != nil {
+					XfccOptionsMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
+						var XfccHeaderElementsItems []string
+						diags := data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						if !diags.HasError() {
+							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+						}
+					}
+					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+				}
+				AdvertiseOnSloInternetVIPMap["use_mtls"] = UseMtlsMap
+			}
+			HTTPSManagementMap["advertise_on_slo_internet_vip"] = AdvertiseOnSloInternetVIPMap
 		}
 		if data.HTTPSManagement.AdvertiseOnSloSLI != nil {
-			advertise_on_slo_sliNestedMap := make(map[string]interface{})
-			https_managementMap["advertise_on_slo_sli"] = advertise_on_slo_sliNestedMap
+			AdvertiseOnSloSLIMap := make(map[string]interface{})
+			if data.HTTPSManagement.AdvertiseOnSloSLI.NoMtls != nil {
+				AdvertiseOnSloSLIMap["no_mtls"] = map[string]interface{}{}
+			}
+			if len(data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates) > 0 {
+				var TLSCertificatesList []map[string]interface{}
+				for _, TLSCertificatesItem := range data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates {
+					TLSCertificatesItemMap := make(map[string]interface{})
+					if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+						TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
+					}
+					if TLSCertificatesItem.CustomHashAlgorithms != nil {
+						CustomHashAlgorithmsMap := make(map[string]interface{})
+						if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+							var HashAlgorithmsItems []string
+							diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+							if !diags.HasError() {
+								CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+							}
+						}
+						TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+					}
+					if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+						TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
+					}
+					if TLSCertificatesItem.DisableOCSPStapling != nil {
+						TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+					}
+					if TLSCertificatesItem.PrivateKey != nil {
+						PrivateKeyMap := make(map[string]interface{})
+						if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+							}
+							PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+					}
+					if TLSCertificatesItem.UseSystemDefaults != nil {
+						TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+					}
+					TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+				}
+				AdvertiseOnSloSLIMap["tls_certificates"] = TLSCertificatesList
+			}
+			if data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+				TLSConfigMap := make(map[string]interface{})
+				if data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity != nil {
+					CustomSecurityMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
+						var CipherSuitesItems []string
+						diags := data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						if !diags.HasError() {
+							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+						}
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
+						CustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
+						CustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MinVersion.ValueString()
+					}
+					TLSConfigMap["custom_security"] = CustomSecurityMap
+				}
+				if data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.DefaultSecurity != nil {
+					TLSConfigMap["default_security"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.LowSecurity != nil {
+					TLSConfigMap["low_security"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.MediumSecurity != nil {
+					TLSConfigMap["medium_security"] = map[string]interface{}{}
+				}
+				AdvertiseOnSloSLIMap["tls_config"] = TLSConfigMap
+			}
+			if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil {
+				UseMtlsMap := make(map[string]interface{})
+				if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional.IsUnknown() {
+					UseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional.ValueBool()
+				}
+				if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL != nil {
+					CRLMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Name.IsUnknown() {
+						CRLMap["name"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Name.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Namespace.IsUnknown() {
+						CRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Namespace.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Tenant.IsUnknown() {
+						CRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Tenant.ValueString()
+					}
+					UseMtlsMap["crl"] = CRLMap
+				}
+				if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.NoCRL != nil {
+					UseMtlsMap["no_crl"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA != nil {
+					TrustedCAMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Name.IsUnknown() {
+						TrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Name.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Namespace.IsUnknown() {
+						TrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Namespace.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Tenant.IsUnknown() {
+						TrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Tenant.ValueString()
+					}
+					UseMtlsMap["trusted_ca"] = TrustedCAMap
+				}
+				if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCAURL.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCAURL.IsUnknown() {
+					UseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCAURL.ValueString()
+				}
+				if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccDisabled != nil {
+					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions != nil {
+					XfccOptionsMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
+						var XfccHeaderElementsItems []string
+						diags := data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						if !diags.HasError() {
+							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+						}
+					}
+					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+				}
+				AdvertiseOnSloSLIMap["use_mtls"] = UseMtlsMap
+			}
+			HTTPSManagementMap["advertise_on_slo_sli"] = AdvertiseOnSloSLIMap
 		}
 		if data.HTTPSManagement.AdvertiseOnSloVIP != nil {
-			advertise_on_slo_vipNestedMap := make(map[string]interface{})
-			https_managementMap["advertise_on_slo_vip"] = advertise_on_slo_vipNestedMap
+			AdvertiseOnSloVIPMap := make(map[string]interface{})
+			if data.HTTPSManagement.AdvertiseOnSloVIP.NoMtls != nil {
+				AdvertiseOnSloVIPMap["no_mtls"] = map[string]interface{}{}
+			}
+			if len(data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates) > 0 {
+				var TLSCertificatesList []map[string]interface{}
+				for _, TLSCertificatesItem := range data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates {
+					TLSCertificatesItemMap := make(map[string]interface{})
+					if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+						TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
+					}
+					if TLSCertificatesItem.CustomHashAlgorithms != nil {
+						CustomHashAlgorithmsMap := make(map[string]interface{})
+						if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+							var HashAlgorithmsItems []string
+							diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+							if !diags.HasError() {
+								CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+							}
+						}
+						TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+					}
+					if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+						TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
+					}
+					if TLSCertificatesItem.DisableOCSPStapling != nil {
+						TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+					}
+					if TLSCertificatesItem.PrivateKey != nil {
+						PrivateKeyMap := make(map[string]interface{})
+						if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+							}
+							PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+					}
+					if TLSCertificatesItem.UseSystemDefaults != nil {
+						TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+					}
+					TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+				}
+				AdvertiseOnSloVIPMap["tls_certificates"] = TLSCertificatesList
+			}
+			if data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+				TLSConfigMap := make(map[string]interface{})
+				if data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity != nil {
+					CustomSecurityMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
+						var CipherSuitesItems []string
+						diags := data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						if !diags.HasError() {
+							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+						}
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
+						CustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
+						CustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MinVersion.ValueString()
+					}
+					TLSConfigMap["custom_security"] = CustomSecurityMap
+				}
+				if data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.DefaultSecurity != nil {
+					TLSConfigMap["default_security"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.LowSecurity != nil {
+					TLSConfigMap["low_security"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.MediumSecurity != nil {
+					TLSConfigMap["medium_security"] = map[string]interface{}{}
+				}
+				AdvertiseOnSloVIPMap["tls_config"] = TLSConfigMap
+			}
+			if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil {
+				UseMtlsMap := make(map[string]interface{})
+				if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+					UseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional.ValueBool()
+				}
+				if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL != nil {
+					CRLMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Name.IsUnknown() {
+						CRLMap["name"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Name.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Namespace.IsUnknown() {
+						CRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Namespace.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Tenant.IsUnknown() {
+						CRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Tenant.ValueString()
+					}
+					UseMtlsMap["crl"] = CRLMap
+				}
+				if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.NoCRL != nil {
+					UseMtlsMap["no_crl"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA != nil {
+					TrustedCAMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Name.IsUnknown() {
+						TrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Name.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Namespace.IsUnknown() {
+						TrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Namespace.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Tenant.IsUnknown() {
+						TrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Tenant.ValueString()
+					}
+					UseMtlsMap["trusted_ca"] = TrustedCAMap
+				}
+				if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCAURL.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCAURL.IsUnknown() {
+					UseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCAURL.ValueString()
+				}
+				if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccDisabled != nil {
+					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions != nil {
+					XfccOptionsMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
+						var XfccHeaderElementsItems []string
+						diags := data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						if !diags.HasError() {
+							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+						}
+					}
+					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+				}
+				AdvertiseOnSloVIPMap["use_mtls"] = UseMtlsMap
+			}
+			HTTPSManagementMap["advertise_on_slo_vip"] = AdvertiseOnSloVIPMap
 		}
 		if data.HTTPSManagement.DefaultHTTPSPort != nil {
-			https_managementMap["default_https_port"] = map[string]interface{}{}
+			HTTPSManagementMap["default_https_port"] = map[string]interface{}{}
 		}
 		if !data.HTTPSManagement.DomainSuffix.IsNull() && !data.HTTPSManagement.DomainSuffix.IsUnknown() {
-			https_managementMap["domain_suffix"] = data.HTTPSManagement.DomainSuffix.ValueString()
+			HTTPSManagementMap["domain_suffix"] = data.HTTPSManagement.DomainSuffix.ValueString()
 		}
 		if !data.HTTPSManagement.HTTPSPort.IsNull() && !data.HTTPSManagement.HTTPSPort.IsUnknown() {
-			https_managementMap["https_port"] = data.HTTPSManagement.HTTPSPort.ValueInt64()
+			HTTPSManagementMap["https_port"] = data.HTTPSManagement.HTTPSPort.ValueInt64()
 		}
-		createReq.Spec["https_management"] = https_managementMap
+		createReq.Spec["https_management"] = HTTPSManagementMap
 	}
 
 	apiResource, err := r.client.CreateAPM(ctx, createReq)
@@ -3030,36 +3916,670 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["aws_site_type_choice"].(map[string]interface{}); ok && isImport && data.AWSSiteTypeChoice == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AWSSiteTypeChoice = &APMAWSSiteTypeChoiceModel{}
+	if blockData, ok := apiResource.Spec["aws_site_type_choice"].(map[string]interface{}); ok && (isImport || data.AWSSiteTypeChoice != nil) {
+		data.AWSSiteTypeChoice = &APMAWSSiteTypeChoiceModel{
+			APMAWSSite: func() *APMAWSSiteTypeChoiceAPMAWSSiteModel {
+				if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil {
+					return data.AWSSiteTypeChoice.APMAWSSite
+				}
+				if APMAWSSiteData, ok := blockData["apm_aws_site"].(map[string]interface{}); ok {
+					return &APMAWSSiteTypeChoiceAPMAWSSiteModel{
+						AdminPassword: func() *APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordModel {
+							if AdminPasswordData, ok := APMAWSSiteData["admin_password"].(map[string]interface{}); ok {
+								return &APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordModel{
+									BlindfoldSecretInfo: func() *APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := AdminPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordClearSecretInfoModel {
+										if ClearSecretInfoData, ok := AdminPasswordData["clear_secret_info"].(map[string]interface{}); ok {
+											return &APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						AdminUsername: func() types.String {
+							if v, ok := APMAWSSiteData["admin_username"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						AWSTGWSite: func() *APMAWSSiteTypeChoiceAPMAWSSiteAWSTGWSiteModel {
+							if AWSTGWSiteData, ok := APMAWSSiteData["aws_tgw_site"].(map[string]interface{}); ok {
+								return &APMAWSSiteTypeChoiceAPMAWSSiteAWSTGWSiteModel{
+									AWSTGWSite: func() *APMAWSSiteTypeChoiceAPMAWSSiteAWSTGWSiteAWSTGWSiteModel {
+										if AWSTGWSiteData, ok := AWSTGWSiteData["aws_tgw_site"].(map[string]interface{}); ok {
+											return &APMAWSSiteTypeChoiceAPMAWSSiteAWSTGWSiteAWSTGWSiteModel{
+												Name: func() types.String {
+													if v, ok := AWSTGWSiteData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := AWSTGWSiteData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := AWSTGWSiteData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						EndpointService: func() *APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceModel {
+							if EndpointServiceData, ok := APMAWSSiteData["endpoint_service"].(map[string]interface{}); ok {
+								return &APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceModel{
+									AdvertiseOnSloIP: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["advertise_on_slo_ip"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									AdvertiseOnSloIPExternal: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["advertise_on_slo_ip_external"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									AutomaticVIP: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["automatic_vip"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									ConfiguredVIP: func() types.String {
+										if v, ok := EndpointServiceData["configured_vip"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									CustomTCPPorts: func() *APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomTCPPortsModel {
+										if CustomTCPPortsData, ok := EndpointServiceData["custom_tcp_ports"].(map[string]interface{}); ok {
+											return &APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomTCPPortsModel{
+												Ports: func() types.List {
+													if v, ok := CustomTCPPortsData["ports"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+									CustomUDPPorts: func() *APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomUDPPortsModel {
+										if CustomUDPPortsData, ok := EndpointServiceData["custom_udp_ports"].(map[string]interface{}); ok {
+											return &APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomUDPPortsModel{
+												Ports: func() types.List {
+													if v, ok := CustomUDPPortsData["ports"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultTCPPorts: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["default_tcp_ports"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									DisableAdvertiseOnSloIP: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["disable_advertise_on_slo_ip"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									HTTPPort: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["http_port"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									HTTPSPort: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["https_port"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									NoTCPPorts: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["no_tcp_ports"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									NoUDPPorts: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["no_udp_ports"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Nodes: func() []APMAWSSiteTypeChoiceAPMAWSSiteNodesModel {
+							if rawList, ok := APMAWSSiteData["nodes"].([]interface{}); ok && len(rawList) > 0 {
+								var NodesResult []APMAWSSiteTypeChoiceAPMAWSSiteNodesModel
+								for _, NodesItem := range rawList {
+									if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
+										NodesResult = append(NodesResult, APMAWSSiteTypeChoiceAPMAWSSiteNodesModel{
+											AutomaticPrefix: func() *APMEmptyModel {
+												if _, ok := NodesItemMap["automatic_prefix"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+											AWSAzName: func() types.String {
+												if v, ok := NodesItemMap["aws_az_name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											MgmtSubnet: func() *APMAWSSiteTypeChoiceAPMAWSSiteNodesMgmtSubnetModel {
+												if MgmtSubnetData, ok := NodesItemMap["mgmt_subnet"].(map[string]interface{}); ok {
+													return &APMAWSSiteTypeChoiceAPMAWSSiteNodesMgmtSubnetModel{
+														ExistingSubnetID: func() types.String {
+															if v, ok := MgmtSubnetData["existing_subnet_id"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SubnetParam: func() *APMAWSSiteTypeChoiceAPMAWSSiteNodesMgmtSubnetSubnetParamModel {
+															if SubnetParamData, ok := MgmtSubnetData["subnet_param"].(map[string]interface{}); ok {
+																return &APMAWSSiteTypeChoiceAPMAWSSiteNodesMgmtSubnetSubnetParamModel{
+																	Ipv4: func() types.String {
+																		if v, ok := SubnetParamData["ipv4"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											NodeName: func() types.String {
+												if v, ok := NodesItemMap["node_name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											ReservedMgmtSubnet: func() *APMEmptyModel {
+												if _, ok := NodesItemMap["reserved_mgmt_subnet"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+											TunnelPrefix: func() types.String {
+												if v, ok := NodesItemMap["tunnel_prefix"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return NodesResult
+							}
+							return nil
+						}(),
+						SSHKey: func() types.String {
+							if v, ok := APMAWSSiteData["ssh_key"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tags: func() *APMEmptyModel {
+							if _, ok := APMAWSSiteData["tags"].(map[string]interface{}); ok {
+								return &APMEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			MarketPlaceImage: func() *APMAWSSiteTypeChoiceMarketPlaceImageModel {
+				if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.MarketPlaceImage != nil {
+					return data.AWSSiteTypeChoice.MarketPlaceImage
+				}
+				if MarketPlaceImageData, ok := blockData["market_place_image"].(map[string]interface{}); ok {
+					return &APMAWSSiteTypeChoiceMarketPlaceImageModel{
+						Bestpluspayg200mbps: func() *APMEmptyModel {
+							if _, ok := MarketPlaceImageData["BestPlusPayG200Mbps"].(map[string]interface{}); ok {
+								return &APMEmptyModel{}
+							}
+							return nil
+						}(),
+						BestPlusPayg1gbps: func() *APMEmptyModel {
+							if _, ok := MarketPlaceImageData["best_plus_payg_1gbps"].(map[string]interface{}); ok {
+								return &APMEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["baremetal_site_type_choice"].(map[string]interface{}); ok && isImport && data.BaremetalSiteTypeChoice == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.BaremetalSiteTypeChoice = &APMBaremetalSiteTypeChoiceModel{}
+	if blockData, ok := apiResource.Spec["baremetal_site_type_choice"].(map[string]interface{}); ok && (isImport || data.BaremetalSiteTypeChoice != nil) {
+		data.BaremetalSiteTypeChoice = &APMBaremetalSiteTypeChoiceModel{
+			F5BareMetalSite: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteModel {
+				if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil {
+					return data.BaremetalSiteTypeChoice.F5BareMetalSite
+				}
+				if F5BareMetalSiteData, ok := blockData["f5_bare_metal_site"].(map[string]interface{}); ok {
+					return &APMBaremetalSiteTypeChoiceF5BareMetalSiteModel{
+						AdminPassword: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordModel {
+							if AdminPasswordData, ok := F5BareMetalSiteData["admin_password"].(map[string]interface{}); ok {
+								return &APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordModel{
+									BlindfoldSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := AdminPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordClearSecretInfoModel {
+										if ClearSecretInfoData, ok := AdminPasswordData["clear_secret_info"].(map[string]interface{}); ok {
+											return &APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						AdminUsername: func() types.String {
+							if v, ok := F5BareMetalSiteData["admin_username"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						BareMetalSite: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBareMetalSiteModel {
+							if BareMetalSiteData, ok := F5BareMetalSiteData["bare_metal_site"].(map[string]interface{}); ok {
+								return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBareMetalSiteModel{
+									Name: func() types.String {
+										if v, ok := BareMetalSiteData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := BareMetalSiteData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := BareMetalSiteData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						BigiqInstance: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstanceModel {
+							if BigiqInstanceData, ok := F5BareMetalSiteData["bigiq_instance"].(map[string]interface{}); ok {
+								return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstanceModel{
+									LicensePoolName: func() types.String {
+										if v, ok := BigiqInstanceData["license_pool_name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									LicenseServerIP: func() types.String {
+										if v, ok := BigiqInstanceData["license_server_ip"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Password: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordModel {
+										if PasswordData, ok := BigiqInstanceData["password"].(map[string]interface{}); ok {
+											return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordModel{
+												BlindfoldSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordClearSecretInfoModel {
+													if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+														return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									SkuName: func() types.String {
+										if v, ok := BigiqInstanceData["sku_name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Username: func() types.String {
+										if v, ok := BigiqInstanceData["username"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Nodes: func() types.List {
+							if rawList, ok := F5BareMetalSiteData["nodes"].([]interface{}); ok && len(rawList) > 0 {
+								var NodesResult []APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModel
+								for _, NodesItem := range rawList {
+									if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
+										NodesResult = append(NodesResult, APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModel{
+											BmNodeMemorySize: func() types.String {
+												if v, ok := NodesItemMap["bm_node_memory_size"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											BmVirtualCPUCount: func() types.String {
+												if v, ok := NodesItemMap["bm_virtual_cpu_count"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											ExternalInterface: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesExternalInterfaceModel {
+												if ExternalInterfaceData, ok := NodesItemMap["external_interface"].(map[string]interface{}); ok {
+													return &APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesExternalInterfaceModel{
+														Interface: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesExternalInterfaceInterfaceModel {
+															if InterfaceData, ok := ExternalInterfaceData["interface"].(map[string]interface{}); ok {
+																return &APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesExternalInterfaceInterfaceModel{
+																	Name: func() types.String {
+																		if v, ok := InterfaceData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := InterfaceData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := InterfaceData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														NetworkGateway: func() types.String {
+															if v, ok := ExternalInterfaceData["network_gateway"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														NetworkSelfIP: func() types.String {
+															if v, ok := ExternalInterfaceData["network_self_ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											InternalInterface: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesInternalInterfaceModel {
+												if InternalInterfaceData, ok := NodesItemMap["internal_interface"].(map[string]interface{}); ok {
+													return &APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesInternalInterfaceModel{
+														Interface: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesInternalInterfaceInterfaceModel {
+															if InterfaceData, ok := InternalInterfaceData["interface"].(map[string]interface{}); ok {
+																return &APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesInternalInterfaceInterfaceModel{
+																	Name: func() types.String {
+																		if v, ok := InterfaceData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := InterfaceData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := InterfaceData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														NetworkGateway: func() types.String {
+															if v, ok := InternalInterfaceData["network_gateway"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														NetworkSelfIP: func() types.String {
+															if v, ok := InternalInterfaceData["network_self_ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											NodeName: func() types.String {
+												if v, ok := NodesItemMap["node_name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModelAttrTypes}, NodesResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModelAttrTypes})
+						}(),
+						PublicDownloadURL: func() types.String {
+							if v, ok := F5BareMetalSiteData["public_download_url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						SSHKey: func() types.String {
+							if v, ok := F5BareMetalSiteData["ssh_key"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["https_management"].(map[string]interface{}); ok && (isImport || data.HTTPSManagement != nil) {
 		data.HTTPSManagement = &APMHTTPSManagementModel{
 			AdvertiseOnInternet: func() *APMHTTPSManagementAdvertiseOnInternetModel {
 				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnInternet != nil {
-					// Normal Read: preserve existing state value
 					return data.HTTPSManagement.AdvertiseOnInternet
 				}
-				// Import case: read from API
-				if _, ok := blockData["advertise_on_internet"].(map[string]interface{}); ok {
-					return &APMHTTPSManagementAdvertiseOnInternetModel{}
+				if AdvertiseOnInternetData, ok := blockData["advertise_on_internet"].(map[string]interface{}); ok {
+					return &APMHTTPSManagementAdvertiseOnInternetModel{
+						PublicIP: func() *APMHTTPSManagementAdvertiseOnInternetPublicIPModel {
+							if PublicIPData, ok := AdvertiseOnInternetData["public_ip"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnInternetPublicIPModel{
+									Name: func() types.String {
+										if v, ok := PublicIPData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			AdvertiseOnInternetDefaultVIP: func() *APMEmptyModel {
 				if !isImport && data.HTTPSManagement != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.HTTPSManagement.AdvertiseOnInternetDefaultVIP
 				}
-				// Import case: read from API
 				if _, ok := blockData["advertise_on_internet_default_vip"].(map[string]interface{}); ok {
 					return &APMEmptyModel{}
 				}
@@ -3067,55 +4587,1136 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 			}(),
 			AdvertiseOnSLIVIP: func() *APMHTTPSManagementAdvertiseOnSLIVIPModel {
 				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil {
-					// Normal Read: preserve existing state value
 					return data.HTTPSManagement.AdvertiseOnSLIVIP
 				}
-				// Import case: read from API
-				if _, ok := blockData["advertise_on_sli_vip"].(map[string]interface{}); ok {
-					return &APMHTTPSManagementAdvertiseOnSLIVIPModel{}
+				if AdvertiseOnSLIVIPData, ok := blockData["advertise_on_sli_vip"].(map[string]interface{}); ok {
+					return &APMHTTPSManagementAdvertiseOnSLIVIPModel{
+						NoMtls: func() *APMEmptyModel {
+							if _, ok := AdvertiseOnSLIVIPData["no_mtls"].(map[string]interface{}); ok {
+								return &APMEmptyModel{}
+							}
+							return nil
+						}(),
+						TLSCertificates: func() []APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel {
+							if rawList, ok := AdvertiseOnSLIVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel
+								for _, TLSCertificatesItem := range rawList {
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+											PrivateKey: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return TLSCertificatesResult
+							}
+							return nil
+						}(),
+						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigModel {
+							if TLSConfigData, ok := AdvertiseOnSLIVIPData["tls_config"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigModel{
+									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityModel {
+										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityModel{
+												CipherSuites: func() types.List {
+													if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												MaxVersion: func() types.String {
+													if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												MinVersion: func() types.String {
+													if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									LowSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									MediumSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseMtls: func() *APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsModel {
+							if UseMtlsData, ok := AdvertiseOnSLIVIPData["use_mtls"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsModel{
+									ClientCertificateOptional: func() types.Bool {
+										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									CRL: func() *APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsCRLModel {
+										if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsCRLModel{
+												Name: func() types.String {
+													if v, ok := CRLData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := CRLData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := CRLData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NoCRL: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									TrustedCA: func() *APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsTrustedCAModel {
+										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsTrustedCAModel{
+												Name: func() types.String {
+													if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									XfccDisabled: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsModel {
+										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsModel{
+												XfccHeaderElements: func() types.List {
+													if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			AdvertiseOnSloInternetVIP: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPModel {
 				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil {
-					// Normal Read: preserve existing state value
 					return data.HTTPSManagement.AdvertiseOnSloInternetVIP
 				}
-				// Import case: read from API
-				if _, ok := blockData["advertise_on_slo_internet_vip"].(map[string]interface{}); ok {
-					return &APMHTTPSManagementAdvertiseOnSloInternetVIPModel{}
+				if AdvertiseOnSloInternetVIPData, ok := blockData["advertise_on_slo_internet_vip"].(map[string]interface{}); ok {
+					return &APMHTTPSManagementAdvertiseOnSloInternetVIPModel{
+						NoMtls: func() *APMEmptyModel {
+							if _, ok := AdvertiseOnSloInternetVIPData["no_mtls"].(map[string]interface{}); ok {
+								return &APMEmptyModel{}
+							}
+							return nil
+						}(),
+						TLSCertificates: func() []APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel {
+							if rawList, ok := AdvertiseOnSloInternetVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel
+								for _, TLSCertificatesItem := range rawList {
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+											PrivateKey: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return TLSCertificatesResult
+							}
+							return nil
+						}(),
+						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigModel {
+							if TLSConfigData, ok := AdvertiseOnSloInternetVIPData["tls_config"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigModel{
+									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityModel {
+										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityModel{
+												CipherSuites: func() types.List {
+													if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												MaxVersion: func() types.String {
+													if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												MinVersion: func() types.String {
+													if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									LowSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									MediumSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseMtls: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsModel {
+							if UseMtlsData, ok := AdvertiseOnSloInternetVIPData["use_mtls"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsModel{
+									ClientCertificateOptional: func() types.Bool {
+										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									CRL: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsCRLModel {
+										if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsCRLModel{
+												Name: func() types.String {
+													if v, ok := CRLData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := CRLData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := CRLData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NoCRL: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									TrustedCA: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsTrustedCAModel {
+										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsTrustedCAModel{
+												Name: func() types.String {
+													if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									XfccDisabled: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsModel {
+										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsModel{
+												XfccHeaderElements: func() types.List {
+													if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			AdvertiseOnSloSLI: func() *APMHTTPSManagementAdvertiseOnSloSLIModel {
 				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil {
-					// Normal Read: preserve existing state value
 					return data.HTTPSManagement.AdvertiseOnSloSLI
 				}
-				// Import case: read from API
-				if _, ok := blockData["advertise_on_slo_sli"].(map[string]interface{}); ok {
-					return &APMHTTPSManagementAdvertiseOnSloSLIModel{}
+				if AdvertiseOnSloSLIData, ok := blockData["advertise_on_slo_sli"].(map[string]interface{}); ok {
+					return &APMHTTPSManagementAdvertiseOnSloSLIModel{
+						NoMtls: func() *APMEmptyModel {
+							if _, ok := AdvertiseOnSloSLIData["no_mtls"].(map[string]interface{}); ok {
+								return &APMEmptyModel{}
+							}
+							return nil
+						}(),
+						TLSCertificates: func() []APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel {
+							if rawList, ok := AdvertiseOnSloSLIData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel
+								for _, TLSCertificatesItem := range rawList {
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+											PrivateKey: func() *APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return TLSCertificatesResult
+							}
+							return nil
+						}(),
+						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSloSLITLSConfigModel {
+							if TLSConfigData, ok := AdvertiseOnSloSLIData["tls_config"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSloSLITLSConfigModel{
+									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityModel {
+										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityModel{
+												CipherSuites: func() types.List {
+													if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												MaxVersion: func() types.String {
+													if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												MinVersion: func() types.String {
+													if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									LowSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									MediumSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseMtls: func() *APMHTTPSManagementAdvertiseOnSloSLIUseMtlsModel {
+							if UseMtlsData, ok := AdvertiseOnSloSLIData["use_mtls"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSloSLIUseMtlsModel{
+									ClientCertificateOptional: func() types.Bool {
+										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									CRL: func() *APMHTTPSManagementAdvertiseOnSloSLIUseMtlsCRLModel {
+										if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloSLIUseMtlsCRLModel{
+												Name: func() types.String {
+													if v, ok := CRLData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := CRLData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := CRLData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NoCRL: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									TrustedCA: func() *APMHTTPSManagementAdvertiseOnSloSLIUseMtlsTrustedCAModel {
+										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloSLIUseMtlsTrustedCAModel{
+												Name: func() types.String {
+													if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									XfccDisabled: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsModel {
+										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsModel{
+												XfccHeaderElements: func() types.List {
+													if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			AdvertiseOnSloVIP: func() *APMHTTPSManagementAdvertiseOnSloVIPModel {
 				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil {
-					// Normal Read: preserve existing state value
 					return data.HTTPSManagement.AdvertiseOnSloVIP
 				}
-				// Import case: read from API
-				if _, ok := blockData["advertise_on_slo_vip"].(map[string]interface{}); ok {
-					return &APMHTTPSManagementAdvertiseOnSloVIPModel{}
+				if AdvertiseOnSloVIPData, ok := blockData["advertise_on_slo_vip"].(map[string]interface{}); ok {
+					return &APMHTTPSManagementAdvertiseOnSloVIPModel{
+						NoMtls: func() *APMEmptyModel {
+							if _, ok := AdvertiseOnSloVIPData["no_mtls"].(map[string]interface{}); ok {
+								return &APMEmptyModel{}
+							}
+							return nil
+						}(),
+						TLSCertificates: func() []APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel {
+							if rawList, ok := AdvertiseOnSloVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel
+								for _, TLSCertificatesItem := range rawList {
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+											PrivateKey: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return TLSCertificatesResult
+							}
+							return nil
+						}(),
+						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSConfigModel {
+							if TLSConfigData, ok := AdvertiseOnSloVIPData["tls_config"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSloVIPTLSConfigModel{
+									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityModel {
+										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityModel{
+												CipherSuites: func() types.List {
+													if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												MaxVersion: func() types.String {
+													if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												MinVersion: func() types.String {
+													if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									LowSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									MediumSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseMtls: func() *APMHTTPSManagementAdvertiseOnSloVIPUseMtlsModel {
+							if UseMtlsData, ok := AdvertiseOnSloVIPData["use_mtls"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSloVIPUseMtlsModel{
+									ClientCertificateOptional: func() types.Bool {
+										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									CRL: func() *APMHTTPSManagementAdvertiseOnSloVIPUseMtlsCRLModel {
+										if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloVIPUseMtlsCRLModel{
+												Name: func() types.String {
+													if v, ok := CRLData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := CRLData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := CRLData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NoCRL: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									TrustedCA: func() *APMHTTPSManagementAdvertiseOnSloVIPUseMtlsTrustedCAModel {
+										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloVIPUseMtlsTrustedCAModel{
+												Name: func() types.String {
+													if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									XfccDisabled: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsModel {
+										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsModel{
+												XfccHeaderElements: func() types.List {
+													if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			DefaultHTTPSPort: func() *APMEmptyModel {
 				if !isImport && data.HTTPSManagement != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.HTTPSManagement.DefaultHTTPSPort
 				}
-				// Import case: read from API
 				if _, ok := blockData["default_https_port"].(map[string]interface{}); ok {
 					return &APMEmptyModel{}
 				}
@@ -3129,16 +5730,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 			}(),
 			HTTPSPort: func() types.Int64 {
 				if !isImport && data.HTTPSManagement != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.HTTPSManagement.HTTPSPort
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["https_port"].(float64); ok {
+				if v, ok := blockData["https_port"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -3225,36 +5819,670 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["aws_site_type_choice"].(map[string]interface{}); ok && isImport && data.AWSSiteTypeChoice == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AWSSiteTypeChoice = &APMAWSSiteTypeChoiceModel{}
+	if blockData, ok := apiResource.Spec["aws_site_type_choice"].(map[string]interface{}); ok && (isImport || data.AWSSiteTypeChoice != nil) {
+		data.AWSSiteTypeChoice = &APMAWSSiteTypeChoiceModel{
+			APMAWSSite: func() *APMAWSSiteTypeChoiceAPMAWSSiteModel {
+				if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil {
+					return data.AWSSiteTypeChoice.APMAWSSite
+				}
+				if APMAWSSiteData, ok := blockData["apm_aws_site"].(map[string]interface{}); ok {
+					return &APMAWSSiteTypeChoiceAPMAWSSiteModel{
+						AdminPassword: func() *APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordModel {
+							if AdminPasswordData, ok := APMAWSSiteData["admin_password"].(map[string]interface{}); ok {
+								return &APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordModel{
+									BlindfoldSecretInfo: func() *APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := AdminPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordClearSecretInfoModel {
+										if ClearSecretInfoData, ok := AdminPasswordData["clear_secret_info"].(map[string]interface{}); ok {
+											return &APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						AdminUsername: func() types.String {
+							if v, ok := APMAWSSiteData["admin_username"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						AWSTGWSite: func() *APMAWSSiteTypeChoiceAPMAWSSiteAWSTGWSiteModel {
+							if AWSTGWSiteData, ok := APMAWSSiteData["aws_tgw_site"].(map[string]interface{}); ok {
+								return &APMAWSSiteTypeChoiceAPMAWSSiteAWSTGWSiteModel{
+									AWSTGWSite: func() *APMAWSSiteTypeChoiceAPMAWSSiteAWSTGWSiteAWSTGWSiteModel {
+										if AWSTGWSiteData, ok := AWSTGWSiteData["aws_tgw_site"].(map[string]interface{}); ok {
+											return &APMAWSSiteTypeChoiceAPMAWSSiteAWSTGWSiteAWSTGWSiteModel{
+												Name: func() types.String {
+													if v, ok := AWSTGWSiteData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := AWSTGWSiteData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := AWSTGWSiteData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						EndpointService: func() *APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceModel {
+							if EndpointServiceData, ok := APMAWSSiteData["endpoint_service"].(map[string]interface{}); ok {
+								return &APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceModel{
+									AdvertiseOnSloIP: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["advertise_on_slo_ip"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									AdvertiseOnSloIPExternal: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["advertise_on_slo_ip_external"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									AutomaticVIP: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["automatic_vip"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									ConfiguredVIP: func() types.String {
+										if v, ok := EndpointServiceData["configured_vip"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									CustomTCPPorts: func() *APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomTCPPortsModel {
+										if CustomTCPPortsData, ok := EndpointServiceData["custom_tcp_ports"].(map[string]interface{}); ok {
+											return &APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomTCPPortsModel{
+												Ports: func() types.List {
+													if v, ok := CustomTCPPortsData["ports"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+									CustomUDPPorts: func() *APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomUDPPortsModel {
+										if CustomUDPPortsData, ok := EndpointServiceData["custom_udp_ports"].(map[string]interface{}); ok {
+											return &APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomUDPPortsModel{
+												Ports: func() types.List {
+													if v, ok := CustomUDPPortsData["ports"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultTCPPorts: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["default_tcp_ports"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									DisableAdvertiseOnSloIP: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["disable_advertise_on_slo_ip"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									HTTPPort: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["http_port"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									HTTPSPort: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["https_port"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									NoTCPPorts: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["no_tcp_ports"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									NoUDPPorts: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["no_udp_ports"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Nodes: func() []APMAWSSiteTypeChoiceAPMAWSSiteNodesModel {
+							if rawList, ok := APMAWSSiteData["nodes"].([]interface{}); ok && len(rawList) > 0 {
+								var NodesResult []APMAWSSiteTypeChoiceAPMAWSSiteNodesModel
+								for _, NodesItem := range rawList {
+									if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
+										NodesResult = append(NodesResult, APMAWSSiteTypeChoiceAPMAWSSiteNodesModel{
+											AutomaticPrefix: func() *APMEmptyModel {
+												if _, ok := NodesItemMap["automatic_prefix"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+											AWSAzName: func() types.String {
+												if v, ok := NodesItemMap["aws_az_name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											MgmtSubnet: func() *APMAWSSiteTypeChoiceAPMAWSSiteNodesMgmtSubnetModel {
+												if MgmtSubnetData, ok := NodesItemMap["mgmt_subnet"].(map[string]interface{}); ok {
+													return &APMAWSSiteTypeChoiceAPMAWSSiteNodesMgmtSubnetModel{
+														ExistingSubnetID: func() types.String {
+															if v, ok := MgmtSubnetData["existing_subnet_id"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SubnetParam: func() *APMAWSSiteTypeChoiceAPMAWSSiteNodesMgmtSubnetSubnetParamModel {
+															if SubnetParamData, ok := MgmtSubnetData["subnet_param"].(map[string]interface{}); ok {
+																return &APMAWSSiteTypeChoiceAPMAWSSiteNodesMgmtSubnetSubnetParamModel{
+																	Ipv4: func() types.String {
+																		if v, ok := SubnetParamData["ipv4"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											NodeName: func() types.String {
+												if v, ok := NodesItemMap["node_name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											ReservedMgmtSubnet: func() *APMEmptyModel {
+												if _, ok := NodesItemMap["reserved_mgmt_subnet"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+											TunnelPrefix: func() types.String {
+												if v, ok := NodesItemMap["tunnel_prefix"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return NodesResult
+							}
+							return nil
+						}(),
+						SSHKey: func() types.String {
+							if v, ok := APMAWSSiteData["ssh_key"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tags: func() *APMEmptyModel {
+							if _, ok := APMAWSSiteData["tags"].(map[string]interface{}); ok {
+								return &APMEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			MarketPlaceImage: func() *APMAWSSiteTypeChoiceMarketPlaceImageModel {
+				if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.MarketPlaceImage != nil {
+					return data.AWSSiteTypeChoice.MarketPlaceImage
+				}
+				if MarketPlaceImageData, ok := blockData["market_place_image"].(map[string]interface{}); ok {
+					return &APMAWSSiteTypeChoiceMarketPlaceImageModel{
+						Bestpluspayg200mbps: func() *APMEmptyModel {
+							if _, ok := MarketPlaceImageData["BestPlusPayG200Mbps"].(map[string]interface{}); ok {
+								return &APMEmptyModel{}
+							}
+							return nil
+						}(),
+						BestPlusPayg1gbps: func() *APMEmptyModel {
+							if _, ok := MarketPlaceImageData["best_plus_payg_1gbps"].(map[string]interface{}); ok {
+								return &APMEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["baremetal_site_type_choice"].(map[string]interface{}); ok && isImport && data.BaremetalSiteTypeChoice == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.BaremetalSiteTypeChoice = &APMBaremetalSiteTypeChoiceModel{}
+	if blockData, ok := apiResource.Spec["baremetal_site_type_choice"].(map[string]interface{}); ok && (isImport || data.BaremetalSiteTypeChoice != nil) {
+		data.BaremetalSiteTypeChoice = &APMBaremetalSiteTypeChoiceModel{
+			F5BareMetalSite: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteModel {
+				if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil {
+					return data.BaremetalSiteTypeChoice.F5BareMetalSite
+				}
+				if F5BareMetalSiteData, ok := blockData["f5_bare_metal_site"].(map[string]interface{}); ok {
+					return &APMBaremetalSiteTypeChoiceF5BareMetalSiteModel{
+						AdminPassword: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordModel {
+							if AdminPasswordData, ok := F5BareMetalSiteData["admin_password"].(map[string]interface{}); ok {
+								return &APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordModel{
+									BlindfoldSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := AdminPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordClearSecretInfoModel {
+										if ClearSecretInfoData, ok := AdminPasswordData["clear_secret_info"].(map[string]interface{}); ok {
+											return &APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						AdminUsername: func() types.String {
+							if v, ok := F5BareMetalSiteData["admin_username"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						BareMetalSite: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBareMetalSiteModel {
+							if BareMetalSiteData, ok := F5BareMetalSiteData["bare_metal_site"].(map[string]interface{}); ok {
+								return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBareMetalSiteModel{
+									Name: func() types.String {
+										if v, ok := BareMetalSiteData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := BareMetalSiteData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := BareMetalSiteData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						BigiqInstance: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstanceModel {
+							if BigiqInstanceData, ok := F5BareMetalSiteData["bigiq_instance"].(map[string]interface{}); ok {
+								return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstanceModel{
+									LicensePoolName: func() types.String {
+										if v, ok := BigiqInstanceData["license_pool_name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									LicenseServerIP: func() types.String {
+										if v, ok := BigiqInstanceData["license_server_ip"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Password: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordModel {
+										if PasswordData, ok := BigiqInstanceData["password"].(map[string]interface{}); ok {
+											return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordModel{
+												BlindfoldSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordClearSecretInfoModel {
+													if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+														return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									SkuName: func() types.String {
+										if v, ok := BigiqInstanceData["sku_name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Username: func() types.String {
+										if v, ok := BigiqInstanceData["username"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Nodes: func() types.List {
+							if rawList, ok := F5BareMetalSiteData["nodes"].([]interface{}); ok && len(rawList) > 0 {
+								var NodesResult []APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModel
+								for _, NodesItem := range rawList {
+									if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
+										NodesResult = append(NodesResult, APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModel{
+											BmNodeMemorySize: func() types.String {
+												if v, ok := NodesItemMap["bm_node_memory_size"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											BmVirtualCPUCount: func() types.String {
+												if v, ok := NodesItemMap["bm_virtual_cpu_count"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											ExternalInterface: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesExternalInterfaceModel {
+												if ExternalInterfaceData, ok := NodesItemMap["external_interface"].(map[string]interface{}); ok {
+													return &APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesExternalInterfaceModel{
+														Interface: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesExternalInterfaceInterfaceModel {
+															if InterfaceData, ok := ExternalInterfaceData["interface"].(map[string]interface{}); ok {
+																return &APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesExternalInterfaceInterfaceModel{
+																	Name: func() types.String {
+																		if v, ok := InterfaceData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := InterfaceData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := InterfaceData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														NetworkGateway: func() types.String {
+															if v, ok := ExternalInterfaceData["network_gateway"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														NetworkSelfIP: func() types.String {
+															if v, ok := ExternalInterfaceData["network_self_ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											InternalInterface: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesInternalInterfaceModel {
+												if InternalInterfaceData, ok := NodesItemMap["internal_interface"].(map[string]interface{}); ok {
+													return &APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesInternalInterfaceModel{
+														Interface: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesInternalInterfaceInterfaceModel {
+															if InterfaceData, ok := InternalInterfaceData["interface"].(map[string]interface{}); ok {
+																return &APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesInternalInterfaceInterfaceModel{
+																	Name: func() types.String {
+																		if v, ok := InterfaceData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := InterfaceData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := InterfaceData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														NetworkGateway: func() types.String {
+															if v, ok := InternalInterfaceData["network_gateway"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														NetworkSelfIP: func() types.String {
+															if v, ok := InternalInterfaceData["network_self_ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											NodeName: func() types.String {
+												if v, ok := NodesItemMap["node_name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModelAttrTypes}, NodesResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModelAttrTypes})
+						}(),
+						PublicDownloadURL: func() types.String {
+							if v, ok := F5BareMetalSiteData["public_download_url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						SSHKey: func() types.String {
+							if v, ok := F5BareMetalSiteData["ssh_key"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["https_management"].(map[string]interface{}); ok && (isImport || data.HTTPSManagement != nil) {
 		data.HTTPSManagement = &APMHTTPSManagementModel{
 			AdvertiseOnInternet: func() *APMHTTPSManagementAdvertiseOnInternetModel {
 				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnInternet != nil {
-					// Normal Read: preserve existing state value
 					return data.HTTPSManagement.AdvertiseOnInternet
 				}
-				// Import case: read from API
-				if _, ok := blockData["advertise_on_internet"].(map[string]interface{}); ok {
-					return &APMHTTPSManagementAdvertiseOnInternetModel{}
+				if AdvertiseOnInternetData, ok := blockData["advertise_on_internet"].(map[string]interface{}); ok {
+					return &APMHTTPSManagementAdvertiseOnInternetModel{
+						PublicIP: func() *APMHTTPSManagementAdvertiseOnInternetPublicIPModel {
+							if PublicIPData, ok := AdvertiseOnInternetData["public_ip"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnInternetPublicIPModel{
+									Name: func() types.String {
+										if v, ok := PublicIPData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			AdvertiseOnInternetDefaultVIP: func() *APMEmptyModel {
 				if !isImport && data.HTTPSManagement != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.HTTPSManagement.AdvertiseOnInternetDefaultVIP
 				}
-				// Import case: read from API
 				if _, ok := blockData["advertise_on_internet_default_vip"].(map[string]interface{}); ok {
 					return &APMEmptyModel{}
 				}
@@ -3262,55 +6490,1136 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 			}(),
 			AdvertiseOnSLIVIP: func() *APMHTTPSManagementAdvertiseOnSLIVIPModel {
 				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil {
-					// Normal Read: preserve existing state value
 					return data.HTTPSManagement.AdvertiseOnSLIVIP
 				}
-				// Import case: read from API
-				if _, ok := blockData["advertise_on_sli_vip"].(map[string]interface{}); ok {
-					return &APMHTTPSManagementAdvertiseOnSLIVIPModel{}
+				if AdvertiseOnSLIVIPData, ok := blockData["advertise_on_sli_vip"].(map[string]interface{}); ok {
+					return &APMHTTPSManagementAdvertiseOnSLIVIPModel{
+						NoMtls: func() *APMEmptyModel {
+							if _, ok := AdvertiseOnSLIVIPData["no_mtls"].(map[string]interface{}); ok {
+								return &APMEmptyModel{}
+							}
+							return nil
+						}(),
+						TLSCertificates: func() []APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel {
+							if rawList, ok := AdvertiseOnSLIVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel
+								for _, TLSCertificatesItem := range rawList {
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+											PrivateKey: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return TLSCertificatesResult
+							}
+							return nil
+						}(),
+						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigModel {
+							if TLSConfigData, ok := AdvertiseOnSLIVIPData["tls_config"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigModel{
+									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityModel {
+										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityModel{
+												CipherSuites: func() types.List {
+													if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												MaxVersion: func() types.String {
+													if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												MinVersion: func() types.String {
+													if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									LowSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									MediumSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseMtls: func() *APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsModel {
+							if UseMtlsData, ok := AdvertiseOnSLIVIPData["use_mtls"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsModel{
+									ClientCertificateOptional: func() types.Bool {
+										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									CRL: func() *APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsCRLModel {
+										if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsCRLModel{
+												Name: func() types.String {
+													if v, ok := CRLData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := CRLData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := CRLData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NoCRL: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									TrustedCA: func() *APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsTrustedCAModel {
+										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsTrustedCAModel{
+												Name: func() types.String {
+													if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									XfccDisabled: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsModel {
+										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsModel{
+												XfccHeaderElements: func() types.List {
+													if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			AdvertiseOnSloInternetVIP: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPModel {
 				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil {
-					// Normal Read: preserve existing state value
 					return data.HTTPSManagement.AdvertiseOnSloInternetVIP
 				}
-				// Import case: read from API
-				if _, ok := blockData["advertise_on_slo_internet_vip"].(map[string]interface{}); ok {
-					return &APMHTTPSManagementAdvertiseOnSloInternetVIPModel{}
+				if AdvertiseOnSloInternetVIPData, ok := blockData["advertise_on_slo_internet_vip"].(map[string]interface{}); ok {
+					return &APMHTTPSManagementAdvertiseOnSloInternetVIPModel{
+						NoMtls: func() *APMEmptyModel {
+							if _, ok := AdvertiseOnSloInternetVIPData["no_mtls"].(map[string]interface{}); ok {
+								return &APMEmptyModel{}
+							}
+							return nil
+						}(),
+						TLSCertificates: func() []APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel {
+							if rawList, ok := AdvertiseOnSloInternetVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel
+								for _, TLSCertificatesItem := range rawList {
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+											PrivateKey: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return TLSCertificatesResult
+							}
+							return nil
+						}(),
+						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigModel {
+							if TLSConfigData, ok := AdvertiseOnSloInternetVIPData["tls_config"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigModel{
+									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityModel {
+										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityModel{
+												CipherSuites: func() types.List {
+													if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												MaxVersion: func() types.String {
+													if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												MinVersion: func() types.String {
+													if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									LowSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									MediumSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseMtls: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsModel {
+							if UseMtlsData, ok := AdvertiseOnSloInternetVIPData["use_mtls"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsModel{
+									ClientCertificateOptional: func() types.Bool {
+										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									CRL: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsCRLModel {
+										if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsCRLModel{
+												Name: func() types.String {
+													if v, ok := CRLData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := CRLData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := CRLData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NoCRL: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									TrustedCA: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsTrustedCAModel {
+										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsTrustedCAModel{
+												Name: func() types.String {
+													if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									XfccDisabled: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsModel {
+										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsModel{
+												XfccHeaderElements: func() types.List {
+													if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			AdvertiseOnSloSLI: func() *APMHTTPSManagementAdvertiseOnSloSLIModel {
 				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil {
-					// Normal Read: preserve existing state value
 					return data.HTTPSManagement.AdvertiseOnSloSLI
 				}
-				// Import case: read from API
-				if _, ok := blockData["advertise_on_slo_sli"].(map[string]interface{}); ok {
-					return &APMHTTPSManagementAdvertiseOnSloSLIModel{}
+				if AdvertiseOnSloSLIData, ok := blockData["advertise_on_slo_sli"].(map[string]interface{}); ok {
+					return &APMHTTPSManagementAdvertiseOnSloSLIModel{
+						NoMtls: func() *APMEmptyModel {
+							if _, ok := AdvertiseOnSloSLIData["no_mtls"].(map[string]interface{}); ok {
+								return &APMEmptyModel{}
+							}
+							return nil
+						}(),
+						TLSCertificates: func() []APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel {
+							if rawList, ok := AdvertiseOnSloSLIData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel
+								for _, TLSCertificatesItem := range rawList {
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+											PrivateKey: func() *APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return TLSCertificatesResult
+							}
+							return nil
+						}(),
+						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSloSLITLSConfigModel {
+							if TLSConfigData, ok := AdvertiseOnSloSLIData["tls_config"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSloSLITLSConfigModel{
+									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityModel {
+										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityModel{
+												CipherSuites: func() types.List {
+													if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												MaxVersion: func() types.String {
+													if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												MinVersion: func() types.String {
+													if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									LowSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									MediumSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseMtls: func() *APMHTTPSManagementAdvertiseOnSloSLIUseMtlsModel {
+							if UseMtlsData, ok := AdvertiseOnSloSLIData["use_mtls"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSloSLIUseMtlsModel{
+									ClientCertificateOptional: func() types.Bool {
+										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									CRL: func() *APMHTTPSManagementAdvertiseOnSloSLIUseMtlsCRLModel {
+										if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloSLIUseMtlsCRLModel{
+												Name: func() types.String {
+													if v, ok := CRLData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := CRLData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := CRLData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NoCRL: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									TrustedCA: func() *APMHTTPSManagementAdvertiseOnSloSLIUseMtlsTrustedCAModel {
+										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloSLIUseMtlsTrustedCAModel{
+												Name: func() types.String {
+													if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									XfccDisabled: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsModel {
+										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsModel{
+												XfccHeaderElements: func() types.List {
+													if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			AdvertiseOnSloVIP: func() *APMHTTPSManagementAdvertiseOnSloVIPModel {
 				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil {
-					// Normal Read: preserve existing state value
 					return data.HTTPSManagement.AdvertiseOnSloVIP
 				}
-				// Import case: read from API
-				if _, ok := blockData["advertise_on_slo_vip"].(map[string]interface{}); ok {
-					return &APMHTTPSManagementAdvertiseOnSloVIPModel{}
+				if AdvertiseOnSloVIPData, ok := blockData["advertise_on_slo_vip"].(map[string]interface{}); ok {
+					return &APMHTTPSManagementAdvertiseOnSloVIPModel{
+						NoMtls: func() *APMEmptyModel {
+							if _, ok := AdvertiseOnSloVIPData["no_mtls"].(map[string]interface{}); ok {
+								return &APMEmptyModel{}
+							}
+							return nil
+						}(),
+						TLSCertificates: func() []APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel {
+							if rawList, ok := AdvertiseOnSloVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel
+								for _, TLSCertificatesItem := range rawList {
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+											PrivateKey: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return TLSCertificatesResult
+							}
+							return nil
+						}(),
+						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSConfigModel {
+							if TLSConfigData, ok := AdvertiseOnSloVIPData["tls_config"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSloVIPTLSConfigModel{
+									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityModel {
+										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityModel{
+												CipherSuites: func() types.List {
+													if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												MaxVersion: func() types.String {
+													if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												MinVersion: func() types.String {
+													if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									LowSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									MediumSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseMtls: func() *APMHTTPSManagementAdvertiseOnSloVIPUseMtlsModel {
+							if UseMtlsData, ok := AdvertiseOnSloVIPData["use_mtls"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSloVIPUseMtlsModel{
+									ClientCertificateOptional: func() types.Bool {
+										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									CRL: func() *APMHTTPSManagementAdvertiseOnSloVIPUseMtlsCRLModel {
+										if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloVIPUseMtlsCRLModel{
+												Name: func() types.String {
+													if v, ok := CRLData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := CRLData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := CRLData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NoCRL: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									TrustedCA: func() *APMHTTPSManagementAdvertiseOnSloVIPUseMtlsTrustedCAModel {
+										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloVIPUseMtlsTrustedCAModel{
+												Name: func() types.String {
+													if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									XfccDisabled: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsModel {
+										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsModel{
+												XfccHeaderElements: func() types.List {
+													if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			DefaultHTTPSPort: func() *APMEmptyModel {
 				if !isImport && data.HTTPSManagement != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.HTTPSManagement.DefaultHTTPSPort
 				}
-				// Import case: read from API
 				if _, ok := blockData["default_https_port"].(map[string]interface{}); ok {
 					return &APMEmptyModel{}
 				}
@@ -3324,21 +7633,22 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 			}(),
 			HTTPSPort: func() types.Int64 {
 				if !isImport && data.HTTPSManagement != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.HTTPSManagement.HTTPSPort
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["https_port"].(float64); ok {
+				if v, ok := blockData["https_port"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 		}
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -3392,75 +7702,961 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.AWSSiteTypeChoice != nil {
-		aws_site_type_choiceMap := make(map[string]interface{})
+		AWSSiteTypeChoiceMap := make(map[string]interface{})
 		if data.AWSSiteTypeChoice.APMAWSSite != nil {
-			apm_aws_siteNestedMap := make(map[string]interface{})
+			APMAWSSiteMap := make(map[string]interface{})
+			if data.AWSSiteTypeChoice.APMAWSSite.AdminPassword != nil {
+				AdminPasswordMap := make(map[string]interface{})
+				if data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo.Location.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					AdminPasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.ClearSecretInfo.Provider.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.ClearSecretInfo.URL.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.ClearSecretInfo.URL.ValueString()
+					}
+					AdminPasswordMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				APMAWSSiteMap["admin_password"] = AdminPasswordMap
+			}
 			if !data.AWSSiteTypeChoice.APMAWSSite.AdminUsername.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.AdminUsername.IsUnknown() {
-				apm_aws_siteNestedMap["admin_username"] = data.AWSSiteTypeChoice.APMAWSSite.AdminUsername.ValueString()
+				APMAWSSiteMap["admin_username"] = data.AWSSiteTypeChoice.APMAWSSite.AdminUsername.ValueString()
+			}
+			if data.AWSSiteTypeChoice.APMAWSSite.AWSTGWSite != nil {
+				AWSTGWSiteMap := make(map[string]interface{})
+				if data.AWSSiteTypeChoice.APMAWSSite.AWSTGWSite.AWSTGWSite != nil {
+					AWSTGWSiteMap := make(map[string]interface{})
+					if !data.AWSSiteTypeChoice.APMAWSSite.AWSTGWSite.AWSTGWSite.Name.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.AWSTGWSite.AWSTGWSite.Name.IsUnknown() {
+						AWSTGWSiteMap["name"] = data.AWSSiteTypeChoice.APMAWSSite.AWSTGWSite.AWSTGWSite.Name.ValueString()
+					}
+					if !data.AWSSiteTypeChoice.APMAWSSite.AWSTGWSite.AWSTGWSite.Namespace.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.AWSTGWSite.AWSTGWSite.Namespace.IsUnknown() {
+						AWSTGWSiteMap["namespace"] = data.AWSSiteTypeChoice.APMAWSSite.AWSTGWSite.AWSTGWSite.Namespace.ValueString()
+					}
+					if !data.AWSSiteTypeChoice.APMAWSSite.AWSTGWSite.AWSTGWSite.Tenant.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.AWSTGWSite.AWSTGWSite.Tenant.IsUnknown() {
+						AWSTGWSiteMap["tenant"] = data.AWSSiteTypeChoice.APMAWSSite.AWSTGWSite.AWSTGWSite.Tenant.ValueString()
+					}
+					AWSTGWSiteMap["aws_tgw_site"] = AWSTGWSiteMap
+				}
+				APMAWSSiteMap["aws_tgw_site"] = AWSTGWSiteMap
+			}
+			if data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+				EndpointServiceMap := make(map[string]interface{})
+				if data.AWSSiteTypeChoice.APMAWSSite.EndpointService.AdvertiseOnSloIP != nil {
+					EndpointServiceMap["advertise_on_slo_ip"] = map[string]interface{}{}
+				}
+				if data.AWSSiteTypeChoice.APMAWSSite.EndpointService.AdvertiseOnSloIPExternal != nil {
+					EndpointServiceMap["advertise_on_slo_ip_external"] = map[string]interface{}{}
+				}
+				if data.AWSSiteTypeChoice.APMAWSSite.EndpointService.AutomaticVIP != nil {
+					EndpointServiceMap["automatic_vip"] = map[string]interface{}{}
+				}
+				if !data.AWSSiteTypeChoice.APMAWSSite.EndpointService.ConfiguredVIP.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.EndpointService.ConfiguredVIP.IsUnknown() {
+					EndpointServiceMap["configured_vip"] = data.AWSSiteTypeChoice.APMAWSSite.EndpointService.ConfiguredVIP.ValueString()
+				}
+				if data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomTCPPorts != nil {
+					CustomTCPPortsMap := make(map[string]interface{})
+					if !data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomTCPPorts.Ports.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomTCPPorts.Ports.IsUnknown() {
+						var PortsItems []string
+						diags := data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomTCPPorts.Ports.ElementsAs(ctx, &PortsItems, false)
+						if !diags.HasError() {
+							CustomTCPPortsMap["ports"] = PortsItems
+						}
+					}
+					EndpointServiceMap["custom_tcp_ports"] = CustomTCPPortsMap
+				}
+				if data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomUDPPorts != nil {
+					CustomUDPPortsMap := make(map[string]interface{})
+					if !data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomUDPPorts.Ports.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomUDPPorts.Ports.IsUnknown() {
+						var PortsItems []string
+						diags := data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomUDPPorts.Ports.ElementsAs(ctx, &PortsItems, false)
+						if !diags.HasError() {
+							CustomUDPPortsMap["ports"] = PortsItems
+						}
+					}
+					EndpointServiceMap["custom_udp_ports"] = CustomUDPPortsMap
+				}
+				if data.AWSSiteTypeChoice.APMAWSSite.EndpointService.DefaultTCPPorts != nil {
+					EndpointServiceMap["default_tcp_ports"] = map[string]interface{}{}
+				}
+				if data.AWSSiteTypeChoice.APMAWSSite.EndpointService.DisableAdvertiseOnSloIP != nil {
+					EndpointServiceMap["disable_advertise_on_slo_ip"] = map[string]interface{}{}
+				}
+				if data.AWSSiteTypeChoice.APMAWSSite.EndpointService.HTTPPort != nil {
+					EndpointServiceMap["http_port"] = map[string]interface{}{}
+				}
+				if data.AWSSiteTypeChoice.APMAWSSite.EndpointService.HTTPSPort != nil {
+					EndpointServiceMap["https_port"] = map[string]interface{}{}
+				}
+				if data.AWSSiteTypeChoice.APMAWSSite.EndpointService.NoTCPPorts != nil {
+					EndpointServiceMap["no_tcp_ports"] = map[string]interface{}{}
+				}
+				if data.AWSSiteTypeChoice.APMAWSSite.EndpointService.NoUDPPorts != nil {
+					EndpointServiceMap["no_udp_ports"] = map[string]interface{}{}
+				}
+				APMAWSSiteMap["endpoint_service"] = EndpointServiceMap
+			}
+			if len(data.AWSSiteTypeChoice.APMAWSSite.Nodes) > 0 {
+				var NodesList []map[string]interface{}
+				for _, NodesItem := range data.AWSSiteTypeChoice.APMAWSSite.Nodes {
+					NodesItemMap := make(map[string]interface{})
+					if NodesItem.AutomaticPrefix != nil {
+						NodesItemMap["automatic_prefix"] = map[string]interface{}{}
+					}
+					if !NodesItem.AWSAzName.IsNull() && !NodesItem.AWSAzName.IsUnknown() {
+						NodesItemMap["aws_az_name"] = NodesItem.AWSAzName.ValueString()
+					}
+					if NodesItem.MgmtSubnet != nil {
+						MgmtSubnetMap := make(map[string]interface{})
+						if !NodesItem.MgmtSubnet.ExistingSubnetID.IsNull() && !NodesItem.MgmtSubnet.ExistingSubnetID.IsUnknown() {
+							MgmtSubnetMap["existing_subnet_id"] = NodesItem.MgmtSubnet.ExistingSubnetID.ValueString()
+						}
+						if NodesItem.MgmtSubnet.SubnetParam != nil {
+							SubnetParamMap := make(map[string]interface{})
+							if !NodesItem.MgmtSubnet.SubnetParam.Ipv4.IsNull() && !NodesItem.MgmtSubnet.SubnetParam.Ipv4.IsUnknown() {
+								SubnetParamMap["ipv4"] = NodesItem.MgmtSubnet.SubnetParam.Ipv4.ValueString()
+							}
+							MgmtSubnetMap["subnet_param"] = SubnetParamMap
+						}
+						NodesItemMap["mgmt_subnet"] = MgmtSubnetMap
+					}
+					if !NodesItem.NodeName.IsNull() && !NodesItem.NodeName.IsUnknown() {
+						NodesItemMap["node_name"] = NodesItem.NodeName.ValueString()
+					}
+					if NodesItem.ReservedMgmtSubnet != nil {
+						NodesItemMap["reserved_mgmt_subnet"] = map[string]interface{}{}
+					}
+					if !NodesItem.TunnelPrefix.IsNull() && !NodesItem.TunnelPrefix.IsUnknown() {
+						NodesItemMap["tunnel_prefix"] = NodesItem.TunnelPrefix.ValueString()
+					}
+					NodesList = append(NodesList, NodesItemMap)
+				}
+				APMAWSSiteMap["nodes"] = NodesList
 			}
 			if !data.AWSSiteTypeChoice.APMAWSSite.SSHKey.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.SSHKey.IsUnknown() {
-				apm_aws_siteNestedMap["ssh_key"] = data.AWSSiteTypeChoice.APMAWSSite.SSHKey.ValueString()
+				APMAWSSiteMap["ssh_key"] = data.AWSSiteTypeChoice.APMAWSSite.SSHKey.ValueString()
 			}
-			aws_site_type_choiceMap["apm_aws_site"] = apm_aws_siteNestedMap
+			if data.AWSSiteTypeChoice.APMAWSSite.Tags != nil {
+				APMAWSSiteMap["tags"] = map[string]interface{}{}
+			}
+			AWSSiteTypeChoiceMap["apm_aws_site"] = APMAWSSiteMap
 		}
 		if data.AWSSiteTypeChoice.MarketPlaceImage != nil {
-			market_place_imageNestedMap := make(map[string]interface{})
-			aws_site_type_choiceMap["market_place_image"] = market_place_imageNestedMap
+			MarketPlaceImageMap := make(map[string]interface{})
+			if data.AWSSiteTypeChoice.MarketPlaceImage.Bestpluspayg200mbps != nil {
+				MarketPlaceImageMap["BestPlusPayG200Mbps"] = map[string]interface{}{}
+			}
+			if data.AWSSiteTypeChoice.MarketPlaceImage.BestPlusPayg1gbps != nil {
+				MarketPlaceImageMap["best_plus_payg_1gbps"] = map[string]interface{}{}
+			}
+			AWSSiteTypeChoiceMap["market_place_image"] = MarketPlaceImageMap
 		}
-		apiResource.Spec["aws_site_type_choice"] = aws_site_type_choiceMap
+		apiResource.Spec["aws_site_type_choice"] = AWSSiteTypeChoiceMap
 	}
 	if data.BaremetalSiteTypeChoice != nil {
-		baremetal_site_type_choiceMap := make(map[string]interface{})
+		BaremetalSiteTypeChoiceMap := make(map[string]interface{})
 		if data.BaremetalSiteTypeChoice.F5BareMetalSite != nil {
-			f5_bare_metal_siteNestedMap := make(map[string]interface{})
+			F5BareMetalSiteMap := make(map[string]interface{})
+			if data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword != nil {
+				AdminPasswordMap := make(map[string]interface{})
+				if data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo.Location.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					AdminPasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.ClearSecretInfo.Provider.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.ClearSecretInfo.URL.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.ClearSecretInfo.URL.ValueString()
+					}
+					AdminPasswordMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				F5BareMetalSiteMap["admin_password"] = AdminPasswordMap
+			}
 			if !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminUsername.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminUsername.IsUnknown() {
-				f5_bare_metal_siteNestedMap["admin_username"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminUsername.ValueString()
+				F5BareMetalSiteMap["admin_username"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminUsername.ValueString()
+			}
+			if data.BaremetalSiteTypeChoice.F5BareMetalSite.BareMetalSite != nil {
+				BareMetalSiteMap := make(map[string]interface{})
+				if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BareMetalSite.Name.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BareMetalSite.Name.IsUnknown() {
+					BareMetalSiteMap["name"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BareMetalSite.Name.ValueString()
+				}
+				if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BareMetalSite.Namespace.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BareMetalSite.Namespace.IsUnknown() {
+					BareMetalSiteMap["namespace"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BareMetalSite.Namespace.ValueString()
+				}
+				if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BareMetalSite.Tenant.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BareMetalSite.Tenant.IsUnknown() {
+					BareMetalSiteMap["tenant"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BareMetalSite.Tenant.ValueString()
+				}
+				F5BareMetalSiteMap["bare_metal_site"] = BareMetalSiteMap
+			}
+			if data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance != nil {
+				BigiqInstanceMap := make(map[string]interface{})
+				if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.LicensePoolName.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.LicensePoolName.IsUnknown() {
+					BigiqInstanceMap["license_pool_name"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.LicensePoolName.ValueString()
+				}
+				if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.LicenseServerIP.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.LicenseServerIP.IsUnknown() {
+					BigiqInstanceMap["license_server_ip"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.LicenseServerIP.ValueString()
+				}
+				if data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password != nil {
+					PasswordMap := make(map[string]interface{})
+					if data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo != nil {
+						BlindfoldSecretInfoMap := make(map[string]interface{})
+						if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["decryption_provider"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						}
+						if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo.Location.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+							BlindfoldSecretInfoMap["location"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo.Location.ValueString()
+						}
+						if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["store_provider"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+						}
+						PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					}
+					if data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.ClearSecretInfo != nil {
+						ClearSecretInfoMap := make(map[string]interface{})
+						if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.ClearSecretInfo.Provider.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.ClearSecretInfo.Provider.IsUnknown() {
+							ClearSecretInfoMap["provider"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.ClearSecretInfo.Provider.ValueString()
+						}
+						if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.ClearSecretInfo.URL.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.ClearSecretInfo.URL.IsUnknown() {
+							ClearSecretInfoMap["url"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.ClearSecretInfo.URL.ValueString()
+						}
+						PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+					}
+					BigiqInstanceMap["password"] = PasswordMap
+				}
+				if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.SkuName.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.SkuName.IsUnknown() {
+					BigiqInstanceMap["sku_name"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.SkuName.ValueString()
+				}
+				if !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Username.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Username.IsUnknown() {
+					BigiqInstanceMap["username"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Username.ValueString()
+				}
+				F5BareMetalSiteMap["bigiq_instance"] = BigiqInstanceMap
+			}
+			if !data.BaremetalSiteTypeChoice.F5BareMetalSite.Nodes.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.Nodes.IsUnknown() {
+				var NodesElems []APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModel
+				diags := data.BaremetalSiteTypeChoice.F5BareMetalSite.Nodes.ElementsAs(ctx, &NodesElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodesElems) > 0 {
+					var NodesList []map[string]interface{}
+					for _, NodesItem := range NodesElems {
+						NodesItemMap := make(map[string]interface{})
+						if !NodesItem.BmNodeMemorySize.IsNull() && !NodesItem.BmNodeMemorySize.IsUnknown() {
+							NodesItemMap["bm_node_memory_size"] = NodesItem.BmNodeMemorySize.ValueString()
+						}
+						if !NodesItem.BmVirtualCPUCount.IsNull() && !NodesItem.BmVirtualCPUCount.IsUnknown() {
+							NodesItemMap["bm_virtual_cpu_count"] = NodesItem.BmVirtualCPUCount.ValueString()
+						}
+						if NodesItem.ExternalInterface != nil {
+							ExternalInterfaceMap := make(map[string]interface{})
+							if NodesItem.ExternalInterface.Interface != nil {
+								InterfaceMap := make(map[string]interface{})
+								if !NodesItem.ExternalInterface.Interface.Name.IsNull() && !NodesItem.ExternalInterface.Interface.Name.IsUnknown() {
+									InterfaceMap["name"] = NodesItem.ExternalInterface.Interface.Name.ValueString()
+								}
+								if !NodesItem.ExternalInterface.Interface.Namespace.IsNull() && !NodesItem.ExternalInterface.Interface.Namespace.IsUnknown() {
+									InterfaceMap["namespace"] = NodesItem.ExternalInterface.Interface.Namespace.ValueString()
+								}
+								if !NodesItem.ExternalInterface.Interface.Tenant.IsNull() && !NodesItem.ExternalInterface.Interface.Tenant.IsUnknown() {
+									InterfaceMap["tenant"] = NodesItem.ExternalInterface.Interface.Tenant.ValueString()
+								}
+								ExternalInterfaceMap["interface"] = InterfaceMap
+							}
+							if !NodesItem.ExternalInterface.NetworkGateway.IsNull() && !NodesItem.ExternalInterface.NetworkGateway.IsUnknown() {
+								ExternalInterfaceMap["network_gateway"] = NodesItem.ExternalInterface.NetworkGateway.ValueString()
+							}
+							if !NodesItem.ExternalInterface.NetworkSelfIP.IsNull() && !NodesItem.ExternalInterface.NetworkSelfIP.IsUnknown() {
+								ExternalInterfaceMap["network_self_ip"] = NodesItem.ExternalInterface.NetworkSelfIP.ValueString()
+							}
+							NodesItemMap["external_interface"] = ExternalInterfaceMap
+						}
+						if NodesItem.InternalInterface != nil {
+							InternalInterfaceMap := make(map[string]interface{})
+							if NodesItem.InternalInterface.Interface != nil {
+								InterfaceMap := make(map[string]interface{})
+								if !NodesItem.InternalInterface.Interface.Name.IsNull() && !NodesItem.InternalInterface.Interface.Name.IsUnknown() {
+									InterfaceMap["name"] = NodesItem.InternalInterface.Interface.Name.ValueString()
+								}
+								if !NodesItem.InternalInterface.Interface.Namespace.IsNull() && !NodesItem.InternalInterface.Interface.Namespace.IsUnknown() {
+									InterfaceMap["namespace"] = NodesItem.InternalInterface.Interface.Namespace.ValueString()
+								}
+								if !NodesItem.InternalInterface.Interface.Tenant.IsNull() && !NodesItem.InternalInterface.Interface.Tenant.IsUnknown() {
+									InterfaceMap["tenant"] = NodesItem.InternalInterface.Interface.Tenant.ValueString()
+								}
+								InternalInterfaceMap["interface"] = InterfaceMap
+							}
+							if !NodesItem.InternalInterface.NetworkGateway.IsNull() && !NodesItem.InternalInterface.NetworkGateway.IsUnknown() {
+								InternalInterfaceMap["network_gateway"] = NodesItem.InternalInterface.NetworkGateway.ValueString()
+							}
+							if !NodesItem.InternalInterface.NetworkSelfIP.IsNull() && !NodesItem.InternalInterface.NetworkSelfIP.IsUnknown() {
+								InternalInterfaceMap["network_self_ip"] = NodesItem.InternalInterface.NetworkSelfIP.ValueString()
+							}
+							NodesItemMap["internal_interface"] = InternalInterfaceMap
+						}
+						if !NodesItem.NodeName.IsNull() && !NodesItem.NodeName.IsUnknown() {
+							NodesItemMap["node_name"] = NodesItem.NodeName.ValueString()
+						}
+						NodesList = append(NodesList, NodesItemMap)
+					}
+					F5BareMetalSiteMap["nodes"] = NodesList
+				}
 			}
 			if !data.BaremetalSiteTypeChoice.F5BareMetalSite.PublicDownloadURL.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.PublicDownloadURL.IsUnknown() {
-				f5_bare_metal_siteNestedMap["public_download_url"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.PublicDownloadURL.ValueString()
+				F5BareMetalSiteMap["public_download_url"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.PublicDownloadURL.ValueString()
 			}
 			if !data.BaremetalSiteTypeChoice.F5BareMetalSite.SSHKey.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.SSHKey.IsUnknown() {
-				f5_bare_metal_siteNestedMap["ssh_key"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.SSHKey.ValueString()
+				F5BareMetalSiteMap["ssh_key"] = data.BaremetalSiteTypeChoice.F5BareMetalSite.SSHKey.ValueString()
 			}
-			baremetal_site_type_choiceMap["f5_bare_metal_site"] = f5_bare_metal_siteNestedMap
+			BaremetalSiteTypeChoiceMap["f5_bare_metal_site"] = F5BareMetalSiteMap
 		}
-		apiResource.Spec["baremetal_site_type_choice"] = baremetal_site_type_choiceMap
+		apiResource.Spec["baremetal_site_type_choice"] = BaremetalSiteTypeChoiceMap
 	}
 	if data.HTTPSManagement != nil {
-		https_managementMap := make(map[string]interface{})
+		HTTPSManagementMap := make(map[string]interface{})
 		if data.HTTPSManagement.AdvertiseOnInternet != nil {
-			advertise_on_internetNestedMap := make(map[string]interface{})
-			https_managementMap["advertise_on_internet"] = advertise_on_internetNestedMap
+			AdvertiseOnInternetMap := make(map[string]interface{})
+			if data.HTTPSManagement.AdvertiseOnInternet.PublicIP != nil {
+				PublicIPMap := make(map[string]interface{})
+				if !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Name.IsUnknown() {
+					PublicIPMap["name"] = data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Name.ValueString()
+				}
+				if !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Namespace.IsUnknown() {
+					PublicIPMap["namespace"] = data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Namespace.ValueString()
+				}
+				if !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Tenant.IsUnknown() {
+					PublicIPMap["tenant"] = data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Tenant.ValueString()
+				}
+				AdvertiseOnInternetMap["public_ip"] = PublicIPMap
+			}
+			HTTPSManagementMap["advertise_on_internet"] = AdvertiseOnInternetMap
 		}
 		if data.HTTPSManagement.AdvertiseOnInternetDefaultVIP != nil {
-			https_managementMap["advertise_on_internet_default_vip"] = map[string]interface{}{}
+			HTTPSManagementMap["advertise_on_internet_default_vip"] = map[string]interface{}{}
 		}
 		if data.HTTPSManagement.AdvertiseOnSLIVIP != nil {
-			advertise_on_sli_vipNestedMap := make(map[string]interface{})
-			https_managementMap["advertise_on_sli_vip"] = advertise_on_sli_vipNestedMap
+			AdvertiseOnSLIVIPMap := make(map[string]interface{})
+			if data.HTTPSManagement.AdvertiseOnSLIVIP.NoMtls != nil {
+				AdvertiseOnSLIVIPMap["no_mtls"] = map[string]interface{}{}
+			}
+			if len(data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates) > 0 {
+				var TLSCertificatesList []map[string]interface{}
+				for _, TLSCertificatesItem := range data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates {
+					TLSCertificatesItemMap := make(map[string]interface{})
+					if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+						TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
+					}
+					if TLSCertificatesItem.CustomHashAlgorithms != nil {
+						CustomHashAlgorithmsMap := make(map[string]interface{})
+						if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+							var HashAlgorithmsItems []string
+							diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+							if !diags.HasError() {
+								CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+							}
+						}
+						TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+					}
+					if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+						TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
+					}
+					if TLSCertificatesItem.DisableOCSPStapling != nil {
+						TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+					}
+					if TLSCertificatesItem.PrivateKey != nil {
+						PrivateKeyMap := make(map[string]interface{})
+						if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+							}
+							PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+					}
+					if TLSCertificatesItem.UseSystemDefaults != nil {
+						TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+					}
+					TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+				}
+				AdvertiseOnSLIVIPMap["tls_certificates"] = TLSCertificatesList
+			}
+			if data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+				TLSConfigMap := make(map[string]interface{})
+				if data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity != nil {
+					CustomSecurityMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
+						var CipherSuitesItems []string
+						diags := data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						if !diags.HasError() {
+							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+						}
+					}
+					if !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
+						CustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
+						CustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MinVersion.ValueString()
+					}
+					TLSConfigMap["custom_security"] = CustomSecurityMap
+				}
+				if data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.DefaultSecurity != nil {
+					TLSConfigMap["default_security"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.LowSecurity != nil {
+					TLSConfigMap["low_security"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.MediumSecurity != nil {
+					TLSConfigMap["medium_security"] = map[string]interface{}{}
+				}
+				AdvertiseOnSLIVIPMap["tls_config"] = TLSConfigMap
+			}
+			if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil {
+				UseMtlsMap := make(map[string]interface{})
+				if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+					UseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional.ValueBool()
+				}
+				if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL != nil {
+					CRLMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Name.IsUnknown() {
+						CRLMap["name"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Name.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Namespace.IsUnknown() {
+						CRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Namespace.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Tenant.IsUnknown() {
+						CRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Tenant.ValueString()
+					}
+					UseMtlsMap["crl"] = CRLMap
+				}
+				if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.NoCRL != nil {
+					UseMtlsMap["no_crl"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA != nil {
+					TrustedCAMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Name.IsUnknown() {
+						TrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Name.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Namespace.IsUnknown() {
+						TrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Namespace.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Tenant.IsUnknown() {
+						TrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Tenant.ValueString()
+					}
+					UseMtlsMap["trusted_ca"] = TrustedCAMap
+				}
+				if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCAURL.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCAURL.IsUnknown() {
+					UseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCAURL.ValueString()
+				}
+				if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccDisabled != nil {
+					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions != nil {
+					XfccOptionsMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
+						var XfccHeaderElementsItems []string
+						diags := data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						if !diags.HasError() {
+							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+						}
+					}
+					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+				}
+				AdvertiseOnSLIVIPMap["use_mtls"] = UseMtlsMap
+			}
+			HTTPSManagementMap["advertise_on_sli_vip"] = AdvertiseOnSLIVIPMap
 		}
 		if data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil {
-			advertise_on_slo_internet_vipNestedMap := make(map[string]interface{})
-			https_managementMap["advertise_on_slo_internet_vip"] = advertise_on_slo_internet_vipNestedMap
+			AdvertiseOnSloInternetVIPMap := make(map[string]interface{})
+			if data.HTTPSManagement.AdvertiseOnSloInternetVIP.NoMtls != nil {
+				AdvertiseOnSloInternetVIPMap["no_mtls"] = map[string]interface{}{}
+			}
+			if len(data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates) > 0 {
+				var TLSCertificatesList []map[string]interface{}
+				for _, TLSCertificatesItem := range data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates {
+					TLSCertificatesItemMap := make(map[string]interface{})
+					if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+						TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
+					}
+					if TLSCertificatesItem.CustomHashAlgorithms != nil {
+						CustomHashAlgorithmsMap := make(map[string]interface{})
+						if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+							var HashAlgorithmsItems []string
+							diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+							if !diags.HasError() {
+								CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+							}
+						}
+						TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+					}
+					if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+						TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
+					}
+					if TLSCertificatesItem.DisableOCSPStapling != nil {
+						TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+					}
+					if TLSCertificatesItem.PrivateKey != nil {
+						PrivateKeyMap := make(map[string]interface{})
+						if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+							}
+							PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+					}
+					if TLSCertificatesItem.UseSystemDefaults != nil {
+						TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+					}
+					TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+				}
+				AdvertiseOnSloInternetVIPMap["tls_certificates"] = TLSCertificatesList
+			}
+			if data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+				TLSConfigMap := make(map[string]interface{})
+				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity != nil {
+					CustomSecurityMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
+						var CipherSuitesItems []string
+						diags := data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						if !diags.HasError() {
+							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+						}
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
+						CustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
+						CustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MinVersion.ValueString()
+					}
+					TLSConfigMap["custom_security"] = CustomSecurityMap
+				}
+				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.DefaultSecurity != nil {
+					TLSConfigMap["default_security"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.LowSecurity != nil {
+					TLSConfigMap["low_security"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.MediumSecurity != nil {
+					TLSConfigMap["medium_security"] = map[string]interface{}{}
+				}
+				AdvertiseOnSloInternetVIPMap["tls_config"] = TLSConfigMap
+			}
+			if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil {
+				UseMtlsMap := make(map[string]interface{})
+				if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+					UseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional.ValueBool()
+				}
+				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL != nil {
+					CRLMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Name.IsUnknown() {
+						CRLMap["name"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Name.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Namespace.IsUnknown() {
+						CRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Namespace.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Tenant.IsUnknown() {
+						CRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Tenant.ValueString()
+					}
+					UseMtlsMap["crl"] = CRLMap
+				}
+				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.NoCRL != nil {
+					UseMtlsMap["no_crl"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA != nil {
+					TrustedCAMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Name.IsUnknown() {
+						TrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Name.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Namespace.IsUnknown() {
+						TrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Namespace.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Tenant.IsUnknown() {
+						TrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Tenant.ValueString()
+					}
+					UseMtlsMap["trusted_ca"] = TrustedCAMap
+				}
+				if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCAURL.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCAURL.IsUnknown() {
+					UseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCAURL.ValueString()
+				}
+				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccDisabled != nil {
+					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions != nil {
+					XfccOptionsMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
+						var XfccHeaderElementsItems []string
+						diags := data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						if !diags.HasError() {
+							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+						}
+					}
+					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+				}
+				AdvertiseOnSloInternetVIPMap["use_mtls"] = UseMtlsMap
+			}
+			HTTPSManagementMap["advertise_on_slo_internet_vip"] = AdvertiseOnSloInternetVIPMap
 		}
 		if data.HTTPSManagement.AdvertiseOnSloSLI != nil {
-			advertise_on_slo_sliNestedMap := make(map[string]interface{})
-			https_managementMap["advertise_on_slo_sli"] = advertise_on_slo_sliNestedMap
+			AdvertiseOnSloSLIMap := make(map[string]interface{})
+			if data.HTTPSManagement.AdvertiseOnSloSLI.NoMtls != nil {
+				AdvertiseOnSloSLIMap["no_mtls"] = map[string]interface{}{}
+			}
+			if len(data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates) > 0 {
+				var TLSCertificatesList []map[string]interface{}
+				for _, TLSCertificatesItem := range data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates {
+					TLSCertificatesItemMap := make(map[string]interface{})
+					if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+						TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
+					}
+					if TLSCertificatesItem.CustomHashAlgorithms != nil {
+						CustomHashAlgorithmsMap := make(map[string]interface{})
+						if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+							var HashAlgorithmsItems []string
+							diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+							if !diags.HasError() {
+								CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+							}
+						}
+						TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+					}
+					if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+						TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
+					}
+					if TLSCertificatesItem.DisableOCSPStapling != nil {
+						TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+					}
+					if TLSCertificatesItem.PrivateKey != nil {
+						PrivateKeyMap := make(map[string]interface{})
+						if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+							}
+							PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+					}
+					if TLSCertificatesItem.UseSystemDefaults != nil {
+						TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+					}
+					TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+				}
+				AdvertiseOnSloSLIMap["tls_certificates"] = TLSCertificatesList
+			}
+			if data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+				TLSConfigMap := make(map[string]interface{})
+				if data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity != nil {
+					CustomSecurityMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
+						var CipherSuitesItems []string
+						diags := data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						if !diags.HasError() {
+							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+						}
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
+						CustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
+						CustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MinVersion.ValueString()
+					}
+					TLSConfigMap["custom_security"] = CustomSecurityMap
+				}
+				if data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.DefaultSecurity != nil {
+					TLSConfigMap["default_security"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.LowSecurity != nil {
+					TLSConfigMap["low_security"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.MediumSecurity != nil {
+					TLSConfigMap["medium_security"] = map[string]interface{}{}
+				}
+				AdvertiseOnSloSLIMap["tls_config"] = TLSConfigMap
+			}
+			if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil {
+				UseMtlsMap := make(map[string]interface{})
+				if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional.IsUnknown() {
+					UseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional.ValueBool()
+				}
+				if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL != nil {
+					CRLMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Name.IsUnknown() {
+						CRLMap["name"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Name.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Namespace.IsUnknown() {
+						CRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Namespace.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Tenant.IsUnknown() {
+						CRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Tenant.ValueString()
+					}
+					UseMtlsMap["crl"] = CRLMap
+				}
+				if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.NoCRL != nil {
+					UseMtlsMap["no_crl"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA != nil {
+					TrustedCAMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Name.IsUnknown() {
+						TrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Name.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Namespace.IsUnknown() {
+						TrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Namespace.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Tenant.IsUnknown() {
+						TrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Tenant.ValueString()
+					}
+					UseMtlsMap["trusted_ca"] = TrustedCAMap
+				}
+				if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCAURL.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCAURL.IsUnknown() {
+					UseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCAURL.ValueString()
+				}
+				if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccDisabled != nil {
+					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions != nil {
+					XfccOptionsMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
+						var XfccHeaderElementsItems []string
+						diags := data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						if !diags.HasError() {
+							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+						}
+					}
+					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+				}
+				AdvertiseOnSloSLIMap["use_mtls"] = UseMtlsMap
+			}
+			HTTPSManagementMap["advertise_on_slo_sli"] = AdvertiseOnSloSLIMap
 		}
 		if data.HTTPSManagement.AdvertiseOnSloVIP != nil {
-			advertise_on_slo_vipNestedMap := make(map[string]interface{})
-			https_managementMap["advertise_on_slo_vip"] = advertise_on_slo_vipNestedMap
+			AdvertiseOnSloVIPMap := make(map[string]interface{})
+			if data.HTTPSManagement.AdvertiseOnSloVIP.NoMtls != nil {
+				AdvertiseOnSloVIPMap["no_mtls"] = map[string]interface{}{}
+			}
+			if len(data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates) > 0 {
+				var TLSCertificatesList []map[string]interface{}
+				for _, TLSCertificatesItem := range data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates {
+					TLSCertificatesItemMap := make(map[string]interface{})
+					if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+						TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
+					}
+					if TLSCertificatesItem.CustomHashAlgorithms != nil {
+						CustomHashAlgorithmsMap := make(map[string]interface{})
+						if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+							var HashAlgorithmsItems []string
+							diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+							if !diags.HasError() {
+								CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+							}
+						}
+						TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+					}
+					if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+						TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
+					}
+					if TLSCertificatesItem.DisableOCSPStapling != nil {
+						TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+					}
+					if TLSCertificatesItem.PrivateKey != nil {
+						PrivateKeyMap := make(map[string]interface{})
+						if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+							}
+							PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+					}
+					if TLSCertificatesItem.UseSystemDefaults != nil {
+						TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+					}
+					TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+				}
+				AdvertiseOnSloVIPMap["tls_certificates"] = TLSCertificatesList
+			}
+			if data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+				TLSConfigMap := make(map[string]interface{})
+				if data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity != nil {
+					CustomSecurityMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
+						var CipherSuitesItems []string
+						diags := data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						if !diags.HasError() {
+							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+						}
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
+						CustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
+						CustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MinVersion.ValueString()
+					}
+					TLSConfigMap["custom_security"] = CustomSecurityMap
+				}
+				if data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.DefaultSecurity != nil {
+					TLSConfigMap["default_security"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.LowSecurity != nil {
+					TLSConfigMap["low_security"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.MediumSecurity != nil {
+					TLSConfigMap["medium_security"] = map[string]interface{}{}
+				}
+				AdvertiseOnSloVIPMap["tls_config"] = TLSConfigMap
+			}
+			if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil {
+				UseMtlsMap := make(map[string]interface{})
+				if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+					UseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional.ValueBool()
+				}
+				if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL != nil {
+					CRLMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Name.IsUnknown() {
+						CRLMap["name"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Name.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Namespace.IsUnknown() {
+						CRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Namespace.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Tenant.IsUnknown() {
+						CRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Tenant.ValueString()
+					}
+					UseMtlsMap["crl"] = CRLMap
+				}
+				if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.NoCRL != nil {
+					UseMtlsMap["no_crl"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA != nil {
+					TrustedCAMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Name.IsUnknown() {
+						TrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Name.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Namespace.IsUnknown() {
+						TrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Namespace.ValueString()
+					}
+					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Tenant.IsUnknown() {
+						TrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Tenant.ValueString()
+					}
+					UseMtlsMap["trusted_ca"] = TrustedCAMap
+				}
+				if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCAURL.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCAURL.IsUnknown() {
+					UseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCAURL.ValueString()
+				}
+				if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccDisabled != nil {
+					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+				}
+				if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions != nil {
+					XfccOptionsMap := make(map[string]interface{})
+					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
+						var XfccHeaderElementsItems []string
+						diags := data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						if !diags.HasError() {
+							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+						}
+					}
+					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+				}
+				AdvertiseOnSloVIPMap["use_mtls"] = UseMtlsMap
+			}
+			HTTPSManagementMap["advertise_on_slo_vip"] = AdvertiseOnSloVIPMap
 		}
 		if data.HTTPSManagement.DefaultHTTPSPort != nil {
-			https_managementMap["default_https_port"] = map[string]interface{}{}
+			HTTPSManagementMap["default_https_port"] = map[string]interface{}{}
 		}
 		if !data.HTTPSManagement.DomainSuffix.IsNull() && !data.HTTPSManagement.DomainSuffix.IsUnknown() {
-			https_managementMap["domain_suffix"] = data.HTTPSManagement.DomainSuffix.ValueString()
+			HTTPSManagementMap["domain_suffix"] = data.HTTPSManagement.DomainSuffix.ValueString()
 		}
 		if !data.HTTPSManagement.HTTPSPort.IsNull() && !data.HTTPSManagement.HTTPSPort.IsUnknown() {
-			https_managementMap["https_port"] = data.HTTPSManagement.HTTPSPort.ValueInt64()
+			HTTPSManagementMap["https_port"] = data.HTTPSManagement.HTTPSPort.ValueInt64()
 		}
-		apiResource.Spec["https_management"] = https_managementMap
+		apiResource.Spec["https_management"] = HTTPSManagementMap
 	}
 
 	_, err := r.client.UpdateAPM(ctx, apiResource)
@@ -3486,36 +8682,670 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["aws_site_type_choice"].(map[string]interface{}); ok && isImport && data.AWSSiteTypeChoice == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AWSSiteTypeChoice = &APMAWSSiteTypeChoiceModel{}
+	if blockData, ok := apiResource.Spec["aws_site_type_choice"].(map[string]interface{}); ok && (isImport || data.AWSSiteTypeChoice != nil) {
+		data.AWSSiteTypeChoice = &APMAWSSiteTypeChoiceModel{
+			APMAWSSite: func() *APMAWSSiteTypeChoiceAPMAWSSiteModel {
+				if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil {
+					return data.AWSSiteTypeChoice.APMAWSSite
+				}
+				if APMAWSSiteData, ok := blockData["apm_aws_site"].(map[string]interface{}); ok {
+					return &APMAWSSiteTypeChoiceAPMAWSSiteModel{
+						AdminPassword: func() *APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordModel {
+							if AdminPasswordData, ok := APMAWSSiteData["admin_password"].(map[string]interface{}); ok {
+								return &APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordModel{
+									BlindfoldSecretInfo: func() *APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := AdminPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordClearSecretInfoModel {
+										if ClearSecretInfoData, ok := AdminPasswordData["clear_secret_info"].(map[string]interface{}); ok {
+											return &APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						AdminUsername: func() types.String {
+							if v, ok := APMAWSSiteData["admin_username"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						AWSTGWSite: func() *APMAWSSiteTypeChoiceAPMAWSSiteAWSTGWSiteModel {
+							if AWSTGWSiteData, ok := APMAWSSiteData["aws_tgw_site"].(map[string]interface{}); ok {
+								return &APMAWSSiteTypeChoiceAPMAWSSiteAWSTGWSiteModel{
+									AWSTGWSite: func() *APMAWSSiteTypeChoiceAPMAWSSiteAWSTGWSiteAWSTGWSiteModel {
+										if AWSTGWSiteData, ok := AWSTGWSiteData["aws_tgw_site"].(map[string]interface{}); ok {
+											return &APMAWSSiteTypeChoiceAPMAWSSiteAWSTGWSiteAWSTGWSiteModel{
+												Name: func() types.String {
+													if v, ok := AWSTGWSiteData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := AWSTGWSiteData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := AWSTGWSiteData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						EndpointService: func() *APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceModel {
+							if EndpointServiceData, ok := APMAWSSiteData["endpoint_service"].(map[string]interface{}); ok {
+								return &APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceModel{
+									AdvertiseOnSloIP: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["advertise_on_slo_ip"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									AdvertiseOnSloIPExternal: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["advertise_on_slo_ip_external"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									AutomaticVIP: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["automatic_vip"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									ConfiguredVIP: func() types.String {
+										if v, ok := EndpointServiceData["configured_vip"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									CustomTCPPorts: func() *APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomTCPPortsModel {
+										if CustomTCPPortsData, ok := EndpointServiceData["custom_tcp_ports"].(map[string]interface{}); ok {
+											return &APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomTCPPortsModel{
+												Ports: func() types.List {
+													if v, ok := CustomTCPPortsData["ports"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+									CustomUDPPorts: func() *APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomUDPPortsModel {
+										if CustomUDPPortsData, ok := EndpointServiceData["custom_udp_ports"].(map[string]interface{}); ok {
+											return &APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomUDPPortsModel{
+												Ports: func() types.List {
+													if v, ok := CustomUDPPortsData["ports"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultTCPPorts: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["default_tcp_ports"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									DisableAdvertiseOnSloIP: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["disable_advertise_on_slo_ip"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									HTTPPort: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["http_port"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									HTTPSPort: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["https_port"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									NoTCPPorts: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["no_tcp_ports"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									NoUDPPorts: func() *APMEmptyModel {
+										if _, ok := EndpointServiceData["no_udp_ports"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Nodes: func() []APMAWSSiteTypeChoiceAPMAWSSiteNodesModel {
+							if rawList, ok := APMAWSSiteData["nodes"].([]interface{}); ok && len(rawList) > 0 {
+								var NodesResult []APMAWSSiteTypeChoiceAPMAWSSiteNodesModel
+								for _, NodesItem := range rawList {
+									if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
+										NodesResult = append(NodesResult, APMAWSSiteTypeChoiceAPMAWSSiteNodesModel{
+											AutomaticPrefix: func() *APMEmptyModel {
+												if _, ok := NodesItemMap["automatic_prefix"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+											AWSAzName: func() types.String {
+												if v, ok := NodesItemMap["aws_az_name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											MgmtSubnet: func() *APMAWSSiteTypeChoiceAPMAWSSiteNodesMgmtSubnetModel {
+												if MgmtSubnetData, ok := NodesItemMap["mgmt_subnet"].(map[string]interface{}); ok {
+													return &APMAWSSiteTypeChoiceAPMAWSSiteNodesMgmtSubnetModel{
+														ExistingSubnetID: func() types.String {
+															if v, ok := MgmtSubnetData["existing_subnet_id"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SubnetParam: func() *APMAWSSiteTypeChoiceAPMAWSSiteNodesMgmtSubnetSubnetParamModel {
+															if SubnetParamData, ok := MgmtSubnetData["subnet_param"].(map[string]interface{}); ok {
+																return &APMAWSSiteTypeChoiceAPMAWSSiteNodesMgmtSubnetSubnetParamModel{
+																	Ipv4: func() types.String {
+																		if v, ok := SubnetParamData["ipv4"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											NodeName: func() types.String {
+												if v, ok := NodesItemMap["node_name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											ReservedMgmtSubnet: func() *APMEmptyModel {
+												if _, ok := NodesItemMap["reserved_mgmt_subnet"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+											TunnelPrefix: func() types.String {
+												if v, ok := NodesItemMap["tunnel_prefix"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return NodesResult
+							}
+							return nil
+						}(),
+						SSHKey: func() types.String {
+							if v, ok := APMAWSSiteData["ssh_key"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tags: func() *APMEmptyModel {
+							if _, ok := APMAWSSiteData["tags"].(map[string]interface{}); ok {
+								return &APMEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			MarketPlaceImage: func() *APMAWSSiteTypeChoiceMarketPlaceImageModel {
+				if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.MarketPlaceImage != nil {
+					return data.AWSSiteTypeChoice.MarketPlaceImage
+				}
+				if MarketPlaceImageData, ok := blockData["market_place_image"].(map[string]interface{}); ok {
+					return &APMAWSSiteTypeChoiceMarketPlaceImageModel{
+						Bestpluspayg200mbps: func() *APMEmptyModel {
+							if _, ok := MarketPlaceImageData["BestPlusPayG200Mbps"].(map[string]interface{}); ok {
+								return &APMEmptyModel{}
+							}
+							return nil
+						}(),
+						BestPlusPayg1gbps: func() *APMEmptyModel {
+							if _, ok := MarketPlaceImageData["best_plus_payg_1gbps"].(map[string]interface{}); ok {
+								return &APMEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["baremetal_site_type_choice"].(map[string]interface{}); ok && isImport && data.BaremetalSiteTypeChoice == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.BaremetalSiteTypeChoice = &APMBaremetalSiteTypeChoiceModel{}
+	if blockData, ok := apiResource.Spec["baremetal_site_type_choice"].(map[string]interface{}); ok && (isImport || data.BaremetalSiteTypeChoice != nil) {
+		data.BaremetalSiteTypeChoice = &APMBaremetalSiteTypeChoiceModel{
+			F5BareMetalSite: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteModel {
+				if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil {
+					return data.BaremetalSiteTypeChoice.F5BareMetalSite
+				}
+				if F5BareMetalSiteData, ok := blockData["f5_bare_metal_site"].(map[string]interface{}); ok {
+					return &APMBaremetalSiteTypeChoiceF5BareMetalSiteModel{
+						AdminPassword: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordModel {
+							if AdminPasswordData, ok := F5BareMetalSiteData["admin_password"].(map[string]interface{}); ok {
+								return &APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordModel{
+									BlindfoldSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := AdminPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordClearSecretInfoModel {
+										if ClearSecretInfoData, ok := AdminPasswordData["clear_secret_info"].(map[string]interface{}); ok {
+											return &APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						AdminUsername: func() types.String {
+							if v, ok := F5BareMetalSiteData["admin_username"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						BareMetalSite: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBareMetalSiteModel {
+							if BareMetalSiteData, ok := F5BareMetalSiteData["bare_metal_site"].(map[string]interface{}); ok {
+								return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBareMetalSiteModel{
+									Name: func() types.String {
+										if v, ok := BareMetalSiteData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := BareMetalSiteData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := BareMetalSiteData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						BigiqInstance: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstanceModel {
+							if BigiqInstanceData, ok := F5BareMetalSiteData["bigiq_instance"].(map[string]interface{}); ok {
+								return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstanceModel{
+									LicensePoolName: func() types.String {
+										if v, ok := BigiqInstanceData["license_pool_name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									LicenseServerIP: func() types.String {
+										if v, ok := BigiqInstanceData["license_server_ip"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Password: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordModel {
+										if PasswordData, ok := BigiqInstanceData["password"].(map[string]interface{}); ok {
+											return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordModel{
+												BlindfoldSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordClearSecretInfoModel {
+													if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+														return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									SkuName: func() types.String {
+										if v, ok := BigiqInstanceData["sku_name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Username: func() types.String {
+										if v, ok := BigiqInstanceData["username"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Nodes: func() types.List {
+							if rawList, ok := F5BareMetalSiteData["nodes"].([]interface{}); ok && len(rawList) > 0 {
+								var NodesResult []APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModel
+								for _, NodesItem := range rawList {
+									if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
+										NodesResult = append(NodesResult, APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModel{
+											BmNodeMemorySize: func() types.String {
+												if v, ok := NodesItemMap["bm_node_memory_size"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											BmVirtualCPUCount: func() types.String {
+												if v, ok := NodesItemMap["bm_virtual_cpu_count"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											ExternalInterface: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesExternalInterfaceModel {
+												if ExternalInterfaceData, ok := NodesItemMap["external_interface"].(map[string]interface{}); ok {
+													return &APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesExternalInterfaceModel{
+														Interface: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesExternalInterfaceInterfaceModel {
+															if InterfaceData, ok := ExternalInterfaceData["interface"].(map[string]interface{}); ok {
+																return &APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesExternalInterfaceInterfaceModel{
+																	Name: func() types.String {
+																		if v, ok := InterfaceData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := InterfaceData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := InterfaceData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														NetworkGateway: func() types.String {
+															if v, ok := ExternalInterfaceData["network_gateway"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														NetworkSelfIP: func() types.String {
+															if v, ok := ExternalInterfaceData["network_self_ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											InternalInterface: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesInternalInterfaceModel {
+												if InternalInterfaceData, ok := NodesItemMap["internal_interface"].(map[string]interface{}); ok {
+													return &APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesInternalInterfaceModel{
+														Interface: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesInternalInterfaceInterfaceModel {
+															if InterfaceData, ok := InternalInterfaceData["interface"].(map[string]interface{}); ok {
+																return &APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesInternalInterfaceInterfaceModel{
+																	Name: func() types.String {
+																		if v, ok := InterfaceData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := InterfaceData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := InterfaceData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														NetworkGateway: func() types.String {
+															if v, ok := InternalInterfaceData["network_gateway"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														NetworkSelfIP: func() types.String {
+															if v, ok := InternalInterfaceData["network_self_ip"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											NodeName: func() types.String {
+												if v, ok := NodesItemMap["node_name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModelAttrTypes}, NodesResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModelAttrTypes})
+						}(),
+						PublicDownloadURL: func() types.String {
+							if v, ok := F5BareMetalSiteData["public_download_url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						SSHKey: func() types.String {
+							if v, ok := F5BareMetalSiteData["ssh_key"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["https_management"].(map[string]interface{}); ok && (isImport || data.HTTPSManagement != nil) {
 		data.HTTPSManagement = &APMHTTPSManagementModel{
 			AdvertiseOnInternet: func() *APMHTTPSManagementAdvertiseOnInternetModel {
 				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnInternet != nil {
-					// Normal Read: preserve existing state value
 					return data.HTTPSManagement.AdvertiseOnInternet
 				}
-				// Import case: read from API
-				if _, ok := blockData["advertise_on_internet"].(map[string]interface{}); ok {
-					return &APMHTTPSManagementAdvertiseOnInternetModel{}
+				if AdvertiseOnInternetData, ok := blockData["advertise_on_internet"].(map[string]interface{}); ok {
+					return &APMHTTPSManagementAdvertiseOnInternetModel{
+						PublicIP: func() *APMHTTPSManagementAdvertiseOnInternetPublicIPModel {
+							if PublicIPData, ok := AdvertiseOnInternetData["public_ip"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnInternetPublicIPModel{
+									Name: func() types.String {
+										if v, ok := PublicIPData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			AdvertiseOnInternetDefaultVIP: func() *APMEmptyModel {
 				if !isImport && data.HTTPSManagement != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.HTTPSManagement.AdvertiseOnInternetDefaultVIP
 				}
-				// Import case: read from API
 				if _, ok := blockData["advertise_on_internet_default_vip"].(map[string]interface{}); ok {
 					return &APMEmptyModel{}
 				}
@@ -3523,55 +9353,1136 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 			}(),
 			AdvertiseOnSLIVIP: func() *APMHTTPSManagementAdvertiseOnSLIVIPModel {
 				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil {
-					// Normal Read: preserve existing state value
 					return data.HTTPSManagement.AdvertiseOnSLIVIP
 				}
-				// Import case: read from API
-				if _, ok := blockData["advertise_on_sli_vip"].(map[string]interface{}); ok {
-					return &APMHTTPSManagementAdvertiseOnSLIVIPModel{}
+				if AdvertiseOnSLIVIPData, ok := blockData["advertise_on_sli_vip"].(map[string]interface{}); ok {
+					return &APMHTTPSManagementAdvertiseOnSLIVIPModel{
+						NoMtls: func() *APMEmptyModel {
+							if _, ok := AdvertiseOnSLIVIPData["no_mtls"].(map[string]interface{}); ok {
+								return &APMEmptyModel{}
+							}
+							return nil
+						}(),
+						TLSCertificates: func() []APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel {
+							if rawList, ok := AdvertiseOnSLIVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel
+								for _, TLSCertificatesItem := range rawList {
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+											PrivateKey: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return TLSCertificatesResult
+							}
+							return nil
+						}(),
+						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigModel {
+							if TLSConfigData, ok := AdvertiseOnSLIVIPData["tls_config"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigModel{
+									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityModel {
+										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityModel{
+												CipherSuites: func() types.List {
+													if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												MaxVersion: func() types.String {
+													if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												MinVersion: func() types.String {
+													if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									LowSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									MediumSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseMtls: func() *APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsModel {
+							if UseMtlsData, ok := AdvertiseOnSLIVIPData["use_mtls"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsModel{
+									ClientCertificateOptional: func() types.Bool {
+										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									CRL: func() *APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsCRLModel {
+										if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsCRLModel{
+												Name: func() types.String {
+													if v, ok := CRLData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := CRLData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := CRLData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NoCRL: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									TrustedCA: func() *APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsTrustedCAModel {
+										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsTrustedCAModel{
+												Name: func() types.String {
+													if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									XfccDisabled: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsModel {
+										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsModel{
+												XfccHeaderElements: func() types.List {
+													if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			AdvertiseOnSloInternetVIP: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPModel {
 				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil {
-					// Normal Read: preserve existing state value
 					return data.HTTPSManagement.AdvertiseOnSloInternetVIP
 				}
-				// Import case: read from API
-				if _, ok := blockData["advertise_on_slo_internet_vip"].(map[string]interface{}); ok {
-					return &APMHTTPSManagementAdvertiseOnSloInternetVIPModel{}
+				if AdvertiseOnSloInternetVIPData, ok := blockData["advertise_on_slo_internet_vip"].(map[string]interface{}); ok {
+					return &APMHTTPSManagementAdvertiseOnSloInternetVIPModel{
+						NoMtls: func() *APMEmptyModel {
+							if _, ok := AdvertiseOnSloInternetVIPData["no_mtls"].(map[string]interface{}); ok {
+								return &APMEmptyModel{}
+							}
+							return nil
+						}(),
+						TLSCertificates: func() []APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel {
+							if rawList, ok := AdvertiseOnSloInternetVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel
+								for _, TLSCertificatesItem := range rawList {
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+											PrivateKey: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return TLSCertificatesResult
+							}
+							return nil
+						}(),
+						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigModel {
+							if TLSConfigData, ok := AdvertiseOnSloInternetVIPData["tls_config"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigModel{
+									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityModel {
+										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityModel{
+												CipherSuites: func() types.List {
+													if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												MaxVersion: func() types.String {
+													if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												MinVersion: func() types.String {
+													if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									LowSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									MediumSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseMtls: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsModel {
+							if UseMtlsData, ok := AdvertiseOnSloInternetVIPData["use_mtls"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsModel{
+									ClientCertificateOptional: func() types.Bool {
+										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									CRL: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsCRLModel {
+										if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsCRLModel{
+												Name: func() types.String {
+													if v, ok := CRLData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := CRLData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := CRLData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NoCRL: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									TrustedCA: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsTrustedCAModel {
+										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsTrustedCAModel{
+												Name: func() types.String {
+													if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									XfccDisabled: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsModel {
+										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsModel{
+												XfccHeaderElements: func() types.List {
+													if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			AdvertiseOnSloSLI: func() *APMHTTPSManagementAdvertiseOnSloSLIModel {
 				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil {
-					// Normal Read: preserve existing state value
 					return data.HTTPSManagement.AdvertiseOnSloSLI
 				}
-				// Import case: read from API
-				if _, ok := blockData["advertise_on_slo_sli"].(map[string]interface{}); ok {
-					return &APMHTTPSManagementAdvertiseOnSloSLIModel{}
+				if AdvertiseOnSloSLIData, ok := blockData["advertise_on_slo_sli"].(map[string]interface{}); ok {
+					return &APMHTTPSManagementAdvertiseOnSloSLIModel{
+						NoMtls: func() *APMEmptyModel {
+							if _, ok := AdvertiseOnSloSLIData["no_mtls"].(map[string]interface{}); ok {
+								return &APMEmptyModel{}
+							}
+							return nil
+						}(),
+						TLSCertificates: func() []APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel {
+							if rawList, ok := AdvertiseOnSloSLIData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel
+								for _, TLSCertificatesItem := range rawList {
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+											PrivateKey: func() *APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return TLSCertificatesResult
+							}
+							return nil
+						}(),
+						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSloSLITLSConfigModel {
+							if TLSConfigData, ok := AdvertiseOnSloSLIData["tls_config"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSloSLITLSConfigModel{
+									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityModel {
+										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityModel{
+												CipherSuites: func() types.List {
+													if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												MaxVersion: func() types.String {
+													if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												MinVersion: func() types.String {
+													if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									LowSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									MediumSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseMtls: func() *APMHTTPSManagementAdvertiseOnSloSLIUseMtlsModel {
+							if UseMtlsData, ok := AdvertiseOnSloSLIData["use_mtls"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSloSLIUseMtlsModel{
+									ClientCertificateOptional: func() types.Bool {
+										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									CRL: func() *APMHTTPSManagementAdvertiseOnSloSLIUseMtlsCRLModel {
+										if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloSLIUseMtlsCRLModel{
+												Name: func() types.String {
+													if v, ok := CRLData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := CRLData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := CRLData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NoCRL: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									TrustedCA: func() *APMHTTPSManagementAdvertiseOnSloSLIUseMtlsTrustedCAModel {
+										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloSLIUseMtlsTrustedCAModel{
+												Name: func() types.String {
+													if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									XfccDisabled: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsModel {
+										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsModel{
+												XfccHeaderElements: func() types.List {
+													if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			AdvertiseOnSloVIP: func() *APMHTTPSManagementAdvertiseOnSloVIPModel {
 				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil {
-					// Normal Read: preserve existing state value
 					return data.HTTPSManagement.AdvertiseOnSloVIP
 				}
-				// Import case: read from API
-				if _, ok := blockData["advertise_on_slo_vip"].(map[string]interface{}); ok {
-					return &APMHTTPSManagementAdvertiseOnSloVIPModel{}
+				if AdvertiseOnSloVIPData, ok := blockData["advertise_on_slo_vip"].(map[string]interface{}); ok {
+					return &APMHTTPSManagementAdvertiseOnSloVIPModel{
+						NoMtls: func() *APMEmptyModel {
+							if _, ok := AdvertiseOnSloVIPData["no_mtls"].(map[string]interface{}); ok {
+								return &APMEmptyModel{}
+							}
+							return nil
+						}(),
+						TLSCertificates: func() []APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel {
+							if rawList, ok := AdvertiseOnSloVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel
+								for _, TLSCertificatesItem := range rawList {
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+											PrivateKey: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() *APMEmptyModel {
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return &APMEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return TLSCertificatesResult
+							}
+							return nil
+						}(),
+						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSConfigModel {
+							if TLSConfigData, ok := AdvertiseOnSloVIPData["tls_config"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSloVIPTLSConfigModel{
+									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityModel {
+										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityModel{
+												CipherSuites: func() types.List {
+													if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												MaxVersion: func() types.String {
+													if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												MinVersion: func() types.String {
+													if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									DefaultSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									LowSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									MediumSecurity: func() *APMEmptyModel {
+										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseMtls: func() *APMHTTPSManagementAdvertiseOnSloVIPUseMtlsModel {
+							if UseMtlsData, ok := AdvertiseOnSloVIPData["use_mtls"].(map[string]interface{}); ok {
+								return &APMHTTPSManagementAdvertiseOnSloVIPUseMtlsModel{
+									ClientCertificateOptional: func() types.Bool {
+										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									CRL: func() *APMHTTPSManagementAdvertiseOnSloVIPUseMtlsCRLModel {
+										if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloVIPUseMtlsCRLModel{
+												Name: func() types.String {
+													if v, ok := CRLData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := CRLData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := CRLData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									NoCRL: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									TrustedCA: func() *APMHTTPSManagementAdvertiseOnSloVIPUseMtlsTrustedCAModel {
+										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloVIPUseMtlsTrustedCAModel{
+												Name: func() types.String {
+													if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Namespace: func() types.String {
+													if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Tenant: func() types.String {
+													if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									XfccDisabled: func() *APMEmptyModel {
+										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+											return &APMEmptyModel{}
+										}
+										return nil
+									}(),
+									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsModel {
+										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+											return &APMHTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsModel{
+												XfccHeaderElements: func() types.List {
+													if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			DefaultHTTPSPort: func() *APMEmptyModel {
 				if !isImport && data.HTTPSManagement != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.HTTPSManagement.DefaultHTTPSPort
 				}
-				// Import case: read from API
 				if _, ok := blockData["default_https_port"].(map[string]interface{}); ok {
 					return &APMEmptyModel{}
 				}
@@ -3585,16 +10496,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 			}(),
 			HTTPSPort: func() types.Int64 {
 				if !isImport && data.HTTPSManagement != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.HTTPSManagement.HTTPSPort
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["https_port"].(float64); ok {
+				if v, ok := blockData["https_port"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()

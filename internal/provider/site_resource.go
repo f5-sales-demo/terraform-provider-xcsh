@@ -258,15 +258,15 @@ func (r *SiteResource) Create(ctx context.Context, req resource.CreateRequest, r
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.SiteSelector != nil {
-		site_selectorMap := make(map[string]interface{})
+		SiteSelectorMap := make(map[string]interface{})
 		if !data.SiteSelector.Expressions.IsNull() && !data.SiteSelector.Expressions.IsUnknown() {
-			var expressionsItems []string
-			diags := data.SiteSelector.Expressions.ElementsAs(ctx, &expressionsItems, false)
+			var ExpressionsItems []string
+			diags := data.SiteSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 			if !diags.HasError() {
-				site_selectorMap["expressions"] = expressionsItems
+				SiteSelectorMap["expressions"] = ExpressionsItems
 			}
 		}
-		createReq.Spec["site_selector"] = site_selectorMap
+		createReq.Spec["site_selector"] = SiteSelectorMap
 	}
 	if !data.SiteType.IsNull() && !data.SiteType.IsUnknown() {
 		createReq.Spec["site_type"] = data.SiteType.ValueString()
@@ -409,6 +409,14 @@ func (r *SiteResource) Read(ctx context.Context, req resource.ReadRequest, resp 
 		data.SiteType = types.StringNull()
 	}
 
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
+	}
+
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
 
@@ -460,15 +468,15 @@ func (r *SiteResource) Update(ctx context.Context, req resource.UpdateRequest, r
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.SiteSelector != nil {
-		site_selectorMap := make(map[string]interface{})
+		SiteSelectorMap := make(map[string]interface{})
 		if !data.SiteSelector.Expressions.IsNull() && !data.SiteSelector.Expressions.IsUnknown() {
-			var expressionsItems []string
-			diags := data.SiteSelector.Expressions.ElementsAs(ctx, &expressionsItems, false)
+			var ExpressionsItems []string
+			diags := data.SiteSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 			if !diags.HasError() {
-				site_selectorMap["expressions"] = expressionsItems
+				SiteSelectorMap["expressions"] = ExpressionsItems
 			}
 		}
-		apiResource.Spec["site_selector"] = site_selectorMap
+		apiResource.Spec["site_selector"] = SiteSelectorMap
 	}
 	if !data.SiteType.IsNull() && !data.SiteType.IsUnknown() {
 		apiResource.Spec["site_type"] = data.SiteType.ValueString()

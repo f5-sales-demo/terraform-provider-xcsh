@@ -40,6 +40,8 @@ resource "xcsh_nfv_service" "example" {
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
 
+🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
+
 ### Metadata Argument Reference
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Nfv Service. Must be unique within the namespace
@@ -126,7 +128,7 @@ A [`f5_big_ip_aws_service`](#f5-big-ip-aws-service) block supports the following
 
 An [`admin_password`](#f5-big-ip-aws-service-admin-password) block (within [`f5_big_ip_aws_service`](#f5-big-ip-aws-service)) supports the following:
 
-<a id="info-937ada"></a>&#x2022; [`blindfold_secret_info`](#info-937ada) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info](#info-937ada) below.
+<a id="info-937ada"></a>&#x2022; [`blindfold_secret_info`](#info-937ada) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-937ada) below.
 
 <a id="info-a3c75d"></a>&#x2022; [`clear_secret_info`](#info-a3c75d) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-a3c75d) below.
 

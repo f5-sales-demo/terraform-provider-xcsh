@@ -40,6 +40,24 @@ resource "xcsh_enhanced_firewall_policy" "example" {
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
 
+🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
+
+### Minimum Configuration
+
+Required fields:
+
+- `name`
+- `namespace`
+
+**Example (API format):**
+
+```yaml
+metadata:
+  name: my-efp
+  namespace: default
+spec: {}
+```
+
 ### Metadata Argument Reference
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Enhanced Firewall Policy. Must be unique within the namespace
@@ -162,8 +180,8 @@ create<br>See [Metadata](#rule-list-rules-metadata) below.
 
 <a id="rule-list-rules-source-ip-prefix-set"></a>&#x2022; [`source_ip_prefix_set`](#rule-list-rules-source-ip-prefix-set) - Optional Block<br>List of references to ip_prefix_set objects<br>See [Source IP Prefix Set](#rule-list-rules-source-ip-prefix-set) below.
 
-<a id="rule-list-rules-source-label-selector"></a>&#x2022; [`source_label_selector`](#rule-list-rules-source-label-selector) - Optional Block<br>Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches
-all objects<br>See [Source Label Selector](#rule-list-rules-source-label-selector) below.
+<a id="rule-list-rules-source-label-selector"></a>&#x2022; [`source_label_selector`](#rule-list-rules-source-label-selector) - Optional Block<br>Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector
+matches all objects<br>See [Source Label Selector](#rule-list-rules-source-label-selector) below.
 
 <a id="rule-list-rules-source-prefix-list"></a>&#x2022; [`source_prefix_list`](#rule-list-rules-source-prefix-list) - Optional Block<br>List of IPv4 prefixes that represent an endpoint<br>See [Source Prefix List](#rule-list-rules-source-prefix-list) below.
 

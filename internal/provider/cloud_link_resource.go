@@ -332,7 +332,7 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 				MarkdownDescription: "[OneOf: aws, gcp] Amazon Web Services(AWS) CloudLink Provider. CloudLink for AWS Cloud Provider.",
 				Attributes: map[string]schema.Attribute{
 					"custom_asn": schema.Int64Attribute{
-						MarkdownDescription: "Exclusive with [] XCSH will use custom ASN to create a Direct Connect Gateway.",
+						MarkdownDescription: "Exclusive with [] F5XC will use custom ASN to create a Direct Connect Gateway.",
 						Optional:            true,
 					},
 				},
@@ -376,7 +376,7 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"connections": schema.ListNestedBlock{
-								MarkdownDescription: "List of Bring You Own Connections. These AWS Direct Connect connections are not managed by XCSH but will be used for connecting sites and REs.",
+								MarkdownDescription: "List of Bring You Own Connections. These AWS Direct Connect connections are not managed by F5XC but will be used for connecting sites and REs.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"bgp_asn": schema.Int64Attribute{
@@ -419,7 +419,7 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
-													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 													Attributes: map[string]schema.Attribute{
 														"decryption_provider": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -492,7 +492,7 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 											MarkdownDescription: "Enable this option",
 										},
 										"tags": schema.SingleNestedBlock{
-											MarkdownDescription: "AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console. Specified tags will be added to Virtual interface along with any XCSH specific tags.",
+											MarkdownDescription: "AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console. Specified tags will be added to Virtual interface along with any F5XC specific tags.",
 										},
 									},
 								},
@@ -718,60 +718,168 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.AWS != nil {
-		awsMap := make(map[string]interface{})
+		AWSMap := make(map[string]interface{})
 		if data.AWS.AWSCred != nil {
-			aws_credNestedMap := make(map[string]interface{})
+			AWSCredMap := make(map[string]interface{})
 			if !data.AWS.AWSCred.Name.IsNull() && !data.AWS.AWSCred.Name.IsUnknown() {
-				aws_credNestedMap["name"] = data.AWS.AWSCred.Name.ValueString()
+				AWSCredMap["name"] = data.AWS.AWSCred.Name.ValueString()
 			}
 			if !data.AWS.AWSCred.Namespace.IsNull() && !data.AWS.AWSCred.Namespace.IsUnknown() {
-				aws_credNestedMap["namespace"] = data.AWS.AWSCred.Namespace.ValueString()
+				AWSCredMap["namespace"] = data.AWS.AWSCred.Namespace.ValueString()
 			}
 			if !data.AWS.AWSCred.Tenant.IsNull() && !data.AWS.AWSCred.Tenant.IsUnknown() {
-				aws_credNestedMap["tenant"] = data.AWS.AWSCred.Tenant.ValueString()
+				AWSCredMap["tenant"] = data.AWS.AWSCred.Tenant.ValueString()
 			}
-			awsMap["aws_cred"] = aws_credNestedMap
+			AWSMap["aws_cred"] = AWSCredMap
 		}
 		if data.AWS.Byoc != nil {
-			byocNestedMap := make(map[string]interface{})
-			awsMap["byoc"] = byocNestedMap
+			ByocMap := make(map[string]interface{})
+			if len(data.AWS.Byoc.Connections) > 0 {
+				var ConnectionsList []map[string]interface{}
+				for _, ConnectionsItem := range data.AWS.Byoc.Connections {
+					ConnectionsItemMap := make(map[string]interface{})
+					if ConnectionsItem.AuthKey != nil {
+						AuthKeyMap := make(map[string]interface{})
+						if ConnectionsItem.AuthKey.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							AuthKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if ConnectionsItem.AuthKey.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !ConnectionsItem.AuthKey.ClearSecretInfo.Provider.IsNull() && !ConnectionsItem.AuthKey.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = ConnectionsItem.AuthKey.ClearSecretInfo.Provider.ValueString()
+							}
+							if !ConnectionsItem.AuthKey.ClearSecretInfo.URL.IsNull() && !ConnectionsItem.AuthKey.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = ConnectionsItem.AuthKey.ClearSecretInfo.URL.ValueString()
+							}
+							AuthKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						ConnectionsItemMap["auth_key"] = AuthKeyMap
+					}
+					if !ConnectionsItem.BGPAsn.IsNull() && !ConnectionsItem.BGPAsn.IsUnknown() {
+						ConnectionsItemMap["bgp_asn"] = ConnectionsItem.BGPAsn.ValueInt64()
+					}
+					if !ConnectionsItem.ConnectionID.IsNull() && !ConnectionsItem.ConnectionID.IsUnknown() {
+						ConnectionsItemMap["connection_id"] = ConnectionsItem.ConnectionID.ValueString()
+					}
+					if ConnectionsItem.Ipv4 != nil {
+						Ipv4Map := make(map[string]interface{})
+						if !ConnectionsItem.Ipv4.AWSRouterPeerAddress.IsNull() && !ConnectionsItem.Ipv4.AWSRouterPeerAddress.IsUnknown() {
+							Ipv4Map["aws_router_peer_address"] = ConnectionsItem.Ipv4.AWSRouterPeerAddress.ValueString()
+						}
+						if !ConnectionsItem.Ipv4.RouterPeerAddress.IsNull() && !ConnectionsItem.Ipv4.RouterPeerAddress.IsUnknown() {
+							Ipv4Map["router_peer_address"] = ConnectionsItem.Ipv4.RouterPeerAddress.ValueString()
+						}
+						ConnectionsItemMap["ipv4"] = Ipv4Map
+					}
+					if ConnectionsItem.Metadata != nil {
+						MetadataMap := make(map[string]interface{})
+						if !ConnectionsItem.Metadata.DescriptionSpec.IsNull() && !ConnectionsItem.Metadata.DescriptionSpec.IsUnknown() {
+							MetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !ConnectionsItem.Metadata.Name.IsNull() && !ConnectionsItem.Metadata.Name.IsUnknown() {
+							MetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
+						}
+						ConnectionsItemMap["metadata"] = MetadataMap
+					}
+					if !ConnectionsItem.Region.IsNull() && !ConnectionsItem.Region.IsUnknown() {
+						ConnectionsItemMap["region"] = ConnectionsItem.Region.ValueString()
+					}
+					if ConnectionsItem.SystemGeneratedName != nil {
+						ConnectionsItemMap["system_generated_name"] = map[string]interface{}{}
+					}
+					if ConnectionsItem.Tags != nil {
+						ConnectionsItemMap["tags"] = map[string]interface{}{}
+					}
+					if !ConnectionsItem.UserAssignedName.IsNull() && !ConnectionsItem.UserAssignedName.IsUnknown() {
+						ConnectionsItemMap["user_assigned_name"] = ConnectionsItem.UserAssignedName.ValueString()
+					}
+					if !ConnectionsItem.VirtualInterfaceType.IsNull() && !ConnectionsItem.VirtualInterfaceType.IsUnknown() {
+						ConnectionsItemMap["virtual_interface_type"] = ConnectionsItem.VirtualInterfaceType.ValueString()
+					}
+					if !ConnectionsItem.VLAN.IsNull() && !ConnectionsItem.VLAN.IsUnknown() {
+						ConnectionsItemMap["vlan"] = ConnectionsItem.VLAN.ValueInt64()
+					}
+					ConnectionsList = append(ConnectionsList, ConnectionsItemMap)
+				}
+				ByocMap["connections"] = ConnectionsList
+			}
+			AWSMap["byoc"] = ByocMap
 		}
 		if !data.AWS.CustomAsn.IsNull() && !data.AWS.CustomAsn.IsUnknown() {
-			awsMap["custom_asn"] = data.AWS.CustomAsn.ValueInt64()
+			AWSMap["custom_asn"] = data.AWS.CustomAsn.ValueInt64()
 		}
-		createReq.Spec["aws"] = awsMap
+		createReq.Spec["aws"] = AWSMap
 	}
 	if data.Disabled != nil {
-		disabledMap := make(map[string]interface{})
-		createReq.Spec["disabled"] = disabledMap
+		createReq.Spec["disabled"] = map[string]interface{}{}
 	}
 	if data.Enabled != nil {
-		enabledMap := make(map[string]interface{})
+		EnabledMap := make(map[string]interface{})
 		if !data.Enabled.CloudlinkNetworkName.IsNull() && !data.Enabled.CloudlinkNetworkName.IsUnknown() {
-			enabledMap["cloudlink_network_name"] = data.Enabled.CloudlinkNetworkName.ValueString()
+			EnabledMap["cloudlink_network_name"] = data.Enabled.CloudlinkNetworkName.ValueString()
 		}
-		createReq.Spec["enabled"] = enabledMap
+		createReq.Spec["enabled"] = EnabledMap
 	}
 	if data.GCP != nil {
-		gcpMap := make(map[string]interface{})
+		GCPMap := make(map[string]interface{})
 		if data.GCP.Byoc != nil {
-			byocNestedMap := make(map[string]interface{})
-			gcpMap["byoc"] = byocNestedMap
+			ByocMap := make(map[string]interface{})
+			if len(data.GCP.Byoc.Connections) > 0 {
+				var ConnectionsList []map[string]interface{}
+				for _, ConnectionsItem := range data.GCP.Byoc.Connections {
+					ConnectionsItemMap := make(map[string]interface{})
+					if !ConnectionsItem.InterconnectAttachmentName.IsNull() && !ConnectionsItem.InterconnectAttachmentName.IsUnknown() {
+						ConnectionsItemMap["interconnect_attachment_name"] = ConnectionsItem.InterconnectAttachmentName.ValueString()
+					}
+					if ConnectionsItem.Metadata != nil {
+						MetadataMap := make(map[string]interface{})
+						if !ConnectionsItem.Metadata.DescriptionSpec.IsNull() && !ConnectionsItem.Metadata.DescriptionSpec.IsUnknown() {
+							MetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !ConnectionsItem.Metadata.Name.IsNull() && !ConnectionsItem.Metadata.Name.IsUnknown() {
+							MetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
+						}
+						ConnectionsItemMap["metadata"] = MetadataMap
+					}
+					if !ConnectionsItem.Project.IsNull() && !ConnectionsItem.Project.IsUnknown() {
+						ConnectionsItemMap["project"] = ConnectionsItem.Project.ValueString()
+					}
+					if !ConnectionsItem.Region.IsNull() && !ConnectionsItem.Region.IsUnknown() {
+						ConnectionsItemMap["region"] = ConnectionsItem.Region.ValueString()
+					}
+					if ConnectionsItem.SameAsCredential != nil {
+						ConnectionsItemMap["same_as_credential"] = map[string]interface{}{}
+					}
+					ConnectionsList = append(ConnectionsList, ConnectionsItemMap)
+				}
+				ByocMap["connections"] = ConnectionsList
+			}
+			GCPMap["byoc"] = ByocMap
 		}
 		if data.GCP.GCPCred != nil {
-			gcp_credNestedMap := make(map[string]interface{})
+			GCPCredMap := make(map[string]interface{})
 			if !data.GCP.GCPCred.Name.IsNull() && !data.GCP.GCPCred.Name.IsUnknown() {
-				gcp_credNestedMap["name"] = data.GCP.GCPCred.Name.ValueString()
+				GCPCredMap["name"] = data.GCP.GCPCred.Name.ValueString()
 			}
 			if !data.GCP.GCPCred.Namespace.IsNull() && !data.GCP.GCPCred.Namespace.IsUnknown() {
-				gcp_credNestedMap["namespace"] = data.GCP.GCPCred.Namespace.ValueString()
+				GCPCredMap["namespace"] = data.GCP.GCPCred.Namespace.ValueString()
 			}
 			if !data.GCP.GCPCred.Tenant.IsNull() && !data.GCP.GCPCred.Tenant.IsUnknown() {
-				gcp_credNestedMap["tenant"] = data.GCP.GCPCred.Tenant.ValueString()
+				GCPCredMap["tenant"] = data.GCP.GCPCred.Tenant.ValueString()
 			}
-			gcpMap["gcp_cred"] = gcp_credNestedMap
+			GCPMap["gcp_cred"] = GCPCredMap
 		}
-		createReq.Spec["gcp"] = gcpMap
+		createReq.Spec["gcp"] = GCPMap
 	}
 
 	apiResource, err := r.client.CreateCloudLink(ctx, createReq)
@@ -790,26 +898,24 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 		data.AWS = &CloudLinkAWSModel{
 			AWSCred: func() *CloudLinkAWSAWSCredModel {
 				if !isImport && data.AWS != nil && data.AWS.AWSCred != nil {
-					// Normal Read: preserve existing state value
 					return data.AWS.AWSCred
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["aws_cred"].(map[string]interface{}); ok {
+				if AWSCredData, ok := blockData["aws_cred"].(map[string]interface{}); ok {
 					return &CloudLinkAWSAWSCredModel{
 						Name: func() types.String {
-							if v, ok := nestedBlockData["name"].(string); ok && v != "" {
+							if v, ok := AWSCredData["name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						Namespace: func() types.String {
-							if v, ok := nestedBlockData["namespace"].(string); ok && v != "" {
+							if v, ok := AWSCredData["namespace"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						Tenant: func() types.String {
-							if v, ok := nestedBlockData["tenant"].(string); ok && v != "" {
+							if v, ok := AWSCredData["tenant"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -820,27 +926,169 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 			}(),
 			Byoc: func() *CloudLinkAWSByocModel {
 				if !isImport && data.AWS != nil && data.AWS.Byoc != nil {
-					// Normal Read: preserve existing state value
 					return data.AWS.Byoc
 				}
-				// Import case: read from API
-				if _, ok := blockData["byoc"].(map[string]interface{}); ok {
-					return &CloudLinkAWSByocModel{}
+				if ByocData, ok := blockData["byoc"].(map[string]interface{}); ok {
+					return &CloudLinkAWSByocModel{
+						Connections: func() []CloudLinkAWSByocConnectionsModel {
+							if rawList, ok := ByocData["connections"].([]interface{}); ok && len(rawList) > 0 {
+								var ConnectionsResult []CloudLinkAWSByocConnectionsModel
+								for _, ConnectionsItem := range rawList {
+									if ConnectionsItemMap, ok := ConnectionsItem.(map[string]interface{}); ok {
+										ConnectionsResult = append(ConnectionsResult, CloudLinkAWSByocConnectionsModel{
+											AuthKey: func() *CloudLinkAWSByocConnectionsAuthKeyModel {
+												if AuthKeyData, ok := ConnectionsItemMap["auth_key"].(map[string]interface{}); ok {
+													return &CloudLinkAWSByocConnectionsAuthKeyModel{
+														BlindfoldSecretInfo: func() *CloudLinkAWSByocConnectionsAuthKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := AuthKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &CloudLinkAWSByocConnectionsAuthKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *CloudLinkAWSByocConnectionsAuthKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := AuthKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &CloudLinkAWSByocConnectionsAuthKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											BGPAsn: func() types.Int64 {
+												if v, ok := ConnectionsItemMap["bgp_asn"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+											ConnectionID: func() types.String {
+												if v, ok := ConnectionsItemMap["connection_id"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Ipv4: func() *CloudLinkAWSByocConnectionsIpv4Model {
+												if Ipv4Data, ok := ConnectionsItemMap["ipv4"].(map[string]interface{}); ok {
+													return &CloudLinkAWSByocConnectionsIpv4Model{
+														AWSRouterPeerAddress: func() types.String {
+															if v, ok := Ipv4Data["aws_router_peer_address"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														RouterPeerAddress: func() types.String {
+															if v, ok := Ipv4Data["router_peer_address"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Metadata: func() *CloudLinkAWSByocConnectionsMetadataModel {
+												if MetadataData, ok := ConnectionsItemMap["metadata"].(map[string]interface{}); ok {
+													return &CloudLinkAWSByocConnectionsMetadataModel{
+														DescriptionSpec: func() types.String {
+															if v, ok := MetadataData["description"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := MetadataData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Region: func() types.String {
+												if v, ok := ConnectionsItemMap["region"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											SystemGeneratedName: func() *CloudLinkEmptyModel {
+												if _, ok := ConnectionsItemMap["system_generated_name"].(map[string]interface{}); ok {
+													return &CloudLinkEmptyModel{}
+												}
+												return nil
+											}(),
+											Tags: func() *CloudLinkEmptyModel {
+												if _, ok := ConnectionsItemMap["tags"].(map[string]interface{}); ok {
+													return &CloudLinkEmptyModel{}
+												}
+												return nil
+											}(),
+											UserAssignedName: func() types.String {
+												if v, ok := ConnectionsItemMap["user_assigned_name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											VirtualInterfaceType: func() types.String {
+												if v, ok := ConnectionsItemMap["virtual_interface_type"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											VLAN: func() types.Int64 {
+												if v, ok := ConnectionsItemMap["vlan"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+										})
+									}
+								}
+								return ConnectionsResult
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			CustomAsn: func() types.Int64 {
 				if !isImport && data.AWS != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.AWS.CustomAsn
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["custom_asn"].(float64); ok {
+				if v, ok := blockData["custom_asn"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -848,10 +1096,8 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 		}
 	}
 	if _, ok := apiResource.Spec["disabled"].(map[string]interface{}); ok && isImport && data.Disabled == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.Disabled = &CloudLinkEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["enabled"].(map[string]interface{}); ok && (isImport || data.Enabled != nil) {
 		data.Enabled = &CloudLinkEnabledModel{
 			CloudlinkNetworkName: func() types.String {
@@ -862,11 +1108,104 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["gcp"].(map[string]interface{}); ok && isImport && data.GCP == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.GCP = &CloudLinkGCPModel{}
+	if blockData, ok := apiResource.Spec["gcp"].(map[string]interface{}); ok && (isImport || data.GCP != nil) {
+		data.GCP = &CloudLinkGCPModel{
+			Byoc: func() *CloudLinkGCPByocModel {
+				if !isImport && data.GCP != nil && data.GCP.Byoc != nil {
+					return data.GCP.Byoc
+				}
+				if ByocData, ok := blockData["byoc"].(map[string]interface{}); ok {
+					return &CloudLinkGCPByocModel{
+						Connections: func() []CloudLinkGCPByocConnectionsModel {
+							if rawList, ok := ByocData["connections"].([]interface{}); ok && len(rawList) > 0 {
+								var ConnectionsResult []CloudLinkGCPByocConnectionsModel
+								for _, ConnectionsItem := range rawList {
+									if ConnectionsItemMap, ok := ConnectionsItem.(map[string]interface{}); ok {
+										ConnectionsResult = append(ConnectionsResult, CloudLinkGCPByocConnectionsModel{
+											InterconnectAttachmentName: func() types.String {
+												if v, ok := ConnectionsItemMap["interconnect_attachment_name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Metadata: func() *CloudLinkGCPByocConnectionsMetadataModel {
+												if MetadataData, ok := ConnectionsItemMap["metadata"].(map[string]interface{}); ok {
+													return &CloudLinkGCPByocConnectionsMetadataModel{
+														DescriptionSpec: func() types.String {
+															if v, ok := MetadataData["description"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := MetadataData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Project: func() types.String {
+												if v, ok := ConnectionsItemMap["project"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Region: func() types.String {
+												if v, ok := ConnectionsItemMap["region"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											SameAsCredential: func() *CloudLinkEmptyModel {
+												if _, ok := ConnectionsItemMap["same_as_credential"].(map[string]interface{}); ok {
+													return &CloudLinkEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return ConnectionsResult
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			GCPCred: func() *CloudLinkGCPGCPCredModel {
+				if !isImport && data.GCP != nil && data.GCP.GCPCred != nil {
+					return data.GCP.GCPCred
+				}
+				if GCPCredData, ok := blockData["gcp_cred"].(map[string]interface{}); ok {
+					return &CloudLinkGCPGCPCredModel{
+						Name: func() types.String {
+							if v, ok := GCPCredData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := GCPCredData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := GCPCredData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 
 	tflog.Trace(ctx, "created CloudLink resource")
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -951,26 +1290,24 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 		data.AWS = &CloudLinkAWSModel{
 			AWSCred: func() *CloudLinkAWSAWSCredModel {
 				if !isImport && data.AWS != nil && data.AWS.AWSCred != nil {
-					// Normal Read: preserve existing state value
 					return data.AWS.AWSCred
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["aws_cred"].(map[string]interface{}); ok {
+				if AWSCredData, ok := blockData["aws_cred"].(map[string]interface{}); ok {
 					return &CloudLinkAWSAWSCredModel{
 						Name: func() types.String {
-							if v, ok := nestedBlockData["name"].(string); ok && v != "" {
+							if v, ok := AWSCredData["name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						Namespace: func() types.String {
-							if v, ok := nestedBlockData["namespace"].(string); ok && v != "" {
+							if v, ok := AWSCredData["namespace"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						Tenant: func() types.String {
-							if v, ok := nestedBlockData["tenant"].(string); ok && v != "" {
+							if v, ok := AWSCredData["tenant"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -981,27 +1318,169 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 			}(),
 			Byoc: func() *CloudLinkAWSByocModel {
 				if !isImport && data.AWS != nil && data.AWS.Byoc != nil {
-					// Normal Read: preserve existing state value
 					return data.AWS.Byoc
 				}
-				// Import case: read from API
-				if _, ok := blockData["byoc"].(map[string]interface{}); ok {
-					return &CloudLinkAWSByocModel{}
+				if ByocData, ok := blockData["byoc"].(map[string]interface{}); ok {
+					return &CloudLinkAWSByocModel{
+						Connections: func() []CloudLinkAWSByocConnectionsModel {
+							if rawList, ok := ByocData["connections"].([]interface{}); ok && len(rawList) > 0 {
+								var ConnectionsResult []CloudLinkAWSByocConnectionsModel
+								for _, ConnectionsItem := range rawList {
+									if ConnectionsItemMap, ok := ConnectionsItem.(map[string]interface{}); ok {
+										ConnectionsResult = append(ConnectionsResult, CloudLinkAWSByocConnectionsModel{
+											AuthKey: func() *CloudLinkAWSByocConnectionsAuthKeyModel {
+												if AuthKeyData, ok := ConnectionsItemMap["auth_key"].(map[string]interface{}); ok {
+													return &CloudLinkAWSByocConnectionsAuthKeyModel{
+														BlindfoldSecretInfo: func() *CloudLinkAWSByocConnectionsAuthKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := AuthKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &CloudLinkAWSByocConnectionsAuthKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *CloudLinkAWSByocConnectionsAuthKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := AuthKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &CloudLinkAWSByocConnectionsAuthKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											BGPAsn: func() types.Int64 {
+												if v, ok := ConnectionsItemMap["bgp_asn"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+											ConnectionID: func() types.String {
+												if v, ok := ConnectionsItemMap["connection_id"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Ipv4: func() *CloudLinkAWSByocConnectionsIpv4Model {
+												if Ipv4Data, ok := ConnectionsItemMap["ipv4"].(map[string]interface{}); ok {
+													return &CloudLinkAWSByocConnectionsIpv4Model{
+														AWSRouterPeerAddress: func() types.String {
+															if v, ok := Ipv4Data["aws_router_peer_address"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														RouterPeerAddress: func() types.String {
+															if v, ok := Ipv4Data["router_peer_address"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Metadata: func() *CloudLinkAWSByocConnectionsMetadataModel {
+												if MetadataData, ok := ConnectionsItemMap["metadata"].(map[string]interface{}); ok {
+													return &CloudLinkAWSByocConnectionsMetadataModel{
+														DescriptionSpec: func() types.String {
+															if v, ok := MetadataData["description"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := MetadataData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Region: func() types.String {
+												if v, ok := ConnectionsItemMap["region"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											SystemGeneratedName: func() *CloudLinkEmptyModel {
+												if _, ok := ConnectionsItemMap["system_generated_name"].(map[string]interface{}); ok {
+													return &CloudLinkEmptyModel{}
+												}
+												return nil
+											}(),
+											Tags: func() *CloudLinkEmptyModel {
+												if _, ok := ConnectionsItemMap["tags"].(map[string]interface{}); ok {
+													return &CloudLinkEmptyModel{}
+												}
+												return nil
+											}(),
+											UserAssignedName: func() types.String {
+												if v, ok := ConnectionsItemMap["user_assigned_name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											VirtualInterfaceType: func() types.String {
+												if v, ok := ConnectionsItemMap["virtual_interface_type"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											VLAN: func() types.Int64 {
+												if v, ok := ConnectionsItemMap["vlan"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+										})
+									}
+								}
+								return ConnectionsResult
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			CustomAsn: func() types.Int64 {
 				if !isImport && data.AWS != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.AWS.CustomAsn
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["custom_asn"].(float64); ok {
+				if v, ok := blockData["custom_asn"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -1009,10 +1488,8 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 		}
 	}
 	if _, ok := apiResource.Spec["disabled"].(map[string]interface{}); ok && isImport && data.Disabled == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.Disabled = &CloudLinkEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["enabled"].(map[string]interface{}); ok && (isImport || data.Enabled != nil) {
 		data.Enabled = &CloudLinkEnabledModel{
 			CloudlinkNetworkName: func() types.String {
@@ -1023,11 +1500,112 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["gcp"].(map[string]interface{}); ok && isImport && data.GCP == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.GCP = &CloudLinkGCPModel{}
+	if blockData, ok := apiResource.Spec["gcp"].(map[string]interface{}); ok && (isImport || data.GCP != nil) {
+		data.GCP = &CloudLinkGCPModel{
+			Byoc: func() *CloudLinkGCPByocModel {
+				if !isImport && data.GCP != nil && data.GCP.Byoc != nil {
+					return data.GCP.Byoc
+				}
+				if ByocData, ok := blockData["byoc"].(map[string]interface{}); ok {
+					return &CloudLinkGCPByocModel{
+						Connections: func() []CloudLinkGCPByocConnectionsModel {
+							if rawList, ok := ByocData["connections"].([]interface{}); ok && len(rawList) > 0 {
+								var ConnectionsResult []CloudLinkGCPByocConnectionsModel
+								for _, ConnectionsItem := range rawList {
+									if ConnectionsItemMap, ok := ConnectionsItem.(map[string]interface{}); ok {
+										ConnectionsResult = append(ConnectionsResult, CloudLinkGCPByocConnectionsModel{
+											InterconnectAttachmentName: func() types.String {
+												if v, ok := ConnectionsItemMap["interconnect_attachment_name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Metadata: func() *CloudLinkGCPByocConnectionsMetadataModel {
+												if MetadataData, ok := ConnectionsItemMap["metadata"].(map[string]interface{}); ok {
+													return &CloudLinkGCPByocConnectionsMetadataModel{
+														DescriptionSpec: func() types.String {
+															if v, ok := MetadataData["description"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := MetadataData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Project: func() types.String {
+												if v, ok := ConnectionsItemMap["project"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Region: func() types.String {
+												if v, ok := ConnectionsItemMap["region"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											SameAsCredential: func() *CloudLinkEmptyModel {
+												if _, ok := ConnectionsItemMap["same_as_credential"].(map[string]interface{}); ok {
+													return &CloudLinkEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return ConnectionsResult
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			GCPCred: func() *CloudLinkGCPGCPCredModel {
+				if !isImport && data.GCP != nil && data.GCP.GCPCred != nil {
+					return data.GCP.GCPCred
+				}
+				if GCPCredData, ok := blockData["gcp_cred"].(map[string]interface{}); ok {
+					return &CloudLinkGCPGCPCredModel{
+						Name: func() types.String {
+							if v, ok := GCPCredData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := GCPCredData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := GCPCredData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
+	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
@@ -1080,60 +1658,168 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.AWS != nil {
-		awsMap := make(map[string]interface{})
+		AWSMap := make(map[string]interface{})
 		if data.AWS.AWSCred != nil {
-			aws_credNestedMap := make(map[string]interface{})
+			AWSCredMap := make(map[string]interface{})
 			if !data.AWS.AWSCred.Name.IsNull() && !data.AWS.AWSCred.Name.IsUnknown() {
-				aws_credNestedMap["name"] = data.AWS.AWSCred.Name.ValueString()
+				AWSCredMap["name"] = data.AWS.AWSCred.Name.ValueString()
 			}
 			if !data.AWS.AWSCred.Namespace.IsNull() && !data.AWS.AWSCred.Namespace.IsUnknown() {
-				aws_credNestedMap["namespace"] = data.AWS.AWSCred.Namespace.ValueString()
+				AWSCredMap["namespace"] = data.AWS.AWSCred.Namespace.ValueString()
 			}
 			if !data.AWS.AWSCred.Tenant.IsNull() && !data.AWS.AWSCred.Tenant.IsUnknown() {
-				aws_credNestedMap["tenant"] = data.AWS.AWSCred.Tenant.ValueString()
+				AWSCredMap["tenant"] = data.AWS.AWSCred.Tenant.ValueString()
 			}
-			awsMap["aws_cred"] = aws_credNestedMap
+			AWSMap["aws_cred"] = AWSCredMap
 		}
 		if data.AWS.Byoc != nil {
-			byocNestedMap := make(map[string]interface{})
-			awsMap["byoc"] = byocNestedMap
+			ByocMap := make(map[string]interface{})
+			if len(data.AWS.Byoc.Connections) > 0 {
+				var ConnectionsList []map[string]interface{}
+				for _, ConnectionsItem := range data.AWS.Byoc.Connections {
+					ConnectionsItemMap := make(map[string]interface{})
+					if ConnectionsItem.AuthKey != nil {
+						AuthKeyMap := make(map[string]interface{})
+						if ConnectionsItem.AuthKey.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							AuthKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if ConnectionsItem.AuthKey.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !ConnectionsItem.AuthKey.ClearSecretInfo.Provider.IsNull() && !ConnectionsItem.AuthKey.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = ConnectionsItem.AuthKey.ClearSecretInfo.Provider.ValueString()
+							}
+							if !ConnectionsItem.AuthKey.ClearSecretInfo.URL.IsNull() && !ConnectionsItem.AuthKey.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = ConnectionsItem.AuthKey.ClearSecretInfo.URL.ValueString()
+							}
+							AuthKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						ConnectionsItemMap["auth_key"] = AuthKeyMap
+					}
+					if !ConnectionsItem.BGPAsn.IsNull() && !ConnectionsItem.BGPAsn.IsUnknown() {
+						ConnectionsItemMap["bgp_asn"] = ConnectionsItem.BGPAsn.ValueInt64()
+					}
+					if !ConnectionsItem.ConnectionID.IsNull() && !ConnectionsItem.ConnectionID.IsUnknown() {
+						ConnectionsItemMap["connection_id"] = ConnectionsItem.ConnectionID.ValueString()
+					}
+					if ConnectionsItem.Ipv4 != nil {
+						Ipv4Map := make(map[string]interface{})
+						if !ConnectionsItem.Ipv4.AWSRouterPeerAddress.IsNull() && !ConnectionsItem.Ipv4.AWSRouterPeerAddress.IsUnknown() {
+							Ipv4Map["aws_router_peer_address"] = ConnectionsItem.Ipv4.AWSRouterPeerAddress.ValueString()
+						}
+						if !ConnectionsItem.Ipv4.RouterPeerAddress.IsNull() && !ConnectionsItem.Ipv4.RouterPeerAddress.IsUnknown() {
+							Ipv4Map["router_peer_address"] = ConnectionsItem.Ipv4.RouterPeerAddress.ValueString()
+						}
+						ConnectionsItemMap["ipv4"] = Ipv4Map
+					}
+					if ConnectionsItem.Metadata != nil {
+						MetadataMap := make(map[string]interface{})
+						if !ConnectionsItem.Metadata.DescriptionSpec.IsNull() && !ConnectionsItem.Metadata.DescriptionSpec.IsUnknown() {
+							MetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !ConnectionsItem.Metadata.Name.IsNull() && !ConnectionsItem.Metadata.Name.IsUnknown() {
+							MetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
+						}
+						ConnectionsItemMap["metadata"] = MetadataMap
+					}
+					if !ConnectionsItem.Region.IsNull() && !ConnectionsItem.Region.IsUnknown() {
+						ConnectionsItemMap["region"] = ConnectionsItem.Region.ValueString()
+					}
+					if ConnectionsItem.SystemGeneratedName != nil {
+						ConnectionsItemMap["system_generated_name"] = map[string]interface{}{}
+					}
+					if ConnectionsItem.Tags != nil {
+						ConnectionsItemMap["tags"] = map[string]interface{}{}
+					}
+					if !ConnectionsItem.UserAssignedName.IsNull() && !ConnectionsItem.UserAssignedName.IsUnknown() {
+						ConnectionsItemMap["user_assigned_name"] = ConnectionsItem.UserAssignedName.ValueString()
+					}
+					if !ConnectionsItem.VirtualInterfaceType.IsNull() && !ConnectionsItem.VirtualInterfaceType.IsUnknown() {
+						ConnectionsItemMap["virtual_interface_type"] = ConnectionsItem.VirtualInterfaceType.ValueString()
+					}
+					if !ConnectionsItem.VLAN.IsNull() && !ConnectionsItem.VLAN.IsUnknown() {
+						ConnectionsItemMap["vlan"] = ConnectionsItem.VLAN.ValueInt64()
+					}
+					ConnectionsList = append(ConnectionsList, ConnectionsItemMap)
+				}
+				ByocMap["connections"] = ConnectionsList
+			}
+			AWSMap["byoc"] = ByocMap
 		}
 		if !data.AWS.CustomAsn.IsNull() && !data.AWS.CustomAsn.IsUnknown() {
-			awsMap["custom_asn"] = data.AWS.CustomAsn.ValueInt64()
+			AWSMap["custom_asn"] = data.AWS.CustomAsn.ValueInt64()
 		}
-		apiResource.Spec["aws"] = awsMap
+		apiResource.Spec["aws"] = AWSMap
 	}
 	if data.Disabled != nil {
-		disabledMap := make(map[string]interface{})
-		apiResource.Spec["disabled"] = disabledMap
+		apiResource.Spec["disabled"] = map[string]interface{}{}
 	}
 	if data.Enabled != nil {
-		enabledMap := make(map[string]interface{})
+		EnabledMap := make(map[string]interface{})
 		if !data.Enabled.CloudlinkNetworkName.IsNull() && !data.Enabled.CloudlinkNetworkName.IsUnknown() {
-			enabledMap["cloudlink_network_name"] = data.Enabled.CloudlinkNetworkName.ValueString()
+			EnabledMap["cloudlink_network_name"] = data.Enabled.CloudlinkNetworkName.ValueString()
 		}
-		apiResource.Spec["enabled"] = enabledMap
+		apiResource.Spec["enabled"] = EnabledMap
 	}
 	if data.GCP != nil {
-		gcpMap := make(map[string]interface{})
+		GCPMap := make(map[string]interface{})
 		if data.GCP.Byoc != nil {
-			byocNestedMap := make(map[string]interface{})
-			gcpMap["byoc"] = byocNestedMap
+			ByocMap := make(map[string]interface{})
+			if len(data.GCP.Byoc.Connections) > 0 {
+				var ConnectionsList []map[string]interface{}
+				for _, ConnectionsItem := range data.GCP.Byoc.Connections {
+					ConnectionsItemMap := make(map[string]interface{})
+					if !ConnectionsItem.InterconnectAttachmentName.IsNull() && !ConnectionsItem.InterconnectAttachmentName.IsUnknown() {
+						ConnectionsItemMap["interconnect_attachment_name"] = ConnectionsItem.InterconnectAttachmentName.ValueString()
+					}
+					if ConnectionsItem.Metadata != nil {
+						MetadataMap := make(map[string]interface{})
+						if !ConnectionsItem.Metadata.DescriptionSpec.IsNull() && !ConnectionsItem.Metadata.DescriptionSpec.IsUnknown() {
+							MetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !ConnectionsItem.Metadata.Name.IsNull() && !ConnectionsItem.Metadata.Name.IsUnknown() {
+							MetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
+						}
+						ConnectionsItemMap["metadata"] = MetadataMap
+					}
+					if !ConnectionsItem.Project.IsNull() && !ConnectionsItem.Project.IsUnknown() {
+						ConnectionsItemMap["project"] = ConnectionsItem.Project.ValueString()
+					}
+					if !ConnectionsItem.Region.IsNull() && !ConnectionsItem.Region.IsUnknown() {
+						ConnectionsItemMap["region"] = ConnectionsItem.Region.ValueString()
+					}
+					if ConnectionsItem.SameAsCredential != nil {
+						ConnectionsItemMap["same_as_credential"] = map[string]interface{}{}
+					}
+					ConnectionsList = append(ConnectionsList, ConnectionsItemMap)
+				}
+				ByocMap["connections"] = ConnectionsList
+			}
+			GCPMap["byoc"] = ByocMap
 		}
 		if data.GCP.GCPCred != nil {
-			gcp_credNestedMap := make(map[string]interface{})
+			GCPCredMap := make(map[string]interface{})
 			if !data.GCP.GCPCred.Name.IsNull() && !data.GCP.GCPCred.Name.IsUnknown() {
-				gcp_credNestedMap["name"] = data.GCP.GCPCred.Name.ValueString()
+				GCPCredMap["name"] = data.GCP.GCPCred.Name.ValueString()
 			}
 			if !data.GCP.GCPCred.Namespace.IsNull() && !data.GCP.GCPCred.Namespace.IsUnknown() {
-				gcp_credNestedMap["namespace"] = data.GCP.GCPCred.Namespace.ValueString()
+				GCPCredMap["namespace"] = data.GCP.GCPCred.Namespace.ValueString()
 			}
 			if !data.GCP.GCPCred.Tenant.IsNull() && !data.GCP.GCPCred.Tenant.IsUnknown() {
-				gcp_credNestedMap["tenant"] = data.GCP.GCPCred.Tenant.ValueString()
+				GCPCredMap["tenant"] = data.GCP.GCPCred.Tenant.ValueString()
 			}
-			gcpMap["gcp_cred"] = gcp_credNestedMap
+			GCPMap["gcp_cred"] = GCPCredMap
 		}
-		apiResource.Spec["gcp"] = gcpMap
+		apiResource.Spec["gcp"] = GCPMap
 	}
 
 	_, err := r.client.UpdateCloudLink(ctx, apiResource)
@@ -1163,26 +1849,24 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 		data.AWS = &CloudLinkAWSModel{
 			AWSCred: func() *CloudLinkAWSAWSCredModel {
 				if !isImport && data.AWS != nil && data.AWS.AWSCred != nil {
-					// Normal Read: preserve existing state value
 					return data.AWS.AWSCred
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["aws_cred"].(map[string]interface{}); ok {
+				if AWSCredData, ok := blockData["aws_cred"].(map[string]interface{}); ok {
 					return &CloudLinkAWSAWSCredModel{
 						Name: func() types.String {
-							if v, ok := nestedBlockData["name"].(string); ok && v != "" {
+							if v, ok := AWSCredData["name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						Namespace: func() types.String {
-							if v, ok := nestedBlockData["namespace"].(string); ok && v != "" {
+							if v, ok := AWSCredData["namespace"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						Tenant: func() types.String {
-							if v, ok := nestedBlockData["tenant"].(string); ok && v != "" {
+							if v, ok := AWSCredData["tenant"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -1193,27 +1877,169 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 			}(),
 			Byoc: func() *CloudLinkAWSByocModel {
 				if !isImport && data.AWS != nil && data.AWS.Byoc != nil {
-					// Normal Read: preserve existing state value
 					return data.AWS.Byoc
 				}
-				// Import case: read from API
-				if _, ok := blockData["byoc"].(map[string]interface{}); ok {
-					return &CloudLinkAWSByocModel{}
+				if ByocData, ok := blockData["byoc"].(map[string]interface{}); ok {
+					return &CloudLinkAWSByocModel{
+						Connections: func() []CloudLinkAWSByocConnectionsModel {
+							if rawList, ok := ByocData["connections"].([]interface{}); ok && len(rawList) > 0 {
+								var ConnectionsResult []CloudLinkAWSByocConnectionsModel
+								for _, ConnectionsItem := range rawList {
+									if ConnectionsItemMap, ok := ConnectionsItem.(map[string]interface{}); ok {
+										ConnectionsResult = append(ConnectionsResult, CloudLinkAWSByocConnectionsModel{
+											AuthKey: func() *CloudLinkAWSByocConnectionsAuthKeyModel {
+												if AuthKeyData, ok := ConnectionsItemMap["auth_key"].(map[string]interface{}); ok {
+													return &CloudLinkAWSByocConnectionsAuthKeyModel{
+														BlindfoldSecretInfo: func() *CloudLinkAWSByocConnectionsAuthKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := AuthKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &CloudLinkAWSByocConnectionsAuthKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *CloudLinkAWSByocConnectionsAuthKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := AuthKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &CloudLinkAWSByocConnectionsAuthKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											BGPAsn: func() types.Int64 {
+												if v, ok := ConnectionsItemMap["bgp_asn"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+											ConnectionID: func() types.String {
+												if v, ok := ConnectionsItemMap["connection_id"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Ipv4: func() *CloudLinkAWSByocConnectionsIpv4Model {
+												if Ipv4Data, ok := ConnectionsItemMap["ipv4"].(map[string]interface{}); ok {
+													return &CloudLinkAWSByocConnectionsIpv4Model{
+														AWSRouterPeerAddress: func() types.String {
+															if v, ok := Ipv4Data["aws_router_peer_address"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														RouterPeerAddress: func() types.String {
+															if v, ok := Ipv4Data["router_peer_address"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Metadata: func() *CloudLinkAWSByocConnectionsMetadataModel {
+												if MetadataData, ok := ConnectionsItemMap["metadata"].(map[string]interface{}); ok {
+													return &CloudLinkAWSByocConnectionsMetadataModel{
+														DescriptionSpec: func() types.String {
+															if v, ok := MetadataData["description"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := MetadataData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Region: func() types.String {
+												if v, ok := ConnectionsItemMap["region"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											SystemGeneratedName: func() *CloudLinkEmptyModel {
+												if _, ok := ConnectionsItemMap["system_generated_name"].(map[string]interface{}); ok {
+													return &CloudLinkEmptyModel{}
+												}
+												return nil
+											}(),
+											Tags: func() *CloudLinkEmptyModel {
+												if _, ok := ConnectionsItemMap["tags"].(map[string]interface{}); ok {
+													return &CloudLinkEmptyModel{}
+												}
+												return nil
+											}(),
+											UserAssignedName: func() types.String {
+												if v, ok := ConnectionsItemMap["user_assigned_name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											VirtualInterfaceType: func() types.String {
+												if v, ok := ConnectionsItemMap["virtual_interface_type"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											VLAN: func() types.Int64 {
+												if v, ok := ConnectionsItemMap["vlan"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+										})
+									}
+								}
+								return ConnectionsResult
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			CustomAsn: func() types.Int64 {
 				if !isImport && data.AWS != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.AWS.CustomAsn
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["custom_asn"].(float64); ok {
+				if v, ok := blockData["custom_asn"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -1221,10 +2047,8 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 		}
 	}
 	if _, ok := apiResource.Spec["disabled"].(map[string]interface{}); ok && isImport && data.Disabled == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.Disabled = &CloudLinkEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["enabled"].(map[string]interface{}); ok && (isImport || data.Enabled != nil) {
 		data.Enabled = &CloudLinkEnabledModel{
 			CloudlinkNetworkName: func() types.String {
@@ -1235,11 +2059,104 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["gcp"].(map[string]interface{}); ok && isImport && data.GCP == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.GCP = &CloudLinkGCPModel{}
+	if blockData, ok := apiResource.Spec["gcp"].(map[string]interface{}); ok && (isImport || data.GCP != nil) {
+		data.GCP = &CloudLinkGCPModel{
+			Byoc: func() *CloudLinkGCPByocModel {
+				if !isImport && data.GCP != nil && data.GCP.Byoc != nil {
+					return data.GCP.Byoc
+				}
+				if ByocData, ok := blockData["byoc"].(map[string]interface{}); ok {
+					return &CloudLinkGCPByocModel{
+						Connections: func() []CloudLinkGCPByocConnectionsModel {
+							if rawList, ok := ByocData["connections"].([]interface{}); ok && len(rawList) > 0 {
+								var ConnectionsResult []CloudLinkGCPByocConnectionsModel
+								for _, ConnectionsItem := range rawList {
+									if ConnectionsItemMap, ok := ConnectionsItem.(map[string]interface{}); ok {
+										ConnectionsResult = append(ConnectionsResult, CloudLinkGCPByocConnectionsModel{
+											InterconnectAttachmentName: func() types.String {
+												if v, ok := ConnectionsItemMap["interconnect_attachment_name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Metadata: func() *CloudLinkGCPByocConnectionsMetadataModel {
+												if MetadataData, ok := ConnectionsItemMap["metadata"].(map[string]interface{}); ok {
+													return &CloudLinkGCPByocConnectionsMetadataModel{
+														DescriptionSpec: func() types.String {
+															if v, ok := MetadataData["description"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := MetadataData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Project: func() types.String {
+												if v, ok := ConnectionsItemMap["project"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Region: func() types.String {
+												if v, ok := ConnectionsItemMap["region"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											SameAsCredential: func() *CloudLinkEmptyModel {
+												if _, ok := ConnectionsItemMap["same_as_credential"].(map[string]interface{}); ok {
+													return &CloudLinkEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return ConnectionsResult
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			GCPCred: func() *CloudLinkGCPGCPCredModel {
+				if !isImport && data.GCP != nil && data.GCP.GCPCred != nil {
+					return data.GCP.GCPCred
+				}
+				if GCPCredData, ok := blockData["gcp_cred"].(map[string]interface{}); ok {
+					return &CloudLinkGCPGCPCredModel{
+						Name: func() types.String {
+							if v, ok := GCPCredData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := GCPCredData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := GCPCredData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }

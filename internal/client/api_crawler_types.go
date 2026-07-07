@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// APICrawler represents a XCSH APICrawler
+// APICrawler represents a F5XC APICrawler
 type APICrawler struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

@@ -9,7 +9,7 @@ description: |-
 
 Manages an HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with advanced routing and security.
 
-~> **Note** For more information about this resource, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
+~> **Note** Please refer to [HTTP Loadbalancer API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/virtual/) to learn more.
 
 ## Example Usage
 
@@ -466,6 +466,41 @@ resource "xcsh_http_loadbalancer" "test" {
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
 
+🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
+
+~> **Dependencies** — This resource requires: `origin_pool`.
+
+### Minimum Configuration
+
+Required fields:
+
+- `name`
+- `namespace`
+- `domains`
+
+**Example (API format):**
+
+```yaml
+apiVersion: v1
+kind: http_loadbalancer
+metadata:
+  name: example-app
+  namespace: default
+spec:
+  domains:
+    - example.com
+  https_auto_cert:
+    port: 443
+    tls_config:
+      default_security: {}
+  advertise_on_public_default_vip: {}
+  routes:
+    - prefix: "/"
+      origin_pool:
+        pool_name: backend-pool
+
+```
+
 ### Metadata Argument Reference
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the HTTP Load Balancer. Must be unique within the namespace
@@ -558,14 +593,14 @@ resource "xcsh_http_loadbalancer" "test" {
 
 <a id="disable-api-testing"></a>&#x2022; [`disable_api_testing`](#disable-api-testing) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
-<a id="disable-bot-defense"></a>&#x2022; [`disable_bot_defense`](#disable-bot-defense) - Optional Block<br>Configuration parameter for disable bot defense
+<a id="disable-bot-defense"></a>&#x2022; [`disable_bot_defense`](#disable-bot-defense) - Optional Block  Defaults to `map[]`<br>Configuration parameter for disable bot defense.  Server applies default when omitted
 
 <a id="disable-caching"></a>&#x2022; [`disable_caching`](#disable-caching) - Optional Block<br>Configuration parameter for disable caching
 
 <a id="disable-client-side-defense"></a>&#x2022; [`disable_client_side_defense`](#disable-client-side-defense) - Optional Block<br>Enable this option
 
 -> **One of the following:**
-&#x2022; <a id="disable-ip-reputation"></a>[`disable_ip_reputation`](#disable-ip-reputation) - Optional Block<br>Enable this option
+&#x2022; <a id="disable-ip-reputation"></a>[`disable_ip_reputation`](#disable-ip-reputation) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 -> **One of the following:**
 &#x2022; <a id="disable-malicious-user-detection"></a>[`disable_malicious_user_detection`](#disable-malicious-user-detection) - Optional Block  Defaults to `map[]`<br>Configuration parameter for disable malicious user detection.  Server applies default when omitted
@@ -1069,7 +1104,8 @@ An [`api_rate_limit`](#api-rate-limit) block supports the following:
 
 <a id="api-rate-limit-no-ip-allowed-list"></a>&#x2022; [`no_ip_allowed_list`](#api-rate-limit-no-ip-allowed-list) - Optional Block<br>Enable this option
 
-<a id="api-rate-limit-server-url-rules"></a>&#x2022; [`server_url_rules`](#api-rate-limit-server-url-rules) - Optional Block<br>Set of rules for entire domain or base path that contain multiple endpoints. Order is matter as it uses first match policy. For matching also specific endpoints you can use the API endpoint rules set below<br>See [Server URL Rules](#api-rate-limit-server-url-rules) below.
+<a id="api-rate-limit-server-url-rules"></a>&#x2022; [`server_url_rules`](#api-rate-limit-server-url-rules) - Optional Block<br>Set of rules for entire domain or base path that contain multiple endpoints. Order is matter as it uses first match policy. For matching also specific endpoints you can use the API endpoint rules set below<br>See [Server URL Rules](#api-rate-limit-server-url-rules)
+below.
 
 #### API Rate Limit API Endpoint Rules
 
@@ -1613,7 +1649,7 @@ An [`api_key`](#api-testing-domains-credentials-api-key) block (within [`api_tes
 
 A [`value`](#value-f4a033) block (within [`api_testing.domains.credentials.api_key`](#api-testing-domains-credentials-api-key)) supports the following:
 
-<a id="info-b2f866"></a>&#x2022; [`blindfold_secret_info`](#info-b2f866) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info](#info-b2f866) below.
+<a id="info-b2f866"></a>&#x2022; [`blindfold_secret_info`](#info-b2f866) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-b2f866) below.
 
 <a id="info-d18192"></a>&#x2022; [`clear_secret_info`](#info-d18192) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-d18192) below.
 
@@ -1637,7 +1673,7 @@ A [`basic_auth`](#auth-4868f3) block (within [`api_testing.domains.credentials`]
 
 A [`password`](#password-e6a065) block (within [`api_testing.domains.credentials.basic_auth`](#auth-4868f3)) supports the following:
 
-<a id="info-0decf2"></a>&#x2022; [`blindfold_secret_info`](#info-0decf2) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info](#info-0decf2) below.
+<a id="info-0decf2"></a>&#x2022; [`blindfold_secret_info`](#info-0decf2) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-0decf2) below.
 
 <a id="info-71b4da"></a>&#x2022; [`clear_secret_info`](#info-71b4da) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-71b4da) below.
 
@@ -1659,7 +1695,7 @@ A [`bearer_token`](#token-2a2002) block (within [`api_testing.domains.credential
 
 A [`token`](#token-7fcc22) block (within [`api_testing.domains.credentials.bearer_token`](#token-2a2002)) supports the following:
 
-<a id="info-ce1236"></a>&#x2022; [`blindfold_secret_info`](#info-ce1236) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info](#info-ce1236) below.
+<a id="info-ce1236"></a>&#x2022; [`blindfold_secret_info`](#info-ce1236) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-ce1236) below.
 
 <a id="info-5e8cda"></a>&#x2022; [`clear_secret_info`](#info-5e8cda) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-5e8cda) below.
 
@@ -2519,23 +2555,23 @@ endpoint in an upstream cluster is required, the load balancer uses loadbalancer
 
 An [`advanced_options`](#default-pool-advanced-options) block (within [`default_pool`](#default-pool)) supports the following:
 
-<a id="config-48f56b"></a>&#x2022; [`auto_http_config`](#config-48f56b) - Optional Block<br>Enable this option
+<a id="config-48f56b"></a>&#x2022; [`auto_http_config`](#config-48f56b) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 <a id="breaker-8f5df4"></a>&#x2022; [`circuit_breaker`](#breaker-8f5df4) - Optional Block<br>CircuitBreaker provides a mechanism for watching failures in upstream connections or requests and if the failures reach a certain threshold, automatically fail subsequent requests which allows to apply back pressure on downstream quickly<br>See [Circuit Breaker](#breaker-8f5df4) below.
 
-<a id="timeout-8cd873"></a>&#x2022; [`connection_timeout`](#timeout-8cd873) - Optional Number  Defaults to `2`  Specified in milliseconds<br>The timeout for new network connections to endpoints in the cluster.  The seconds
+<a id="timeout-8cd873"></a>&#x2022; [`connection_timeout`](#timeout-8cd873) - Optional Number  Specified in milliseconds<br>The timeout for new network connections to endpoints in the cluster.  The default value is 2 seconds.  Recommended: `2000` ⚙️ **Server Default**
 
-<a id="breaker-db5d25"></a>&#x2022; [`default_circuit_breaker`](#breaker-db5d25) - Optional Block<br>Configuration parameter for default circuit breaker
+<a id="breaker-db5d25"></a>&#x2022; [`default_circuit_breaker`](#breaker-db5d25) - Optional Block  Defaults to `map[]`<br>Configuration parameter for default circuit breaker.  Server applies default when omitted
 
 <a id="breaker-03c951"></a>&#x2022; [`disable_circuit_breaker`](#breaker-03c951) - Optional Block<br>Configuration parameter for disable circuit breaker
 
 <a id="persistance-83b4c4"></a>&#x2022; [`disable_lb_source_ip_persistance`](#persistance-83b4c4) - Optional Block<br>Enable this option
 
-<a id="detection-46546c"></a>&#x2022; [`disable_outlier_detection`](#detection-46546c) - Optional Block<br>Configuration parameter for disable outlier detection
+<a id="detection-46546c"></a>&#x2022; [`disable_outlier_detection`](#detection-46546c) - Optional Block  Defaults to `map[]`<br>Configuration parameter for disable outlier detection.  Server applies default when omitted
 
 <a id="protocol-d614b9"></a>&#x2022; [`disable_proxy_protocol`](#protocol-d614b9) - Optional Block<br>Configuration parameter for disable proxy protocol
 
-<a id="subsets-b0bd38"></a>&#x2022; [`disable_subsets`](#subsets-b0bd38) - Optional Block<br>Configuration parameter for disable subsets
+<a id="subsets-b0bd38"></a>&#x2022; [`disable_subsets`](#subsets-b0bd38) - Optional Block  Defaults to `map[]`<br>Configuration parameter for disable subsets.  Server applies default when omitted
 
 <a id="persistance-d799ee"></a>&#x2022; [`enable_lb_source_ip_persistance`](#persistance-d799ee) - Optional Block<br>Enable this option
 
@@ -2545,15 +2581,15 @@ An [`advanced_options`](#default-pool-advanced-options) block (within [`default_
 
 <a id="options-fc9fd8"></a>&#x2022; [`http2_options`](#options-fc9fd8) - Optional Block<br>Http2 Protocol OPTIONS for upstream connections<br>See [Http2 Options](#options-fc9fd8) below.
 
-<a id="timeout-3807d9"></a>&#x2022; [`http_idle_timeout`](#timeout-3807d9) - Optional Number<br>The idle timeout for upstream connection pool connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed
+<a id="timeout-3807d9"></a>&#x2022; [`http_idle_timeout`](#timeout-3807d9) - Optional Number<br>The idle timeout for upstream connection pool connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed.  Recommended: `300000` ⚙️ **Server Default**
 
 <a id="connection-965447"></a>&#x2022; [`max_requests_per_connection`](#connection-965447) - Optional Number<br>Sets the maximum number of requests allowed per connection to the origin server. Enter a value >=1 to define the request limit per connection
 
-<a id="threshold-4ef07a"></a>&#x2022; [`no_panic_threshold`](#threshold-4ef07a) - Optional Block<br>Configuration parameter for no panic threshold
+<a id="threshold-4ef07a"></a>&#x2022; [`no_panic_threshold`](#threshold-4ef07a) - Optional Block  Defaults to `map[]`<br>Configuration parameter for no panic threshold.  Server applies default when omitted
 
-<a id="connection-081822"></a>&#x2022; [`no_request_limit_per_connection`](#connection-081822) - Optional Block<br>Configuration parameter for no request limit per connection
+<a id="connection-081822"></a>&#x2022; [`no_request_limit_per_connection`](#connection-081822) - Optional Block  Defaults to `map[]`<br>Configuration parameter for no request limit per connection.  Server applies default when omitted
 
-<a id="detection-c89e70"></a>&#x2022; [`outlier_detection`](#detection-c89e70) - Optional Block<br>Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checkinggggggg. Algorithm 1<br>See [Outlier
+<a id="detection-c89e70"></a>&#x2022; [`outlier_detection`](#detection-c89e70) - Optional Block<br>Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checkingg. Algorithm 1<br>See [Outlier
 Detection](#detection-c89e70) below.
 
 <a id="threshold-61a03f"></a>&#x2022; [`panic_threshold`](#threshold-61a03f) - Optional Number<br>Configure a threshold (percentage of unhealthy endpoints) below which all endpoints will be considered for load balancing ignoring its health status
@@ -2894,7 +2930,7 @@ An [`upstream_conn_pool_reuse_type`](#type-2756f7) block (within [`default_pool`
 
 An [`use_tls`](#default-pool-use-tls) block (within [`default_pool`](#default-pool)) supports the following:
 
-<a id="caching-6d4585"></a>&#x2022; [`default_session_key_caching`](#caching-6d4585) - Optional Block<br>Configuration parameter for default session key caching
+<a id="caching-6d4585"></a>&#x2022; [`default_session_key_caching`](#caching-6d4585) - Optional Block  Defaults to `map[]`<br>Configuration parameter for default session key caching.  Server applies default when omitted
 
 <a id="caching-e75c13"></a>&#x2022; [`disable_session_key_caching`](#caching-e75c13) - Optional Block<br>Configuration parameter for disable session key caching
 
@@ -2902,7 +2938,7 @@ An [`use_tls`](#default-pool-use-tls) block (within [`default_pool`](#default-po
 
 <a id="default-pool-use-tls-max-session-keys"></a>&#x2022; [`max_session_keys`](#default-pool-use-tls-max-session-keys) - Optional Number<br>Number of session keys that are cached
 
-<a id="default-pool-use-tls-no-mtls"></a>&#x2022; [`no_mtls`](#default-pool-use-tls-no-mtls) - Optional Block<br>Enable this option
+<a id="default-pool-use-tls-no-mtls"></a>&#x2022; [`no_mtls`](#default-pool-use-tls-no-mtls) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 <a id="verification-a40775"></a>&#x2022; [`skip_server_verification`](#verification-a40775) - Optional Block<br>Enable this option
 
@@ -2910,7 +2946,7 @@ An [`use_tls`](#default-pool-use-tls) block (within [`default_pool`](#default-po
 
 <a id="default-pool-use-tls-tls-config"></a>&#x2022; [`tls_config`](#default-pool-use-tls-tls-config) - Optional Block<br>Defines various OPTIONS to configure TLS configuration parameters<br>See [TLS Config](#default-pool-use-tls-tls-config) below.
 
-<a id="sni-a63eaf"></a>&#x2022; [`use_host_header_as_sni`](#sni-a63eaf) - Optional Block<br>Enable this option
+<a id="sni-a63eaf"></a>&#x2022; [`use_host_header_as_sni`](#sni-a63eaf) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 <a id="default-pool-use-tls-use-mtls"></a>&#x2022; [`use_mtls`](#default-pool-use-tls-use-mtls) - Optional Block<br>mTLS Certificate. mTLS Client Certificate<br>See [Use mTLS](#default-pool-use-tls-use-mtls) below.
 
@@ -2918,7 +2954,7 @@ An [`use_tls`](#default-pool-use-tls) block (within [`default_pool`](#default-po
 
 <a id="verification-388853"></a>&#x2022; [`use_server_verification`](#verification-388853) - Optional Block<br>Configuration parameter for use server verification<br>See [Use Server Verification](#verification-388853) below.
 
-<a id="trusted-ca-e7a557"></a>&#x2022; [`volterra_trusted_ca`](#trusted-ca-e7a557) - Optional Block<br>Configuration parameter for volterra trusted CA
+<a id="trusted-ca-e7a557"></a>&#x2022; [`volterra_trusted_ca`](#trusted-ca-e7a557) - Optional Block  Defaults to `map[]`<br>Configuration parameter for volterra trusted CA.  Server applies default when omitted
 
 #### Default Pool Use TLS TLS Config
 
@@ -3443,7 +3479,7 @@ A [`tls_certificates`](#https-tls-parameters-tls-certificates) block (within [`h
 
 A [`private_key`](#key-372460) block (within [`https.tls_parameters.tls_certificates`](#https-tls-parameters-tls-certificates)) supports the following:
 
-<a id="info-0c9fbe"></a>&#x2022; [`blindfold_secret_info`](#info-0c9fbe) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info](#info-0c9fbe) below.
+<a id="info-0c9fbe"></a>&#x2022; [`blindfold_secret_info`](#info-0c9fbe) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-0c9fbe) below.
 
 <a id="info-556650"></a>&#x2022; [`clear_secret_info`](#info-556650) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-556650) below.
 
@@ -3525,13 +3561,13 @@ A [`xfcc_options`](#options-4d1e53) block (within [`https.tls_parameters.use_mtl
 
 A [`https_auto_cert`](#https-auto-cert) block supports the following:
 
-<a id="https-auto-cert-add-hsts"></a>&#x2022; [`add_hsts`](#https-auto-cert-add-hsts) - Optional Bool<br>Add HTTP Strict-Transport-Security response header
+<a id="https-auto-cert-add-hsts"></a>&#x2022; [`add_hsts`](#https-auto-cert-add-hsts) - Optional Bool  Defaults to `false`<br>Add HTTP Strict-Transport-Security response header.  Server applies default when omitted
 
 <a id="https-auto-cert-append-server-name"></a>&#x2022; [`append_server_name`](#https-auto-cert-append-server-name) - Optional String<br>Define the header value for the header name “server”. If header value is already present, it is not overwritten and passed as-is
 
 <a id="https-auto-cert-coalescing-options"></a>&#x2022; [`coalescing_options`](#https-auto-cert-coalescing-options) - Optional Block<br>TLS connection coalescing configuration (not compatible with mTLS)<br>See [Coalescing Options](#https-auto-cert-coalescing-options) below.
 
-<a id="https-auto-cert-connection-idle-timeout"></a>&#x2022; [`connection_idle_timeout`](#https-auto-cert-connection-idle-timeout) - Optional Number<br>The idle timeout for downstream connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed
+<a id="https-auto-cert-connection-idle-timeout"></a>&#x2022; [`connection_idle_timeout`](#https-auto-cert-connection-idle-timeout) - Optional Number<br>The idle timeout for downstream connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed. Server applies default when omitted
 
 <a id="https-auto-cert-default-header"></a>&#x2022; [`default_header`](#https-auto-cert-default-header) - Optional Block<br>Configuration parameter for default header
 
@@ -3539,13 +3575,13 @@ A [`https_auto_cert`](#https-auto-cert) block supports the following:
 
 <a id="https-auto-cert-disable-path-normalize"></a>&#x2022; [`disable_path_normalize`](#https-auto-cert-disable-path-normalize) - Optional Block<br>Enable this option
 
-<a id="https-auto-cert-enable-path-normalize"></a>&#x2022; [`enable_path_normalize`](#https-auto-cert-enable-path-normalize) - Optional Block<br>Enable this option
+<a id="https-auto-cert-enable-path-normalize"></a>&#x2022; [`enable_path_normalize`](#https-auto-cert-enable-path-normalize) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 <a id="https-auto-cert-http-protocol-options"></a>&#x2022; [`http_protocol_options`](#https-auto-cert-http-protocol-options) - Optional Block<br>HTTP protocol configuration OPTIONS for downstream connections<br>See [HTTP Protocol Options](#https-auto-cert-http-protocol-options) below.
 
-<a id="https-auto-cert-http-redirect"></a>&#x2022; [`http_redirect`](#https-auto-cert-http-redirect) - Optional Bool<br>HTTP Redirect to HTTPS. Redirect HTTP traffic to HTTPS
+<a id="https-auto-cert-http-redirect"></a>&#x2022; [`http_redirect`](#https-auto-cert-http-redirect) - Optional Bool  Defaults to `false`<br>HTTP Redirect to HTTPS. Redirect HTTP traffic to HTTPS.  Server applies default when omitted
 
-<a id="https-auto-cert-no-mtls"></a>&#x2022; [`no_mtls`](#https-auto-cert-no-mtls) - Optional Block<br>Enable this option
+<a id="https-auto-cert-no-mtls"></a>&#x2022; [`no_mtls`](#https-auto-cert-no-mtls) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 <a id="loadbalancer-eb605c"></a>&#x2022; [`non_default_loadbalancer`](#loadbalancer-eb605c) - Optional Block<br>Configuration parameter for non default loadbalancer
 
@@ -3923,7 +3959,7 @@ Params](#more-option-compression-params) below.
 <a id="more-option-custom-errors"></a>&#x2022; [`custom_errors`](#more-option-custom-errors) - Optional Block<br>Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for
 4xx
 
-<a id="more-option-disable-default-error-pages"></a>&#x2022; [`disable_default_error_pages`](#more-option-disable-default-error-pages) - Optional Bool<br>Disable the use of default XCSH error pages
+<a id="more-option-disable-default-error-pages"></a>&#x2022; [`disable_default_error_pages`](#more-option-disable-default-error-pages) - Optional Bool<br>Disable the use of default F5XC error pages
 
 <a id="more-option-disable-path-normalize"></a>&#x2022; [`disable_path_normalize`](#more-option-disable-path-normalize) - Optional Block<br>Enable this option
 
@@ -4411,9 +4447,9 @@ A [`rate_limit`](#rate-limit) block supports the following:
 
 <a id="rate-limit-ip-allowed-list"></a>&#x2022; [`ip_allowed_list`](#rate-limit-ip-allowed-list) - Optional Block<br>List of IPv4 prefixes that represent an endpoint<br>See [IP Allowed List](#rate-limit-ip-allowed-list) below.
 
-<a id="rate-limit-no-ip-allowed-list"></a>&#x2022; [`no_ip_allowed_list`](#rate-limit-no-ip-allowed-list) - Optional Block<br>Enable this option
+<a id="rate-limit-no-ip-allowed-list"></a>&#x2022; [`no_ip_allowed_list`](#rate-limit-no-ip-allowed-list) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
-<a id="rate-limit-no-policies"></a>&#x2022; [`no_policies`](#rate-limit-no-policies) - Optional Block<br>Configuration parameter for no policies
+<a id="rate-limit-no-policies"></a>&#x2022; [`no_policies`](#rate-limit-no-policies) - Optional Block  Defaults to `map[]`<br>Configuration parameter for no policies.  Server applies default when omitted
 
 <a id="rate-limit-policies"></a>&#x2022; [`policies`](#rate-limit-policies) - Optional Block<br>List of rate limiter policies to be applied<br>See [Policies](#rate-limit-policies) below.
 
@@ -4463,7 +4499,7 @@ A [`rate_limiter`](#rate-limit-rate-limiter) block (within [`rate_limit`](#rate-
 
 <a id="rate-limit-rate-limiter-leaky-bucket"></a>&#x2022; [`leaky_bucket`](#rate-limit-rate-limiter-leaky-bucket) - Optional Block<br>X-displayName: 'Leaky Bucket Rate Limiter' Leaky-Bucket is the default rate limiter algorithm for F5
 
-<a id="multiplier-07ace4"></a>&#x2022; [`period_multiplier`](#multiplier-07ace4) - Optional Number<br>Setting, combined with Per Period units, provides a duration
+<a id="multiplier-07ace4"></a>&#x2022; [`period_multiplier`](#multiplier-07ace4) - Optional Number<br>Setting, combined with Per Period units, provides a duration. Server applies default when omitted
 
 <a id="rate-limit-rate-limiter-token-bucket"></a>&#x2022; [`token_bucket`](#rate-limit-rate-limiter-token-bucket) - Optional Block<br>X-displayName: 'Token Bucket Rate Limiter' Token-Bucket is a rate limiter algorithm that is stricter with enforcing limits
 

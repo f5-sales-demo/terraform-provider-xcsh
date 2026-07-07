@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// Tunnel represents a XCSH Tunnel
+// Tunnel represents a F5XC Tunnel
 type Tunnel struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

@@ -9,7 +9,7 @@ description: |-
 
 Manages a CDN Load Balancer resource in F5 Distributed Cloud for content delivery and edge caching with load balancing.
 
-~> **Note** For more information about this resource, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
+~> **Note** Please refer to [CDN Loadbalancer API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/cdn/) to learn more.
 
 ## Example Usage
 
@@ -41,6 +41,10 @@ resource "xcsh_cdn_loadbalancer" "example" {
 ## Argument Reference
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
+
+🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
+
+~> **Dependencies** — This resource requires: `cdn_origin_pool`.
 
 ### Metadata Argument Reference
 
@@ -213,7 +217,8 @@ An [`api_rate_limit`](#api-rate-limit) block supports the following:
 
 <a id="api-rate-limit-no-ip-allowed-list"></a>&#x2022; [`no_ip_allowed_list`](#api-rate-limit-no-ip-allowed-list) - Optional Block<br>Enable this option
 
-<a id="api-rate-limit-server-url-rules"></a>&#x2022; [`server_url_rules`](#api-rate-limit-server-url-rules) - Optional Block<br>Set of rules for entire domain or base path that contain multiple endpoints. Order is matter as it uses first match policy. For matching also specific endpoints you can use the API endpoint rules set below<br>See [Server URL Rules](#api-rate-limit-server-url-rules) below.
+<a id="api-rate-limit-server-url-rules"></a>&#x2022; [`server_url_rules`](#api-rate-limit-server-url-rules) - Optional Block<br>Set of rules for entire domain or base path that contain multiple endpoints. Order is matter as it uses first match policy. For matching also specific endpoints you can use the API endpoint rules set below<br>See [Server URL Rules](#api-rate-limit-server-url-rules)
+below.
 
 #### API Rate Limit API Endpoint Rules
 
@@ -1828,7 +1833,7 @@ A [`public_name`](#origin-pool-public-name) block (within [`origin_pool`](#origi
 
 An [`use_tls`](#origin-pool-use-tls) block (within [`origin_pool`](#origin-pool)) supports the following:
 
-<a id="caching-7b69f7"></a>&#x2022; [`default_session_key_caching`](#caching-7b69f7) - Optional Block<br>Configuration parameter for default session key caching
+<a id="caching-7b69f7"></a>&#x2022; [`default_session_key_caching`](#caching-7b69f7) - Optional Block  Defaults to `map[]`<br>Configuration parameter for default session key caching.  Server applies default when omitted
 
 <a id="caching-486555"></a>&#x2022; [`disable_session_key_caching`](#caching-486555) - Optional Block<br>Configuration parameter for disable session key caching
 
@@ -1836,7 +1841,7 @@ An [`use_tls`](#origin-pool-use-tls) block (within [`origin_pool`](#origin-pool)
 
 <a id="origin-pool-use-tls-max-session-keys"></a>&#x2022; [`max_session_keys`](#origin-pool-use-tls-max-session-keys) - Optional Number<br>Number of session keys that are cached
 
-<a id="origin-pool-use-tls-no-mtls"></a>&#x2022; [`no_mtls`](#origin-pool-use-tls-no-mtls) - Optional Block<br>Enable this option
+<a id="origin-pool-use-tls-no-mtls"></a>&#x2022; [`no_mtls`](#origin-pool-use-tls-no-mtls) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 <a id="verification-5ba048"></a>&#x2022; [`skip_server_verification`](#verification-5ba048) - Optional Block<br>Enable this option
 
@@ -1844,7 +1849,7 @@ An [`use_tls`](#origin-pool-use-tls) block (within [`origin_pool`](#origin-pool)
 
 <a id="origin-pool-use-tls-tls-config"></a>&#x2022; [`tls_config`](#origin-pool-use-tls-tls-config) - Optional Block<br>Defines various OPTIONS to configure TLS configuration parameters<br>See [TLS Config](#origin-pool-use-tls-tls-config) below.
 
-<a id="sni-097beb"></a>&#x2022; [`use_host_header_as_sni`](#sni-097beb) - Optional Block<br>Enable this option
+<a id="sni-097beb"></a>&#x2022; [`use_host_header_as_sni`](#sni-097beb) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 <a id="origin-pool-use-tls-use-mtls"></a>&#x2022; [`use_mtls`](#origin-pool-use-tls-use-mtls) - Optional Block<br>mTLS Certificate. mTLS Client Certificate<br>See [Use mTLS](#origin-pool-use-tls-use-mtls) below.
 
@@ -1852,7 +1857,7 @@ An [`use_tls`](#origin-pool-use-tls) block (within [`origin_pool`](#origin-pool)
 
 <a id="verification-1ac9e2"></a>&#x2022; [`use_server_verification`](#verification-1ac9e2) - Optional Block<br>Configuration parameter for use server verification<br>See [Use Server Verification](#verification-1ac9e2) below.
 
-<a id="origin-pool-use-tls-volterra-trusted-ca"></a>&#x2022; [`volterra_trusted_ca`](#origin-pool-use-tls-volterra-trusted-ca) - Optional Block<br>Configuration parameter for volterra trusted CA
+<a id="origin-pool-use-tls-volterra-trusted-ca"></a>&#x2022; [`volterra_trusted_ca`](#origin-pool-use-tls-volterra-trusted-ca) - Optional Block  Defaults to `map[]`<br>Configuration parameter for volterra trusted CA.  Server applies default when omitted
 
 #### Origin Pool Use TLS TLS Config
 
@@ -2251,9 +2256,9 @@ A [`rate_limit`](#rate-limit) block supports the following:
 
 <a id="rate-limit-ip-allowed-list"></a>&#x2022; [`ip_allowed_list`](#rate-limit-ip-allowed-list) - Optional Block<br>List of IPv4 prefixes that represent an endpoint<br>See [IP Allowed List](#rate-limit-ip-allowed-list) below.
 
-<a id="rate-limit-no-ip-allowed-list"></a>&#x2022; [`no_ip_allowed_list`](#rate-limit-no-ip-allowed-list) - Optional Block<br>Enable this option
+<a id="rate-limit-no-ip-allowed-list"></a>&#x2022; [`no_ip_allowed_list`](#rate-limit-no-ip-allowed-list) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
-<a id="rate-limit-no-policies"></a>&#x2022; [`no_policies`](#rate-limit-no-policies) - Optional Block<br>Configuration parameter for no policies
+<a id="rate-limit-no-policies"></a>&#x2022; [`no_policies`](#rate-limit-no-policies) - Optional Block  Defaults to `map[]`<br>Configuration parameter for no policies.  Server applies default when omitted
 
 <a id="rate-limit-policies"></a>&#x2022; [`policies`](#rate-limit-policies) - Optional Block<br>List of rate limiter policies to be applied<br>See [Policies](#rate-limit-policies) below.
 
@@ -2303,7 +2308,7 @@ A [`rate_limiter`](#rate-limit-rate-limiter) block (within [`rate_limit`](#rate-
 
 <a id="rate-limit-rate-limiter-leaky-bucket"></a>&#x2022; [`leaky_bucket`](#rate-limit-rate-limiter-leaky-bucket) - Optional Block<br>Leaky-Bucket is the default rate limiter algorithm for F5
 
-<a id="multiplier-07ace4"></a>&#x2022; [`period_multiplier`](#multiplier-07ace4) - Optional Number<br>Setting, combined with Per Period units, provides a duration
+<a id="multiplier-07ace4"></a>&#x2022; [`period_multiplier`](#multiplier-07ace4) - Optional Number<br>Setting, combined with Per Period units, provides a duration. Server applies default when omitted
 
 <a id="rate-limit-rate-limiter-token-bucket"></a>&#x2022; [`token_bucket`](#rate-limit-rate-limiter-token-bucket) - Optional Block<br>Token-Bucket is a rate limiter algorithm that is stricter with enforcing limits
 

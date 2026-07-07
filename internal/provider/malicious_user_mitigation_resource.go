@@ -319,42 +319,42 @@ func (r *MaliciousUserMitigationResource) Create(ctx context.Context, req resour
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.MitigationType != nil {
-		mitigation_typeMap := make(map[string]interface{})
+		MitigationTypeMap := make(map[string]interface{})
 		if len(data.MitigationType.Rules) > 0 {
-			var rulesList []map[string]interface{}
-			for _, listItem := range data.MitigationType.Rules {
-				listItemMap := make(map[string]interface{})
-				if listItem.MitigationAction != nil {
-					mitigation_actionDeepMap := make(map[string]interface{})
-					if listItem.MitigationAction.BlockTemporarily != nil {
-						mitigation_actionDeepMap["block_temporarily"] = map[string]interface{}{}
+			var RulesList []map[string]interface{}
+			for _, RulesItem := range data.MitigationType.Rules {
+				RulesItemMap := make(map[string]interface{})
+				if RulesItem.MitigationAction != nil {
+					MitigationActionMap := make(map[string]interface{})
+					if RulesItem.MitigationAction.BlockTemporarily != nil {
+						MitigationActionMap["block_temporarily"] = map[string]interface{}{}
 					}
-					if listItem.MitigationAction.CaptchaChallenge != nil {
-						mitigation_actionDeepMap["captcha_challenge"] = map[string]interface{}{}
+					if RulesItem.MitigationAction.CaptchaChallenge != nil {
+						MitigationActionMap["captcha_challenge"] = map[string]interface{}{}
 					}
-					if listItem.MitigationAction.JavascriptChallenge != nil {
-						mitigation_actionDeepMap["javascript_challenge"] = map[string]interface{}{}
+					if RulesItem.MitigationAction.JavascriptChallenge != nil {
+						MitigationActionMap["javascript_challenge"] = map[string]interface{}{}
 					}
-					listItemMap["mitigation_action"] = mitigation_actionDeepMap
+					RulesItemMap["mitigation_action"] = MitigationActionMap
 				}
-				if listItem.ThreatLevel != nil {
-					threat_levelDeepMap := make(map[string]interface{})
-					if listItem.ThreatLevel.High != nil {
-						threat_levelDeepMap["high"] = map[string]interface{}{}
+				if RulesItem.ThreatLevel != nil {
+					ThreatLevelMap := make(map[string]interface{})
+					if RulesItem.ThreatLevel.High != nil {
+						ThreatLevelMap["high"] = map[string]interface{}{}
 					}
-					if listItem.ThreatLevel.Low != nil {
-						threat_levelDeepMap["low"] = map[string]interface{}{}
+					if RulesItem.ThreatLevel.Low != nil {
+						ThreatLevelMap["low"] = map[string]interface{}{}
 					}
-					if listItem.ThreatLevel.Medium != nil {
-						threat_levelDeepMap["medium"] = map[string]interface{}{}
+					if RulesItem.ThreatLevel.Medium != nil {
+						ThreatLevelMap["medium"] = map[string]interface{}{}
 					}
-					listItemMap["threat_level"] = threat_levelDeepMap
+					RulesItemMap["threat_level"] = ThreatLevelMap
 				}
-				rulesList = append(rulesList, listItemMap)
+				RulesList = append(RulesList, RulesItemMap)
 			}
-			mitigation_typeMap["rules"] = rulesList
+			MitigationTypeMap["rules"] = RulesList
 		}
-		createReq.Spec["mitigation_type"] = mitigation_typeMap
+		createReq.Spec["mitigation_type"] = MitigationTypeMap
 	}
 
 	apiResource, err := r.client.CreateMaliciousUserMitigation(ctx, createReq)
@@ -372,28 +372,31 @@ func (r *MaliciousUserMitigationResource) Create(ctx context.Context, req resour
 	if blockData, ok := apiResource.Spec["mitigation_type"].(map[string]interface{}); ok && (isImport || data.MitigationType != nil) {
 		data.MitigationType = &MaliciousUserMitigationMitigationTypeModel{
 			Rules: func() []MaliciousUserMitigationMitigationTypeRulesModel {
-				if listData, ok := blockData["rules"].([]interface{}); ok && len(listData) > 0 {
-					var result []MaliciousUserMitigationMitigationTypeRulesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, MaliciousUserMitigationMitigationTypeRulesModel{
+				if !isImport && data.MitigationType != nil && len(data.MitigationType.Rules) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["rules"].([]interface{}); ok && len(rawList) > 0 {
+					var RulesResult []MaliciousUserMitigationMitigationTypeRulesModel
+					for _, RulesItem := range rawList {
+						if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
+							RulesResult = append(RulesResult, MaliciousUserMitigationMitigationTypeRulesModel{
 								MitigationAction: func() *MaliciousUserMitigationMitigationTypeRulesMitigationActionModel {
-									if deepMap, ok := itemMap["mitigation_action"].(map[string]interface{}); ok {
+									if MitigationActionData, ok := RulesItemMap["mitigation_action"].(map[string]interface{}); ok {
 										return &MaliciousUserMitigationMitigationTypeRulesMitigationActionModel{
 											BlockTemporarily: func() *MaliciousUserMitigationEmptyModel {
-												if _, ok := deepMap["block_temporarily"].(map[string]interface{}); ok {
+												if _, ok := MitigationActionData["block_temporarily"].(map[string]interface{}); ok {
 													return &MaliciousUserMitigationEmptyModel{}
 												}
 												return nil
 											}(),
 											CaptchaChallenge: func() *MaliciousUserMitigationEmptyModel {
-												if _, ok := deepMap["captcha_challenge"].(map[string]interface{}); ok {
+												if _, ok := MitigationActionData["captcha_challenge"].(map[string]interface{}); ok {
 													return &MaliciousUserMitigationEmptyModel{}
 												}
 												return nil
 											}(),
 											JavascriptChallenge: func() *MaliciousUserMitigationEmptyModel {
-												if _, ok := deepMap["javascript_challenge"].(map[string]interface{}); ok {
+												if _, ok := MitigationActionData["javascript_challenge"].(map[string]interface{}); ok {
 													return &MaliciousUserMitigationEmptyModel{}
 												}
 												return nil
@@ -403,22 +406,22 @@ func (r *MaliciousUserMitigationResource) Create(ctx context.Context, req resour
 									return nil
 								}(),
 								ThreatLevel: func() *MaliciousUserMitigationMitigationTypeRulesThreatLevelModel {
-									if deepMap, ok := itemMap["threat_level"].(map[string]interface{}); ok {
+									if ThreatLevelData, ok := RulesItemMap["threat_level"].(map[string]interface{}); ok {
 										return &MaliciousUserMitigationMitigationTypeRulesThreatLevelModel{
 											High: func() *MaliciousUserMitigationEmptyModel {
-												if _, ok := deepMap["high"].(map[string]interface{}); ok {
+												if _, ok := ThreatLevelData["high"].(map[string]interface{}); ok {
 													return &MaliciousUserMitigationEmptyModel{}
 												}
 												return nil
 											}(),
 											Low: func() *MaliciousUserMitigationEmptyModel {
-												if _, ok := deepMap["low"].(map[string]interface{}); ok {
+												if _, ok := ThreatLevelData["low"].(map[string]interface{}); ok {
 													return &MaliciousUserMitigationEmptyModel{}
 												}
 												return nil
 											}(),
 											Medium: func() *MaliciousUserMitigationEmptyModel {
-												if _, ok := deepMap["medium"].(map[string]interface{}); ok {
+												if _, ok := ThreatLevelData["medium"].(map[string]interface{}); ok {
 													return &MaliciousUserMitigationEmptyModel{}
 												}
 												return nil
@@ -430,7 +433,7 @@ func (r *MaliciousUserMitigationResource) Create(ctx context.Context, req resour
 							})
 						}
 					}
-					return result
+					return RulesResult
 				}
 				return nil
 			}(),
@@ -519,28 +522,31 @@ func (r *MaliciousUserMitigationResource) Read(ctx context.Context, req resource
 	if blockData, ok := apiResource.Spec["mitigation_type"].(map[string]interface{}); ok && (isImport || data.MitigationType != nil) {
 		data.MitigationType = &MaliciousUserMitigationMitigationTypeModel{
 			Rules: func() []MaliciousUserMitigationMitigationTypeRulesModel {
-				if listData, ok := blockData["rules"].([]interface{}); ok && len(listData) > 0 {
-					var result []MaliciousUserMitigationMitigationTypeRulesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, MaliciousUserMitigationMitigationTypeRulesModel{
+				if !isImport && data.MitigationType != nil && len(data.MitigationType.Rules) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["rules"].([]interface{}); ok && len(rawList) > 0 {
+					var RulesResult []MaliciousUserMitigationMitigationTypeRulesModel
+					for _, RulesItem := range rawList {
+						if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
+							RulesResult = append(RulesResult, MaliciousUserMitigationMitigationTypeRulesModel{
 								MitigationAction: func() *MaliciousUserMitigationMitigationTypeRulesMitigationActionModel {
-									if deepMap, ok := itemMap["mitigation_action"].(map[string]interface{}); ok {
+									if MitigationActionData, ok := RulesItemMap["mitigation_action"].(map[string]interface{}); ok {
 										return &MaliciousUserMitigationMitigationTypeRulesMitigationActionModel{
 											BlockTemporarily: func() *MaliciousUserMitigationEmptyModel {
-												if _, ok := deepMap["block_temporarily"].(map[string]interface{}); ok {
+												if _, ok := MitigationActionData["block_temporarily"].(map[string]interface{}); ok {
 													return &MaliciousUserMitigationEmptyModel{}
 												}
 												return nil
 											}(),
 											CaptchaChallenge: func() *MaliciousUserMitigationEmptyModel {
-												if _, ok := deepMap["captcha_challenge"].(map[string]interface{}); ok {
+												if _, ok := MitigationActionData["captcha_challenge"].(map[string]interface{}); ok {
 													return &MaliciousUserMitigationEmptyModel{}
 												}
 												return nil
 											}(),
 											JavascriptChallenge: func() *MaliciousUserMitigationEmptyModel {
-												if _, ok := deepMap["javascript_challenge"].(map[string]interface{}); ok {
+												if _, ok := MitigationActionData["javascript_challenge"].(map[string]interface{}); ok {
 													return &MaliciousUserMitigationEmptyModel{}
 												}
 												return nil
@@ -550,22 +556,22 @@ func (r *MaliciousUserMitigationResource) Read(ctx context.Context, req resource
 									return nil
 								}(),
 								ThreatLevel: func() *MaliciousUserMitigationMitigationTypeRulesThreatLevelModel {
-									if deepMap, ok := itemMap["threat_level"].(map[string]interface{}); ok {
+									if ThreatLevelData, ok := RulesItemMap["threat_level"].(map[string]interface{}); ok {
 										return &MaliciousUserMitigationMitigationTypeRulesThreatLevelModel{
 											High: func() *MaliciousUserMitigationEmptyModel {
-												if _, ok := deepMap["high"].(map[string]interface{}); ok {
+												if _, ok := ThreatLevelData["high"].(map[string]interface{}); ok {
 													return &MaliciousUserMitigationEmptyModel{}
 												}
 												return nil
 											}(),
 											Low: func() *MaliciousUserMitigationEmptyModel {
-												if _, ok := deepMap["low"].(map[string]interface{}); ok {
+												if _, ok := ThreatLevelData["low"].(map[string]interface{}); ok {
 													return &MaliciousUserMitigationEmptyModel{}
 												}
 												return nil
 											}(),
 											Medium: func() *MaliciousUserMitigationEmptyModel {
-												if _, ok := deepMap["medium"].(map[string]interface{}); ok {
+												if _, ok := ThreatLevelData["medium"].(map[string]interface{}); ok {
 													return &MaliciousUserMitigationEmptyModel{}
 												}
 												return nil
@@ -577,11 +583,19 @@ func (r *MaliciousUserMitigationResource) Read(ctx context.Context, req resource
 							})
 						}
 					}
-					return result
+					return RulesResult
 				}
 				return nil
 			}(),
 		}
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -635,42 +649,42 @@ func (r *MaliciousUserMitigationResource) Update(ctx context.Context, req resour
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.MitigationType != nil {
-		mitigation_typeMap := make(map[string]interface{})
+		MitigationTypeMap := make(map[string]interface{})
 		if len(data.MitigationType.Rules) > 0 {
-			var rulesList []map[string]interface{}
-			for _, listItem := range data.MitigationType.Rules {
-				listItemMap := make(map[string]interface{})
-				if listItem.MitigationAction != nil {
-					mitigation_actionDeepMap := make(map[string]interface{})
-					if listItem.MitigationAction.BlockTemporarily != nil {
-						mitigation_actionDeepMap["block_temporarily"] = map[string]interface{}{}
+			var RulesList []map[string]interface{}
+			for _, RulesItem := range data.MitigationType.Rules {
+				RulesItemMap := make(map[string]interface{})
+				if RulesItem.MitigationAction != nil {
+					MitigationActionMap := make(map[string]interface{})
+					if RulesItem.MitigationAction.BlockTemporarily != nil {
+						MitigationActionMap["block_temporarily"] = map[string]interface{}{}
 					}
-					if listItem.MitigationAction.CaptchaChallenge != nil {
-						mitigation_actionDeepMap["captcha_challenge"] = map[string]interface{}{}
+					if RulesItem.MitigationAction.CaptchaChallenge != nil {
+						MitigationActionMap["captcha_challenge"] = map[string]interface{}{}
 					}
-					if listItem.MitigationAction.JavascriptChallenge != nil {
-						mitigation_actionDeepMap["javascript_challenge"] = map[string]interface{}{}
+					if RulesItem.MitigationAction.JavascriptChallenge != nil {
+						MitigationActionMap["javascript_challenge"] = map[string]interface{}{}
 					}
-					listItemMap["mitigation_action"] = mitigation_actionDeepMap
+					RulesItemMap["mitigation_action"] = MitigationActionMap
 				}
-				if listItem.ThreatLevel != nil {
-					threat_levelDeepMap := make(map[string]interface{})
-					if listItem.ThreatLevel.High != nil {
-						threat_levelDeepMap["high"] = map[string]interface{}{}
+				if RulesItem.ThreatLevel != nil {
+					ThreatLevelMap := make(map[string]interface{})
+					if RulesItem.ThreatLevel.High != nil {
+						ThreatLevelMap["high"] = map[string]interface{}{}
 					}
-					if listItem.ThreatLevel.Low != nil {
-						threat_levelDeepMap["low"] = map[string]interface{}{}
+					if RulesItem.ThreatLevel.Low != nil {
+						ThreatLevelMap["low"] = map[string]interface{}{}
 					}
-					if listItem.ThreatLevel.Medium != nil {
-						threat_levelDeepMap["medium"] = map[string]interface{}{}
+					if RulesItem.ThreatLevel.Medium != nil {
+						ThreatLevelMap["medium"] = map[string]interface{}{}
 					}
-					listItemMap["threat_level"] = threat_levelDeepMap
+					RulesItemMap["threat_level"] = ThreatLevelMap
 				}
-				rulesList = append(rulesList, listItemMap)
+				RulesList = append(RulesList, RulesItemMap)
 			}
-			mitigation_typeMap["rules"] = rulesList
+			MitigationTypeMap["rules"] = RulesList
 		}
-		apiResource.Spec["mitigation_type"] = mitigation_typeMap
+		apiResource.Spec["mitigation_type"] = MitigationTypeMap
 	}
 
 	_, err := r.client.UpdateMaliciousUserMitigation(ctx, apiResource)
@@ -699,28 +713,31 @@ func (r *MaliciousUserMitigationResource) Update(ctx context.Context, req resour
 	if blockData, ok := apiResource.Spec["mitigation_type"].(map[string]interface{}); ok && (isImport || data.MitigationType != nil) {
 		data.MitigationType = &MaliciousUserMitigationMitigationTypeModel{
 			Rules: func() []MaliciousUserMitigationMitigationTypeRulesModel {
-				if listData, ok := blockData["rules"].([]interface{}); ok && len(listData) > 0 {
-					var result []MaliciousUserMitigationMitigationTypeRulesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, MaliciousUserMitigationMitigationTypeRulesModel{
+				if !isImport && data.MitigationType != nil && len(data.MitigationType.Rules) == 0 {
+					return nil
+				}
+				if rawList, ok := blockData["rules"].([]interface{}); ok && len(rawList) > 0 {
+					var RulesResult []MaliciousUserMitigationMitigationTypeRulesModel
+					for _, RulesItem := range rawList {
+						if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
+							RulesResult = append(RulesResult, MaliciousUserMitigationMitigationTypeRulesModel{
 								MitigationAction: func() *MaliciousUserMitigationMitigationTypeRulesMitigationActionModel {
-									if deepMap, ok := itemMap["mitigation_action"].(map[string]interface{}); ok {
+									if MitigationActionData, ok := RulesItemMap["mitigation_action"].(map[string]interface{}); ok {
 										return &MaliciousUserMitigationMitigationTypeRulesMitigationActionModel{
 											BlockTemporarily: func() *MaliciousUserMitigationEmptyModel {
-												if _, ok := deepMap["block_temporarily"].(map[string]interface{}); ok {
+												if _, ok := MitigationActionData["block_temporarily"].(map[string]interface{}); ok {
 													return &MaliciousUserMitigationEmptyModel{}
 												}
 												return nil
 											}(),
 											CaptchaChallenge: func() *MaliciousUserMitigationEmptyModel {
-												if _, ok := deepMap["captcha_challenge"].(map[string]interface{}); ok {
+												if _, ok := MitigationActionData["captcha_challenge"].(map[string]interface{}); ok {
 													return &MaliciousUserMitigationEmptyModel{}
 												}
 												return nil
 											}(),
 											JavascriptChallenge: func() *MaliciousUserMitigationEmptyModel {
-												if _, ok := deepMap["javascript_challenge"].(map[string]interface{}); ok {
+												if _, ok := MitigationActionData["javascript_challenge"].(map[string]interface{}); ok {
 													return &MaliciousUserMitigationEmptyModel{}
 												}
 												return nil
@@ -730,22 +747,22 @@ func (r *MaliciousUserMitigationResource) Update(ctx context.Context, req resour
 									return nil
 								}(),
 								ThreatLevel: func() *MaliciousUserMitigationMitigationTypeRulesThreatLevelModel {
-									if deepMap, ok := itemMap["threat_level"].(map[string]interface{}); ok {
+									if ThreatLevelData, ok := RulesItemMap["threat_level"].(map[string]interface{}); ok {
 										return &MaliciousUserMitigationMitigationTypeRulesThreatLevelModel{
 											High: func() *MaliciousUserMitigationEmptyModel {
-												if _, ok := deepMap["high"].(map[string]interface{}); ok {
+												if _, ok := ThreatLevelData["high"].(map[string]interface{}); ok {
 													return &MaliciousUserMitigationEmptyModel{}
 												}
 												return nil
 											}(),
 											Low: func() *MaliciousUserMitigationEmptyModel {
-												if _, ok := deepMap["low"].(map[string]interface{}); ok {
+												if _, ok := ThreatLevelData["low"].(map[string]interface{}); ok {
 													return &MaliciousUserMitigationEmptyModel{}
 												}
 												return nil
 											}(),
 											Medium: func() *MaliciousUserMitigationEmptyModel {
-												if _, ok := deepMap["medium"].(map[string]interface{}); ok {
+												if _, ok := ThreatLevelData["medium"].(map[string]interface{}); ok {
 													return &MaliciousUserMitigationEmptyModel{}
 												}
 												return nil
@@ -757,7 +774,7 @@ func (r *MaliciousUserMitigationResource) Update(ctx context.Context, req resour
 							})
 						}
 					}
-					return result
+					return RulesResult
 				}
 				return nil
 			}(),

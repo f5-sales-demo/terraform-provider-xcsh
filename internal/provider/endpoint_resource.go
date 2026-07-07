@@ -124,10 +124,10 @@ var EndpointWhereModelAttrTypes = map[string]attr.Type{
 
 // EndpointWhereSiteModel represents site block
 type EndpointWhereSiteModel struct {
-	NetworkType        types.String                `tfsdk:"network_type"`
-	DisableInternetVIP *EndpointEmptyModel         `tfsdk:"disable_internet_vip"`
-	EnableInternetVIP  *EndpointEmptyModel         `tfsdk:"enable_internet_vip"`
-	Ref                []EndpointWhereSiteRefModel `tfsdk:"ref"`
+	NetworkType        types.String        `tfsdk:"network_type"`
+	DisableInternetVIP *EndpointEmptyModel `tfsdk:"disable_internet_vip"`
+	EnableInternetVIP  *EndpointEmptyModel `tfsdk:"enable_internet_vip"`
+	Ref                types.List          `tfsdk:"ref"`
 }
 
 // EndpointWhereSiteModelAttrTypes defines the attribute types for EndpointWhereSiteModel
@@ -158,7 +158,7 @@ var EndpointWhereSiteRefModelAttrTypes = map[string]attr.Type{
 
 // EndpointWhereVirtualNetworkModel represents virtual_network block
 type EndpointWhereVirtualNetworkModel struct {
-	Ref []EndpointWhereVirtualNetworkRefModel `tfsdk:"ref"`
+	Ref types.List `tfsdk:"ref"`
 }
 
 // EndpointWhereVirtualNetworkModelAttrTypes defines the attribute types for EndpointWhereVirtualNetworkModel
@@ -186,10 +186,10 @@ var EndpointWhereVirtualNetworkRefModelAttrTypes = map[string]attr.Type{
 
 // EndpointWhereVirtualSiteModel represents virtual_site block
 type EndpointWhereVirtualSiteModel struct {
-	NetworkType        types.String                       `tfsdk:"network_type"`
-	DisableInternetVIP *EndpointEmptyModel                `tfsdk:"disable_internet_vip"`
-	EnableInternetVIP  *EndpointEmptyModel                `tfsdk:"enable_internet_vip"`
-	Ref                []EndpointWhereVirtualSiteRefModel `tfsdk:"ref"`
+	NetworkType        types.String        `tfsdk:"network_type"`
+	DisableInternetVIP *EndpointEmptyModel `tfsdk:"disable_internet_vip"`
+	EnableInternetVIP  *EndpointEmptyModel `tfsdk:"enable_internet_vip"`
+	Ref                types.List          `tfsdk:"ref"`
 }
 
 // EndpointWhereVirtualSiteModelAttrTypes defines the attribute types for EndpointWhereVirtualSiteModel
@@ -728,61 +728,171 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.DNSNameAdvanced != nil {
-		dns_name_advancedMap := make(map[string]interface{})
+		DNSNameAdvancedMap := make(map[string]interface{})
 		if !data.DNSNameAdvanced.Name.IsNull() && !data.DNSNameAdvanced.Name.IsUnknown() {
-			dns_name_advancedMap["name"] = data.DNSNameAdvanced.Name.ValueString()
+			DNSNameAdvancedMap["name"] = data.DNSNameAdvanced.Name.ValueString()
 		}
 		if !data.DNSNameAdvanced.RefreshInterval.IsNull() && !data.DNSNameAdvanced.RefreshInterval.IsUnknown() {
-			dns_name_advancedMap["refresh_interval"] = data.DNSNameAdvanced.RefreshInterval.ValueInt64()
+			DNSNameAdvancedMap["refresh_interval"] = data.DNSNameAdvanced.RefreshInterval.ValueInt64()
 		}
-		createReq.Spec["dns_name_advanced"] = dns_name_advancedMap
+		createReq.Spec["dns_name_advanced"] = DNSNameAdvancedMap
 	}
 	if data.ServiceInfo != nil {
-		service_infoMap := make(map[string]interface{})
+		ServiceInfoMap := make(map[string]interface{})
 		if !data.ServiceInfo.DiscoveryType.IsNull() && !data.ServiceInfo.DiscoveryType.IsUnknown() {
-			service_infoMap["discovery_type"] = data.ServiceInfo.DiscoveryType.ValueString()
+			ServiceInfoMap["discovery_type"] = data.ServiceInfo.DiscoveryType.ValueString()
 		}
 		if !data.ServiceInfo.ServiceName.IsNull() && !data.ServiceInfo.ServiceName.IsUnknown() {
-			service_infoMap["service_name"] = data.ServiceInfo.ServiceName.ValueString()
+			ServiceInfoMap["service_name"] = data.ServiceInfo.ServiceName.ValueString()
 		}
 		if data.ServiceInfo.ServiceSelector != nil {
-			service_selectorNestedMap := make(map[string]interface{})
-			service_infoMap["service_selector"] = service_selectorNestedMap
+			ServiceSelectorMap := make(map[string]interface{})
+			if !data.ServiceInfo.ServiceSelector.Expressions.IsNull() && !data.ServiceInfo.ServiceSelector.Expressions.IsUnknown() {
+				var ExpressionsItems []string
+				diags := data.ServiceInfo.ServiceSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+				if !diags.HasError() {
+					ServiceSelectorMap["expressions"] = ExpressionsItems
+				}
+			}
+			ServiceInfoMap["service_selector"] = ServiceSelectorMap
 		}
-		createReq.Spec["service_info"] = service_infoMap
+		createReq.Spec["service_info"] = ServiceInfoMap
 	}
 	if data.SnatPool != nil {
-		snat_poolMap := make(map[string]interface{})
+		SnatPoolMap := make(map[string]interface{})
 		if data.SnatPool.NoSnatPool != nil {
-			snat_poolMap["no_snat_pool"] = map[string]interface{}{}
+			SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 		}
 		if data.SnatPool.SnatPool != nil {
-			snat_poolNestedMap := make(map[string]interface{})
-			snat_poolMap["snat_pool"] = snat_poolNestedMap
+			SnatPoolMap := make(map[string]interface{})
+			if !data.SnatPool.SnatPool.Prefixes.IsNull() && !data.SnatPool.SnatPool.Prefixes.IsUnknown() {
+				var PrefixesItems []string
+				diags := data.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+				if !diags.HasError() {
+					SnatPoolMap["prefixes"] = PrefixesItems
+				}
+			}
+			SnatPoolMap["snat_pool"] = SnatPoolMap
 		}
-		createReq.Spec["snat_pool"] = snat_poolMap
+		createReq.Spec["snat_pool"] = SnatPoolMap
 	}
 	if data.Where != nil {
-		whereMap := make(map[string]interface{})
+		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
-			siteNestedMap := make(map[string]interface{})
-			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
-				siteNestedMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+			SiteMap := make(map[string]interface{})
+			if data.Where.Site.DisableInternetVIP != nil {
+				SiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			whereMap["site"] = siteNestedMap
+			if data.Where.Site.EnableInternetVIP != nil {
+				SiteMap["enable_internet_vip"] = map[string]interface{}{}
+			}
+			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
+				SiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+			}
+			if !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
+				var RefElems []EndpointWhereSiteRefModel
+				diags := data.Where.Site.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					SiteMap["ref"] = RefList
+				}
+			}
+			WhereMap["site"] = SiteMap
 		}
 		if data.Where.VirtualNetwork != nil {
-			virtual_networkNestedMap := make(map[string]interface{})
-			whereMap["virtual_network"] = virtual_networkNestedMap
+			VirtualNetworkMap := make(map[string]interface{})
+			if !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
+				var RefElems []EndpointWhereVirtualNetworkRefModel
+				diags := data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					VirtualNetworkMap["ref"] = RefList
+				}
+			}
+			WhereMap["virtual_network"] = VirtualNetworkMap
 		}
 		if data.Where.VirtualSite != nil {
-			virtual_siteNestedMap := make(map[string]interface{})
-			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
-				virtual_siteNestedMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+			VirtualSiteMap := make(map[string]interface{})
+			if data.Where.VirtualSite.DisableInternetVIP != nil {
+				VirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			whereMap["virtual_site"] = virtual_siteNestedMap
+			if data.Where.VirtualSite.EnableInternetVIP != nil {
+				VirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
+			}
+			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
+				VirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+			}
+			if !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
+				var RefElems []EndpointWhereVirtualSiteRefModel
+				diags := data.Where.VirtualSite.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					VirtualSiteMap["ref"] = RefList
+				}
+			}
+			WhereMap["virtual_site"] = VirtualSiteMap
 		}
-		createReq.Spec["where"] = whereMap
+		createReq.Spec["where"] = WhereMap
 	}
 	if !data.DNSName.IsNull() && !data.DNSName.IsUnknown() {
 		createReq.Spec["dns_name"] = data.DNSName.ValueString()
@@ -822,16 +932,9 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 			}(),
 			RefreshInterval: func() types.Int64 {
 				if !isImport && data.DNSNameAdvanced != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.DNSNameAdvanced.RefreshInterval
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["refresh_interval"].(float64); ok {
+				if v, ok := blockData["refresh_interval"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -854,14 +957,12 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 			}(),
 			ServiceSelector: func() *EndpointServiceInfoServiceSelectorModel {
 				if !isImport && data.ServiceInfo != nil && data.ServiceInfo.ServiceSelector != nil {
-					// Normal Read: preserve existing state value
 					return data.ServiceInfo.ServiceSelector
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["service_selector"].(map[string]interface{}); ok {
+				if ServiceSelectorData, ok := blockData["service_selector"].(map[string]interface{}); ok {
 					return &EndpointServiceInfoServiceSelectorModel{
 						Expressions: func() types.List {
-							if v, ok := nestedBlockData["expressions"].([]interface{}); ok && len(v) > 0 {
+							if v, ok := ServiceSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
 								var items []string
 								for _, item := range v {
 									if s, ok := item.(string); ok {
@@ -879,16 +980,244 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["snat_pool"].(map[string]interface{}); ok && isImport && data.SnatPool == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.SnatPool = &EndpointSnatPoolModel{}
+	if blockData, ok := apiResource.Spec["snat_pool"].(map[string]interface{}); ok && (isImport || data.SnatPool != nil) {
+		data.SnatPool = &EndpointSnatPoolModel{
+			NoSnatPool: func() *EndpointEmptyModel {
+				if !isImport && data.SnatPool != nil {
+					return data.SnatPool.NoSnatPool
+				}
+				if _, ok := blockData["no_snat_pool"].(map[string]interface{}); ok {
+					return &EndpointEmptyModel{}
+				}
+				return nil
+			}(),
+			SnatPool: func() *EndpointSnatPoolSnatPoolModel {
+				if !isImport && data.SnatPool != nil && data.SnatPool.SnatPool != nil {
+					return data.SnatPool.SnatPool
+				}
+				if SnatPoolData, ok := blockData["snat_pool"].(map[string]interface{}); ok {
+					return &EndpointSnatPoolSnatPoolModel{
+						Prefixes: func() types.List {
+							if v, ok := SnatPoolData["prefixes"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["where"].(map[string]interface{}); ok && isImport && data.Where == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Where = &EndpointWhereModel{}
+	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
+		data.Where = &EndpointWhereModel{
+			Site: func() *EndpointWhereSiteModel {
+				if !isImport && data.Where != nil && data.Where.Site != nil {
+					return data.Where.Site
+				}
+				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
+					return &EndpointWhereSiteModel{
+						DisableInternetVIP: func() *EndpointEmptyModel {
+							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &EndpointEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *EndpointEmptyModel {
+							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &EndpointEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := SiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []EndpointWhereSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, EndpointWhereSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EndpointWhereSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualNetwork: func() *EndpointWhereVirtualNetworkModel {
+				if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil {
+					return data.Where.VirtualNetwork
+				}
+				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
+					return &EndpointWhereVirtualNetworkModel{
+						Ref: func() types.List {
+							if rawList, ok := VirtualNetworkData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []EndpointWhereVirtualNetworkRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, EndpointWhereVirtualNetworkRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EndpointWhereVirtualNetworkRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereVirtualNetworkRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualSite: func() *EndpointWhereVirtualSiteModel {
+				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+					return data.Where.VirtualSite
+				}
+				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
+					return &EndpointWhereVirtualSiteModel{
+						DisableInternetVIP: func() *EndpointEmptyModel {
+							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &EndpointEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *EndpointEmptyModel {
+							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &EndpointEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []EndpointWhereVirtualSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, EndpointWhereVirtualSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EndpointWhereVirtualSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereVirtualSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["dns_name"].(string); ok && v != "" {
 		data.DNSName = types.StringValue(v)
 	} else {
@@ -1004,16 +1333,9 @@ func (r *EndpointResource) Read(ctx context.Context, req resource.ReadRequest, r
 			}(),
 			RefreshInterval: func() types.Int64 {
 				if !isImport && data.DNSNameAdvanced != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.DNSNameAdvanced.RefreshInterval
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["refresh_interval"].(float64); ok {
+				if v, ok := blockData["refresh_interval"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -1036,14 +1358,12 @@ func (r *EndpointResource) Read(ctx context.Context, req resource.ReadRequest, r
 			}(),
 			ServiceSelector: func() *EndpointServiceInfoServiceSelectorModel {
 				if !isImport && data.ServiceInfo != nil && data.ServiceInfo.ServiceSelector != nil {
-					// Normal Read: preserve existing state value
 					return data.ServiceInfo.ServiceSelector
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["service_selector"].(map[string]interface{}); ok {
+				if ServiceSelectorData, ok := blockData["service_selector"].(map[string]interface{}); ok {
 					return &EndpointServiceInfoServiceSelectorModel{
 						Expressions: func() types.List {
-							if v, ok := nestedBlockData["expressions"].([]interface{}); ok && len(v) > 0 {
+							if v, ok := ServiceSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
 								var items []string
 								for _, item := range v {
 									if s, ok := item.(string); ok {
@@ -1061,16 +1381,244 @@ func (r *EndpointResource) Read(ctx context.Context, req resource.ReadRequest, r
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["snat_pool"].(map[string]interface{}); ok && isImport && data.SnatPool == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.SnatPool = &EndpointSnatPoolModel{}
+	if blockData, ok := apiResource.Spec["snat_pool"].(map[string]interface{}); ok && (isImport || data.SnatPool != nil) {
+		data.SnatPool = &EndpointSnatPoolModel{
+			NoSnatPool: func() *EndpointEmptyModel {
+				if !isImport && data.SnatPool != nil {
+					return data.SnatPool.NoSnatPool
+				}
+				if _, ok := blockData["no_snat_pool"].(map[string]interface{}); ok {
+					return &EndpointEmptyModel{}
+				}
+				return nil
+			}(),
+			SnatPool: func() *EndpointSnatPoolSnatPoolModel {
+				if !isImport && data.SnatPool != nil && data.SnatPool.SnatPool != nil {
+					return data.SnatPool.SnatPool
+				}
+				if SnatPoolData, ok := blockData["snat_pool"].(map[string]interface{}); ok {
+					return &EndpointSnatPoolSnatPoolModel{
+						Prefixes: func() types.List {
+							if v, ok := SnatPoolData["prefixes"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["where"].(map[string]interface{}); ok && isImport && data.Where == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Where = &EndpointWhereModel{}
+	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
+		data.Where = &EndpointWhereModel{
+			Site: func() *EndpointWhereSiteModel {
+				if !isImport && data.Where != nil && data.Where.Site != nil {
+					return data.Where.Site
+				}
+				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
+					return &EndpointWhereSiteModel{
+						DisableInternetVIP: func() *EndpointEmptyModel {
+							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &EndpointEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *EndpointEmptyModel {
+							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &EndpointEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := SiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []EndpointWhereSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, EndpointWhereSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EndpointWhereSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualNetwork: func() *EndpointWhereVirtualNetworkModel {
+				if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil {
+					return data.Where.VirtualNetwork
+				}
+				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
+					return &EndpointWhereVirtualNetworkModel{
+						Ref: func() types.List {
+							if rawList, ok := VirtualNetworkData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []EndpointWhereVirtualNetworkRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, EndpointWhereVirtualNetworkRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EndpointWhereVirtualNetworkRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereVirtualNetworkRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualSite: func() *EndpointWhereVirtualSiteModel {
+				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+					return data.Where.VirtualSite
+				}
+				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
+					return &EndpointWhereVirtualSiteModel{
+						DisableInternetVIP: func() *EndpointEmptyModel {
+							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &EndpointEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *EndpointEmptyModel {
+							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &EndpointEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []EndpointWhereVirtualSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, EndpointWhereVirtualSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EndpointWhereVirtualSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereVirtualSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["dns_name"].(string); ok && v != "" {
 		data.DNSName = types.StringValue(v)
 	} else {
@@ -1095,6 +1643,14 @@ func (r *EndpointResource) Read(ctx context.Context, req resource.ReadRequest, r
 		data.Protocol = types.StringValue(v)
 	} else {
 		data.Protocol = types.StringNull()
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -1148,61 +1704,171 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.DNSNameAdvanced != nil {
-		dns_name_advancedMap := make(map[string]interface{})
+		DNSNameAdvancedMap := make(map[string]interface{})
 		if !data.DNSNameAdvanced.Name.IsNull() && !data.DNSNameAdvanced.Name.IsUnknown() {
-			dns_name_advancedMap["name"] = data.DNSNameAdvanced.Name.ValueString()
+			DNSNameAdvancedMap["name"] = data.DNSNameAdvanced.Name.ValueString()
 		}
 		if !data.DNSNameAdvanced.RefreshInterval.IsNull() && !data.DNSNameAdvanced.RefreshInterval.IsUnknown() {
-			dns_name_advancedMap["refresh_interval"] = data.DNSNameAdvanced.RefreshInterval.ValueInt64()
+			DNSNameAdvancedMap["refresh_interval"] = data.DNSNameAdvanced.RefreshInterval.ValueInt64()
 		}
-		apiResource.Spec["dns_name_advanced"] = dns_name_advancedMap
+		apiResource.Spec["dns_name_advanced"] = DNSNameAdvancedMap
 	}
 	if data.ServiceInfo != nil {
-		service_infoMap := make(map[string]interface{})
+		ServiceInfoMap := make(map[string]interface{})
 		if !data.ServiceInfo.DiscoveryType.IsNull() && !data.ServiceInfo.DiscoveryType.IsUnknown() {
-			service_infoMap["discovery_type"] = data.ServiceInfo.DiscoveryType.ValueString()
+			ServiceInfoMap["discovery_type"] = data.ServiceInfo.DiscoveryType.ValueString()
 		}
 		if !data.ServiceInfo.ServiceName.IsNull() && !data.ServiceInfo.ServiceName.IsUnknown() {
-			service_infoMap["service_name"] = data.ServiceInfo.ServiceName.ValueString()
+			ServiceInfoMap["service_name"] = data.ServiceInfo.ServiceName.ValueString()
 		}
 		if data.ServiceInfo.ServiceSelector != nil {
-			service_selectorNestedMap := make(map[string]interface{})
-			service_infoMap["service_selector"] = service_selectorNestedMap
+			ServiceSelectorMap := make(map[string]interface{})
+			if !data.ServiceInfo.ServiceSelector.Expressions.IsNull() && !data.ServiceInfo.ServiceSelector.Expressions.IsUnknown() {
+				var ExpressionsItems []string
+				diags := data.ServiceInfo.ServiceSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+				if !diags.HasError() {
+					ServiceSelectorMap["expressions"] = ExpressionsItems
+				}
+			}
+			ServiceInfoMap["service_selector"] = ServiceSelectorMap
 		}
-		apiResource.Spec["service_info"] = service_infoMap
+		apiResource.Spec["service_info"] = ServiceInfoMap
 	}
 	if data.SnatPool != nil {
-		snat_poolMap := make(map[string]interface{})
+		SnatPoolMap := make(map[string]interface{})
 		if data.SnatPool.NoSnatPool != nil {
-			snat_poolMap["no_snat_pool"] = map[string]interface{}{}
+			SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 		}
 		if data.SnatPool.SnatPool != nil {
-			snat_poolNestedMap := make(map[string]interface{})
-			snat_poolMap["snat_pool"] = snat_poolNestedMap
+			SnatPoolMap := make(map[string]interface{})
+			if !data.SnatPool.SnatPool.Prefixes.IsNull() && !data.SnatPool.SnatPool.Prefixes.IsUnknown() {
+				var PrefixesItems []string
+				diags := data.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+				if !diags.HasError() {
+					SnatPoolMap["prefixes"] = PrefixesItems
+				}
+			}
+			SnatPoolMap["snat_pool"] = SnatPoolMap
 		}
-		apiResource.Spec["snat_pool"] = snat_poolMap
+		apiResource.Spec["snat_pool"] = SnatPoolMap
 	}
 	if data.Where != nil {
-		whereMap := make(map[string]interface{})
+		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
-			siteNestedMap := make(map[string]interface{})
-			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
-				siteNestedMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+			SiteMap := make(map[string]interface{})
+			if data.Where.Site.DisableInternetVIP != nil {
+				SiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			whereMap["site"] = siteNestedMap
+			if data.Where.Site.EnableInternetVIP != nil {
+				SiteMap["enable_internet_vip"] = map[string]interface{}{}
+			}
+			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
+				SiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+			}
+			if !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
+				var RefElems []EndpointWhereSiteRefModel
+				diags := data.Where.Site.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					SiteMap["ref"] = RefList
+				}
+			}
+			WhereMap["site"] = SiteMap
 		}
 		if data.Where.VirtualNetwork != nil {
-			virtual_networkNestedMap := make(map[string]interface{})
-			whereMap["virtual_network"] = virtual_networkNestedMap
+			VirtualNetworkMap := make(map[string]interface{})
+			if !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
+				var RefElems []EndpointWhereVirtualNetworkRefModel
+				diags := data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					VirtualNetworkMap["ref"] = RefList
+				}
+			}
+			WhereMap["virtual_network"] = VirtualNetworkMap
 		}
 		if data.Where.VirtualSite != nil {
-			virtual_siteNestedMap := make(map[string]interface{})
-			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
-				virtual_siteNestedMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+			VirtualSiteMap := make(map[string]interface{})
+			if data.Where.VirtualSite.DisableInternetVIP != nil {
+				VirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			whereMap["virtual_site"] = virtual_siteNestedMap
+			if data.Where.VirtualSite.EnableInternetVIP != nil {
+				VirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
+			}
+			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
+				VirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+			}
+			if !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
+				var RefElems []EndpointWhereVirtualSiteRefModel
+				diags := data.Where.VirtualSite.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					VirtualSiteMap["ref"] = RefList
+				}
+			}
+			WhereMap["virtual_site"] = VirtualSiteMap
 		}
-		apiResource.Spec["where"] = whereMap
+		apiResource.Spec["where"] = WhereMap
 	}
 	if !data.DNSName.IsNull() && !data.DNSName.IsUnknown() {
 		apiResource.Spec["dns_name"] = data.DNSName.ValueString()
@@ -1267,16 +1933,9 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 			}(),
 			RefreshInterval: func() types.Int64 {
 				if !isImport && data.DNSNameAdvanced != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.DNSNameAdvanced.RefreshInterval
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["refresh_interval"].(float64); ok {
+				if v, ok := blockData["refresh_interval"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -1299,14 +1958,12 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 			}(),
 			ServiceSelector: func() *EndpointServiceInfoServiceSelectorModel {
 				if !isImport && data.ServiceInfo != nil && data.ServiceInfo.ServiceSelector != nil {
-					// Normal Read: preserve existing state value
 					return data.ServiceInfo.ServiceSelector
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["service_selector"].(map[string]interface{}); ok {
+				if ServiceSelectorData, ok := blockData["service_selector"].(map[string]interface{}); ok {
 					return &EndpointServiceInfoServiceSelectorModel{
 						Expressions: func() types.List {
-							if v, ok := nestedBlockData["expressions"].([]interface{}); ok && len(v) > 0 {
+							if v, ok := ServiceSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
 								var items []string
 								for _, item := range v {
 									if s, ok := item.(string); ok {
@@ -1324,16 +1981,244 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["snat_pool"].(map[string]interface{}); ok && isImport && data.SnatPool == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.SnatPool = &EndpointSnatPoolModel{}
+	if blockData, ok := apiResource.Spec["snat_pool"].(map[string]interface{}); ok && (isImport || data.SnatPool != nil) {
+		data.SnatPool = &EndpointSnatPoolModel{
+			NoSnatPool: func() *EndpointEmptyModel {
+				if !isImport && data.SnatPool != nil {
+					return data.SnatPool.NoSnatPool
+				}
+				if _, ok := blockData["no_snat_pool"].(map[string]interface{}); ok {
+					return &EndpointEmptyModel{}
+				}
+				return nil
+			}(),
+			SnatPool: func() *EndpointSnatPoolSnatPoolModel {
+				if !isImport && data.SnatPool != nil && data.SnatPool.SnatPool != nil {
+					return data.SnatPool.SnatPool
+				}
+				if SnatPoolData, ok := blockData["snat_pool"].(map[string]interface{}); ok {
+					return &EndpointSnatPoolSnatPoolModel{
+						Prefixes: func() types.List {
+							if v, ok := SnatPoolData["prefixes"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["where"].(map[string]interface{}); ok && isImport && data.Where == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Where = &EndpointWhereModel{}
+	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
+		data.Where = &EndpointWhereModel{
+			Site: func() *EndpointWhereSiteModel {
+				if !isImport && data.Where != nil && data.Where.Site != nil {
+					return data.Where.Site
+				}
+				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
+					return &EndpointWhereSiteModel{
+						DisableInternetVIP: func() *EndpointEmptyModel {
+							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &EndpointEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *EndpointEmptyModel {
+							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &EndpointEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := SiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []EndpointWhereSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, EndpointWhereSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EndpointWhereSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualNetwork: func() *EndpointWhereVirtualNetworkModel {
+				if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil {
+					return data.Where.VirtualNetwork
+				}
+				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
+					return &EndpointWhereVirtualNetworkModel{
+						Ref: func() types.List {
+							if rawList, ok := VirtualNetworkData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []EndpointWhereVirtualNetworkRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, EndpointWhereVirtualNetworkRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EndpointWhereVirtualNetworkRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereVirtualNetworkRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualSite: func() *EndpointWhereVirtualSiteModel {
+				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+					return data.Where.VirtualSite
+				}
+				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
+					return &EndpointWhereVirtualSiteModel{
+						DisableInternetVIP: func() *EndpointEmptyModel {
+							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &EndpointEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *EndpointEmptyModel {
+							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &EndpointEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []EndpointWhereVirtualSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, EndpointWhereVirtualSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EndpointWhereVirtualSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereVirtualSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["dns_name"].(string); ok && v != "" {
 		data.DNSName = types.StringValue(v)
 	} else {

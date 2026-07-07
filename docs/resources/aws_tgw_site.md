@@ -40,6 +40,8 @@ resource "xcsh_aws_tgw_site" "example" {
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
 
+🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
+
 ### Metadata Argument Reference
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the AWS TGW Site. Must be unique within the namespace
@@ -82,11 +84,11 @@ resource "xcsh_aws_tgw_site" "example" {
 <a id="offline-survivability-mode"></a>&#x2022; [`offline_survivability_mode`](#offline-survivability-mode) - Optional Block<br>Offline Survivability allows the Site to continue functioning normally without traffic loss during periods of connectivity loss to the Regional Edge (RE) or the Global Controller (GC). When this feature is enabled, a site can continue to function as is with existing
 configuration for upto 7<br>See [Offline Survivability Mode](#offline-survivability-mode) below for details.
 
-<a id="os"></a>&#x2022; [`os`](#os) - Optional Block<br>Select the XCSH Operating System Version for the site. By default, latest available OS Version will be used. Refer to release notes to find required released OS versions
+<a id="os"></a>&#x2022; [`os`](#os) - Optional Block<br>Select the F5XC Operating System Version for the site. By default, latest available OS Version will be used. Refer to release notes to find required released OS versions
 
 <a id="performance-enhancement-mode"></a>&#x2022; [`performance_enhancement_mode`](#performance-enhancement-mode) - Optional Block<br>Optimize the site for L3 or L7 traffic processing. L7 optimized is the default
 
-<a id="sw"></a>&#x2022; [`sw`](#sw) - Optional Block<br>Select the XCSH Software Version for the site. By default, latest available XCSH Software Version will be used. Refer to release notes to find required released SW versions
+<a id="sw"></a>&#x2022; [`sw`](#sw) - Optional Block<br>Select the F5XC Software Version for the site. By default, latest available F5XC Software Version will be used. Refer to release notes to find required released SW versions
 
 <a id="tags"></a>&#x2022; [`tags`](#tags) - Optional Block<br>AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console
 
@@ -114,7 +116,7 @@ An [`aws_parameters`](#aws-parameters) block supports the following:
 
 <a id="aws-parameters-aws-cred"></a>&#x2022; [`aws_cred`](#aws-parameters-aws-cred) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [AWS Cred](#aws-parameters-aws-cred) below.
 
-<a id="aws-parameters-aws-region"></a>&#x2022; [`aws_region`](#aws-parameters-aws-region) - Optional String<br>AWS Region of your services VPC, where XCSH site will be deployed
+<a id="aws-parameters-aws-region"></a>&#x2022; [`aws_region`](#aws-parameters-aws-region) - Optional String<br>AWS Region of your services VPC, where F5XC site will be deployed
 
 <a id="aws-parameters-az-nodes"></a>&#x2022; [`az_nodes`](#aws-parameters-az-nodes) - Optional Block<br>Only Single AZ or Three AZ(s) nodes are supported currently<br>See [Az Nodes](#aws-parameters-az-nodes) below.
 
@@ -124,13 +126,15 @@ An [`aws_parameters`](#aws-parameters) block supports the following:
 
 <a id="aws-parameters-disable-internet-vip"></a>&#x2022; [`disable_internet_vip`](#aws-parameters-disable-internet-vip) - Optional Block<br>Enable this option
 
-<a id="aws-parameters-disk-size"></a>&#x2022; [`disk_size`](#aws-parameters-disk-size) - Optional Number<br>Node disk size for all node in the XCSH site. Unit is GiB
+<a id="aws-parameters-disk-size"></a>&#x2022; [`disk_size`](#aws-parameters-disk-size) - Optional Number<br>Node disk size for all node in the F5XC site. Unit is GiB
 
 <a id="aws-parameters-enable-encryption"></a>&#x2022; [`enable_encryption`](#aws-parameters-enable-encryption) - Optional Block<br>Configuration parameter for enable encryption<br>See [Enable Encryption](#aws-parameters-enable-encryption) below.
 
 <a id="aws-parameters-enable-internet-vip"></a>&#x2022; [`enable_internet_vip`](#aws-parameters-enable-internet-vip) - Optional Block<br>Enable this option
 
 <a id="aws-parameters-existing-tgw"></a>&#x2022; [`existing_tgw`](#aws-parameters-existing-tgw) - Optional Block<br>X-displayName: 'Existing TGW Type' Information needed for existing TGW<br>See [Existing TGW](#aws-parameters-existing-tgw) below.
+
+<a id="aws-parameters-f5xc-security-group"></a>&#x2022; [`f5xc_security_group`](#aws-parameters-f5xc-security-group) - Optional Block<br>Enable this option
 
 <a id="aws-parameters-instance-type"></a>&#x2022; [`instance_type`](#aws-parameters-instance-type) - Optional String<br>Instance size based on the performance
 
@@ -152,15 +156,13 @@ An [`aws_parameters`](#aws-parameters) block supports the following:
 
 <a id="aws-parameters-vpc-id"></a>&#x2022; [`vpc_id`](#aws-parameters-vpc-id) - Optional String<br>Existing VPC ID
 
-<a id="aws-parameters-xcsh-security-group"></a>&#x2022; [`xcsh_security_group`](#aws-parameters-xcsh-security-group) - Optional Block<br>Enable this option
-
 #### AWS Parameters Admin Password
 
 An [`admin_password`](#aws-parameters-admin-password) block (within [`aws_parameters`](#aws-parameters)) supports the following:
 
-<a id="info-d7b5d3"></a>&#x2022; [`blindfold_secret_info`](#info-d7b5d3) - Optional Block<br>X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info](#info-d7b5d3) below.
+<a id="info-d7b5d3"></a>&#x2022; [`blindfold_secret_info`](#info-d7b5d3) - Optional Block<br>X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-d7b5d3) below.
 
-<a id="internal-bc8d30"></a>&#x2022; [`blindfold_secret_info_internal`](#internal-bc8d30) - Optional Block<br>X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info Internal](#internal-bc8d30) below.
+<a id="internal-bc8d30"></a>&#x2022; [`blindfold_secret_info_internal`](#internal-bc8d30) - Optional Block<br>X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info Internal](#internal-bc8d30) below.
 
 <a id="info-fb7899"></a>&#x2022; [`clear_secret_info`](#info-fb7899) - Optional Block<br>X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-fb7899) below.
 
@@ -296,7 +298,7 @@ An [`existing_tgw`](#aws-parameters-existing-tgw) block (within [`aws_parameters
 
 <a id="aws-parameters-existing-tgw-tgw-id"></a>&#x2022; [`tgw_id`](#aws-parameters-existing-tgw-tgw-id) - Optional String<br>X-displayName: 'Existing TGW ID' Existing TGW ID
 
-<a id="asn-c966c9"></a>&#x2022; [`volterra_site_asn`](#asn-c966c9) - Optional Number<br>X-displayName: 'Enter XCSH Site ASN' XCSH Site ASN
+<a id="asn-c966c9"></a>&#x2022; [`volterra_site_asn`](#asn-c966c9) - Optional Number<br>X-displayName: 'Enter F5XC Site ASN' F5XC Site ASN
 
 #### AWS Parameters New TGW
 
@@ -312,7 +314,7 @@ An [`user_assigned`](#aws-parameters-new-tgw-user-assigned) block (within [`aws_
 
 <a id="asn-773b20"></a>&#x2022; [`tgw_asn`](#asn-773b20) - Optional Number<br>X-displayName: 'Enter TGW ASN' TGW ASN. Allowed range for 16-bit private ASNs include 64512 to 65534
 
-<a id="asn-12be2e"></a>&#x2022; [`volterra_site_asn`](#asn-12be2e) - Optional Number<br>X-displayName: 'Enter XCSH Site ASN' XCSH Site ASN
+<a id="asn-12be2e"></a>&#x2022; [`volterra_site_asn`](#asn-12be2e) - Optional Number<br>X-displayName: 'Enter F5XC Site ASN' F5XC Site ASN
 
 #### AWS Parameters New VPC
 
@@ -344,14 +346,14 @@ A [`blocked_service`](#blocked-services-blocked-service) block (within [`blocked
 
 <a id="blocked-services-blocked-service-dns"></a>&#x2022; [`dns`](#blocked-services-blocked-service-dns) - Optional Block<br>Enable this option
 
-<a id="type-5b1d65"></a>&#x2022; [`network_type`](#type-5b1d65) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
+<a id="type-808ec9"></a>&#x2022; [`network_type`](#type-808ec9) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
 `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
 VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT]
 Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
 
 <a id="blocked-services-blocked-service-ssh"></a>&#x2022; [`ssh`](#blocked-services-blocked-service-ssh) - Optional Block<br>Enable this option
 
-<a id="interface-1ff33c"></a>&#x2022; [`web_user_interface`](#interface-1ff33c) - Optional Block<br>Enable this option
+<a id="interface-e57e21"></a>&#x2022; [`web_user_interface`](#interface-e57e21) - Optional Block<br>Enable this option
 
 #### Coordinates
 
@@ -493,7 +495,7 @@ A [`sw`](#sw) block supports the following:
 
 <a id="sw-default-sw-version"></a>&#x2022; [`default_sw_version`](#sw-default-sw-version) - Optional Block<br>Enable this option
 
-<a id="sw-volterra-software-version"></a>&#x2022; [`volterra_software_version`](#sw-volterra-software-version) - Optional String<br>Specify a XCSH Software Version to be used e.g. Crt-20210329-1002
+<a id="sw-volterra-software-version"></a>&#x2022; [`volterra_software_version`](#sw-volterra-software-version) - Optional String<br>Specify a F5XC Software Version to be used e.g. Crt-20210329-1002
 
 #### TGW Security
 
@@ -579,9 +581,9 @@ A [`timeouts`](#timeouts) block supports the following:
 
 A [`vn_config`](#vn-config) block supports the following:
 
-<a id="vn-config-allowed-vip-port"></a>&#x2022; [`allowed_vip_port`](#vn-config-allowed-vip-port) - Optional Block<br>Defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the XCSH Site<br>See [Allowed VIP Port](#vn-config-allowed-vip-port) below.
+<a id="vn-config-allowed-vip-port"></a>&#x2022; [`allowed_vip_port`](#vn-config-allowed-vip-port) - Optional Block<br>Defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site<br>See [Allowed VIP Port](#vn-config-allowed-vip-port) below.
 
-<a id="vn-config-allowed-vip-port-sli"></a>&#x2022; [`allowed_vip_port_sli`](#vn-config-allowed-vip-port-sli) - Optional Block<br>Defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the XCSH Site<br>See [Allowed VIP Port SLI](#vn-config-allowed-vip-port-sli) below.
+<a id="vn-config-allowed-vip-port-sli"></a>&#x2022; [`allowed_vip_port_sli`](#vn-config-allowed-vip-port-sli) - Optional Block<br>Defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site<br>See [Allowed VIP Port SLI](#vn-config-allowed-vip-port-sli) below.
 
 <a id="vn-config-dc-cluster-group-inside-vn"></a>&#x2022; [`dc_cluster_group_inside_vn`](#vn-config-dc-cluster-group-inside-vn) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Dc Cluster Group Inside Vn](#vn-config-dc-cluster-group-inside-vn) below.
 

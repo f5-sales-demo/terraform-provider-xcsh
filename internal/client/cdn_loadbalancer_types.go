@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// CDNLoadBalancer represents a XCSH CDNLoadBalancer
+// CDNLoadBalancer represents a F5XC CDNLoadBalancer
 type CDNLoadBalancer struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

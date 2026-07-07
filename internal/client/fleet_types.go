@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// Fleet represents a XCSH Fleet
+// Fleet represents a F5XC Fleet
 type Fleet struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

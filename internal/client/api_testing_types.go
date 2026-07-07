@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// APITesting represents a XCSH APITesting
+// APITesting represents a F5XC APITesting
 type APITesting struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`
