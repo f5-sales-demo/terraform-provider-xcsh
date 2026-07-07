@@ -63,6 +63,7 @@ wheels/
 *.test
 *.out
 vendor/
+/terraform-provider-xcsh
 
 # Terraform
 .terraform/
