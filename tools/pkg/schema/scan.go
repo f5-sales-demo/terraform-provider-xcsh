@@ -54,6 +54,20 @@ func HasEnumValidatorsAny(attributes []openapi.TerraformAttribute) bool {
 	return false
 }
 
+// HasStringDefaultsAny recursively checks if any attribute (top-level or nested)
+// has a StringDefault. This determines whether stringdefault must be imported.
+func HasStringDefaultsAny(attributes []openapi.TerraformAttribute) bool {
+	for _, attr := range attributes {
+		if attr.StringDefault != "" {
+			return true
+		}
+		if HasStringDefaultsAny(attr.NestedAttributes) {
+			return true
+		}
+	}
+	return false
+}
+
 // HasPatternValidatorsAny recursively checks if any attribute (top-level or nested)
 // has a Pattern regex. This determines whether regexp must be imported.
 func HasPatternValidatorsAny(attributes []openapi.TerraformAttribute) bool {

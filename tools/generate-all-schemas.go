@@ -286,9 +286,19 @@ func processV2Resource(domainFile string, resource openapi.ExtractedResource, do
 	if domainInfo.Spec != nil {
 		var profileSpec *openapi.NamespaceProfileSpec
 
-		// 1. Check per-schema profile (components.schemas.<Resource>.x-f5xc-namespace-profile)
-		if schema, ok := domainInfo.Spec.Components.Schemas[resource.Name]; ok && schema.XF5XCNamespaceProfile != nil {
-			profileSpec = schema.XF5XCNamespaceProfile
+		// 1. Check the per-schema profile on the resource's spec schema. There is no
+		//    schema keyed by the bare resource name — the accurate per-resource profile
+		//    lives on its CreateSpecType/GetSpecType (mirror the extraction lookup).
+		for _, pat := range []string{
+			resource.Name + "CreateSpecType",
+			"schema" + resource.Name + "CreateSpecType",
+			resource.Name + "GetSpecType",
+			resource.Name,
+		} {
+			if schema, ok := domainInfo.Spec.Components.Schemas[pat]; ok && schema.XF5XCNamespaceProfile != nil {
+				profileSpec = schema.XF5XCNamespaceProfile
+				break
+			}
 		}
 
 		// 2. Fall back to info-level profile

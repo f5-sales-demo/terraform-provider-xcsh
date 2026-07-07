@@ -66,7 +66,7 @@ func main() {
 			failed++
 			continue
 		}
-		_, ns := namespace.ForResource(name)
+		ns := exampleNamespace(rt, name)
 		if err := codegen.WriteResourceExample(rt, name, "examples", ns); err != nil {
 			fmt.Fprintf(os.Stderr, "❌ %s: %v\n", name, err)
 			failed++
@@ -97,6 +97,21 @@ func main() {
 		os.Exit(1)
 	}
 	fmt.Println("✅ All examples generated (schema-driven, from committed provider)")
+}
+
+// exampleNamespace returns the namespace value to use in the generated example. It is
+// spec-driven: when the provider schema restricts namespace to a single value (a
+// stringvalidator.OneOf captured as EnumValues — e.g. system-only DNS resources), that
+// value is used so the example satisfies the constraint. Otherwise it falls back to the
+// resource's namespace classification (default "staging").
+func exampleNamespace(rt *openapi.ResourceTemplate, name string) string {
+	for _, a := range rt.Attributes {
+		if a.TfsdkTag == "namespace" && len(a.EnumValues) == 1 {
+			return a.EnumValues[0]
+		}
+	}
+	_, ns := namespace.ForResource(name)
+	return ns
 }
 
 // parseResourceSchema builds a ResourceTemplate carrying the resource's TOP-LEVEL attributes
