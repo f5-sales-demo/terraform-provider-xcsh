@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// Cminstance represents a XCSH Cminstance
+// Cminstance represents a F5XC Cminstance
 type Cminstance struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

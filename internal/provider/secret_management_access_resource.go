@@ -180,7 +180,7 @@ type SecretManagementAccessAccessInfoTLSConfigCertParamsModel struct {
 	CipherSuites           types.List                                                                `tfsdk:"cipher_suites"`
 	MaximumProtocolVersion types.String                                                              `tfsdk:"maximum_protocol_version"`
 	MinimumProtocolVersion types.String                                                              `tfsdk:"minimum_protocol_version"`
-	Certificates           []SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModel    `tfsdk:"certificates"`
+	Certificates           types.List                                                                `tfsdk:"certificates"`
 	ValidationParams       *SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsModel `tfsdk:"validation_params"`
 }
 
@@ -229,7 +229,7 @@ var SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsModelAttr
 
 // SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCAModel represents trusted_ca block
 type SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCAModel struct {
-	TrustedCAList []SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModel `tfsdk:"trusted_ca_list"`
+	TrustedCAList types.List `tfsdk:"trusted_ca_list"`
 }
 
 // SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCAModelAttrTypes defines the attribute types for SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCAModel
@@ -359,7 +359,7 @@ var SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsModelAt
 
 // SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCAModel represents trusted_ca block
 type SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCAModel struct {
-	TrustedCAList []SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModel `tfsdk:"trusted_ca_list"`
+	TrustedCAList types.List `tfsdk:"trusted_ca_list"`
 }
 
 // SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCAModelAttrTypes defines the attribute types for SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCAModel
@@ -501,10 +501,10 @@ var SecretManagementAccessWhereModelAttrTypes = map[string]attr.Type{
 
 // SecretManagementAccessWhereSiteModel represents site block
 type SecretManagementAccessWhereSiteModel struct {
-	NetworkType        types.String                              `tfsdk:"network_type"`
-	DisableInternetVIP *SecretManagementAccessEmptyModel         `tfsdk:"disable_internet_vip"`
-	EnableInternetVIP  *SecretManagementAccessEmptyModel         `tfsdk:"enable_internet_vip"`
-	Ref                []SecretManagementAccessWhereSiteRefModel `tfsdk:"ref"`
+	NetworkType        types.String                      `tfsdk:"network_type"`
+	DisableInternetVIP *SecretManagementAccessEmptyModel `tfsdk:"disable_internet_vip"`
+	EnableInternetVIP  *SecretManagementAccessEmptyModel `tfsdk:"enable_internet_vip"`
+	Ref                types.List                        `tfsdk:"ref"`
 }
 
 // SecretManagementAccessWhereSiteModelAttrTypes defines the attribute types for SecretManagementAccessWhereSiteModel
@@ -535,7 +535,7 @@ var SecretManagementAccessWhereSiteRefModelAttrTypes = map[string]attr.Type{
 
 // SecretManagementAccessWhereVirtualNetworkModel represents virtual_network block
 type SecretManagementAccessWhereVirtualNetworkModel struct {
-	Ref []SecretManagementAccessWhereVirtualNetworkRefModel `tfsdk:"ref"`
+	Ref types.List `tfsdk:"ref"`
 }
 
 // SecretManagementAccessWhereVirtualNetworkModelAttrTypes defines the attribute types for SecretManagementAccessWhereVirtualNetworkModel
@@ -563,10 +563,10 @@ var SecretManagementAccessWhereVirtualNetworkRefModelAttrTypes = map[string]attr
 
 // SecretManagementAccessWhereVirtualSiteModel represents virtual_site block
 type SecretManagementAccessWhereVirtualSiteModel struct {
-	NetworkType        types.String                                     `tfsdk:"network_type"`
-	DisableInternetVIP *SecretManagementAccessEmptyModel                `tfsdk:"disable_internet_vip"`
-	EnableInternetVIP  *SecretManagementAccessEmptyModel                `tfsdk:"enable_internet_vip"`
-	Ref                []SecretManagementAccessWhereVirtualSiteRefModel `tfsdk:"ref"`
+	NetworkType        types.String                      `tfsdk:"network_type"`
+	DisableInternetVIP *SecretManagementAccessEmptyModel `tfsdk:"disable_internet_vip"`
+	EnableInternetVIP  *SecretManagementAccessEmptyModel `tfsdk:"enable_internet_vip"`
+	Ref                types.List                        `tfsdk:"ref"`
 }
 
 // SecretManagementAccessWhereVirtualSiteModelAttrTypes defines the attribute types for SecretManagementAccessWhereVirtualSiteModel
@@ -714,7 +714,7 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
-												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 												Attributes: map[string]schema.Attribute{
 													"decryption_provider": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1008,7 +1008,7 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
-															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1165,7 +1165,7 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
-												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 												Attributes: map[string]schema.Attribute{
 													"decryption_provider": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1209,7 +1209,7 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
-										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 										Attributes: map[string]schema.Attribute{
 											"decryption_provider": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1565,54 +1565,489 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 		createReq.Spec["provider_name"] = data.ProviderName.ValueString()
 	}
 	if data.AccessInfo != nil {
-		access_infoMap := make(map[string]interface{})
+		AccessInfoMap := make(map[string]interface{})
 		if data.AccessInfo.RESTAuthInfo != nil {
-			rest_auth_infoNestedMap := make(map[string]interface{})
-			access_infoMap["rest_auth_info"] = rest_auth_infoNestedMap
+			RESTAuthInfoMap := make(map[string]interface{})
+			if data.AccessInfo.RESTAuthInfo.BasicAuth != nil {
+				BasicAuthMap := make(map[string]interface{})
+				if data.AccessInfo.RESTAuthInfo.BasicAuth.Password != nil {
+					PasswordMap := make(map[string]interface{})
+					if data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo != nil {
+						BlindfoldSecretInfoMap := make(map[string]interface{})
+						if !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["decryption_provider"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						}
+						if !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.Location.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+							BlindfoldSecretInfoMap["location"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.Location.ValueString()
+						}
+						if !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["store_provider"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+						}
+						PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					}
+					if data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo != nil {
+						ClearSecretInfoMap := make(map[string]interface{})
+						if !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.Provider.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.Provider.IsUnknown() {
+							ClearSecretInfoMap["provider"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.Provider.ValueString()
+						}
+						if !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.URL.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.URL.IsUnknown() {
+							ClearSecretInfoMap["url"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.URL.ValueString()
+						}
+						PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+					}
+					BasicAuthMap["password"] = PasswordMap
+				}
+				if !data.AccessInfo.RESTAuthInfo.BasicAuth.Username.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Username.IsUnknown() {
+					BasicAuthMap["username"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Username.ValueString()
+				}
+				RESTAuthInfoMap["basic_auth"] = BasicAuthMap
+			}
+			if data.AccessInfo.RESTAuthInfo.HeadersAuth != nil {
+				HeadersAuthMap := make(map[string]interface{})
+				if data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers != nil {
+					HeadersAuthMap["headers"] = map[string]interface{}{}
+				}
+				RESTAuthInfoMap["headers_auth"] = HeadersAuthMap
+			}
+			if data.AccessInfo.RESTAuthInfo.QueryParamsAuth != nil {
+				QueryParamsAuthMap := make(map[string]interface{})
+				if data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams != nil {
+					QueryParamsAuthMap["query_params"] = map[string]interface{}{}
+				}
+				RESTAuthInfoMap["query_params_auth"] = QueryParamsAuthMap
+			}
+			AccessInfoMap["rest_auth_info"] = RESTAuthInfoMap
 		}
 		if !data.AccessInfo.Scheme.IsNull() && !data.AccessInfo.Scheme.IsUnknown() {
-			access_infoMap["scheme"] = data.AccessInfo.Scheme.ValueString()
+			AccessInfoMap["scheme"] = data.AccessInfo.Scheme.ValueString()
 		}
 		if !data.AccessInfo.ServerEndpoint.IsNull() && !data.AccessInfo.ServerEndpoint.IsUnknown() {
-			access_infoMap["server_endpoint"] = data.AccessInfo.ServerEndpoint.ValueString()
+			AccessInfoMap["server_endpoint"] = data.AccessInfo.ServerEndpoint.ValueString()
 		}
 		if data.AccessInfo.TLSConfig != nil {
-			tls_configNestedMap := make(map[string]interface{})
+			TLSConfigMap := make(map[string]interface{})
+			if data.AccessInfo.TLSConfig.CertParams != nil {
+				CertParamsMap := make(map[string]interface{})
+				if !data.AccessInfo.TLSConfig.CertParams.Certificates.IsNull() && !data.AccessInfo.TLSConfig.CertParams.Certificates.IsUnknown() {
+					var CertificatesElems []SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModel
+					diags := data.AccessInfo.TLSConfig.CertParams.Certificates.ElementsAs(ctx, &CertificatesElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(CertificatesElems) > 0 {
+						var CertificatesList []map[string]interface{}
+						for _, CertificatesItem := range CertificatesElems {
+							CertificatesItemMap := make(map[string]interface{})
+							if !CertificatesItem.Kind.IsNull() && !CertificatesItem.Kind.IsUnknown() {
+								CertificatesItemMap["kind"] = CertificatesItem.Kind.ValueString()
+							}
+							if !CertificatesItem.Name.IsNull() && !CertificatesItem.Name.IsUnknown() {
+								CertificatesItemMap["name"] = CertificatesItem.Name.ValueString()
+							}
+							if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
+								CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
+							}
+							if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
+								CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
+							}
+							if !CertificatesItem.Uid.IsNull() && !CertificatesItem.Uid.IsUnknown() {
+								CertificatesItemMap["uid"] = CertificatesItem.Uid.ValueString()
+							}
+							CertificatesList = append(CertificatesList, CertificatesItemMap)
+						}
+						CertParamsMap["certificates"] = CertificatesList
+					}
+				}
+				if !data.AccessInfo.TLSConfig.CertParams.CipherSuites.IsNull() && !data.AccessInfo.TLSConfig.CertParams.CipherSuites.IsUnknown() {
+					var CipherSuitesItems []string
+					diags := data.AccessInfo.TLSConfig.CertParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+					if !diags.HasError() {
+						CertParamsMap["cipher_suites"] = CipherSuitesItems
+					}
+				}
+				if !data.AccessInfo.TLSConfig.CertParams.MaximumProtocolVersion.IsNull() && !data.AccessInfo.TLSConfig.CertParams.MaximumProtocolVersion.IsUnknown() {
+					CertParamsMap["maximum_protocol_version"] = data.AccessInfo.TLSConfig.CertParams.MaximumProtocolVersion.ValueString()
+				}
+				if !data.AccessInfo.TLSConfig.CertParams.MinimumProtocolVersion.IsNull() && !data.AccessInfo.TLSConfig.CertParams.MinimumProtocolVersion.IsUnknown() {
+					CertParamsMap["minimum_protocol_version"] = data.AccessInfo.TLSConfig.CertParams.MinimumProtocolVersion.ValueString()
+				}
+				if data.AccessInfo.TLSConfig.CertParams.ValidationParams != nil {
+					ValidationParamsMap := make(map[string]interface{})
+					if !data.AccessInfo.TLSConfig.CertParams.ValidationParams.SkipHostnameVerification.IsNull() && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+						ValidationParamsMap["skip_hostname_verification"] = data.AccessInfo.TLSConfig.CertParams.ValidationParams.SkipHostnameVerification.ValueBool()
+					}
+					if data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA != nil {
+						TrustedCAMap := make(map[string]interface{})
+						if !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+							var TrustedCAListElems []SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModel
+							diags := data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(TrustedCAListElems) > 0 {
+								var TrustedCAListList []map[string]interface{}
+								for _, TrustedCAListItem := range TrustedCAListElems {
+									TrustedCAListItemMap := make(map[string]interface{})
+									if !TrustedCAListItem.Kind.IsNull() && !TrustedCAListItem.Kind.IsUnknown() {
+										TrustedCAListItemMap["kind"] = TrustedCAListItem.Kind.ValueString()
+									}
+									if !TrustedCAListItem.Name.IsNull() && !TrustedCAListItem.Name.IsUnknown() {
+										TrustedCAListItemMap["name"] = TrustedCAListItem.Name.ValueString()
+									}
+									if !TrustedCAListItem.Namespace.IsNull() && !TrustedCAListItem.Namespace.IsUnknown() {
+										TrustedCAListItemMap["namespace"] = TrustedCAListItem.Namespace.ValueString()
+									}
+									if !TrustedCAListItem.Tenant.IsNull() && !TrustedCAListItem.Tenant.IsUnknown() {
+										TrustedCAListItemMap["tenant"] = TrustedCAListItem.Tenant.ValueString()
+									}
+									if !TrustedCAListItem.Uid.IsNull() && !TrustedCAListItem.Uid.IsUnknown() {
+										TrustedCAListItemMap["uid"] = TrustedCAListItem.Uid.ValueString()
+									}
+									TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
+								}
+								TrustedCAMap["trusted_ca_list"] = TrustedCAListList
+							}
+						}
+						ValidationParamsMap["trusted_ca"] = TrustedCAMap
+					}
+					if !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCAURL.IsNull() && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCAURL.IsUnknown() {
+						ValidationParamsMap["trusted_ca_url"] = data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCAURL.ValueString()
+					}
+					if !data.AccessInfo.TLSConfig.CertParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
+						var VerifySubjectAltNamesItems []string
+						diags := data.AccessInfo.TLSConfig.CertParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+						if !diags.HasError() {
+							ValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
+						}
+					}
+					CertParamsMap["validation_params"] = ValidationParamsMap
+				}
+				TLSConfigMap["cert_params"] = CertParamsMap
+			}
+			if data.AccessInfo.TLSConfig.CommonParams != nil {
+				CommonParamsMap := make(map[string]interface{})
+				if !data.AccessInfo.TLSConfig.CommonParams.CipherSuites.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.CipherSuites.IsUnknown() {
+					var CipherSuitesItems []string
+					diags := data.AccessInfo.TLSConfig.CommonParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+					if !diags.HasError() {
+						CommonParamsMap["cipher_suites"] = CipherSuitesItems
+					}
+				}
+				if !data.AccessInfo.TLSConfig.CommonParams.MaximumProtocolVersion.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.MaximumProtocolVersion.IsUnknown() {
+					CommonParamsMap["maximum_protocol_version"] = data.AccessInfo.TLSConfig.CommonParams.MaximumProtocolVersion.ValueString()
+				}
+				if !data.AccessInfo.TLSConfig.CommonParams.MinimumProtocolVersion.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.MinimumProtocolVersion.IsUnknown() {
+					CommonParamsMap["minimum_protocol_version"] = data.AccessInfo.TLSConfig.CommonParams.MinimumProtocolVersion.ValueString()
+				}
+				if len(data.AccessInfo.TLSConfig.CommonParams.TLSCertificates) > 0 {
+					var TLSCertificatesList []map[string]interface{}
+					for _, TLSCertificatesItem := range data.AccessInfo.TLSConfig.CommonParams.TLSCertificates {
+						TLSCertificatesItemMap := make(map[string]interface{})
+						if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
+						}
+						if TLSCertificatesItem.CustomHashAlgorithms != nil {
+							CustomHashAlgorithmsMap := make(map[string]interface{})
+							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+								var HashAlgorithmsItems []string
+								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								if !diags.HasError() {
+									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+								}
+							}
+							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+						}
+						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
+						}
+						if TLSCertificatesItem.DisableOCSPStapling != nil {
+							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+						}
+						if TLSCertificatesItem.PrivateKey != nil {
+							PrivateKeyMap := make(map[string]interface{})
+							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+								}
+								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+						}
+						if TLSCertificatesItem.UseSystemDefaults != nil {
+							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+						}
+						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+					}
+					CommonParamsMap["tls_certificates"] = TLSCertificatesList
+				}
+				if data.AccessInfo.TLSConfig.CommonParams.ValidationParams != nil {
+					ValidationParamsMap := make(map[string]interface{})
+					if !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.SkipHostnameVerification.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+						ValidationParamsMap["skip_hostname_verification"] = data.AccessInfo.TLSConfig.CommonParams.ValidationParams.SkipHostnameVerification.ValueBool()
+					}
+					if data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA != nil {
+						TrustedCAMap := make(map[string]interface{})
+						if !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+							var TrustedCAListElems []SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModel
+							diags := data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(TrustedCAListElems) > 0 {
+								var TrustedCAListList []map[string]interface{}
+								for _, TrustedCAListItem := range TrustedCAListElems {
+									TrustedCAListItemMap := make(map[string]interface{})
+									if !TrustedCAListItem.Kind.IsNull() && !TrustedCAListItem.Kind.IsUnknown() {
+										TrustedCAListItemMap["kind"] = TrustedCAListItem.Kind.ValueString()
+									}
+									if !TrustedCAListItem.Name.IsNull() && !TrustedCAListItem.Name.IsUnknown() {
+										TrustedCAListItemMap["name"] = TrustedCAListItem.Name.ValueString()
+									}
+									if !TrustedCAListItem.Namespace.IsNull() && !TrustedCAListItem.Namespace.IsUnknown() {
+										TrustedCAListItemMap["namespace"] = TrustedCAListItem.Namespace.ValueString()
+									}
+									if !TrustedCAListItem.Tenant.IsNull() && !TrustedCAListItem.Tenant.IsUnknown() {
+										TrustedCAListItemMap["tenant"] = TrustedCAListItem.Tenant.ValueString()
+									}
+									if !TrustedCAListItem.Uid.IsNull() && !TrustedCAListItem.Uid.IsUnknown() {
+										TrustedCAListItemMap["uid"] = TrustedCAListItem.Uid.ValueString()
+									}
+									TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
+								}
+								TrustedCAMap["trusted_ca_list"] = TrustedCAListList
+							}
+						}
+						ValidationParamsMap["trusted_ca"] = TrustedCAMap
+					}
+					if !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCAURL.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCAURL.IsUnknown() {
+						ValidationParamsMap["trusted_ca_url"] = data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCAURL.ValueString()
+					}
+					if !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
+						var VerifySubjectAltNamesItems []string
+						diags := data.AccessInfo.TLSConfig.CommonParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+						if !diags.HasError() {
+							ValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
+						}
+					}
+					CommonParamsMap["validation_params"] = ValidationParamsMap
+				}
+				TLSConfigMap["common_params"] = CommonParamsMap
+			}
+			if data.AccessInfo.TLSConfig.DefaultSessionKeyCaching != nil {
+				TLSConfigMap["default_session_key_caching"] = map[string]interface{}{}
+			}
+			if data.AccessInfo.TLSConfig.DisableSessionKeyCaching != nil {
+				TLSConfigMap["disable_session_key_caching"] = map[string]interface{}{}
+			}
+			if data.AccessInfo.TLSConfig.DisableSni != nil {
+				TLSConfigMap["disable_sni"] = map[string]interface{}{}
+			}
 			if !data.AccessInfo.TLSConfig.MaxSessionKeys.IsNull() && !data.AccessInfo.TLSConfig.MaxSessionKeys.IsUnknown() {
-				tls_configNestedMap["max_session_keys"] = data.AccessInfo.TLSConfig.MaxSessionKeys.ValueInt64()
+				TLSConfigMap["max_session_keys"] = data.AccessInfo.TLSConfig.MaxSessionKeys.ValueInt64()
 			}
 			if !data.AccessInfo.TLSConfig.Sni.IsNull() && !data.AccessInfo.TLSConfig.Sni.IsUnknown() {
-				tls_configNestedMap["sni"] = data.AccessInfo.TLSConfig.Sni.ValueString()
+				TLSConfigMap["sni"] = data.AccessInfo.TLSConfig.Sni.ValueString()
 			}
-			access_infoMap["tls_config"] = tls_configNestedMap
+			if data.AccessInfo.TLSConfig.UseHostHeaderAsSni != nil {
+				TLSConfigMap["use_host_header_as_sni"] = map[string]interface{}{}
+			}
+			AccessInfoMap["tls_config"] = TLSConfigMap
 		}
 		if data.AccessInfo.VaultAuthInfo != nil {
-			vault_auth_infoNestedMap := make(map[string]interface{})
-			access_infoMap["vault_auth_info"] = vault_auth_infoNestedMap
+			VaultAuthInfoMap := make(map[string]interface{})
+			if data.AccessInfo.VaultAuthInfo.AppRoleAuth != nil {
+				AppRoleAuthMap := make(map[string]interface{})
+				if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.RoleID.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.RoleID.IsUnknown() {
+					AppRoleAuthMap["role_id"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.RoleID.ValueString()
+				}
+				if data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID != nil {
+					SecretIDMap := make(map[string]interface{})
+					if data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo != nil {
+						BlindfoldSecretInfoMap := make(map[string]interface{})
+						if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["decryption_provider"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						}
+						if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.Location.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.Location.IsUnknown() {
+							BlindfoldSecretInfoMap["location"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.Location.ValueString()
+						}
+						if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["store_provider"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.StoreProvider.ValueString()
+						}
+						SecretIDMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					}
+					if data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo != nil {
+						ClearSecretInfoMap := make(map[string]interface{})
+						if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.Provider.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.Provider.IsUnknown() {
+							ClearSecretInfoMap["provider"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.Provider.ValueString()
+						}
+						if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.URL.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.URL.IsUnknown() {
+							ClearSecretInfoMap["url"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.URL.ValueString()
+						}
+						SecretIDMap["clear_secret_info"] = ClearSecretInfoMap
+					}
+					AppRoleAuthMap["secret_id"] = SecretIDMap
+				}
+				VaultAuthInfoMap["app_role_auth"] = AppRoleAuthMap
+			}
+			if data.AccessInfo.VaultAuthInfo.Token != nil {
+				TokenMap := make(map[string]interface{})
+				if data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.Location.IsNull() && !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					TokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.Provider.IsNull() && !data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.URL.IsNull() && !data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.URL.ValueString()
+					}
+					TokenMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				VaultAuthInfoMap["token"] = TokenMap
+			}
+			AccessInfoMap["vault_auth_info"] = VaultAuthInfoMap
 		}
-		createReq.Spec["access_info"] = access_infoMap
+		createReq.Spec["access_info"] = AccessInfoMap
 	}
 	if data.Where != nil {
-		whereMap := make(map[string]interface{})
+		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
-			siteNestedMap := make(map[string]interface{})
-			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
-				siteNestedMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+			SiteMap := make(map[string]interface{})
+			if data.Where.Site.DisableInternetVIP != nil {
+				SiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			whereMap["site"] = siteNestedMap
+			if data.Where.Site.EnableInternetVIP != nil {
+				SiteMap["enable_internet_vip"] = map[string]interface{}{}
+			}
+			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
+				SiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+			}
+			if !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
+				var RefElems []SecretManagementAccessWhereSiteRefModel
+				diags := data.Where.Site.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					SiteMap["ref"] = RefList
+				}
+			}
+			WhereMap["site"] = SiteMap
 		}
 		if data.Where.VirtualNetwork != nil {
-			virtual_networkNestedMap := make(map[string]interface{})
-			whereMap["virtual_network"] = virtual_networkNestedMap
+			VirtualNetworkMap := make(map[string]interface{})
+			if !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
+				var RefElems []SecretManagementAccessWhereVirtualNetworkRefModel
+				diags := data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					VirtualNetworkMap["ref"] = RefList
+				}
+			}
+			WhereMap["virtual_network"] = VirtualNetworkMap
 		}
 		if data.Where.VirtualSite != nil {
-			virtual_siteNestedMap := make(map[string]interface{})
-			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
-				virtual_siteNestedMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+			VirtualSiteMap := make(map[string]interface{})
+			if data.Where.VirtualSite.DisableInternetVIP != nil {
+				VirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			whereMap["virtual_site"] = virtual_siteNestedMap
+			if data.Where.VirtualSite.EnableInternetVIP != nil {
+				VirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
+			}
+			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
+				VirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+			}
+			if !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
+				var RefElems []SecretManagementAccessWhereVirtualSiteRefModel
+				diags := data.Where.VirtualSite.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					VirtualSiteMap["ref"] = RefList
+				}
+			}
+			WhereMap["virtual_site"] = VirtualSiteMap
 		}
-		createReq.Spec["where"] = whereMap
+		createReq.Spec["where"] = WhereMap
 	}
 
 	apiResource, err := r.client.CreateSecretManagementAccess(ctx, createReq)
@@ -1636,12 +2071,101 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 		data.AccessInfo = &SecretManagementAccessAccessInfoModel{
 			RESTAuthInfo: func() *SecretManagementAccessAccessInfoRESTAuthInfoModel {
 				if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil {
-					// Normal Read: preserve existing state value
 					return data.AccessInfo.RESTAuthInfo
 				}
-				// Import case: read from API
-				if _, ok := blockData["rest_auth_info"].(map[string]interface{}); ok {
-					return &SecretManagementAccessAccessInfoRESTAuthInfoModel{}
+				if RESTAuthInfoData, ok := blockData["rest_auth_info"].(map[string]interface{}); ok {
+					return &SecretManagementAccessAccessInfoRESTAuthInfoModel{
+						BasicAuth: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthModel {
+							if BasicAuthData, ok := RESTAuthInfoData["basic_auth"].(map[string]interface{}); ok {
+								return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthModel{
+									Password: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordModel {
+										if PasswordData, ok := BasicAuthData["password"].(map[string]interface{}); ok {
+											return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordModel{
+												BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordClearSecretInfoModel {
+													if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+														return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									Username: func() types.String {
+										if v, ok := BasicAuthData["username"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						HeadersAuth: func() *SecretManagementAccessAccessInfoRESTAuthInfoHeadersAuthModel {
+							if HeadersAuthData, ok := RESTAuthInfoData["headers_auth"].(map[string]interface{}); ok {
+								return &SecretManagementAccessAccessInfoRESTAuthInfoHeadersAuthModel{
+									Headers: func() *SecretManagementAccessEmptyModel {
+										if _, ok := HeadersAuthData["headers"].(map[string]interface{}); ok {
+											return &SecretManagementAccessEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						QueryParamsAuth: func() *SecretManagementAccessAccessInfoRESTAuthInfoQueryParamsAuthModel {
+							if QueryParamsAuthData, ok := RESTAuthInfoData["query_params_auth"].(map[string]interface{}); ok {
+								return &SecretManagementAccessAccessInfoRESTAuthInfoQueryParamsAuthModel{
+									QueryParams: func() *SecretManagementAccessEmptyModel {
+										if _, ok := QueryParamsAuthData["query_params"].(map[string]interface{}); ok {
+											return &SecretManagementAccessEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -1659,23 +2183,427 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 			}(),
 			TLSConfig: func() *SecretManagementAccessAccessInfoTLSConfigModel {
 				if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
-					// Normal Read: preserve existing state value
 					return data.AccessInfo.TLSConfig
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["tls_config"].(map[string]interface{}); ok {
+				if TLSConfigData, ok := blockData["tls_config"].(map[string]interface{}); ok {
 					return &SecretManagementAccessAccessInfoTLSConfigModel{
+						CertParams: func() *SecretManagementAccessAccessInfoTLSConfigCertParamsModel {
+							if CertParamsData, ok := TLSConfigData["cert_params"].(map[string]interface{}); ok {
+								return &SecretManagementAccessAccessInfoTLSConfigCertParamsModel{
+									Certificates: func() types.List {
+										if rawList, ok := CertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
+											var CertificatesResult []SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModel
+											for _, CertificatesItem := range rawList {
+												if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
+													CertificatesResult = append(CertificatesResult, SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModel{
+														Kind: func() types.String {
+															if v, ok := CertificatesItemMap["kind"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := CertificatesItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := CertificatesItemMap["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := CertificatesItemMap["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Uid: func() types.String {
+															if v, ok := CertificatesItemMap["uid"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModelAttrTypes}, CertificatesResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModelAttrTypes})
+									}(),
+									CipherSuites: func() types.List {
+										if v, ok := CertParamsData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									MaximumProtocolVersion: func() types.String {
+										if v, ok := CertParamsData["maximum_protocol_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									MinimumProtocolVersion: func() types.String {
+										if v, ok := CertParamsData["minimum_protocol_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									ValidationParams: func() *SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsModel {
+										if ValidationParamsData, ok := CertParamsData["validation_params"].(map[string]interface{}); ok {
+											return &SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsModel{
+												SkipHostnameVerification: func() types.Bool {
+													if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												TrustedCA: func() *SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCAModel {
+													if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
+														return &SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCAModel{
+															TrustedCAList: func() types.List {
+																if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
+																	var TrustedCAListResult []SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModel
+																	for _, TrustedCAListItem := range rawList {
+																		if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
+																			TrustedCAListResult = append(TrustedCAListResult, SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModel{
+																				Kind: func() types.String {
+																					if v, ok := TrustedCAListItemMap["kind"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Name: func() types.String {
+																					if v, ok := TrustedCAListItemMap["name"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Namespace: func() types.String {
+																					if v, ok := TrustedCAListItemMap["namespace"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Tenant: func() types.String {
+																					if v, ok := TrustedCAListItemMap["tenant"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Uid: func() types.String {
+																					if v, ok := TrustedCAListItemMap["uid"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			})
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
+																	return listVal
+																}
+																return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+															}(),
+														}
+													}
+													return nil
+												}(),
+												TrustedCAURL: func() types.String {
+													if v, ok := ValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												VerifySubjectAltNames: func() types.List {
+													if v, ok := ValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						CommonParams: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsModel {
+							if CommonParamsData, ok := TLSConfigData["common_params"].(map[string]interface{}); ok {
+								return &SecretManagementAccessAccessInfoTLSConfigCommonParamsModel{
+									CipherSuites: func() types.List {
+										if v, ok := CommonParamsData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									MaximumProtocolVersion: func() types.String {
+										if v, ok := CommonParamsData["maximum_protocol_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									MinimumProtocolVersion: func() types.String {
+										if v, ok := CommonParamsData["minimum_protocol_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									TLSCertificates: func() []SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModel {
+										if rawList, ok := CommonParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+											var TLSCertificatesResult []SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModel
+											for _, TLSCertificatesItem := range rawList {
+												if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+													TLSCertificatesResult = append(TLSCertificatesResult, SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModel{
+														CertificateURL: func() types.String {
+															if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														CustomHashAlgorithms: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesCustomHashAlgorithmsModel {
+															if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+																return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesCustomHashAlgorithmsModel{
+																	HashAlgorithms: func() types.List {
+																		if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														DescriptionSpec: func() types.String {
+															if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														DisableOCSPStapling: func() *SecretManagementAccessEmptyModel {
+															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+																return &SecretManagementAccessEmptyModel{}
+															}
+															return nil
+														}(),
+														PrivateKey: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyModel {
+															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+																return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyModel{
+																	BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														UseSystemDefaults: func() *SecretManagementAccessEmptyModel {
+															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+																return &SecretManagementAccessEmptyModel{}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											return TLSCertificatesResult
+										}
+										return nil
+									}(),
+									ValidationParams: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsModel {
+										if ValidationParamsData, ok := CommonParamsData["validation_params"].(map[string]interface{}); ok {
+											return &SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsModel{
+												SkipHostnameVerification: func() types.Bool {
+													if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												TrustedCA: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCAModel {
+													if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
+														return &SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCAModel{
+															TrustedCAList: func() types.List {
+																if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
+																	var TrustedCAListResult []SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModel
+																	for _, TrustedCAListItem := range rawList {
+																		if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
+																			TrustedCAListResult = append(TrustedCAListResult, SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModel{
+																				Kind: func() types.String {
+																					if v, ok := TrustedCAListItemMap["kind"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Name: func() types.String {
+																					if v, ok := TrustedCAListItemMap["name"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Namespace: func() types.String {
+																					if v, ok := TrustedCAListItemMap["namespace"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Tenant: func() types.String {
+																					if v, ok := TrustedCAListItemMap["tenant"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Uid: func() types.String {
+																					if v, ok := TrustedCAListItemMap["uid"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			})
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
+																	return listVal
+																}
+																return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+															}(),
+														}
+													}
+													return nil
+												}(),
+												TrustedCAURL: func() types.String {
+													if v, ok := ValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												VerifySubjectAltNames: func() types.List {
+													if v, ok := ValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						DefaultSessionKeyCaching: func() *SecretManagementAccessEmptyModel {
+							if _, ok := TLSConfigData["default_session_key_caching"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
+						}(),
+						DisableSessionKeyCaching: func() *SecretManagementAccessEmptyModel {
+							if _, ok := TLSConfigData["disable_session_key_caching"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
+						}(),
+						DisableSni: func() *SecretManagementAccessEmptyModel {
+							if _, ok := TLSConfigData["disable_sni"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
+						}(),
 						MaxSessionKeys: func() types.Int64 {
-							if v, ok := nestedBlockData["max_session_keys"].(float64); ok {
+							if v, ok := TLSConfigData["max_session_keys"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Sni: func() types.String {
-							if v, ok := nestedBlockData["sni"].(string); ok && v != "" {
+							if v, ok := TLSConfigData["sni"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						UseHostHeaderAsSni: func() *SecretManagementAccessEmptyModel {
+							if _, ok := TLSConfigData["use_host_header_as_sni"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -1683,22 +2611,333 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 			}(),
 			VaultAuthInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoModel {
 				if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil {
-					// Normal Read: preserve existing state value
 					return data.AccessInfo.VaultAuthInfo
 				}
-				// Import case: read from API
-				if _, ok := blockData["vault_auth_info"].(map[string]interface{}); ok {
-					return &SecretManagementAccessAccessInfoVaultAuthInfoModel{}
+				if VaultAuthInfoData, ok := blockData["vault_auth_info"].(map[string]interface{}); ok {
+					return &SecretManagementAccessAccessInfoVaultAuthInfoModel{
+						AppRoleAuth: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthModel {
+							if AppRoleAuthData, ok := VaultAuthInfoData["app_role_auth"].(map[string]interface{}); ok {
+								return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthModel{
+									RoleID: func() types.String {
+										if v, ok := AppRoleAuthData["role_id"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									SecretID: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDModel {
+										if SecretIDData, ok := AppRoleAuthData["secret_id"].(map[string]interface{}); ok {
+											return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDModel{
+												BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := SecretIDData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDClearSecretInfoModel {
+													if ClearSecretInfoData, ok := SecretIDData["clear_secret_info"].(map[string]interface{}); ok {
+														return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Token: func() *SecretManagementAccessAccessInfoVaultAuthInfoTokenModel {
+							if TokenData, ok := VaultAuthInfoData["token"].(map[string]interface{}); ok {
+								return &SecretManagementAccessAccessInfoVaultAuthInfoTokenModel{
+									BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoTokenBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := TokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &SecretManagementAccessAccessInfoVaultAuthInfoTokenBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoTokenClearSecretInfoModel {
+										if ClearSecretInfoData, ok := TokenData["clear_secret_info"].(map[string]interface{}); ok {
+											return &SecretManagementAccessAccessInfoVaultAuthInfoTokenClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["where"].(map[string]interface{}); ok && isImport && data.Where == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Where = &SecretManagementAccessWhereModel{}
+	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
+		data.Where = &SecretManagementAccessWhereModel{
+			Site: func() *SecretManagementAccessWhereSiteModel {
+				if !isImport && data.Where != nil && data.Where.Site != nil {
+					return data.Where.Site
+				}
+				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
+					return &SecretManagementAccessWhereSiteModel{
+						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := SiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []SecretManagementAccessWhereSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, SecretManagementAccessWhereSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecretManagementAccessWhereSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessWhereSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualNetwork: func() *SecretManagementAccessWhereVirtualNetworkModel {
+				if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil {
+					return data.Where.VirtualNetwork
+				}
+				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
+					return &SecretManagementAccessWhereVirtualNetworkModel{
+						Ref: func() types.List {
+							if rawList, ok := VirtualNetworkData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []SecretManagementAccessWhereVirtualNetworkRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, SecretManagementAccessWhereVirtualNetworkRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecretManagementAccessWhereVirtualNetworkRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessWhereVirtualNetworkRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualSite: func() *SecretManagementAccessWhereVirtualSiteModel {
+				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+					return data.Where.VirtualSite
+				}
+				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
+					return &SecretManagementAccessWhereVirtualSiteModel{
+						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []SecretManagementAccessWhereVirtualSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, SecretManagementAccessWhereVirtualSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecretManagementAccessWhereVirtualSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessWhereVirtualSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 
 	tflog.Trace(ctx, "created SecretManagementAccess resource")
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -1788,12 +3027,101 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 		data.AccessInfo = &SecretManagementAccessAccessInfoModel{
 			RESTAuthInfo: func() *SecretManagementAccessAccessInfoRESTAuthInfoModel {
 				if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil {
-					// Normal Read: preserve existing state value
 					return data.AccessInfo.RESTAuthInfo
 				}
-				// Import case: read from API
-				if _, ok := blockData["rest_auth_info"].(map[string]interface{}); ok {
-					return &SecretManagementAccessAccessInfoRESTAuthInfoModel{}
+				if RESTAuthInfoData, ok := blockData["rest_auth_info"].(map[string]interface{}); ok {
+					return &SecretManagementAccessAccessInfoRESTAuthInfoModel{
+						BasicAuth: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthModel {
+							if BasicAuthData, ok := RESTAuthInfoData["basic_auth"].(map[string]interface{}); ok {
+								return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthModel{
+									Password: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordModel {
+										if PasswordData, ok := BasicAuthData["password"].(map[string]interface{}); ok {
+											return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordModel{
+												BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordClearSecretInfoModel {
+													if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+														return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									Username: func() types.String {
+										if v, ok := BasicAuthData["username"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						HeadersAuth: func() *SecretManagementAccessAccessInfoRESTAuthInfoHeadersAuthModel {
+							if HeadersAuthData, ok := RESTAuthInfoData["headers_auth"].(map[string]interface{}); ok {
+								return &SecretManagementAccessAccessInfoRESTAuthInfoHeadersAuthModel{
+									Headers: func() *SecretManagementAccessEmptyModel {
+										if _, ok := HeadersAuthData["headers"].(map[string]interface{}); ok {
+											return &SecretManagementAccessEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						QueryParamsAuth: func() *SecretManagementAccessAccessInfoRESTAuthInfoQueryParamsAuthModel {
+							if QueryParamsAuthData, ok := RESTAuthInfoData["query_params_auth"].(map[string]interface{}); ok {
+								return &SecretManagementAccessAccessInfoRESTAuthInfoQueryParamsAuthModel{
+									QueryParams: func() *SecretManagementAccessEmptyModel {
+										if _, ok := QueryParamsAuthData["query_params"].(map[string]interface{}); ok {
+											return &SecretManagementAccessEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -1811,23 +3139,427 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 			}(),
 			TLSConfig: func() *SecretManagementAccessAccessInfoTLSConfigModel {
 				if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
-					// Normal Read: preserve existing state value
 					return data.AccessInfo.TLSConfig
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["tls_config"].(map[string]interface{}); ok {
+				if TLSConfigData, ok := blockData["tls_config"].(map[string]interface{}); ok {
 					return &SecretManagementAccessAccessInfoTLSConfigModel{
+						CertParams: func() *SecretManagementAccessAccessInfoTLSConfigCertParamsModel {
+							if CertParamsData, ok := TLSConfigData["cert_params"].(map[string]interface{}); ok {
+								return &SecretManagementAccessAccessInfoTLSConfigCertParamsModel{
+									Certificates: func() types.List {
+										if rawList, ok := CertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
+											var CertificatesResult []SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModel
+											for _, CertificatesItem := range rawList {
+												if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
+													CertificatesResult = append(CertificatesResult, SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModel{
+														Kind: func() types.String {
+															if v, ok := CertificatesItemMap["kind"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := CertificatesItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := CertificatesItemMap["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := CertificatesItemMap["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Uid: func() types.String {
+															if v, ok := CertificatesItemMap["uid"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModelAttrTypes}, CertificatesResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModelAttrTypes})
+									}(),
+									CipherSuites: func() types.List {
+										if v, ok := CertParamsData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									MaximumProtocolVersion: func() types.String {
+										if v, ok := CertParamsData["maximum_protocol_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									MinimumProtocolVersion: func() types.String {
+										if v, ok := CertParamsData["minimum_protocol_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									ValidationParams: func() *SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsModel {
+										if ValidationParamsData, ok := CertParamsData["validation_params"].(map[string]interface{}); ok {
+											return &SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsModel{
+												SkipHostnameVerification: func() types.Bool {
+													if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												TrustedCA: func() *SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCAModel {
+													if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
+														return &SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCAModel{
+															TrustedCAList: func() types.List {
+																if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
+																	var TrustedCAListResult []SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModel
+																	for _, TrustedCAListItem := range rawList {
+																		if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
+																			TrustedCAListResult = append(TrustedCAListResult, SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModel{
+																				Kind: func() types.String {
+																					if v, ok := TrustedCAListItemMap["kind"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Name: func() types.String {
+																					if v, ok := TrustedCAListItemMap["name"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Namespace: func() types.String {
+																					if v, ok := TrustedCAListItemMap["namespace"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Tenant: func() types.String {
+																					if v, ok := TrustedCAListItemMap["tenant"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Uid: func() types.String {
+																					if v, ok := TrustedCAListItemMap["uid"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			})
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
+																	return listVal
+																}
+																return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+															}(),
+														}
+													}
+													return nil
+												}(),
+												TrustedCAURL: func() types.String {
+													if v, ok := ValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												VerifySubjectAltNames: func() types.List {
+													if v, ok := ValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						CommonParams: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsModel {
+							if CommonParamsData, ok := TLSConfigData["common_params"].(map[string]interface{}); ok {
+								return &SecretManagementAccessAccessInfoTLSConfigCommonParamsModel{
+									CipherSuites: func() types.List {
+										if v, ok := CommonParamsData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									MaximumProtocolVersion: func() types.String {
+										if v, ok := CommonParamsData["maximum_protocol_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									MinimumProtocolVersion: func() types.String {
+										if v, ok := CommonParamsData["minimum_protocol_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									TLSCertificates: func() []SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModel {
+										if rawList, ok := CommonParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+											var TLSCertificatesResult []SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModel
+											for _, TLSCertificatesItem := range rawList {
+												if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+													TLSCertificatesResult = append(TLSCertificatesResult, SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModel{
+														CertificateURL: func() types.String {
+															if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														CustomHashAlgorithms: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesCustomHashAlgorithmsModel {
+															if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+																return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesCustomHashAlgorithmsModel{
+																	HashAlgorithms: func() types.List {
+																		if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														DescriptionSpec: func() types.String {
+															if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														DisableOCSPStapling: func() *SecretManagementAccessEmptyModel {
+															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+																return &SecretManagementAccessEmptyModel{}
+															}
+															return nil
+														}(),
+														PrivateKey: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyModel {
+															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+																return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyModel{
+																	BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														UseSystemDefaults: func() *SecretManagementAccessEmptyModel {
+															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+																return &SecretManagementAccessEmptyModel{}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											return TLSCertificatesResult
+										}
+										return nil
+									}(),
+									ValidationParams: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsModel {
+										if ValidationParamsData, ok := CommonParamsData["validation_params"].(map[string]interface{}); ok {
+											return &SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsModel{
+												SkipHostnameVerification: func() types.Bool {
+													if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												TrustedCA: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCAModel {
+													if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
+														return &SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCAModel{
+															TrustedCAList: func() types.List {
+																if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
+																	var TrustedCAListResult []SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModel
+																	for _, TrustedCAListItem := range rawList {
+																		if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
+																			TrustedCAListResult = append(TrustedCAListResult, SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModel{
+																				Kind: func() types.String {
+																					if v, ok := TrustedCAListItemMap["kind"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Name: func() types.String {
+																					if v, ok := TrustedCAListItemMap["name"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Namespace: func() types.String {
+																					if v, ok := TrustedCAListItemMap["namespace"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Tenant: func() types.String {
+																					if v, ok := TrustedCAListItemMap["tenant"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Uid: func() types.String {
+																					if v, ok := TrustedCAListItemMap["uid"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			})
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
+																	return listVal
+																}
+																return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+															}(),
+														}
+													}
+													return nil
+												}(),
+												TrustedCAURL: func() types.String {
+													if v, ok := ValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												VerifySubjectAltNames: func() types.List {
+													if v, ok := ValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						DefaultSessionKeyCaching: func() *SecretManagementAccessEmptyModel {
+							if _, ok := TLSConfigData["default_session_key_caching"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
+						}(),
+						DisableSessionKeyCaching: func() *SecretManagementAccessEmptyModel {
+							if _, ok := TLSConfigData["disable_session_key_caching"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
+						}(),
+						DisableSni: func() *SecretManagementAccessEmptyModel {
+							if _, ok := TLSConfigData["disable_sni"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
+						}(),
 						MaxSessionKeys: func() types.Int64 {
-							if v, ok := nestedBlockData["max_session_keys"].(float64); ok {
+							if v, ok := TLSConfigData["max_session_keys"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Sni: func() types.String {
-							if v, ok := nestedBlockData["sni"].(string); ok && v != "" {
+							if v, ok := TLSConfigData["sni"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						UseHostHeaderAsSni: func() *SecretManagementAccessEmptyModel {
+							if _, ok := TLSConfigData["use_host_header_as_sni"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -1835,22 +3567,341 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 			}(),
 			VaultAuthInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoModel {
 				if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil {
-					// Normal Read: preserve existing state value
 					return data.AccessInfo.VaultAuthInfo
 				}
-				// Import case: read from API
-				if _, ok := blockData["vault_auth_info"].(map[string]interface{}); ok {
-					return &SecretManagementAccessAccessInfoVaultAuthInfoModel{}
+				if VaultAuthInfoData, ok := blockData["vault_auth_info"].(map[string]interface{}); ok {
+					return &SecretManagementAccessAccessInfoVaultAuthInfoModel{
+						AppRoleAuth: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthModel {
+							if AppRoleAuthData, ok := VaultAuthInfoData["app_role_auth"].(map[string]interface{}); ok {
+								return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthModel{
+									RoleID: func() types.String {
+										if v, ok := AppRoleAuthData["role_id"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									SecretID: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDModel {
+										if SecretIDData, ok := AppRoleAuthData["secret_id"].(map[string]interface{}); ok {
+											return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDModel{
+												BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := SecretIDData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDClearSecretInfoModel {
+													if ClearSecretInfoData, ok := SecretIDData["clear_secret_info"].(map[string]interface{}); ok {
+														return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Token: func() *SecretManagementAccessAccessInfoVaultAuthInfoTokenModel {
+							if TokenData, ok := VaultAuthInfoData["token"].(map[string]interface{}); ok {
+								return &SecretManagementAccessAccessInfoVaultAuthInfoTokenModel{
+									BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoTokenBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := TokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &SecretManagementAccessAccessInfoVaultAuthInfoTokenBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoTokenClearSecretInfoModel {
+										if ClearSecretInfoData, ok := TokenData["clear_secret_info"].(map[string]interface{}); ok {
+											return &SecretManagementAccessAccessInfoVaultAuthInfoTokenClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["where"].(map[string]interface{}); ok && isImport && data.Where == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Where = &SecretManagementAccessWhereModel{}
+	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
+		data.Where = &SecretManagementAccessWhereModel{
+			Site: func() *SecretManagementAccessWhereSiteModel {
+				if !isImport && data.Where != nil && data.Where.Site != nil {
+					return data.Where.Site
+				}
+				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
+					return &SecretManagementAccessWhereSiteModel{
+						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := SiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []SecretManagementAccessWhereSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, SecretManagementAccessWhereSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecretManagementAccessWhereSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessWhereSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualNetwork: func() *SecretManagementAccessWhereVirtualNetworkModel {
+				if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil {
+					return data.Where.VirtualNetwork
+				}
+				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
+					return &SecretManagementAccessWhereVirtualNetworkModel{
+						Ref: func() types.List {
+							if rawList, ok := VirtualNetworkData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []SecretManagementAccessWhereVirtualNetworkRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, SecretManagementAccessWhereVirtualNetworkRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecretManagementAccessWhereVirtualNetworkRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessWhereVirtualNetworkRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualSite: func() *SecretManagementAccessWhereVirtualSiteModel {
+				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+					return data.Where.VirtualSite
+				}
+				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
+					return &SecretManagementAccessWhereVirtualSiteModel{
+						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []SecretManagementAccessWhereVirtualSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, SecretManagementAccessWhereVirtualSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecretManagementAccessWhereVirtualSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessWhereVirtualSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
+	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
@@ -1906,54 +3957,489 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 		apiResource.Spec["provider_name"] = data.ProviderName.ValueString()
 	}
 	if data.AccessInfo != nil {
-		access_infoMap := make(map[string]interface{})
+		AccessInfoMap := make(map[string]interface{})
 		if data.AccessInfo.RESTAuthInfo != nil {
-			rest_auth_infoNestedMap := make(map[string]interface{})
-			access_infoMap["rest_auth_info"] = rest_auth_infoNestedMap
+			RESTAuthInfoMap := make(map[string]interface{})
+			if data.AccessInfo.RESTAuthInfo.BasicAuth != nil {
+				BasicAuthMap := make(map[string]interface{})
+				if data.AccessInfo.RESTAuthInfo.BasicAuth.Password != nil {
+					PasswordMap := make(map[string]interface{})
+					if data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo != nil {
+						BlindfoldSecretInfoMap := make(map[string]interface{})
+						if !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["decryption_provider"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						}
+						if !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.Location.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+							BlindfoldSecretInfoMap["location"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.Location.ValueString()
+						}
+						if !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["store_provider"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+						}
+						PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					}
+					if data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo != nil {
+						ClearSecretInfoMap := make(map[string]interface{})
+						if !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.Provider.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.Provider.IsUnknown() {
+							ClearSecretInfoMap["provider"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.Provider.ValueString()
+						}
+						if !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.URL.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.URL.IsUnknown() {
+							ClearSecretInfoMap["url"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.URL.ValueString()
+						}
+						PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+					}
+					BasicAuthMap["password"] = PasswordMap
+				}
+				if !data.AccessInfo.RESTAuthInfo.BasicAuth.Username.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Username.IsUnknown() {
+					BasicAuthMap["username"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Username.ValueString()
+				}
+				RESTAuthInfoMap["basic_auth"] = BasicAuthMap
+			}
+			if data.AccessInfo.RESTAuthInfo.HeadersAuth != nil {
+				HeadersAuthMap := make(map[string]interface{})
+				if data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers != nil {
+					HeadersAuthMap["headers"] = map[string]interface{}{}
+				}
+				RESTAuthInfoMap["headers_auth"] = HeadersAuthMap
+			}
+			if data.AccessInfo.RESTAuthInfo.QueryParamsAuth != nil {
+				QueryParamsAuthMap := make(map[string]interface{})
+				if data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams != nil {
+					QueryParamsAuthMap["query_params"] = map[string]interface{}{}
+				}
+				RESTAuthInfoMap["query_params_auth"] = QueryParamsAuthMap
+			}
+			AccessInfoMap["rest_auth_info"] = RESTAuthInfoMap
 		}
 		if !data.AccessInfo.Scheme.IsNull() && !data.AccessInfo.Scheme.IsUnknown() {
-			access_infoMap["scheme"] = data.AccessInfo.Scheme.ValueString()
+			AccessInfoMap["scheme"] = data.AccessInfo.Scheme.ValueString()
 		}
 		if !data.AccessInfo.ServerEndpoint.IsNull() && !data.AccessInfo.ServerEndpoint.IsUnknown() {
-			access_infoMap["server_endpoint"] = data.AccessInfo.ServerEndpoint.ValueString()
+			AccessInfoMap["server_endpoint"] = data.AccessInfo.ServerEndpoint.ValueString()
 		}
 		if data.AccessInfo.TLSConfig != nil {
-			tls_configNestedMap := make(map[string]interface{})
+			TLSConfigMap := make(map[string]interface{})
+			if data.AccessInfo.TLSConfig.CertParams != nil {
+				CertParamsMap := make(map[string]interface{})
+				if !data.AccessInfo.TLSConfig.CertParams.Certificates.IsNull() && !data.AccessInfo.TLSConfig.CertParams.Certificates.IsUnknown() {
+					var CertificatesElems []SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModel
+					diags := data.AccessInfo.TLSConfig.CertParams.Certificates.ElementsAs(ctx, &CertificatesElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(CertificatesElems) > 0 {
+						var CertificatesList []map[string]interface{}
+						for _, CertificatesItem := range CertificatesElems {
+							CertificatesItemMap := make(map[string]interface{})
+							if !CertificatesItem.Kind.IsNull() && !CertificatesItem.Kind.IsUnknown() {
+								CertificatesItemMap["kind"] = CertificatesItem.Kind.ValueString()
+							}
+							if !CertificatesItem.Name.IsNull() && !CertificatesItem.Name.IsUnknown() {
+								CertificatesItemMap["name"] = CertificatesItem.Name.ValueString()
+							}
+							if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
+								CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
+							}
+							if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
+								CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
+							}
+							if !CertificatesItem.Uid.IsNull() && !CertificatesItem.Uid.IsUnknown() {
+								CertificatesItemMap["uid"] = CertificatesItem.Uid.ValueString()
+							}
+							CertificatesList = append(CertificatesList, CertificatesItemMap)
+						}
+						CertParamsMap["certificates"] = CertificatesList
+					}
+				}
+				if !data.AccessInfo.TLSConfig.CertParams.CipherSuites.IsNull() && !data.AccessInfo.TLSConfig.CertParams.CipherSuites.IsUnknown() {
+					var CipherSuitesItems []string
+					diags := data.AccessInfo.TLSConfig.CertParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+					if !diags.HasError() {
+						CertParamsMap["cipher_suites"] = CipherSuitesItems
+					}
+				}
+				if !data.AccessInfo.TLSConfig.CertParams.MaximumProtocolVersion.IsNull() && !data.AccessInfo.TLSConfig.CertParams.MaximumProtocolVersion.IsUnknown() {
+					CertParamsMap["maximum_protocol_version"] = data.AccessInfo.TLSConfig.CertParams.MaximumProtocolVersion.ValueString()
+				}
+				if !data.AccessInfo.TLSConfig.CertParams.MinimumProtocolVersion.IsNull() && !data.AccessInfo.TLSConfig.CertParams.MinimumProtocolVersion.IsUnknown() {
+					CertParamsMap["minimum_protocol_version"] = data.AccessInfo.TLSConfig.CertParams.MinimumProtocolVersion.ValueString()
+				}
+				if data.AccessInfo.TLSConfig.CertParams.ValidationParams != nil {
+					ValidationParamsMap := make(map[string]interface{})
+					if !data.AccessInfo.TLSConfig.CertParams.ValidationParams.SkipHostnameVerification.IsNull() && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+						ValidationParamsMap["skip_hostname_verification"] = data.AccessInfo.TLSConfig.CertParams.ValidationParams.SkipHostnameVerification.ValueBool()
+					}
+					if data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA != nil {
+						TrustedCAMap := make(map[string]interface{})
+						if !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+							var TrustedCAListElems []SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModel
+							diags := data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(TrustedCAListElems) > 0 {
+								var TrustedCAListList []map[string]interface{}
+								for _, TrustedCAListItem := range TrustedCAListElems {
+									TrustedCAListItemMap := make(map[string]interface{})
+									if !TrustedCAListItem.Kind.IsNull() && !TrustedCAListItem.Kind.IsUnknown() {
+										TrustedCAListItemMap["kind"] = TrustedCAListItem.Kind.ValueString()
+									}
+									if !TrustedCAListItem.Name.IsNull() && !TrustedCAListItem.Name.IsUnknown() {
+										TrustedCAListItemMap["name"] = TrustedCAListItem.Name.ValueString()
+									}
+									if !TrustedCAListItem.Namespace.IsNull() && !TrustedCAListItem.Namespace.IsUnknown() {
+										TrustedCAListItemMap["namespace"] = TrustedCAListItem.Namespace.ValueString()
+									}
+									if !TrustedCAListItem.Tenant.IsNull() && !TrustedCAListItem.Tenant.IsUnknown() {
+										TrustedCAListItemMap["tenant"] = TrustedCAListItem.Tenant.ValueString()
+									}
+									if !TrustedCAListItem.Uid.IsNull() && !TrustedCAListItem.Uid.IsUnknown() {
+										TrustedCAListItemMap["uid"] = TrustedCAListItem.Uid.ValueString()
+									}
+									TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
+								}
+								TrustedCAMap["trusted_ca_list"] = TrustedCAListList
+							}
+						}
+						ValidationParamsMap["trusted_ca"] = TrustedCAMap
+					}
+					if !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCAURL.IsNull() && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCAURL.IsUnknown() {
+						ValidationParamsMap["trusted_ca_url"] = data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCAURL.ValueString()
+					}
+					if !data.AccessInfo.TLSConfig.CertParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
+						var VerifySubjectAltNamesItems []string
+						diags := data.AccessInfo.TLSConfig.CertParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+						if !diags.HasError() {
+							ValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
+						}
+					}
+					CertParamsMap["validation_params"] = ValidationParamsMap
+				}
+				TLSConfigMap["cert_params"] = CertParamsMap
+			}
+			if data.AccessInfo.TLSConfig.CommonParams != nil {
+				CommonParamsMap := make(map[string]interface{})
+				if !data.AccessInfo.TLSConfig.CommonParams.CipherSuites.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.CipherSuites.IsUnknown() {
+					var CipherSuitesItems []string
+					diags := data.AccessInfo.TLSConfig.CommonParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+					if !diags.HasError() {
+						CommonParamsMap["cipher_suites"] = CipherSuitesItems
+					}
+				}
+				if !data.AccessInfo.TLSConfig.CommonParams.MaximumProtocolVersion.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.MaximumProtocolVersion.IsUnknown() {
+					CommonParamsMap["maximum_protocol_version"] = data.AccessInfo.TLSConfig.CommonParams.MaximumProtocolVersion.ValueString()
+				}
+				if !data.AccessInfo.TLSConfig.CommonParams.MinimumProtocolVersion.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.MinimumProtocolVersion.IsUnknown() {
+					CommonParamsMap["minimum_protocol_version"] = data.AccessInfo.TLSConfig.CommonParams.MinimumProtocolVersion.ValueString()
+				}
+				if len(data.AccessInfo.TLSConfig.CommonParams.TLSCertificates) > 0 {
+					var TLSCertificatesList []map[string]interface{}
+					for _, TLSCertificatesItem := range data.AccessInfo.TLSConfig.CommonParams.TLSCertificates {
+						TLSCertificatesItemMap := make(map[string]interface{})
+						if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
+						}
+						if TLSCertificatesItem.CustomHashAlgorithms != nil {
+							CustomHashAlgorithmsMap := make(map[string]interface{})
+							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+								var HashAlgorithmsItems []string
+								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								if !diags.HasError() {
+									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+								}
+							}
+							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+						}
+						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
+						}
+						if TLSCertificatesItem.DisableOCSPStapling != nil {
+							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+						}
+						if TLSCertificatesItem.PrivateKey != nil {
+							PrivateKeyMap := make(map[string]interface{})
+							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+								}
+								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+						}
+						if TLSCertificatesItem.UseSystemDefaults != nil {
+							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+						}
+						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+					}
+					CommonParamsMap["tls_certificates"] = TLSCertificatesList
+				}
+				if data.AccessInfo.TLSConfig.CommonParams.ValidationParams != nil {
+					ValidationParamsMap := make(map[string]interface{})
+					if !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.SkipHostnameVerification.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+						ValidationParamsMap["skip_hostname_verification"] = data.AccessInfo.TLSConfig.CommonParams.ValidationParams.SkipHostnameVerification.ValueBool()
+					}
+					if data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA != nil {
+						TrustedCAMap := make(map[string]interface{})
+						if !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+							var TrustedCAListElems []SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModel
+							diags := data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(TrustedCAListElems) > 0 {
+								var TrustedCAListList []map[string]interface{}
+								for _, TrustedCAListItem := range TrustedCAListElems {
+									TrustedCAListItemMap := make(map[string]interface{})
+									if !TrustedCAListItem.Kind.IsNull() && !TrustedCAListItem.Kind.IsUnknown() {
+										TrustedCAListItemMap["kind"] = TrustedCAListItem.Kind.ValueString()
+									}
+									if !TrustedCAListItem.Name.IsNull() && !TrustedCAListItem.Name.IsUnknown() {
+										TrustedCAListItemMap["name"] = TrustedCAListItem.Name.ValueString()
+									}
+									if !TrustedCAListItem.Namespace.IsNull() && !TrustedCAListItem.Namespace.IsUnknown() {
+										TrustedCAListItemMap["namespace"] = TrustedCAListItem.Namespace.ValueString()
+									}
+									if !TrustedCAListItem.Tenant.IsNull() && !TrustedCAListItem.Tenant.IsUnknown() {
+										TrustedCAListItemMap["tenant"] = TrustedCAListItem.Tenant.ValueString()
+									}
+									if !TrustedCAListItem.Uid.IsNull() && !TrustedCAListItem.Uid.IsUnknown() {
+										TrustedCAListItemMap["uid"] = TrustedCAListItem.Uid.ValueString()
+									}
+									TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
+								}
+								TrustedCAMap["trusted_ca_list"] = TrustedCAListList
+							}
+						}
+						ValidationParamsMap["trusted_ca"] = TrustedCAMap
+					}
+					if !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCAURL.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCAURL.IsUnknown() {
+						ValidationParamsMap["trusted_ca_url"] = data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCAURL.ValueString()
+					}
+					if !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
+						var VerifySubjectAltNamesItems []string
+						diags := data.AccessInfo.TLSConfig.CommonParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+						if !diags.HasError() {
+							ValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
+						}
+					}
+					CommonParamsMap["validation_params"] = ValidationParamsMap
+				}
+				TLSConfigMap["common_params"] = CommonParamsMap
+			}
+			if data.AccessInfo.TLSConfig.DefaultSessionKeyCaching != nil {
+				TLSConfigMap["default_session_key_caching"] = map[string]interface{}{}
+			}
+			if data.AccessInfo.TLSConfig.DisableSessionKeyCaching != nil {
+				TLSConfigMap["disable_session_key_caching"] = map[string]interface{}{}
+			}
+			if data.AccessInfo.TLSConfig.DisableSni != nil {
+				TLSConfigMap["disable_sni"] = map[string]interface{}{}
+			}
 			if !data.AccessInfo.TLSConfig.MaxSessionKeys.IsNull() && !data.AccessInfo.TLSConfig.MaxSessionKeys.IsUnknown() {
-				tls_configNestedMap["max_session_keys"] = data.AccessInfo.TLSConfig.MaxSessionKeys.ValueInt64()
+				TLSConfigMap["max_session_keys"] = data.AccessInfo.TLSConfig.MaxSessionKeys.ValueInt64()
 			}
 			if !data.AccessInfo.TLSConfig.Sni.IsNull() && !data.AccessInfo.TLSConfig.Sni.IsUnknown() {
-				tls_configNestedMap["sni"] = data.AccessInfo.TLSConfig.Sni.ValueString()
+				TLSConfigMap["sni"] = data.AccessInfo.TLSConfig.Sni.ValueString()
 			}
-			access_infoMap["tls_config"] = tls_configNestedMap
+			if data.AccessInfo.TLSConfig.UseHostHeaderAsSni != nil {
+				TLSConfigMap["use_host_header_as_sni"] = map[string]interface{}{}
+			}
+			AccessInfoMap["tls_config"] = TLSConfigMap
 		}
 		if data.AccessInfo.VaultAuthInfo != nil {
-			vault_auth_infoNestedMap := make(map[string]interface{})
-			access_infoMap["vault_auth_info"] = vault_auth_infoNestedMap
+			VaultAuthInfoMap := make(map[string]interface{})
+			if data.AccessInfo.VaultAuthInfo.AppRoleAuth != nil {
+				AppRoleAuthMap := make(map[string]interface{})
+				if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.RoleID.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.RoleID.IsUnknown() {
+					AppRoleAuthMap["role_id"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.RoleID.ValueString()
+				}
+				if data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID != nil {
+					SecretIDMap := make(map[string]interface{})
+					if data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo != nil {
+						BlindfoldSecretInfoMap := make(map[string]interface{})
+						if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["decryption_provider"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						}
+						if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.Location.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.Location.IsUnknown() {
+							BlindfoldSecretInfoMap["location"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.Location.ValueString()
+						}
+						if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+							BlindfoldSecretInfoMap["store_provider"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.StoreProvider.ValueString()
+						}
+						SecretIDMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					}
+					if data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo != nil {
+						ClearSecretInfoMap := make(map[string]interface{})
+						if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.Provider.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.Provider.IsUnknown() {
+							ClearSecretInfoMap["provider"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.Provider.ValueString()
+						}
+						if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.URL.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.URL.IsUnknown() {
+							ClearSecretInfoMap["url"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.URL.ValueString()
+						}
+						SecretIDMap["clear_secret_info"] = ClearSecretInfoMap
+					}
+					AppRoleAuthMap["secret_id"] = SecretIDMap
+				}
+				VaultAuthInfoMap["app_role_auth"] = AppRoleAuthMap
+			}
+			if data.AccessInfo.VaultAuthInfo.Token != nil {
+				TokenMap := make(map[string]interface{})
+				if data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.Location.IsNull() && !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					TokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.Provider.IsNull() && !data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.URL.IsNull() && !data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.URL.ValueString()
+					}
+					TokenMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				VaultAuthInfoMap["token"] = TokenMap
+			}
+			AccessInfoMap["vault_auth_info"] = VaultAuthInfoMap
 		}
-		apiResource.Spec["access_info"] = access_infoMap
+		apiResource.Spec["access_info"] = AccessInfoMap
 	}
 	if data.Where != nil {
-		whereMap := make(map[string]interface{})
+		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
-			siteNestedMap := make(map[string]interface{})
-			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
-				siteNestedMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+			SiteMap := make(map[string]interface{})
+			if data.Where.Site.DisableInternetVIP != nil {
+				SiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			whereMap["site"] = siteNestedMap
+			if data.Where.Site.EnableInternetVIP != nil {
+				SiteMap["enable_internet_vip"] = map[string]interface{}{}
+			}
+			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
+				SiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+			}
+			if !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
+				var RefElems []SecretManagementAccessWhereSiteRefModel
+				diags := data.Where.Site.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					SiteMap["ref"] = RefList
+				}
+			}
+			WhereMap["site"] = SiteMap
 		}
 		if data.Where.VirtualNetwork != nil {
-			virtual_networkNestedMap := make(map[string]interface{})
-			whereMap["virtual_network"] = virtual_networkNestedMap
+			VirtualNetworkMap := make(map[string]interface{})
+			if !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
+				var RefElems []SecretManagementAccessWhereVirtualNetworkRefModel
+				diags := data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					VirtualNetworkMap["ref"] = RefList
+				}
+			}
+			WhereMap["virtual_network"] = VirtualNetworkMap
 		}
 		if data.Where.VirtualSite != nil {
-			virtual_siteNestedMap := make(map[string]interface{})
-			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
-				virtual_siteNestedMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+			VirtualSiteMap := make(map[string]interface{})
+			if data.Where.VirtualSite.DisableInternetVIP != nil {
+				VirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			whereMap["virtual_site"] = virtual_siteNestedMap
+			if data.Where.VirtualSite.EnableInternetVIP != nil {
+				VirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
+			}
+			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
+				VirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+			}
+			if !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
+				var RefElems []SecretManagementAccessWhereVirtualSiteRefModel
+				diags := data.Where.VirtualSite.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					VirtualSiteMap["ref"] = RefList
+				}
+			}
+			WhereMap["virtual_site"] = VirtualSiteMap
 		}
-		apiResource.Spec["where"] = whereMap
+		apiResource.Spec["where"] = WhereMap
 	}
 
 	_, err := r.client.UpdateSecretManagementAccess(ctx, apiResource)
@@ -1988,12 +4474,101 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 		data.AccessInfo = &SecretManagementAccessAccessInfoModel{
 			RESTAuthInfo: func() *SecretManagementAccessAccessInfoRESTAuthInfoModel {
 				if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil {
-					// Normal Read: preserve existing state value
 					return data.AccessInfo.RESTAuthInfo
 				}
-				// Import case: read from API
-				if _, ok := blockData["rest_auth_info"].(map[string]interface{}); ok {
-					return &SecretManagementAccessAccessInfoRESTAuthInfoModel{}
+				if RESTAuthInfoData, ok := blockData["rest_auth_info"].(map[string]interface{}); ok {
+					return &SecretManagementAccessAccessInfoRESTAuthInfoModel{
+						BasicAuth: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthModel {
+							if BasicAuthData, ok := RESTAuthInfoData["basic_auth"].(map[string]interface{}); ok {
+								return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthModel{
+									Password: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordModel {
+										if PasswordData, ok := BasicAuthData["password"].(map[string]interface{}); ok {
+											return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordModel{
+												BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordClearSecretInfoModel {
+													if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+														return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									Username: func() types.String {
+										if v, ok := BasicAuthData["username"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						HeadersAuth: func() *SecretManagementAccessAccessInfoRESTAuthInfoHeadersAuthModel {
+							if HeadersAuthData, ok := RESTAuthInfoData["headers_auth"].(map[string]interface{}); ok {
+								return &SecretManagementAccessAccessInfoRESTAuthInfoHeadersAuthModel{
+									Headers: func() *SecretManagementAccessEmptyModel {
+										if _, ok := HeadersAuthData["headers"].(map[string]interface{}); ok {
+											return &SecretManagementAccessEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						QueryParamsAuth: func() *SecretManagementAccessAccessInfoRESTAuthInfoQueryParamsAuthModel {
+							if QueryParamsAuthData, ok := RESTAuthInfoData["query_params_auth"].(map[string]interface{}); ok {
+								return &SecretManagementAccessAccessInfoRESTAuthInfoQueryParamsAuthModel{
+									QueryParams: func() *SecretManagementAccessEmptyModel {
+										if _, ok := QueryParamsAuthData["query_params"].(map[string]interface{}); ok {
+											return &SecretManagementAccessEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -2011,23 +4586,427 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 			}(),
 			TLSConfig: func() *SecretManagementAccessAccessInfoTLSConfigModel {
 				if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
-					// Normal Read: preserve existing state value
 					return data.AccessInfo.TLSConfig
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["tls_config"].(map[string]interface{}); ok {
+				if TLSConfigData, ok := blockData["tls_config"].(map[string]interface{}); ok {
 					return &SecretManagementAccessAccessInfoTLSConfigModel{
+						CertParams: func() *SecretManagementAccessAccessInfoTLSConfigCertParamsModel {
+							if CertParamsData, ok := TLSConfigData["cert_params"].(map[string]interface{}); ok {
+								return &SecretManagementAccessAccessInfoTLSConfigCertParamsModel{
+									Certificates: func() types.List {
+										if rawList, ok := CertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
+											var CertificatesResult []SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModel
+											for _, CertificatesItem := range rawList {
+												if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
+													CertificatesResult = append(CertificatesResult, SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModel{
+														Kind: func() types.String {
+															if v, ok := CertificatesItemMap["kind"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := CertificatesItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := CertificatesItemMap["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := CertificatesItemMap["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Uid: func() types.String {
+															if v, ok := CertificatesItemMap["uid"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModelAttrTypes}, CertificatesResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModelAttrTypes})
+									}(),
+									CipherSuites: func() types.List {
+										if v, ok := CertParamsData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									MaximumProtocolVersion: func() types.String {
+										if v, ok := CertParamsData["maximum_protocol_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									MinimumProtocolVersion: func() types.String {
+										if v, ok := CertParamsData["minimum_protocol_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									ValidationParams: func() *SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsModel {
+										if ValidationParamsData, ok := CertParamsData["validation_params"].(map[string]interface{}); ok {
+											return &SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsModel{
+												SkipHostnameVerification: func() types.Bool {
+													if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												TrustedCA: func() *SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCAModel {
+													if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
+														return &SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCAModel{
+															TrustedCAList: func() types.List {
+																if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
+																	var TrustedCAListResult []SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModel
+																	for _, TrustedCAListItem := range rawList {
+																		if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
+																			TrustedCAListResult = append(TrustedCAListResult, SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModel{
+																				Kind: func() types.String {
+																					if v, ok := TrustedCAListItemMap["kind"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Name: func() types.String {
+																					if v, ok := TrustedCAListItemMap["name"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Namespace: func() types.String {
+																					if v, ok := TrustedCAListItemMap["namespace"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Tenant: func() types.String {
+																					if v, ok := TrustedCAListItemMap["tenant"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Uid: func() types.String {
+																					if v, ok := TrustedCAListItemMap["uid"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			})
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
+																	return listVal
+																}
+																return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+															}(),
+														}
+													}
+													return nil
+												}(),
+												TrustedCAURL: func() types.String {
+													if v, ok := ValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												VerifySubjectAltNames: func() types.List {
+													if v, ok := ValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						CommonParams: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsModel {
+							if CommonParamsData, ok := TLSConfigData["common_params"].(map[string]interface{}); ok {
+								return &SecretManagementAccessAccessInfoTLSConfigCommonParamsModel{
+									CipherSuites: func() types.List {
+										if v, ok := CommonParamsData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									MaximumProtocolVersion: func() types.String {
+										if v, ok := CommonParamsData["maximum_protocol_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									MinimumProtocolVersion: func() types.String {
+										if v, ok := CommonParamsData["minimum_protocol_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									TLSCertificates: func() []SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModel {
+										if rawList, ok := CommonParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+											var TLSCertificatesResult []SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModel
+											for _, TLSCertificatesItem := range rawList {
+												if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+													TLSCertificatesResult = append(TLSCertificatesResult, SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModel{
+														CertificateURL: func() types.String {
+															if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														CustomHashAlgorithms: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesCustomHashAlgorithmsModel {
+															if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+																return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesCustomHashAlgorithmsModel{
+																	HashAlgorithms: func() types.List {
+																		if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														DescriptionSpec: func() types.String {
+															if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														DisableOCSPStapling: func() *SecretManagementAccessEmptyModel {
+															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+																return &SecretManagementAccessEmptyModel{}
+															}
+															return nil
+														}(),
+														PrivateKey: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyModel {
+															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+																return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyModel{
+																	BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														UseSystemDefaults: func() *SecretManagementAccessEmptyModel {
+															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+																return &SecretManagementAccessEmptyModel{}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											return TLSCertificatesResult
+										}
+										return nil
+									}(),
+									ValidationParams: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsModel {
+										if ValidationParamsData, ok := CommonParamsData["validation_params"].(map[string]interface{}); ok {
+											return &SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsModel{
+												SkipHostnameVerification: func() types.Bool {
+													if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												TrustedCA: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCAModel {
+													if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
+														return &SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCAModel{
+															TrustedCAList: func() types.List {
+																if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
+																	var TrustedCAListResult []SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModel
+																	for _, TrustedCAListItem := range rawList {
+																		if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
+																			TrustedCAListResult = append(TrustedCAListResult, SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModel{
+																				Kind: func() types.String {
+																					if v, ok := TrustedCAListItemMap["kind"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Name: func() types.String {
+																					if v, ok := TrustedCAListItemMap["name"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Namespace: func() types.String {
+																					if v, ok := TrustedCAListItemMap["namespace"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Tenant: func() types.String {
+																					if v, ok := TrustedCAListItemMap["tenant"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Uid: func() types.String {
+																					if v, ok := TrustedCAListItemMap["uid"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			})
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
+																	return listVal
+																}
+																return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+															}(),
+														}
+													}
+													return nil
+												}(),
+												TrustedCAURL: func() types.String {
+													if v, ok := ValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												VerifySubjectAltNames: func() types.List {
+													if v, ok := ValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						DefaultSessionKeyCaching: func() *SecretManagementAccessEmptyModel {
+							if _, ok := TLSConfigData["default_session_key_caching"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
+						}(),
+						DisableSessionKeyCaching: func() *SecretManagementAccessEmptyModel {
+							if _, ok := TLSConfigData["disable_session_key_caching"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
+						}(),
+						DisableSni: func() *SecretManagementAccessEmptyModel {
+							if _, ok := TLSConfigData["disable_sni"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
+						}(),
 						MaxSessionKeys: func() types.Int64 {
-							if v, ok := nestedBlockData["max_session_keys"].(float64); ok {
+							if v, ok := TLSConfigData["max_session_keys"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Sni: func() types.String {
-							if v, ok := nestedBlockData["sni"].(string); ok && v != "" {
+							if v, ok := TLSConfigData["sni"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						UseHostHeaderAsSni: func() *SecretManagementAccessEmptyModel {
+							if _, ok := TLSConfigData["use_host_header_as_sni"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -2035,22 +5014,333 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 			}(),
 			VaultAuthInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoModel {
 				if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil {
-					// Normal Read: preserve existing state value
 					return data.AccessInfo.VaultAuthInfo
 				}
-				// Import case: read from API
-				if _, ok := blockData["vault_auth_info"].(map[string]interface{}); ok {
-					return &SecretManagementAccessAccessInfoVaultAuthInfoModel{}
+				if VaultAuthInfoData, ok := blockData["vault_auth_info"].(map[string]interface{}); ok {
+					return &SecretManagementAccessAccessInfoVaultAuthInfoModel{
+						AppRoleAuth: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthModel {
+							if AppRoleAuthData, ok := VaultAuthInfoData["app_role_auth"].(map[string]interface{}); ok {
+								return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthModel{
+									RoleID: func() types.String {
+										if v, ok := AppRoleAuthData["role_id"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									SecretID: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDModel {
+										if SecretIDData, ok := AppRoleAuthData["secret_id"].(map[string]interface{}); ok {
+											return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDModel{
+												BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := SecretIDData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDClearSecretInfoModel {
+													if ClearSecretInfoData, ok := SecretIDData["clear_secret_info"].(map[string]interface{}); ok {
+														return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Token: func() *SecretManagementAccessAccessInfoVaultAuthInfoTokenModel {
+							if TokenData, ok := VaultAuthInfoData["token"].(map[string]interface{}); ok {
+								return &SecretManagementAccessAccessInfoVaultAuthInfoTokenModel{
+									BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoTokenBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := TokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &SecretManagementAccessAccessInfoVaultAuthInfoTokenBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoTokenClearSecretInfoModel {
+										if ClearSecretInfoData, ok := TokenData["clear_secret_info"].(map[string]interface{}); ok {
+											return &SecretManagementAccessAccessInfoVaultAuthInfoTokenClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["where"].(map[string]interface{}); ok && isImport && data.Where == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Where = &SecretManagementAccessWhereModel{}
+	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
+		data.Where = &SecretManagementAccessWhereModel{
+			Site: func() *SecretManagementAccessWhereSiteModel {
+				if !isImport && data.Where != nil && data.Where.Site != nil {
+					return data.Where.Site
+				}
+				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
+					return &SecretManagementAccessWhereSiteModel{
+						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := SiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []SecretManagementAccessWhereSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, SecretManagementAccessWhereSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecretManagementAccessWhereSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessWhereSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualNetwork: func() *SecretManagementAccessWhereVirtualNetworkModel {
+				if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil {
+					return data.Where.VirtualNetwork
+				}
+				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
+					return &SecretManagementAccessWhereVirtualNetworkModel{
+						Ref: func() types.List {
+							if rawList, ok := VirtualNetworkData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []SecretManagementAccessWhereVirtualNetworkRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, SecretManagementAccessWhereVirtualNetworkRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecretManagementAccessWhereVirtualNetworkRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessWhereVirtualNetworkRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualSite: func() *SecretManagementAccessWhereVirtualSiteModel {
+				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+					return data.Where.VirtualSite
+				}
+				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
+					return &SecretManagementAccessWhereVirtualSiteModel{
+						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &SecretManagementAccessEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []SecretManagementAccessWhereVirtualSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, SecretManagementAccessWhereVirtualSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecretManagementAccessWhereVirtualSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessWhereVirtualSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }

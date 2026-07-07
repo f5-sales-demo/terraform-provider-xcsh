@@ -1,0 +1,25 @@
+# xcsh_dns_lb_pool
+
+Category: DNS
+DNS Load Balancer Pool in a given namespace. If one already exist it will give a error
+
+## Required
+
+- name
+- namespace
+- load_balancing_mode
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_dns_lb_pool" "example" {
+  name      = "example-dns-lb-pool"
+  namespace = "staging"
+
+  load_balancing_mode = "ROUND_ROBIN"
+}
+```
+
+## Dependencies
+
+Requires: none

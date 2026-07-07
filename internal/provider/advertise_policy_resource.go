@@ -191,7 +191,7 @@ var AdvertisePolicyTLSParametersCommonParamsValidationParamsModelAttrTypes = map
 
 // AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCAModel represents trusted_ca block
 type AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCAModel struct {
-	TrustedCAList []AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel `tfsdk:"trusted_ca_list"`
+	TrustedCAList types.List `tfsdk:"trusted_ca_list"`
 }
 
 // AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCAModelAttrTypes defines the attribute types for AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCAModel
@@ -233,10 +233,10 @@ var AdvertisePolicyWhereModelAttrTypes = map[string]attr.Type{
 
 // AdvertisePolicyWhereSiteModel represents site block
 type AdvertisePolicyWhereSiteModel struct {
-	NetworkType        types.String                       `tfsdk:"network_type"`
-	DisableInternetVIP *AdvertisePolicyEmptyModel         `tfsdk:"disable_internet_vip"`
-	EnableInternetVIP  *AdvertisePolicyEmptyModel         `tfsdk:"enable_internet_vip"`
-	Ref                []AdvertisePolicyWhereSiteRefModel `tfsdk:"ref"`
+	NetworkType        types.String               `tfsdk:"network_type"`
+	DisableInternetVIP *AdvertisePolicyEmptyModel `tfsdk:"disable_internet_vip"`
+	EnableInternetVIP  *AdvertisePolicyEmptyModel `tfsdk:"enable_internet_vip"`
+	Ref                types.List                 `tfsdk:"ref"`
 }
 
 // AdvertisePolicyWhereSiteModelAttrTypes defines the attribute types for AdvertisePolicyWhereSiteModel
@@ -267,7 +267,7 @@ var AdvertisePolicyWhereSiteRefModelAttrTypes = map[string]attr.Type{
 
 // AdvertisePolicyWhereVirtualNetworkModel represents virtual_network block
 type AdvertisePolicyWhereVirtualNetworkModel struct {
-	Ref []AdvertisePolicyWhereVirtualNetworkRefModel `tfsdk:"ref"`
+	Ref types.List `tfsdk:"ref"`
 }
 
 // AdvertisePolicyWhereVirtualNetworkModelAttrTypes defines the attribute types for AdvertisePolicyWhereVirtualNetworkModel
@@ -295,10 +295,10 @@ var AdvertisePolicyWhereVirtualNetworkRefModelAttrTypes = map[string]attr.Type{
 
 // AdvertisePolicyWhereVirtualSiteModel represents virtual_site block
 type AdvertisePolicyWhereVirtualSiteModel struct {
-	NetworkType        types.String                              `tfsdk:"network_type"`
-	DisableInternetVIP *AdvertisePolicyEmptyModel                `tfsdk:"disable_internet_vip"`
-	EnableInternetVIP  *AdvertisePolicyEmptyModel                `tfsdk:"enable_internet_vip"`
-	Ref                []AdvertisePolicyWhereVirtualSiteRefModel `tfsdk:"ref"`
+	NetworkType        types.String               `tfsdk:"network_type"`
+	DisableInternetVIP *AdvertisePolicyEmptyModel `tfsdk:"disable_internet_vip"`
+	EnableInternetVIP  *AdvertisePolicyEmptyModel `tfsdk:"enable_internet_vip"`
+	Ref                types.List                 `tfsdk:"ref"`
 }
 
 // AdvertisePolicyWhereVirtualSiteModelAttrTypes defines the attribute types for AdvertisePolicyWhereVirtualSiteModel
@@ -573,7 +573,7 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
-													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 													Attributes: map[string]schema.Attribute{
 														"decryption_provider": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1023,84 +1023,294 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.PublicIP.IsNull() && !data.PublicIP.IsUnknown() {
-		var public_ipItems []AdvertisePolicyPublicIPModel
-		diags := data.PublicIP.ElementsAs(ctx, &public_ipItems, false)
+		var PublicIPElems []AdvertisePolicyPublicIPModel
+		diags := data.PublicIP.ElementsAs(ctx, &PublicIPElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(public_ipItems) > 0 {
-			var public_ipList []map[string]interface{}
-			for _, item := range public_ipItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(PublicIPElems) > 0 {
+			var PublicIPList []map[string]interface{}
+			for _, PublicIPItem := range PublicIPElems {
+				PublicIPItemMap := make(map[string]interface{})
+				if !PublicIPItem.Kind.IsNull() && !PublicIPItem.Kind.IsUnknown() {
+					PublicIPItemMap["kind"] = PublicIPItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !PublicIPItem.Name.IsNull() && !PublicIPItem.Name.IsUnknown() {
+					PublicIPItemMap["name"] = PublicIPItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !PublicIPItem.Namespace.IsNull() && !PublicIPItem.Namespace.IsUnknown() {
+					PublicIPItemMap["namespace"] = PublicIPItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !PublicIPItem.Tenant.IsNull() && !PublicIPItem.Tenant.IsUnknown() {
+					PublicIPItemMap["tenant"] = PublicIPItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !PublicIPItem.Uid.IsNull() && !PublicIPItem.Uid.IsUnknown() {
+					PublicIPItemMap["uid"] = PublicIPItem.Uid.ValueString()
 				}
-				public_ipList = append(public_ipList, itemMap)
+				PublicIPList = append(PublicIPList, PublicIPItemMap)
 			}
-			createReq.Spec["public_ip"] = public_ipList
+			createReq.Spec["public_ip"] = PublicIPList
 		}
 	}
 	if data.TLSParameters != nil {
-		tls_parametersMap := make(map[string]interface{})
+		TLSParametersMap := make(map[string]interface{})
 		if data.TLSParameters.ClientCertificateOptional != nil {
-			tls_parametersMap["client_certificate_optional"] = map[string]interface{}{}
+			TLSParametersMap["client_certificate_optional"] = map[string]interface{}{}
 		}
 		if data.TLSParameters.ClientCertificateRequired != nil {
-			tls_parametersMap["client_certificate_required"] = map[string]interface{}{}
+			TLSParametersMap["client_certificate_required"] = map[string]interface{}{}
 		}
 		if data.TLSParameters.CommonParams != nil {
-			common_paramsNestedMap := make(map[string]interface{})
+			CommonParamsMap := make(map[string]interface{})
+			if !data.TLSParameters.CommonParams.CipherSuites.IsNull() && !data.TLSParameters.CommonParams.CipherSuites.IsUnknown() {
+				var CipherSuitesItems []string
+				diags := data.TLSParameters.CommonParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+				if !diags.HasError() {
+					CommonParamsMap["cipher_suites"] = CipherSuitesItems
+				}
+			}
 			if !data.TLSParameters.CommonParams.MaximumProtocolVersion.IsNull() && !data.TLSParameters.CommonParams.MaximumProtocolVersion.IsUnknown() {
-				common_paramsNestedMap["maximum_protocol_version"] = data.TLSParameters.CommonParams.MaximumProtocolVersion.ValueString()
+				CommonParamsMap["maximum_protocol_version"] = data.TLSParameters.CommonParams.MaximumProtocolVersion.ValueString()
 			}
 			if !data.TLSParameters.CommonParams.MinimumProtocolVersion.IsNull() && !data.TLSParameters.CommonParams.MinimumProtocolVersion.IsUnknown() {
-				common_paramsNestedMap["minimum_protocol_version"] = data.TLSParameters.CommonParams.MinimumProtocolVersion.ValueString()
+				CommonParamsMap["minimum_protocol_version"] = data.TLSParameters.CommonParams.MinimumProtocolVersion.ValueString()
 			}
-			tls_parametersMap["common_params"] = common_paramsNestedMap
+			if len(data.TLSParameters.CommonParams.TLSCertificates) > 0 {
+				var TLSCertificatesList []map[string]interface{}
+				for _, TLSCertificatesItem := range data.TLSParameters.CommonParams.TLSCertificates {
+					TLSCertificatesItemMap := make(map[string]interface{})
+					if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+						TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
+					}
+					if TLSCertificatesItem.CustomHashAlgorithms != nil {
+						CustomHashAlgorithmsMap := make(map[string]interface{})
+						if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+							var HashAlgorithmsItems []string
+							diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+							if !diags.HasError() {
+								CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+							}
+						}
+						TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+					}
+					if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+						TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
+					}
+					if TLSCertificatesItem.DisableOCSPStapling != nil {
+						TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+					}
+					if TLSCertificatesItem.PrivateKey != nil {
+						PrivateKeyMap := make(map[string]interface{})
+						if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+							}
+							PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+					}
+					if TLSCertificatesItem.UseSystemDefaults != nil {
+						TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+					}
+					TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+				}
+				CommonParamsMap["tls_certificates"] = TLSCertificatesList
+			}
+			if data.TLSParameters.CommonParams.ValidationParams != nil {
+				ValidationParamsMap := make(map[string]interface{})
+				if !data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+					ValidationParamsMap["skip_hostname_verification"] = data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.ValueBool()
+				}
+				if data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil {
+					TrustedCAMap := make(map[string]interface{})
+					if !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+						var TrustedCAListElems []AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
+						diags := data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(TrustedCAListElems) > 0 {
+							var TrustedCAListList []map[string]interface{}
+							for _, TrustedCAListItem := range TrustedCAListElems {
+								TrustedCAListItemMap := make(map[string]interface{})
+								if !TrustedCAListItem.Kind.IsNull() && !TrustedCAListItem.Kind.IsUnknown() {
+									TrustedCAListItemMap["kind"] = TrustedCAListItem.Kind.ValueString()
+								}
+								if !TrustedCAListItem.Name.IsNull() && !TrustedCAListItem.Name.IsUnknown() {
+									TrustedCAListItemMap["name"] = TrustedCAListItem.Name.ValueString()
+								}
+								if !TrustedCAListItem.Namespace.IsNull() && !TrustedCAListItem.Namespace.IsUnknown() {
+									TrustedCAListItemMap["namespace"] = TrustedCAListItem.Namespace.ValueString()
+								}
+								if !TrustedCAListItem.Tenant.IsNull() && !TrustedCAListItem.Tenant.IsUnknown() {
+									TrustedCAListItemMap["tenant"] = TrustedCAListItem.Tenant.ValueString()
+								}
+								if !TrustedCAListItem.Uid.IsNull() && !TrustedCAListItem.Uid.IsUnknown() {
+									TrustedCAListItemMap["uid"] = TrustedCAListItem.Uid.ValueString()
+								}
+								TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
+							}
+							TrustedCAMap["trusted_ca_list"] = TrustedCAListList
+						}
+					}
+					ValidationParamsMap["trusted_ca"] = TrustedCAMap
+				}
+				if !data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.IsUnknown() {
+					ValidationParamsMap["trusted_ca_url"] = data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.ValueString()
+				}
+				if !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
+					var VerifySubjectAltNamesItems []string
+					diags := data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+					if !diags.HasError() {
+						ValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
+					}
+				}
+				CommonParamsMap["validation_params"] = ValidationParamsMap
+			}
+			TLSParametersMap["common_params"] = CommonParamsMap
 		}
 		if data.TLSParameters.NoClientCertificate != nil {
-			tls_parametersMap["no_client_certificate"] = map[string]interface{}{}
+			TLSParametersMap["no_client_certificate"] = map[string]interface{}{}
 		}
 		if !data.TLSParameters.XfccHeaderElements.IsNull() && !data.TLSParameters.XfccHeaderElements.IsUnknown() {
-			var xfcc_header_elementsItems []string
-			diags := data.TLSParameters.XfccHeaderElements.ElementsAs(ctx, &xfcc_header_elementsItems, false)
+			var XfccHeaderElementsItems []string
+			diags := data.TLSParameters.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
 			if !diags.HasError() {
-				tls_parametersMap["xfcc_header_elements"] = xfcc_header_elementsItems
+				TLSParametersMap["xfcc_header_elements"] = XfccHeaderElementsItems
 			}
 		}
-		createReq.Spec["tls_parameters"] = tls_parametersMap
+		createReq.Spec["tls_parameters"] = TLSParametersMap
 	}
 	if data.Where != nil {
-		whereMap := make(map[string]interface{})
+		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
-			siteNestedMap := make(map[string]interface{})
-			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
-				siteNestedMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+			SiteMap := make(map[string]interface{})
+			if data.Where.Site.DisableInternetVIP != nil {
+				SiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			whereMap["site"] = siteNestedMap
+			if data.Where.Site.EnableInternetVIP != nil {
+				SiteMap["enable_internet_vip"] = map[string]interface{}{}
+			}
+			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
+				SiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+			}
+			if !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
+				var RefElems []AdvertisePolicyWhereSiteRefModel
+				diags := data.Where.Site.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					SiteMap["ref"] = RefList
+				}
+			}
+			WhereMap["site"] = SiteMap
 		}
 		if data.Where.VirtualNetwork != nil {
-			virtual_networkNestedMap := make(map[string]interface{})
-			whereMap["virtual_network"] = virtual_networkNestedMap
+			VirtualNetworkMap := make(map[string]interface{})
+			if !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
+				var RefElems []AdvertisePolicyWhereVirtualNetworkRefModel
+				diags := data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					VirtualNetworkMap["ref"] = RefList
+				}
+			}
+			WhereMap["virtual_network"] = VirtualNetworkMap
 		}
 		if data.Where.VirtualSite != nil {
-			virtual_siteNestedMap := make(map[string]interface{})
-			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
-				virtual_siteNestedMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+			VirtualSiteMap := make(map[string]interface{})
+			if data.Where.VirtualSite.DisableInternetVIP != nil {
+				VirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			whereMap["virtual_site"] = virtual_siteNestedMap
+			if data.Where.VirtualSite.EnableInternetVIP != nil {
+				VirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
+			}
+			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
+				VirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+			}
+			if !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
+				var RefElems []AdvertisePolicyWhereVirtualSiteRefModel
+				diags := data.Where.VirtualSite.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					VirtualSiteMap["ref"] = RefList
+				}
+			}
+			WhereMap["virtual_site"] = VirtualSiteMap
 		}
-		createReq.Spec["where"] = whereMap
+		createReq.Spec["where"] = WhereMap
 	}
 	if !data.Address.IsNull() && !data.Address.IsUnknown() {
 		createReq.Spec["address"] = data.Address.ValueString()
@@ -1130,16 +1340,18 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["public_ip"].([]interface{}); ok && len(listData) > 0 {
-		var public_ipList []AdvertisePolicyPublicIPModel
+	if !isImport && (data.PublicIP.IsNull() || len(data.PublicIP.Elements()) == 0) {
+		data.PublicIP = types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyPublicIPModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["public_ip"].([]interface{}); ok && len(listData) > 0 {
+		var PublicIPList []AdvertisePolicyPublicIPModel
 		var existingPublicIPItems []AdvertisePolicyPublicIPModel
 		if !data.PublicIP.IsNull() && !data.PublicIP.IsUnknown() {
 			data.PublicIP.ElementsAs(ctx, &existingPublicIPItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				public_ipList = append(public_ipList, AdvertisePolicyPublicIPModel{
+				PublicIPList = append(PublicIPList, AdvertisePolicyPublicIPModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -1173,24 +1385,20 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyPublicIPModelAttrTypes}, public_ipList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyPublicIPModelAttrTypes}, PublicIPList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.PublicIP = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.PublicIP = types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyPublicIPModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["tls_parameters"].(map[string]interface{}); ok && (isImport || data.TLSParameters != nil) {
 		data.TLSParameters = &AdvertisePolicyTLSParametersModel{
 			ClientCertificateOptional: func() *AdvertisePolicyEmptyModel {
 				if !isImport && data.TLSParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSParameters.ClientCertificateOptional
 				}
-				// Import case: read from API
 				if _, ok := blockData["client_certificate_optional"].(map[string]interface{}); ok {
 					return &AdvertisePolicyEmptyModel{}
 				}
@@ -1198,11 +1406,8 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 			}(),
 			ClientCertificateRequired: func() *AdvertisePolicyEmptyModel {
 				if !isImport && data.TLSParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSParameters.ClientCertificateRequired
 				}
-				// Import case: read from API
 				if _, ok := blockData["client_certificate_required"].(map[string]interface{}); ok {
 					return &AdvertisePolicyEmptyModel{}
 				}
@@ -1210,14 +1415,12 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 			}(),
 			CommonParams: func() *AdvertisePolicyTLSParametersCommonParamsModel {
 				if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil {
-					// Normal Read: preserve existing state value
 					return data.TLSParameters.CommonParams
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["common_params"].(map[string]interface{}); ok {
+				if CommonParamsData, ok := blockData["common_params"].(map[string]interface{}); ok {
 					return &AdvertisePolicyTLSParametersCommonParamsModel{
 						CipherSuites: func() types.List {
-							if v, ok := nestedBlockData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+							if v, ok := CommonParamsData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
 								var items []string
 								for _, item := range v {
 									if s, ok := item.(string); ok {
@@ -1230,16 +1433,207 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 							return types.ListNull(types.StringType)
 						}(),
 						MaximumProtocolVersion: func() types.String {
-							if v, ok := nestedBlockData["maximum_protocol_version"].(string); ok && v != "" {
+							if v, ok := CommonParamsData["maximum_protocol_version"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						MinimumProtocolVersion: func() types.String {
-							if v, ok := nestedBlockData["minimum_protocol_version"].(string); ok && v != "" {
+							if v, ok := CommonParamsData["minimum_protocol_version"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						TLSCertificates: func() []AdvertisePolicyTLSParametersCommonParamsTLSCertificatesModel {
+							if rawList, ok := CommonParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []AdvertisePolicyTLSParametersCommonParamsTLSCertificatesModel
+								for _, TLSCertificatesItem := range rawList {
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, AdvertisePolicyTLSParametersCommonParamsTLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() *AdvertisePolicyEmptyModel {
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return &AdvertisePolicyEmptyModel{}
+												}
+												return nil
+											}(),
+											PrivateKey: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() *AdvertisePolicyEmptyModel {
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return &AdvertisePolicyEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return TLSCertificatesResult
+							}
+							return nil
+						}(),
+						ValidationParams: func() *AdvertisePolicyTLSParametersCommonParamsValidationParamsModel {
+							if ValidationParamsData, ok := CommonParamsData["validation_params"].(map[string]interface{}); ok {
+								return &AdvertisePolicyTLSParametersCommonParamsValidationParamsModel{
+									SkipHostnameVerification: func() types.Bool {
+										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									TrustedCA: func() *AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCAModel {
+										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
+											return &AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCAModel{
+												TrustedCAList: func() types.List {
+													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
+														var TrustedCAListResult []AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
+														for _, TrustedCAListItem := range rawList {
+															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
+																TrustedCAListResult = append(TrustedCAListResult, AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel{
+																	Kind: func() types.String {
+																		if v, ok := TrustedCAListItemMap["kind"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := TrustedCAListItemMap["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := TrustedCAListItemMap["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := TrustedCAListItemMap["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Uid: func() types.String {
+																		if v, ok := TrustedCAListItemMap["uid"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																})
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
+														return listVal
+													}
+													return types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := ValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									VerifySubjectAltNames: func() types.List {
+										if v, ok := ValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -1247,11 +1641,8 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 			}(),
 			NoClientCertificate: func() *AdvertisePolicyEmptyModel {
 				if !isImport && data.TLSParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSParameters.NoClientCertificate
 				}
-				// Import case: read from API
 				if _, ok := blockData["no_client_certificate"].(map[string]interface{}); ok {
 					return &AdvertisePolicyEmptyModel{}
 				}
@@ -1272,11 +1663,208 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["where"].(map[string]interface{}); ok && isImport && data.Where == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Where = &AdvertisePolicyWhereModel{}
+	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
+		data.Where = &AdvertisePolicyWhereModel{
+			Site: func() *AdvertisePolicyWhereSiteModel {
+				if !isImport && data.Where != nil && data.Where.Site != nil {
+					return data.Where.Site
+				}
+				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
+					return &AdvertisePolicyWhereSiteModel{
+						DisableInternetVIP: func() *AdvertisePolicyEmptyModel {
+							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &AdvertisePolicyEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *AdvertisePolicyEmptyModel {
+							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &AdvertisePolicyEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := SiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []AdvertisePolicyWhereSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, AdvertisePolicyWhereSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyWhereSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyWhereSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualNetwork: func() *AdvertisePolicyWhereVirtualNetworkModel {
+				if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil {
+					return data.Where.VirtualNetwork
+				}
+				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
+					return &AdvertisePolicyWhereVirtualNetworkModel{
+						Ref: func() types.List {
+							if rawList, ok := VirtualNetworkData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []AdvertisePolicyWhereVirtualNetworkRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, AdvertisePolicyWhereVirtualNetworkRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyWhereVirtualNetworkRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyWhereVirtualNetworkRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualSite: func() *AdvertisePolicyWhereVirtualSiteModel {
+				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+					return data.Where.VirtualSite
+				}
+				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
+					return &AdvertisePolicyWhereVirtualSiteModel{
+						DisableInternetVIP: func() *AdvertisePolicyEmptyModel {
+							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &AdvertisePolicyEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *AdvertisePolicyEmptyModel {
+							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &AdvertisePolicyEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []AdvertisePolicyWhereVirtualSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, AdvertisePolicyWhereVirtualSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyWhereVirtualSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyWhereVirtualSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["address"].(string); ok && v != "" {
 		data.Address = types.StringValue(v)
 	} else {
@@ -1382,16 +1970,18 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["public_ip"].([]interface{}); ok && len(listData) > 0 {
-		var public_ipList []AdvertisePolicyPublicIPModel
+	if !isImport && (data.PublicIP.IsNull() || len(data.PublicIP.Elements()) == 0) {
+		data.PublicIP = types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyPublicIPModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["public_ip"].([]interface{}); ok && len(listData) > 0 {
+		var PublicIPList []AdvertisePolicyPublicIPModel
 		var existingPublicIPItems []AdvertisePolicyPublicIPModel
 		if !data.PublicIP.IsNull() && !data.PublicIP.IsUnknown() {
 			data.PublicIP.ElementsAs(ctx, &existingPublicIPItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				public_ipList = append(public_ipList, AdvertisePolicyPublicIPModel{
+				PublicIPList = append(PublicIPList, AdvertisePolicyPublicIPModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -1425,24 +2015,20 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyPublicIPModelAttrTypes}, public_ipList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyPublicIPModelAttrTypes}, PublicIPList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.PublicIP = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.PublicIP = types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyPublicIPModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["tls_parameters"].(map[string]interface{}); ok && (isImport || data.TLSParameters != nil) {
 		data.TLSParameters = &AdvertisePolicyTLSParametersModel{
 			ClientCertificateOptional: func() *AdvertisePolicyEmptyModel {
 				if !isImport && data.TLSParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSParameters.ClientCertificateOptional
 				}
-				// Import case: read from API
 				if _, ok := blockData["client_certificate_optional"].(map[string]interface{}); ok {
 					return &AdvertisePolicyEmptyModel{}
 				}
@@ -1450,11 +2036,8 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 			}(),
 			ClientCertificateRequired: func() *AdvertisePolicyEmptyModel {
 				if !isImport && data.TLSParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSParameters.ClientCertificateRequired
 				}
-				// Import case: read from API
 				if _, ok := blockData["client_certificate_required"].(map[string]interface{}); ok {
 					return &AdvertisePolicyEmptyModel{}
 				}
@@ -1462,14 +2045,12 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 			}(),
 			CommonParams: func() *AdvertisePolicyTLSParametersCommonParamsModel {
 				if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil {
-					// Normal Read: preserve existing state value
 					return data.TLSParameters.CommonParams
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["common_params"].(map[string]interface{}); ok {
+				if CommonParamsData, ok := blockData["common_params"].(map[string]interface{}); ok {
 					return &AdvertisePolicyTLSParametersCommonParamsModel{
 						CipherSuites: func() types.List {
-							if v, ok := nestedBlockData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+							if v, ok := CommonParamsData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
 								var items []string
 								for _, item := range v {
 									if s, ok := item.(string); ok {
@@ -1482,16 +2063,207 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 							return types.ListNull(types.StringType)
 						}(),
 						MaximumProtocolVersion: func() types.String {
-							if v, ok := nestedBlockData["maximum_protocol_version"].(string); ok && v != "" {
+							if v, ok := CommonParamsData["maximum_protocol_version"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						MinimumProtocolVersion: func() types.String {
-							if v, ok := nestedBlockData["minimum_protocol_version"].(string); ok && v != "" {
+							if v, ok := CommonParamsData["minimum_protocol_version"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						TLSCertificates: func() []AdvertisePolicyTLSParametersCommonParamsTLSCertificatesModel {
+							if rawList, ok := CommonParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []AdvertisePolicyTLSParametersCommonParamsTLSCertificatesModel
+								for _, TLSCertificatesItem := range rawList {
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, AdvertisePolicyTLSParametersCommonParamsTLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() *AdvertisePolicyEmptyModel {
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return &AdvertisePolicyEmptyModel{}
+												}
+												return nil
+											}(),
+											PrivateKey: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() *AdvertisePolicyEmptyModel {
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return &AdvertisePolicyEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return TLSCertificatesResult
+							}
+							return nil
+						}(),
+						ValidationParams: func() *AdvertisePolicyTLSParametersCommonParamsValidationParamsModel {
+							if ValidationParamsData, ok := CommonParamsData["validation_params"].(map[string]interface{}); ok {
+								return &AdvertisePolicyTLSParametersCommonParamsValidationParamsModel{
+									SkipHostnameVerification: func() types.Bool {
+										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									TrustedCA: func() *AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCAModel {
+										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
+											return &AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCAModel{
+												TrustedCAList: func() types.List {
+													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
+														var TrustedCAListResult []AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
+														for _, TrustedCAListItem := range rawList {
+															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
+																TrustedCAListResult = append(TrustedCAListResult, AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel{
+																	Kind: func() types.String {
+																		if v, ok := TrustedCAListItemMap["kind"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := TrustedCAListItemMap["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := TrustedCAListItemMap["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := TrustedCAListItemMap["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Uid: func() types.String {
+																		if v, ok := TrustedCAListItemMap["uid"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																})
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
+														return listVal
+													}
+													return types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := ValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									VerifySubjectAltNames: func() types.List {
+										if v, ok := ValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -1499,11 +2271,8 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 			}(),
 			NoClientCertificate: func() *AdvertisePolicyEmptyModel {
 				if !isImport && data.TLSParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSParameters.NoClientCertificate
 				}
-				// Import case: read from API
 				if _, ok := blockData["no_client_certificate"].(map[string]interface{}); ok {
 					return &AdvertisePolicyEmptyModel{}
 				}
@@ -1524,11 +2293,208 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["where"].(map[string]interface{}); ok && isImport && data.Where == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Where = &AdvertisePolicyWhereModel{}
+	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
+		data.Where = &AdvertisePolicyWhereModel{
+			Site: func() *AdvertisePolicyWhereSiteModel {
+				if !isImport && data.Where != nil && data.Where.Site != nil {
+					return data.Where.Site
+				}
+				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
+					return &AdvertisePolicyWhereSiteModel{
+						DisableInternetVIP: func() *AdvertisePolicyEmptyModel {
+							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &AdvertisePolicyEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *AdvertisePolicyEmptyModel {
+							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &AdvertisePolicyEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := SiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []AdvertisePolicyWhereSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, AdvertisePolicyWhereSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyWhereSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyWhereSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualNetwork: func() *AdvertisePolicyWhereVirtualNetworkModel {
+				if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil {
+					return data.Where.VirtualNetwork
+				}
+				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
+					return &AdvertisePolicyWhereVirtualNetworkModel{
+						Ref: func() types.List {
+							if rawList, ok := VirtualNetworkData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []AdvertisePolicyWhereVirtualNetworkRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, AdvertisePolicyWhereVirtualNetworkRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyWhereVirtualNetworkRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyWhereVirtualNetworkRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualSite: func() *AdvertisePolicyWhereVirtualSiteModel {
+				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+					return data.Where.VirtualSite
+				}
+				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
+					return &AdvertisePolicyWhereVirtualSiteModel{
+						DisableInternetVIP: func() *AdvertisePolicyEmptyModel {
+							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &AdvertisePolicyEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *AdvertisePolicyEmptyModel {
+							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &AdvertisePolicyEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []AdvertisePolicyWhereVirtualSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, AdvertisePolicyWhereVirtualSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyWhereVirtualSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyWhereVirtualSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["address"].(string); ok && v != "" {
 		data.Address = types.StringValue(v)
 	} else {
@@ -1553,6 +2519,14 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 		data.SkipXffAppend = types.BoolValue(v)
 	} else {
 		data.SkipXffAppend = types.BoolNull()
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -1606,84 +2580,294 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.PublicIP.IsNull() && !data.PublicIP.IsUnknown() {
-		var public_ipItems []AdvertisePolicyPublicIPModel
-		diags := data.PublicIP.ElementsAs(ctx, &public_ipItems, false)
+		var PublicIPElems []AdvertisePolicyPublicIPModel
+		diags := data.PublicIP.ElementsAs(ctx, &PublicIPElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(public_ipItems) > 0 {
-			var public_ipList []map[string]interface{}
-			for _, item := range public_ipItems {
-				itemMap := make(map[string]interface{})
-				if !item.Kind.IsNull() && !item.Kind.IsUnknown() {
-					itemMap["kind"] = item.Kind.ValueString()
+		if !resp.Diagnostics.HasError() && len(PublicIPElems) > 0 {
+			var PublicIPList []map[string]interface{}
+			for _, PublicIPItem := range PublicIPElems {
+				PublicIPItemMap := make(map[string]interface{})
+				if !PublicIPItem.Kind.IsNull() && !PublicIPItem.Kind.IsUnknown() {
+					PublicIPItemMap["kind"] = PublicIPItem.Kind.ValueString()
 				}
-				if !item.Name.IsNull() && !item.Name.IsUnknown() {
-					itemMap["name"] = item.Name.ValueString()
+				if !PublicIPItem.Name.IsNull() && !PublicIPItem.Name.IsUnknown() {
+					PublicIPItemMap["name"] = PublicIPItem.Name.ValueString()
 				}
-				if !item.Namespace.IsNull() && !item.Namespace.IsUnknown() {
-					itemMap["namespace"] = item.Namespace.ValueString()
+				if !PublicIPItem.Namespace.IsNull() && !PublicIPItem.Namespace.IsUnknown() {
+					PublicIPItemMap["namespace"] = PublicIPItem.Namespace.ValueString()
 				}
-				if !item.Tenant.IsNull() && !item.Tenant.IsUnknown() {
-					itemMap["tenant"] = item.Tenant.ValueString()
+				if !PublicIPItem.Tenant.IsNull() && !PublicIPItem.Tenant.IsUnknown() {
+					PublicIPItemMap["tenant"] = PublicIPItem.Tenant.ValueString()
 				}
-				if !item.Uid.IsNull() && !item.Uid.IsUnknown() {
-					itemMap["uid"] = item.Uid.ValueString()
+				if !PublicIPItem.Uid.IsNull() && !PublicIPItem.Uid.IsUnknown() {
+					PublicIPItemMap["uid"] = PublicIPItem.Uid.ValueString()
 				}
-				public_ipList = append(public_ipList, itemMap)
+				PublicIPList = append(PublicIPList, PublicIPItemMap)
 			}
-			apiResource.Spec["public_ip"] = public_ipList
+			apiResource.Spec["public_ip"] = PublicIPList
 		}
 	}
 	if data.TLSParameters != nil {
-		tls_parametersMap := make(map[string]interface{})
+		TLSParametersMap := make(map[string]interface{})
 		if data.TLSParameters.ClientCertificateOptional != nil {
-			tls_parametersMap["client_certificate_optional"] = map[string]interface{}{}
+			TLSParametersMap["client_certificate_optional"] = map[string]interface{}{}
 		}
 		if data.TLSParameters.ClientCertificateRequired != nil {
-			tls_parametersMap["client_certificate_required"] = map[string]interface{}{}
+			TLSParametersMap["client_certificate_required"] = map[string]interface{}{}
 		}
 		if data.TLSParameters.CommonParams != nil {
-			common_paramsNestedMap := make(map[string]interface{})
+			CommonParamsMap := make(map[string]interface{})
+			if !data.TLSParameters.CommonParams.CipherSuites.IsNull() && !data.TLSParameters.CommonParams.CipherSuites.IsUnknown() {
+				var CipherSuitesItems []string
+				diags := data.TLSParameters.CommonParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+				if !diags.HasError() {
+					CommonParamsMap["cipher_suites"] = CipherSuitesItems
+				}
+			}
 			if !data.TLSParameters.CommonParams.MaximumProtocolVersion.IsNull() && !data.TLSParameters.CommonParams.MaximumProtocolVersion.IsUnknown() {
-				common_paramsNestedMap["maximum_protocol_version"] = data.TLSParameters.CommonParams.MaximumProtocolVersion.ValueString()
+				CommonParamsMap["maximum_protocol_version"] = data.TLSParameters.CommonParams.MaximumProtocolVersion.ValueString()
 			}
 			if !data.TLSParameters.CommonParams.MinimumProtocolVersion.IsNull() && !data.TLSParameters.CommonParams.MinimumProtocolVersion.IsUnknown() {
-				common_paramsNestedMap["minimum_protocol_version"] = data.TLSParameters.CommonParams.MinimumProtocolVersion.ValueString()
+				CommonParamsMap["minimum_protocol_version"] = data.TLSParameters.CommonParams.MinimumProtocolVersion.ValueString()
 			}
-			tls_parametersMap["common_params"] = common_paramsNestedMap
+			if len(data.TLSParameters.CommonParams.TLSCertificates) > 0 {
+				var TLSCertificatesList []map[string]interface{}
+				for _, TLSCertificatesItem := range data.TLSParameters.CommonParams.TLSCertificates {
+					TLSCertificatesItemMap := make(map[string]interface{})
+					if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+						TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
+					}
+					if TLSCertificatesItem.CustomHashAlgorithms != nil {
+						CustomHashAlgorithmsMap := make(map[string]interface{})
+						if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+							var HashAlgorithmsItems []string
+							diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+							if !diags.HasError() {
+								CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+							}
+						}
+						TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+					}
+					if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+						TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
+					}
+					if TLSCertificatesItem.DisableOCSPStapling != nil {
+						TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+					}
+					if TLSCertificatesItem.PrivateKey != nil {
+						PrivateKeyMap := make(map[string]interface{})
+						if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+							}
+							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+							}
+							PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+					}
+					if TLSCertificatesItem.UseSystemDefaults != nil {
+						TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+					}
+					TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+				}
+				CommonParamsMap["tls_certificates"] = TLSCertificatesList
+			}
+			if data.TLSParameters.CommonParams.ValidationParams != nil {
+				ValidationParamsMap := make(map[string]interface{})
+				if !data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+					ValidationParamsMap["skip_hostname_verification"] = data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.ValueBool()
+				}
+				if data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil {
+					TrustedCAMap := make(map[string]interface{})
+					if !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+						var TrustedCAListElems []AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
+						diags := data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(TrustedCAListElems) > 0 {
+							var TrustedCAListList []map[string]interface{}
+							for _, TrustedCAListItem := range TrustedCAListElems {
+								TrustedCAListItemMap := make(map[string]interface{})
+								if !TrustedCAListItem.Kind.IsNull() && !TrustedCAListItem.Kind.IsUnknown() {
+									TrustedCAListItemMap["kind"] = TrustedCAListItem.Kind.ValueString()
+								}
+								if !TrustedCAListItem.Name.IsNull() && !TrustedCAListItem.Name.IsUnknown() {
+									TrustedCAListItemMap["name"] = TrustedCAListItem.Name.ValueString()
+								}
+								if !TrustedCAListItem.Namespace.IsNull() && !TrustedCAListItem.Namespace.IsUnknown() {
+									TrustedCAListItemMap["namespace"] = TrustedCAListItem.Namespace.ValueString()
+								}
+								if !TrustedCAListItem.Tenant.IsNull() && !TrustedCAListItem.Tenant.IsUnknown() {
+									TrustedCAListItemMap["tenant"] = TrustedCAListItem.Tenant.ValueString()
+								}
+								if !TrustedCAListItem.Uid.IsNull() && !TrustedCAListItem.Uid.IsUnknown() {
+									TrustedCAListItemMap["uid"] = TrustedCAListItem.Uid.ValueString()
+								}
+								TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
+							}
+							TrustedCAMap["trusted_ca_list"] = TrustedCAListList
+						}
+					}
+					ValidationParamsMap["trusted_ca"] = TrustedCAMap
+				}
+				if !data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.IsUnknown() {
+					ValidationParamsMap["trusted_ca_url"] = data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.ValueString()
+				}
+				if !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
+					var VerifySubjectAltNamesItems []string
+					diags := data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+					if !diags.HasError() {
+						ValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
+					}
+				}
+				CommonParamsMap["validation_params"] = ValidationParamsMap
+			}
+			TLSParametersMap["common_params"] = CommonParamsMap
 		}
 		if data.TLSParameters.NoClientCertificate != nil {
-			tls_parametersMap["no_client_certificate"] = map[string]interface{}{}
+			TLSParametersMap["no_client_certificate"] = map[string]interface{}{}
 		}
 		if !data.TLSParameters.XfccHeaderElements.IsNull() && !data.TLSParameters.XfccHeaderElements.IsUnknown() {
-			var xfcc_header_elementsItems []string
-			diags := data.TLSParameters.XfccHeaderElements.ElementsAs(ctx, &xfcc_header_elementsItems, false)
+			var XfccHeaderElementsItems []string
+			diags := data.TLSParameters.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
 			if !diags.HasError() {
-				tls_parametersMap["xfcc_header_elements"] = xfcc_header_elementsItems
+				TLSParametersMap["xfcc_header_elements"] = XfccHeaderElementsItems
 			}
 		}
-		apiResource.Spec["tls_parameters"] = tls_parametersMap
+		apiResource.Spec["tls_parameters"] = TLSParametersMap
 	}
 	if data.Where != nil {
-		whereMap := make(map[string]interface{})
+		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
-			siteNestedMap := make(map[string]interface{})
-			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
-				siteNestedMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+			SiteMap := make(map[string]interface{})
+			if data.Where.Site.DisableInternetVIP != nil {
+				SiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			whereMap["site"] = siteNestedMap
+			if data.Where.Site.EnableInternetVIP != nil {
+				SiteMap["enable_internet_vip"] = map[string]interface{}{}
+			}
+			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
+				SiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+			}
+			if !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
+				var RefElems []AdvertisePolicyWhereSiteRefModel
+				diags := data.Where.Site.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					SiteMap["ref"] = RefList
+				}
+			}
+			WhereMap["site"] = SiteMap
 		}
 		if data.Where.VirtualNetwork != nil {
-			virtual_networkNestedMap := make(map[string]interface{})
-			whereMap["virtual_network"] = virtual_networkNestedMap
+			VirtualNetworkMap := make(map[string]interface{})
+			if !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
+				var RefElems []AdvertisePolicyWhereVirtualNetworkRefModel
+				diags := data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					VirtualNetworkMap["ref"] = RefList
+				}
+			}
+			WhereMap["virtual_network"] = VirtualNetworkMap
 		}
 		if data.Where.VirtualSite != nil {
-			virtual_siteNestedMap := make(map[string]interface{})
-			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
-				virtual_siteNestedMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+			VirtualSiteMap := make(map[string]interface{})
+			if data.Where.VirtualSite.DisableInternetVIP != nil {
+				VirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			whereMap["virtual_site"] = virtual_siteNestedMap
+			if data.Where.VirtualSite.EnableInternetVIP != nil {
+				VirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
+			}
+			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
+				VirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+			}
+			if !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
+				var RefElems []AdvertisePolicyWhereVirtualSiteRefModel
+				diags := data.Where.VirtualSite.Ref.ElementsAs(ctx, &RefElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+					var RefList []map[string]interface{}
+					for _, RefItem := range RefElems {
+						RefItemMap := make(map[string]interface{})
+						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+							RefItemMap["kind"] = RefItem.Kind.ValueString()
+						}
+						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+							RefItemMap["name"] = RefItem.Name.ValueString()
+						}
+						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+						}
+						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+						}
+						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+							RefItemMap["uid"] = RefItem.Uid.ValueString()
+						}
+						RefList = append(RefList, RefItemMap)
+					}
+					VirtualSiteMap["ref"] = RefList
+				}
+			}
+			WhereMap["virtual_site"] = VirtualSiteMap
 		}
-		apiResource.Spec["where"] = whereMap
+		apiResource.Spec["where"] = WhereMap
 	}
 	if !data.Address.IsNull() && !data.Address.IsUnknown() {
 		apiResource.Spec["address"] = data.Address.ValueString()
@@ -1738,16 +2922,18 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["public_ip"].([]interface{}); ok && len(listData) > 0 {
-		var public_ipList []AdvertisePolicyPublicIPModel
+	if !isImport && (data.PublicIP.IsNull() || len(data.PublicIP.Elements()) == 0) {
+		data.PublicIP = types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyPublicIPModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["public_ip"].([]interface{}); ok && len(listData) > 0 {
+		var PublicIPList []AdvertisePolicyPublicIPModel
 		var existingPublicIPItems []AdvertisePolicyPublicIPModel
 		if !data.PublicIP.IsNull() && !data.PublicIP.IsUnknown() {
 			data.PublicIP.ElementsAs(ctx, &existingPublicIPItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				public_ipList = append(public_ipList, AdvertisePolicyPublicIPModel{
+				PublicIPList = append(PublicIPList, AdvertisePolicyPublicIPModel{
 					Kind: func() types.String {
 						if v, ok := itemMap["kind"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -1781,24 +2967,20 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyPublicIPModelAttrTypes}, public_ipList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyPublicIPModelAttrTypes}, PublicIPList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.PublicIP = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.PublicIP = types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyPublicIPModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["tls_parameters"].(map[string]interface{}); ok && (isImport || data.TLSParameters != nil) {
 		data.TLSParameters = &AdvertisePolicyTLSParametersModel{
 			ClientCertificateOptional: func() *AdvertisePolicyEmptyModel {
 				if !isImport && data.TLSParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSParameters.ClientCertificateOptional
 				}
-				// Import case: read from API
 				if _, ok := blockData["client_certificate_optional"].(map[string]interface{}); ok {
 					return &AdvertisePolicyEmptyModel{}
 				}
@@ -1806,11 +2988,8 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 			}(),
 			ClientCertificateRequired: func() *AdvertisePolicyEmptyModel {
 				if !isImport && data.TLSParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSParameters.ClientCertificateRequired
 				}
-				// Import case: read from API
 				if _, ok := blockData["client_certificate_required"].(map[string]interface{}); ok {
 					return &AdvertisePolicyEmptyModel{}
 				}
@@ -1818,14 +2997,12 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 			}(),
 			CommonParams: func() *AdvertisePolicyTLSParametersCommonParamsModel {
 				if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil {
-					// Normal Read: preserve existing state value
 					return data.TLSParameters.CommonParams
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["common_params"].(map[string]interface{}); ok {
+				if CommonParamsData, ok := blockData["common_params"].(map[string]interface{}); ok {
 					return &AdvertisePolicyTLSParametersCommonParamsModel{
 						CipherSuites: func() types.List {
-							if v, ok := nestedBlockData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+							if v, ok := CommonParamsData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
 								var items []string
 								for _, item := range v {
 									if s, ok := item.(string); ok {
@@ -1838,16 +3015,207 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 							return types.ListNull(types.StringType)
 						}(),
 						MaximumProtocolVersion: func() types.String {
-							if v, ok := nestedBlockData["maximum_protocol_version"].(string); ok && v != "" {
+							if v, ok := CommonParamsData["maximum_protocol_version"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
 						MinimumProtocolVersion: func() types.String {
-							if v, ok := nestedBlockData["minimum_protocol_version"].(string); ok && v != "" {
+							if v, ok := CommonParamsData["minimum_protocol_version"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						TLSCertificates: func() []AdvertisePolicyTLSParametersCommonParamsTLSCertificatesModel {
+							if rawList, ok := CommonParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []AdvertisePolicyTLSParametersCommonParamsTLSCertificatesModel
+								for _, TLSCertificatesItem := range rawList {
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, AdvertisePolicyTLSParametersCommonParamsTLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() *AdvertisePolicyEmptyModel {
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return &AdvertisePolicyEmptyModel{}
+												}
+												return nil
+											}(),
+											PrivateKey: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() *AdvertisePolicyEmptyModel {
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return &AdvertisePolicyEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return TLSCertificatesResult
+							}
+							return nil
+						}(),
+						ValidationParams: func() *AdvertisePolicyTLSParametersCommonParamsValidationParamsModel {
+							if ValidationParamsData, ok := CommonParamsData["validation_params"].(map[string]interface{}); ok {
+								return &AdvertisePolicyTLSParametersCommonParamsValidationParamsModel{
+									SkipHostnameVerification: func() types.Bool {
+										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									TrustedCA: func() *AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCAModel {
+										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
+											return &AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCAModel{
+												TrustedCAList: func() types.List {
+													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
+														var TrustedCAListResult []AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
+														for _, TrustedCAListItem := range rawList {
+															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
+																TrustedCAListResult = append(TrustedCAListResult, AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel{
+																	Kind: func() types.String {
+																		if v, ok := TrustedCAListItemMap["kind"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := TrustedCAListItemMap["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := TrustedCAListItemMap["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := TrustedCAListItemMap["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Uid: func() types.String {
+																		if v, ok := TrustedCAListItemMap["uid"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																})
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
+														return listVal
+													}
+													return types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := ValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									VerifySubjectAltNames: func() types.List {
+										if v, ok := ValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -1855,11 +3223,8 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 			}(),
 			NoClientCertificate: func() *AdvertisePolicyEmptyModel {
 				if !isImport && data.TLSParameters != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSParameters.NoClientCertificate
 				}
-				// Import case: read from API
 				if _, ok := blockData["no_client_certificate"].(map[string]interface{}); ok {
 					return &AdvertisePolicyEmptyModel{}
 				}
@@ -1880,11 +3245,208 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["where"].(map[string]interface{}); ok && isImport && data.Where == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Where = &AdvertisePolicyWhereModel{}
+	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
+		data.Where = &AdvertisePolicyWhereModel{
+			Site: func() *AdvertisePolicyWhereSiteModel {
+				if !isImport && data.Where != nil && data.Where.Site != nil {
+					return data.Where.Site
+				}
+				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
+					return &AdvertisePolicyWhereSiteModel{
+						DisableInternetVIP: func() *AdvertisePolicyEmptyModel {
+							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &AdvertisePolicyEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *AdvertisePolicyEmptyModel {
+							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &AdvertisePolicyEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := SiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []AdvertisePolicyWhereSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, AdvertisePolicyWhereSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyWhereSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyWhereSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualNetwork: func() *AdvertisePolicyWhereVirtualNetworkModel {
+				if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil {
+					return data.Where.VirtualNetwork
+				}
+				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
+					return &AdvertisePolicyWhereVirtualNetworkModel{
+						Ref: func() types.List {
+							if rawList, ok := VirtualNetworkData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []AdvertisePolicyWhereVirtualNetworkRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, AdvertisePolicyWhereVirtualNetworkRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyWhereVirtualNetworkRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyWhereVirtualNetworkRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualSite: func() *AdvertisePolicyWhereVirtualSiteModel {
+				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+					return data.Where.VirtualSite
+				}
+				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
+					return &AdvertisePolicyWhereVirtualSiteModel{
+						DisableInternetVIP: func() *AdvertisePolicyEmptyModel {
+							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return &AdvertisePolicyEmptyModel{}
+							}
+							return nil
+						}(),
+						EnableInternetVIP: func() *AdvertisePolicyEmptyModel {
+							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return &AdvertisePolicyEmptyModel{}
+							}
+							return nil
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []AdvertisePolicyWhereVirtualSiteRefModel
+								for _, RefItem := range rawList {
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, AdvertisePolicyWhereVirtualSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyWhereVirtualSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyWhereVirtualSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["address"].(string); ok && v != "" {
 		data.Address = types.StringValue(v)
 	} else {

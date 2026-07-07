@@ -320,43 +320,43 @@ func (r *SensitiveDataPolicyResource) Create(ctx context.Context, req resource.C
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.Compliances.IsNull() && !data.Compliances.IsUnknown() {
-		var compliancesList []string
-		resp.Diagnostics.Append(data.Compliances.ElementsAs(ctx, &compliancesList, false)...)
-		if !resp.Diagnostics.HasError() {
-			createReq.Spec["compliances"] = compliancesList
+		var CompliancesItems []string
+		diags := data.Compliances.ElementsAs(ctx, &CompliancesItems, false)
+		if !diags.HasError() {
+			createReq.Spec["compliances"] = CompliancesItems
 		}
 	}
 	if !data.CustomDataTypes.IsNull() && !data.CustomDataTypes.IsUnknown() {
-		var custom_data_typesItems []SensitiveDataPolicyCustomDataTypesModel
-		diags := data.CustomDataTypes.ElementsAs(ctx, &custom_data_typesItems, false)
+		var CustomDataTypesElems []SensitiveDataPolicyCustomDataTypesModel
+		diags := data.CustomDataTypes.ElementsAs(ctx, &CustomDataTypesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(custom_data_typesItems) > 0 {
-			var custom_data_typesList []map[string]interface{}
-			for _, item := range custom_data_typesItems {
-				itemMap := make(map[string]interface{})
-				if item.CustomDataTypeRef != nil {
-					custom_data_type_refNestedMap := make(map[string]interface{})
-					if !item.CustomDataTypeRef.Name.IsNull() && !item.CustomDataTypeRef.Name.IsUnknown() {
-						custom_data_type_refNestedMap["name"] = item.CustomDataTypeRef.Name.ValueString()
+		if !resp.Diagnostics.HasError() && len(CustomDataTypesElems) > 0 {
+			var CustomDataTypesList []map[string]interface{}
+			for _, CustomDataTypesItem := range CustomDataTypesElems {
+				CustomDataTypesItemMap := make(map[string]interface{})
+				if CustomDataTypesItem.CustomDataTypeRef != nil {
+					CustomDataTypeRefMap := make(map[string]interface{})
+					if !CustomDataTypesItem.CustomDataTypeRef.Name.IsNull() && !CustomDataTypesItem.CustomDataTypeRef.Name.IsUnknown() {
+						CustomDataTypeRefMap["name"] = CustomDataTypesItem.CustomDataTypeRef.Name.ValueString()
 					}
-					if !item.CustomDataTypeRef.Namespace.IsNull() && !item.CustomDataTypeRef.Namespace.IsUnknown() {
-						custom_data_type_refNestedMap["namespace"] = item.CustomDataTypeRef.Namespace.ValueString()
+					if !CustomDataTypesItem.CustomDataTypeRef.Namespace.IsNull() && !CustomDataTypesItem.CustomDataTypeRef.Namespace.IsUnknown() {
+						CustomDataTypeRefMap["namespace"] = CustomDataTypesItem.CustomDataTypeRef.Namespace.ValueString()
 					}
-					if !item.CustomDataTypeRef.Tenant.IsNull() && !item.CustomDataTypeRef.Tenant.IsUnknown() {
-						custom_data_type_refNestedMap["tenant"] = item.CustomDataTypeRef.Tenant.ValueString()
+					if !CustomDataTypesItem.CustomDataTypeRef.Tenant.IsNull() && !CustomDataTypesItem.CustomDataTypeRef.Tenant.IsUnknown() {
+						CustomDataTypeRefMap["tenant"] = CustomDataTypesItem.CustomDataTypeRef.Tenant.ValueString()
 					}
-					itemMap["custom_data_type_ref"] = custom_data_type_refNestedMap
+					CustomDataTypesItemMap["custom_data_type_ref"] = CustomDataTypeRefMap
 				}
-				custom_data_typesList = append(custom_data_typesList, itemMap)
+				CustomDataTypesList = append(CustomDataTypesList, CustomDataTypesItemMap)
 			}
-			createReq.Spec["custom_data_types"] = custom_data_typesList
+			createReq.Spec["custom_data_types"] = CustomDataTypesList
 		}
 	}
 	if !data.DisabledPredefinedDataTypes.IsNull() && !data.DisabledPredefinedDataTypes.IsUnknown() {
-		var disabled_predefined_data_typesList []string
-		resp.Diagnostics.Append(data.DisabledPredefinedDataTypes.ElementsAs(ctx, &disabled_predefined_data_typesList, false)...)
-		if !resp.Diagnostics.HasError() {
-			createReq.Spec["disabled_predefined_data_types"] = disabled_predefined_data_typesList
+		var DisabledPredefinedDataTypesItems []string
+		diags := data.DisabledPredefinedDataTypes.ElementsAs(ctx, &DisabledPredefinedDataTypesItems, false)
+		if !diags.HasError() {
+			createReq.Spec["disabled_predefined_data_types"] = DisabledPredefinedDataTypesItems
 		}
 	}
 
@@ -387,33 +387,35 @@ func (r *SensitiveDataPolicyResource) Create(ctx context.Context, req resource.C
 	} else {
 		data.Compliances = types.ListNull(types.StringType)
 	}
-	if listData, ok := apiResource.Spec["custom_data_types"].([]interface{}); ok && len(listData) > 0 {
-		var custom_data_typesList []SensitiveDataPolicyCustomDataTypesModel
+	if !isImport && (data.CustomDataTypes.IsNull() || len(data.CustomDataTypes.Elements()) == 0) {
+		data.CustomDataTypes = types.ListNull(types.ObjectType{AttrTypes: SensitiveDataPolicyCustomDataTypesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["custom_data_types"].([]interface{}); ok && len(listData) > 0 {
+		var CustomDataTypesList []SensitiveDataPolicyCustomDataTypesModel
 		var existingCustomDataTypesItems []SensitiveDataPolicyCustomDataTypesModel
 		if !data.CustomDataTypes.IsNull() && !data.CustomDataTypes.IsUnknown() {
 			data.CustomDataTypes.ElementsAs(ctx, &existingCustomDataTypesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				custom_data_typesList = append(custom_data_typesList, SensitiveDataPolicyCustomDataTypesModel{
+				CustomDataTypesList = append(CustomDataTypesList, SensitiveDataPolicyCustomDataTypesModel{
 					CustomDataTypeRef: func() *SensitiveDataPolicyCustomDataTypesCustomDataTypeRefModel {
-						if nestedMap, ok := itemMap["custom_data_type_ref"].(map[string]interface{}); ok {
+						if CustomDataTypeRefData, ok := itemMap["custom_data_type_ref"].(map[string]interface{}); ok {
 							return &SensitiveDataPolicyCustomDataTypesCustomDataTypeRefModel{
 								Name: func() types.String {
-									if v, ok := nestedMap["name"].(string); ok && v != "" {
+									if v, ok := CustomDataTypeRefData["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := nestedMap["namespace"].(string); ok && v != "" {
+									if v, ok := CustomDataTypeRefData["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := nestedMap["tenant"].(string); ok && v != "" {
+									if v, ok := CustomDataTypeRefData["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -425,13 +427,12 @@ func (r *SensitiveDataPolicyResource) Create(ctx context.Context, req resource.C
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SensitiveDataPolicyCustomDataTypesModelAttrTypes}, custom_data_typesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SensitiveDataPolicyCustomDataTypesModelAttrTypes}, CustomDataTypesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.CustomDataTypes = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.CustomDataTypes = types.ListNull(types.ObjectType{AttrTypes: SensitiveDataPolicyCustomDataTypesModelAttrTypes})
 	}
 	if v, ok := apiResource.Spec["disabled_predefined_data_types"].([]interface{}); ok && len(v) > 0 {
@@ -544,33 +545,35 @@ func (r *SensitiveDataPolicyResource) Read(ctx context.Context, req resource.Rea
 	} else {
 		data.Compliances = types.ListNull(types.StringType)
 	}
-	if listData, ok := apiResource.Spec["custom_data_types"].([]interface{}); ok && len(listData) > 0 {
-		var custom_data_typesList []SensitiveDataPolicyCustomDataTypesModel
+	if !isImport && (data.CustomDataTypes.IsNull() || len(data.CustomDataTypes.Elements()) == 0) {
+		data.CustomDataTypes = types.ListNull(types.ObjectType{AttrTypes: SensitiveDataPolicyCustomDataTypesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["custom_data_types"].([]interface{}); ok && len(listData) > 0 {
+		var CustomDataTypesList []SensitiveDataPolicyCustomDataTypesModel
 		var existingCustomDataTypesItems []SensitiveDataPolicyCustomDataTypesModel
 		if !data.CustomDataTypes.IsNull() && !data.CustomDataTypes.IsUnknown() {
 			data.CustomDataTypes.ElementsAs(ctx, &existingCustomDataTypesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				custom_data_typesList = append(custom_data_typesList, SensitiveDataPolicyCustomDataTypesModel{
+				CustomDataTypesList = append(CustomDataTypesList, SensitiveDataPolicyCustomDataTypesModel{
 					CustomDataTypeRef: func() *SensitiveDataPolicyCustomDataTypesCustomDataTypeRefModel {
-						if nestedMap, ok := itemMap["custom_data_type_ref"].(map[string]interface{}); ok {
+						if CustomDataTypeRefData, ok := itemMap["custom_data_type_ref"].(map[string]interface{}); ok {
 							return &SensitiveDataPolicyCustomDataTypesCustomDataTypeRefModel{
 								Name: func() types.String {
-									if v, ok := nestedMap["name"].(string); ok && v != "" {
+									if v, ok := CustomDataTypeRefData["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := nestedMap["namespace"].(string); ok && v != "" {
+									if v, ok := CustomDataTypeRefData["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := nestedMap["tenant"].(string); ok && v != "" {
+									if v, ok := CustomDataTypeRefData["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -582,13 +585,12 @@ func (r *SensitiveDataPolicyResource) Read(ctx context.Context, req resource.Rea
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SensitiveDataPolicyCustomDataTypesModelAttrTypes}, custom_data_typesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SensitiveDataPolicyCustomDataTypesModelAttrTypes}, CustomDataTypesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.CustomDataTypes = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.CustomDataTypes = types.ListNull(types.ObjectType{AttrTypes: SensitiveDataPolicyCustomDataTypesModelAttrTypes})
 	}
 	if v, ok := apiResource.Spec["disabled_predefined_data_types"].([]interface{}); ok && len(v) > 0 {
@@ -605,6 +607,14 @@ func (r *SensitiveDataPolicyResource) Read(ctx context.Context, req resource.Rea
 		}
 	} else {
 		data.DisabledPredefinedDataTypes = types.ListNull(types.StringType)
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -658,43 +668,43 @@ func (r *SensitiveDataPolicyResource) Update(ctx context.Context, req resource.U
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.Compliances.IsNull() && !data.Compliances.IsUnknown() {
-		var compliancesList []string
-		resp.Diagnostics.Append(data.Compliances.ElementsAs(ctx, &compliancesList, false)...)
-		if !resp.Diagnostics.HasError() {
-			apiResource.Spec["compliances"] = compliancesList
+		var CompliancesItems []string
+		diags := data.Compliances.ElementsAs(ctx, &CompliancesItems, false)
+		if !diags.HasError() {
+			apiResource.Spec["compliances"] = CompliancesItems
 		}
 	}
 	if !data.CustomDataTypes.IsNull() && !data.CustomDataTypes.IsUnknown() {
-		var custom_data_typesItems []SensitiveDataPolicyCustomDataTypesModel
-		diags := data.CustomDataTypes.ElementsAs(ctx, &custom_data_typesItems, false)
+		var CustomDataTypesElems []SensitiveDataPolicyCustomDataTypesModel
+		diags := data.CustomDataTypes.ElementsAs(ctx, &CustomDataTypesElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(custom_data_typesItems) > 0 {
-			var custom_data_typesList []map[string]interface{}
-			for _, item := range custom_data_typesItems {
-				itemMap := make(map[string]interface{})
-				if item.CustomDataTypeRef != nil {
-					custom_data_type_refNestedMap := make(map[string]interface{})
-					if !item.CustomDataTypeRef.Name.IsNull() && !item.CustomDataTypeRef.Name.IsUnknown() {
-						custom_data_type_refNestedMap["name"] = item.CustomDataTypeRef.Name.ValueString()
+		if !resp.Diagnostics.HasError() && len(CustomDataTypesElems) > 0 {
+			var CustomDataTypesList []map[string]interface{}
+			for _, CustomDataTypesItem := range CustomDataTypesElems {
+				CustomDataTypesItemMap := make(map[string]interface{})
+				if CustomDataTypesItem.CustomDataTypeRef != nil {
+					CustomDataTypeRefMap := make(map[string]interface{})
+					if !CustomDataTypesItem.CustomDataTypeRef.Name.IsNull() && !CustomDataTypesItem.CustomDataTypeRef.Name.IsUnknown() {
+						CustomDataTypeRefMap["name"] = CustomDataTypesItem.CustomDataTypeRef.Name.ValueString()
 					}
-					if !item.CustomDataTypeRef.Namespace.IsNull() && !item.CustomDataTypeRef.Namespace.IsUnknown() {
-						custom_data_type_refNestedMap["namespace"] = item.CustomDataTypeRef.Namespace.ValueString()
+					if !CustomDataTypesItem.CustomDataTypeRef.Namespace.IsNull() && !CustomDataTypesItem.CustomDataTypeRef.Namespace.IsUnknown() {
+						CustomDataTypeRefMap["namespace"] = CustomDataTypesItem.CustomDataTypeRef.Namespace.ValueString()
 					}
-					if !item.CustomDataTypeRef.Tenant.IsNull() && !item.CustomDataTypeRef.Tenant.IsUnknown() {
-						custom_data_type_refNestedMap["tenant"] = item.CustomDataTypeRef.Tenant.ValueString()
+					if !CustomDataTypesItem.CustomDataTypeRef.Tenant.IsNull() && !CustomDataTypesItem.CustomDataTypeRef.Tenant.IsUnknown() {
+						CustomDataTypeRefMap["tenant"] = CustomDataTypesItem.CustomDataTypeRef.Tenant.ValueString()
 					}
-					itemMap["custom_data_type_ref"] = custom_data_type_refNestedMap
+					CustomDataTypesItemMap["custom_data_type_ref"] = CustomDataTypeRefMap
 				}
-				custom_data_typesList = append(custom_data_typesList, itemMap)
+				CustomDataTypesList = append(CustomDataTypesList, CustomDataTypesItemMap)
 			}
-			apiResource.Spec["custom_data_types"] = custom_data_typesList
+			apiResource.Spec["custom_data_types"] = CustomDataTypesList
 		}
 	}
 	if !data.DisabledPredefinedDataTypes.IsNull() && !data.DisabledPredefinedDataTypes.IsUnknown() {
-		var disabled_predefined_data_typesList []string
-		resp.Diagnostics.Append(data.DisabledPredefinedDataTypes.ElementsAs(ctx, &disabled_predefined_data_typesList, false)...)
-		if !resp.Diagnostics.HasError() {
-			apiResource.Spec["disabled_predefined_data_types"] = disabled_predefined_data_typesList
+		var DisabledPredefinedDataTypesItems []string
+		diags := data.DisabledPredefinedDataTypes.ElementsAs(ctx, &DisabledPredefinedDataTypesItems, false)
+		if !diags.HasError() {
+			apiResource.Spec["disabled_predefined_data_types"] = DisabledPredefinedDataTypesItems
 		}
 	}
 
@@ -736,33 +746,35 @@ func (r *SensitiveDataPolicyResource) Update(ctx context.Context, req resource.U
 	} else {
 		data.Compliances = types.ListNull(types.StringType)
 	}
-	if listData, ok := apiResource.Spec["custom_data_types"].([]interface{}); ok && len(listData) > 0 {
-		var custom_data_typesList []SensitiveDataPolicyCustomDataTypesModel
+	if !isImport && (data.CustomDataTypes.IsNull() || len(data.CustomDataTypes.Elements()) == 0) {
+		data.CustomDataTypes = types.ListNull(types.ObjectType{AttrTypes: SensitiveDataPolicyCustomDataTypesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["custom_data_types"].([]interface{}); ok && len(listData) > 0 {
+		var CustomDataTypesList []SensitiveDataPolicyCustomDataTypesModel
 		var existingCustomDataTypesItems []SensitiveDataPolicyCustomDataTypesModel
 		if !data.CustomDataTypes.IsNull() && !data.CustomDataTypes.IsUnknown() {
 			data.CustomDataTypes.ElementsAs(ctx, &existingCustomDataTypesItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				custom_data_typesList = append(custom_data_typesList, SensitiveDataPolicyCustomDataTypesModel{
+				CustomDataTypesList = append(CustomDataTypesList, SensitiveDataPolicyCustomDataTypesModel{
 					CustomDataTypeRef: func() *SensitiveDataPolicyCustomDataTypesCustomDataTypeRefModel {
-						if nestedMap, ok := itemMap["custom_data_type_ref"].(map[string]interface{}); ok {
+						if CustomDataTypeRefData, ok := itemMap["custom_data_type_ref"].(map[string]interface{}); ok {
 							return &SensitiveDataPolicyCustomDataTypesCustomDataTypeRefModel{
 								Name: func() types.String {
-									if v, ok := nestedMap["name"].(string); ok && v != "" {
+									if v, ok := CustomDataTypeRefData["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := nestedMap["namespace"].(string); ok && v != "" {
+									if v, ok := CustomDataTypeRefData["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := nestedMap["tenant"].(string); ok && v != "" {
+									if v, ok := CustomDataTypeRefData["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -774,13 +786,12 @@ func (r *SensitiveDataPolicyResource) Update(ctx context.Context, req resource.U
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SensitiveDataPolicyCustomDataTypesModelAttrTypes}, custom_data_typesList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SensitiveDataPolicyCustomDataTypesModelAttrTypes}, CustomDataTypesList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.CustomDataTypes = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.CustomDataTypes = types.ListNull(types.ObjectType{AttrTypes: SensitiveDataPolicyCustomDataTypesModelAttrTypes})
 	}
 	if v, ok := apiResource.Spec["disabled_predefined_data_types"].([]interface{}); ok && len(v) > 0 {

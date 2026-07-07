@@ -61,7 +61,7 @@ var NetworkPolicyRuleAdvancedActionModelAttrTypes = map[string]attr.Type{
 
 // NetworkPolicyRuleIPPrefixSetModel represents ip_prefix_set block
 type NetworkPolicyRuleIPPrefixSetModel struct {
-	Ref []NetworkPolicyRuleIPPrefixSetRefModel `tfsdk:"ref"`
+	Ref types.List `tfsdk:"ref"`
 }
 
 // NetworkPolicyRuleIPPrefixSetModelAttrTypes defines the attribute types for NetworkPolicyRuleIPPrefixSetModel
@@ -439,78 +439,83 @@ func (r *NetworkPolicyRuleResource) Create(ctx context.Context, req resource.Cre
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.AdvancedAction != nil {
-		advanced_actionMap := make(map[string]interface{})
+		AdvancedActionMap := make(map[string]interface{})
 		if !data.AdvancedAction.Action.IsNull() && !data.AdvancedAction.Action.IsUnknown() {
-			advanced_actionMap["action"] = data.AdvancedAction.Action.ValueString()
+			AdvancedActionMap["action"] = data.AdvancedAction.Action.ValueString()
 		}
-		createReq.Spec["advanced_action"] = advanced_actionMap
+		createReq.Spec["advanced_action"] = AdvancedActionMap
 	}
 	if data.IPPrefixSet != nil {
-		ip_prefix_setMap := make(map[string]interface{})
-		if len(data.IPPrefixSet.Ref) > 0 {
-			var refList []map[string]interface{}
-			for _, listItem := range data.IPPrefixSet.Ref {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Kind.IsNull() && !listItem.Kind.IsUnknown() {
-					listItemMap["kind"] = listItem.Kind.ValueString()
+		IPPrefixSetMap := make(map[string]interface{})
+		if !data.IPPrefixSet.Ref.IsNull() && !data.IPPrefixSet.Ref.IsUnknown() {
+			var RefElems []NetworkPolicyRuleIPPrefixSetRefModel
+			diags := data.IPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+				var RefList []map[string]interface{}
+				for _, RefItem := range RefElems {
+					RefItemMap := make(map[string]interface{})
+					if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+						RefItemMap["kind"] = RefItem.Kind.ValueString()
+					}
+					if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+						RefItemMap["name"] = RefItem.Name.ValueString()
+					}
+					if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+						RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+					}
+					if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+						RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+					}
+					if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+						RefItemMap["uid"] = RefItem.Uid.ValueString()
+					}
+					RefList = append(RefList, RefItemMap)
 				}
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
-				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				if !listItem.Uid.IsNull() && !listItem.Uid.IsUnknown() {
-					listItemMap["uid"] = listItem.Uid.ValueString()
-				}
-				refList = append(refList, listItemMap)
+				IPPrefixSetMap["ref"] = RefList
 			}
-			ip_prefix_setMap["ref"] = refList
 		}
-		createReq.Spec["ip_prefix_set"] = ip_prefix_setMap
+		createReq.Spec["ip_prefix_set"] = IPPrefixSetMap
 	}
 	if data.LabelMatcher != nil {
-		label_matcherMap := make(map[string]interface{})
+		LabelMatcherMap := make(map[string]interface{})
 		if !data.LabelMatcher.Keys.IsNull() && !data.LabelMatcher.Keys.IsUnknown() {
-			var keysItems []string
-			diags := data.LabelMatcher.Keys.ElementsAs(ctx, &keysItems, false)
+			var KeysItems []string
+			diags := data.LabelMatcher.Keys.ElementsAs(ctx, &KeysItems, false)
 			if !diags.HasError() {
-				label_matcherMap["keys"] = keysItems
+				LabelMatcherMap["keys"] = KeysItems
 			}
 		}
-		createReq.Spec["label_matcher"] = label_matcherMap
+		createReq.Spec["label_matcher"] = LabelMatcherMap
 	}
 	if !data.Ports.IsNull() && !data.Ports.IsUnknown() {
-		var portsList []string
-		resp.Diagnostics.Append(data.Ports.ElementsAs(ctx, &portsList, false)...)
-		if !resp.Diagnostics.HasError() {
-			createReq.Spec["ports"] = portsList
+		var PortsItems []string
+		diags := data.Ports.ElementsAs(ctx, &PortsItems, false)
+		if !diags.HasError() {
+			createReq.Spec["ports"] = PortsItems
 		}
 	}
 	if data.Prefix != nil {
-		prefixMap := make(map[string]interface{})
+		PrefixMap := make(map[string]interface{})
 		if !data.Prefix.Prefix.IsNull() && !data.Prefix.Prefix.IsUnknown() {
-			var prefixItems []string
-			diags := data.Prefix.Prefix.ElementsAs(ctx, &prefixItems, false)
+			var PrefixItems []string
+			diags := data.Prefix.Prefix.ElementsAs(ctx, &PrefixItems, false)
 			if !diags.HasError() {
-				prefixMap["prefix"] = prefixItems
+				PrefixMap["prefix"] = PrefixItems
 			}
 		}
-		createReq.Spec["prefix"] = prefixMap
+		createReq.Spec["prefix"] = PrefixMap
 	}
 	if data.PrefixSelector != nil {
-		prefix_selectorMap := make(map[string]interface{})
+		PrefixSelectorMap := make(map[string]interface{})
 		if !data.PrefixSelector.Expressions.IsNull() && !data.PrefixSelector.Expressions.IsUnknown() {
-			var expressionsItems []string
-			diags := data.PrefixSelector.Expressions.ElementsAs(ctx, &expressionsItems, false)
+			var ExpressionsItems []string
+			diags := data.PrefixSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 			if !diags.HasError() {
-				prefix_selectorMap["expressions"] = expressionsItems
+				PrefixSelectorMap["expressions"] = ExpressionsItems
 			}
 		}
-		createReq.Spec["prefix_selector"] = prefix_selectorMap
+		createReq.Spec["prefix_selector"] = PrefixSelectorMap
 	}
 	if !data.Action.IsNull() && !data.Action.IsUnknown() {
 		createReq.Spec["action"] = data.Action.ValueString()
@@ -543,38 +548,41 @@ func (r *NetworkPolicyRuleResource) Create(ctx context.Context, req resource.Cre
 	}
 	if blockData, ok := apiResource.Spec["ip_prefix_set"].(map[string]interface{}); ok && (isImport || data.IPPrefixSet != nil) {
 		data.IPPrefixSet = &NetworkPolicyRuleIPPrefixSetModel{
-			Ref: func() []NetworkPolicyRuleIPPrefixSetRefModel {
-				if listData, ok := blockData["ref"].([]interface{}); ok && len(listData) > 0 {
-					var result []NetworkPolicyRuleIPPrefixSetRefModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, NetworkPolicyRuleIPPrefixSetRefModel{
+			Ref: func() types.List {
+				if !isImport && data.IPPrefixSet != nil && (data.IPPrefixSet.Ref.IsNull() || len(data.IPPrefixSet.Ref.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRuleIPPrefixSetRefModelAttrTypes})
+				}
+				if rawList, ok := blockData["ref"].([]interface{}); ok && len(rawList) > 0 {
+					var RefResult []NetworkPolicyRuleIPPrefixSetRefModel
+					for _, RefItem := range rawList {
+						if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+							RefResult = append(RefResult, NetworkPolicyRuleIPPrefixSetRefModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := RefItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := RefItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := RefItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -582,9 +590,10 @@ func (r *NetworkPolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkPolicyRuleIPPrefixSetRefModelAttrTypes}, RefResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRuleIPPrefixSetRefModelAttrTypes})
 			}(),
 		}
 	}
@@ -756,38 +765,41 @@ func (r *NetworkPolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 	}
 	if blockData, ok := apiResource.Spec["ip_prefix_set"].(map[string]interface{}); ok && (isImport || data.IPPrefixSet != nil) {
 		data.IPPrefixSet = &NetworkPolicyRuleIPPrefixSetModel{
-			Ref: func() []NetworkPolicyRuleIPPrefixSetRefModel {
-				if listData, ok := blockData["ref"].([]interface{}); ok && len(listData) > 0 {
-					var result []NetworkPolicyRuleIPPrefixSetRefModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, NetworkPolicyRuleIPPrefixSetRefModel{
+			Ref: func() types.List {
+				if !isImport && data.IPPrefixSet != nil && (data.IPPrefixSet.Ref.IsNull() || len(data.IPPrefixSet.Ref.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRuleIPPrefixSetRefModelAttrTypes})
+				}
+				if rawList, ok := blockData["ref"].([]interface{}); ok && len(rawList) > 0 {
+					var RefResult []NetworkPolicyRuleIPPrefixSetRefModel
+					for _, RefItem := range rawList {
+						if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+							RefResult = append(RefResult, NetworkPolicyRuleIPPrefixSetRefModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := RefItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := RefItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := RefItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -795,9 +807,10 @@ func (r *NetworkPolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkPolicyRuleIPPrefixSetRefModelAttrTypes}, RefResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRuleIPPrefixSetRefModelAttrTypes})
 			}(),
 		}
 	}
@@ -878,6 +891,14 @@ func (r *NetworkPolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 		data.Protocol = types.StringNull()
 	}
 
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
+	}
+
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
 
@@ -929,78 +950,83 @@ func (r *NetworkPolicyRuleResource) Update(ctx context.Context, req resource.Upd
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.AdvancedAction != nil {
-		advanced_actionMap := make(map[string]interface{})
+		AdvancedActionMap := make(map[string]interface{})
 		if !data.AdvancedAction.Action.IsNull() && !data.AdvancedAction.Action.IsUnknown() {
-			advanced_actionMap["action"] = data.AdvancedAction.Action.ValueString()
+			AdvancedActionMap["action"] = data.AdvancedAction.Action.ValueString()
 		}
-		apiResource.Spec["advanced_action"] = advanced_actionMap
+		apiResource.Spec["advanced_action"] = AdvancedActionMap
 	}
 	if data.IPPrefixSet != nil {
-		ip_prefix_setMap := make(map[string]interface{})
-		if len(data.IPPrefixSet.Ref) > 0 {
-			var refList []map[string]interface{}
-			for _, listItem := range data.IPPrefixSet.Ref {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Kind.IsNull() && !listItem.Kind.IsUnknown() {
-					listItemMap["kind"] = listItem.Kind.ValueString()
+		IPPrefixSetMap := make(map[string]interface{})
+		if !data.IPPrefixSet.Ref.IsNull() && !data.IPPrefixSet.Ref.IsUnknown() {
+			var RefElems []NetworkPolicyRuleIPPrefixSetRefModel
+			diags := data.IPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+				var RefList []map[string]interface{}
+				for _, RefItem := range RefElems {
+					RefItemMap := make(map[string]interface{})
+					if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+						RefItemMap["kind"] = RefItem.Kind.ValueString()
+					}
+					if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+						RefItemMap["name"] = RefItem.Name.ValueString()
+					}
+					if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+						RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+					}
+					if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+						RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+					}
+					if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+						RefItemMap["uid"] = RefItem.Uid.ValueString()
+					}
+					RefList = append(RefList, RefItemMap)
 				}
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
-				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				if !listItem.Uid.IsNull() && !listItem.Uid.IsUnknown() {
-					listItemMap["uid"] = listItem.Uid.ValueString()
-				}
-				refList = append(refList, listItemMap)
+				IPPrefixSetMap["ref"] = RefList
 			}
-			ip_prefix_setMap["ref"] = refList
 		}
-		apiResource.Spec["ip_prefix_set"] = ip_prefix_setMap
+		apiResource.Spec["ip_prefix_set"] = IPPrefixSetMap
 	}
 	if data.LabelMatcher != nil {
-		label_matcherMap := make(map[string]interface{})
+		LabelMatcherMap := make(map[string]interface{})
 		if !data.LabelMatcher.Keys.IsNull() && !data.LabelMatcher.Keys.IsUnknown() {
-			var keysItems []string
-			diags := data.LabelMatcher.Keys.ElementsAs(ctx, &keysItems, false)
+			var KeysItems []string
+			diags := data.LabelMatcher.Keys.ElementsAs(ctx, &KeysItems, false)
 			if !diags.HasError() {
-				label_matcherMap["keys"] = keysItems
+				LabelMatcherMap["keys"] = KeysItems
 			}
 		}
-		apiResource.Spec["label_matcher"] = label_matcherMap
+		apiResource.Spec["label_matcher"] = LabelMatcherMap
 	}
 	if !data.Ports.IsNull() && !data.Ports.IsUnknown() {
-		var portsList []string
-		resp.Diagnostics.Append(data.Ports.ElementsAs(ctx, &portsList, false)...)
-		if !resp.Diagnostics.HasError() {
-			apiResource.Spec["ports"] = portsList
+		var PortsItems []string
+		diags := data.Ports.ElementsAs(ctx, &PortsItems, false)
+		if !diags.HasError() {
+			apiResource.Spec["ports"] = PortsItems
 		}
 	}
 	if data.Prefix != nil {
-		prefixMap := make(map[string]interface{})
+		PrefixMap := make(map[string]interface{})
 		if !data.Prefix.Prefix.IsNull() && !data.Prefix.Prefix.IsUnknown() {
-			var prefixItems []string
-			diags := data.Prefix.Prefix.ElementsAs(ctx, &prefixItems, false)
+			var PrefixItems []string
+			diags := data.Prefix.Prefix.ElementsAs(ctx, &PrefixItems, false)
 			if !diags.HasError() {
-				prefixMap["prefix"] = prefixItems
+				PrefixMap["prefix"] = PrefixItems
 			}
 		}
-		apiResource.Spec["prefix"] = prefixMap
+		apiResource.Spec["prefix"] = PrefixMap
 	}
 	if data.PrefixSelector != nil {
-		prefix_selectorMap := make(map[string]interface{})
+		PrefixSelectorMap := make(map[string]interface{})
 		if !data.PrefixSelector.Expressions.IsNull() && !data.PrefixSelector.Expressions.IsUnknown() {
-			var expressionsItems []string
-			diags := data.PrefixSelector.Expressions.ElementsAs(ctx, &expressionsItems, false)
+			var ExpressionsItems []string
+			diags := data.PrefixSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 			if !diags.HasError() {
-				prefix_selectorMap["expressions"] = expressionsItems
+				PrefixSelectorMap["expressions"] = ExpressionsItems
 			}
 		}
-		apiResource.Spec["prefix_selector"] = prefix_selectorMap
+		apiResource.Spec["prefix_selector"] = PrefixSelectorMap
 	}
 	if !data.Action.IsNull() && !data.Action.IsUnknown() {
 		apiResource.Spec["action"] = data.Action.ValueString()
@@ -1058,38 +1084,41 @@ func (r *NetworkPolicyRuleResource) Update(ctx context.Context, req resource.Upd
 	}
 	if blockData, ok := apiResource.Spec["ip_prefix_set"].(map[string]interface{}); ok && (isImport || data.IPPrefixSet != nil) {
 		data.IPPrefixSet = &NetworkPolicyRuleIPPrefixSetModel{
-			Ref: func() []NetworkPolicyRuleIPPrefixSetRefModel {
-				if listData, ok := blockData["ref"].([]interface{}); ok && len(listData) > 0 {
-					var result []NetworkPolicyRuleIPPrefixSetRefModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, NetworkPolicyRuleIPPrefixSetRefModel{
+			Ref: func() types.List {
+				if !isImport && data.IPPrefixSet != nil && (data.IPPrefixSet.Ref.IsNull() || len(data.IPPrefixSet.Ref.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRuleIPPrefixSetRefModelAttrTypes})
+				}
+				if rawList, ok := blockData["ref"].([]interface{}); ok && len(rawList) > 0 {
+					var RefResult []NetworkPolicyRuleIPPrefixSetRefModel
+					for _, RefItem := range rawList {
+						if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+							RefResult = append(RefResult, NetworkPolicyRuleIPPrefixSetRefModel{
 								Kind: func() types.String {
-									if v, ok := itemMap["kind"].(string); ok && v != "" {
+									if v, ok := RefItemMap["kind"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := RefItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Uid: func() types.String {
-									if v, ok := itemMap["uid"].(string); ok && v != "" {
+									if v, ok := RefItemMap["uid"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -1097,9 +1126,10 @@ func (r *NetworkPolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkPolicyRuleIPPrefixSetRefModelAttrTypes}, RefResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRuleIPPrefixSetRefModelAttrTypes})
 			}(),
 		}
 	}

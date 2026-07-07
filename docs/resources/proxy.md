@@ -42,6 +42,8 @@ resource "xcsh_proxy" "example" {
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
 
+🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
+
 ### Metadata Argument Reference
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Proxy. Must be unique within the namespace
@@ -140,7 +142,7 @@ A [`more_option`](#dynamic-proxy-http-proxy-more-option) block (within [`dynamic
 
 <a id="errors-be4463"></a>&#x2022; [`custom_errors`](#errors-be4463) - Optional Block<br>Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx
 
-<a id="pages-241bd8"></a>&#x2022; [`disable_default_error_pages`](#pages-241bd8) - Optional Bool<br>Disable the use of default XCSH error pages
+<a id="pages-241bd8"></a>&#x2022; [`disable_default_error_pages`](#pages-241bd8) - Optional Bool<br>Disable the use of default F5XC error pages
 
 <a id="normalize-343080"></a>&#x2022; [`disable_path_normalize`](#normalize-343080) - Optional Block<br>Enable this option
 
@@ -260,7 +262,7 @@ A [`more_option`](#dynamic-proxy-https-proxy-more-option) block (within [`dynami
 
 <a id="errors-01c21a"></a>&#x2022; [`custom_errors`](#errors-01c21a) - Optional Block<br>Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx
 
-<a id="pages-9edd65"></a>&#x2022; [`disable_default_error_pages`](#pages-9edd65) - Optional Bool<br>Disable the use of default XCSH error pages
+<a id="pages-9edd65"></a>&#x2022; [`disable_default_error_pages`](#pages-9edd65) - Optional Bool<br>Disable the use of default F5XC error pages
 
 <a id="normalize-780e38"></a>&#x2022; [`disable_path_normalize`](#normalize-780e38) - Optional Block<br>Enable this option
 
@@ -444,7 +446,7 @@ Policy](#http-proxy-more-option-buffer-policy) below.
 <a id="http-proxy-more-option-custom-errors"></a>&#x2022; [`custom_errors`](#http-proxy-more-option-custom-errors) - Optional Block<br>Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response
 code class 4 -- for 4xx
 
-<a id="pages-159caf"></a>&#x2022; [`disable_default_error_pages`](#pages-159caf) - Optional Bool<br>Disable the use of default XCSH error pages
+<a id="pages-159caf"></a>&#x2022; [`disable_default_error_pages`](#pages-159caf) - Optional Bool<br>Disable the use of default F5XC error pages
 
 <a id="normalize-3090b6"></a>&#x2022; [`disable_path_normalize`](#normalize-3090b6) - Optional Block<br>Enable this option
 
@@ -664,7 +666,7 @@ A [`custom_hash_algorithms`](#algorithms-04b03c) block (within [`tls_intercept.c
 
 A [`private_key`](#key-64ce0d) block (within [`tls_intercept.custom_certificate`](#tls-intercept-custom-certificate)) supports the following:
 
-<a id="info-678e4d"></a>&#x2022; [`blindfold_secret_info`](#info-678e4d) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info](#info-678e4d) below.
+<a id="info-678e4d"></a>&#x2022; [`blindfold_secret_info`](#info-678e4d) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-678e4d) below.
 
 <a id="info-cd6226"></a>&#x2022; [`clear_secret_info`](#info-cd6226) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-cd6226) below.
 

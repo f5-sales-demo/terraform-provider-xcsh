@@ -91,7 +91,7 @@ var EnhancedFirewallPolicyDeniedSourcesModelAttrTypes = map[string]attr.Type{
 
 // EnhancedFirewallPolicyRuleListModel represents rule_list block
 type EnhancedFirewallPolicyRuleListModel struct {
-	Rules []EnhancedFirewallPolicyRuleListRulesModel `tfsdk:"rules"`
+	Rules types.List `tfsdk:"rules"`
 }
 
 // EnhancedFirewallPolicyRuleListModelAttrTypes defines the attribute types for EnhancedFirewallPolicyRuleListModel
@@ -193,7 +193,7 @@ var EnhancedFirewallPolicyRuleListRulesDestinationAWSVPCIdsModelAttrTypes = map[
 
 // EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetModel represents destination_ip_prefix_set block
 type EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetModel struct {
-	Ref []EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModel `tfsdk:"ref"`
+	Ref types.List `tfsdk:"ref"`
 }
 
 // EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetModelAttrTypes defines the attribute types for EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetModel
@@ -309,7 +309,7 @@ var EnhancedFirewallPolicyRuleListRulesSourceAWSVPCIdsModelAttrTypes = map[strin
 
 // EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetModel represents source_ip_prefix_set block
 type EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetModel struct {
-	Ref []EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModel `tfsdk:"ref"`
+	Ref types.List `tfsdk:"ref"`
 }
 
 // EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetModelAttrTypes defines the attribute types for EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetModel
@@ -955,175 +955,310 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.AllowedDestinations != nil {
-		allowed_destinationsMap := make(map[string]interface{})
+		AllowedDestinationsMap := make(map[string]interface{})
 		if !data.AllowedDestinations.Prefix.IsNull() && !data.AllowedDestinations.Prefix.IsUnknown() {
-			var prefixItems []string
-			diags := data.AllowedDestinations.Prefix.ElementsAs(ctx, &prefixItems, false)
+			var PrefixItems []string
+			diags := data.AllowedDestinations.Prefix.ElementsAs(ctx, &PrefixItems, false)
 			if !diags.HasError() {
-				allowed_destinationsMap["prefix"] = prefixItems
+				AllowedDestinationsMap["prefix"] = PrefixItems
 			}
 		}
-		createReq.Spec["allowed_destinations"] = allowed_destinationsMap
+		createReq.Spec["allowed_destinations"] = AllowedDestinationsMap
 	}
 	if data.AllowedSources != nil {
-		allowed_sourcesMap := make(map[string]interface{})
+		AllowedSourcesMap := make(map[string]interface{})
 		if !data.AllowedSources.Prefix.IsNull() && !data.AllowedSources.Prefix.IsUnknown() {
-			var prefixItems []string
-			diags := data.AllowedSources.Prefix.ElementsAs(ctx, &prefixItems, false)
+			var PrefixItems []string
+			diags := data.AllowedSources.Prefix.ElementsAs(ctx, &PrefixItems, false)
 			if !diags.HasError() {
-				allowed_sourcesMap["prefix"] = prefixItems
+				AllowedSourcesMap["prefix"] = PrefixItems
 			}
 		}
-		createReq.Spec["allowed_sources"] = allowed_sourcesMap
+		createReq.Spec["allowed_sources"] = AllowedSourcesMap
 	}
 	if data.DeniedDestinations != nil {
-		denied_destinationsMap := make(map[string]interface{})
+		DeniedDestinationsMap := make(map[string]interface{})
 		if !data.DeniedDestinations.Prefix.IsNull() && !data.DeniedDestinations.Prefix.IsUnknown() {
-			var prefixItems []string
-			diags := data.DeniedDestinations.Prefix.ElementsAs(ctx, &prefixItems, false)
+			var PrefixItems []string
+			diags := data.DeniedDestinations.Prefix.ElementsAs(ctx, &PrefixItems, false)
 			if !diags.HasError() {
-				denied_destinationsMap["prefix"] = prefixItems
+				DeniedDestinationsMap["prefix"] = PrefixItems
 			}
 		}
-		createReq.Spec["denied_destinations"] = denied_destinationsMap
+		createReq.Spec["denied_destinations"] = DeniedDestinationsMap
 	}
 	if data.DeniedSources != nil {
-		denied_sourcesMap := make(map[string]interface{})
+		DeniedSourcesMap := make(map[string]interface{})
 		if !data.DeniedSources.Prefix.IsNull() && !data.DeniedSources.Prefix.IsUnknown() {
-			var prefixItems []string
-			diags := data.DeniedSources.Prefix.ElementsAs(ctx, &prefixItems, false)
+			var PrefixItems []string
+			diags := data.DeniedSources.Prefix.ElementsAs(ctx, &PrefixItems, false)
 			if !diags.HasError() {
-				denied_sourcesMap["prefix"] = prefixItems
+				DeniedSourcesMap["prefix"] = PrefixItems
 			}
 		}
-		createReq.Spec["denied_sources"] = denied_sourcesMap
+		createReq.Spec["denied_sources"] = DeniedSourcesMap
 	}
 	if data.DenyAll != nil {
-		deny_allMap := make(map[string]interface{})
-		createReq.Spec["deny_all"] = deny_allMap
+		createReq.Spec["deny_all"] = map[string]interface{}{}
 	}
 	if data.RuleList != nil {
-		rule_listMap := make(map[string]interface{})
-		if len(data.RuleList.Rules) > 0 {
-			var rulesList []map[string]interface{}
-			for _, listItem := range data.RuleList.Rules {
-				listItemMap := make(map[string]interface{})
-				if listItem.AdvancedAction != nil {
-					advanced_actionDeepMap := make(map[string]interface{})
-					if !listItem.AdvancedAction.Action.IsNull() && !listItem.AdvancedAction.Action.IsUnknown() {
-						advanced_actionDeepMap["action"] = listItem.AdvancedAction.Action.ValueString()
+		RuleListMap := make(map[string]interface{})
+		if !data.RuleList.Rules.IsNull() && !data.RuleList.Rules.IsUnknown() {
+			var RulesElems []EnhancedFirewallPolicyRuleListRulesModel
+			diags := data.RuleList.Rules.ElementsAs(ctx, &RulesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
+				var RulesList []map[string]interface{}
+				for _, RulesItem := range RulesElems {
+					RulesItemMap := make(map[string]interface{})
+					if RulesItem.AdvancedAction != nil {
+						AdvancedActionMap := make(map[string]interface{})
+						if !RulesItem.AdvancedAction.Action.IsNull() && !RulesItem.AdvancedAction.Action.IsUnknown() {
+							AdvancedActionMap["action"] = RulesItem.AdvancedAction.Action.ValueString()
+						}
+						RulesItemMap["advanced_action"] = AdvancedActionMap
 					}
-					listItemMap["advanced_action"] = advanced_actionDeepMap
-				}
-				if listItem.AllDestinations != nil {
-					listItemMap["all_destinations"] = map[string]interface{}{}
-				}
-				if listItem.AllSLIVips != nil {
-					listItemMap["all_sli_vips"] = map[string]interface{}{}
-				}
-				if listItem.AllSloVips != nil {
-					listItemMap["all_slo_vips"] = map[string]interface{}{}
-				}
-				if listItem.AllSources != nil {
-					listItemMap["all_sources"] = map[string]interface{}{}
-				}
-				if listItem.AllTCPTraffic != nil {
-					listItemMap["all_tcp_traffic"] = map[string]interface{}{}
-				}
-				if listItem.AllTraffic != nil {
-					listItemMap["all_traffic"] = map[string]interface{}{}
-				}
-				if listItem.AllUDPTraffic != nil {
-					listItemMap["all_udp_traffic"] = map[string]interface{}{}
-				}
-				if listItem.Allow != nil {
-					listItemMap["allow"] = map[string]interface{}{}
-				}
-				if listItem.Applications != nil {
-					applicationsDeepMap := make(map[string]interface{})
-					listItemMap["applications"] = applicationsDeepMap
-				}
-				if listItem.Deny != nil {
-					listItemMap["deny"] = map[string]interface{}{}
-				}
-				if listItem.DestinationAWSVPCIds != nil {
-					destination_aws_vpc_idsDeepMap := make(map[string]interface{})
-					listItemMap["destination_aws_vpc_ids"] = destination_aws_vpc_idsDeepMap
-				}
-				if listItem.DestinationIPPrefixSet != nil {
-					destination_ip_prefix_setDeepMap := make(map[string]interface{})
-					listItemMap["destination_ip_prefix_set"] = destination_ip_prefix_setDeepMap
-				}
-				if listItem.DestinationLabelSelector != nil {
-					destination_label_selectorDeepMap := make(map[string]interface{})
-					listItemMap["destination_label_selector"] = destination_label_selectorDeepMap
-				}
-				if listItem.DestinationPrefixList != nil {
-					destination_prefix_listDeepMap := make(map[string]interface{})
-					listItemMap["destination_prefix_list"] = destination_prefix_listDeepMap
-				}
-				if listItem.InsertService != nil {
-					insert_serviceDeepMap := make(map[string]interface{})
-					listItemMap["insert_service"] = insert_serviceDeepMap
-				}
-				if listItem.InsideDestinations != nil {
-					listItemMap["inside_destinations"] = map[string]interface{}{}
-				}
-				if listItem.InsideSources != nil {
-					listItemMap["inside_sources"] = map[string]interface{}{}
-				}
-				if listItem.LabelMatcher != nil {
-					label_matcherDeepMap := make(map[string]interface{})
-					listItemMap["label_matcher"] = label_matcherDeepMap
-				}
-				if listItem.Metadata != nil {
-					metadataDeepMap := make(map[string]interface{})
-					if !listItem.Metadata.DescriptionSpec.IsNull() && !listItem.Metadata.DescriptionSpec.IsUnknown() {
-						metadataDeepMap["description"] = listItem.Metadata.DescriptionSpec.ValueString()
+					if RulesItem.AllDestinations != nil {
+						RulesItemMap["all_destinations"] = map[string]interface{}{}
 					}
-					if !listItem.Metadata.Name.IsNull() && !listItem.Metadata.Name.IsUnknown() {
-						metadataDeepMap["name"] = listItem.Metadata.Name.ValueString()
+					if RulesItem.AllSLIVips != nil {
+						RulesItemMap["all_sli_vips"] = map[string]interface{}{}
 					}
-					listItemMap["metadata"] = metadataDeepMap
-				}
-				if listItem.OutsideDestinations != nil {
-					listItemMap["outside_destinations"] = map[string]interface{}{}
-				}
-				if listItem.OutsideSources != nil {
-					listItemMap["outside_sources"] = map[string]interface{}{}
-				}
-				if listItem.ProtocolPortRange != nil {
-					protocol_port_rangeDeepMap := make(map[string]interface{})
-					if !listItem.ProtocolPortRange.Protocol.IsNull() && !listItem.ProtocolPortRange.Protocol.IsUnknown() {
-						protocol_port_rangeDeepMap["protocol"] = listItem.ProtocolPortRange.Protocol.ValueString()
+					if RulesItem.AllSloVips != nil {
+						RulesItemMap["all_slo_vips"] = map[string]interface{}{}
 					}
-					listItemMap["protocol_port_range"] = protocol_port_rangeDeepMap
+					if RulesItem.AllSources != nil {
+						RulesItemMap["all_sources"] = map[string]interface{}{}
+					}
+					if RulesItem.AllTCPTraffic != nil {
+						RulesItemMap["all_tcp_traffic"] = map[string]interface{}{}
+					}
+					if RulesItem.AllTraffic != nil {
+						RulesItemMap["all_traffic"] = map[string]interface{}{}
+					}
+					if RulesItem.AllUDPTraffic != nil {
+						RulesItemMap["all_udp_traffic"] = map[string]interface{}{}
+					}
+					if RulesItem.Allow != nil {
+						RulesItemMap["allow"] = map[string]interface{}{}
+					}
+					if RulesItem.Applications != nil {
+						ApplicationsMap := make(map[string]interface{})
+						if !RulesItem.Applications.Applications.IsNull() && !RulesItem.Applications.Applications.IsUnknown() {
+							var ApplicationsItems []string
+							diags := RulesItem.Applications.Applications.ElementsAs(ctx, &ApplicationsItems, false)
+							if !diags.HasError() {
+								ApplicationsMap["applications"] = ApplicationsItems
+							}
+						}
+						RulesItemMap["applications"] = ApplicationsMap
+					}
+					if RulesItem.Deny != nil {
+						RulesItemMap["deny"] = map[string]interface{}{}
+					}
+					if RulesItem.DestinationAWSVPCIds != nil {
+						DestinationAWSVPCIdsMap := make(map[string]interface{})
+						if !RulesItem.DestinationAWSVPCIds.VPCID.IsNull() && !RulesItem.DestinationAWSVPCIds.VPCID.IsUnknown() {
+							var VPCIDItems []string
+							diags := RulesItem.DestinationAWSVPCIds.VPCID.ElementsAs(ctx, &VPCIDItems, false)
+							if !diags.HasError() {
+								DestinationAWSVPCIdsMap["vpc_id"] = VPCIDItems
+							}
+						}
+						RulesItemMap["destination_aws_vpc_ids"] = DestinationAWSVPCIdsMap
+					}
+					if RulesItem.DestinationIPPrefixSet != nil {
+						DestinationIPPrefixSetMap := make(map[string]interface{})
+						if !RulesItem.DestinationIPPrefixSet.Ref.IsNull() && !RulesItem.DestinationIPPrefixSet.Ref.IsUnknown() {
+							var RefElems []EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModel
+							diags := RulesItem.DestinationIPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+								var RefList []map[string]interface{}
+								for _, RefItem := range RefElems {
+									RefItemMap := make(map[string]interface{})
+									if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+										RefItemMap["kind"] = RefItem.Kind.ValueString()
+									}
+									if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+										RefItemMap["name"] = RefItem.Name.ValueString()
+									}
+									if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+										RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+									}
+									if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+										RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+									}
+									if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+										RefItemMap["uid"] = RefItem.Uid.ValueString()
+									}
+									RefList = append(RefList, RefItemMap)
+								}
+								DestinationIPPrefixSetMap["ref"] = RefList
+							}
+						}
+						RulesItemMap["destination_ip_prefix_set"] = DestinationIPPrefixSetMap
+					}
+					if RulesItem.DestinationLabelSelector != nil {
+						DestinationLabelSelectorMap := make(map[string]interface{})
+						if !RulesItem.DestinationLabelSelector.Expressions.IsNull() && !RulesItem.DestinationLabelSelector.Expressions.IsUnknown() {
+							var ExpressionsItems []string
+							diags := RulesItem.DestinationLabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+							if !diags.HasError() {
+								DestinationLabelSelectorMap["expressions"] = ExpressionsItems
+							}
+						}
+						RulesItemMap["destination_label_selector"] = DestinationLabelSelectorMap
+					}
+					if RulesItem.DestinationPrefixList != nil {
+						DestinationPrefixListMap := make(map[string]interface{})
+						if !RulesItem.DestinationPrefixList.Prefixes.IsNull() && !RulesItem.DestinationPrefixList.Prefixes.IsUnknown() {
+							var PrefixesItems []string
+							diags := RulesItem.DestinationPrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+							if !diags.HasError() {
+								DestinationPrefixListMap["prefixes"] = PrefixesItems
+							}
+						}
+						RulesItemMap["destination_prefix_list"] = DestinationPrefixListMap
+					}
+					if RulesItem.InsertService != nil {
+						InsertServiceMap := make(map[string]interface{})
+						if RulesItem.InsertService.NfvService != nil {
+							NfvServiceMap := make(map[string]interface{})
+							if !RulesItem.InsertService.NfvService.Name.IsNull() && !RulesItem.InsertService.NfvService.Name.IsUnknown() {
+								NfvServiceMap["name"] = RulesItem.InsertService.NfvService.Name.ValueString()
+							}
+							if !RulesItem.InsertService.NfvService.Namespace.IsNull() && !RulesItem.InsertService.NfvService.Namespace.IsUnknown() {
+								NfvServiceMap["namespace"] = RulesItem.InsertService.NfvService.Namespace.ValueString()
+							}
+							if !RulesItem.InsertService.NfvService.Tenant.IsNull() && !RulesItem.InsertService.NfvService.Tenant.IsUnknown() {
+								NfvServiceMap["tenant"] = RulesItem.InsertService.NfvService.Tenant.ValueString()
+							}
+							InsertServiceMap["nfv_service"] = NfvServiceMap
+						}
+						RulesItemMap["insert_service"] = InsertServiceMap
+					}
+					if RulesItem.InsideDestinations != nil {
+						RulesItemMap["inside_destinations"] = map[string]interface{}{}
+					}
+					if RulesItem.InsideSources != nil {
+						RulesItemMap["inside_sources"] = map[string]interface{}{}
+					}
+					if RulesItem.LabelMatcher != nil {
+						LabelMatcherMap := make(map[string]interface{})
+						if !RulesItem.LabelMatcher.Keys.IsNull() && !RulesItem.LabelMatcher.Keys.IsUnknown() {
+							var KeysItems []string
+							diags := RulesItem.LabelMatcher.Keys.ElementsAs(ctx, &KeysItems, false)
+							if !diags.HasError() {
+								LabelMatcherMap["keys"] = KeysItems
+							}
+						}
+						RulesItemMap["label_matcher"] = LabelMatcherMap
+					}
+					if RulesItem.Metadata != nil {
+						MetadataMap := make(map[string]interface{})
+						if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
+							MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
+							MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+						}
+						RulesItemMap["metadata"] = MetadataMap
+					}
+					if RulesItem.OutsideDestinations != nil {
+						RulesItemMap["outside_destinations"] = map[string]interface{}{}
+					}
+					if RulesItem.OutsideSources != nil {
+						RulesItemMap["outside_sources"] = map[string]interface{}{}
+					}
+					if RulesItem.ProtocolPortRange != nil {
+						ProtocolPortRangeMap := make(map[string]interface{})
+						if !RulesItem.ProtocolPortRange.PortRanges.IsNull() && !RulesItem.ProtocolPortRange.PortRanges.IsUnknown() {
+							var PortRangesItems []string
+							diags := RulesItem.ProtocolPortRange.PortRanges.ElementsAs(ctx, &PortRangesItems, false)
+							if !diags.HasError() {
+								ProtocolPortRangeMap["port_ranges"] = PortRangesItems
+							}
+						}
+						if !RulesItem.ProtocolPortRange.Protocol.IsNull() && !RulesItem.ProtocolPortRange.Protocol.IsUnknown() {
+							ProtocolPortRangeMap["protocol"] = RulesItem.ProtocolPortRange.Protocol.ValueString()
+						}
+						RulesItemMap["protocol_port_range"] = ProtocolPortRangeMap
+					}
+					if RulesItem.SourceAWSVPCIds != nil {
+						SourceAWSVPCIdsMap := make(map[string]interface{})
+						if !RulesItem.SourceAWSVPCIds.VPCID.IsNull() && !RulesItem.SourceAWSVPCIds.VPCID.IsUnknown() {
+							var VPCIDItems []string
+							diags := RulesItem.SourceAWSVPCIds.VPCID.ElementsAs(ctx, &VPCIDItems, false)
+							if !diags.HasError() {
+								SourceAWSVPCIdsMap["vpc_id"] = VPCIDItems
+							}
+						}
+						RulesItemMap["source_aws_vpc_ids"] = SourceAWSVPCIdsMap
+					}
+					if RulesItem.SourceIPPrefixSet != nil {
+						SourceIPPrefixSetMap := make(map[string]interface{})
+						if !RulesItem.SourceIPPrefixSet.Ref.IsNull() && !RulesItem.SourceIPPrefixSet.Ref.IsUnknown() {
+							var RefElems []EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModel
+							diags := RulesItem.SourceIPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+								var RefList []map[string]interface{}
+								for _, RefItem := range RefElems {
+									RefItemMap := make(map[string]interface{})
+									if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+										RefItemMap["kind"] = RefItem.Kind.ValueString()
+									}
+									if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+										RefItemMap["name"] = RefItem.Name.ValueString()
+									}
+									if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+										RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+									}
+									if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+										RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+									}
+									if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+										RefItemMap["uid"] = RefItem.Uid.ValueString()
+									}
+									RefList = append(RefList, RefItemMap)
+								}
+								SourceIPPrefixSetMap["ref"] = RefList
+							}
+						}
+						RulesItemMap["source_ip_prefix_set"] = SourceIPPrefixSetMap
+					}
+					if RulesItem.SourceLabelSelector != nil {
+						SourceLabelSelectorMap := make(map[string]interface{})
+						if !RulesItem.SourceLabelSelector.Expressions.IsNull() && !RulesItem.SourceLabelSelector.Expressions.IsUnknown() {
+							var ExpressionsItems []string
+							diags := RulesItem.SourceLabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+							if !diags.HasError() {
+								SourceLabelSelectorMap["expressions"] = ExpressionsItems
+							}
+						}
+						RulesItemMap["source_label_selector"] = SourceLabelSelectorMap
+					}
+					if RulesItem.SourcePrefixList != nil {
+						SourcePrefixListMap := make(map[string]interface{})
+						if !RulesItem.SourcePrefixList.Prefixes.IsNull() && !RulesItem.SourcePrefixList.Prefixes.IsUnknown() {
+							var PrefixesItems []string
+							diags := RulesItem.SourcePrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+							if !diags.HasError() {
+								SourcePrefixListMap["prefixes"] = PrefixesItems
+							}
+						}
+						RulesItemMap["source_prefix_list"] = SourcePrefixListMap
+					}
+					RulesList = append(RulesList, RulesItemMap)
 				}
-				if listItem.SourceAWSVPCIds != nil {
-					source_aws_vpc_idsDeepMap := make(map[string]interface{})
-					listItemMap["source_aws_vpc_ids"] = source_aws_vpc_idsDeepMap
-				}
-				if listItem.SourceIPPrefixSet != nil {
-					source_ip_prefix_setDeepMap := make(map[string]interface{})
-					listItemMap["source_ip_prefix_set"] = source_ip_prefix_setDeepMap
-				}
-				if listItem.SourceLabelSelector != nil {
-					source_label_selectorDeepMap := make(map[string]interface{})
-					listItemMap["source_label_selector"] = source_label_selectorDeepMap
-				}
-				if listItem.SourcePrefixList != nil {
-					source_prefix_listDeepMap := make(map[string]interface{})
-					listItemMap["source_prefix_list"] = source_prefix_listDeepMap
-				}
-				rulesList = append(rulesList, listItemMap)
+				RuleListMap["rules"] = RulesList
 			}
-			rule_listMap["rules"] = rulesList
 		}
-		createReq.Spec["rule_list"] = rule_listMap
+		createReq.Spec["rule_list"] = RuleListMap
 	}
 	if data.AllowAll != nil {
-		allow_allMap := make(map[string]interface{})
-		createReq.Spec["allow_all"] = allow_allMap
+		createReq.Spec["allow_all"] = map[string]interface{}{}
 	}
 
 	apiResource, err := r.client.CreateEnhancedFirewallPolicy(ctx, createReq)
@@ -1207,23 +1342,24 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 		}
 	}
 	if _, ok := apiResource.Spec["deny_all"].(map[string]interface{}); ok && isImport && data.DenyAll == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DenyAll = &EnhancedFirewallPolicyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["rule_list"].(map[string]interface{}); ok && (isImport || data.RuleList != nil) {
 		data.RuleList = &EnhancedFirewallPolicyRuleListModel{
-			Rules: func() []EnhancedFirewallPolicyRuleListRulesModel {
-				if listData, ok := blockData["rules"].([]interface{}); ok && len(listData) > 0 {
-					var result []EnhancedFirewallPolicyRuleListRulesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, EnhancedFirewallPolicyRuleListRulesModel{
+			Rules: func() types.List {
+				if !isImport && data.RuleList != nil && (data.RuleList.Rules.IsNull() || len(data.RuleList.Rules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesModelAttrTypes})
+				}
+				if rawList, ok := blockData["rules"].([]interface{}); ok && len(rawList) > 0 {
+					var RulesResult []EnhancedFirewallPolicyRuleListRulesModel
+					for _, RulesItem := range rawList {
+						if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
+							RulesResult = append(RulesResult, EnhancedFirewallPolicyRuleListRulesModel{
 								AdvancedAction: func() *EnhancedFirewallPolicyRuleListRulesAdvancedActionModel {
-									if deepMap, ok := itemMap["advanced_action"].(map[string]interface{}); ok {
+									if AdvancedActionData, ok := RulesItemMap["advanced_action"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyRuleListRulesAdvancedActionModel{
 											Action: func() types.String {
-												if v, ok := deepMap["action"].(string); ok && v != "" {
+												if v, ok := AdvancedActionData["action"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1233,124 +1369,265 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									return nil
 								}(),
 								AllDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["all_destinations"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["all_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllSLIVips: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["all_sli_vips"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["all_sli_vips"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllSloVips: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["all_slo_vips"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["all_slo_vips"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["all_sources"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["all_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTCPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["all_tcp_traffic"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["all_traffic"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllUDPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["all_udp_traffic"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Allow: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["allow"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["allow"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Applications: func() *EnhancedFirewallPolicyRuleListRulesApplicationsModel {
-									if _, ok := itemMap["applications"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesApplicationsModel{}
+									if ApplicationsData, ok := RulesItemMap["applications"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesApplicationsModel{
+											Applications: func() types.List {
+												if v, ok := ApplicationsData["applications"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								Deny: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["deny"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["deny"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								DestinationAWSVPCIds: func() *EnhancedFirewallPolicyRuleListRulesDestinationAWSVPCIdsModel {
-									if _, ok := itemMap["destination_aws_vpc_ids"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesDestinationAWSVPCIdsModel{}
+									if DestinationAWSVPCIdsData, ok := RulesItemMap["destination_aws_vpc_ids"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesDestinationAWSVPCIdsModel{
+											VPCID: func() types.List {
+												if v, ok := DestinationAWSVPCIdsData["vpc_id"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								DestinationIPPrefixSet: func() *EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetModel {
-									if _, ok := itemMap["destination_ip_prefix_set"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetModel{}
+									if DestinationIPPrefixSetData, ok := RulesItemMap["destination_ip_prefix_set"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetModel{
+											Ref: func() types.List {
+												if rawList, ok := DestinationIPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
+													var RefResult []EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModel
+													for _, RefItem := range rawList {
+														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+															RefResult = append(RefResult, EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModel{
+																Kind: func() types.String {
+																	if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModelAttrTypes}, RefResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModelAttrTypes})
+											}(),
+										}
 									}
 									return nil
 								}(),
 								DestinationLabelSelector: func() *EnhancedFirewallPolicyRuleListRulesDestinationLabelSelectorModel {
-									if _, ok := itemMap["destination_label_selector"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesDestinationLabelSelectorModel{}
+									if DestinationLabelSelectorData, ok := RulesItemMap["destination_label_selector"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesDestinationLabelSelectorModel{
+											Expressions: func() types.List {
+												if v, ok := DestinationLabelSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								DestinationPrefixList: func() *EnhancedFirewallPolicyRuleListRulesDestinationPrefixListModel {
-									if _, ok := itemMap["destination_prefix_list"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesDestinationPrefixListModel{}
+									if DestinationPrefixListData, ok := RulesItemMap["destination_prefix_list"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesDestinationPrefixListModel{
+											Prefixes: func() types.List {
+												if v, ok := DestinationPrefixListData["prefixes"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								InsertService: func() *EnhancedFirewallPolicyRuleListRulesInsertServiceModel {
-									if _, ok := itemMap["insert_service"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesInsertServiceModel{}
+									if InsertServiceData, ok := RulesItemMap["insert_service"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesInsertServiceModel{
+											NfvService: func() *EnhancedFirewallPolicyRuleListRulesInsertServiceNfvServiceModel {
+												if NfvServiceData, ok := InsertServiceData["nfv_service"].(map[string]interface{}); ok {
+													return &EnhancedFirewallPolicyRuleListRulesInsertServiceNfvServiceModel{
+														Name: func() types.String {
+															if v, ok := NfvServiceData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := NfvServiceData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := NfvServiceData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
 									}
 									return nil
 								}(),
 								InsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["inside_destinations"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["inside_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								InsideSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["inside_sources"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["inside_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								LabelMatcher: func() *EnhancedFirewallPolicyRuleListRulesLabelMatcherModel {
-									if _, ok := itemMap["label_matcher"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesLabelMatcherModel{}
+									if LabelMatcherData, ok := RulesItemMap["label_matcher"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesLabelMatcherModel{
+											Keys: func() types.List {
+												if v, ok := LabelMatcherData["keys"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								Metadata: func() *EnhancedFirewallPolicyRuleListRulesMetadataModel {
-									if deepMap, ok := itemMap["metadata"].(map[string]interface{}); ok {
+									if MetadataData, ok := RulesItemMap["metadata"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyRuleListRulesMetadataModel{
 											DescriptionSpec: func() types.String {
-												if v, ok := deepMap["description"].(string); ok && v != "" {
+												if v, ok := MetadataData["description"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Name: func() types.String {
-												if v, ok := deepMap["name"].(string); ok && v != "" {
+												if v, ok := MetadataData["name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1360,22 +1637,35 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									return nil
 								}(),
 								OutsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["outside_destinations"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["outside_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								OutsideSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["outside_sources"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["outside_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								ProtocolPortRange: func() *EnhancedFirewallPolicyRuleListRulesProtocolPortRangeModel {
-									if deepMap, ok := itemMap["protocol_port_range"].(map[string]interface{}); ok {
+									if ProtocolPortRangeData, ok := RulesItemMap["protocol_port_range"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyRuleListRulesProtocolPortRangeModel{
+											PortRanges: func() types.List {
+												if v, ok := ProtocolPortRangeData["port_ranges"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
 											Protocol: func() types.String {
-												if v, ok := deepMap["protocol"].(string); ok && v != "" {
+												if v, ok := ProtocolPortRangeData["protocol"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1385,43 +1675,129 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									return nil
 								}(),
 								SourceAWSVPCIds: func() *EnhancedFirewallPolicyRuleListRulesSourceAWSVPCIdsModel {
-									if _, ok := itemMap["source_aws_vpc_ids"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesSourceAWSVPCIdsModel{}
+									if SourceAWSVPCIdsData, ok := RulesItemMap["source_aws_vpc_ids"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesSourceAWSVPCIdsModel{
+											VPCID: func() types.List {
+												if v, ok := SourceAWSVPCIdsData["vpc_id"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								SourceIPPrefixSet: func() *EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetModel {
-									if _, ok := itemMap["source_ip_prefix_set"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetModel{}
+									if SourceIPPrefixSetData, ok := RulesItemMap["source_ip_prefix_set"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetModel{
+											Ref: func() types.List {
+												if rawList, ok := SourceIPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
+													var RefResult []EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModel
+													for _, RefItem := range rawList {
+														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+															RefResult = append(RefResult, EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModel{
+																Kind: func() types.String {
+																	if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModelAttrTypes}, RefResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModelAttrTypes})
+											}(),
+										}
 									}
 									return nil
 								}(),
 								SourceLabelSelector: func() *EnhancedFirewallPolicyRuleListRulesSourceLabelSelectorModel {
-									if _, ok := itemMap["source_label_selector"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesSourceLabelSelectorModel{}
+									if SourceLabelSelectorData, ok := RulesItemMap["source_label_selector"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesSourceLabelSelectorModel{
+											Expressions: func() types.List {
+												if v, ok := SourceLabelSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								SourcePrefixList: func() *EnhancedFirewallPolicyRuleListRulesSourcePrefixListModel {
-									if _, ok := itemMap["source_prefix_list"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesSourcePrefixListModel{}
+									if SourcePrefixListData, ok := RulesItemMap["source_prefix_list"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesSourcePrefixListModel{
+											Prefixes: func() types.List {
+												if v, ok := SourcePrefixListData["prefixes"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesModelAttrTypes}, RulesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesModelAttrTypes})
 			}(),
 		}
 	}
 	if _, ok := apiResource.Spec["allow_all"].(map[string]interface{}); ok && isImport && data.AllowAll == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.AllowAll = &EnhancedFirewallPolicyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 
 	tflog.Trace(ctx, "created EnhancedFirewallPolicy resource")
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -1571,23 +1947,24 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 		}
 	}
 	if _, ok := apiResource.Spec["deny_all"].(map[string]interface{}); ok && isImport && data.DenyAll == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DenyAll = &EnhancedFirewallPolicyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["rule_list"].(map[string]interface{}); ok && (isImport || data.RuleList != nil) {
 		data.RuleList = &EnhancedFirewallPolicyRuleListModel{
-			Rules: func() []EnhancedFirewallPolicyRuleListRulesModel {
-				if listData, ok := blockData["rules"].([]interface{}); ok && len(listData) > 0 {
-					var result []EnhancedFirewallPolicyRuleListRulesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, EnhancedFirewallPolicyRuleListRulesModel{
+			Rules: func() types.List {
+				if !isImport && data.RuleList != nil && (data.RuleList.Rules.IsNull() || len(data.RuleList.Rules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesModelAttrTypes})
+				}
+				if rawList, ok := blockData["rules"].([]interface{}); ok && len(rawList) > 0 {
+					var RulesResult []EnhancedFirewallPolicyRuleListRulesModel
+					for _, RulesItem := range rawList {
+						if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
+							RulesResult = append(RulesResult, EnhancedFirewallPolicyRuleListRulesModel{
 								AdvancedAction: func() *EnhancedFirewallPolicyRuleListRulesAdvancedActionModel {
-									if deepMap, ok := itemMap["advanced_action"].(map[string]interface{}); ok {
+									if AdvancedActionData, ok := RulesItemMap["advanced_action"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyRuleListRulesAdvancedActionModel{
 											Action: func() types.String {
-												if v, ok := deepMap["action"].(string); ok && v != "" {
+												if v, ok := AdvancedActionData["action"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1597,124 +1974,265 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									return nil
 								}(),
 								AllDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["all_destinations"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["all_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllSLIVips: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["all_sli_vips"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["all_sli_vips"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllSloVips: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["all_slo_vips"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["all_slo_vips"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["all_sources"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["all_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTCPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["all_tcp_traffic"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["all_traffic"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllUDPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["all_udp_traffic"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Allow: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["allow"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["allow"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Applications: func() *EnhancedFirewallPolicyRuleListRulesApplicationsModel {
-									if _, ok := itemMap["applications"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesApplicationsModel{}
+									if ApplicationsData, ok := RulesItemMap["applications"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesApplicationsModel{
+											Applications: func() types.List {
+												if v, ok := ApplicationsData["applications"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								Deny: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["deny"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["deny"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								DestinationAWSVPCIds: func() *EnhancedFirewallPolicyRuleListRulesDestinationAWSVPCIdsModel {
-									if _, ok := itemMap["destination_aws_vpc_ids"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesDestinationAWSVPCIdsModel{}
+									if DestinationAWSVPCIdsData, ok := RulesItemMap["destination_aws_vpc_ids"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesDestinationAWSVPCIdsModel{
+											VPCID: func() types.List {
+												if v, ok := DestinationAWSVPCIdsData["vpc_id"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								DestinationIPPrefixSet: func() *EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetModel {
-									if _, ok := itemMap["destination_ip_prefix_set"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetModel{}
+									if DestinationIPPrefixSetData, ok := RulesItemMap["destination_ip_prefix_set"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetModel{
+											Ref: func() types.List {
+												if rawList, ok := DestinationIPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
+													var RefResult []EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModel
+													for _, RefItem := range rawList {
+														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+															RefResult = append(RefResult, EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModel{
+																Kind: func() types.String {
+																	if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModelAttrTypes}, RefResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModelAttrTypes})
+											}(),
+										}
 									}
 									return nil
 								}(),
 								DestinationLabelSelector: func() *EnhancedFirewallPolicyRuleListRulesDestinationLabelSelectorModel {
-									if _, ok := itemMap["destination_label_selector"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesDestinationLabelSelectorModel{}
+									if DestinationLabelSelectorData, ok := RulesItemMap["destination_label_selector"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesDestinationLabelSelectorModel{
+											Expressions: func() types.List {
+												if v, ok := DestinationLabelSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								DestinationPrefixList: func() *EnhancedFirewallPolicyRuleListRulesDestinationPrefixListModel {
-									if _, ok := itemMap["destination_prefix_list"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesDestinationPrefixListModel{}
+									if DestinationPrefixListData, ok := RulesItemMap["destination_prefix_list"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesDestinationPrefixListModel{
+											Prefixes: func() types.List {
+												if v, ok := DestinationPrefixListData["prefixes"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								InsertService: func() *EnhancedFirewallPolicyRuleListRulesInsertServiceModel {
-									if _, ok := itemMap["insert_service"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesInsertServiceModel{}
+									if InsertServiceData, ok := RulesItemMap["insert_service"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesInsertServiceModel{
+											NfvService: func() *EnhancedFirewallPolicyRuleListRulesInsertServiceNfvServiceModel {
+												if NfvServiceData, ok := InsertServiceData["nfv_service"].(map[string]interface{}); ok {
+													return &EnhancedFirewallPolicyRuleListRulesInsertServiceNfvServiceModel{
+														Name: func() types.String {
+															if v, ok := NfvServiceData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := NfvServiceData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := NfvServiceData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
 									}
 									return nil
 								}(),
 								InsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["inside_destinations"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["inside_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								InsideSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["inside_sources"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["inside_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								LabelMatcher: func() *EnhancedFirewallPolicyRuleListRulesLabelMatcherModel {
-									if _, ok := itemMap["label_matcher"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesLabelMatcherModel{}
+									if LabelMatcherData, ok := RulesItemMap["label_matcher"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesLabelMatcherModel{
+											Keys: func() types.List {
+												if v, ok := LabelMatcherData["keys"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								Metadata: func() *EnhancedFirewallPolicyRuleListRulesMetadataModel {
-									if deepMap, ok := itemMap["metadata"].(map[string]interface{}); ok {
+									if MetadataData, ok := RulesItemMap["metadata"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyRuleListRulesMetadataModel{
 											DescriptionSpec: func() types.String {
-												if v, ok := deepMap["description"].(string); ok && v != "" {
+												if v, ok := MetadataData["description"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Name: func() types.String {
-												if v, ok := deepMap["name"].(string); ok && v != "" {
+												if v, ok := MetadataData["name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1724,22 +2242,35 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									return nil
 								}(),
 								OutsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["outside_destinations"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["outside_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								OutsideSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["outside_sources"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["outside_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								ProtocolPortRange: func() *EnhancedFirewallPolicyRuleListRulesProtocolPortRangeModel {
-									if deepMap, ok := itemMap["protocol_port_range"].(map[string]interface{}); ok {
+									if ProtocolPortRangeData, ok := RulesItemMap["protocol_port_range"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyRuleListRulesProtocolPortRangeModel{
+											PortRanges: func() types.List {
+												if v, ok := ProtocolPortRangeData["port_ranges"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
 											Protocol: func() types.String {
-												if v, ok := deepMap["protocol"].(string); ok && v != "" {
+												if v, ok := ProtocolPortRangeData["protocol"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1749,43 +2280,137 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									return nil
 								}(),
 								SourceAWSVPCIds: func() *EnhancedFirewallPolicyRuleListRulesSourceAWSVPCIdsModel {
-									if _, ok := itemMap["source_aws_vpc_ids"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesSourceAWSVPCIdsModel{}
+									if SourceAWSVPCIdsData, ok := RulesItemMap["source_aws_vpc_ids"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesSourceAWSVPCIdsModel{
+											VPCID: func() types.List {
+												if v, ok := SourceAWSVPCIdsData["vpc_id"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								SourceIPPrefixSet: func() *EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetModel {
-									if _, ok := itemMap["source_ip_prefix_set"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetModel{}
+									if SourceIPPrefixSetData, ok := RulesItemMap["source_ip_prefix_set"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetModel{
+											Ref: func() types.List {
+												if rawList, ok := SourceIPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
+													var RefResult []EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModel
+													for _, RefItem := range rawList {
+														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+															RefResult = append(RefResult, EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModel{
+																Kind: func() types.String {
+																	if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModelAttrTypes}, RefResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModelAttrTypes})
+											}(),
+										}
 									}
 									return nil
 								}(),
 								SourceLabelSelector: func() *EnhancedFirewallPolicyRuleListRulesSourceLabelSelectorModel {
-									if _, ok := itemMap["source_label_selector"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesSourceLabelSelectorModel{}
+									if SourceLabelSelectorData, ok := RulesItemMap["source_label_selector"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesSourceLabelSelectorModel{
+											Expressions: func() types.List {
+												if v, ok := SourceLabelSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								SourcePrefixList: func() *EnhancedFirewallPolicyRuleListRulesSourcePrefixListModel {
-									if _, ok := itemMap["source_prefix_list"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesSourcePrefixListModel{}
+									if SourcePrefixListData, ok := RulesItemMap["source_prefix_list"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesSourcePrefixListModel{
+											Prefixes: func() types.List {
+												if v, ok := SourcePrefixListData["prefixes"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesModelAttrTypes}, RulesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesModelAttrTypes})
 			}(),
 		}
 	}
 	if _, ok := apiResource.Spec["allow_all"].(map[string]interface{}); ok && isImport && data.AllowAll == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.AllowAll = &EnhancedFirewallPolicyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
+	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
@@ -1838,175 +2463,310 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.AllowedDestinations != nil {
-		allowed_destinationsMap := make(map[string]interface{})
+		AllowedDestinationsMap := make(map[string]interface{})
 		if !data.AllowedDestinations.Prefix.IsNull() && !data.AllowedDestinations.Prefix.IsUnknown() {
-			var prefixItems []string
-			diags := data.AllowedDestinations.Prefix.ElementsAs(ctx, &prefixItems, false)
+			var PrefixItems []string
+			diags := data.AllowedDestinations.Prefix.ElementsAs(ctx, &PrefixItems, false)
 			if !diags.HasError() {
-				allowed_destinationsMap["prefix"] = prefixItems
+				AllowedDestinationsMap["prefix"] = PrefixItems
 			}
 		}
-		apiResource.Spec["allowed_destinations"] = allowed_destinationsMap
+		apiResource.Spec["allowed_destinations"] = AllowedDestinationsMap
 	}
 	if data.AllowedSources != nil {
-		allowed_sourcesMap := make(map[string]interface{})
+		AllowedSourcesMap := make(map[string]interface{})
 		if !data.AllowedSources.Prefix.IsNull() && !data.AllowedSources.Prefix.IsUnknown() {
-			var prefixItems []string
-			diags := data.AllowedSources.Prefix.ElementsAs(ctx, &prefixItems, false)
+			var PrefixItems []string
+			diags := data.AllowedSources.Prefix.ElementsAs(ctx, &PrefixItems, false)
 			if !diags.HasError() {
-				allowed_sourcesMap["prefix"] = prefixItems
+				AllowedSourcesMap["prefix"] = PrefixItems
 			}
 		}
-		apiResource.Spec["allowed_sources"] = allowed_sourcesMap
+		apiResource.Spec["allowed_sources"] = AllowedSourcesMap
 	}
 	if data.DeniedDestinations != nil {
-		denied_destinationsMap := make(map[string]interface{})
+		DeniedDestinationsMap := make(map[string]interface{})
 		if !data.DeniedDestinations.Prefix.IsNull() && !data.DeniedDestinations.Prefix.IsUnknown() {
-			var prefixItems []string
-			diags := data.DeniedDestinations.Prefix.ElementsAs(ctx, &prefixItems, false)
+			var PrefixItems []string
+			diags := data.DeniedDestinations.Prefix.ElementsAs(ctx, &PrefixItems, false)
 			if !diags.HasError() {
-				denied_destinationsMap["prefix"] = prefixItems
+				DeniedDestinationsMap["prefix"] = PrefixItems
 			}
 		}
-		apiResource.Spec["denied_destinations"] = denied_destinationsMap
+		apiResource.Spec["denied_destinations"] = DeniedDestinationsMap
 	}
 	if data.DeniedSources != nil {
-		denied_sourcesMap := make(map[string]interface{})
+		DeniedSourcesMap := make(map[string]interface{})
 		if !data.DeniedSources.Prefix.IsNull() && !data.DeniedSources.Prefix.IsUnknown() {
-			var prefixItems []string
-			diags := data.DeniedSources.Prefix.ElementsAs(ctx, &prefixItems, false)
+			var PrefixItems []string
+			diags := data.DeniedSources.Prefix.ElementsAs(ctx, &PrefixItems, false)
 			if !diags.HasError() {
-				denied_sourcesMap["prefix"] = prefixItems
+				DeniedSourcesMap["prefix"] = PrefixItems
 			}
 		}
-		apiResource.Spec["denied_sources"] = denied_sourcesMap
+		apiResource.Spec["denied_sources"] = DeniedSourcesMap
 	}
 	if data.DenyAll != nil {
-		deny_allMap := make(map[string]interface{})
-		apiResource.Spec["deny_all"] = deny_allMap
+		apiResource.Spec["deny_all"] = map[string]interface{}{}
 	}
 	if data.RuleList != nil {
-		rule_listMap := make(map[string]interface{})
-		if len(data.RuleList.Rules) > 0 {
-			var rulesList []map[string]interface{}
-			for _, listItem := range data.RuleList.Rules {
-				listItemMap := make(map[string]interface{})
-				if listItem.AdvancedAction != nil {
-					advanced_actionDeepMap := make(map[string]interface{})
-					if !listItem.AdvancedAction.Action.IsNull() && !listItem.AdvancedAction.Action.IsUnknown() {
-						advanced_actionDeepMap["action"] = listItem.AdvancedAction.Action.ValueString()
+		RuleListMap := make(map[string]interface{})
+		if !data.RuleList.Rules.IsNull() && !data.RuleList.Rules.IsUnknown() {
+			var RulesElems []EnhancedFirewallPolicyRuleListRulesModel
+			diags := data.RuleList.Rules.ElementsAs(ctx, &RulesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
+				var RulesList []map[string]interface{}
+				for _, RulesItem := range RulesElems {
+					RulesItemMap := make(map[string]interface{})
+					if RulesItem.AdvancedAction != nil {
+						AdvancedActionMap := make(map[string]interface{})
+						if !RulesItem.AdvancedAction.Action.IsNull() && !RulesItem.AdvancedAction.Action.IsUnknown() {
+							AdvancedActionMap["action"] = RulesItem.AdvancedAction.Action.ValueString()
+						}
+						RulesItemMap["advanced_action"] = AdvancedActionMap
 					}
-					listItemMap["advanced_action"] = advanced_actionDeepMap
-				}
-				if listItem.AllDestinations != nil {
-					listItemMap["all_destinations"] = map[string]interface{}{}
-				}
-				if listItem.AllSLIVips != nil {
-					listItemMap["all_sli_vips"] = map[string]interface{}{}
-				}
-				if listItem.AllSloVips != nil {
-					listItemMap["all_slo_vips"] = map[string]interface{}{}
-				}
-				if listItem.AllSources != nil {
-					listItemMap["all_sources"] = map[string]interface{}{}
-				}
-				if listItem.AllTCPTraffic != nil {
-					listItemMap["all_tcp_traffic"] = map[string]interface{}{}
-				}
-				if listItem.AllTraffic != nil {
-					listItemMap["all_traffic"] = map[string]interface{}{}
-				}
-				if listItem.AllUDPTraffic != nil {
-					listItemMap["all_udp_traffic"] = map[string]interface{}{}
-				}
-				if listItem.Allow != nil {
-					listItemMap["allow"] = map[string]interface{}{}
-				}
-				if listItem.Applications != nil {
-					applicationsDeepMap := make(map[string]interface{})
-					listItemMap["applications"] = applicationsDeepMap
-				}
-				if listItem.Deny != nil {
-					listItemMap["deny"] = map[string]interface{}{}
-				}
-				if listItem.DestinationAWSVPCIds != nil {
-					destination_aws_vpc_idsDeepMap := make(map[string]interface{})
-					listItemMap["destination_aws_vpc_ids"] = destination_aws_vpc_idsDeepMap
-				}
-				if listItem.DestinationIPPrefixSet != nil {
-					destination_ip_prefix_setDeepMap := make(map[string]interface{})
-					listItemMap["destination_ip_prefix_set"] = destination_ip_prefix_setDeepMap
-				}
-				if listItem.DestinationLabelSelector != nil {
-					destination_label_selectorDeepMap := make(map[string]interface{})
-					listItemMap["destination_label_selector"] = destination_label_selectorDeepMap
-				}
-				if listItem.DestinationPrefixList != nil {
-					destination_prefix_listDeepMap := make(map[string]interface{})
-					listItemMap["destination_prefix_list"] = destination_prefix_listDeepMap
-				}
-				if listItem.InsertService != nil {
-					insert_serviceDeepMap := make(map[string]interface{})
-					listItemMap["insert_service"] = insert_serviceDeepMap
-				}
-				if listItem.InsideDestinations != nil {
-					listItemMap["inside_destinations"] = map[string]interface{}{}
-				}
-				if listItem.InsideSources != nil {
-					listItemMap["inside_sources"] = map[string]interface{}{}
-				}
-				if listItem.LabelMatcher != nil {
-					label_matcherDeepMap := make(map[string]interface{})
-					listItemMap["label_matcher"] = label_matcherDeepMap
-				}
-				if listItem.Metadata != nil {
-					metadataDeepMap := make(map[string]interface{})
-					if !listItem.Metadata.DescriptionSpec.IsNull() && !listItem.Metadata.DescriptionSpec.IsUnknown() {
-						metadataDeepMap["description"] = listItem.Metadata.DescriptionSpec.ValueString()
+					if RulesItem.AllDestinations != nil {
+						RulesItemMap["all_destinations"] = map[string]interface{}{}
 					}
-					if !listItem.Metadata.Name.IsNull() && !listItem.Metadata.Name.IsUnknown() {
-						metadataDeepMap["name"] = listItem.Metadata.Name.ValueString()
+					if RulesItem.AllSLIVips != nil {
+						RulesItemMap["all_sli_vips"] = map[string]interface{}{}
 					}
-					listItemMap["metadata"] = metadataDeepMap
-				}
-				if listItem.OutsideDestinations != nil {
-					listItemMap["outside_destinations"] = map[string]interface{}{}
-				}
-				if listItem.OutsideSources != nil {
-					listItemMap["outside_sources"] = map[string]interface{}{}
-				}
-				if listItem.ProtocolPortRange != nil {
-					protocol_port_rangeDeepMap := make(map[string]interface{})
-					if !listItem.ProtocolPortRange.Protocol.IsNull() && !listItem.ProtocolPortRange.Protocol.IsUnknown() {
-						protocol_port_rangeDeepMap["protocol"] = listItem.ProtocolPortRange.Protocol.ValueString()
+					if RulesItem.AllSloVips != nil {
+						RulesItemMap["all_slo_vips"] = map[string]interface{}{}
 					}
-					listItemMap["protocol_port_range"] = protocol_port_rangeDeepMap
+					if RulesItem.AllSources != nil {
+						RulesItemMap["all_sources"] = map[string]interface{}{}
+					}
+					if RulesItem.AllTCPTraffic != nil {
+						RulesItemMap["all_tcp_traffic"] = map[string]interface{}{}
+					}
+					if RulesItem.AllTraffic != nil {
+						RulesItemMap["all_traffic"] = map[string]interface{}{}
+					}
+					if RulesItem.AllUDPTraffic != nil {
+						RulesItemMap["all_udp_traffic"] = map[string]interface{}{}
+					}
+					if RulesItem.Allow != nil {
+						RulesItemMap["allow"] = map[string]interface{}{}
+					}
+					if RulesItem.Applications != nil {
+						ApplicationsMap := make(map[string]interface{})
+						if !RulesItem.Applications.Applications.IsNull() && !RulesItem.Applications.Applications.IsUnknown() {
+							var ApplicationsItems []string
+							diags := RulesItem.Applications.Applications.ElementsAs(ctx, &ApplicationsItems, false)
+							if !diags.HasError() {
+								ApplicationsMap["applications"] = ApplicationsItems
+							}
+						}
+						RulesItemMap["applications"] = ApplicationsMap
+					}
+					if RulesItem.Deny != nil {
+						RulesItemMap["deny"] = map[string]interface{}{}
+					}
+					if RulesItem.DestinationAWSVPCIds != nil {
+						DestinationAWSVPCIdsMap := make(map[string]interface{})
+						if !RulesItem.DestinationAWSVPCIds.VPCID.IsNull() && !RulesItem.DestinationAWSVPCIds.VPCID.IsUnknown() {
+							var VPCIDItems []string
+							diags := RulesItem.DestinationAWSVPCIds.VPCID.ElementsAs(ctx, &VPCIDItems, false)
+							if !diags.HasError() {
+								DestinationAWSVPCIdsMap["vpc_id"] = VPCIDItems
+							}
+						}
+						RulesItemMap["destination_aws_vpc_ids"] = DestinationAWSVPCIdsMap
+					}
+					if RulesItem.DestinationIPPrefixSet != nil {
+						DestinationIPPrefixSetMap := make(map[string]interface{})
+						if !RulesItem.DestinationIPPrefixSet.Ref.IsNull() && !RulesItem.DestinationIPPrefixSet.Ref.IsUnknown() {
+							var RefElems []EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModel
+							diags := RulesItem.DestinationIPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+								var RefList []map[string]interface{}
+								for _, RefItem := range RefElems {
+									RefItemMap := make(map[string]interface{})
+									if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+										RefItemMap["kind"] = RefItem.Kind.ValueString()
+									}
+									if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+										RefItemMap["name"] = RefItem.Name.ValueString()
+									}
+									if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+										RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+									}
+									if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+										RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+									}
+									if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+										RefItemMap["uid"] = RefItem.Uid.ValueString()
+									}
+									RefList = append(RefList, RefItemMap)
+								}
+								DestinationIPPrefixSetMap["ref"] = RefList
+							}
+						}
+						RulesItemMap["destination_ip_prefix_set"] = DestinationIPPrefixSetMap
+					}
+					if RulesItem.DestinationLabelSelector != nil {
+						DestinationLabelSelectorMap := make(map[string]interface{})
+						if !RulesItem.DestinationLabelSelector.Expressions.IsNull() && !RulesItem.DestinationLabelSelector.Expressions.IsUnknown() {
+							var ExpressionsItems []string
+							diags := RulesItem.DestinationLabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+							if !diags.HasError() {
+								DestinationLabelSelectorMap["expressions"] = ExpressionsItems
+							}
+						}
+						RulesItemMap["destination_label_selector"] = DestinationLabelSelectorMap
+					}
+					if RulesItem.DestinationPrefixList != nil {
+						DestinationPrefixListMap := make(map[string]interface{})
+						if !RulesItem.DestinationPrefixList.Prefixes.IsNull() && !RulesItem.DestinationPrefixList.Prefixes.IsUnknown() {
+							var PrefixesItems []string
+							diags := RulesItem.DestinationPrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+							if !diags.HasError() {
+								DestinationPrefixListMap["prefixes"] = PrefixesItems
+							}
+						}
+						RulesItemMap["destination_prefix_list"] = DestinationPrefixListMap
+					}
+					if RulesItem.InsertService != nil {
+						InsertServiceMap := make(map[string]interface{})
+						if RulesItem.InsertService.NfvService != nil {
+							NfvServiceMap := make(map[string]interface{})
+							if !RulesItem.InsertService.NfvService.Name.IsNull() && !RulesItem.InsertService.NfvService.Name.IsUnknown() {
+								NfvServiceMap["name"] = RulesItem.InsertService.NfvService.Name.ValueString()
+							}
+							if !RulesItem.InsertService.NfvService.Namespace.IsNull() && !RulesItem.InsertService.NfvService.Namespace.IsUnknown() {
+								NfvServiceMap["namespace"] = RulesItem.InsertService.NfvService.Namespace.ValueString()
+							}
+							if !RulesItem.InsertService.NfvService.Tenant.IsNull() && !RulesItem.InsertService.NfvService.Tenant.IsUnknown() {
+								NfvServiceMap["tenant"] = RulesItem.InsertService.NfvService.Tenant.ValueString()
+							}
+							InsertServiceMap["nfv_service"] = NfvServiceMap
+						}
+						RulesItemMap["insert_service"] = InsertServiceMap
+					}
+					if RulesItem.InsideDestinations != nil {
+						RulesItemMap["inside_destinations"] = map[string]interface{}{}
+					}
+					if RulesItem.InsideSources != nil {
+						RulesItemMap["inside_sources"] = map[string]interface{}{}
+					}
+					if RulesItem.LabelMatcher != nil {
+						LabelMatcherMap := make(map[string]interface{})
+						if !RulesItem.LabelMatcher.Keys.IsNull() && !RulesItem.LabelMatcher.Keys.IsUnknown() {
+							var KeysItems []string
+							diags := RulesItem.LabelMatcher.Keys.ElementsAs(ctx, &KeysItems, false)
+							if !diags.HasError() {
+								LabelMatcherMap["keys"] = KeysItems
+							}
+						}
+						RulesItemMap["label_matcher"] = LabelMatcherMap
+					}
+					if RulesItem.Metadata != nil {
+						MetadataMap := make(map[string]interface{})
+						if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
+							MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
+							MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+						}
+						RulesItemMap["metadata"] = MetadataMap
+					}
+					if RulesItem.OutsideDestinations != nil {
+						RulesItemMap["outside_destinations"] = map[string]interface{}{}
+					}
+					if RulesItem.OutsideSources != nil {
+						RulesItemMap["outside_sources"] = map[string]interface{}{}
+					}
+					if RulesItem.ProtocolPortRange != nil {
+						ProtocolPortRangeMap := make(map[string]interface{})
+						if !RulesItem.ProtocolPortRange.PortRanges.IsNull() && !RulesItem.ProtocolPortRange.PortRanges.IsUnknown() {
+							var PortRangesItems []string
+							diags := RulesItem.ProtocolPortRange.PortRanges.ElementsAs(ctx, &PortRangesItems, false)
+							if !diags.HasError() {
+								ProtocolPortRangeMap["port_ranges"] = PortRangesItems
+							}
+						}
+						if !RulesItem.ProtocolPortRange.Protocol.IsNull() && !RulesItem.ProtocolPortRange.Protocol.IsUnknown() {
+							ProtocolPortRangeMap["protocol"] = RulesItem.ProtocolPortRange.Protocol.ValueString()
+						}
+						RulesItemMap["protocol_port_range"] = ProtocolPortRangeMap
+					}
+					if RulesItem.SourceAWSVPCIds != nil {
+						SourceAWSVPCIdsMap := make(map[string]interface{})
+						if !RulesItem.SourceAWSVPCIds.VPCID.IsNull() && !RulesItem.SourceAWSVPCIds.VPCID.IsUnknown() {
+							var VPCIDItems []string
+							diags := RulesItem.SourceAWSVPCIds.VPCID.ElementsAs(ctx, &VPCIDItems, false)
+							if !diags.HasError() {
+								SourceAWSVPCIdsMap["vpc_id"] = VPCIDItems
+							}
+						}
+						RulesItemMap["source_aws_vpc_ids"] = SourceAWSVPCIdsMap
+					}
+					if RulesItem.SourceIPPrefixSet != nil {
+						SourceIPPrefixSetMap := make(map[string]interface{})
+						if !RulesItem.SourceIPPrefixSet.Ref.IsNull() && !RulesItem.SourceIPPrefixSet.Ref.IsUnknown() {
+							var RefElems []EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModel
+							diags := RulesItem.SourceIPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+								var RefList []map[string]interface{}
+								for _, RefItem := range RefElems {
+									RefItemMap := make(map[string]interface{})
+									if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+										RefItemMap["kind"] = RefItem.Kind.ValueString()
+									}
+									if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+										RefItemMap["name"] = RefItem.Name.ValueString()
+									}
+									if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+										RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+									}
+									if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+										RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+									}
+									if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+										RefItemMap["uid"] = RefItem.Uid.ValueString()
+									}
+									RefList = append(RefList, RefItemMap)
+								}
+								SourceIPPrefixSetMap["ref"] = RefList
+							}
+						}
+						RulesItemMap["source_ip_prefix_set"] = SourceIPPrefixSetMap
+					}
+					if RulesItem.SourceLabelSelector != nil {
+						SourceLabelSelectorMap := make(map[string]interface{})
+						if !RulesItem.SourceLabelSelector.Expressions.IsNull() && !RulesItem.SourceLabelSelector.Expressions.IsUnknown() {
+							var ExpressionsItems []string
+							diags := RulesItem.SourceLabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+							if !diags.HasError() {
+								SourceLabelSelectorMap["expressions"] = ExpressionsItems
+							}
+						}
+						RulesItemMap["source_label_selector"] = SourceLabelSelectorMap
+					}
+					if RulesItem.SourcePrefixList != nil {
+						SourcePrefixListMap := make(map[string]interface{})
+						if !RulesItem.SourcePrefixList.Prefixes.IsNull() && !RulesItem.SourcePrefixList.Prefixes.IsUnknown() {
+							var PrefixesItems []string
+							diags := RulesItem.SourcePrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+							if !diags.HasError() {
+								SourcePrefixListMap["prefixes"] = PrefixesItems
+							}
+						}
+						RulesItemMap["source_prefix_list"] = SourcePrefixListMap
+					}
+					RulesList = append(RulesList, RulesItemMap)
 				}
-				if listItem.SourceAWSVPCIds != nil {
-					source_aws_vpc_idsDeepMap := make(map[string]interface{})
-					listItemMap["source_aws_vpc_ids"] = source_aws_vpc_idsDeepMap
-				}
-				if listItem.SourceIPPrefixSet != nil {
-					source_ip_prefix_setDeepMap := make(map[string]interface{})
-					listItemMap["source_ip_prefix_set"] = source_ip_prefix_setDeepMap
-				}
-				if listItem.SourceLabelSelector != nil {
-					source_label_selectorDeepMap := make(map[string]interface{})
-					listItemMap["source_label_selector"] = source_label_selectorDeepMap
-				}
-				if listItem.SourcePrefixList != nil {
-					source_prefix_listDeepMap := make(map[string]interface{})
-					listItemMap["source_prefix_list"] = source_prefix_listDeepMap
-				}
-				rulesList = append(rulesList, listItemMap)
+				RuleListMap["rules"] = RulesList
 			}
-			rule_listMap["rules"] = rulesList
 		}
-		apiResource.Spec["rule_list"] = rule_listMap
+		apiResource.Spec["rule_list"] = RuleListMap
 	}
 	if data.AllowAll != nil {
-		allow_allMap := make(map[string]interface{})
-		apiResource.Spec["allow_all"] = allow_allMap
+		apiResource.Spec["allow_all"] = map[string]interface{}{}
 	}
 
 	_, err := r.client.UpdateEnhancedFirewallPolicy(ctx, apiResource)
@@ -2101,23 +2861,24 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 		}
 	}
 	if _, ok := apiResource.Spec["deny_all"].(map[string]interface{}); ok && isImport && data.DenyAll == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DenyAll = &EnhancedFirewallPolicyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["rule_list"].(map[string]interface{}); ok && (isImport || data.RuleList != nil) {
 		data.RuleList = &EnhancedFirewallPolicyRuleListModel{
-			Rules: func() []EnhancedFirewallPolicyRuleListRulesModel {
-				if listData, ok := blockData["rules"].([]interface{}); ok && len(listData) > 0 {
-					var result []EnhancedFirewallPolicyRuleListRulesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, EnhancedFirewallPolicyRuleListRulesModel{
+			Rules: func() types.List {
+				if !isImport && data.RuleList != nil && (data.RuleList.Rules.IsNull() || len(data.RuleList.Rules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesModelAttrTypes})
+				}
+				if rawList, ok := blockData["rules"].([]interface{}); ok && len(rawList) > 0 {
+					var RulesResult []EnhancedFirewallPolicyRuleListRulesModel
+					for _, RulesItem := range rawList {
+						if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
+							RulesResult = append(RulesResult, EnhancedFirewallPolicyRuleListRulesModel{
 								AdvancedAction: func() *EnhancedFirewallPolicyRuleListRulesAdvancedActionModel {
-									if deepMap, ok := itemMap["advanced_action"].(map[string]interface{}); ok {
+									if AdvancedActionData, ok := RulesItemMap["advanced_action"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyRuleListRulesAdvancedActionModel{
 											Action: func() types.String {
-												if v, ok := deepMap["action"].(string); ok && v != "" {
+												if v, ok := AdvancedActionData["action"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -2127,124 +2888,265 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									return nil
 								}(),
 								AllDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["all_destinations"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["all_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllSLIVips: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["all_sli_vips"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["all_sli_vips"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllSloVips: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["all_slo_vips"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["all_slo_vips"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["all_sources"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["all_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTCPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["all_tcp_traffic"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["all_traffic"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllUDPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["all_udp_traffic"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Allow: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["allow"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["allow"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Applications: func() *EnhancedFirewallPolicyRuleListRulesApplicationsModel {
-									if _, ok := itemMap["applications"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesApplicationsModel{}
+									if ApplicationsData, ok := RulesItemMap["applications"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesApplicationsModel{
+											Applications: func() types.List {
+												if v, ok := ApplicationsData["applications"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								Deny: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["deny"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["deny"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								DestinationAWSVPCIds: func() *EnhancedFirewallPolicyRuleListRulesDestinationAWSVPCIdsModel {
-									if _, ok := itemMap["destination_aws_vpc_ids"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesDestinationAWSVPCIdsModel{}
+									if DestinationAWSVPCIdsData, ok := RulesItemMap["destination_aws_vpc_ids"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesDestinationAWSVPCIdsModel{
+											VPCID: func() types.List {
+												if v, ok := DestinationAWSVPCIdsData["vpc_id"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								DestinationIPPrefixSet: func() *EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetModel {
-									if _, ok := itemMap["destination_ip_prefix_set"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetModel{}
+									if DestinationIPPrefixSetData, ok := RulesItemMap["destination_ip_prefix_set"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetModel{
+											Ref: func() types.List {
+												if rawList, ok := DestinationIPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
+													var RefResult []EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModel
+													for _, RefItem := range rawList {
+														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+															RefResult = append(RefResult, EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModel{
+																Kind: func() types.String {
+																	if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModelAttrTypes}, RefResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModelAttrTypes})
+											}(),
+										}
 									}
 									return nil
 								}(),
 								DestinationLabelSelector: func() *EnhancedFirewallPolicyRuleListRulesDestinationLabelSelectorModel {
-									if _, ok := itemMap["destination_label_selector"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesDestinationLabelSelectorModel{}
+									if DestinationLabelSelectorData, ok := RulesItemMap["destination_label_selector"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesDestinationLabelSelectorModel{
+											Expressions: func() types.List {
+												if v, ok := DestinationLabelSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								DestinationPrefixList: func() *EnhancedFirewallPolicyRuleListRulesDestinationPrefixListModel {
-									if _, ok := itemMap["destination_prefix_list"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesDestinationPrefixListModel{}
+									if DestinationPrefixListData, ok := RulesItemMap["destination_prefix_list"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesDestinationPrefixListModel{
+											Prefixes: func() types.List {
+												if v, ok := DestinationPrefixListData["prefixes"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								InsertService: func() *EnhancedFirewallPolicyRuleListRulesInsertServiceModel {
-									if _, ok := itemMap["insert_service"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesInsertServiceModel{}
+									if InsertServiceData, ok := RulesItemMap["insert_service"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesInsertServiceModel{
+											NfvService: func() *EnhancedFirewallPolicyRuleListRulesInsertServiceNfvServiceModel {
+												if NfvServiceData, ok := InsertServiceData["nfv_service"].(map[string]interface{}); ok {
+													return &EnhancedFirewallPolicyRuleListRulesInsertServiceNfvServiceModel{
+														Name: func() types.String {
+															if v, ok := NfvServiceData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := NfvServiceData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := NfvServiceData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
 									}
 									return nil
 								}(),
 								InsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["inside_destinations"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["inside_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								InsideSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["inside_sources"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["inside_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								LabelMatcher: func() *EnhancedFirewallPolicyRuleListRulesLabelMatcherModel {
-									if _, ok := itemMap["label_matcher"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesLabelMatcherModel{}
+									if LabelMatcherData, ok := RulesItemMap["label_matcher"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesLabelMatcherModel{
+											Keys: func() types.List {
+												if v, ok := LabelMatcherData["keys"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								Metadata: func() *EnhancedFirewallPolicyRuleListRulesMetadataModel {
-									if deepMap, ok := itemMap["metadata"].(map[string]interface{}); ok {
+									if MetadataData, ok := RulesItemMap["metadata"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyRuleListRulesMetadataModel{
 											DescriptionSpec: func() types.String {
-												if v, ok := deepMap["description"].(string); ok && v != "" {
+												if v, ok := MetadataData["description"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Name: func() types.String {
-												if v, ok := deepMap["name"].(string); ok && v != "" {
+												if v, ok := MetadataData["name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -2254,22 +3156,35 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									return nil
 								}(),
 								OutsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["outside_destinations"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["outside_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								OutsideSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if _, ok := itemMap["outside_sources"].(map[string]interface{}); ok {
+									if _, ok := RulesItemMap["outside_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								ProtocolPortRange: func() *EnhancedFirewallPolicyRuleListRulesProtocolPortRangeModel {
-									if deepMap, ok := itemMap["protocol_port_range"].(map[string]interface{}); ok {
+									if ProtocolPortRangeData, ok := RulesItemMap["protocol_port_range"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyRuleListRulesProtocolPortRangeModel{
+											PortRanges: func() types.List {
+												if v, ok := ProtocolPortRangeData["port_ranges"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
 											Protocol: func() types.String {
-												if v, ok := deepMap["protocol"].(string); ok && v != "" {
+												if v, ok := ProtocolPortRangeData["protocol"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -2279,43 +3194,129 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									return nil
 								}(),
 								SourceAWSVPCIds: func() *EnhancedFirewallPolicyRuleListRulesSourceAWSVPCIdsModel {
-									if _, ok := itemMap["source_aws_vpc_ids"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesSourceAWSVPCIdsModel{}
+									if SourceAWSVPCIdsData, ok := RulesItemMap["source_aws_vpc_ids"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesSourceAWSVPCIdsModel{
+											VPCID: func() types.List {
+												if v, ok := SourceAWSVPCIdsData["vpc_id"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								SourceIPPrefixSet: func() *EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetModel {
-									if _, ok := itemMap["source_ip_prefix_set"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetModel{}
+									if SourceIPPrefixSetData, ok := RulesItemMap["source_ip_prefix_set"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetModel{
+											Ref: func() types.List {
+												if rawList, ok := SourceIPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
+													var RefResult []EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModel
+													for _, RefItem := range rawList {
+														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+															RefResult = append(RefResult, EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModel{
+																Kind: func() types.String {
+																	if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModelAttrTypes}, RefResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModelAttrTypes})
+											}(),
+										}
 									}
 									return nil
 								}(),
 								SourceLabelSelector: func() *EnhancedFirewallPolicyRuleListRulesSourceLabelSelectorModel {
-									if _, ok := itemMap["source_label_selector"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesSourceLabelSelectorModel{}
+									if SourceLabelSelectorData, ok := RulesItemMap["source_label_selector"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesSourceLabelSelectorModel{
+											Expressions: func() types.List {
+												if v, ok := SourceLabelSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								SourcePrefixList: func() *EnhancedFirewallPolicyRuleListRulesSourcePrefixListModel {
-									if _, ok := itemMap["source_prefix_list"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyRuleListRulesSourcePrefixListModel{}
+									if SourcePrefixListData, ok := RulesItemMap["source_prefix_list"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesSourcePrefixListModel{
+											Prefixes: func() types.List {
+												if v, ok := SourcePrefixListData["prefixes"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesModelAttrTypes}, RulesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesModelAttrTypes})
 			}(),
 		}
 	}
 	if _, ok := apiResource.Spec["allow_all"].(map[string]interface{}); ok && isImport && data.AllowAll == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.AllowAll = &EnhancedFirewallPolicyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }

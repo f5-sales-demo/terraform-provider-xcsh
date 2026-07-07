@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// FastACL represents a XCSH FastACL
+// FastACL represents a F5XC FastACL
 type FastACL struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

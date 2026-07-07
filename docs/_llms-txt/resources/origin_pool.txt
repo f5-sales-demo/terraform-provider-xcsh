@@ -7,6 +7,13 @@ Defining backend server pools for load balancer targets
 
 - name
 - namespace
+- origin_servers
+- port
+
+## Server Defaults (safe to omit)
+
+- connection_timeout
+- http_idle_timeout
 
 ## Minimal Valid Config
 

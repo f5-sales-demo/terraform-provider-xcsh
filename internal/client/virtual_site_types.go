@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// VirtualSite represents a XCSH VirtualSite
+// VirtualSite represents a F5XC VirtualSite
 type VirtualSite struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

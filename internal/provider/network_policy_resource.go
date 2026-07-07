@@ -89,8 +89,8 @@ var NetworkPolicyEndpointPrefixListModelAttrTypes = map[string]attr.Type{
 
 // NetworkPolicyRulesModel represents rules block
 type NetworkPolicyRulesModel struct {
-	EgressRules  []NetworkPolicyRulesEgressRulesModel  `tfsdk:"egress_rules"`
-	IngressRules []NetworkPolicyRulesIngressRulesModel `tfsdk:"ingress_rules"`
+	EgressRules  types.List `tfsdk:"egress_rules"`
+	IngressRules types.List `tfsdk:"ingress_rules"`
 }
 
 // NetworkPolicyRulesModelAttrTypes defines the attribute types for NetworkPolicyRulesModel
@@ -159,7 +159,7 @@ var NetworkPolicyRulesEgressRulesApplicationsModelAttrTypes = map[string]attr.Ty
 
 // NetworkPolicyRulesEgressRulesIPPrefixSetModel represents ip_prefix_set block
 type NetworkPolicyRulesEgressRulesIPPrefixSetModel struct {
-	Ref []NetworkPolicyRulesEgressRulesIPPrefixSetRefModel `tfsdk:"ref"`
+	Ref types.List `tfsdk:"ref"`
 }
 
 // NetworkPolicyRulesEgressRulesIPPrefixSetModelAttrTypes defines the attribute types for NetworkPolicyRulesEgressRulesIPPrefixSetModel
@@ -299,7 +299,7 @@ var NetworkPolicyRulesIngressRulesApplicationsModelAttrTypes = map[string]attr.T
 
 // NetworkPolicyRulesIngressRulesIPPrefixSetModel represents ip_prefix_set block
 type NetworkPolicyRulesIngressRulesIPPrefixSetModel struct {
-	Ref []NetworkPolicyRulesIngressRulesIPPrefixSetRefModel `tfsdk:"ref"`
+	Ref types.List `tfsdk:"ref"`
 }
 
 // NetworkPolicyRulesIngressRulesIPPrefixSetModelAttrTypes defines the attribute types for NetworkPolicyRulesIngressRulesIPPrefixSetModel
@@ -983,175 +983,325 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.Endpoint != nil {
-		endpointMap := make(map[string]interface{})
+		EndpointMap := make(map[string]interface{})
 		if data.Endpoint.Any != nil {
-			endpointMap["any"] = map[string]interface{}{}
+			EndpointMap["any"] = map[string]interface{}{}
 		}
 		if data.Endpoint.InsideEndpoints != nil {
-			endpointMap["inside_endpoints"] = map[string]interface{}{}
+			EndpointMap["inside_endpoints"] = map[string]interface{}{}
 		}
 		if data.Endpoint.LabelSelector != nil {
-			label_selectorNestedMap := make(map[string]interface{})
-			endpointMap["label_selector"] = label_selectorNestedMap
+			LabelSelectorMap := make(map[string]interface{})
+			if !data.Endpoint.LabelSelector.Expressions.IsNull() && !data.Endpoint.LabelSelector.Expressions.IsUnknown() {
+				var ExpressionsItems []string
+				diags := data.Endpoint.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+				if !diags.HasError() {
+					LabelSelectorMap["expressions"] = ExpressionsItems
+				}
+			}
+			EndpointMap["label_selector"] = LabelSelectorMap
 		}
 		if data.Endpoint.OutsideEndpoints != nil {
-			endpointMap["outside_endpoints"] = map[string]interface{}{}
+			EndpointMap["outside_endpoints"] = map[string]interface{}{}
 		}
 		if data.Endpoint.PrefixList != nil {
-			prefix_listNestedMap := make(map[string]interface{})
-			endpointMap["prefix_list"] = prefix_listNestedMap
+			PrefixListMap := make(map[string]interface{})
+			if !data.Endpoint.PrefixList.Prefixes.IsNull() && !data.Endpoint.PrefixList.Prefixes.IsUnknown() {
+				var PrefixesItems []string
+				diags := data.Endpoint.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+				if !diags.HasError() {
+					PrefixListMap["prefixes"] = PrefixesItems
+				}
+			}
+			EndpointMap["prefix_list"] = PrefixListMap
 		}
-		createReq.Spec["endpoint"] = endpointMap
+		createReq.Spec["endpoint"] = EndpointMap
 	}
 	if data.Rules != nil {
-		rulesMap := make(map[string]interface{})
-		if len(data.Rules.EgressRules) > 0 {
-			var egress_rulesList []map[string]interface{}
-			for _, listItem := range data.Rules.EgressRules {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Action.IsNull() && !listItem.Action.IsUnknown() {
-					listItemMap["action"] = listItem.Action.ValueString()
-				}
-				if listItem.AdvAction != nil {
-					adv_actionDeepMap := make(map[string]interface{})
-					if !listItem.AdvAction.Action.IsNull() && !listItem.AdvAction.Action.IsUnknown() {
-						adv_actionDeepMap["action"] = listItem.AdvAction.Action.ValueString()
+		RulesMap := make(map[string]interface{})
+		if !data.Rules.EgressRules.IsNull() && !data.Rules.EgressRules.IsUnknown() {
+			var EgressRulesElems []NetworkPolicyRulesEgressRulesModel
+			diags := data.Rules.EgressRules.ElementsAs(ctx, &EgressRulesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(EgressRulesElems) > 0 {
+				var EgressRulesList []map[string]interface{}
+				for _, EgressRulesItem := range EgressRulesElems {
+					EgressRulesItemMap := make(map[string]interface{})
+					if !EgressRulesItem.Action.IsNull() && !EgressRulesItem.Action.IsUnknown() {
+						EgressRulesItemMap["action"] = EgressRulesItem.Action.ValueString()
 					}
-					listItemMap["adv_action"] = adv_actionDeepMap
-				}
-				if listItem.AllTCPTraffic != nil {
-					listItemMap["all_tcp_traffic"] = map[string]interface{}{}
-				}
-				if listItem.AllTraffic != nil {
-					listItemMap["all_traffic"] = map[string]interface{}{}
-				}
-				if listItem.AllUDPTraffic != nil {
-					listItemMap["all_udp_traffic"] = map[string]interface{}{}
-				}
-				if listItem.Any != nil {
-					listItemMap["any"] = map[string]interface{}{}
-				}
-				if listItem.Applications != nil {
-					applicationsDeepMap := make(map[string]interface{})
-					listItemMap["applications"] = applicationsDeepMap
-				}
-				if listItem.InsideEndpoints != nil {
-					listItemMap["inside_endpoints"] = map[string]interface{}{}
-				}
-				if listItem.IPPrefixSet != nil {
-					ip_prefix_setDeepMap := make(map[string]interface{})
-					listItemMap["ip_prefix_set"] = ip_prefix_setDeepMap
-				}
-				if listItem.LabelMatcher != nil {
-					label_matcherDeepMap := make(map[string]interface{})
-					listItemMap["label_matcher"] = label_matcherDeepMap
-				}
-				if listItem.LabelSelector != nil {
-					label_selectorDeepMap := make(map[string]interface{})
-					listItemMap["label_selector"] = label_selectorDeepMap
-				}
-				if listItem.Metadata != nil {
-					metadataDeepMap := make(map[string]interface{})
-					if !listItem.Metadata.DescriptionSpec.IsNull() && !listItem.Metadata.DescriptionSpec.IsUnknown() {
-						metadataDeepMap["description"] = listItem.Metadata.DescriptionSpec.ValueString()
+					if EgressRulesItem.AdvAction != nil {
+						AdvActionMap := make(map[string]interface{})
+						if !EgressRulesItem.AdvAction.Action.IsNull() && !EgressRulesItem.AdvAction.Action.IsUnknown() {
+							AdvActionMap["action"] = EgressRulesItem.AdvAction.Action.ValueString()
+						}
+						EgressRulesItemMap["adv_action"] = AdvActionMap
 					}
-					if !listItem.Metadata.Name.IsNull() && !listItem.Metadata.Name.IsUnknown() {
-						metadataDeepMap["name"] = listItem.Metadata.Name.ValueString()
+					if EgressRulesItem.AllTCPTraffic != nil {
+						EgressRulesItemMap["all_tcp_traffic"] = map[string]interface{}{}
 					}
-					listItemMap["metadata"] = metadataDeepMap
-				}
-				if listItem.OutsideEndpoints != nil {
-					listItemMap["outside_endpoints"] = map[string]interface{}{}
-				}
-				if listItem.PrefixList != nil {
-					prefix_listDeepMap := make(map[string]interface{})
-					listItemMap["prefix_list"] = prefix_listDeepMap
-				}
-				if listItem.ProtocolPortRange != nil {
-					protocol_port_rangeDeepMap := make(map[string]interface{})
-					if !listItem.ProtocolPortRange.Protocol.IsNull() && !listItem.ProtocolPortRange.Protocol.IsUnknown() {
-						protocol_port_rangeDeepMap["protocol"] = listItem.ProtocolPortRange.Protocol.ValueString()
+					if EgressRulesItem.AllTraffic != nil {
+						EgressRulesItemMap["all_traffic"] = map[string]interface{}{}
 					}
-					listItemMap["protocol_port_range"] = protocol_port_rangeDeepMap
+					if EgressRulesItem.AllUDPTraffic != nil {
+						EgressRulesItemMap["all_udp_traffic"] = map[string]interface{}{}
+					}
+					if EgressRulesItem.Any != nil {
+						EgressRulesItemMap["any"] = map[string]interface{}{}
+					}
+					if EgressRulesItem.Applications != nil {
+						ApplicationsMap := make(map[string]interface{})
+						if !EgressRulesItem.Applications.Applications.IsNull() && !EgressRulesItem.Applications.Applications.IsUnknown() {
+							var ApplicationsItems []string
+							diags := EgressRulesItem.Applications.Applications.ElementsAs(ctx, &ApplicationsItems, false)
+							if !diags.HasError() {
+								ApplicationsMap["applications"] = ApplicationsItems
+							}
+						}
+						EgressRulesItemMap["applications"] = ApplicationsMap
+					}
+					if EgressRulesItem.InsideEndpoints != nil {
+						EgressRulesItemMap["inside_endpoints"] = map[string]interface{}{}
+					}
+					if EgressRulesItem.IPPrefixSet != nil {
+						IPPrefixSetMap := make(map[string]interface{})
+						if !EgressRulesItem.IPPrefixSet.Ref.IsNull() && !EgressRulesItem.IPPrefixSet.Ref.IsUnknown() {
+							var RefElems []NetworkPolicyRulesEgressRulesIPPrefixSetRefModel
+							diags := EgressRulesItem.IPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+								var RefList []map[string]interface{}
+								for _, RefItem := range RefElems {
+									RefItemMap := make(map[string]interface{})
+									if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+										RefItemMap["kind"] = RefItem.Kind.ValueString()
+									}
+									if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+										RefItemMap["name"] = RefItem.Name.ValueString()
+									}
+									if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+										RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+									}
+									if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+										RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+									}
+									if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+										RefItemMap["uid"] = RefItem.Uid.ValueString()
+									}
+									RefList = append(RefList, RefItemMap)
+								}
+								IPPrefixSetMap["ref"] = RefList
+							}
+						}
+						EgressRulesItemMap["ip_prefix_set"] = IPPrefixSetMap
+					}
+					if EgressRulesItem.LabelMatcher != nil {
+						LabelMatcherMap := make(map[string]interface{})
+						if !EgressRulesItem.LabelMatcher.Keys.IsNull() && !EgressRulesItem.LabelMatcher.Keys.IsUnknown() {
+							var KeysItems []string
+							diags := EgressRulesItem.LabelMatcher.Keys.ElementsAs(ctx, &KeysItems, false)
+							if !diags.HasError() {
+								LabelMatcherMap["keys"] = KeysItems
+							}
+						}
+						EgressRulesItemMap["label_matcher"] = LabelMatcherMap
+					}
+					if EgressRulesItem.LabelSelector != nil {
+						LabelSelectorMap := make(map[string]interface{})
+						if !EgressRulesItem.LabelSelector.Expressions.IsNull() && !EgressRulesItem.LabelSelector.Expressions.IsUnknown() {
+							var ExpressionsItems []string
+							diags := EgressRulesItem.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+							if !diags.HasError() {
+								LabelSelectorMap["expressions"] = ExpressionsItems
+							}
+						}
+						EgressRulesItemMap["label_selector"] = LabelSelectorMap
+					}
+					if EgressRulesItem.Metadata != nil {
+						MetadataMap := make(map[string]interface{})
+						if !EgressRulesItem.Metadata.DescriptionSpec.IsNull() && !EgressRulesItem.Metadata.DescriptionSpec.IsUnknown() {
+							MetadataMap["description"] = EgressRulesItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !EgressRulesItem.Metadata.Name.IsNull() && !EgressRulesItem.Metadata.Name.IsUnknown() {
+							MetadataMap["name"] = EgressRulesItem.Metadata.Name.ValueString()
+						}
+						EgressRulesItemMap["metadata"] = MetadataMap
+					}
+					if EgressRulesItem.OutsideEndpoints != nil {
+						EgressRulesItemMap["outside_endpoints"] = map[string]interface{}{}
+					}
+					if EgressRulesItem.PrefixList != nil {
+						PrefixListMap := make(map[string]interface{})
+						if !EgressRulesItem.PrefixList.Prefixes.IsNull() && !EgressRulesItem.PrefixList.Prefixes.IsUnknown() {
+							var PrefixesItems []string
+							diags := EgressRulesItem.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+							if !diags.HasError() {
+								PrefixListMap["prefixes"] = PrefixesItems
+							}
+						}
+						EgressRulesItemMap["prefix_list"] = PrefixListMap
+					}
+					if EgressRulesItem.ProtocolPortRange != nil {
+						ProtocolPortRangeMap := make(map[string]interface{})
+						if !EgressRulesItem.ProtocolPortRange.PortRanges.IsNull() && !EgressRulesItem.ProtocolPortRange.PortRanges.IsUnknown() {
+							var PortRangesItems []string
+							diags := EgressRulesItem.ProtocolPortRange.PortRanges.ElementsAs(ctx, &PortRangesItems, false)
+							if !diags.HasError() {
+								ProtocolPortRangeMap["port_ranges"] = PortRangesItems
+							}
+						}
+						if !EgressRulesItem.ProtocolPortRange.Protocol.IsNull() && !EgressRulesItem.ProtocolPortRange.Protocol.IsUnknown() {
+							ProtocolPortRangeMap["protocol"] = EgressRulesItem.ProtocolPortRange.Protocol.ValueString()
+						}
+						EgressRulesItemMap["protocol_port_range"] = ProtocolPortRangeMap
+					}
+					EgressRulesList = append(EgressRulesList, EgressRulesItemMap)
 				}
-				egress_rulesList = append(egress_rulesList, listItemMap)
+				RulesMap["egress_rules"] = EgressRulesList
 			}
-			rulesMap["egress_rules"] = egress_rulesList
 		}
-		if len(data.Rules.IngressRules) > 0 {
-			var ingress_rulesList []map[string]interface{}
-			for _, listItem := range data.Rules.IngressRules {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Action.IsNull() && !listItem.Action.IsUnknown() {
-					listItemMap["action"] = listItem.Action.ValueString()
-				}
-				if listItem.AdvAction != nil {
-					adv_actionDeepMap := make(map[string]interface{})
-					if !listItem.AdvAction.Action.IsNull() && !listItem.AdvAction.Action.IsUnknown() {
-						adv_actionDeepMap["action"] = listItem.AdvAction.Action.ValueString()
+		if !data.Rules.IngressRules.IsNull() && !data.Rules.IngressRules.IsUnknown() {
+			var IngressRulesElems []NetworkPolicyRulesIngressRulesModel
+			diags := data.Rules.IngressRules.ElementsAs(ctx, &IngressRulesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(IngressRulesElems) > 0 {
+				var IngressRulesList []map[string]interface{}
+				for _, IngressRulesItem := range IngressRulesElems {
+					IngressRulesItemMap := make(map[string]interface{})
+					if !IngressRulesItem.Action.IsNull() && !IngressRulesItem.Action.IsUnknown() {
+						IngressRulesItemMap["action"] = IngressRulesItem.Action.ValueString()
 					}
-					listItemMap["adv_action"] = adv_actionDeepMap
-				}
-				if listItem.AllTCPTraffic != nil {
-					listItemMap["all_tcp_traffic"] = map[string]interface{}{}
-				}
-				if listItem.AllTraffic != nil {
-					listItemMap["all_traffic"] = map[string]interface{}{}
-				}
-				if listItem.AllUDPTraffic != nil {
-					listItemMap["all_udp_traffic"] = map[string]interface{}{}
-				}
-				if listItem.Any != nil {
-					listItemMap["any"] = map[string]interface{}{}
-				}
-				if listItem.Applications != nil {
-					applicationsDeepMap := make(map[string]interface{})
-					listItemMap["applications"] = applicationsDeepMap
-				}
-				if listItem.InsideEndpoints != nil {
-					listItemMap["inside_endpoints"] = map[string]interface{}{}
-				}
-				if listItem.IPPrefixSet != nil {
-					ip_prefix_setDeepMap := make(map[string]interface{})
-					listItemMap["ip_prefix_set"] = ip_prefix_setDeepMap
-				}
-				if listItem.LabelMatcher != nil {
-					label_matcherDeepMap := make(map[string]interface{})
-					listItemMap["label_matcher"] = label_matcherDeepMap
-				}
-				if listItem.LabelSelector != nil {
-					label_selectorDeepMap := make(map[string]interface{})
-					listItemMap["label_selector"] = label_selectorDeepMap
-				}
-				if listItem.Metadata != nil {
-					metadataDeepMap := make(map[string]interface{})
-					if !listItem.Metadata.DescriptionSpec.IsNull() && !listItem.Metadata.DescriptionSpec.IsUnknown() {
-						metadataDeepMap["description"] = listItem.Metadata.DescriptionSpec.ValueString()
+					if IngressRulesItem.AdvAction != nil {
+						AdvActionMap := make(map[string]interface{})
+						if !IngressRulesItem.AdvAction.Action.IsNull() && !IngressRulesItem.AdvAction.Action.IsUnknown() {
+							AdvActionMap["action"] = IngressRulesItem.AdvAction.Action.ValueString()
+						}
+						IngressRulesItemMap["adv_action"] = AdvActionMap
 					}
-					if !listItem.Metadata.Name.IsNull() && !listItem.Metadata.Name.IsUnknown() {
-						metadataDeepMap["name"] = listItem.Metadata.Name.ValueString()
+					if IngressRulesItem.AllTCPTraffic != nil {
+						IngressRulesItemMap["all_tcp_traffic"] = map[string]interface{}{}
 					}
-					listItemMap["metadata"] = metadataDeepMap
-				}
-				if listItem.OutsideEndpoints != nil {
-					listItemMap["outside_endpoints"] = map[string]interface{}{}
-				}
-				if listItem.PrefixList != nil {
-					prefix_listDeepMap := make(map[string]interface{})
-					listItemMap["prefix_list"] = prefix_listDeepMap
-				}
-				if listItem.ProtocolPortRange != nil {
-					protocol_port_rangeDeepMap := make(map[string]interface{})
-					if !listItem.ProtocolPortRange.Protocol.IsNull() && !listItem.ProtocolPortRange.Protocol.IsUnknown() {
-						protocol_port_rangeDeepMap["protocol"] = listItem.ProtocolPortRange.Protocol.ValueString()
+					if IngressRulesItem.AllTraffic != nil {
+						IngressRulesItemMap["all_traffic"] = map[string]interface{}{}
 					}
-					listItemMap["protocol_port_range"] = protocol_port_rangeDeepMap
+					if IngressRulesItem.AllUDPTraffic != nil {
+						IngressRulesItemMap["all_udp_traffic"] = map[string]interface{}{}
+					}
+					if IngressRulesItem.Any != nil {
+						IngressRulesItemMap["any"] = map[string]interface{}{}
+					}
+					if IngressRulesItem.Applications != nil {
+						ApplicationsMap := make(map[string]interface{})
+						if !IngressRulesItem.Applications.Applications.IsNull() && !IngressRulesItem.Applications.Applications.IsUnknown() {
+							var ApplicationsItems []string
+							diags := IngressRulesItem.Applications.Applications.ElementsAs(ctx, &ApplicationsItems, false)
+							if !diags.HasError() {
+								ApplicationsMap["applications"] = ApplicationsItems
+							}
+						}
+						IngressRulesItemMap["applications"] = ApplicationsMap
+					}
+					if IngressRulesItem.InsideEndpoints != nil {
+						IngressRulesItemMap["inside_endpoints"] = map[string]interface{}{}
+					}
+					if IngressRulesItem.IPPrefixSet != nil {
+						IPPrefixSetMap := make(map[string]interface{})
+						if !IngressRulesItem.IPPrefixSet.Ref.IsNull() && !IngressRulesItem.IPPrefixSet.Ref.IsUnknown() {
+							var RefElems []NetworkPolicyRulesIngressRulesIPPrefixSetRefModel
+							diags := IngressRulesItem.IPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+								var RefList []map[string]interface{}
+								for _, RefItem := range RefElems {
+									RefItemMap := make(map[string]interface{})
+									if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+										RefItemMap["kind"] = RefItem.Kind.ValueString()
+									}
+									if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+										RefItemMap["name"] = RefItem.Name.ValueString()
+									}
+									if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+										RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+									}
+									if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+										RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+									}
+									if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+										RefItemMap["uid"] = RefItem.Uid.ValueString()
+									}
+									RefList = append(RefList, RefItemMap)
+								}
+								IPPrefixSetMap["ref"] = RefList
+							}
+						}
+						IngressRulesItemMap["ip_prefix_set"] = IPPrefixSetMap
+					}
+					if IngressRulesItem.LabelMatcher != nil {
+						LabelMatcherMap := make(map[string]interface{})
+						if !IngressRulesItem.LabelMatcher.Keys.IsNull() && !IngressRulesItem.LabelMatcher.Keys.IsUnknown() {
+							var KeysItems []string
+							diags := IngressRulesItem.LabelMatcher.Keys.ElementsAs(ctx, &KeysItems, false)
+							if !diags.HasError() {
+								LabelMatcherMap["keys"] = KeysItems
+							}
+						}
+						IngressRulesItemMap["label_matcher"] = LabelMatcherMap
+					}
+					if IngressRulesItem.LabelSelector != nil {
+						LabelSelectorMap := make(map[string]interface{})
+						if !IngressRulesItem.LabelSelector.Expressions.IsNull() && !IngressRulesItem.LabelSelector.Expressions.IsUnknown() {
+							var ExpressionsItems []string
+							diags := IngressRulesItem.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+							if !diags.HasError() {
+								LabelSelectorMap["expressions"] = ExpressionsItems
+							}
+						}
+						IngressRulesItemMap["label_selector"] = LabelSelectorMap
+					}
+					if IngressRulesItem.Metadata != nil {
+						MetadataMap := make(map[string]interface{})
+						if !IngressRulesItem.Metadata.DescriptionSpec.IsNull() && !IngressRulesItem.Metadata.DescriptionSpec.IsUnknown() {
+							MetadataMap["description"] = IngressRulesItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !IngressRulesItem.Metadata.Name.IsNull() && !IngressRulesItem.Metadata.Name.IsUnknown() {
+							MetadataMap["name"] = IngressRulesItem.Metadata.Name.ValueString()
+						}
+						IngressRulesItemMap["metadata"] = MetadataMap
+					}
+					if IngressRulesItem.OutsideEndpoints != nil {
+						IngressRulesItemMap["outside_endpoints"] = map[string]interface{}{}
+					}
+					if IngressRulesItem.PrefixList != nil {
+						PrefixListMap := make(map[string]interface{})
+						if !IngressRulesItem.PrefixList.Prefixes.IsNull() && !IngressRulesItem.PrefixList.Prefixes.IsUnknown() {
+							var PrefixesItems []string
+							diags := IngressRulesItem.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+							if !diags.HasError() {
+								PrefixListMap["prefixes"] = PrefixesItems
+							}
+						}
+						IngressRulesItemMap["prefix_list"] = PrefixListMap
+					}
+					if IngressRulesItem.ProtocolPortRange != nil {
+						ProtocolPortRangeMap := make(map[string]interface{})
+						if !IngressRulesItem.ProtocolPortRange.PortRanges.IsNull() && !IngressRulesItem.ProtocolPortRange.PortRanges.IsUnknown() {
+							var PortRangesItems []string
+							diags := IngressRulesItem.ProtocolPortRange.PortRanges.ElementsAs(ctx, &PortRangesItems, false)
+							if !diags.HasError() {
+								ProtocolPortRangeMap["port_ranges"] = PortRangesItems
+							}
+						}
+						if !IngressRulesItem.ProtocolPortRange.Protocol.IsNull() && !IngressRulesItem.ProtocolPortRange.Protocol.IsUnknown() {
+							ProtocolPortRangeMap["protocol"] = IngressRulesItem.ProtocolPortRange.Protocol.ValueString()
+						}
+						IngressRulesItemMap["protocol_port_range"] = ProtocolPortRangeMap
+					}
+					IngressRulesList = append(IngressRulesList, IngressRulesItemMap)
 				}
-				ingress_rulesList = append(ingress_rulesList, listItemMap)
+				RulesMap["ingress_rules"] = IngressRulesList
 			}
-			rulesMap["ingress_rules"] = ingress_rulesList
 		}
-		createReq.Spec["rules"] = rulesMap
+		createReq.Spec["rules"] = RulesMap
 	}
 
 	apiResource, err := r.client.CreateNetworkPolicy(ctx, createReq)
@@ -1166,30 +1316,105 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["endpoint"].(map[string]interface{}); ok && isImport && data.Endpoint == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Endpoint = &NetworkPolicyEndpointModel{}
+	if blockData, ok := apiResource.Spec["endpoint"].(map[string]interface{}); ok && (isImport || data.Endpoint != nil) {
+		data.Endpoint = &NetworkPolicyEndpointModel{
+			Any: func() *NetworkPolicyEmptyModel {
+				if !isImport && data.Endpoint != nil {
+					return data.Endpoint.Any
+				}
+				if _, ok := blockData["any"].(map[string]interface{}); ok {
+					return &NetworkPolicyEmptyModel{}
+				}
+				return nil
+			}(),
+			InsideEndpoints: func() *NetworkPolicyEmptyModel {
+				if !isImport && data.Endpoint != nil {
+					return data.Endpoint.InsideEndpoints
+				}
+				if _, ok := blockData["inside_endpoints"].(map[string]interface{}); ok {
+					return &NetworkPolicyEmptyModel{}
+				}
+				return nil
+			}(),
+			LabelSelector: func() *NetworkPolicyEndpointLabelSelectorModel {
+				if !isImport && data.Endpoint != nil && data.Endpoint.LabelSelector != nil {
+					return data.Endpoint.LabelSelector
+				}
+				if LabelSelectorData, ok := blockData["label_selector"].(map[string]interface{}); ok {
+					return &NetworkPolicyEndpointLabelSelectorModel{
+						Expressions: func() types.List {
+							if v, ok := LabelSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+					}
+				}
+				return nil
+			}(),
+			OutsideEndpoints: func() *NetworkPolicyEmptyModel {
+				if !isImport && data.Endpoint != nil {
+					return data.Endpoint.OutsideEndpoints
+				}
+				if _, ok := blockData["outside_endpoints"].(map[string]interface{}); ok {
+					return &NetworkPolicyEmptyModel{}
+				}
+				return nil
+			}(),
+			PrefixList: func() *NetworkPolicyEndpointPrefixListModel {
+				if !isImport && data.Endpoint != nil && data.Endpoint.PrefixList != nil {
+					return data.Endpoint.PrefixList
+				}
+				if PrefixListData, ok := blockData["prefix_list"].(map[string]interface{}); ok {
+					return &NetworkPolicyEndpointPrefixListModel{
+						Prefixes: func() types.List {
+							if v, ok := PrefixListData["prefixes"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["rules"].(map[string]interface{}); ok && (isImport || data.Rules != nil) {
 		data.Rules = &NetworkPolicyRulesModel{
-			EgressRules: func() []NetworkPolicyRulesEgressRulesModel {
-				if listData, ok := blockData["egress_rules"].([]interface{}); ok && len(listData) > 0 {
-					var result []NetworkPolicyRulesEgressRulesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, NetworkPolicyRulesEgressRulesModel{
+			EgressRules: func() types.List {
+				if !isImport && data.Rules != nil && (data.Rules.EgressRules.IsNull() || len(data.Rules.EgressRules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesModelAttrTypes})
+				}
+				if rawList, ok := blockData["egress_rules"].([]interface{}); ok && len(rawList) > 0 {
+					var EgressRulesResult []NetworkPolicyRulesEgressRulesModel
+					for _, EgressRulesItem := range rawList {
+						if EgressRulesItemMap, ok := EgressRulesItem.(map[string]interface{}); ok {
+							EgressRulesResult = append(EgressRulesResult, NetworkPolicyRulesEgressRulesModel{
 								Action: func() types.String {
-									if v, ok := itemMap["action"].(string); ok && v != "" {
+									if v, ok := EgressRulesItemMap["action"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								AdvAction: func() *NetworkPolicyRulesEgressRulesAdvActionModel {
-									if deepMap, ok := itemMap["adv_action"].(map[string]interface{}); ok {
+									if AdvActionData, ok := EgressRulesItemMap["adv_action"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesEgressRulesAdvActionModel{
 											Action: func() types.String {
-												if v, ok := deepMap["action"].(string); ok && v != "" {
+												if v, ok := AdvActionData["action"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1199,70 +1424,157 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["all_tcp_traffic"].(map[string]interface{}); ok {
+									if _, ok := EgressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTraffic: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["all_traffic"].(map[string]interface{}); ok {
+									if _, ok := EgressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["all_udp_traffic"].(map[string]interface{}); ok {
+									if _, ok := EgressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Any: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["any"].(map[string]interface{}); ok {
+									if _, ok := EgressRulesItemMap["any"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Applications: func() *NetworkPolicyRulesEgressRulesApplicationsModel {
-									if _, ok := itemMap["applications"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesEgressRulesApplicationsModel{}
+									if ApplicationsData, ok := EgressRulesItemMap["applications"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesEgressRulesApplicationsModel{
+											Applications: func() types.List {
+												if v, ok := ApplicationsData["applications"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								InsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["inside_endpoints"].(map[string]interface{}); ok {
+									if _, ok := EgressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								IPPrefixSet: func() *NetworkPolicyRulesEgressRulesIPPrefixSetModel {
-									if _, ok := itemMap["ip_prefix_set"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesEgressRulesIPPrefixSetModel{}
+									if IPPrefixSetData, ok := EgressRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesEgressRulesIPPrefixSetModel{
+											Ref: func() types.List {
+												if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
+													var RefResult []NetworkPolicyRulesEgressRulesIPPrefixSetRefModel
+													for _, RefItem := range rawList {
+														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+															RefResult = append(RefResult, NetworkPolicyRulesEgressRulesIPPrefixSetRefModel{
+																Kind: func() types.String {
+																	if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesIPPrefixSetRefModelAttrTypes}, RefResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesIPPrefixSetRefModelAttrTypes})
+											}(),
+										}
 									}
 									return nil
 								}(),
 								LabelMatcher: func() *NetworkPolicyRulesEgressRulesLabelMatcherModel {
-									if _, ok := itemMap["label_matcher"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesEgressRulesLabelMatcherModel{}
+									if LabelMatcherData, ok := EgressRulesItemMap["label_matcher"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesEgressRulesLabelMatcherModel{
+											Keys: func() types.List {
+												if v, ok := LabelMatcherData["keys"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								LabelSelector: func() *NetworkPolicyRulesEgressRulesLabelSelectorModel {
-									if _, ok := itemMap["label_selector"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesEgressRulesLabelSelectorModel{}
+									if LabelSelectorData, ok := EgressRulesItemMap["label_selector"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesEgressRulesLabelSelectorModel{
+											Expressions: func() types.List {
+												if v, ok := LabelSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								Metadata: func() *NetworkPolicyRulesEgressRulesMetadataModel {
-									if deepMap, ok := itemMap["metadata"].(map[string]interface{}); ok {
+									if MetadataData, ok := EgressRulesItemMap["metadata"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesEgressRulesMetadataModel{
 											DescriptionSpec: func() types.String {
-												if v, ok := deepMap["description"].(string); ok && v != "" {
+												if v, ok := MetadataData["description"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Name: func() types.String {
-												if v, ok := deepMap["name"].(string); ok && v != "" {
+												if v, ok := MetadataData["name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1272,22 +1584,49 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["outside_endpoints"].(map[string]interface{}); ok {
+									if _, ok := EgressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								PrefixList: func() *NetworkPolicyRulesEgressRulesPrefixListModel {
-									if _, ok := itemMap["prefix_list"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesEgressRulesPrefixListModel{}
+									if PrefixListData, ok := EgressRulesItemMap["prefix_list"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesEgressRulesPrefixListModel{
+											Prefixes: func() types.List {
+												if v, ok := PrefixListData["prefixes"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								ProtocolPortRange: func() *NetworkPolicyRulesEgressRulesProtocolPortRangeModel {
-									if deepMap, ok := itemMap["protocol_port_range"].(map[string]interface{}); ok {
+									if ProtocolPortRangeData, ok := EgressRulesItemMap["protocol_port_range"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesEgressRulesProtocolPortRangeModel{
+											PortRanges: func() types.List {
+												if v, ok := ProtocolPortRangeData["port_ranges"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
 											Protocol: func() types.String {
-												if v, ok := deepMap["protocol"].(string); ok && v != "" {
+												if v, ok := ProtocolPortRangeData["protocol"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1299,27 +1638,31 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesModelAttrTypes}, EgressRulesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesModelAttrTypes})
 			}(),
-			IngressRules: func() []NetworkPolicyRulesIngressRulesModel {
-				if listData, ok := blockData["ingress_rules"].([]interface{}); ok && len(listData) > 0 {
-					var result []NetworkPolicyRulesIngressRulesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, NetworkPolicyRulesIngressRulesModel{
+			IngressRules: func() types.List {
+				if !isImport && data.Rules != nil && (data.Rules.IngressRules.IsNull() || len(data.Rules.IngressRules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesModelAttrTypes})
+				}
+				if rawList, ok := blockData["ingress_rules"].([]interface{}); ok && len(rawList) > 0 {
+					var IngressRulesResult []NetworkPolicyRulesIngressRulesModel
+					for _, IngressRulesItem := range rawList {
+						if IngressRulesItemMap, ok := IngressRulesItem.(map[string]interface{}); ok {
+							IngressRulesResult = append(IngressRulesResult, NetworkPolicyRulesIngressRulesModel{
 								Action: func() types.String {
-									if v, ok := itemMap["action"].(string); ok && v != "" {
+									if v, ok := IngressRulesItemMap["action"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								AdvAction: func() *NetworkPolicyRulesIngressRulesAdvActionModel {
-									if deepMap, ok := itemMap["adv_action"].(map[string]interface{}); ok {
+									if AdvActionData, ok := IngressRulesItemMap["adv_action"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesIngressRulesAdvActionModel{
 											Action: func() types.String {
-												if v, ok := deepMap["action"].(string); ok && v != "" {
+												if v, ok := AdvActionData["action"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1329,70 +1672,157 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["all_tcp_traffic"].(map[string]interface{}); ok {
+									if _, ok := IngressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTraffic: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["all_traffic"].(map[string]interface{}); ok {
+									if _, ok := IngressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["all_udp_traffic"].(map[string]interface{}); ok {
+									if _, ok := IngressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Any: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["any"].(map[string]interface{}); ok {
+									if _, ok := IngressRulesItemMap["any"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Applications: func() *NetworkPolicyRulesIngressRulesApplicationsModel {
-									if _, ok := itemMap["applications"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesIngressRulesApplicationsModel{}
+									if ApplicationsData, ok := IngressRulesItemMap["applications"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesIngressRulesApplicationsModel{
+											Applications: func() types.List {
+												if v, ok := ApplicationsData["applications"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								InsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["inside_endpoints"].(map[string]interface{}); ok {
+									if _, ok := IngressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								IPPrefixSet: func() *NetworkPolicyRulesIngressRulesIPPrefixSetModel {
-									if _, ok := itemMap["ip_prefix_set"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesIngressRulesIPPrefixSetModel{}
+									if IPPrefixSetData, ok := IngressRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesIngressRulesIPPrefixSetModel{
+											Ref: func() types.List {
+												if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
+													var RefResult []NetworkPolicyRulesIngressRulesIPPrefixSetRefModel
+													for _, RefItem := range rawList {
+														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+															RefResult = append(RefResult, NetworkPolicyRulesIngressRulesIPPrefixSetRefModel{
+																Kind: func() types.String {
+																	if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesIPPrefixSetRefModelAttrTypes}, RefResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesIPPrefixSetRefModelAttrTypes})
+											}(),
+										}
 									}
 									return nil
 								}(),
 								LabelMatcher: func() *NetworkPolicyRulesIngressRulesLabelMatcherModel {
-									if _, ok := itemMap["label_matcher"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesIngressRulesLabelMatcherModel{}
+									if LabelMatcherData, ok := IngressRulesItemMap["label_matcher"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesIngressRulesLabelMatcherModel{
+											Keys: func() types.List {
+												if v, ok := LabelMatcherData["keys"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								LabelSelector: func() *NetworkPolicyRulesIngressRulesLabelSelectorModel {
-									if _, ok := itemMap["label_selector"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesIngressRulesLabelSelectorModel{}
+									if LabelSelectorData, ok := IngressRulesItemMap["label_selector"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesIngressRulesLabelSelectorModel{
+											Expressions: func() types.List {
+												if v, ok := LabelSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								Metadata: func() *NetworkPolicyRulesIngressRulesMetadataModel {
-									if deepMap, ok := itemMap["metadata"].(map[string]interface{}); ok {
+									if MetadataData, ok := IngressRulesItemMap["metadata"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesIngressRulesMetadataModel{
 											DescriptionSpec: func() types.String {
-												if v, ok := deepMap["description"].(string); ok && v != "" {
+												if v, ok := MetadataData["description"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Name: func() types.String {
-												if v, ok := deepMap["name"].(string); ok && v != "" {
+												if v, ok := MetadataData["name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1402,22 +1832,49 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["outside_endpoints"].(map[string]interface{}); ok {
+									if _, ok := IngressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								PrefixList: func() *NetworkPolicyRulesIngressRulesPrefixListModel {
-									if _, ok := itemMap["prefix_list"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesIngressRulesPrefixListModel{}
+									if PrefixListData, ok := IngressRulesItemMap["prefix_list"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesIngressRulesPrefixListModel{
+											Prefixes: func() types.List {
+												if v, ok := PrefixListData["prefixes"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								ProtocolPortRange: func() *NetworkPolicyRulesIngressRulesProtocolPortRangeModel {
-									if deepMap, ok := itemMap["protocol_port_range"].(map[string]interface{}); ok {
+									if ProtocolPortRangeData, ok := IngressRulesItemMap["protocol_port_range"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesIngressRulesProtocolPortRangeModel{
+											PortRanges: func() types.List {
+												if v, ok := ProtocolPortRangeData["port_ranges"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
 											Protocol: func() types.String {
-												if v, ok := deepMap["protocol"].(string); ok && v != "" {
+												if v, ok := ProtocolPortRangeData["protocol"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1429,9 +1886,10 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesModelAttrTypes}, IngressRulesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesModelAttrTypes})
 			}(),
 		}
 	}
@@ -1515,30 +1973,105 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["endpoint"].(map[string]interface{}); ok && isImport && data.Endpoint == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Endpoint = &NetworkPolicyEndpointModel{}
+	if blockData, ok := apiResource.Spec["endpoint"].(map[string]interface{}); ok && (isImport || data.Endpoint != nil) {
+		data.Endpoint = &NetworkPolicyEndpointModel{
+			Any: func() *NetworkPolicyEmptyModel {
+				if !isImport && data.Endpoint != nil {
+					return data.Endpoint.Any
+				}
+				if _, ok := blockData["any"].(map[string]interface{}); ok {
+					return &NetworkPolicyEmptyModel{}
+				}
+				return nil
+			}(),
+			InsideEndpoints: func() *NetworkPolicyEmptyModel {
+				if !isImport && data.Endpoint != nil {
+					return data.Endpoint.InsideEndpoints
+				}
+				if _, ok := blockData["inside_endpoints"].(map[string]interface{}); ok {
+					return &NetworkPolicyEmptyModel{}
+				}
+				return nil
+			}(),
+			LabelSelector: func() *NetworkPolicyEndpointLabelSelectorModel {
+				if !isImport && data.Endpoint != nil && data.Endpoint.LabelSelector != nil {
+					return data.Endpoint.LabelSelector
+				}
+				if LabelSelectorData, ok := blockData["label_selector"].(map[string]interface{}); ok {
+					return &NetworkPolicyEndpointLabelSelectorModel{
+						Expressions: func() types.List {
+							if v, ok := LabelSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+					}
+				}
+				return nil
+			}(),
+			OutsideEndpoints: func() *NetworkPolicyEmptyModel {
+				if !isImport && data.Endpoint != nil {
+					return data.Endpoint.OutsideEndpoints
+				}
+				if _, ok := blockData["outside_endpoints"].(map[string]interface{}); ok {
+					return &NetworkPolicyEmptyModel{}
+				}
+				return nil
+			}(),
+			PrefixList: func() *NetworkPolicyEndpointPrefixListModel {
+				if !isImport && data.Endpoint != nil && data.Endpoint.PrefixList != nil {
+					return data.Endpoint.PrefixList
+				}
+				if PrefixListData, ok := blockData["prefix_list"].(map[string]interface{}); ok {
+					return &NetworkPolicyEndpointPrefixListModel{
+						Prefixes: func() types.List {
+							if v, ok := PrefixListData["prefixes"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["rules"].(map[string]interface{}); ok && (isImport || data.Rules != nil) {
 		data.Rules = &NetworkPolicyRulesModel{
-			EgressRules: func() []NetworkPolicyRulesEgressRulesModel {
-				if listData, ok := blockData["egress_rules"].([]interface{}); ok && len(listData) > 0 {
-					var result []NetworkPolicyRulesEgressRulesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, NetworkPolicyRulesEgressRulesModel{
+			EgressRules: func() types.List {
+				if !isImport && data.Rules != nil && (data.Rules.EgressRules.IsNull() || len(data.Rules.EgressRules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesModelAttrTypes})
+				}
+				if rawList, ok := blockData["egress_rules"].([]interface{}); ok && len(rawList) > 0 {
+					var EgressRulesResult []NetworkPolicyRulesEgressRulesModel
+					for _, EgressRulesItem := range rawList {
+						if EgressRulesItemMap, ok := EgressRulesItem.(map[string]interface{}); ok {
+							EgressRulesResult = append(EgressRulesResult, NetworkPolicyRulesEgressRulesModel{
 								Action: func() types.String {
-									if v, ok := itemMap["action"].(string); ok && v != "" {
+									if v, ok := EgressRulesItemMap["action"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								AdvAction: func() *NetworkPolicyRulesEgressRulesAdvActionModel {
-									if deepMap, ok := itemMap["adv_action"].(map[string]interface{}); ok {
+									if AdvActionData, ok := EgressRulesItemMap["adv_action"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesEgressRulesAdvActionModel{
 											Action: func() types.String {
-												if v, ok := deepMap["action"].(string); ok && v != "" {
+												if v, ok := AdvActionData["action"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1548,70 +2081,157 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["all_tcp_traffic"].(map[string]interface{}); ok {
+									if _, ok := EgressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTraffic: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["all_traffic"].(map[string]interface{}); ok {
+									if _, ok := EgressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["all_udp_traffic"].(map[string]interface{}); ok {
+									if _, ok := EgressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Any: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["any"].(map[string]interface{}); ok {
+									if _, ok := EgressRulesItemMap["any"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Applications: func() *NetworkPolicyRulesEgressRulesApplicationsModel {
-									if _, ok := itemMap["applications"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesEgressRulesApplicationsModel{}
+									if ApplicationsData, ok := EgressRulesItemMap["applications"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesEgressRulesApplicationsModel{
+											Applications: func() types.List {
+												if v, ok := ApplicationsData["applications"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								InsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["inside_endpoints"].(map[string]interface{}); ok {
+									if _, ok := EgressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								IPPrefixSet: func() *NetworkPolicyRulesEgressRulesIPPrefixSetModel {
-									if _, ok := itemMap["ip_prefix_set"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesEgressRulesIPPrefixSetModel{}
+									if IPPrefixSetData, ok := EgressRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesEgressRulesIPPrefixSetModel{
+											Ref: func() types.List {
+												if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
+													var RefResult []NetworkPolicyRulesEgressRulesIPPrefixSetRefModel
+													for _, RefItem := range rawList {
+														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+															RefResult = append(RefResult, NetworkPolicyRulesEgressRulesIPPrefixSetRefModel{
+																Kind: func() types.String {
+																	if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesIPPrefixSetRefModelAttrTypes}, RefResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesIPPrefixSetRefModelAttrTypes})
+											}(),
+										}
 									}
 									return nil
 								}(),
 								LabelMatcher: func() *NetworkPolicyRulesEgressRulesLabelMatcherModel {
-									if _, ok := itemMap["label_matcher"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesEgressRulesLabelMatcherModel{}
+									if LabelMatcherData, ok := EgressRulesItemMap["label_matcher"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesEgressRulesLabelMatcherModel{
+											Keys: func() types.List {
+												if v, ok := LabelMatcherData["keys"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								LabelSelector: func() *NetworkPolicyRulesEgressRulesLabelSelectorModel {
-									if _, ok := itemMap["label_selector"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesEgressRulesLabelSelectorModel{}
+									if LabelSelectorData, ok := EgressRulesItemMap["label_selector"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesEgressRulesLabelSelectorModel{
+											Expressions: func() types.List {
+												if v, ok := LabelSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								Metadata: func() *NetworkPolicyRulesEgressRulesMetadataModel {
-									if deepMap, ok := itemMap["metadata"].(map[string]interface{}); ok {
+									if MetadataData, ok := EgressRulesItemMap["metadata"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesEgressRulesMetadataModel{
 											DescriptionSpec: func() types.String {
-												if v, ok := deepMap["description"].(string); ok && v != "" {
+												if v, ok := MetadataData["description"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Name: func() types.String {
-												if v, ok := deepMap["name"].(string); ok && v != "" {
+												if v, ok := MetadataData["name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1621,22 +2241,49 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["outside_endpoints"].(map[string]interface{}); ok {
+									if _, ok := EgressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								PrefixList: func() *NetworkPolicyRulesEgressRulesPrefixListModel {
-									if _, ok := itemMap["prefix_list"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesEgressRulesPrefixListModel{}
+									if PrefixListData, ok := EgressRulesItemMap["prefix_list"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesEgressRulesPrefixListModel{
+											Prefixes: func() types.List {
+												if v, ok := PrefixListData["prefixes"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								ProtocolPortRange: func() *NetworkPolicyRulesEgressRulesProtocolPortRangeModel {
-									if deepMap, ok := itemMap["protocol_port_range"].(map[string]interface{}); ok {
+									if ProtocolPortRangeData, ok := EgressRulesItemMap["protocol_port_range"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesEgressRulesProtocolPortRangeModel{
+											PortRanges: func() types.List {
+												if v, ok := ProtocolPortRangeData["port_ranges"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
 											Protocol: func() types.String {
-												if v, ok := deepMap["protocol"].(string); ok && v != "" {
+												if v, ok := ProtocolPortRangeData["protocol"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1648,27 +2295,31 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesModelAttrTypes}, EgressRulesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesModelAttrTypes})
 			}(),
-			IngressRules: func() []NetworkPolicyRulesIngressRulesModel {
-				if listData, ok := blockData["ingress_rules"].([]interface{}); ok && len(listData) > 0 {
-					var result []NetworkPolicyRulesIngressRulesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, NetworkPolicyRulesIngressRulesModel{
+			IngressRules: func() types.List {
+				if !isImport && data.Rules != nil && (data.Rules.IngressRules.IsNull() || len(data.Rules.IngressRules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesModelAttrTypes})
+				}
+				if rawList, ok := blockData["ingress_rules"].([]interface{}); ok && len(rawList) > 0 {
+					var IngressRulesResult []NetworkPolicyRulesIngressRulesModel
+					for _, IngressRulesItem := range rawList {
+						if IngressRulesItemMap, ok := IngressRulesItem.(map[string]interface{}); ok {
+							IngressRulesResult = append(IngressRulesResult, NetworkPolicyRulesIngressRulesModel{
 								Action: func() types.String {
-									if v, ok := itemMap["action"].(string); ok && v != "" {
+									if v, ok := IngressRulesItemMap["action"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								AdvAction: func() *NetworkPolicyRulesIngressRulesAdvActionModel {
-									if deepMap, ok := itemMap["adv_action"].(map[string]interface{}); ok {
+									if AdvActionData, ok := IngressRulesItemMap["adv_action"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesIngressRulesAdvActionModel{
 											Action: func() types.String {
-												if v, ok := deepMap["action"].(string); ok && v != "" {
+												if v, ok := AdvActionData["action"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1678,70 +2329,157 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["all_tcp_traffic"].(map[string]interface{}); ok {
+									if _, ok := IngressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTraffic: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["all_traffic"].(map[string]interface{}); ok {
+									if _, ok := IngressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["all_udp_traffic"].(map[string]interface{}); ok {
+									if _, ok := IngressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Any: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["any"].(map[string]interface{}); ok {
+									if _, ok := IngressRulesItemMap["any"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Applications: func() *NetworkPolicyRulesIngressRulesApplicationsModel {
-									if _, ok := itemMap["applications"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesIngressRulesApplicationsModel{}
+									if ApplicationsData, ok := IngressRulesItemMap["applications"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesIngressRulesApplicationsModel{
+											Applications: func() types.List {
+												if v, ok := ApplicationsData["applications"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								InsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["inside_endpoints"].(map[string]interface{}); ok {
+									if _, ok := IngressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								IPPrefixSet: func() *NetworkPolicyRulesIngressRulesIPPrefixSetModel {
-									if _, ok := itemMap["ip_prefix_set"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesIngressRulesIPPrefixSetModel{}
+									if IPPrefixSetData, ok := IngressRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesIngressRulesIPPrefixSetModel{
+											Ref: func() types.List {
+												if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
+													var RefResult []NetworkPolicyRulesIngressRulesIPPrefixSetRefModel
+													for _, RefItem := range rawList {
+														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+															RefResult = append(RefResult, NetworkPolicyRulesIngressRulesIPPrefixSetRefModel{
+																Kind: func() types.String {
+																	if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesIPPrefixSetRefModelAttrTypes}, RefResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesIPPrefixSetRefModelAttrTypes})
+											}(),
+										}
 									}
 									return nil
 								}(),
 								LabelMatcher: func() *NetworkPolicyRulesIngressRulesLabelMatcherModel {
-									if _, ok := itemMap["label_matcher"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesIngressRulesLabelMatcherModel{}
+									if LabelMatcherData, ok := IngressRulesItemMap["label_matcher"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesIngressRulesLabelMatcherModel{
+											Keys: func() types.List {
+												if v, ok := LabelMatcherData["keys"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								LabelSelector: func() *NetworkPolicyRulesIngressRulesLabelSelectorModel {
-									if _, ok := itemMap["label_selector"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesIngressRulesLabelSelectorModel{}
+									if LabelSelectorData, ok := IngressRulesItemMap["label_selector"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesIngressRulesLabelSelectorModel{
+											Expressions: func() types.List {
+												if v, ok := LabelSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								Metadata: func() *NetworkPolicyRulesIngressRulesMetadataModel {
-									if deepMap, ok := itemMap["metadata"].(map[string]interface{}); ok {
+									if MetadataData, ok := IngressRulesItemMap["metadata"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesIngressRulesMetadataModel{
 											DescriptionSpec: func() types.String {
-												if v, ok := deepMap["description"].(string); ok && v != "" {
+												if v, ok := MetadataData["description"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Name: func() types.String {
-												if v, ok := deepMap["name"].(string); ok && v != "" {
+												if v, ok := MetadataData["name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1751,22 +2489,49 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["outside_endpoints"].(map[string]interface{}); ok {
+									if _, ok := IngressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								PrefixList: func() *NetworkPolicyRulesIngressRulesPrefixListModel {
-									if _, ok := itemMap["prefix_list"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesIngressRulesPrefixListModel{}
+									if PrefixListData, ok := IngressRulesItemMap["prefix_list"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesIngressRulesPrefixListModel{
+											Prefixes: func() types.List {
+												if v, ok := PrefixListData["prefixes"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								ProtocolPortRange: func() *NetworkPolicyRulesIngressRulesProtocolPortRangeModel {
-									if deepMap, ok := itemMap["protocol_port_range"].(map[string]interface{}); ok {
+									if ProtocolPortRangeData, ok := IngressRulesItemMap["protocol_port_range"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesIngressRulesProtocolPortRangeModel{
+											PortRanges: func() types.List {
+												if v, ok := ProtocolPortRangeData["port_ranges"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
 											Protocol: func() types.String {
-												if v, ok := deepMap["protocol"].(string); ok && v != "" {
+												if v, ok := ProtocolPortRangeData["protocol"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -1778,11 +2543,20 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesModelAttrTypes}, IngressRulesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesModelAttrTypes})
 			}(),
 		}
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -1836,175 +2610,325 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.Endpoint != nil {
-		endpointMap := make(map[string]interface{})
+		EndpointMap := make(map[string]interface{})
 		if data.Endpoint.Any != nil {
-			endpointMap["any"] = map[string]interface{}{}
+			EndpointMap["any"] = map[string]interface{}{}
 		}
 		if data.Endpoint.InsideEndpoints != nil {
-			endpointMap["inside_endpoints"] = map[string]interface{}{}
+			EndpointMap["inside_endpoints"] = map[string]interface{}{}
 		}
 		if data.Endpoint.LabelSelector != nil {
-			label_selectorNestedMap := make(map[string]interface{})
-			endpointMap["label_selector"] = label_selectorNestedMap
+			LabelSelectorMap := make(map[string]interface{})
+			if !data.Endpoint.LabelSelector.Expressions.IsNull() && !data.Endpoint.LabelSelector.Expressions.IsUnknown() {
+				var ExpressionsItems []string
+				diags := data.Endpoint.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+				if !diags.HasError() {
+					LabelSelectorMap["expressions"] = ExpressionsItems
+				}
+			}
+			EndpointMap["label_selector"] = LabelSelectorMap
 		}
 		if data.Endpoint.OutsideEndpoints != nil {
-			endpointMap["outside_endpoints"] = map[string]interface{}{}
+			EndpointMap["outside_endpoints"] = map[string]interface{}{}
 		}
 		if data.Endpoint.PrefixList != nil {
-			prefix_listNestedMap := make(map[string]interface{})
-			endpointMap["prefix_list"] = prefix_listNestedMap
+			PrefixListMap := make(map[string]interface{})
+			if !data.Endpoint.PrefixList.Prefixes.IsNull() && !data.Endpoint.PrefixList.Prefixes.IsUnknown() {
+				var PrefixesItems []string
+				diags := data.Endpoint.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+				if !diags.HasError() {
+					PrefixListMap["prefixes"] = PrefixesItems
+				}
+			}
+			EndpointMap["prefix_list"] = PrefixListMap
 		}
-		apiResource.Spec["endpoint"] = endpointMap
+		apiResource.Spec["endpoint"] = EndpointMap
 	}
 	if data.Rules != nil {
-		rulesMap := make(map[string]interface{})
-		if len(data.Rules.EgressRules) > 0 {
-			var egress_rulesList []map[string]interface{}
-			for _, listItem := range data.Rules.EgressRules {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Action.IsNull() && !listItem.Action.IsUnknown() {
-					listItemMap["action"] = listItem.Action.ValueString()
-				}
-				if listItem.AdvAction != nil {
-					adv_actionDeepMap := make(map[string]interface{})
-					if !listItem.AdvAction.Action.IsNull() && !listItem.AdvAction.Action.IsUnknown() {
-						adv_actionDeepMap["action"] = listItem.AdvAction.Action.ValueString()
+		RulesMap := make(map[string]interface{})
+		if !data.Rules.EgressRules.IsNull() && !data.Rules.EgressRules.IsUnknown() {
+			var EgressRulesElems []NetworkPolicyRulesEgressRulesModel
+			diags := data.Rules.EgressRules.ElementsAs(ctx, &EgressRulesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(EgressRulesElems) > 0 {
+				var EgressRulesList []map[string]interface{}
+				for _, EgressRulesItem := range EgressRulesElems {
+					EgressRulesItemMap := make(map[string]interface{})
+					if !EgressRulesItem.Action.IsNull() && !EgressRulesItem.Action.IsUnknown() {
+						EgressRulesItemMap["action"] = EgressRulesItem.Action.ValueString()
 					}
-					listItemMap["adv_action"] = adv_actionDeepMap
-				}
-				if listItem.AllTCPTraffic != nil {
-					listItemMap["all_tcp_traffic"] = map[string]interface{}{}
-				}
-				if listItem.AllTraffic != nil {
-					listItemMap["all_traffic"] = map[string]interface{}{}
-				}
-				if listItem.AllUDPTraffic != nil {
-					listItemMap["all_udp_traffic"] = map[string]interface{}{}
-				}
-				if listItem.Any != nil {
-					listItemMap["any"] = map[string]interface{}{}
-				}
-				if listItem.Applications != nil {
-					applicationsDeepMap := make(map[string]interface{})
-					listItemMap["applications"] = applicationsDeepMap
-				}
-				if listItem.InsideEndpoints != nil {
-					listItemMap["inside_endpoints"] = map[string]interface{}{}
-				}
-				if listItem.IPPrefixSet != nil {
-					ip_prefix_setDeepMap := make(map[string]interface{})
-					listItemMap["ip_prefix_set"] = ip_prefix_setDeepMap
-				}
-				if listItem.LabelMatcher != nil {
-					label_matcherDeepMap := make(map[string]interface{})
-					listItemMap["label_matcher"] = label_matcherDeepMap
-				}
-				if listItem.LabelSelector != nil {
-					label_selectorDeepMap := make(map[string]interface{})
-					listItemMap["label_selector"] = label_selectorDeepMap
-				}
-				if listItem.Metadata != nil {
-					metadataDeepMap := make(map[string]interface{})
-					if !listItem.Metadata.DescriptionSpec.IsNull() && !listItem.Metadata.DescriptionSpec.IsUnknown() {
-						metadataDeepMap["description"] = listItem.Metadata.DescriptionSpec.ValueString()
+					if EgressRulesItem.AdvAction != nil {
+						AdvActionMap := make(map[string]interface{})
+						if !EgressRulesItem.AdvAction.Action.IsNull() && !EgressRulesItem.AdvAction.Action.IsUnknown() {
+							AdvActionMap["action"] = EgressRulesItem.AdvAction.Action.ValueString()
+						}
+						EgressRulesItemMap["adv_action"] = AdvActionMap
 					}
-					if !listItem.Metadata.Name.IsNull() && !listItem.Metadata.Name.IsUnknown() {
-						metadataDeepMap["name"] = listItem.Metadata.Name.ValueString()
+					if EgressRulesItem.AllTCPTraffic != nil {
+						EgressRulesItemMap["all_tcp_traffic"] = map[string]interface{}{}
 					}
-					listItemMap["metadata"] = metadataDeepMap
-				}
-				if listItem.OutsideEndpoints != nil {
-					listItemMap["outside_endpoints"] = map[string]interface{}{}
-				}
-				if listItem.PrefixList != nil {
-					prefix_listDeepMap := make(map[string]interface{})
-					listItemMap["prefix_list"] = prefix_listDeepMap
-				}
-				if listItem.ProtocolPortRange != nil {
-					protocol_port_rangeDeepMap := make(map[string]interface{})
-					if !listItem.ProtocolPortRange.Protocol.IsNull() && !listItem.ProtocolPortRange.Protocol.IsUnknown() {
-						protocol_port_rangeDeepMap["protocol"] = listItem.ProtocolPortRange.Protocol.ValueString()
+					if EgressRulesItem.AllTraffic != nil {
+						EgressRulesItemMap["all_traffic"] = map[string]interface{}{}
 					}
-					listItemMap["protocol_port_range"] = protocol_port_rangeDeepMap
+					if EgressRulesItem.AllUDPTraffic != nil {
+						EgressRulesItemMap["all_udp_traffic"] = map[string]interface{}{}
+					}
+					if EgressRulesItem.Any != nil {
+						EgressRulesItemMap["any"] = map[string]interface{}{}
+					}
+					if EgressRulesItem.Applications != nil {
+						ApplicationsMap := make(map[string]interface{})
+						if !EgressRulesItem.Applications.Applications.IsNull() && !EgressRulesItem.Applications.Applications.IsUnknown() {
+							var ApplicationsItems []string
+							diags := EgressRulesItem.Applications.Applications.ElementsAs(ctx, &ApplicationsItems, false)
+							if !diags.HasError() {
+								ApplicationsMap["applications"] = ApplicationsItems
+							}
+						}
+						EgressRulesItemMap["applications"] = ApplicationsMap
+					}
+					if EgressRulesItem.InsideEndpoints != nil {
+						EgressRulesItemMap["inside_endpoints"] = map[string]interface{}{}
+					}
+					if EgressRulesItem.IPPrefixSet != nil {
+						IPPrefixSetMap := make(map[string]interface{})
+						if !EgressRulesItem.IPPrefixSet.Ref.IsNull() && !EgressRulesItem.IPPrefixSet.Ref.IsUnknown() {
+							var RefElems []NetworkPolicyRulesEgressRulesIPPrefixSetRefModel
+							diags := EgressRulesItem.IPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+								var RefList []map[string]interface{}
+								for _, RefItem := range RefElems {
+									RefItemMap := make(map[string]interface{})
+									if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+										RefItemMap["kind"] = RefItem.Kind.ValueString()
+									}
+									if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+										RefItemMap["name"] = RefItem.Name.ValueString()
+									}
+									if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+										RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+									}
+									if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+										RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+									}
+									if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+										RefItemMap["uid"] = RefItem.Uid.ValueString()
+									}
+									RefList = append(RefList, RefItemMap)
+								}
+								IPPrefixSetMap["ref"] = RefList
+							}
+						}
+						EgressRulesItemMap["ip_prefix_set"] = IPPrefixSetMap
+					}
+					if EgressRulesItem.LabelMatcher != nil {
+						LabelMatcherMap := make(map[string]interface{})
+						if !EgressRulesItem.LabelMatcher.Keys.IsNull() && !EgressRulesItem.LabelMatcher.Keys.IsUnknown() {
+							var KeysItems []string
+							diags := EgressRulesItem.LabelMatcher.Keys.ElementsAs(ctx, &KeysItems, false)
+							if !diags.HasError() {
+								LabelMatcherMap["keys"] = KeysItems
+							}
+						}
+						EgressRulesItemMap["label_matcher"] = LabelMatcherMap
+					}
+					if EgressRulesItem.LabelSelector != nil {
+						LabelSelectorMap := make(map[string]interface{})
+						if !EgressRulesItem.LabelSelector.Expressions.IsNull() && !EgressRulesItem.LabelSelector.Expressions.IsUnknown() {
+							var ExpressionsItems []string
+							diags := EgressRulesItem.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+							if !diags.HasError() {
+								LabelSelectorMap["expressions"] = ExpressionsItems
+							}
+						}
+						EgressRulesItemMap["label_selector"] = LabelSelectorMap
+					}
+					if EgressRulesItem.Metadata != nil {
+						MetadataMap := make(map[string]interface{})
+						if !EgressRulesItem.Metadata.DescriptionSpec.IsNull() && !EgressRulesItem.Metadata.DescriptionSpec.IsUnknown() {
+							MetadataMap["description"] = EgressRulesItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !EgressRulesItem.Metadata.Name.IsNull() && !EgressRulesItem.Metadata.Name.IsUnknown() {
+							MetadataMap["name"] = EgressRulesItem.Metadata.Name.ValueString()
+						}
+						EgressRulesItemMap["metadata"] = MetadataMap
+					}
+					if EgressRulesItem.OutsideEndpoints != nil {
+						EgressRulesItemMap["outside_endpoints"] = map[string]interface{}{}
+					}
+					if EgressRulesItem.PrefixList != nil {
+						PrefixListMap := make(map[string]interface{})
+						if !EgressRulesItem.PrefixList.Prefixes.IsNull() && !EgressRulesItem.PrefixList.Prefixes.IsUnknown() {
+							var PrefixesItems []string
+							diags := EgressRulesItem.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+							if !diags.HasError() {
+								PrefixListMap["prefixes"] = PrefixesItems
+							}
+						}
+						EgressRulesItemMap["prefix_list"] = PrefixListMap
+					}
+					if EgressRulesItem.ProtocolPortRange != nil {
+						ProtocolPortRangeMap := make(map[string]interface{})
+						if !EgressRulesItem.ProtocolPortRange.PortRanges.IsNull() && !EgressRulesItem.ProtocolPortRange.PortRanges.IsUnknown() {
+							var PortRangesItems []string
+							diags := EgressRulesItem.ProtocolPortRange.PortRanges.ElementsAs(ctx, &PortRangesItems, false)
+							if !diags.HasError() {
+								ProtocolPortRangeMap["port_ranges"] = PortRangesItems
+							}
+						}
+						if !EgressRulesItem.ProtocolPortRange.Protocol.IsNull() && !EgressRulesItem.ProtocolPortRange.Protocol.IsUnknown() {
+							ProtocolPortRangeMap["protocol"] = EgressRulesItem.ProtocolPortRange.Protocol.ValueString()
+						}
+						EgressRulesItemMap["protocol_port_range"] = ProtocolPortRangeMap
+					}
+					EgressRulesList = append(EgressRulesList, EgressRulesItemMap)
 				}
-				egress_rulesList = append(egress_rulesList, listItemMap)
+				RulesMap["egress_rules"] = EgressRulesList
 			}
-			rulesMap["egress_rules"] = egress_rulesList
 		}
-		if len(data.Rules.IngressRules) > 0 {
-			var ingress_rulesList []map[string]interface{}
-			for _, listItem := range data.Rules.IngressRules {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Action.IsNull() && !listItem.Action.IsUnknown() {
-					listItemMap["action"] = listItem.Action.ValueString()
-				}
-				if listItem.AdvAction != nil {
-					adv_actionDeepMap := make(map[string]interface{})
-					if !listItem.AdvAction.Action.IsNull() && !listItem.AdvAction.Action.IsUnknown() {
-						adv_actionDeepMap["action"] = listItem.AdvAction.Action.ValueString()
+		if !data.Rules.IngressRules.IsNull() && !data.Rules.IngressRules.IsUnknown() {
+			var IngressRulesElems []NetworkPolicyRulesIngressRulesModel
+			diags := data.Rules.IngressRules.ElementsAs(ctx, &IngressRulesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(IngressRulesElems) > 0 {
+				var IngressRulesList []map[string]interface{}
+				for _, IngressRulesItem := range IngressRulesElems {
+					IngressRulesItemMap := make(map[string]interface{})
+					if !IngressRulesItem.Action.IsNull() && !IngressRulesItem.Action.IsUnknown() {
+						IngressRulesItemMap["action"] = IngressRulesItem.Action.ValueString()
 					}
-					listItemMap["adv_action"] = adv_actionDeepMap
-				}
-				if listItem.AllTCPTraffic != nil {
-					listItemMap["all_tcp_traffic"] = map[string]interface{}{}
-				}
-				if listItem.AllTraffic != nil {
-					listItemMap["all_traffic"] = map[string]interface{}{}
-				}
-				if listItem.AllUDPTraffic != nil {
-					listItemMap["all_udp_traffic"] = map[string]interface{}{}
-				}
-				if listItem.Any != nil {
-					listItemMap["any"] = map[string]interface{}{}
-				}
-				if listItem.Applications != nil {
-					applicationsDeepMap := make(map[string]interface{})
-					listItemMap["applications"] = applicationsDeepMap
-				}
-				if listItem.InsideEndpoints != nil {
-					listItemMap["inside_endpoints"] = map[string]interface{}{}
-				}
-				if listItem.IPPrefixSet != nil {
-					ip_prefix_setDeepMap := make(map[string]interface{})
-					listItemMap["ip_prefix_set"] = ip_prefix_setDeepMap
-				}
-				if listItem.LabelMatcher != nil {
-					label_matcherDeepMap := make(map[string]interface{})
-					listItemMap["label_matcher"] = label_matcherDeepMap
-				}
-				if listItem.LabelSelector != nil {
-					label_selectorDeepMap := make(map[string]interface{})
-					listItemMap["label_selector"] = label_selectorDeepMap
-				}
-				if listItem.Metadata != nil {
-					metadataDeepMap := make(map[string]interface{})
-					if !listItem.Metadata.DescriptionSpec.IsNull() && !listItem.Metadata.DescriptionSpec.IsUnknown() {
-						metadataDeepMap["description"] = listItem.Metadata.DescriptionSpec.ValueString()
+					if IngressRulesItem.AdvAction != nil {
+						AdvActionMap := make(map[string]interface{})
+						if !IngressRulesItem.AdvAction.Action.IsNull() && !IngressRulesItem.AdvAction.Action.IsUnknown() {
+							AdvActionMap["action"] = IngressRulesItem.AdvAction.Action.ValueString()
+						}
+						IngressRulesItemMap["adv_action"] = AdvActionMap
 					}
-					if !listItem.Metadata.Name.IsNull() && !listItem.Metadata.Name.IsUnknown() {
-						metadataDeepMap["name"] = listItem.Metadata.Name.ValueString()
+					if IngressRulesItem.AllTCPTraffic != nil {
+						IngressRulesItemMap["all_tcp_traffic"] = map[string]interface{}{}
 					}
-					listItemMap["metadata"] = metadataDeepMap
-				}
-				if listItem.OutsideEndpoints != nil {
-					listItemMap["outside_endpoints"] = map[string]interface{}{}
-				}
-				if listItem.PrefixList != nil {
-					prefix_listDeepMap := make(map[string]interface{})
-					listItemMap["prefix_list"] = prefix_listDeepMap
-				}
-				if listItem.ProtocolPortRange != nil {
-					protocol_port_rangeDeepMap := make(map[string]interface{})
-					if !listItem.ProtocolPortRange.Protocol.IsNull() && !listItem.ProtocolPortRange.Protocol.IsUnknown() {
-						protocol_port_rangeDeepMap["protocol"] = listItem.ProtocolPortRange.Protocol.ValueString()
+					if IngressRulesItem.AllTraffic != nil {
+						IngressRulesItemMap["all_traffic"] = map[string]interface{}{}
 					}
-					listItemMap["protocol_port_range"] = protocol_port_rangeDeepMap
+					if IngressRulesItem.AllUDPTraffic != nil {
+						IngressRulesItemMap["all_udp_traffic"] = map[string]interface{}{}
+					}
+					if IngressRulesItem.Any != nil {
+						IngressRulesItemMap["any"] = map[string]interface{}{}
+					}
+					if IngressRulesItem.Applications != nil {
+						ApplicationsMap := make(map[string]interface{})
+						if !IngressRulesItem.Applications.Applications.IsNull() && !IngressRulesItem.Applications.Applications.IsUnknown() {
+							var ApplicationsItems []string
+							diags := IngressRulesItem.Applications.Applications.ElementsAs(ctx, &ApplicationsItems, false)
+							if !diags.HasError() {
+								ApplicationsMap["applications"] = ApplicationsItems
+							}
+						}
+						IngressRulesItemMap["applications"] = ApplicationsMap
+					}
+					if IngressRulesItem.InsideEndpoints != nil {
+						IngressRulesItemMap["inside_endpoints"] = map[string]interface{}{}
+					}
+					if IngressRulesItem.IPPrefixSet != nil {
+						IPPrefixSetMap := make(map[string]interface{})
+						if !IngressRulesItem.IPPrefixSet.Ref.IsNull() && !IngressRulesItem.IPPrefixSet.Ref.IsUnknown() {
+							var RefElems []NetworkPolicyRulesIngressRulesIPPrefixSetRefModel
+							diags := IngressRulesItem.IPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(RefElems) > 0 {
+								var RefList []map[string]interface{}
+								for _, RefItem := range RefElems {
+									RefItemMap := make(map[string]interface{})
+									if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
+										RefItemMap["kind"] = RefItem.Kind.ValueString()
+									}
+									if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
+										RefItemMap["name"] = RefItem.Name.ValueString()
+									}
+									if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
+										RefItemMap["namespace"] = RefItem.Namespace.ValueString()
+									}
+									if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
+										RefItemMap["tenant"] = RefItem.Tenant.ValueString()
+									}
+									if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
+										RefItemMap["uid"] = RefItem.Uid.ValueString()
+									}
+									RefList = append(RefList, RefItemMap)
+								}
+								IPPrefixSetMap["ref"] = RefList
+							}
+						}
+						IngressRulesItemMap["ip_prefix_set"] = IPPrefixSetMap
+					}
+					if IngressRulesItem.LabelMatcher != nil {
+						LabelMatcherMap := make(map[string]interface{})
+						if !IngressRulesItem.LabelMatcher.Keys.IsNull() && !IngressRulesItem.LabelMatcher.Keys.IsUnknown() {
+							var KeysItems []string
+							diags := IngressRulesItem.LabelMatcher.Keys.ElementsAs(ctx, &KeysItems, false)
+							if !diags.HasError() {
+								LabelMatcherMap["keys"] = KeysItems
+							}
+						}
+						IngressRulesItemMap["label_matcher"] = LabelMatcherMap
+					}
+					if IngressRulesItem.LabelSelector != nil {
+						LabelSelectorMap := make(map[string]interface{})
+						if !IngressRulesItem.LabelSelector.Expressions.IsNull() && !IngressRulesItem.LabelSelector.Expressions.IsUnknown() {
+							var ExpressionsItems []string
+							diags := IngressRulesItem.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+							if !diags.HasError() {
+								LabelSelectorMap["expressions"] = ExpressionsItems
+							}
+						}
+						IngressRulesItemMap["label_selector"] = LabelSelectorMap
+					}
+					if IngressRulesItem.Metadata != nil {
+						MetadataMap := make(map[string]interface{})
+						if !IngressRulesItem.Metadata.DescriptionSpec.IsNull() && !IngressRulesItem.Metadata.DescriptionSpec.IsUnknown() {
+							MetadataMap["description"] = IngressRulesItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !IngressRulesItem.Metadata.Name.IsNull() && !IngressRulesItem.Metadata.Name.IsUnknown() {
+							MetadataMap["name"] = IngressRulesItem.Metadata.Name.ValueString()
+						}
+						IngressRulesItemMap["metadata"] = MetadataMap
+					}
+					if IngressRulesItem.OutsideEndpoints != nil {
+						IngressRulesItemMap["outside_endpoints"] = map[string]interface{}{}
+					}
+					if IngressRulesItem.PrefixList != nil {
+						PrefixListMap := make(map[string]interface{})
+						if !IngressRulesItem.PrefixList.Prefixes.IsNull() && !IngressRulesItem.PrefixList.Prefixes.IsUnknown() {
+							var PrefixesItems []string
+							diags := IngressRulesItem.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+							if !diags.HasError() {
+								PrefixListMap["prefixes"] = PrefixesItems
+							}
+						}
+						IngressRulesItemMap["prefix_list"] = PrefixListMap
+					}
+					if IngressRulesItem.ProtocolPortRange != nil {
+						ProtocolPortRangeMap := make(map[string]interface{})
+						if !IngressRulesItem.ProtocolPortRange.PortRanges.IsNull() && !IngressRulesItem.ProtocolPortRange.PortRanges.IsUnknown() {
+							var PortRangesItems []string
+							diags := IngressRulesItem.ProtocolPortRange.PortRanges.ElementsAs(ctx, &PortRangesItems, false)
+							if !diags.HasError() {
+								ProtocolPortRangeMap["port_ranges"] = PortRangesItems
+							}
+						}
+						if !IngressRulesItem.ProtocolPortRange.Protocol.IsNull() && !IngressRulesItem.ProtocolPortRange.Protocol.IsUnknown() {
+							ProtocolPortRangeMap["protocol"] = IngressRulesItem.ProtocolPortRange.Protocol.ValueString()
+						}
+						IngressRulesItemMap["protocol_port_range"] = ProtocolPortRangeMap
+					}
+					IngressRulesList = append(IngressRulesList, IngressRulesItemMap)
 				}
-				ingress_rulesList = append(ingress_rulesList, listItemMap)
+				RulesMap["ingress_rules"] = IngressRulesList
 			}
-			rulesMap["ingress_rules"] = ingress_rulesList
 		}
-		apiResource.Spec["rules"] = rulesMap
+		apiResource.Spec["rules"] = RulesMap
 	}
 
 	_, err := r.client.UpdateNetworkPolicy(ctx, apiResource)
@@ -2030,30 +2954,105 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["endpoint"].(map[string]interface{}); ok && isImport && data.Endpoint == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.Endpoint = &NetworkPolicyEndpointModel{}
+	if blockData, ok := apiResource.Spec["endpoint"].(map[string]interface{}); ok && (isImport || data.Endpoint != nil) {
+		data.Endpoint = &NetworkPolicyEndpointModel{
+			Any: func() *NetworkPolicyEmptyModel {
+				if !isImport && data.Endpoint != nil {
+					return data.Endpoint.Any
+				}
+				if _, ok := blockData["any"].(map[string]interface{}); ok {
+					return &NetworkPolicyEmptyModel{}
+				}
+				return nil
+			}(),
+			InsideEndpoints: func() *NetworkPolicyEmptyModel {
+				if !isImport && data.Endpoint != nil {
+					return data.Endpoint.InsideEndpoints
+				}
+				if _, ok := blockData["inside_endpoints"].(map[string]interface{}); ok {
+					return &NetworkPolicyEmptyModel{}
+				}
+				return nil
+			}(),
+			LabelSelector: func() *NetworkPolicyEndpointLabelSelectorModel {
+				if !isImport && data.Endpoint != nil && data.Endpoint.LabelSelector != nil {
+					return data.Endpoint.LabelSelector
+				}
+				if LabelSelectorData, ok := blockData["label_selector"].(map[string]interface{}); ok {
+					return &NetworkPolicyEndpointLabelSelectorModel{
+						Expressions: func() types.List {
+							if v, ok := LabelSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+					}
+				}
+				return nil
+			}(),
+			OutsideEndpoints: func() *NetworkPolicyEmptyModel {
+				if !isImport && data.Endpoint != nil {
+					return data.Endpoint.OutsideEndpoints
+				}
+				if _, ok := blockData["outside_endpoints"].(map[string]interface{}); ok {
+					return &NetworkPolicyEmptyModel{}
+				}
+				return nil
+			}(),
+			PrefixList: func() *NetworkPolicyEndpointPrefixListModel {
+				if !isImport && data.Endpoint != nil && data.Endpoint.PrefixList != nil {
+					return data.Endpoint.PrefixList
+				}
+				if PrefixListData, ok := blockData["prefix_list"].(map[string]interface{}); ok {
+					return &NetworkPolicyEndpointPrefixListModel{
+						Prefixes: func() types.List {
+							if v, ok := PrefixListData["prefixes"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["rules"].(map[string]interface{}); ok && (isImport || data.Rules != nil) {
 		data.Rules = &NetworkPolicyRulesModel{
-			EgressRules: func() []NetworkPolicyRulesEgressRulesModel {
-				if listData, ok := blockData["egress_rules"].([]interface{}); ok && len(listData) > 0 {
-					var result []NetworkPolicyRulesEgressRulesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, NetworkPolicyRulesEgressRulesModel{
+			EgressRules: func() types.List {
+				if !isImport && data.Rules != nil && (data.Rules.EgressRules.IsNull() || len(data.Rules.EgressRules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesModelAttrTypes})
+				}
+				if rawList, ok := blockData["egress_rules"].([]interface{}); ok && len(rawList) > 0 {
+					var EgressRulesResult []NetworkPolicyRulesEgressRulesModel
+					for _, EgressRulesItem := range rawList {
+						if EgressRulesItemMap, ok := EgressRulesItem.(map[string]interface{}); ok {
+							EgressRulesResult = append(EgressRulesResult, NetworkPolicyRulesEgressRulesModel{
 								Action: func() types.String {
-									if v, ok := itemMap["action"].(string); ok && v != "" {
+									if v, ok := EgressRulesItemMap["action"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								AdvAction: func() *NetworkPolicyRulesEgressRulesAdvActionModel {
-									if deepMap, ok := itemMap["adv_action"].(map[string]interface{}); ok {
+									if AdvActionData, ok := EgressRulesItemMap["adv_action"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesEgressRulesAdvActionModel{
 											Action: func() types.String {
-												if v, ok := deepMap["action"].(string); ok && v != "" {
+												if v, ok := AdvActionData["action"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -2063,70 +3062,157 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["all_tcp_traffic"].(map[string]interface{}); ok {
+									if _, ok := EgressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTraffic: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["all_traffic"].(map[string]interface{}); ok {
+									if _, ok := EgressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["all_udp_traffic"].(map[string]interface{}); ok {
+									if _, ok := EgressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Any: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["any"].(map[string]interface{}); ok {
+									if _, ok := EgressRulesItemMap["any"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Applications: func() *NetworkPolicyRulesEgressRulesApplicationsModel {
-									if _, ok := itemMap["applications"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesEgressRulesApplicationsModel{}
+									if ApplicationsData, ok := EgressRulesItemMap["applications"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesEgressRulesApplicationsModel{
+											Applications: func() types.List {
+												if v, ok := ApplicationsData["applications"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								InsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["inside_endpoints"].(map[string]interface{}); ok {
+									if _, ok := EgressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								IPPrefixSet: func() *NetworkPolicyRulesEgressRulesIPPrefixSetModel {
-									if _, ok := itemMap["ip_prefix_set"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesEgressRulesIPPrefixSetModel{}
+									if IPPrefixSetData, ok := EgressRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesEgressRulesIPPrefixSetModel{
+											Ref: func() types.List {
+												if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
+													var RefResult []NetworkPolicyRulesEgressRulesIPPrefixSetRefModel
+													for _, RefItem := range rawList {
+														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+															RefResult = append(RefResult, NetworkPolicyRulesEgressRulesIPPrefixSetRefModel{
+																Kind: func() types.String {
+																	if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesIPPrefixSetRefModelAttrTypes}, RefResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesIPPrefixSetRefModelAttrTypes})
+											}(),
+										}
 									}
 									return nil
 								}(),
 								LabelMatcher: func() *NetworkPolicyRulesEgressRulesLabelMatcherModel {
-									if _, ok := itemMap["label_matcher"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesEgressRulesLabelMatcherModel{}
+									if LabelMatcherData, ok := EgressRulesItemMap["label_matcher"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesEgressRulesLabelMatcherModel{
+											Keys: func() types.List {
+												if v, ok := LabelMatcherData["keys"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								LabelSelector: func() *NetworkPolicyRulesEgressRulesLabelSelectorModel {
-									if _, ok := itemMap["label_selector"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesEgressRulesLabelSelectorModel{}
+									if LabelSelectorData, ok := EgressRulesItemMap["label_selector"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesEgressRulesLabelSelectorModel{
+											Expressions: func() types.List {
+												if v, ok := LabelSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								Metadata: func() *NetworkPolicyRulesEgressRulesMetadataModel {
-									if deepMap, ok := itemMap["metadata"].(map[string]interface{}); ok {
+									if MetadataData, ok := EgressRulesItemMap["metadata"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesEgressRulesMetadataModel{
 											DescriptionSpec: func() types.String {
-												if v, ok := deepMap["description"].(string); ok && v != "" {
+												if v, ok := MetadataData["description"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Name: func() types.String {
-												if v, ok := deepMap["name"].(string); ok && v != "" {
+												if v, ok := MetadataData["name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -2136,22 +3222,49 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["outside_endpoints"].(map[string]interface{}); ok {
+									if _, ok := EgressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								PrefixList: func() *NetworkPolicyRulesEgressRulesPrefixListModel {
-									if _, ok := itemMap["prefix_list"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesEgressRulesPrefixListModel{}
+									if PrefixListData, ok := EgressRulesItemMap["prefix_list"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesEgressRulesPrefixListModel{
+											Prefixes: func() types.List {
+												if v, ok := PrefixListData["prefixes"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								ProtocolPortRange: func() *NetworkPolicyRulesEgressRulesProtocolPortRangeModel {
-									if deepMap, ok := itemMap["protocol_port_range"].(map[string]interface{}); ok {
+									if ProtocolPortRangeData, ok := EgressRulesItemMap["protocol_port_range"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesEgressRulesProtocolPortRangeModel{
+											PortRanges: func() types.List {
+												if v, ok := ProtocolPortRangeData["port_ranges"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
 											Protocol: func() types.String {
-												if v, ok := deepMap["protocol"].(string); ok && v != "" {
+												if v, ok := ProtocolPortRangeData["protocol"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -2163,27 +3276,31 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesModelAttrTypes}, EgressRulesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesModelAttrTypes})
 			}(),
-			IngressRules: func() []NetworkPolicyRulesIngressRulesModel {
-				if listData, ok := blockData["ingress_rules"].([]interface{}); ok && len(listData) > 0 {
-					var result []NetworkPolicyRulesIngressRulesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, NetworkPolicyRulesIngressRulesModel{
+			IngressRules: func() types.List {
+				if !isImport && data.Rules != nil && (data.Rules.IngressRules.IsNull() || len(data.Rules.IngressRules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesModelAttrTypes})
+				}
+				if rawList, ok := blockData["ingress_rules"].([]interface{}); ok && len(rawList) > 0 {
+					var IngressRulesResult []NetworkPolicyRulesIngressRulesModel
+					for _, IngressRulesItem := range rawList {
+						if IngressRulesItemMap, ok := IngressRulesItem.(map[string]interface{}); ok {
+							IngressRulesResult = append(IngressRulesResult, NetworkPolicyRulesIngressRulesModel{
 								Action: func() types.String {
-									if v, ok := itemMap["action"].(string); ok && v != "" {
+									if v, ok := IngressRulesItemMap["action"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								AdvAction: func() *NetworkPolicyRulesIngressRulesAdvActionModel {
-									if deepMap, ok := itemMap["adv_action"].(map[string]interface{}); ok {
+									if AdvActionData, ok := IngressRulesItemMap["adv_action"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesIngressRulesAdvActionModel{
 											Action: func() types.String {
-												if v, ok := deepMap["action"].(string); ok && v != "" {
+												if v, ok := AdvActionData["action"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -2193,70 +3310,157 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["all_tcp_traffic"].(map[string]interface{}); ok {
+									if _, ok := IngressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTraffic: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["all_traffic"].(map[string]interface{}); ok {
+									if _, ok := IngressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["all_udp_traffic"].(map[string]interface{}); ok {
+									if _, ok := IngressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Any: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["any"].(map[string]interface{}); ok {
+									if _, ok := IngressRulesItemMap["any"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Applications: func() *NetworkPolicyRulesIngressRulesApplicationsModel {
-									if _, ok := itemMap["applications"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesIngressRulesApplicationsModel{}
+									if ApplicationsData, ok := IngressRulesItemMap["applications"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesIngressRulesApplicationsModel{
+											Applications: func() types.List {
+												if v, ok := ApplicationsData["applications"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								InsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["inside_endpoints"].(map[string]interface{}); ok {
+									if _, ok := IngressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								IPPrefixSet: func() *NetworkPolicyRulesIngressRulesIPPrefixSetModel {
-									if _, ok := itemMap["ip_prefix_set"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesIngressRulesIPPrefixSetModel{}
+									if IPPrefixSetData, ok := IngressRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesIngressRulesIPPrefixSetModel{
+											Ref: func() types.List {
+												if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
+													var RefResult []NetworkPolicyRulesIngressRulesIPPrefixSetRefModel
+													for _, RefItem := range rawList {
+														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+															RefResult = append(RefResult, NetworkPolicyRulesIngressRulesIPPrefixSetRefModel{
+																Kind: func() types.String {
+																	if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesIPPrefixSetRefModelAttrTypes}, RefResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesIPPrefixSetRefModelAttrTypes})
+											}(),
+										}
 									}
 									return nil
 								}(),
 								LabelMatcher: func() *NetworkPolicyRulesIngressRulesLabelMatcherModel {
-									if _, ok := itemMap["label_matcher"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesIngressRulesLabelMatcherModel{}
+									if LabelMatcherData, ok := IngressRulesItemMap["label_matcher"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesIngressRulesLabelMatcherModel{
+											Keys: func() types.List {
+												if v, ok := LabelMatcherData["keys"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								LabelSelector: func() *NetworkPolicyRulesIngressRulesLabelSelectorModel {
-									if _, ok := itemMap["label_selector"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesIngressRulesLabelSelectorModel{}
+									if LabelSelectorData, ok := IngressRulesItemMap["label_selector"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesIngressRulesLabelSelectorModel{
+											Expressions: func() types.List {
+												if v, ok := LabelSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								Metadata: func() *NetworkPolicyRulesIngressRulesMetadataModel {
-									if deepMap, ok := itemMap["metadata"].(map[string]interface{}); ok {
+									if MetadataData, ok := IngressRulesItemMap["metadata"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesIngressRulesMetadataModel{
 											DescriptionSpec: func() types.String {
-												if v, ok := deepMap["description"].(string); ok && v != "" {
+												if v, ok := MetadataData["description"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Name: func() types.String {
-												if v, ok := deepMap["name"].(string); ok && v != "" {
+												if v, ok := MetadataData["name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -2266,22 +3470,49 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if _, ok := itemMap["outside_endpoints"].(map[string]interface{}); ok {
+									if _, ok := IngressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								PrefixList: func() *NetworkPolicyRulesIngressRulesPrefixListModel {
-									if _, ok := itemMap["prefix_list"].(map[string]interface{}); ok {
-										return &NetworkPolicyRulesIngressRulesPrefixListModel{}
+									if PrefixListData, ok := IngressRulesItemMap["prefix_list"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesIngressRulesPrefixListModel{
+											Prefixes: func() types.List {
+												if v, ok := PrefixListData["prefixes"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
 									}
 									return nil
 								}(),
 								ProtocolPortRange: func() *NetworkPolicyRulesIngressRulesProtocolPortRangeModel {
-									if deepMap, ok := itemMap["protocol_port_range"].(map[string]interface{}); ok {
+									if ProtocolPortRangeData, ok := IngressRulesItemMap["protocol_port_range"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesIngressRulesProtocolPortRangeModel{
+											PortRanges: func() types.List {
+												if v, ok := ProtocolPortRangeData["port_ranges"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
 											Protocol: func() types.String {
-												if v, ok := deepMap["protocol"].(string); ok && v != "" {
+												if v, ok := ProtocolPortRangeData["protocol"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -2293,9 +3524,10 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesModelAttrTypes}, IngressRulesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesModelAttrTypes})
 			}(),
 		}
 	}

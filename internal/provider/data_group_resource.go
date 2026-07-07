@@ -284,25 +284,25 @@ func (r *DataGroupResource) Create(ctx context.Context, req resource.CreateReque
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.AddressRecords != nil {
-		address_recordsMap := make(map[string]interface{})
+		AddressRecordsMap := make(map[string]interface{})
 		if data.AddressRecords.Records != nil {
-			address_recordsMap["records"] = map[string]interface{}{}
+			AddressRecordsMap["records"] = map[string]interface{}{}
 		}
-		createReq.Spec["address_records"] = address_recordsMap
+		createReq.Spec["address_records"] = AddressRecordsMap
 	}
 	if data.IntegerRecords != nil {
-		integer_recordsMap := make(map[string]interface{})
+		IntegerRecordsMap := make(map[string]interface{})
 		if data.IntegerRecords.Records != nil {
-			integer_recordsMap["records"] = map[string]interface{}{}
+			IntegerRecordsMap["records"] = map[string]interface{}{}
 		}
-		createReq.Spec["integer_records"] = integer_recordsMap
+		createReq.Spec["integer_records"] = IntegerRecordsMap
 	}
 	if data.StringRecords != nil {
-		string_recordsMap := make(map[string]interface{})
+		StringRecordsMap := make(map[string]interface{})
 		if data.StringRecords.Records != nil {
-			string_recordsMap["records"] = map[string]interface{}{}
+			StringRecordsMap["records"] = map[string]interface{}{}
 		}
-		createReq.Spec["string_records"] = string_recordsMap
+		createReq.Spec["string_records"] = StringRecordsMap
 	}
 
 	apiResource, err := r.client.CreateDataGroup(ctx, createReq)
@@ -317,21 +317,45 @@ func (r *DataGroupResource) Create(ctx context.Context, req resource.CreateReque
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["address_records"].(map[string]interface{}); ok && isImport && data.AddressRecords == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AddressRecords = &DataGroupAddressRecordsModel{}
+	if blockData, ok := apiResource.Spec["address_records"].(map[string]interface{}); ok && (isImport || data.AddressRecords != nil) {
+		data.AddressRecords = &DataGroupAddressRecordsModel{
+			Records: func() *DataGroupEmptyModel {
+				if !isImport && data.AddressRecords != nil {
+					return data.AddressRecords.Records
+				}
+				if _, ok := blockData["records"].(map[string]interface{}); ok {
+					return &DataGroupEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["integer_records"].(map[string]interface{}); ok && isImport && data.IntegerRecords == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.IntegerRecords = &DataGroupIntegerRecordsModel{}
+	if blockData, ok := apiResource.Spec["integer_records"].(map[string]interface{}); ok && (isImport || data.IntegerRecords != nil) {
+		data.IntegerRecords = &DataGroupIntegerRecordsModel{
+			Records: func() *DataGroupEmptyModel {
+				if !isImport && data.IntegerRecords != nil {
+					return data.IntegerRecords.Records
+				}
+				if _, ok := blockData["records"].(map[string]interface{}); ok {
+					return &DataGroupEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["string_records"].(map[string]interface{}); ok && isImport && data.StringRecords == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.StringRecords = &DataGroupStringRecordsModel{}
+	if blockData, ok := apiResource.Spec["string_records"].(map[string]interface{}); ok && (isImport || data.StringRecords != nil) {
+		data.StringRecords = &DataGroupStringRecordsModel{
+			Records: func() *DataGroupEmptyModel {
+				if !isImport && data.StringRecords != nil {
+					return data.StringRecords.Records
+				}
+				if _, ok := blockData["records"].(map[string]interface{}); ok {
+					return &DataGroupEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 
 	tflog.Trace(ctx, "created DataGroup resource")
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -412,21 +436,53 @@ func (r *DataGroupResource) Read(ctx context.Context, req resource.ReadRequest, 
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["address_records"].(map[string]interface{}); ok && isImport && data.AddressRecords == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AddressRecords = &DataGroupAddressRecordsModel{}
+	if blockData, ok := apiResource.Spec["address_records"].(map[string]interface{}); ok && (isImport || data.AddressRecords != nil) {
+		data.AddressRecords = &DataGroupAddressRecordsModel{
+			Records: func() *DataGroupEmptyModel {
+				if !isImport && data.AddressRecords != nil {
+					return data.AddressRecords.Records
+				}
+				if _, ok := blockData["records"].(map[string]interface{}); ok {
+					return &DataGroupEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["integer_records"].(map[string]interface{}); ok && isImport && data.IntegerRecords == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.IntegerRecords = &DataGroupIntegerRecordsModel{}
+	if blockData, ok := apiResource.Spec["integer_records"].(map[string]interface{}); ok && (isImport || data.IntegerRecords != nil) {
+		data.IntegerRecords = &DataGroupIntegerRecordsModel{
+			Records: func() *DataGroupEmptyModel {
+				if !isImport && data.IntegerRecords != nil {
+					return data.IntegerRecords.Records
+				}
+				if _, ok := blockData["records"].(map[string]interface{}); ok {
+					return &DataGroupEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["string_records"].(map[string]interface{}); ok && isImport && data.StringRecords == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.StringRecords = &DataGroupStringRecordsModel{}
+	if blockData, ok := apiResource.Spec["string_records"].(map[string]interface{}); ok && (isImport || data.StringRecords != nil) {
+		data.StringRecords = &DataGroupStringRecordsModel{
+			Records: func() *DataGroupEmptyModel {
+				if !isImport && data.StringRecords != nil {
+					return data.StringRecords.Records
+				}
+				if _, ok := blockData["records"].(map[string]interface{}); ok {
+					return &DataGroupEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
+	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
@@ -479,25 +535,25 @@ func (r *DataGroupResource) Update(ctx context.Context, req resource.UpdateReque
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.AddressRecords != nil {
-		address_recordsMap := make(map[string]interface{})
+		AddressRecordsMap := make(map[string]interface{})
 		if data.AddressRecords.Records != nil {
-			address_recordsMap["records"] = map[string]interface{}{}
+			AddressRecordsMap["records"] = map[string]interface{}{}
 		}
-		apiResource.Spec["address_records"] = address_recordsMap
+		apiResource.Spec["address_records"] = AddressRecordsMap
 	}
 	if data.IntegerRecords != nil {
-		integer_recordsMap := make(map[string]interface{})
+		IntegerRecordsMap := make(map[string]interface{})
 		if data.IntegerRecords.Records != nil {
-			integer_recordsMap["records"] = map[string]interface{}{}
+			IntegerRecordsMap["records"] = map[string]interface{}{}
 		}
-		apiResource.Spec["integer_records"] = integer_recordsMap
+		apiResource.Spec["integer_records"] = IntegerRecordsMap
 	}
 	if data.StringRecords != nil {
-		string_recordsMap := make(map[string]interface{})
+		StringRecordsMap := make(map[string]interface{})
 		if data.StringRecords.Records != nil {
-			string_recordsMap["records"] = map[string]interface{}{}
+			StringRecordsMap["records"] = map[string]interface{}{}
 		}
-		apiResource.Spec["string_records"] = string_recordsMap
+		apiResource.Spec["string_records"] = StringRecordsMap
 	}
 
 	_, err := r.client.UpdateDataGroup(ctx, apiResource)
@@ -523,21 +579,45 @@ func (r *DataGroupResource) Update(ctx context.Context, req resource.UpdateReque
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["address_records"].(map[string]interface{}); ok && isImport && data.AddressRecords == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.AddressRecords = &DataGroupAddressRecordsModel{}
+	if blockData, ok := apiResource.Spec["address_records"].(map[string]interface{}); ok && (isImport || data.AddressRecords != nil) {
+		data.AddressRecords = &DataGroupAddressRecordsModel{
+			Records: func() *DataGroupEmptyModel {
+				if !isImport && data.AddressRecords != nil {
+					return data.AddressRecords.Records
+				}
+				if _, ok := blockData["records"].(map[string]interface{}); ok {
+					return &DataGroupEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["integer_records"].(map[string]interface{}); ok && isImport && data.IntegerRecords == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.IntegerRecords = &DataGroupIntegerRecordsModel{}
+	if blockData, ok := apiResource.Spec["integer_records"].(map[string]interface{}); ok && (isImport || data.IntegerRecords != nil) {
+		data.IntegerRecords = &DataGroupIntegerRecordsModel{
+			Records: func() *DataGroupEmptyModel {
+				if !isImport && data.IntegerRecords != nil {
+					return data.IntegerRecords.Records
+				}
+				if _, ok := blockData["records"].(map[string]interface{}); ok {
+					return &DataGroupEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["string_records"].(map[string]interface{}); ok && isImport && data.StringRecords == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.StringRecords = &DataGroupStringRecordsModel{}
+	if blockData, ok := apiResource.Spec["string_records"].(map[string]interface{}); ok && (isImport || data.StringRecords != nil) {
+		data.StringRecords = &DataGroupStringRecordsModel{
+			Records: func() *DataGroupEmptyModel {
+				if !isImport && data.StringRecords != nil {
+					return data.StringRecords.Records
+				}
+				if _, ok := blockData["records"].(map[string]interface{}); ok {
+					return &DataGroupEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }

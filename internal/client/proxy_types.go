@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// Proxy represents a XCSH Proxy
+// Proxy represents a F5XC Proxy
 type Proxy struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

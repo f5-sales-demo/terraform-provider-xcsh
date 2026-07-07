@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// ProtocolPolicer represents a XCSH ProtocolPolicer
+// ProtocolPolicer represents a F5XC ProtocolPolicer
 type ProtocolPolicer struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

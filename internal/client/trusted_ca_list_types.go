@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// TrustedCAList represents a XCSH TrustedCAList
+// TrustedCAList represents a F5XC TrustedCAList
 type TrustedCAList struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

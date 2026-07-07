@@ -7,14 +7,15 @@ Healthcheck object defines method to determine if the given endpoint is healthy.
 
 - name
 - namespace
-- healthy_threshold
 - interval
 - timeout
+- healthy_threshold
 - unhealthy_threshold
 
 ## Server Defaults (safe to omit)
 
 - jitter_percent
+- use_http2
 
 ## Minimal Valid Config
 

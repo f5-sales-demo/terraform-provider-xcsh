@@ -305,51 +305,49 @@ func (r *IKEPhase2ProfileResource) Create(ctx context.Context, req resource.Crea
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.AuthenticationAlgos.IsNull() && !data.AuthenticationAlgos.IsUnknown() {
-		var authentication_algosList []string
-		resp.Diagnostics.Append(data.AuthenticationAlgos.ElementsAs(ctx, &authentication_algosList, false)...)
-		if !resp.Diagnostics.HasError() {
-			createReq.Spec["authentication_algos"] = authentication_algosList
+		var AuthenticationAlgosItems []string
+		diags := data.AuthenticationAlgos.ElementsAs(ctx, &AuthenticationAlgosItems, false)
+		if !diags.HasError() {
+			createReq.Spec["authentication_algos"] = AuthenticationAlgosItems
 		}
 	}
 	if !data.EncryptionAlgos.IsNull() && !data.EncryptionAlgos.IsUnknown() {
-		var encryption_algosList []string
-		resp.Diagnostics.Append(data.EncryptionAlgos.ElementsAs(ctx, &encryption_algosList, false)...)
-		if !resp.Diagnostics.HasError() {
-			createReq.Spec["encryption_algos"] = encryption_algosList
+		var EncryptionAlgosItems []string
+		diags := data.EncryptionAlgos.ElementsAs(ctx, &EncryptionAlgosItems, false)
+		if !diags.HasError() {
+			createReq.Spec["encryption_algos"] = EncryptionAlgosItems
 		}
 	}
 	if data.DhGroupSet != nil {
-		dh_group_setMap := make(map[string]interface{})
+		DhGroupSetMap := make(map[string]interface{})
 		if !data.DhGroupSet.DhGroups.IsNull() && !data.DhGroupSet.DhGroups.IsUnknown() {
-			var dh_groupsItems []string
-			diags := data.DhGroupSet.DhGroups.ElementsAs(ctx, &dh_groupsItems, false)
+			var DhGroupsItems []string
+			diags := data.DhGroupSet.DhGroups.ElementsAs(ctx, &DhGroupsItems, false)
 			if !diags.HasError() {
-				dh_group_setMap["dh_groups"] = dh_groupsItems
+				DhGroupSetMap["dh_groups"] = DhGroupsItems
 			}
 		}
-		createReq.Spec["dh_group_set"] = dh_group_setMap
+		createReq.Spec["dh_group_set"] = DhGroupSetMap
 	}
 	if data.DisablePfs != nil {
-		disable_pfsMap := make(map[string]interface{})
-		createReq.Spec["disable_pfs"] = disable_pfsMap
+		createReq.Spec["disable_pfs"] = map[string]interface{}{}
 	}
 	if data.IKEKeylifetimeHours != nil {
-		ike_keylifetime_hoursMap := make(map[string]interface{})
+		IKEKeylifetimeHoursMap := make(map[string]interface{})
 		if !data.IKEKeylifetimeHours.Duration.IsNull() && !data.IKEKeylifetimeHours.Duration.IsUnknown() {
-			ike_keylifetime_hoursMap["duration"] = data.IKEKeylifetimeHours.Duration.ValueInt64()
+			IKEKeylifetimeHoursMap["duration"] = data.IKEKeylifetimeHours.Duration.ValueInt64()
 		}
-		createReq.Spec["ike_keylifetime_hours"] = ike_keylifetime_hoursMap
+		createReq.Spec["ike_keylifetime_hours"] = IKEKeylifetimeHoursMap
 	}
 	if data.IKEKeylifetimeMinutes != nil {
-		ike_keylifetime_minutesMap := make(map[string]interface{})
+		IKEKeylifetimeMinutesMap := make(map[string]interface{})
 		if !data.IKEKeylifetimeMinutes.Duration.IsNull() && !data.IKEKeylifetimeMinutes.Duration.IsUnknown() {
-			ike_keylifetime_minutesMap["duration"] = data.IKEKeylifetimeMinutes.Duration.ValueInt64()
+			IKEKeylifetimeMinutesMap["duration"] = data.IKEKeylifetimeMinutes.Duration.ValueInt64()
 		}
-		createReq.Spec["ike_keylifetime_minutes"] = ike_keylifetime_minutesMap
+		createReq.Spec["ike_keylifetime_minutes"] = IKEKeylifetimeMinutesMap
 	}
 	if data.UseDefaultKeylifetime != nil {
-		use_default_keylifetimeMap := make(map[string]interface{})
-		createReq.Spec["use_default_keylifetime"] = use_default_keylifetimeMap
+		createReq.Spec["use_default_keylifetime"] = map[string]interface{}{}
 	}
 
 	apiResource, err := r.client.CreateIKEPhase2Profile(ctx, createReq)
@@ -412,24 +410,15 @@ func (r *IKEPhase2ProfileResource) Create(ctx context.Context, req resource.Crea
 		}
 	}
 	if _, ok := apiResource.Spec["disable_pfs"].(map[string]interface{}); ok && isImport && data.DisablePfs == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisablePfs = &IKEPhase2ProfileEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["ike_keylifetime_hours"].(map[string]interface{}); ok && (isImport || data.IKEKeylifetimeHours != nil) {
 		data.IKEKeylifetimeHours = &IKEPhase2ProfileIKEKeylifetimeHoursModel{
 			Duration: func() types.Int64 {
 				if !isImport && data.IKEKeylifetimeHours != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.IKEKeylifetimeHours.Duration
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["duration"].(float64); ok {
+				if v, ok := blockData["duration"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -440,16 +429,9 @@ func (r *IKEPhase2ProfileResource) Create(ctx context.Context, req resource.Crea
 		data.IKEKeylifetimeMinutes = &IKEPhase2ProfileIKEKeylifetimeMinutesModel{
 			Duration: func() types.Int64 {
 				if !isImport && data.IKEKeylifetimeMinutes != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.IKEKeylifetimeMinutes.Duration
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["duration"].(float64); ok {
+				if v, ok := blockData["duration"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -457,10 +439,8 @@ func (r *IKEPhase2ProfileResource) Create(ctx context.Context, req resource.Crea
 		}
 	}
 	if _, ok := apiResource.Spec["use_default_keylifetime"].(map[string]interface{}); ok && isImport && data.UseDefaultKeylifetime == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.UseDefaultKeylifetime = &IKEPhase2ProfileEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 
 	tflog.Trace(ctx, "created IKEPhase2Profile resource")
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -589,24 +569,15 @@ func (r *IKEPhase2ProfileResource) Read(ctx context.Context, req resource.ReadRe
 		}
 	}
 	if _, ok := apiResource.Spec["disable_pfs"].(map[string]interface{}); ok && isImport && data.DisablePfs == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisablePfs = &IKEPhase2ProfileEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["ike_keylifetime_hours"].(map[string]interface{}); ok && (isImport || data.IKEKeylifetimeHours != nil) {
 		data.IKEKeylifetimeHours = &IKEPhase2ProfileIKEKeylifetimeHoursModel{
 			Duration: func() types.Int64 {
 				if !isImport && data.IKEKeylifetimeHours != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.IKEKeylifetimeHours.Duration
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["duration"].(float64); ok {
+				if v, ok := blockData["duration"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -617,16 +588,9 @@ func (r *IKEPhase2ProfileResource) Read(ctx context.Context, req resource.ReadRe
 		data.IKEKeylifetimeMinutes = &IKEPhase2ProfileIKEKeylifetimeMinutesModel{
 			Duration: func() types.Int64 {
 				if !isImport && data.IKEKeylifetimeMinutes != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.IKEKeylifetimeMinutes.Duration
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["duration"].(float64); ok {
+				if v, ok := blockData["duration"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -634,10 +598,16 @@ func (r *IKEPhase2ProfileResource) Read(ctx context.Context, req resource.ReadRe
 		}
 	}
 	if _, ok := apiResource.Spec["use_default_keylifetime"].(map[string]interface{}); ok && isImport && data.UseDefaultKeylifetime == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.UseDefaultKeylifetime = &IKEPhase2ProfileEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
+	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
@@ -690,51 +660,49 @@ func (r *IKEPhase2ProfileResource) Update(ctx context.Context, req resource.Upda
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.AuthenticationAlgos.IsNull() && !data.AuthenticationAlgos.IsUnknown() {
-		var authentication_algosList []string
-		resp.Diagnostics.Append(data.AuthenticationAlgos.ElementsAs(ctx, &authentication_algosList, false)...)
-		if !resp.Diagnostics.HasError() {
-			apiResource.Spec["authentication_algos"] = authentication_algosList
+		var AuthenticationAlgosItems []string
+		diags := data.AuthenticationAlgos.ElementsAs(ctx, &AuthenticationAlgosItems, false)
+		if !diags.HasError() {
+			apiResource.Spec["authentication_algos"] = AuthenticationAlgosItems
 		}
 	}
 	if !data.EncryptionAlgos.IsNull() && !data.EncryptionAlgos.IsUnknown() {
-		var encryption_algosList []string
-		resp.Diagnostics.Append(data.EncryptionAlgos.ElementsAs(ctx, &encryption_algosList, false)...)
-		if !resp.Diagnostics.HasError() {
-			apiResource.Spec["encryption_algos"] = encryption_algosList
+		var EncryptionAlgosItems []string
+		diags := data.EncryptionAlgos.ElementsAs(ctx, &EncryptionAlgosItems, false)
+		if !diags.HasError() {
+			apiResource.Spec["encryption_algos"] = EncryptionAlgosItems
 		}
 	}
 	if data.DhGroupSet != nil {
-		dh_group_setMap := make(map[string]interface{})
+		DhGroupSetMap := make(map[string]interface{})
 		if !data.DhGroupSet.DhGroups.IsNull() && !data.DhGroupSet.DhGroups.IsUnknown() {
-			var dh_groupsItems []string
-			diags := data.DhGroupSet.DhGroups.ElementsAs(ctx, &dh_groupsItems, false)
+			var DhGroupsItems []string
+			diags := data.DhGroupSet.DhGroups.ElementsAs(ctx, &DhGroupsItems, false)
 			if !diags.HasError() {
-				dh_group_setMap["dh_groups"] = dh_groupsItems
+				DhGroupSetMap["dh_groups"] = DhGroupsItems
 			}
 		}
-		apiResource.Spec["dh_group_set"] = dh_group_setMap
+		apiResource.Spec["dh_group_set"] = DhGroupSetMap
 	}
 	if data.DisablePfs != nil {
-		disable_pfsMap := make(map[string]interface{})
-		apiResource.Spec["disable_pfs"] = disable_pfsMap
+		apiResource.Spec["disable_pfs"] = map[string]interface{}{}
 	}
 	if data.IKEKeylifetimeHours != nil {
-		ike_keylifetime_hoursMap := make(map[string]interface{})
+		IKEKeylifetimeHoursMap := make(map[string]interface{})
 		if !data.IKEKeylifetimeHours.Duration.IsNull() && !data.IKEKeylifetimeHours.Duration.IsUnknown() {
-			ike_keylifetime_hoursMap["duration"] = data.IKEKeylifetimeHours.Duration.ValueInt64()
+			IKEKeylifetimeHoursMap["duration"] = data.IKEKeylifetimeHours.Duration.ValueInt64()
 		}
-		apiResource.Spec["ike_keylifetime_hours"] = ike_keylifetime_hoursMap
+		apiResource.Spec["ike_keylifetime_hours"] = IKEKeylifetimeHoursMap
 	}
 	if data.IKEKeylifetimeMinutes != nil {
-		ike_keylifetime_minutesMap := make(map[string]interface{})
+		IKEKeylifetimeMinutesMap := make(map[string]interface{})
 		if !data.IKEKeylifetimeMinutes.Duration.IsNull() && !data.IKEKeylifetimeMinutes.Duration.IsUnknown() {
-			ike_keylifetime_minutesMap["duration"] = data.IKEKeylifetimeMinutes.Duration.ValueInt64()
+			IKEKeylifetimeMinutesMap["duration"] = data.IKEKeylifetimeMinutes.Duration.ValueInt64()
 		}
-		apiResource.Spec["ike_keylifetime_minutes"] = ike_keylifetime_minutesMap
+		apiResource.Spec["ike_keylifetime_minutes"] = IKEKeylifetimeMinutesMap
 	}
 	if data.UseDefaultKeylifetime != nil {
-		use_default_keylifetimeMap := make(map[string]interface{})
-		apiResource.Spec["use_default_keylifetime"] = use_default_keylifetimeMap
+		apiResource.Spec["use_default_keylifetime"] = map[string]interface{}{}
 	}
 
 	_, err := r.client.UpdateIKEPhase2Profile(ctx, apiResource)
@@ -808,24 +776,15 @@ func (r *IKEPhase2ProfileResource) Update(ctx context.Context, req resource.Upda
 		}
 	}
 	if _, ok := apiResource.Spec["disable_pfs"].(map[string]interface{}); ok && isImport && data.DisablePfs == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisablePfs = &IKEPhase2ProfileEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["ike_keylifetime_hours"].(map[string]interface{}); ok && (isImport || data.IKEKeylifetimeHours != nil) {
 		data.IKEKeylifetimeHours = &IKEPhase2ProfileIKEKeylifetimeHoursModel{
 			Duration: func() types.Int64 {
 				if !isImport && data.IKEKeylifetimeHours != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.IKEKeylifetimeHours.Duration
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["duration"].(float64); ok {
+				if v, ok := blockData["duration"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -836,16 +795,9 @@ func (r *IKEPhase2ProfileResource) Update(ctx context.Context, req resource.Upda
 		data.IKEKeylifetimeMinutes = &IKEPhase2ProfileIKEKeylifetimeMinutesModel{
 			Duration: func() types.Int64 {
 				if !isImport && data.IKEKeylifetimeMinutes != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.IKEKeylifetimeMinutes.Duration
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["duration"].(float64); ok {
+				if v, ok := blockData["duration"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -853,10 +805,8 @@ func (r *IKEPhase2ProfileResource) Update(ctx context.Context, req resource.Upda
 		}
 	}
 	if _, ok := apiResource.Spec["use_default_keylifetime"].(map[string]interface{}); ok && isImport && data.UseDefaultKeylifetime == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.UseDefaultKeylifetime = &IKEPhase2ProfileEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }

@@ -341,29 +341,26 @@ func (r *CDNPurgeCommandResource) Create(ctx context.Context, req resource.Creat
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.HardPurge != nil {
-		hard_purgeMap := make(map[string]interface{})
-		createReq.Spec["hard_purge"] = hard_purgeMap
+		createReq.Spec["hard_purge"] = map[string]interface{}{}
 	}
 	if data.PurgeAll != nil {
-		purge_allMap := make(map[string]interface{})
-		createReq.Spec["purge_all"] = purge_allMap
+		createReq.Spec["purge_all"] = map[string]interface{}{}
 	}
 	if data.SoftPurge != nil {
-		soft_purgeMap := make(map[string]interface{})
-		createReq.Spec["soft_purge"] = soft_purgeMap
+		createReq.Spec["soft_purge"] = map[string]interface{}{}
 	}
 	if data.VirtualHost != nil {
-		virtual_hostMap := make(map[string]interface{})
+		VirtualHostMap := make(map[string]interface{})
 		if !data.VirtualHost.Name.IsNull() && !data.VirtualHost.Name.IsUnknown() {
-			virtual_hostMap["name"] = data.VirtualHost.Name.ValueString()
+			VirtualHostMap["name"] = data.VirtualHost.Name.ValueString()
 		}
 		if !data.VirtualHost.Namespace.IsNull() && !data.VirtualHost.Namespace.IsUnknown() {
-			virtual_hostMap["namespace"] = data.VirtualHost.Namespace.ValueString()
+			VirtualHostMap["namespace"] = data.VirtualHost.Namespace.ValueString()
 		}
 		if !data.VirtualHost.Tenant.IsNull() && !data.VirtualHost.Tenant.IsUnknown() {
-			virtual_hostMap["tenant"] = data.VirtualHost.Tenant.ValueString()
+			VirtualHostMap["tenant"] = data.VirtualHost.Tenant.ValueString()
 		}
-		createReq.Spec["virtual_host"] = virtual_hostMap
+		createReq.Spec["virtual_host"] = VirtualHostMap
 	}
 	if !data.Hostname.IsNull() && !data.Hostname.IsUnknown() {
 		createReq.Spec["hostname"] = data.Hostname.ValueString()
@@ -388,20 +385,14 @@ func (r *CDNPurgeCommandResource) Create(ctx context.Context, req resource.Creat
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["hard_purge"].(map[string]interface{}); ok && isImport && data.HardPurge == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.HardPurge = &CDNPurgeCommandEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["purge_all"].(map[string]interface{}); ok && isImport && data.PurgeAll == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.PurgeAll = &CDNPurgeCommandEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["soft_purge"].(map[string]interface{}); ok && isImport && data.SoftPurge == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.SoftPurge = &CDNPurgeCommandEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["virtual_host"].(map[string]interface{}); ok && (isImport || data.VirtualHost != nil) {
 		data.VirtualHost = &CDNPurgeCommandVirtualHostModel{
 			Name: func() types.String {
@@ -520,20 +511,14 @@ func (r *CDNPurgeCommandResource) Read(ctx context.Context, req resource.ReadReq
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["hard_purge"].(map[string]interface{}); ok && isImport && data.HardPurge == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.HardPurge = &CDNPurgeCommandEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["purge_all"].(map[string]interface{}); ok && isImport && data.PurgeAll == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.PurgeAll = &CDNPurgeCommandEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["soft_purge"].(map[string]interface{}); ok && isImport && data.SoftPurge == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.SoftPurge = &CDNPurgeCommandEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["virtual_host"].(map[string]interface{}); ok && (isImport || data.VirtualHost != nil) {
 		data.VirtualHost = &CDNPurgeCommandVirtualHostModel{
 			Name: func() types.String {
@@ -570,6 +555,14 @@ func (r *CDNPurgeCommandResource) Read(ctx context.Context, req resource.ReadReq
 		data.URLPath = types.StringValue(v)
 	} else {
 		data.URLPath = types.StringNull()
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -623,29 +616,26 @@ func (r *CDNPurgeCommandResource) Update(ctx context.Context, req resource.Updat
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.HardPurge != nil {
-		hard_purgeMap := make(map[string]interface{})
-		apiResource.Spec["hard_purge"] = hard_purgeMap
+		apiResource.Spec["hard_purge"] = map[string]interface{}{}
 	}
 	if data.PurgeAll != nil {
-		purge_allMap := make(map[string]interface{})
-		apiResource.Spec["purge_all"] = purge_allMap
+		apiResource.Spec["purge_all"] = map[string]interface{}{}
 	}
 	if data.SoftPurge != nil {
-		soft_purgeMap := make(map[string]interface{})
-		apiResource.Spec["soft_purge"] = soft_purgeMap
+		apiResource.Spec["soft_purge"] = map[string]interface{}{}
 	}
 	if data.VirtualHost != nil {
-		virtual_hostMap := make(map[string]interface{})
+		VirtualHostMap := make(map[string]interface{})
 		if !data.VirtualHost.Name.IsNull() && !data.VirtualHost.Name.IsUnknown() {
-			virtual_hostMap["name"] = data.VirtualHost.Name.ValueString()
+			VirtualHostMap["name"] = data.VirtualHost.Name.ValueString()
 		}
 		if !data.VirtualHost.Namespace.IsNull() && !data.VirtualHost.Namespace.IsUnknown() {
-			virtual_hostMap["namespace"] = data.VirtualHost.Namespace.ValueString()
+			VirtualHostMap["namespace"] = data.VirtualHost.Namespace.ValueString()
 		}
 		if !data.VirtualHost.Tenant.IsNull() && !data.VirtualHost.Tenant.IsUnknown() {
-			virtual_hostMap["tenant"] = data.VirtualHost.Tenant.ValueString()
+			VirtualHostMap["tenant"] = data.VirtualHost.Tenant.ValueString()
 		}
-		apiResource.Spec["virtual_host"] = virtual_hostMap
+		apiResource.Spec["virtual_host"] = VirtualHostMap
 	}
 	if !data.Hostname.IsNull() && !data.Hostname.IsUnknown() {
 		apiResource.Spec["hostname"] = data.Hostname.ValueString()
@@ -702,20 +692,14 @@ func (r *CDNPurgeCommandResource) Update(ctx context.Context, req resource.Updat
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["hard_purge"].(map[string]interface{}); ok && isImport && data.HardPurge == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.HardPurge = &CDNPurgeCommandEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["purge_all"].(map[string]interface{}); ok && isImport && data.PurgeAll == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.PurgeAll = &CDNPurgeCommandEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["soft_purge"].(map[string]interface{}); ok && isImport && data.SoftPurge == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.SoftPurge = &CDNPurgeCommandEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["virtual_host"].(map[string]interface{}); ok && (isImport || data.VirtualHost != nil) {
 		data.VirtualHost = &CDNPurgeCommandVirtualHostModel{
 			Name: func() types.String {

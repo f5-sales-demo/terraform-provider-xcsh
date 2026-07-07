@@ -9,7 +9,7 @@ description: |-
 
 Manages service_policy creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.
 
-~> **Note** For more information about this resource, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
+~> **Note** Please refer to [Service Policy API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/virtual/) to learn more.
 
 ## Example Usage
 
@@ -93,6 +93,28 @@ resource "xcsh_service_policy" "test" {
 ## Argument Reference
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
+
+🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
+
+### Minimum Configuration
+
+Required fields:
+
+- `name`
+- `namespace`
+
+**Example (API format):**
+
+```yaml
+apiVersion: v1
+kind: service_policy
+metadata:
+  name: allow-all
+  namespace: default
+spec:
+  allow_all_requests: {}
+
+```
 
 ### Metadata Argument Reference
 

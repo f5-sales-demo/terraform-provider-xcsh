@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// NATPolicy represents a XCSH NATPolicy
+// NATPolicy represents a F5XC NATPolicy
 type NATPolicy struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

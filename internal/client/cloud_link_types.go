@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// CloudLink represents a XCSH CloudLink
+// CloudLink represents a F5XC CloudLink
 type CloudLink struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

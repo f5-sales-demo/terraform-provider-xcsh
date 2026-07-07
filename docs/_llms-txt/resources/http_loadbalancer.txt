@@ -7,6 +7,12 @@ Load balancing HTTP/HTTPS traffic with advanced routing and security
 
 - name
 - namespace
+- domains
+
+## Server Defaults (safe to omit)
+
+- connection_timeout
+- http_idle_timeout
 
 ## Minimal Valid Config
 

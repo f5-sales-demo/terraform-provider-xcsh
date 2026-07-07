@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// ProtocolInspection represents a XCSH ProtocolInspection
+// ProtocolInspection represents a F5XC ProtocolInspection
 type ProtocolInspection struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

@@ -9,7 +9,7 @@ description: |-
 
 Manages a Container Registry resource in F5 Distributed Cloud for container image registry configuration.
 
-~> **Note** For more information about this resource, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
+~> **Note** Please refer to [Container Registry API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/managed_kubernetes/) to learn more.
 
 ## Example Usage
 
@@ -43,6 +43,8 @@ resource "xcsh_container_registry" "example" {
 ## Argument Reference
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
+
+🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
 ### Metadata Argument Reference
 
@@ -82,7 +84,7 @@ In addition to all arguments above, the following attributes are exported:
 
 A [`password`](#password) block supports the following:
 
-<a id="password-blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#password-blindfold-secret-info) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info](#password-blindfold-secret-info) below.
+<a id="password-blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#password-blindfold-secret-info) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#password-blindfold-secret-info) below.
 
 <a id="password-clear-secret-info"></a>&#x2022; [`clear_secret_info`](#password-clear-secret-info) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#password-clear-secret-info) below.
 

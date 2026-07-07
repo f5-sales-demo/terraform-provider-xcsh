@@ -40,6 +40,8 @@ resource "xcsh_fast_acl" "example" {
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
 
+🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
+
 ### Metadata Argument Reference
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Fast ACL. Must be unique within the namespace
@@ -86,11 +88,11 @@ A [`protocol_policer`](#protocol-policer) block supports the following:
 
 A [`re_acl`](#re-acl) block supports the following:
 
-<a id="re-acl-all-public-vips"></a>&#x2022; [`all_public_vips`](#re-acl-all-public-vips) - Optional Block<br>Enable this option
+<a id="re-acl-all-public-vips"></a>&#x2022; [`all_public_vips`](#re-acl-all-public-vips) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 <a id="re-acl-default-tenant-vip"></a>&#x2022; [`default_tenant_vip`](#re-acl-default-tenant-vip) - Optional Block<br>Enable this option
 
-<a id="re-acl-fast-acl-rules"></a>&#x2022; [`fast_acl_rules`](#re-acl-fast-acl-rules) - Optional Block<br>Rules. Fast ACL rules to match<br>See [Fast ACL Rules](#re-acl-fast-acl-rules) below.
+<a id="re-acl-fast-acl-rules"></a>&#x2022; [`fast_acl_rules`](#re-acl-fast-acl-rules) - Optional Block  Defaults to `[]`<br>Rules. Fast ACL rules to match.  Server applies default when omitted<br>See [Fast ACL Rules](#re-acl-fast-acl-rules) below.
 
 <a id="re-acl-selected-tenant-vip"></a>&#x2022; [`selected_tenant_vip`](#re-acl-selected-tenant-vip) - Optional Block<br>Specific Tenant VIP. Select various tenant public VIP(s)<br>See [Selected Tenant VIP](#re-acl-selected-tenant-vip) below.
 

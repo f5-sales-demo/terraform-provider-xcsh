@@ -278,24 +278,24 @@ func (r *AddressAllocatorResource) Create(ctx context.Context, req resource.Crea
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.AddressPool.IsNull() && !data.AddressPool.IsUnknown() {
-		var address_poolList []string
-		resp.Diagnostics.Append(data.AddressPool.ElementsAs(ctx, &address_poolList, false)...)
-		if !resp.Diagnostics.HasError() {
-			createReq.Spec["address_pool"] = address_poolList
+		var AddressPoolItems []string
+		diags := data.AddressPool.ElementsAs(ctx, &AddressPoolItems, false)
+		if !diags.HasError() {
+			createReq.Spec["address_pool"] = AddressPoolItems
 		}
 	}
 	if data.AddressAllocationScheme != nil {
-		address_allocation_schemeMap := make(map[string]interface{})
+		AddressAllocationSchemeMap := make(map[string]interface{})
 		if !data.AddressAllocationScheme.AllocationUnit.IsNull() && !data.AddressAllocationScheme.AllocationUnit.IsUnknown() {
-			address_allocation_schemeMap["allocation_unit"] = data.AddressAllocationScheme.AllocationUnit.ValueInt64()
+			AddressAllocationSchemeMap["allocation_unit"] = data.AddressAllocationScheme.AllocationUnit.ValueInt64()
 		}
 		if !data.AddressAllocationScheme.LocalInterfaceAddressOffset.IsNull() && !data.AddressAllocationScheme.LocalInterfaceAddressOffset.IsUnknown() {
-			address_allocation_schemeMap["local_interface_address_offset"] = data.AddressAllocationScheme.LocalInterfaceAddressOffset.ValueInt64()
+			AddressAllocationSchemeMap["local_interface_address_offset"] = data.AddressAllocationScheme.LocalInterfaceAddressOffset.ValueInt64()
 		}
 		if !data.AddressAllocationScheme.LocalInterfaceAddressType.IsNull() && !data.AddressAllocationScheme.LocalInterfaceAddressType.IsUnknown() {
-			address_allocation_schemeMap["local_interface_address_type"] = data.AddressAllocationScheme.LocalInterfaceAddressType.ValueString()
+			AddressAllocationSchemeMap["local_interface_address_type"] = data.AddressAllocationScheme.LocalInterfaceAddressType.ValueString()
 		}
-		createReq.Spec["address_allocation_scheme"] = address_allocation_schemeMap
+		createReq.Spec["address_allocation_scheme"] = AddressAllocationSchemeMap
 	}
 	if !data.Mode.IsNull() && !data.Mode.IsUnknown() {
 		createReq.Spec["mode"] = data.Mode.ValueString()
@@ -332,32 +332,18 @@ func (r *AddressAllocatorResource) Create(ctx context.Context, req resource.Crea
 		data.AddressAllocationScheme = &AddressAllocatorAddressAllocationSchemeModel{
 			AllocationUnit: func() types.Int64 {
 				if !isImport && data.AddressAllocationScheme != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.AddressAllocationScheme.AllocationUnit
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["allocation_unit"].(float64); ok {
+				if v, ok := blockData["allocation_unit"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			LocalInterfaceAddressOffset: func() types.Int64 {
 				if !isImport && data.AddressAllocationScheme != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.AddressAllocationScheme.LocalInterfaceAddressOffset
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["local_interface_address_offset"].(float64); ok {
+				if v, ok := blockData["local_interface_address_offset"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -474,32 +460,18 @@ func (r *AddressAllocatorResource) Read(ctx context.Context, req resource.ReadRe
 		data.AddressAllocationScheme = &AddressAllocatorAddressAllocationSchemeModel{
 			AllocationUnit: func() types.Int64 {
 				if !isImport && data.AddressAllocationScheme != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.AddressAllocationScheme.AllocationUnit
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["allocation_unit"].(float64); ok {
+				if v, ok := blockData["allocation_unit"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			LocalInterfaceAddressOffset: func() types.Int64 {
 				if !isImport && data.AddressAllocationScheme != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.AddressAllocationScheme.LocalInterfaceAddressOffset
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["local_interface_address_offset"].(float64); ok {
+				if v, ok := blockData["local_interface_address_offset"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
@@ -516,6 +488,14 @@ func (r *AddressAllocatorResource) Read(ctx context.Context, req resource.ReadRe
 		data.Mode = types.StringValue(v)
 	} else {
 		data.Mode = types.StringNull()
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -569,24 +549,24 @@ func (r *AddressAllocatorResource) Update(ctx context.Context, req resource.Upda
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.AddressPool.IsNull() && !data.AddressPool.IsUnknown() {
-		var address_poolList []string
-		resp.Diagnostics.Append(data.AddressPool.ElementsAs(ctx, &address_poolList, false)...)
-		if !resp.Diagnostics.HasError() {
-			apiResource.Spec["address_pool"] = address_poolList
+		var AddressPoolItems []string
+		diags := data.AddressPool.ElementsAs(ctx, &AddressPoolItems, false)
+		if !diags.HasError() {
+			apiResource.Spec["address_pool"] = AddressPoolItems
 		}
 	}
 	if data.AddressAllocationScheme != nil {
-		address_allocation_schemeMap := make(map[string]interface{})
+		AddressAllocationSchemeMap := make(map[string]interface{})
 		if !data.AddressAllocationScheme.AllocationUnit.IsNull() && !data.AddressAllocationScheme.AllocationUnit.IsUnknown() {
-			address_allocation_schemeMap["allocation_unit"] = data.AddressAllocationScheme.AllocationUnit.ValueInt64()
+			AddressAllocationSchemeMap["allocation_unit"] = data.AddressAllocationScheme.AllocationUnit.ValueInt64()
 		}
 		if !data.AddressAllocationScheme.LocalInterfaceAddressOffset.IsNull() && !data.AddressAllocationScheme.LocalInterfaceAddressOffset.IsUnknown() {
-			address_allocation_schemeMap["local_interface_address_offset"] = data.AddressAllocationScheme.LocalInterfaceAddressOffset.ValueInt64()
+			AddressAllocationSchemeMap["local_interface_address_offset"] = data.AddressAllocationScheme.LocalInterfaceAddressOffset.ValueInt64()
 		}
 		if !data.AddressAllocationScheme.LocalInterfaceAddressType.IsNull() && !data.AddressAllocationScheme.LocalInterfaceAddressType.IsUnknown() {
-			address_allocation_schemeMap["local_interface_address_type"] = data.AddressAllocationScheme.LocalInterfaceAddressType.ValueString()
+			AddressAllocationSchemeMap["local_interface_address_type"] = data.AddressAllocationScheme.LocalInterfaceAddressType.ValueString()
 		}
-		apiResource.Spec["address_allocation_scheme"] = address_allocation_schemeMap
+		apiResource.Spec["address_allocation_scheme"] = AddressAllocationSchemeMap
 	}
 	if !data.Mode.IsNull() && !data.Mode.IsUnknown() {
 		apiResource.Spec["mode"] = data.Mode.ValueString()
@@ -634,32 +614,18 @@ func (r *AddressAllocatorResource) Update(ctx context.Context, req resource.Upda
 		data.AddressAllocationScheme = &AddressAllocatorAddressAllocationSchemeModel{
 			AllocationUnit: func() types.Int64 {
 				if !isImport && data.AddressAllocationScheme != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.AddressAllocationScheme.AllocationUnit
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["allocation_unit"].(float64); ok {
+				if v, ok := blockData["allocation_unit"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
 			}(),
 			LocalInterfaceAddressOffset: func() types.Int64 {
 				if !isImport && data.AddressAllocationScheme != nil {
-					// Preserve existing state (null or user-set value)
-					// This prevents API defaults (like 0) from overwriting user intent
 					return data.AddressAllocationScheme.LocalInterfaceAddressOffset
 				}
-				if !isImport {
-					// Block not in user config - return null, not API default
-					return types.Int64Null()
-				}
-				// Import case: read from API
-				if v, ok := blockData["local_interface_address_offset"].(float64); ok {
+				if v, ok := blockData["local_interface_address_offset"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()

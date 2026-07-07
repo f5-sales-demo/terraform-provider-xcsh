@@ -414,76 +414,74 @@ func (r *SubnetResource) Create(ctx context.Context, req resource.CreateRequest,
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.SiteSubnetParams.IsNull() && !data.SiteSubnetParams.IsUnknown() {
-		var site_subnet_paramsItems []SubnetSiteSubnetParamsModel
-		diags := data.SiteSubnetParams.ElementsAs(ctx, &site_subnet_paramsItems, false)
+		var SiteSubnetParamsElems []SubnetSiteSubnetParamsModel
+		diags := data.SiteSubnetParams.ElementsAs(ctx, &SiteSubnetParamsElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(site_subnet_paramsItems) > 0 {
-			var site_subnet_paramsList []map[string]interface{}
-			for _, item := range site_subnet_paramsItems {
-				itemMap := make(map[string]interface{})
-				if item.DHCP != nil {
-					itemMap["dhcp"] = map[string]interface{}{}
+		if !resp.Diagnostics.HasError() && len(SiteSubnetParamsElems) > 0 {
+			var SiteSubnetParamsList []map[string]interface{}
+			for _, SiteSubnetParamsItem := range SiteSubnetParamsElems {
+				SiteSubnetParamsItemMap := make(map[string]interface{})
+				if SiteSubnetParamsItem.DHCP != nil {
+					SiteSubnetParamsItemMap["dhcp"] = map[string]interface{}{}
 				}
-				if item.Site != nil {
-					siteNestedMap := make(map[string]interface{})
-					if !item.Site.Name.IsNull() && !item.Site.Name.IsUnknown() {
-						siteNestedMap["name"] = item.Site.Name.ValueString()
+				if SiteSubnetParamsItem.Site != nil {
+					SiteMap := make(map[string]interface{})
+					if !SiteSubnetParamsItem.Site.Name.IsNull() && !SiteSubnetParamsItem.Site.Name.IsUnknown() {
+						SiteMap["name"] = SiteSubnetParamsItem.Site.Name.ValueString()
 					}
-					if !item.Site.Namespace.IsNull() && !item.Site.Namespace.IsUnknown() {
-						siteNestedMap["namespace"] = item.Site.Namespace.ValueString()
+					if !SiteSubnetParamsItem.Site.Namespace.IsNull() && !SiteSubnetParamsItem.Site.Namespace.IsUnknown() {
+						SiteMap["namespace"] = SiteSubnetParamsItem.Site.Namespace.ValueString()
 					}
-					if !item.Site.Tenant.IsNull() && !item.Site.Tenant.IsUnknown() {
-						siteNestedMap["tenant"] = item.Site.Tenant.ValueString()
+					if !SiteSubnetParamsItem.Site.Tenant.IsNull() && !SiteSubnetParamsItem.Site.Tenant.IsUnknown() {
+						SiteMap["tenant"] = SiteSubnetParamsItem.Site.Tenant.ValueString()
 					}
-					itemMap["site"] = siteNestedMap
+					SiteSubnetParamsItemMap["site"] = SiteMap
 				}
-				if item.StaticIP != nil {
-					itemMap["static_ip"] = map[string]interface{}{}
+				if SiteSubnetParamsItem.StaticIP != nil {
+					SiteSubnetParamsItemMap["static_ip"] = map[string]interface{}{}
 				}
-				if item.SubnetDHCPServerParams != nil {
-					subnet_dhcp_server_paramsNestedMap := make(map[string]interface{})
-					if len(item.SubnetDHCPServerParams.DHCPNetworks) > 0 {
-						var dhcp_networksDeepList []map[string]interface{}
-						for _, deepListItem := range item.SubnetDHCPServerParams.DHCPNetworks {
-							deepListItemMap := make(map[string]interface{})
-							if !deepListItem.NetworkPrefix.IsNull() && !deepListItem.NetworkPrefix.IsUnknown() {
-								deepListItemMap["network_prefix"] = deepListItem.NetworkPrefix.ValueString()
+				if SiteSubnetParamsItem.SubnetDHCPServerParams != nil {
+					SubnetDHCPServerParamsMap := make(map[string]interface{})
+					if len(SiteSubnetParamsItem.SubnetDHCPServerParams.DHCPNetworks) > 0 {
+						var DHCPNetworksList []map[string]interface{}
+						for _, DHCPNetworksItem := range SiteSubnetParamsItem.SubnetDHCPServerParams.DHCPNetworks {
+							DHCPNetworksItemMap := make(map[string]interface{})
+							if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+								DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
 							}
-							dhcp_networksDeepList = append(dhcp_networksDeepList, deepListItemMap)
+							DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
 						}
-						subnet_dhcp_server_paramsNestedMap["dhcp_networks"] = dhcp_networksDeepList
+						SubnetDHCPServerParamsMap["dhcp_networks"] = DHCPNetworksList
 					}
-					itemMap["subnet_dhcp_server_params"] = subnet_dhcp_server_paramsNestedMap
+					SiteSubnetParamsItemMap["subnet_dhcp_server_params"] = SubnetDHCPServerParamsMap
 				}
-				site_subnet_paramsList = append(site_subnet_paramsList, itemMap)
+				SiteSubnetParamsList = append(SiteSubnetParamsList, SiteSubnetParamsItemMap)
 			}
-			createReq.Spec["site_subnet_params"] = site_subnet_paramsList
+			createReq.Spec["site_subnet_params"] = SiteSubnetParamsList
 		}
 	}
 	if data.ConnectToLayer2 != nil {
-		connect_to_layer2Map := make(map[string]interface{})
+		ConnectToLayer2Map := make(map[string]interface{})
 		if data.ConnectToLayer2.Layer2IntfRef != nil {
-			layer2_intf_refNestedMap := make(map[string]interface{})
+			Layer2IntfRefMap := make(map[string]interface{})
 			if !data.ConnectToLayer2.Layer2IntfRef.Name.IsNull() && !data.ConnectToLayer2.Layer2IntfRef.Name.IsUnknown() {
-				layer2_intf_refNestedMap["name"] = data.ConnectToLayer2.Layer2IntfRef.Name.ValueString()
+				Layer2IntfRefMap["name"] = data.ConnectToLayer2.Layer2IntfRef.Name.ValueString()
 			}
 			if !data.ConnectToLayer2.Layer2IntfRef.Namespace.IsNull() && !data.ConnectToLayer2.Layer2IntfRef.Namespace.IsUnknown() {
-				layer2_intf_refNestedMap["namespace"] = data.ConnectToLayer2.Layer2IntfRef.Namespace.ValueString()
+				Layer2IntfRefMap["namespace"] = data.ConnectToLayer2.Layer2IntfRef.Namespace.ValueString()
 			}
 			if !data.ConnectToLayer2.Layer2IntfRef.Tenant.IsNull() && !data.ConnectToLayer2.Layer2IntfRef.Tenant.IsUnknown() {
-				layer2_intf_refNestedMap["tenant"] = data.ConnectToLayer2.Layer2IntfRef.Tenant.ValueString()
+				Layer2IntfRefMap["tenant"] = data.ConnectToLayer2.Layer2IntfRef.Tenant.ValueString()
 			}
-			connect_to_layer2Map["layer2_intf_ref"] = layer2_intf_refNestedMap
+			ConnectToLayer2Map["layer2_intf_ref"] = Layer2IntfRefMap
 		}
-		createReq.Spec["connect_to_layer2"] = connect_to_layer2Map
+		createReq.Spec["connect_to_layer2"] = ConnectToLayer2Map
 	}
 	if data.ConnectToSlo != nil {
-		connect_to_sloMap := make(map[string]interface{})
-		createReq.Spec["connect_to_slo"] = connect_to_sloMap
+		createReq.Spec["connect_to_slo"] = map[string]interface{}{}
 	}
 	if data.IsolatedNw != nil {
-		isolated_nwMap := make(map[string]interface{})
-		createReq.Spec["isolated_nw"] = isolated_nwMap
+		createReq.Spec["isolated_nw"] = map[string]interface{}{}
 	}
 
 	apiResource, err := r.client.CreateSubnet(ctx, createReq)
@@ -498,39 +496,44 @@ func (r *SubnetResource) Create(ctx context.Context, req resource.CreateRequest,
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["site_subnet_params"].([]interface{}); ok && len(listData) > 0 {
-		var site_subnet_paramsList []SubnetSiteSubnetParamsModel
+	if !isImport && (data.SiteSubnetParams.IsNull() || len(data.SiteSubnetParams.Elements()) == 0) {
+		data.SiteSubnetParams = types.ListNull(types.ObjectType{AttrTypes: SubnetSiteSubnetParamsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["site_subnet_params"].([]interface{}); ok && len(listData) > 0 {
+		var SiteSubnetParamsList []SubnetSiteSubnetParamsModel
 		var existingSiteSubnetParamsItems []SubnetSiteSubnetParamsModel
 		if !data.SiteSubnetParams.IsNull() && !data.SiteSubnetParams.IsUnknown() {
 			data.SiteSubnetParams.ElementsAs(ctx, &existingSiteSubnetParamsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				site_subnet_paramsList = append(site_subnet_paramsList, SubnetSiteSubnetParamsModel{
+				SiteSubnetParamsList = append(SiteSubnetParamsList, SubnetSiteSubnetParamsModel{
 					DHCP: func() *SubnetEmptyModel {
 						if !isImport && len(existingSiteSubnetParamsItems) > listIdx && existingSiteSubnetParamsItems[listIdx].DHCP != nil {
+							return &SubnetEmptyModel{}
+						}
+						if _, ok := itemMap["dhcp"].(map[string]interface{}); ok {
 							return &SubnetEmptyModel{}
 						}
 						return nil
 					}(),
 					Site: func() *SubnetSiteSubnetParamsSiteModel {
-						if nestedMap, ok := itemMap["site"].(map[string]interface{}); ok {
+						if SiteData, ok := itemMap["site"].(map[string]interface{}); ok {
 							return &SubnetSiteSubnetParamsSiteModel{
 								Name: func() types.String {
-									if v, ok := nestedMap["name"].(string); ok && v != "" {
+									if v, ok := SiteData["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := nestedMap["namespace"].(string); ok && v != "" {
+									if v, ok := SiteData["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := nestedMap["tenant"].(string); ok && v != "" {
+									if v, ok := SiteData["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -543,41 +546,86 @@ func (r *SubnetResource) Create(ctx context.Context, req resource.CreateRequest,
 						if !isImport && len(existingSiteSubnetParamsItems) > listIdx && existingSiteSubnetParamsItems[listIdx].StaticIP != nil {
 							return &SubnetEmptyModel{}
 						}
+						if _, ok := itemMap["static_ip"].(map[string]interface{}); ok {
+							return &SubnetEmptyModel{}
+						}
 						return nil
 					}(),
 					SubnetDHCPServerParams: func() *SubnetSiteSubnetParamsSubnetDHCPServerParamsModel {
-						if _, ok := itemMap["subnet_dhcp_server_params"].(map[string]interface{}); ok {
-							return &SubnetSiteSubnetParamsSubnetDHCPServerParamsModel{}
+						if SubnetDHCPServerParamsData, ok := itemMap["subnet_dhcp_server_params"].(map[string]interface{}); ok {
+							return &SubnetSiteSubnetParamsSubnetDHCPServerParamsModel{
+								DHCPNetworks: func() []SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModel {
+									if rawList, ok := SubnetDHCPServerParamsData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+										var DHCPNetworksResult []SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModel
+										for _, DHCPNetworksItem := range rawList {
+											if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+												DHCPNetworksResult = append(DHCPNetworksResult, SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModel{
+													NetworkPrefix: func() types.String {
+														if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												})
+											}
+										}
+										return DHCPNetworksResult
+									}
+									return nil
+								}(),
+							}
 						}
 						return nil
 					}(),
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SubnetSiteSubnetParamsModelAttrTypes}, site_subnet_paramsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SubnetSiteSubnetParamsModelAttrTypes}, SiteSubnetParamsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.SiteSubnetParams = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.SiteSubnetParams = types.ListNull(types.ObjectType{AttrTypes: SubnetSiteSubnetParamsModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["connect_to_layer2"].(map[string]interface{}); ok && isImport && data.ConnectToLayer2 == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.ConnectToLayer2 = &SubnetConnectToLayer2Model{}
+	if blockData, ok := apiResource.Spec["connect_to_layer2"].(map[string]interface{}); ok && (isImport || data.ConnectToLayer2 != nil) {
+		data.ConnectToLayer2 = &SubnetConnectToLayer2Model{
+			Layer2IntfRef: func() *SubnetConnectToLayer2Layer2IntfRefModel {
+				if !isImport && data.ConnectToLayer2 != nil && data.ConnectToLayer2.Layer2IntfRef != nil {
+					return data.ConnectToLayer2.Layer2IntfRef
+				}
+				if Layer2IntfRefData, ok := blockData["layer2_intf_ref"].(map[string]interface{}); ok {
+					return &SubnetConnectToLayer2Layer2IntfRefModel{
+						Name: func() types.String {
+							if v, ok := Layer2IntfRefData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := Layer2IntfRefData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := Layer2IntfRefData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["connect_to_slo"].(map[string]interface{}); ok && isImport && data.ConnectToSlo == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.ConnectToSlo = &SubnetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["isolated_nw"].(map[string]interface{}); ok && isImport && data.IsolatedNw == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.IsolatedNw = &SubnetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 
 	tflog.Trace(ctx, "created Subnet resource")
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -658,39 +706,44 @@ func (r *SubnetResource) Read(ctx context.Context, req resource.ReadRequest, res
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["site_subnet_params"].([]interface{}); ok && len(listData) > 0 {
-		var site_subnet_paramsList []SubnetSiteSubnetParamsModel
+	if !isImport && (data.SiteSubnetParams.IsNull() || len(data.SiteSubnetParams.Elements()) == 0) {
+		data.SiteSubnetParams = types.ListNull(types.ObjectType{AttrTypes: SubnetSiteSubnetParamsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["site_subnet_params"].([]interface{}); ok && len(listData) > 0 {
+		var SiteSubnetParamsList []SubnetSiteSubnetParamsModel
 		var existingSiteSubnetParamsItems []SubnetSiteSubnetParamsModel
 		if !data.SiteSubnetParams.IsNull() && !data.SiteSubnetParams.IsUnknown() {
 			data.SiteSubnetParams.ElementsAs(ctx, &existingSiteSubnetParamsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				site_subnet_paramsList = append(site_subnet_paramsList, SubnetSiteSubnetParamsModel{
+				SiteSubnetParamsList = append(SiteSubnetParamsList, SubnetSiteSubnetParamsModel{
 					DHCP: func() *SubnetEmptyModel {
 						if !isImport && len(existingSiteSubnetParamsItems) > listIdx && existingSiteSubnetParamsItems[listIdx].DHCP != nil {
+							return &SubnetEmptyModel{}
+						}
+						if _, ok := itemMap["dhcp"].(map[string]interface{}); ok {
 							return &SubnetEmptyModel{}
 						}
 						return nil
 					}(),
 					Site: func() *SubnetSiteSubnetParamsSiteModel {
-						if nestedMap, ok := itemMap["site"].(map[string]interface{}); ok {
+						if SiteData, ok := itemMap["site"].(map[string]interface{}); ok {
 							return &SubnetSiteSubnetParamsSiteModel{
 								Name: func() types.String {
-									if v, ok := nestedMap["name"].(string); ok && v != "" {
+									if v, ok := SiteData["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := nestedMap["namespace"].(string); ok && v != "" {
+									if v, ok := SiteData["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := nestedMap["tenant"].(string); ok && v != "" {
+									if v, ok := SiteData["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -703,41 +756,94 @@ func (r *SubnetResource) Read(ctx context.Context, req resource.ReadRequest, res
 						if !isImport && len(existingSiteSubnetParamsItems) > listIdx && existingSiteSubnetParamsItems[listIdx].StaticIP != nil {
 							return &SubnetEmptyModel{}
 						}
+						if _, ok := itemMap["static_ip"].(map[string]interface{}); ok {
+							return &SubnetEmptyModel{}
+						}
 						return nil
 					}(),
 					SubnetDHCPServerParams: func() *SubnetSiteSubnetParamsSubnetDHCPServerParamsModel {
-						if _, ok := itemMap["subnet_dhcp_server_params"].(map[string]interface{}); ok {
-							return &SubnetSiteSubnetParamsSubnetDHCPServerParamsModel{}
+						if SubnetDHCPServerParamsData, ok := itemMap["subnet_dhcp_server_params"].(map[string]interface{}); ok {
+							return &SubnetSiteSubnetParamsSubnetDHCPServerParamsModel{
+								DHCPNetworks: func() []SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModel {
+									if rawList, ok := SubnetDHCPServerParamsData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+										var DHCPNetworksResult []SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModel
+										for _, DHCPNetworksItem := range rawList {
+											if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+												DHCPNetworksResult = append(DHCPNetworksResult, SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModel{
+													NetworkPrefix: func() types.String {
+														if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												})
+											}
+										}
+										return DHCPNetworksResult
+									}
+									return nil
+								}(),
+							}
 						}
 						return nil
 					}(),
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SubnetSiteSubnetParamsModelAttrTypes}, site_subnet_paramsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SubnetSiteSubnetParamsModelAttrTypes}, SiteSubnetParamsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.SiteSubnetParams = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.SiteSubnetParams = types.ListNull(types.ObjectType{AttrTypes: SubnetSiteSubnetParamsModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["connect_to_layer2"].(map[string]interface{}); ok && isImport && data.ConnectToLayer2 == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.ConnectToLayer2 = &SubnetConnectToLayer2Model{}
+	if blockData, ok := apiResource.Spec["connect_to_layer2"].(map[string]interface{}); ok && (isImport || data.ConnectToLayer2 != nil) {
+		data.ConnectToLayer2 = &SubnetConnectToLayer2Model{
+			Layer2IntfRef: func() *SubnetConnectToLayer2Layer2IntfRefModel {
+				if !isImport && data.ConnectToLayer2 != nil && data.ConnectToLayer2.Layer2IntfRef != nil {
+					return data.ConnectToLayer2.Layer2IntfRef
+				}
+				if Layer2IntfRefData, ok := blockData["layer2_intf_ref"].(map[string]interface{}); ok {
+					return &SubnetConnectToLayer2Layer2IntfRefModel{
+						Name: func() types.String {
+							if v, ok := Layer2IntfRefData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := Layer2IntfRefData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := Layer2IntfRefData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["connect_to_slo"].(map[string]interface{}); ok && isImport && data.ConnectToSlo == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.ConnectToSlo = &SubnetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["isolated_nw"].(map[string]interface{}); ok && isImport && data.IsolatedNw == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.IsolatedNw = &SubnetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
+	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
@@ -790,76 +896,74 @@ func (r *SubnetResource) Update(ctx context.Context, req resource.UpdateRequest,
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.SiteSubnetParams.IsNull() && !data.SiteSubnetParams.IsUnknown() {
-		var site_subnet_paramsItems []SubnetSiteSubnetParamsModel
-		diags := data.SiteSubnetParams.ElementsAs(ctx, &site_subnet_paramsItems, false)
+		var SiteSubnetParamsElems []SubnetSiteSubnetParamsModel
+		diags := data.SiteSubnetParams.ElementsAs(ctx, &SiteSubnetParamsElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(site_subnet_paramsItems) > 0 {
-			var site_subnet_paramsList []map[string]interface{}
-			for _, item := range site_subnet_paramsItems {
-				itemMap := make(map[string]interface{})
-				if item.DHCP != nil {
-					itemMap["dhcp"] = map[string]interface{}{}
+		if !resp.Diagnostics.HasError() && len(SiteSubnetParamsElems) > 0 {
+			var SiteSubnetParamsList []map[string]interface{}
+			for _, SiteSubnetParamsItem := range SiteSubnetParamsElems {
+				SiteSubnetParamsItemMap := make(map[string]interface{})
+				if SiteSubnetParamsItem.DHCP != nil {
+					SiteSubnetParamsItemMap["dhcp"] = map[string]interface{}{}
 				}
-				if item.Site != nil {
-					siteNestedMap := make(map[string]interface{})
-					if !item.Site.Name.IsNull() && !item.Site.Name.IsUnknown() {
-						siteNestedMap["name"] = item.Site.Name.ValueString()
+				if SiteSubnetParamsItem.Site != nil {
+					SiteMap := make(map[string]interface{})
+					if !SiteSubnetParamsItem.Site.Name.IsNull() && !SiteSubnetParamsItem.Site.Name.IsUnknown() {
+						SiteMap["name"] = SiteSubnetParamsItem.Site.Name.ValueString()
 					}
-					if !item.Site.Namespace.IsNull() && !item.Site.Namespace.IsUnknown() {
-						siteNestedMap["namespace"] = item.Site.Namespace.ValueString()
+					if !SiteSubnetParamsItem.Site.Namespace.IsNull() && !SiteSubnetParamsItem.Site.Namespace.IsUnknown() {
+						SiteMap["namespace"] = SiteSubnetParamsItem.Site.Namespace.ValueString()
 					}
-					if !item.Site.Tenant.IsNull() && !item.Site.Tenant.IsUnknown() {
-						siteNestedMap["tenant"] = item.Site.Tenant.ValueString()
+					if !SiteSubnetParamsItem.Site.Tenant.IsNull() && !SiteSubnetParamsItem.Site.Tenant.IsUnknown() {
+						SiteMap["tenant"] = SiteSubnetParamsItem.Site.Tenant.ValueString()
 					}
-					itemMap["site"] = siteNestedMap
+					SiteSubnetParamsItemMap["site"] = SiteMap
 				}
-				if item.StaticIP != nil {
-					itemMap["static_ip"] = map[string]interface{}{}
+				if SiteSubnetParamsItem.StaticIP != nil {
+					SiteSubnetParamsItemMap["static_ip"] = map[string]interface{}{}
 				}
-				if item.SubnetDHCPServerParams != nil {
-					subnet_dhcp_server_paramsNestedMap := make(map[string]interface{})
-					if len(item.SubnetDHCPServerParams.DHCPNetworks) > 0 {
-						var dhcp_networksDeepList []map[string]interface{}
-						for _, deepListItem := range item.SubnetDHCPServerParams.DHCPNetworks {
-							deepListItemMap := make(map[string]interface{})
-							if !deepListItem.NetworkPrefix.IsNull() && !deepListItem.NetworkPrefix.IsUnknown() {
-								deepListItemMap["network_prefix"] = deepListItem.NetworkPrefix.ValueString()
+				if SiteSubnetParamsItem.SubnetDHCPServerParams != nil {
+					SubnetDHCPServerParamsMap := make(map[string]interface{})
+					if len(SiteSubnetParamsItem.SubnetDHCPServerParams.DHCPNetworks) > 0 {
+						var DHCPNetworksList []map[string]interface{}
+						for _, DHCPNetworksItem := range SiteSubnetParamsItem.SubnetDHCPServerParams.DHCPNetworks {
+							DHCPNetworksItemMap := make(map[string]interface{})
+							if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+								DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
 							}
-							dhcp_networksDeepList = append(dhcp_networksDeepList, deepListItemMap)
+							DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
 						}
-						subnet_dhcp_server_paramsNestedMap["dhcp_networks"] = dhcp_networksDeepList
+						SubnetDHCPServerParamsMap["dhcp_networks"] = DHCPNetworksList
 					}
-					itemMap["subnet_dhcp_server_params"] = subnet_dhcp_server_paramsNestedMap
+					SiteSubnetParamsItemMap["subnet_dhcp_server_params"] = SubnetDHCPServerParamsMap
 				}
-				site_subnet_paramsList = append(site_subnet_paramsList, itemMap)
+				SiteSubnetParamsList = append(SiteSubnetParamsList, SiteSubnetParamsItemMap)
 			}
-			apiResource.Spec["site_subnet_params"] = site_subnet_paramsList
+			apiResource.Spec["site_subnet_params"] = SiteSubnetParamsList
 		}
 	}
 	if data.ConnectToLayer2 != nil {
-		connect_to_layer2Map := make(map[string]interface{})
+		ConnectToLayer2Map := make(map[string]interface{})
 		if data.ConnectToLayer2.Layer2IntfRef != nil {
-			layer2_intf_refNestedMap := make(map[string]interface{})
+			Layer2IntfRefMap := make(map[string]interface{})
 			if !data.ConnectToLayer2.Layer2IntfRef.Name.IsNull() && !data.ConnectToLayer2.Layer2IntfRef.Name.IsUnknown() {
-				layer2_intf_refNestedMap["name"] = data.ConnectToLayer2.Layer2IntfRef.Name.ValueString()
+				Layer2IntfRefMap["name"] = data.ConnectToLayer2.Layer2IntfRef.Name.ValueString()
 			}
 			if !data.ConnectToLayer2.Layer2IntfRef.Namespace.IsNull() && !data.ConnectToLayer2.Layer2IntfRef.Namespace.IsUnknown() {
-				layer2_intf_refNestedMap["namespace"] = data.ConnectToLayer2.Layer2IntfRef.Namespace.ValueString()
+				Layer2IntfRefMap["namespace"] = data.ConnectToLayer2.Layer2IntfRef.Namespace.ValueString()
 			}
 			if !data.ConnectToLayer2.Layer2IntfRef.Tenant.IsNull() && !data.ConnectToLayer2.Layer2IntfRef.Tenant.IsUnknown() {
-				layer2_intf_refNestedMap["tenant"] = data.ConnectToLayer2.Layer2IntfRef.Tenant.ValueString()
+				Layer2IntfRefMap["tenant"] = data.ConnectToLayer2.Layer2IntfRef.Tenant.ValueString()
 			}
-			connect_to_layer2Map["layer2_intf_ref"] = layer2_intf_refNestedMap
+			ConnectToLayer2Map["layer2_intf_ref"] = Layer2IntfRefMap
 		}
-		apiResource.Spec["connect_to_layer2"] = connect_to_layer2Map
+		apiResource.Spec["connect_to_layer2"] = ConnectToLayer2Map
 	}
 	if data.ConnectToSlo != nil {
-		connect_to_sloMap := make(map[string]interface{})
-		apiResource.Spec["connect_to_slo"] = connect_to_sloMap
+		apiResource.Spec["connect_to_slo"] = map[string]interface{}{}
 	}
 	if data.IsolatedNw != nil {
-		isolated_nwMap := make(map[string]interface{})
-		apiResource.Spec["isolated_nw"] = isolated_nwMap
+		apiResource.Spec["isolated_nw"] = map[string]interface{}{}
 	}
 
 	_, err := r.client.UpdateSubnet(ctx, apiResource)
@@ -885,39 +989,44 @@ func (r *SubnetResource) Update(ctx context.Context, req resource.UpdateRequest,
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["site_subnet_params"].([]interface{}); ok && len(listData) > 0 {
-		var site_subnet_paramsList []SubnetSiteSubnetParamsModel
+	if !isImport && (data.SiteSubnetParams.IsNull() || len(data.SiteSubnetParams.Elements()) == 0) {
+		data.SiteSubnetParams = types.ListNull(types.ObjectType{AttrTypes: SubnetSiteSubnetParamsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["site_subnet_params"].([]interface{}); ok && len(listData) > 0 {
+		var SiteSubnetParamsList []SubnetSiteSubnetParamsModel
 		var existingSiteSubnetParamsItems []SubnetSiteSubnetParamsModel
 		if !data.SiteSubnetParams.IsNull() && !data.SiteSubnetParams.IsUnknown() {
 			data.SiteSubnetParams.ElementsAs(ctx, &existingSiteSubnetParamsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				site_subnet_paramsList = append(site_subnet_paramsList, SubnetSiteSubnetParamsModel{
+				SiteSubnetParamsList = append(SiteSubnetParamsList, SubnetSiteSubnetParamsModel{
 					DHCP: func() *SubnetEmptyModel {
 						if !isImport && len(existingSiteSubnetParamsItems) > listIdx && existingSiteSubnetParamsItems[listIdx].DHCP != nil {
+							return &SubnetEmptyModel{}
+						}
+						if _, ok := itemMap["dhcp"].(map[string]interface{}); ok {
 							return &SubnetEmptyModel{}
 						}
 						return nil
 					}(),
 					Site: func() *SubnetSiteSubnetParamsSiteModel {
-						if nestedMap, ok := itemMap["site"].(map[string]interface{}); ok {
+						if SiteData, ok := itemMap["site"].(map[string]interface{}); ok {
 							return &SubnetSiteSubnetParamsSiteModel{
 								Name: func() types.String {
-									if v, ok := nestedMap["name"].(string); ok && v != "" {
+									if v, ok := SiteData["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := nestedMap["namespace"].(string); ok && v != "" {
+									if v, ok := SiteData["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := nestedMap["tenant"].(string); ok && v != "" {
+									if v, ok := SiteData["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -930,41 +1039,86 @@ func (r *SubnetResource) Update(ctx context.Context, req resource.UpdateRequest,
 						if !isImport && len(existingSiteSubnetParamsItems) > listIdx && existingSiteSubnetParamsItems[listIdx].StaticIP != nil {
 							return &SubnetEmptyModel{}
 						}
+						if _, ok := itemMap["static_ip"].(map[string]interface{}); ok {
+							return &SubnetEmptyModel{}
+						}
 						return nil
 					}(),
 					SubnetDHCPServerParams: func() *SubnetSiteSubnetParamsSubnetDHCPServerParamsModel {
-						if _, ok := itemMap["subnet_dhcp_server_params"].(map[string]interface{}); ok {
-							return &SubnetSiteSubnetParamsSubnetDHCPServerParamsModel{}
+						if SubnetDHCPServerParamsData, ok := itemMap["subnet_dhcp_server_params"].(map[string]interface{}); ok {
+							return &SubnetSiteSubnetParamsSubnetDHCPServerParamsModel{
+								DHCPNetworks: func() []SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModel {
+									if rawList, ok := SubnetDHCPServerParamsData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+										var DHCPNetworksResult []SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModel
+										for _, DHCPNetworksItem := range rawList {
+											if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+												DHCPNetworksResult = append(DHCPNetworksResult, SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModel{
+													NetworkPrefix: func() types.String {
+														if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												})
+											}
+										}
+										return DHCPNetworksResult
+									}
+									return nil
+								}(),
+							}
 						}
 						return nil
 					}(),
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SubnetSiteSubnetParamsModelAttrTypes}, site_subnet_paramsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SubnetSiteSubnetParamsModelAttrTypes}, SiteSubnetParamsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.SiteSubnetParams = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.SiteSubnetParams = types.ListNull(types.ObjectType{AttrTypes: SubnetSiteSubnetParamsModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["connect_to_layer2"].(map[string]interface{}); ok && isImport && data.ConnectToLayer2 == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.ConnectToLayer2 = &SubnetConnectToLayer2Model{}
+	if blockData, ok := apiResource.Spec["connect_to_layer2"].(map[string]interface{}); ok && (isImport || data.ConnectToLayer2 != nil) {
+		data.ConnectToLayer2 = &SubnetConnectToLayer2Model{
+			Layer2IntfRef: func() *SubnetConnectToLayer2Layer2IntfRefModel {
+				if !isImport && data.ConnectToLayer2 != nil && data.ConnectToLayer2.Layer2IntfRef != nil {
+					return data.ConnectToLayer2.Layer2IntfRef
+				}
+				if Layer2IntfRefData, ok := blockData["layer2_intf_ref"].(map[string]interface{}); ok {
+					return &SubnetConnectToLayer2Layer2IntfRefModel{
+						Name: func() types.String {
+							if v, ok := Layer2IntfRefData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := Layer2IntfRefData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := Layer2IntfRefData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["connect_to_slo"].(map[string]interface{}); ok && isImport && data.ConnectToSlo == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.ConnectToSlo = &SubnetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["isolated_nw"].(map[string]interface{}); ok && isImport && data.IsolatedNw == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.IsolatedNw = &SubnetEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }

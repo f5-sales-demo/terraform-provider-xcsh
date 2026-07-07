@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// UsbPolicy represents a XCSH UsbPolicy
+// UsbPolicy represents a F5XC UsbPolicy
 type UsbPolicy struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

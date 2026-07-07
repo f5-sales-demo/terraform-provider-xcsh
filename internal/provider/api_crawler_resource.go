@@ -211,7 +211,7 @@ func (r *APICrawlerResource) Schema(ctx context.Context, req resource.SchemaRequ
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"blindfold_secret_info": schema.SingleNestedBlock{
-											MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+											MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 											Attributes: map[string]schema.Attribute{
 												"decryption_provider": schema.StringAttribute{
 													MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -360,30 +360,53 @@ func (r *APICrawlerResource) Create(ctx context.Context, req resource.CreateRequ
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
-		var domainsItems []APICrawlerDomainsModel
-		diags := data.Domains.ElementsAs(ctx, &domainsItems, false)
+		var DomainsElems []APICrawlerDomainsModel
+		diags := data.Domains.ElementsAs(ctx, &DomainsElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(domainsItems) > 0 {
-			var domainsList []map[string]interface{}
-			for _, item := range domainsItems {
-				itemMap := make(map[string]interface{})
-				if !item.Domain.IsNull() && !item.Domain.IsUnknown() {
-					itemMap["domain"] = item.Domain.ValueString()
+		if !resp.Diagnostics.HasError() && len(DomainsElems) > 0 {
+			var DomainsList []map[string]interface{}
+			for _, DomainsItem := range DomainsElems {
+				DomainsItemMap := make(map[string]interface{})
+				if !DomainsItem.Domain.IsNull() && !DomainsItem.Domain.IsUnknown() {
+					DomainsItemMap["domain"] = DomainsItem.Domain.ValueString()
 				}
-				if item.SimpleLogin != nil {
-					simple_loginNestedMap := make(map[string]interface{})
-					if item.SimpleLogin.Password != nil {
-						passwordDeepMap := make(map[string]interface{})
-						simple_loginNestedMap["password"] = passwordDeepMap
+				if DomainsItem.SimpleLogin != nil {
+					SimpleLoginMap := make(map[string]interface{})
+					if DomainsItem.SimpleLogin.Password != nil {
+						PasswordMap := make(map[string]interface{})
+						if DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if DomainsItem.SimpleLogin.Password.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.IsNull() && !DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.ValueString()
+							}
+							if !DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.IsNull() && !DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.ValueString()
+							}
+							PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						SimpleLoginMap["password"] = PasswordMap
 					}
-					if !item.SimpleLogin.User.IsNull() && !item.SimpleLogin.User.IsUnknown() {
-						simple_loginNestedMap["user"] = item.SimpleLogin.User.ValueString()
+					if !DomainsItem.SimpleLogin.User.IsNull() && !DomainsItem.SimpleLogin.User.IsUnknown() {
+						SimpleLoginMap["user"] = DomainsItem.SimpleLogin.User.ValueString()
 					}
-					itemMap["simple_login"] = simple_loginNestedMap
+					DomainsItemMap["simple_login"] = SimpleLoginMap
 				}
-				domainsList = append(domainsList, itemMap)
+				DomainsList = append(DomainsList, DomainsItemMap)
 			}
-			createReq.Spec["domains"] = domainsList
+			createReq.Spec["domains"] = DomainsList
 		}
 	}
 
@@ -399,16 +422,18 @@ func (r *APICrawlerResource) Create(ctx context.Context, req resource.CreateRequ
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["domains"].([]interface{}); ok && len(listData) > 0 {
-		var domainsList []APICrawlerDomainsModel
+	if !isImport && (data.Domains.IsNull() || len(data.Domains.Elements()) == 0) {
+		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APICrawlerDomainsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["domains"].([]interface{}); ok && len(listData) > 0 {
+		var DomainsList []APICrawlerDomainsModel
 		var existingDomainsItems []APICrawlerDomainsModel
 		if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
 			data.Domains.ElementsAs(ctx, &existingDomainsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				domainsList = append(domainsList, APICrawlerDomainsModel{
+				DomainsList = append(DomainsList, APICrawlerDomainsModel{
 					Domain: func() types.String {
 						if v, ok := itemMap["domain"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -416,10 +441,61 @@ func (r *APICrawlerResource) Create(ctx context.Context, req resource.CreateRequ
 						return types.StringNull()
 					}(),
 					SimpleLogin: func() *APICrawlerDomainsSimpleLoginModel {
-						if nestedMap, ok := itemMap["simple_login"].(map[string]interface{}); ok {
+						if SimpleLoginData, ok := itemMap["simple_login"].(map[string]interface{}); ok {
 							return &APICrawlerDomainsSimpleLoginModel{
+								Password: func() *APICrawlerDomainsSimpleLoginPasswordModel {
+									if PasswordData, ok := SimpleLoginData["password"].(map[string]interface{}); ok {
+										return &APICrawlerDomainsSimpleLoginPasswordModel{
+											BlindfoldSecretInfo: func() *APICrawlerDomainsSimpleLoginPasswordBlindfoldSecretInfoModel {
+												if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+													return &APICrawlerDomainsSimpleLoginPasswordBlindfoldSecretInfoModel{
+														DecryptionProvider: func() types.String {
+															if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Location: func() types.String {
+															if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														StoreProvider: func() types.String {
+															if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											ClearSecretInfo: func() *APICrawlerDomainsSimpleLoginPasswordClearSecretInfoModel {
+												if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+													return &APICrawlerDomainsSimpleLoginPasswordClearSecretInfoModel{
+														Provider: func() types.String {
+															if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														URL: func() types.String {
+															if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
 								User: func() types.String {
-									if v, ok := nestedMap["user"].(string); ok && v != "" {
+									if v, ok := SimpleLoginData["user"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -431,13 +507,12 @@ func (r *APICrawlerResource) Create(ctx context.Context, req resource.CreateRequ
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APICrawlerDomainsModelAttrTypes}, domainsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APICrawlerDomainsModelAttrTypes}, DomainsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APICrawlerDomainsModelAttrTypes})
 	}
 
@@ -520,16 +595,18 @@ func (r *APICrawlerResource) Read(ctx context.Context, req resource.ReadRequest,
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["domains"].([]interface{}); ok && len(listData) > 0 {
-		var domainsList []APICrawlerDomainsModel
+	if !isImport && (data.Domains.IsNull() || len(data.Domains.Elements()) == 0) {
+		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APICrawlerDomainsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["domains"].([]interface{}); ok && len(listData) > 0 {
+		var DomainsList []APICrawlerDomainsModel
 		var existingDomainsItems []APICrawlerDomainsModel
 		if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
 			data.Domains.ElementsAs(ctx, &existingDomainsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				domainsList = append(domainsList, APICrawlerDomainsModel{
+				DomainsList = append(DomainsList, APICrawlerDomainsModel{
 					Domain: func() types.String {
 						if v, ok := itemMap["domain"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -537,10 +614,61 @@ func (r *APICrawlerResource) Read(ctx context.Context, req resource.ReadRequest,
 						return types.StringNull()
 					}(),
 					SimpleLogin: func() *APICrawlerDomainsSimpleLoginModel {
-						if nestedMap, ok := itemMap["simple_login"].(map[string]interface{}); ok {
+						if SimpleLoginData, ok := itemMap["simple_login"].(map[string]interface{}); ok {
 							return &APICrawlerDomainsSimpleLoginModel{
+								Password: func() *APICrawlerDomainsSimpleLoginPasswordModel {
+									if PasswordData, ok := SimpleLoginData["password"].(map[string]interface{}); ok {
+										return &APICrawlerDomainsSimpleLoginPasswordModel{
+											BlindfoldSecretInfo: func() *APICrawlerDomainsSimpleLoginPasswordBlindfoldSecretInfoModel {
+												if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+													return &APICrawlerDomainsSimpleLoginPasswordBlindfoldSecretInfoModel{
+														DecryptionProvider: func() types.String {
+															if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Location: func() types.String {
+															if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														StoreProvider: func() types.String {
+															if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											ClearSecretInfo: func() *APICrawlerDomainsSimpleLoginPasswordClearSecretInfoModel {
+												if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+													return &APICrawlerDomainsSimpleLoginPasswordClearSecretInfoModel{
+														Provider: func() types.String {
+															if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														URL: func() types.String {
+															if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
 								User: func() types.String {
-									if v, ok := nestedMap["user"].(string); ok && v != "" {
+									if v, ok := SimpleLoginData["user"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -552,14 +680,21 @@ func (r *APICrawlerResource) Read(ctx context.Context, req resource.ReadRequest,
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APICrawlerDomainsModelAttrTypes}, domainsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APICrawlerDomainsModelAttrTypes}, DomainsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APICrawlerDomainsModelAttrTypes})
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -613,30 +748,53 @@ func (r *APICrawlerResource) Update(ctx context.Context, req resource.UpdateRequ
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
-		var domainsItems []APICrawlerDomainsModel
-		diags := data.Domains.ElementsAs(ctx, &domainsItems, false)
+		var DomainsElems []APICrawlerDomainsModel
+		diags := data.Domains.ElementsAs(ctx, &DomainsElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(domainsItems) > 0 {
-			var domainsList []map[string]interface{}
-			for _, item := range domainsItems {
-				itemMap := make(map[string]interface{})
-				if !item.Domain.IsNull() && !item.Domain.IsUnknown() {
-					itemMap["domain"] = item.Domain.ValueString()
+		if !resp.Diagnostics.HasError() && len(DomainsElems) > 0 {
+			var DomainsList []map[string]interface{}
+			for _, DomainsItem := range DomainsElems {
+				DomainsItemMap := make(map[string]interface{})
+				if !DomainsItem.Domain.IsNull() && !DomainsItem.Domain.IsUnknown() {
+					DomainsItemMap["domain"] = DomainsItem.Domain.ValueString()
 				}
-				if item.SimpleLogin != nil {
-					simple_loginNestedMap := make(map[string]interface{})
-					if item.SimpleLogin.Password != nil {
-						passwordDeepMap := make(map[string]interface{})
-						simple_loginNestedMap["password"] = passwordDeepMap
+				if DomainsItem.SimpleLogin != nil {
+					SimpleLoginMap := make(map[string]interface{})
+					if DomainsItem.SimpleLogin.Password != nil {
+						PasswordMap := make(map[string]interface{})
+						if DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if DomainsItem.SimpleLogin.Password.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.IsNull() && !DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.ValueString()
+							}
+							if !DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.IsNull() && !DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.ValueString()
+							}
+							PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						SimpleLoginMap["password"] = PasswordMap
 					}
-					if !item.SimpleLogin.User.IsNull() && !item.SimpleLogin.User.IsUnknown() {
-						simple_loginNestedMap["user"] = item.SimpleLogin.User.ValueString()
+					if !DomainsItem.SimpleLogin.User.IsNull() && !DomainsItem.SimpleLogin.User.IsUnknown() {
+						SimpleLoginMap["user"] = DomainsItem.SimpleLogin.User.ValueString()
 					}
-					itemMap["simple_login"] = simple_loginNestedMap
+					DomainsItemMap["simple_login"] = SimpleLoginMap
 				}
-				domainsList = append(domainsList, itemMap)
+				DomainsList = append(DomainsList, DomainsItemMap)
 			}
-			apiResource.Spec["domains"] = domainsList
+			apiResource.Spec["domains"] = DomainsList
 		}
 	}
 
@@ -663,16 +821,18 @@ func (r *APICrawlerResource) Update(ctx context.Context, req resource.UpdateRequ
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["domains"].([]interface{}); ok && len(listData) > 0 {
-		var domainsList []APICrawlerDomainsModel
+	if !isImport && (data.Domains.IsNull() || len(data.Domains.Elements()) == 0) {
+		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APICrawlerDomainsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["domains"].([]interface{}); ok && len(listData) > 0 {
+		var DomainsList []APICrawlerDomainsModel
 		var existingDomainsItems []APICrawlerDomainsModel
 		if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
 			data.Domains.ElementsAs(ctx, &existingDomainsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				domainsList = append(domainsList, APICrawlerDomainsModel{
+				DomainsList = append(DomainsList, APICrawlerDomainsModel{
 					Domain: func() types.String {
 						if v, ok := itemMap["domain"].(string); ok && v != "" {
 							return types.StringValue(v)
@@ -680,10 +840,61 @@ func (r *APICrawlerResource) Update(ctx context.Context, req resource.UpdateRequ
 						return types.StringNull()
 					}(),
 					SimpleLogin: func() *APICrawlerDomainsSimpleLoginModel {
-						if nestedMap, ok := itemMap["simple_login"].(map[string]interface{}); ok {
+						if SimpleLoginData, ok := itemMap["simple_login"].(map[string]interface{}); ok {
 							return &APICrawlerDomainsSimpleLoginModel{
+								Password: func() *APICrawlerDomainsSimpleLoginPasswordModel {
+									if PasswordData, ok := SimpleLoginData["password"].(map[string]interface{}); ok {
+										return &APICrawlerDomainsSimpleLoginPasswordModel{
+											BlindfoldSecretInfo: func() *APICrawlerDomainsSimpleLoginPasswordBlindfoldSecretInfoModel {
+												if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+													return &APICrawlerDomainsSimpleLoginPasswordBlindfoldSecretInfoModel{
+														DecryptionProvider: func() types.String {
+															if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Location: func() types.String {
+															if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														StoreProvider: func() types.String {
+															if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											ClearSecretInfo: func() *APICrawlerDomainsSimpleLoginPasswordClearSecretInfoModel {
+												if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+													return &APICrawlerDomainsSimpleLoginPasswordClearSecretInfoModel{
+														Provider: func() types.String {
+															if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														URL: func() types.String {
+															if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
 								User: func() types.String {
-									if v, ok := nestedMap["user"].(string); ok && v != "" {
+									if v, ok := SimpleLoginData["user"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -695,13 +906,12 @@ func (r *APICrawlerResource) Update(ctx context.Context, req resource.UpdateRequ
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APICrawlerDomainsModelAttrTypes}, domainsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APICrawlerDomainsModelAttrTypes}, DomainsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APICrawlerDomainsModelAttrTypes})
 	}
 

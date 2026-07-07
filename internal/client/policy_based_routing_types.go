@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// PolicyBasedRouting represents a XCSH PolicyBasedRouting
+// PolicyBasedRouting represents a F5XC PolicyBasedRouting
 type PolicyBasedRouting struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

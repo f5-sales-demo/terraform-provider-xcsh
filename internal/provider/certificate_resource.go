@@ -249,7 +249,7 @@ func (r *CertificateResource) Schema(ctx context.Context, req resource.SchemaReq
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"blindfold_secret_info": schema.SingleNestedBlock{
-						MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+						MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 						Attributes: map[string]schema.Attribute{
 							"decryption_provider": schema.StringAttribute{
 								MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -399,63 +399,61 @@ func (r *CertificateResource) Create(ctx context.Context, req resource.CreateReq
 		createReq.Spec["certificate_url"] = data.CertificateURL.ValueString()
 	}
 	if data.CertificateChain != nil {
-		certificate_chainMap := make(map[string]interface{})
+		CertificateChainMap := make(map[string]interface{})
 		if !data.CertificateChain.Name.IsNull() && !data.CertificateChain.Name.IsUnknown() {
-			certificate_chainMap["name"] = data.CertificateChain.Name.ValueString()
+			CertificateChainMap["name"] = data.CertificateChain.Name.ValueString()
 		}
 		if !data.CertificateChain.Namespace.IsNull() && !data.CertificateChain.Namespace.IsUnknown() {
-			certificate_chainMap["namespace"] = data.CertificateChain.Namespace.ValueString()
+			CertificateChainMap["namespace"] = data.CertificateChain.Namespace.ValueString()
 		}
 		if !data.CertificateChain.Tenant.IsNull() && !data.CertificateChain.Tenant.IsUnknown() {
-			certificate_chainMap["tenant"] = data.CertificateChain.Tenant.ValueString()
+			CertificateChainMap["tenant"] = data.CertificateChain.Tenant.ValueString()
 		}
-		createReq.Spec["certificate_chain"] = certificate_chainMap
+		createReq.Spec["certificate_chain"] = CertificateChainMap
 	}
 	if data.CustomHashAlgorithms != nil {
-		custom_hash_algorithmsMap := make(map[string]interface{})
+		CustomHashAlgorithmsMap := make(map[string]interface{})
 		if !data.CustomHashAlgorithms.HashAlgorithms.IsNull() && !data.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
-			var hash_algorithmsItems []string
-			diags := data.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &hash_algorithmsItems, false)
+			var HashAlgorithmsItems []string
+			diags := data.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 			if !diags.HasError() {
-				custom_hash_algorithmsMap["hash_algorithms"] = hash_algorithmsItems
+				CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 			}
 		}
-		createReq.Spec["custom_hash_algorithms"] = custom_hash_algorithmsMap
+		createReq.Spec["custom_hash_algorithms"] = CustomHashAlgorithmsMap
 	}
 	if data.DisableOCSPStapling != nil {
-		disable_ocsp_staplingMap := make(map[string]interface{})
-		createReq.Spec["disable_ocsp_stapling"] = disable_ocsp_staplingMap
+		createReq.Spec["disable_ocsp_stapling"] = map[string]interface{}{}
 	}
 	if data.PrivateKey != nil {
-		private_keyMap := make(map[string]interface{})
+		PrivateKeyMap := make(map[string]interface{})
 		if data.PrivateKey.BlindfoldSecretInfo != nil {
-			blindfold_secret_infoNestedMap := make(map[string]interface{})
+			BlindfoldSecretInfoMap := make(map[string]interface{})
 			if !data.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-				blindfold_secret_infoNestedMap["decryption_provider"] = data.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				BlindfoldSecretInfoMap["decryption_provider"] = data.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 			}
 			if !data.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !data.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-				blindfold_secret_infoNestedMap["location"] = data.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+				BlindfoldSecretInfoMap["location"] = data.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 			}
 			if !data.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-				blindfold_secret_infoNestedMap["store_provider"] = data.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+				BlindfoldSecretInfoMap["store_provider"] = data.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 			}
-			private_keyMap["blindfold_secret_info"] = blindfold_secret_infoNestedMap
+			PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
 		}
 		if data.PrivateKey.ClearSecretInfo != nil {
-			clear_secret_infoNestedMap := make(map[string]interface{})
+			ClearSecretInfoMap := make(map[string]interface{})
 			if !data.PrivateKey.ClearSecretInfo.Provider.IsNull() && !data.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-				clear_secret_infoNestedMap["provider"] = data.PrivateKey.ClearSecretInfo.Provider.ValueString()
+				ClearSecretInfoMap["provider"] = data.PrivateKey.ClearSecretInfo.Provider.ValueString()
 			}
 			if !data.PrivateKey.ClearSecretInfo.URL.IsNull() && !data.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-				clear_secret_infoNestedMap["url"] = data.PrivateKey.ClearSecretInfo.URL.ValueString()
+				ClearSecretInfoMap["url"] = data.PrivateKey.ClearSecretInfo.URL.ValueString()
 			}
-			private_keyMap["clear_secret_info"] = clear_secret_infoNestedMap
+			PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
 		}
-		createReq.Spec["private_key"] = private_keyMap
+		createReq.Spec["private_key"] = PrivateKeyMap
 	}
 	if data.UseSystemDefaults != nil {
-		use_system_defaultsMap := make(map[string]interface{})
-		createReq.Spec["use_system_defaults"] = use_system_defaultsMap
+		createReq.Spec["use_system_defaults"] = map[string]interface{}{}
 	}
 
 	apiResource, err := r.client.CreateCertificate(ctx, createReq)
@@ -515,20 +513,65 @@ func (r *CertificateResource) Create(ctx context.Context, req resource.CreateReq
 		}
 	}
 	if _, ok := apiResource.Spec["disable_ocsp_stapling"].(map[string]interface{}); ok && isImport && data.DisableOCSPStapling == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableOCSPStapling = &CertificateEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["private_key"].(map[string]interface{}); ok && isImport && data.PrivateKey == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.PrivateKey = &CertificatePrivateKeyModel{}
+	if blockData, ok := apiResource.Spec["private_key"].(map[string]interface{}); ok && (isImport || data.PrivateKey != nil) {
+		data.PrivateKey = &CertificatePrivateKeyModel{
+			BlindfoldSecretInfo: func() *CertificatePrivateKeyBlindfoldSecretInfoModel {
+				if !isImport && data.PrivateKey != nil && data.PrivateKey.BlindfoldSecretInfo != nil {
+					return data.PrivateKey.BlindfoldSecretInfo
+				}
+				if BlindfoldSecretInfoData, ok := blockData["blindfold_secret_info"].(map[string]interface{}); ok {
+					return &CertificatePrivateKeyBlindfoldSecretInfoModel{
+						DecryptionProvider: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Location: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						StoreProvider: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			ClearSecretInfo: func() *CertificatePrivateKeyClearSecretInfoModel {
+				if !isImport && data.PrivateKey != nil && data.PrivateKey.ClearSecretInfo != nil {
+					return data.PrivateKey.ClearSecretInfo
+				}
+				if ClearSecretInfoData, ok := blockData["clear_secret_info"].(map[string]interface{}); ok {
+					return &CertificatePrivateKeyClearSecretInfoModel{
+						Provider: func() types.String {
+							if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						URL: func() types.String {
+							if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["use_system_defaults"].(map[string]interface{}); ok && isImport && data.UseSystemDefaults == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.UseSystemDefaults = &CertificateEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 
 	tflog.Trace(ctx, "created Certificate resource")
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -654,20 +697,73 @@ func (r *CertificateResource) Read(ctx context.Context, req resource.ReadRequest
 		}
 	}
 	if _, ok := apiResource.Spec["disable_ocsp_stapling"].(map[string]interface{}); ok && isImport && data.DisableOCSPStapling == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableOCSPStapling = &CertificateEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["private_key"].(map[string]interface{}); ok && isImport && data.PrivateKey == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.PrivateKey = &CertificatePrivateKeyModel{}
+	if blockData, ok := apiResource.Spec["private_key"].(map[string]interface{}); ok && (isImport || data.PrivateKey != nil) {
+		data.PrivateKey = &CertificatePrivateKeyModel{
+			BlindfoldSecretInfo: func() *CertificatePrivateKeyBlindfoldSecretInfoModel {
+				if !isImport && data.PrivateKey != nil && data.PrivateKey.BlindfoldSecretInfo != nil {
+					return data.PrivateKey.BlindfoldSecretInfo
+				}
+				if BlindfoldSecretInfoData, ok := blockData["blindfold_secret_info"].(map[string]interface{}); ok {
+					return &CertificatePrivateKeyBlindfoldSecretInfoModel{
+						DecryptionProvider: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Location: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						StoreProvider: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			ClearSecretInfo: func() *CertificatePrivateKeyClearSecretInfoModel {
+				if !isImport && data.PrivateKey != nil && data.PrivateKey.ClearSecretInfo != nil {
+					return data.PrivateKey.ClearSecretInfo
+				}
+				if ClearSecretInfoData, ok := blockData["clear_secret_info"].(map[string]interface{}); ok {
+					return &CertificatePrivateKeyClearSecretInfoModel{
+						Provider: func() types.String {
+							if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						URL: func() types.String {
+							if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["use_system_defaults"].(map[string]interface{}); ok && isImport && data.UseSystemDefaults == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.UseSystemDefaults = &CertificateEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
+	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
@@ -723,63 +819,61 @@ func (r *CertificateResource) Update(ctx context.Context, req resource.UpdateReq
 		apiResource.Spec["certificate_url"] = data.CertificateURL.ValueString()
 	}
 	if data.CertificateChain != nil {
-		certificate_chainMap := make(map[string]interface{})
+		CertificateChainMap := make(map[string]interface{})
 		if !data.CertificateChain.Name.IsNull() && !data.CertificateChain.Name.IsUnknown() {
-			certificate_chainMap["name"] = data.CertificateChain.Name.ValueString()
+			CertificateChainMap["name"] = data.CertificateChain.Name.ValueString()
 		}
 		if !data.CertificateChain.Namespace.IsNull() && !data.CertificateChain.Namespace.IsUnknown() {
-			certificate_chainMap["namespace"] = data.CertificateChain.Namespace.ValueString()
+			CertificateChainMap["namespace"] = data.CertificateChain.Namespace.ValueString()
 		}
 		if !data.CertificateChain.Tenant.IsNull() && !data.CertificateChain.Tenant.IsUnknown() {
-			certificate_chainMap["tenant"] = data.CertificateChain.Tenant.ValueString()
+			CertificateChainMap["tenant"] = data.CertificateChain.Tenant.ValueString()
 		}
-		apiResource.Spec["certificate_chain"] = certificate_chainMap
+		apiResource.Spec["certificate_chain"] = CertificateChainMap
 	}
 	if data.CustomHashAlgorithms != nil {
-		custom_hash_algorithmsMap := make(map[string]interface{})
+		CustomHashAlgorithmsMap := make(map[string]interface{})
 		if !data.CustomHashAlgorithms.HashAlgorithms.IsNull() && !data.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
-			var hash_algorithmsItems []string
-			diags := data.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &hash_algorithmsItems, false)
+			var HashAlgorithmsItems []string
+			diags := data.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 			if !diags.HasError() {
-				custom_hash_algorithmsMap["hash_algorithms"] = hash_algorithmsItems
+				CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 			}
 		}
-		apiResource.Spec["custom_hash_algorithms"] = custom_hash_algorithmsMap
+		apiResource.Spec["custom_hash_algorithms"] = CustomHashAlgorithmsMap
 	}
 	if data.DisableOCSPStapling != nil {
-		disable_ocsp_staplingMap := make(map[string]interface{})
-		apiResource.Spec["disable_ocsp_stapling"] = disable_ocsp_staplingMap
+		apiResource.Spec["disable_ocsp_stapling"] = map[string]interface{}{}
 	}
 	if data.PrivateKey != nil {
-		private_keyMap := make(map[string]interface{})
+		PrivateKeyMap := make(map[string]interface{})
 		if data.PrivateKey.BlindfoldSecretInfo != nil {
-			blindfold_secret_infoNestedMap := make(map[string]interface{})
+			BlindfoldSecretInfoMap := make(map[string]interface{})
 			if !data.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-				blindfold_secret_infoNestedMap["decryption_provider"] = data.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				BlindfoldSecretInfoMap["decryption_provider"] = data.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 			}
 			if !data.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !data.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-				blindfold_secret_infoNestedMap["location"] = data.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+				BlindfoldSecretInfoMap["location"] = data.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 			}
 			if !data.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-				blindfold_secret_infoNestedMap["store_provider"] = data.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+				BlindfoldSecretInfoMap["store_provider"] = data.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 			}
-			private_keyMap["blindfold_secret_info"] = blindfold_secret_infoNestedMap
+			PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
 		}
 		if data.PrivateKey.ClearSecretInfo != nil {
-			clear_secret_infoNestedMap := make(map[string]interface{})
+			ClearSecretInfoMap := make(map[string]interface{})
 			if !data.PrivateKey.ClearSecretInfo.Provider.IsNull() && !data.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-				clear_secret_infoNestedMap["provider"] = data.PrivateKey.ClearSecretInfo.Provider.ValueString()
+				ClearSecretInfoMap["provider"] = data.PrivateKey.ClearSecretInfo.Provider.ValueString()
 			}
 			if !data.PrivateKey.ClearSecretInfo.URL.IsNull() && !data.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-				clear_secret_infoNestedMap["url"] = data.PrivateKey.ClearSecretInfo.URL.ValueString()
+				ClearSecretInfoMap["url"] = data.PrivateKey.ClearSecretInfo.URL.ValueString()
 			}
-			private_keyMap["clear_secret_info"] = clear_secret_infoNestedMap
+			PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
 		}
-		apiResource.Spec["private_key"] = private_keyMap
+		apiResource.Spec["private_key"] = PrivateKeyMap
 	}
 	if data.UseSystemDefaults != nil {
-		use_system_defaultsMap := make(map[string]interface{})
-		apiResource.Spec["use_system_defaults"] = use_system_defaultsMap
+		apiResource.Spec["use_system_defaults"] = map[string]interface{}{}
 	}
 
 	_, err := r.client.UpdateCertificate(ctx, apiResource)
@@ -850,20 +944,65 @@ func (r *CertificateResource) Update(ctx context.Context, req resource.UpdateReq
 		}
 	}
 	if _, ok := apiResource.Spec["disable_ocsp_stapling"].(map[string]interface{}); ok && isImport && data.DisableOCSPStapling == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DisableOCSPStapling = &CertificateEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
-	if _, ok := apiResource.Spec["private_key"].(map[string]interface{}); ok && isImport && data.PrivateKey == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.PrivateKey = &CertificatePrivateKeyModel{}
+	if blockData, ok := apiResource.Spec["private_key"].(map[string]interface{}); ok && (isImport || data.PrivateKey != nil) {
+		data.PrivateKey = &CertificatePrivateKeyModel{
+			BlindfoldSecretInfo: func() *CertificatePrivateKeyBlindfoldSecretInfoModel {
+				if !isImport && data.PrivateKey != nil && data.PrivateKey.BlindfoldSecretInfo != nil {
+					return data.PrivateKey.BlindfoldSecretInfo
+				}
+				if BlindfoldSecretInfoData, ok := blockData["blindfold_secret_info"].(map[string]interface{}); ok {
+					return &CertificatePrivateKeyBlindfoldSecretInfoModel{
+						DecryptionProvider: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Location: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						StoreProvider: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			ClearSecretInfo: func() *CertificatePrivateKeyClearSecretInfoModel {
+				if !isImport && data.PrivateKey != nil && data.PrivateKey.ClearSecretInfo != nil {
+					return data.PrivateKey.ClearSecretInfo
+				}
+				if ClearSecretInfoData, ok := blockData["clear_secret_info"].(map[string]interface{}); ok {
+					return &CertificatePrivateKeyClearSecretInfoModel{
+						Provider: func() types.String {
+							if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						URL: func() types.String {
+							if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["use_system_defaults"].(map[string]interface{}); ok && isImport && data.UseSystemDefaults == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.UseSystemDefaults = &CertificateEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }

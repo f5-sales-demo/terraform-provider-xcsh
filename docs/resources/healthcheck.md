@@ -9,7 +9,7 @@ description: |-
 
 Manages a Healthcheck resource in F5 Distributed Cloud for healthcheck object defines method to determine if the given endpoint is healthy. single healthcheck object can be referred to by one or many cluster objects. configuration.
 
-~> **Note** For more information about this resource, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
+~> **Note** Please refer to [Healthcheck API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/virtual/) to learn more.
 
 ## Example Usage
 
@@ -302,6 +302,39 @@ resource "xcsh_healthcheck" "test" {
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
 
+🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
+
+### Minimum Configuration
+
+Required fields:
+
+- `name`
+- `namespace`
+- `interval`
+- `timeout`
+- `healthy_threshold`
+- `unhealthy_threshold`
+
+**Example (API format):**
+
+```yaml
+apiVersion: v1
+kind: healthcheck
+metadata:
+  name: http-health
+  namespace: default
+spec:
+  http_health_check:
+    path: /health
+    use_origin_server_name: {}
+  interval: 15
+  timeout: 3
+  unhealthy_threshold: 1
+  healthy_threshold: 3
+  jitter_percent: 30
+
+```
+
 ### Metadata Argument Reference
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Healthcheck. Must be unique within the namespace
@@ -333,7 +366,7 @@ resource "xcsh_healthcheck" "test" {
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
-<a id="unhealthy-threshold"></a>&#x2022; [`unhealthy_threshold`](#unhealthy-threshold) - Required Number<br>Number of failed responses before declaring unhealthy. In other words, this is the number of unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health checkinggggggg if a host responds with 503 this threshold is ignored and the host is considered unhealthy
+<a id="unhealthy-threshold"></a>&#x2022; [`unhealthy_threshold`](#unhealthy-threshold) - Required Number<br>Number of failed responses before declaring unhealthy. In other words, this is the number of unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health checkingg if a host responds with 503 this threshold is ignored and the host is considered unhealthy
 immediately. Recommended: `1`
 
 ### Attributes Reference
@@ -348,22 +381,22 @@ In addition to all arguments above, the following attributes are exported:
 
 A [`http_health_check`](#http-health-check) block supports the following:
 
-<a id="http-health-check-expected-response"></a>&#x2022; [`expected_response`](#http-health-check-expected-response) - Optional String<br>Raw bytes expected in the response of HTTP health check. Input is to be given in Hex encoded format. If left empty, then response body is not considered for evaluating health check status
+<a id="http-health-check-expected-response"></a>&#x2022; [`expected_response`](#http-health-check-expected-response) - Optional String<br>Raw bytes expected in the response of HTTP health check. Input is to be given in Hex encoded format. If left empty, then response body is not considered for evaluating health check status. Server applies default when omitted
 
-<a id="http-health-check-expected-status-codes"></a>&#x2022; [`expected_status_codes`](#http-health-check-expected-status-codes) - Optional List<br>Specifies a list of HTTP response status codes considered healthy. To treat default HTTP expected status code 200 as healthy, user has to configure it explicitly. This is a list of strings, each of which is single HTTP status code or a range with start
-and end values separated by '-'
+<a id="http-health-check-expected-status-codes"></a>&#x2022; [`expected_status_codes`](#http-health-check-expected-status-codes) - Optional List  Defaults to `[]`<br>Specifies a list of HTTP response status codes considered healthy. To treat default HTTP expected status code 200 as healthy, user has to configure it explicitly. This is a list of strings, each of which is single HTTP status code or
+a range with start and end values separated by '-'.  Server applies default when omitted
 
-<a id="http-health-check-headers"></a>&#x2022; [`headers`](#http-health-check-headers) - Optional Block<br>Specifies a list of HTTP headers that should be added to each request that is sent to the health checked cluster. This is a list of key-value pairs
+<a id="http-health-check-headers"></a>&#x2022; [`headers`](#http-health-check-headers) - Optional Block  Defaults to `map[]`<br>Specifies a list of HTTP headers that should be added to each request that is sent to the health checked cluster. This is a list of key-value pairs.  Server applies default when omitted
 
 <a id="http-health-check-host-header"></a>&#x2022; [`host_header`](#http-health-check-host-header) - Optional String<br>The value of the host header
 
-<a id="http-health-check-path"></a>&#x2022; [`path`](#http-health-check-path) - Optional String<br>Specifies the HTTP path that will be requested during health checkinggggggg
+<a id="http-health-check-path"></a>&#x2022; [`path`](#http-health-check-path) - Optional String<br>Specifies the HTTP path that will be requested during health checkingg. Recommended: `/`
 
-<a id="remove-35d538"></a>&#x2022; [`request_headers_to_remove`](#remove-35d538) - Optional List<br>Specifies a list of HTTP headers that should be removed from each request that is sent to the health checked cluster. This is a list of keys of headers
+<a id="remove-35d538"></a>&#x2022; [`request_headers_to_remove`](#remove-35d538) - Optional List  Defaults to `[]`<br>Specifies a list of HTTP headers that should be removed from each request that is sent to the health checked cluster. This is a list of keys of headers.  Server applies default when omitted
 
-<a id="http-health-check-use-http2"></a>&#x2022; [`use_http2`](#http-health-check-use-http2) - Optional Bool  Defaults to `false`<br>If set, health checks will be made using HTTP/2
+<a id="http-health-check-use-http2"></a>&#x2022; [`use_http2`](#http-health-check-use-http2) - Optional Bool  Defaults to `false`<br>If set, health checks will be made using HTTP/2.   Recommended: `false` ⚙️ **Server Default**
 
-<a id="name-c19d47"></a>&#x2022; [`use_origin_server_name`](#name-c19d47) - Optional Block<br>Enable this option
+<a id="name-c19d47"></a>&#x2022; [`use_origin_server_name`](#name-c19d47) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 #### TCP Health Check
 

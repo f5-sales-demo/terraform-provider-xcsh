@@ -45,6 +45,8 @@ resource "xcsh_fleet" "example" {
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
 
+🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
+
 ### Metadata Argument Reference
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Fleet. Must be unique within the namespace
@@ -146,7 +148,7 @@ network<br>See [Network Firewall](#network-firewall) below for details.
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block
 
-<a id="volterra-software-version"></a>&#x2022; [`volterra_software_version`](#volterra-software-version) - Required String<br>XCSH software version is human readable string matching released set of version components. The given software version is applied to all sites that are member of the fleet. Current software installed can be overridden via site config
+<a id="volterra-software-version"></a>&#x2022; [`volterra_software_version`](#volterra-software-version) - Required String<br>F5XC software version is human readable string matching released set of version components. The given software version is applied to all sites that are member of the fleet. Current software installed can be overridden via site config
 
 ### Attributes Reference
 

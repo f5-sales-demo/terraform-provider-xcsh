@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// CertificateChain represents a XCSH CertificateChain
+// CertificateChain represents a F5XC CertificateChain
 type CertificateChain struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// AppType represents a XCSH AppType
+// AppType represents a F5XC AppType
 type AppType struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

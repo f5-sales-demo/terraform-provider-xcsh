@@ -9,7 +9,7 @@ description: |-
 
 Manages a Certificate resource in F5 Distributed Cloud for certificate. configuration.
 
-~> **Note** For more information about this resource, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
+~> **Note** Please refer to [Certificate API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/certificates/) to learn more.
 
 ## Example Usage
 
@@ -41,6 +41,34 @@ resource "xcsh_certificate" "example" {
 ## Argument Reference
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
+
+🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
+
+### Minimum Configuration
+
+Required fields:
+
+- `name`
+- `namespace`
+- `certificate_url`
+- `private_key`
+
+**Example (API format):**
+
+```yaml
+apiVersion: v1
+kind: certificate
+metadata:
+  name: example-cert
+  namespace: default
+spec:
+  certificate_url: "string:///BASE64_ENCODED_CERTIFICATE"
+  private_key:
+    clear_secret_info:
+      url: "string:///BASE64_ENCODED_PRIVATE_KEY"
+      provider: ""
+
+```
 
 ### Metadata Argument Reference
 
@@ -100,7 +128,7 @@ A [`custom_hash_algorithms`](#custom-hash-algorithms) block supports the followi
 
 A [`private_key`](#private-key) block supports the following:
 
-<a id="private-key-blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#private-key-blindfold-secret-info) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management<br>See [Blindfold Secret Info](#private-key-blindfold-secret-info) below.
+<a id="private-key-blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#private-key-blindfold-secret-info) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#private-key-blindfold-secret-info) below.
 
 <a id="private-key-clear-secret-info"></a>&#x2022; [`clear_secret_info`](#private-key-clear-secret-info) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#private-key-clear-secret-info) below.
 

@@ -418,7 +418,7 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 												Attributes:          map[string]schema.Attribute{},
 												Blocks: map[string]schema.Block{
 													"blindfold_secret_info": schema.SingleNestedBlock{
-														MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+														MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 														Attributes: map[string]schema.Attribute{
 															"decryption_provider": schema.StringAttribute{
 																MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -474,7 +474,7 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 												Attributes:          map[string]schema.Attribute{},
 												Blocks: map[string]schema.Block{
 													"blindfold_secret_info": schema.SingleNestedBlock{
-														MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+														MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 														Attributes: map[string]schema.Attribute{
 															"decryption_provider": schema.StringAttribute{
 																MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -522,7 +522,7 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 												Attributes:          map[string]schema.Attribute{},
 												Blocks: map[string]schema.Block{
 													"blindfold_secret_info": schema.SingleNestedBlock{
-														MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+														MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 														Attributes: map[string]schema.Attribute{
 															"decryption_provider": schema.StringAttribute{
 																MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -589,7 +589,7 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 												Attributes:          map[string]schema.Attribute{},
 												Blocks: map[string]schema.Block{
 													"blindfold_secret_info": schema.SingleNestedBlock{
-														MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+														MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 														Attributes: map[string]schema.Attribute{
 															"decryption_provider": schema.StringAttribute{
 																MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -753,46 +753,188 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
-		var domainsItems []APITestingDomainsModel
-		diags := data.Domains.ElementsAs(ctx, &domainsItems, false)
+		var DomainsElems []APITestingDomainsModel
+		diags := data.Domains.ElementsAs(ctx, &DomainsElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(domainsItems) > 0 {
-			var domainsList []map[string]interface{}
-			for _, item := range domainsItems {
-				itemMap := make(map[string]interface{})
-				if !item.AllowDestructiveMethods.IsNull() && !item.AllowDestructiveMethods.IsUnknown() {
-					itemMap["allow_destructive_methods"] = item.AllowDestructiveMethods.ValueBool()
+		if !resp.Diagnostics.HasError() && len(DomainsElems) > 0 {
+			var DomainsList []map[string]interface{}
+			for _, DomainsItem := range DomainsElems {
+				DomainsItemMap := make(map[string]interface{})
+				if !DomainsItem.AllowDestructiveMethods.IsNull() && !DomainsItem.AllowDestructiveMethods.IsUnknown() {
+					DomainsItemMap["allow_destructive_methods"] = DomainsItem.AllowDestructiveMethods.ValueBool()
 				}
-				if len(item.Credentials) > 0 {
-					var credentialsNestedList []map[string]interface{}
-					for _, nestedItem := range item.Credentials {
-						nestedItemMap := make(map[string]interface{})
-						if !nestedItem.CredentialName.IsNull() && !nestedItem.CredentialName.IsUnknown() {
-							nestedItemMap["credential_name"] = nestedItem.CredentialName.ValueString()
+				if len(DomainsItem.Credentials) > 0 {
+					var CredentialsList []map[string]interface{}
+					for _, CredentialsItem := range DomainsItem.Credentials {
+						CredentialsItemMap := make(map[string]interface{})
+						if CredentialsItem.Admin != nil {
+							CredentialsItemMap["admin"] = map[string]interface{}{}
 						}
-						credentialsNestedList = append(credentialsNestedList, nestedItemMap)
+						if CredentialsItem.APIKey != nil {
+							APIKeyMap := make(map[string]interface{})
+							if !CredentialsItem.APIKey.Key.IsNull() && !CredentialsItem.APIKey.Key.IsUnknown() {
+								APIKeyMap["key"] = CredentialsItem.APIKey.Key.ValueString()
+							}
+							if CredentialsItem.APIKey.Value != nil {
+								ValueMap := make(map[string]interface{})
+								if CredentialsItem.APIKey.Value.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.APIKey.Value.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = CredentialsItem.APIKey.Value.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.APIKey.Value.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									ValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if CredentialsItem.APIKey.Value.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !CredentialsItem.APIKey.Value.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.APIKey.Value.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = CredentialsItem.APIKey.Value.ClearSecretInfo.Provider.ValueString()
+									}
+									if !CredentialsItem.APIKey.Value.ClearSecretInfo.URL.IsNull() && !CredentialsItem.APIKey.Value.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = CredentialsItem.APIKey.Value.ClearSecretInfo.URL.ValueString()
+									}
+									ValueMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								APIKeyMap["value"] = ValueMap
+							}
+							CredentialsItemMap["api_key"] = APIKeyMap
+						}
+						if CredentialsItem.BasicAuth != nil {
+							BasicAuthMap := make(map[string]interface{})
+							if CredentialsItem.BasicAuth.Password != nil {
+								PasswordMap := make(map[string]interface{})
+								if CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if CredentialsItem.BasicAuth.Password.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !CredentialsItem.BasicAuth.Password.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.BasicAuth.Password.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = CredentialsItem.BasicAuth.Password.ClearSecretInfo.Provider.ValueString()
+									}
+									if !CredentialsItem.BasicAuth.Password.ClearSecretInfo.URL.IsNull() && !CredentialsItem.BasicAuth.Password.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = CredentialsItem.BasicAuth.Password.ClearSecretInfo.URL.ValueString()
+									}
+									PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								BasicAuthMap["password"] = PasswordMap
+							}
+							if !CredentialsItem.BasicAuth.User.IsNull() && !CredentialsItem.BasicAuth.User.IsUnknown() {
+								BasicAuthMap["user"] = CredentialsItem.BasicAuth.User.ValueString()
+							}
+							CredentialsItemMap["basic_auth"] = BasicAuthMap
+						}
+						if CredentialsItem.BearerToken != nil {
+							BearerTokenMap := make(map[string]interface{})
+							if CredentialsItem.BearerToken.Token != nil {
+								TokenMap := make(map[string]interface{})
+								if CredentialsItem.BearerToken.Token.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									TokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if CredentialsItem.BearerToken.Token.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !CredentialsItem.BearerToken.Token.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.BearerToken.Token.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = CredentialsItem.BearerToken.Token.ClearSecretInfo.Provider.ValueString()
+									}
+									if !CredentialsItem.BearerToken.Token.ClearSecretInfo.URL.IsNull() && !CredentialsItem.BearerToken.Token.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = CredentialsItem.BearerToken.Token.ClearSecretInfo.URL.ValueString()
+									}
+									TokenMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								BearerTokenMap["token"] = TokenMap
+							}
+							CredentialsItemMap["bearer_token"] = BearerTokenMap
+						}
+						if !CredentialsItem.CredentialName.IsNull() && !CredentialsItem.CredentialName.IsUnknown() {
+							CredentialsItemMap["credential_name"] = CredentialsItem.CredentialName.ValueString()
+						}
+						if CredentialsItem.LoginEndpoint != nil {
+							LoginEndpointMap := make(map[string]interface{})
+							if CredentialsItem.LoginEndpoint.JSONPayload != nil {
+								JSONPayloadMap := make(map[string]interface{})
+								if CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									JSONPayloadMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.Provider.ValueString()
+									}
+									if !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.URL.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.URL.ValueString()
+									}
+									JSONPayloadMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								LoginEndpointMap["json_payload"] = JSONPayloadMap
+							}
+							if !CredentialsItem.LoginEndpoint.Method.IsNull() && !CredentialsItem.LoginEndpoint.Method.IsUnknown() {
+								LoginEndpointMap["method"] = CredentialsItem.LoginEndpoint.Method.ValueString()
+							}
+							if !CredentialsItem.LoginEndpoint.Path.IsNull() && !CredentialsItem.LoginEndpoint.Path.IsUnknown() {
+								LoginEndpointMap["path"] = CredentialsItem.LoginEndpoint.Path.ValueString()
+							}
+							if !CredentialsItem.LoginEndpoint.TokenResponseKey.IsNull() && !CredentialsItem.LoginEndpoint.TokenResponseKey.IsUnknown() {
+								LoginEndpointMap["token_response_key"] = CredentialsItem.LoginEndpoint.TokenResponseKey.ValueString()
+							}
+							CredentialsItemMap["login_endpoint"] = LoginEndpointMap
+						}
+						if CredentialsItem.Standard != nil {
+							CredentialsItemMap["standard"] = map[string]interface{}{}
+						}
+						CredentialsList = append(CredentialsList, CredentialsItemMap)
 					}
-					itemMap["credentials"] = credentialsNestedList
+					DomainsItemMap["credentials"] = CredentialsList
 				}
-				if !item.Domain.IsNull() && !item.Domain.IsUnknown() {
-					itemMap["domain"] = item.Domain.ValueString()
+				if !DomainsItem.Domain.IsNull() && !DomainsItem.Domain.IsUnknown() {
+					DomainsItemMap["domain"] = DomainsItem.Domain.ValueString()
 				}
-				domainsList = append(domainsList, itemMap)
+				DomainsList = append(DomainsList, DomainsItemMap)
 			}
-			createReq.Spec["domains"] = domainsList
+			createReq.Spec["domains"] = DomainsList
 		}
 	}
 	if data.EveryDay != nil {
-		every_dayMap := make(map[string]interface{})
-		createReq.Spec["every_day"] = every_dayMap
+		createReq.Spec["every_day"] = map[string]interface{}{}
 	}
 	if data.EveryMonth != nil {
-		every_monthMap := make(map[string]interface{})
-		createReq.Spec["every_month"] = every_monthMap
+		createReq.Spec["every_month"] = map[string]interface{}{}
 	}
 	if data.EveryWeek != nil {
-		every_weekMap := make(map[string]interface{})
-		createReq.Spec["every_week"] = every_weekMap
+		createReq.Spec["every_week"] = map[string]interface{}{}
 	}
 	if !data.CustomHeaderValue.IsNull() && !data.CustomHeaderValue.IsUnknown() {
 		createReq.Spec["custom_header_value"] = data.CustomHeaderValue.ValueString()
@@ -810,16 +952,18 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["domains"].([]interface{}); ok && len(listData) > 0 {
-		var domainsList []APITestingDomainsModel
+	if !isImport && (data.Domains.IsNull() || len(data.Domains.Elements()) == 0) {
+		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APITestingDomainsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["domains"].([]interface{}); ok && len(listData) > 0 {
+		var DomainsList []APITestingDomainsModel
 		var existingDomainsItems []APITestingDomainsModel
 		if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
 			data.Domains.ElementsAs(ctx, &existingDomainsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				domainsList = append(domainsList, APITestingDomainsModel{
+				DomainsList = append(DomainsList, APITestingDomainsModel{
 					AllowDestructiveMethods: func() types.Bool {
 						if v, ok := itemMap["allow_destructive_methods"].(bool); ok {
 							return types.BoolValue(v)
@@ -827,21 +971,295 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 						return types.BoolNull()
 					}(),
 					Credentials: func() []APITestingDomainsCredentialsModel {
-						if nestedListData, ok := itemMap["credentials"].([]interface{}); ok && len(nestedListData) > 0 {
-							var result []APITestingDomainsCredentialsModel
-							for _, nestedItem := range nestedListData {
-								if nestedItemMap, ok := nestedItem.(map[string]interface{}); ok {
-									result = append(result, APITestingDomainsCredentialsModel{
+						if rawList, ok := itemMap["credentials"].([]interface{}); ok && len(rawList) > 0 {
+							var CredentialsResult []APITestingDomainsCredentialsModel
+							for _, CredentialsItem := range rawList {
+								if CredentialsItemMap, ok := CredentialsItem.(map[string]interface{}); ok {
+									CredentialsResult = append(CredentialsResult, APITestingDomainsCredentialsModel{
+										Admin: func() *APITestingEmptyModel {
+											if _, ok := CredentialsItemMap["admin"].(map[string]interface{}); ok {
+												return &APITestingEmptyModel{}
+											}
+											return nil
+										}(),
+										APIKey: func() *APITestingDomainsCredentialsAPIKeyModel {
+											if APIKeyData, ok := CredentialsItemMap["api_key"].(map[string]interface{}); ok {
+												return &APITestingDomainsCredentialsAPIKeyModel{
+													Key: func() types.String {
+														if v, ok := APIKeyData["key"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													Value: func() *APITestingDomainsCredentialsAPIKeyValueModel {
+														if ValueData, ok := APIKeyData["value"].(map[string]interface{}); ok {
+															return &APITestingDomainsCredentialsAPIKeyValueModel{
+																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsAPIKeyValueBlindfoldSecretInfoModel {
+																	if BlindfoldSecretInfoData, ok := ValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsAPIKeyValueBlindfoldSecretInfoModel{
+																			DecryptionProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Location: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			StoreProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																ClearSecretInfo: func() *APITestingDomainsCredentialsAPIKeyValueClearSecretInfoModel {
+																	if ClearSecretInfoData, ok := ValueData["clear_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsAPIKeyValueClearSecretInfoModel{
+																			Provider: func() types.String {
+																				if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			URL: func() types.String {
+																				if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+															}
+														}
+														return nil
+													}(),
+												}
+											}
+											return nil
+										}(),
+										BasicAuth: func() *APITestingDomainsCredentialsBasicAuthModel {
+											if BasicAuthData, ok := CredentialsItemMap["basic_auth"].(map[string]interface{}); ok {
+												return &APITestingDomainsCredentialsBasicAuthModel{
+													Password: func() *APITestingDomainsCredentialsBasicAuthPasswordModel {
+														if PasswordData, ok := BasicAuthData["password"].(map[string]interface{}); ok {
+															return &APITestingDomainsCredentialsBasicAuthPasswordModel{
+																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsBasicAuthPasswordBlindfoldSecretInfoModel {
+																	if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsBasicAuthPasswordBlindfoldSecretInfoModel{
+																			DecryptionProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Location: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			StoreProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																ClearSecretInfo: func() *APITestingDomainsCredentialsBasicAuthPasswordClearSecretInfoModel {
+																	if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsBasicAuthPasswordClearSecretInfoModel{
+																			Provider: func() types.String {
+																				if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			URL: func() types.String {
+																				if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+															}
+														}
+														return nil
+													}(),
+													User: func() types.String {
+														if v, ok := BasicAuthData["user"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												}
+											}
+											return nil
+										}(),
+										BearerToken: func() *APITestingDomainsCredentialsBearerTokenModel {
+											if BearerTokenData, ok := CredentialsItemMap["bearer_token"].(map[string]interface{}); ok {
+												return &APITestingDomainsCredentialsBearerTokenModel{
+													Token: func() *APITestingDomainsCredentialsBearerTokenTokenModel {
+														if TokenData, ok := BearerTokenData["token"].(map[string]interface{}); ok {
+															return &APITestingDomainsCredentialsBearerTokenTokenModel{
+																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsBearerTokenTokenBlindfoldSecretInfoModel {
+																	if BlindfoldSecretInfoData, ok := TokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsBearerTokenTokenBlindfoldSecretInfoModel{
+																			DecryptionProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Location: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			StoreProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																ClearSecretInfo: func() *APITestingDomainsCredentialsBearerTokenTokenClearSecretInfoModel {
+																	if ClearSecretInfoData, ok := TokenData["clear_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsBearerTokenTokenClearSecretInfoModel{
+																			Provider: func() types.String {
+																				if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			URL: func() types.String {
+																				if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+															}
+														}
+														return nil
+													}(),
+												}
+											}
+											return nil
+										}(),
 										CredentialName: func() types.String {
-											if v, ok := nestedItemMap["credential_name"].(string); ok && v != "" {
+											if v, ok := CredentialsItemMap["credential_name"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
+										LoginEndpoint: func() *APITestingDomainsCredentialsLoginEndpointModel {
+											if LoginEndpointData, ok := CredentialsItemMap["login_endpoint"].(map[string]interface{}); ok {
+												return &APITestingDomainsCredentialsLoginEndpointModel{
+													JSONPayload: func() *APITestingDomainsCredentialsLoginEndpointJSONPayloadModel {
+														if JSONPayloadData, ok := LoginEndpointData["json_payload"].(map[string]interface{}); ok {
+															return &APITestingDomainsCredentialsLoginEndpointJSONPayloadModel{
+																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsLoginEndpointJSONPayloadBlindfoldSecretInfoModel {
+																	if BlindfoldSecretInfoData, ok := JSONPayloadData["blindfold_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsLoginEndpointJSONPayloadBlindfoldSecretInfoModel{
+																			DecryptionProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Location: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			StoreProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																ClearSecretInfo: func() *APITestingDomainsCredentialsLoginEndpointJSONPayloadClearSecretInfoModel {
+																	if ClearSecretInfoData, ok := JSONPayloadData["clear_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsLoginEndpointJSONPayloadClearSecretInfoModel{
+																			Provider: func() types.String {
+																				if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			URL: func() types.String {
+																				if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+															}
+														}
+														return nil
+													}(),
+													Method: func() types.String {
+														if v, ok := LoginEndpointData["method"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													Path: func() types.String {
+														if v, ok := LoginEndpointData["path"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													TokenResponseKey: func() types.String {
+														if v, ok := LoginEndpointData["token_response_key"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												}
+											}
+											return nil
+										}(),
+										Standard: func() *APITestingEmptyModel {
+											if _, ok := CredentialsItemMap["standard"].(map[string]interface{}); ok {
+												return &APITestingEmptyModel{}
+											}
+											return nil
+										}(),
 									})
 								}
 							}
-							return result
+							return CredentialsResult
 						}
 						return nil
 					}(),
@@ -854,30 +1272,23 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APITestingDomainsModelAttrTypes}, domainsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APITestingDomainsModelAttrTypes}, DomainsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APITestingDomainsModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["every_day"].(map[string]interface{}); ok && isImport && data.EveryDay == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.EveryDay = &APITestingEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["every_month"].(map[string]interface{}); ok && isImport && data.EveryMonth == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.EveryMonth = &APITestingEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["every_week"].(map[string]interface{}); ok && isImport && data.EveryWeek == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.EveryWeek = &APITestingEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["custom_header_value"].(string); ok && v != "" {
 		data.CustomHeaderValue = types.StringValue(v)
 	} else {
@@ -963,16 +1374,18 @@ func (r *APITestingResource) Read(ctx context.Context, req resource.ReadRequest,
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["domains"].([]interface{}); ok && len(listData) > 0 {
-		var domainsList []APITestingDomainsModel
+	if !isImport && (data.Domains.IsNull() || len(data.Domains.Elements()) == 0) {
+		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APITestingDomainsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["domains"].([]interface{}); ok && len(listData) > 0 {
+		var DomainsList []APITestingDomainsModel
 		var existingDomainsItems []APITestingDomainsModel
 		if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
 			data.Domains.ElementsAs(ctx, &existingDomainsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				domainsList = append(domainsList, APITestingDomainsModel{
+				DomainsList = append(DomainsList, APITestingDomainsModel{
 					AllowDestructiveMethods: func() types.Bool {
 						if v, ok := itemMap["allow_destructive_methods"].(bool); ok {
 							return types.BoolValue(v)
@@ -980,21 +1393,295 @@ func (r *APITestingResource) Read(ctx context.Context, req resource.ReadRequest,
 						return types.BoolNull()
 					}(),
 					Credentials: func() []APITestingDomainsCredentialsModel {
-						if nestedListData, ok := itemMap["credentials"].([]interface{}); ok && len(nestedListData) > 0 {
-							var result []APITestingDomainsCredentialsModel
-							for _, nestedItem := range nestedListData {
-								if nestedItemMap, ok := nestedItem.(map[string]interface{}); ok {
-									result = append(result, APITestingDomainsCredentialsModel{
+						if rawList, ok := itemMap["credentials"].([]interface{}); ok && len(rawList) > 0 {
+							var CredentialsResult []APITestingDomainsCredentialsModel
+							for _, CredentialsItem := range rawList {
+								if CredentialsItemMap, ok := CredentialsItem.(map[string]interface{}); ok {
+									CredentialsResult = append(CredentialsResult, APITestingDomainsCredentialsModel{
+										Admin: func() *APITestingEmptyModel {
+											if _, ok := CredentialsItemMap["admin"].(map[string]interface{}); ok {
+												return &APITestingEmptyModel{}
+											}
+											return nil
+										}(),
+										APIKey: func() *APITestingDomainsCredentialsAPIKeyModel {
+											if APIKeyData, ok := CredentialsItemMap["api_key"].(map[string]interface{}); ok {
+												return &APITestingDomainsCredentialsAPIKeyModel{
+													Key: func() types.String {
+														if v, ok := APIKeyData["key"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													Value: func() *APITestingDomainsCredentialsAPIKeyValueModel {
+														if ValueData, ok := APIKeyData["value"].(map[string]interface{}); ok {
+															return &APITestingDomainsCredentialsAPIKeyValueModel{
+																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsAPIKeyValueBlindfoldSecretInfoModel {
+																	if BlindfoldSecretInfoData, ok := ValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsAPIKeyValueBlindfoldSecretInfoModel{
+																			DecryptionProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Location: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			StoreProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																ClearSecretInfo: func() *APITestingDomainsCredentialsAPIKeyValueClearSecretInfoModel {
+																	if ClearSecretInfoData, ok := ValueData["clear_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsAPIKeyValueClearSecretInfoModel{
+																			Provider: func() types.String {
+																				if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			URL: func() types.String {
+																				if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+															}
+														}
+														return nil
+													}(),
+												}
+											}
+											return nil
+										}(),
+										BasicAuth: func() *APITestingDomainsCredentialsBasicAuthModel {
+											if BasicAuthData, ok := CredentialsItemMap["basic_auth"].(map[string]interface{}); ok {
+												return &APITestingDomainsCredentialsBasicAuthModel{
+													Password: func() *APITestingDomainsCredentialsBasicAuthPasswordModel {
+														if PasswordData, ok := BasicAuthData["password"].(map[string]interface{}); ok {
+															return &APITestingDomainsCredentialsBasicAuthPasswordModel{
+																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsBasicAuthPasswordBlindfoldSecretInfoModel {
+																	if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsBasicAuthPasswordBlindfoldSecretInfoModel{
+																			DecryptionProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Location: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			StoreProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																ClearSecretInfo: func() *APITestingDomainsCredentialsBasicAuthPasswordClearSecretInfoModel {
+																	if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsBasicAuthPasswordClearSecretInfoModel{
+																			Provider: func() types.String {
+																				if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			URL: func() types.String {
+																				if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+															}
+														}
+														return nil
+													}(),
+													User: func() types.String {
+														if v, ok := BasicAuthData["user"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												}
+											}
+											return nil
+										}(),
+										BearerToken: func() *APITestingDomainsCredentialsBearerTokenModel {
+											if BearerTokenData, ok := CredentialsItemMap["bearer_token"].(map[string]interface{}); ok {
+												return &APITestingDomainsCredentialsBearerTokenModel{
+													Token: func() *APITestingDomainsCredentialsBearerTokenTokenModel {
+														if TokenData, ok := BearerTokenData["token"].(map[string]interface{}); ok {
+															return &APITestingDomainsCredentialsBearerTokenTokenModel{
+																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsBearerTokenTokenBlindfoldSecretInfoModel {
+																	if BlindfoldSecretInfoData, ok := TokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsBearerTokenTokenBlindfoldSecretInfoModel{
+																			DecryptionProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Location: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			StoreProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																ClearSecretInfo: func() *APITestingDomainsCredentialsBearerTokenTokenClearSecretInfoModel {
+																	if ClearSecretInfoData, ok := TokenData["clear_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsBearerTokenTokenClearSecretInfoModel{
+																			Provider: func() types.String {
+																				if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			URL: func() types.String {
+																				if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+															}
+														}
+														return nil
+													}(),
+												}
+											}
+											return nil
+										}(),
 										CredentialName: func() types.String {
-											if v, ok := nestedItemMap["credential_name"].(string); ok && v != "" {
+											if v, ok := CredentialsItemMap["credential_name"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
+										LoginEndpoint: func() *APITestingDomainsCredentialsLoginEndpointModel {
+											if LoginEndpointData, ok := CredentialsItemMap["login_endpoint"].(map[string]interface{}); ok {
+												return &APITestingDomainsCredentialsLoginEndpointModel{
+													JSONPayload: func() *APITestingDomainsCredentialsLoginEndpointJSONPayloadModel {
+														if JSONPayloadData, ok := LoginEndpointData["json_payload"].(map[string]interface{}); ok {
+															return &APITestingDomainsCredentialsLoginEndpointJSONPayloadModel{
+																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsLoginEndpointJSONPayloadBlindfoldSecretInfoModel {
+																	if BlindfoldSecretInfoData, ok := JSONPayloadData["blindfold_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsLoginEndpointJSONPayloadBlindfoldSecretInfoModel{
+																			DecryptionProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Location: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			StoreProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																ClearSecretInfo: func() *APITestingDomainsCredentialsLoginEndpointJSONPayloadClearSecretInfoModel {
+																	if ClearSecretInfoData, ok := JSONPayloadData["clear_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsLoginEndpointJSONPayloadClearSecretInfoModel{
+																			Provider: func() types.String {
+																				if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			URL: func() types.String {
+																				if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+															}
+														}
+														return nil
+													}(),
+													Method: func() types.String {
+														if v, ok := LoginEndpointData["method"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													Path: func() types.String {
+														if v, ok := LoginEndpointData["path"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													TokenResponseKey: func() types.String {
+														if v, ok := LoginEndpointData["token_response_key"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												}
+											}
+											return nil
+										}(),
+										Standard: func() *APITestingEmptyModel {
+											if _, ok := CredentialsItemMap["standard"].(map[string]interface{}); ok {
+												return &APITestingEmptyModel{}
+											}
+											return nil
+										}(),
 									})
 								}
 							}
-							return result
+							return CredentialsResult
 						}
 						return nil
 					}(),
@@ -1007,34 +1694,35 @@ func (r *APITestingResource) Read(ctx context.Context, req resource.ReadRequest,
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APITestingDomainsModelAttrTypes}, domainsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APITestingDomainsModelAttrTypes}, DomainsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APITestingDomainsModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["every_day"].(map[string]interface{}); ok && isImport && data.EveryDay == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.EveryDay = &APITestingEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["every_month"].(map[string]interface{}); ok && isImport && data.EveryMonth == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.EveryMonth = &APITestingEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["every_week"].(map[string]interface{}); ok && isImport && data.EveryWeek == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.EveryWeek = &APITestingEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["custom_header_value"].(string); ok && v != "" {
 		data.CustomHeaderValue = types.StringValue(v)
 	} else {
 		data.CustomHeaderValue = types.StringNull()
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -1088,46 +1776,188 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
-		var domainsItems []APITestingDomainsModel
-		diags := data.Domains.ElementsAs(ctx, &domainsItems, false)
+		var DomainsElems []APITestingDomainsModel
+		diags := data.Domains.ElementsAs(ctx, &DomainsElems, false)
 		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(domainsItems) > 0 {
-			var domainsList []map[string]interface{}
-			for _, item := range domainsItems {
-				itemMap := make(map[string]interface{})
-				if !item.AllowDestructiveMethods.IsNull() && !item.AllowDestructiveMethods.IsUnknown() {
-					itemMap["allow_destructive_methods"] = item.AllowDestructiveMethods.ValueBool()
+		if !resp.Diagnostics.HasError() && len(DomainsElems) > 0 {
+			var DomainsList []map[string]interface{}
+			for _, DomainsItem := range DomainsElems {
+				DomainsItemMap := make(map[string]interface{})
+				if !DomainsItem.AllowDestructiveMethods.IsNull() && !DomainsItem.AllowDestructiveMethods.IsUnknown() {
+					DomainsItemMap["allow_destructive_methods"] = DomainsItem.AllowDestructiveMethods.ValueBool()
 				}
-				if len(item.Credentials) > 0 {
-					var credentialsNestedList []map[string]interface{}
-					for _, nestedItem := range item.Credentials {
-						nestedItemMap := make(map[string]interface{})
-						if !nestedItem.CredentialName.IsNull() && !nestedItem.CredentialName.IsUnknown() {
-							nestedItemMap["credential_name"] = nestedItem.CredentialName.ValueString()
+				if len(DomainsItem.Credentials) > 0 {
+					var CredentialsList []map[string]interface{}
+					for _, CredentialsItem := range DomainsItem.Credentials {
+						CredentialsItemMap := make(map[string]interface{})
+						if CredentialsItem.Admin != nil {
+							CredentialsItemMap["admin"] = map[string]interface{}{}
 						}
-						credentialsNestedList = append(credentialsNestedList, nestedItemMap)
+						if CredentialsItem.APIKey != nil {
+							APIKeyMap := make(map[string]interface{})
+							if !CredentialsItem.APIKey.Key.IsNull() && !CredentialsItem.APIKey.Key.IsUnknown() {
+								APIKeyMap["key"] = CredentialsItem.APIKey.Key.ValueString()
+							}
+							if CredentialsItem.APIKey.Value != nil {
+								ValueMap := make(map[string]interface{})
+								if CredentialsItem.APIKey.Value.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.APIKey.Value.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = CredentialsItem.APIKey.Value.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.APIKey.Value.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									ValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if CredentialsItem.APIKey.Value.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !CredentialsItem.APIKey.Value.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.APIKey.Value.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = CredentialsItem.APIKey.Value.ClearSecretInfo.Provider.ValueString()
+									}
+									if !CredentialsItem.APIKey.Value.ClearSecretInfo.URL.IsNull() && !CredentialsItem.APIKey.Value.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = CredentialsItem.APIKey.Value.ClearSecretInfo.URL.ValueString()
+									}
+									ValueMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								APIKeyMap["value"] = ValueMap
+							}
+							CredentialsItemMap["api_key"] = APIKeyMap
+						}
+						if CredentialsItem.BasicAuth != nil {
+							BasicAuthMap := make(map[string]interface{})
+							if CredentialsItem.BasicAuth.Password != nil {
+								PasswordMap := make(map[string]interface{})
+								if CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if CredentialsItem.BasicAuth.Password.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !CredentialsItem.BasicAuth.Password.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.BasicAuth.Password.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = CredentialsItem.BasicAuth.Password.ClearSecretInfo.Provider.ValueString()
+									}
+									if !CredentialsItem.BasicAuth.Password.ClearSecretInfo.URL.IsNull() && !CredentialsItem.BasicAuth.Password.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = CredentialsItem.BasicAuth.Password.ClearSecretInfo.URL.ValueString()
+									}
+									PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								BasicAuthMap["password"] = PasswordMap
+							}
+							if !CredentialsItem.BasicAuth.User.IsNull() && !CredentialsItem.BasicAuth.User.IsUnknown() {
+								BasicAuthMap["user"] = CredentialsItem.BasicAuth.User.ValueString()
+							}
+							CredentialsItemMap["basic_auth"] = BasicAuthMap
+						}
+						if CredentialsItem.BearerToken != nil {
+							BearerTokenMap := make(map[string]interface{})
+							if CredentialsItem.BearerToken.Token != nil {
+								TokenMap := make(map[string]interface{})
+								if CredentialsItem.BearerToken.Token.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									TokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if CredentialsItem.BearerToken.Token.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !CredentialsItem.BearerToken.Token.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.BearerToken.Token.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = CredentialsItem.BearerToken.Token.ClearSecretInfo.Provider.ValueString()
+									}
+									if !CredentialsItem.BearerToken.Token.ClearSecretInfo.URL.IsNull() && !CredentialsItem.BearerToken.Token.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = CredentialsItem.BearerToken.Token.ClearSecretInfo.URL.ValueString()
+									}
+									TokenMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								BearerTokenMap["token"] = TokenMap
+							}
+							CredentialsItemMap["bearer_token"] = BearerTokenMap
+						}
+						if !CredentialsItem.CredentialName.IsNull() && !CredentialsItem.CredentialName.IsUnknown() {
+							CredentialsItemMap["credential_name"] = CredentialsItem.CredentialName.ValueString()
+						}
+						if CredentialsItem.LoginEndpoint != nil {
+							LoginEndpointMap := make(map[string]interface{})
+							if CredentialsItem.LoginEndpoint.JSONPayload != nil {
+								JSONPayloadMap := make(map[string]interface{})
+								if CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									JSONPayloadMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.Provider.ValueString()
+									}
+									if !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.URL.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.URL.ValueString()
+									}
+									JSONPayloadMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								LoginEndpointMap["json_payload"] = JSONPayloadMap
+							}
+							if !CredentialsItem.LoginEndpoint.Method.IsNull() && !CredentialsItem.LoginEndpoint.Method.IsUnknown() {
+								LoginEndpointMap["method"] = CredentialsItem.LoginEndpoint.Method.ValueString()
+							}
+							if !CredentialsItem.LoginEndpoint.Path.IsNull() && !CredentialsItem.LoginEndpoint.Path.IsUnknown() {
+								LoginEndpointMap["path"] = CredentialsItem.LoginEndpoint.Path.ValueString()
+							}
+							if !CredentialsItem.LoginEndpoint.TokenResponseKey.IsNull() && !CredentialsItem.LoginEndpoint.TokenResponseKey.IsUnknown() {
+								LoginEndpointMap["token_response_key"] = CredentialsItem.LoginEndpoint.TokenResponseKey.ValueString()
+							}
+							CredentialsItemMap["login_endpoint"] = LoginEndpointMap
+						}
+						if CredentialsItem.Standard != nil {
+							CredentialsItemMap["standard"] = map[string]interface{}{}
+						}
+						CredentialsList = append(CredentialsList, CredentialsItemMap)
 					}
-					itemMap["credentials"] = credentialsNestedList
+					DomainsItemMap["credentials"] = CredentialsList
 				}
-				if !item.Domain.IsNull() && !item.Domain.IsUnknown() {
-					itemMap["domain"] = item.Domain.ValueString()
+				if !DomainsItem.Domain.IsNull() && !DomainsItem.Domain.IsUnknown() {
+					DomainsItemMap["domain"] = DomainsItem.Domain.ValueString()
 				}
-				domainsList = append(domainsList, itemMap)
+				DomainsList = append(DomainsList, DomainsItemMap)
 			}
-			apiResource.Spec["domains"] = domainsList
+			apiResource.Spec["domains"] = DomainsList
 		}
 	}
 	if data.EveryDay != nil {
-		every_dayMap := make(map[string]interface{})
-		apiResource.Spec["every_day"] = every_dayMap
+		apiResource.Spec["every_day"] = map[string]interface{}{}
 	}
 	if data.EveryMonth != nil {
-		every_monthMap := make(map[string]interface{})
-		apiResource.Spec["every_month"] = every_monthMap
+		apiResource.Spec["every_month"] = map[string]interface{}{}
 	}
 	if data.EveryWeek != nil {
-		every_weekMap := make(map[string]interface{})
-		apiResource.Spec["every_week"] = every_weekMap
+		apiResource.Spec["every_week"] = map[string]interface{}{}
 	}
 	if !data.CustomHeaderValue.IsNull() && !data.CustomHeaderValue.IsUnknown() {
 		apiResource.Spec["custom_header_value"] = data.CustomHeaderValue.ValueString()
@@ -1156,16 +1986,18 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if listData, ok := apiResource.Spec["domains"].([]interface{}); ok && len(listData) > 0 {
-		var domainsList []APITestingDomainsModel
+	if !isImport && (data.Domains.IsNull() || len(data.Domains.Elements()) == 0) {
+		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APITestingDomainsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["domains"].([]interface{}); ok && len(listData) > 0 {
+		var DomainsList []APITestingDomainsModel
 		var existingDomainsItems []APITestingDomainsModel
 		if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
 			data.Domains.ElementsAs(ctx, &existingDomainsItems, false)
 		}
 		for listIdx, item := range listData {
-			_ = listIdx // May be unused if no empty marker blocks in list item
+			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
-				domainsList = append(domainsList, APITestingDomainsModel{
+				DomainsList = append(DomainsList, APITestingDomainsModel{
 					AllowDestructiveMethods: func() types.Bool {
 						if v, ok := itemMap["allow_destructive_methods"].(bool); ok {
 							return types.BoolValue(v)
@@ -1173,21 +2005,295 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 						return types.BoolNull()
 					}(),
 					Credentials: func() []APITestingDomainsCredentialsModel {
-						if nestedListData, ok := itemMap["credentials"].([]interface{}); ok && len(nestedListData) > 0 {
-							var result []APITestingDomainsCredentialsModel
-							for _, nestedItem := range nestedListData {
-								if nestedItemMap, ok := nestedItem.(map[string]interface{}); ok {
-									result = append(result, APITestingDomainsCredentialsModel{
+						if rawList, ok := itemMap["credentials"].([]interface{}); ok && len(rawList) > 0 {
+							var CredentialsResult []APITestingDomainsCredentialsModel
+							for _, CredentialsItem := range rawList {
+								if CredentialsItemMap, ok := CredentialsItem.(map[string]interface{}); ok {
+									CredentialsResult = append(CredentialsResult, APITestingDomainsCredentialsModel{
+										Admin: func() *APITestingEmptyModel {
+											if _, ok := CredentialsItemMap["admin"].(map[string]interface{}); ok {
+												return &APITestingEmptyModel{}
+											}
+											return nil
+										}(),
+										APIKey: func() *APITestingDomainsCredentialsAPIKeyModel {
+											if APIKeyData, ok := CredentialsItemMap["api_key"].(map[string]interface{}); ok {
+												return &APITestingDomainsCredentialsAPIKeyModel{
+													Key: func() types.String {
+														if v, ok := APIKeyData["key"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													Value: func() *APITestingDomainsCredentialsAPIKeyValueModel {
+														if ValueData, ok := APIKeyData["value"].(map[string]interface{}); ok {
+															return &APITestingDomainsCredentialsAPIKeyValueModel{
+																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsAPIKeyValueBlindfoldSecretInfoModel {
+																	if BlindfoldSecretInfoData, ok := ValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsAPIKeyValueBlindfoldSecretInfoModel{
+																			DecryptionProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Location: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			StoreProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																ClearSecretInfo: func() *APITestingDomainsCredentialsAPIKeyValueClearSecretInfoModel {
+																	if ClearSecretInfoData, ok := ValueData["clear_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsAPIKeyValueClearSecretInfoModel{
+																			Provider: func() types.String {
+																				if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			URL: func() types.String {
+																				if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+															}
+														}
+														return nil
+													}(),
+												}
+											}
+											return nil
+										}(),
+										BasicAuth: func() *APITestingDomainsCredentialsBasicAuthModel {
+											if BasicAuthData, ok := CredentialsItemMap["basic_auth"].(map[string]interface{}); ok {
+												return &APITestingDomainsCredentialsBasicAuthModel{
+													Password: func() *APITestingDomainsCredentialsBasicAuthPasswordModel {
+														if PasswordData, ok := BasicAuthData["password"].(map[string]interface{}); ok {
+															return &APITestingDomainsCredentialsBasicAuthPasswordModel{
+																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsBasicAuthPasswordBlindfoldSecretInfoModel {
+																	if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsBasicAuthPasswordBlindfoldSecretInfoModel{
+																			DecryptionProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Location: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			StoreProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																ClearSecretInfo: func() *APITestingDomainsCredentialsBasicAuthPasswordClearSecretInfoModel {
+																	if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsBasicAuthPasswordClearSecretInfoModel{
+																			Provider: func() types.String {
+																				if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			URL: func() types.String {
+																				if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+															}
+														}
+														return nil
+													}(),
+													User: func() types.String {
+														if v, ok := BasicAuthData["user"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												}
+											}
+											return nil
+										}(),
+										BearerToken: func() *APITestingDomainsCredentialsBearerTokenModel {
+											if BearerTokenData, ok := CredentialsItemMap["bearer_token"].(map[string]interface{}); ok {
+												return &APITestingDomainsCredentialsBearerTokenModel{
+													Token: func() *APITestingDomainsCredentialsBearerTokenTokenModel {
+														if TokenData, ok := BearerTokenData["token"].(map[string]interface{}); ok {
+															return &APITestingDomainsCredentialsBearerTokenTokenModel{
+																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsBearerTokenTokenBlindfoldSecretInfoModel {
+																	if BlindfoldSecretInfoData, ok := TokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsBearerTokenTokenBlindfoldSecretInfoModel{
+																			DecryptionProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Location: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			StoreProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																ClearSecretInfo: func() *APITestingDomainsCredentialsBearerTokenTokenClearSecretInfoModel {
+																	if ClearSecretInfoData, ok := TokenData["clear_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsBearerTokenTokenClearSecretInfoModel{
+																			Provider: func() types.String {
+																				if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			URL: func() types.String {
+																				if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+															}
+														}
+														return nil
+													}(),
+												}
+											}
+											return nil
+										}(),
 										CredentialName: func() types.String {
-											if v, ok := nestedItemMap["credential_name"].(string); ok && v != "" {
+											if v, ok := CredentialsItemMap["credential_name"].(string); ok && v != "" {
 												return types.StringValue(v)
 											}
 											return types.StringNull()
 										}(),
+										LoginEndpoint: func() *APITestingDomainsCredentialsLoginEndpointModel {
+											if LoginEndpointData, ok := CredentialsItemMap["login_endpoint"].(map[string]interface{}); ok {
+												return &APITestingDomainsCredentialsLoginEndpointModel{
+													JSONPayload: func() *APITestingDomainsCredentialsLoginEndpointJSONPayloadModel {
+														if JSONPayloadData, ok := LoginEndpointData["json_payload"].(map[string]interface{}); ok {
+															return &APITestingDomainsCredentialsLoginEndpointJSONPayloadModel{
+																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsLoginEndpointJSONPayloadBlindfoldSecretInfoModel {
+																	if BlindfoldSecretInfoData, ok := JSONPayloadData["blindfold_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsLoginEndpointJSONPayloadBlindfoldSecretInfoModel{
+																			DecryptionProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Location: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			StoreProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																ClearSecretInfo: func() *APITestingDomainsCredentialsLoginEndpointJSONPayloadClearSecretInfoModel {
+																	if ClearSecretInfoData, ok := JSONPayloadData["clear_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsLoginEndpointJSONPayloadClearSecretInfoModel{
+																			Provider: func() types.String {
+																				if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			URL: func() types.String {
+																				if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+															}
+														}
+														return nil
+													}(),
+													Method: func() types.String {
+														if v, ok := LoginEndpointData["method"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													Path: func() types.String {
+														if v, ok := LoginEndpointData["path"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													TokenResponseKey: func() types.String {
+														if v, ok := LoginEndpointData["token_response_key"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												}
+											}
+											return nil
+										}(),
+										Standard: func() *APITestingEmptyModel {
+											if _, ok := CredentialsItemMap["standard"].(map[string]interface{}); ok {
+												return &APITestingEmptyModel{}
+											}
+											return nil
+										}(),
 									})
 								}
 							}
-							return result
+							return CredentialsResult
 						}
 						return nil
 					}(),
@@ -1200,30 +2306,23 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 				})
 			}
 		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APITestingDomainsModelAttrTypes}, domainsList)
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APITestingDomainsModelAttrTypes}, DomainsList)
 		resp.Diagnostics.Append(diags...)
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
 	} else {
-		// No data from API - set to null list
 		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APITestingDomainsModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["every_day"].(map[string]interface{}); ok && isImport && data.EveryDay == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.EveryDay = &APITestingEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["every_month"].(map[string]interface{}); ok && isImport && data.EveryMonth == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.EveryMonth = &APITestingEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["every_week"].(map[string]interface{}); ok && isImport && data.EveryWeek == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.EveryWeek = &APITestingEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if v, ok := apiResource.Spec["custom_header_value"].(string); ok && v != "" {
 		data.CustomHeaderValue = types.StringValue(v)
 	} else {

@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// NetworkFirewall represents a XCSH NetworkFirewall
+// NetworkFirewall represents a F5XC NetworkFirewall
 type NetworkFirewall struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

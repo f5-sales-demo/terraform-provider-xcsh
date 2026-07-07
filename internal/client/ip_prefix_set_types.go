@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// IPPrefixSet represents a XCSH IPPrefixSet
+// IPPrefixSet represents a F5XC IPPrefixSet
 type IPPrefixSet struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

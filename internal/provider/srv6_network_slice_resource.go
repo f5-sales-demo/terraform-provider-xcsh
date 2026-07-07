@@ -244,10 +244,10 @@ func (r *Srv6NetworkSliceResource) Create(ctx context.Context, req resource.Crea
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.SidPrefixes.IsNull() && !data.SidPrefixes.IsUnknown() {
-		var sid_prefixesList []string
-		resp.Diagnostics.Append(data.SidPrefixes.ElementsAs(ctx, &sid_prefixesList, false)...)
-		if !resp.Diagnostics.HasError() {
-			createReq.Spec["sid_prefixes"] = sid_prefixesList
+		var SidPrefixesItems []string
+		diags := data.SidPrefixes.ElementsAs(ctx, &SidPrefixesItems, false)
+		if !diags.HasError() {
+			createReq.Spec["sid_prefixes"] = SidPrefixesItems
 		}
 	}
 	if !data.ConnectToAccessNetworks.IsNull() && !data.ConnectToAccessNetworks.IsUnknown() {
@@ -413,6 +413,14 @@ func (r *Srv6NetworkSliceResource) Read(ctx context.Context, req resource.ReadRe
 		data.ConnectToInternet = types.BoolNull()
 	}
 
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
+	}
+
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
 
@@ -464,10 +472,10 @@ func (r *Srv6NetworkSliceResource) Update(ctx context.Context, req resource.Upda
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.SidPrefixes.IsNull() && !data.SidPrefixes.IsUnknown() {
-		var sid_prefixesList []string
-		resp.Diagnostics.Append(data.SidPrefixes.ElementsAs(ctx, &sid_prefixesList, false)...)
-		if !resp.Diagnostics.HasError() {
-			apiResource.Spec["sid_prefixes"] = sid_prefixesList
+		var SidPrefixesItems []string
+		diags := data.SidPrefixes.ElementsAs(ctx, &SidPrefixesItems, false)
+		if !diags.HasError() {
+			apiResource.Spec["sid_prefixes"] = SidPrefixesItems
 		}
 	}
 	if !data.ConnectToAccessNetworks.IsNull() && !data.ConnectToAccessNetworks.IsUnknown() {

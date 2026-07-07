@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-// AppSetting represents a XCSH AppSetting
+// AppSetting represents a F5XC AppSetting
 type AppSetting struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`

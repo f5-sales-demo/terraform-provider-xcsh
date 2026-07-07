@@ -229,10 +229,10 @@ func (r *BGPAsnSetResource) Create(ctx context.Context, req resource.CreateReque
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.AsNumbers.IsNull() && !data.AsNumbers.IsUnknown() {
-		var as_numbersList []int64
-		resp.Diagnostics.Append(data.AsNumbers.ElementsAs(ctx, &as_numbersList, false)...)
-		if !resp.Diagnostics.HasError() {
-			createReq.Spec["as_numbers"] = as_numbersList
+		var AsNumbersItems []int64
+		diags := data.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+		if !diags.HasError() {
+			createReq.Spec["as_numbers"] = AsNumbersItems
 		}
 	}
 
@@ -251,8 +251,8 @@ func (r *BGPAsnSetResource) Create(ctx context.Context, req resource.CreateReque
 	if v, ok := apiResource.Spec["as_numbers"].([]interface{}); ok && len(v) > 0 {
 		var as_numbersList []int64
 		for _, item := range v {
-			if n, ok := item.(float64); ok {
-				as_numbersList = append(as_numbersList, int64(n))
+			if s, ok := item.(float64); ok {
+				as_numbersList = append(as_numbersList, int64(s))
 			}
 		}
 		listVal, diags := types.ListValueFrom(ctx, types.Int64Type, as_numbersList)
@@ -346,8 +346,8 @@ func (r *BGPAsnSetResource) Read(ctx context.Context, req resource.ReadRequest, 
 	if v, ok := apiResource.Spec["as_numbers"].([]interface{}); ok && len(v) > 0 {
 		var as_numbersList []int64
 		for _, item := range v {
-			if n, ok := item.(float64); ok {
-				as_numbersList = append(as_numbersList, int64(n))
+			if s, ok := item.(float64); ok {
+				as_numbersList = append(as_numbersList, int64(s))
 			}
 		}
 		listVal, diags := types.ListValueFrom(ctx, types.Int64Type, as_numbersList)
@@ -357,6 +357,14 @@ func (r *BGPAsnSetResource) Read(ctx context.Context, req resource.ReadRequest, 
 		}
 	} else {
 		data.AsNumbers = types.ListNull(types.Int64Type)
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -410,10 +418,10 @@ func (r *BGPAsnSetResource) Update(ctx context.Context, req resource.UpdateReque
 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.AsNumbers.IsNull() && !data.AsNumbers.IsUnknown() {
-		var as_numbersList []int64
-		resp.Diagnostics.Append(data.AsNumbers.ElementsAs(ctx, &as_numbersList, false)...)
-		if !resp.Diagnostics.HasError() {
-			apiResource.Spec["as_numbers"] = as_numbersList
+		var AsNumbersItems []int64
+		diags := data.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+		if !diags.HasError() {
+			apiResource.Spec["as_numbers"] = AsNumbersItems
 		}
 	}
 
@@ -443,8 +451,8 @@ func (r *BGPAsnSetResource) Update(ctx context.Context, req resource.UpdateReque
 	if v, ok := apiResource.Spec["as_numbers"].([]interface{}); ok && len(v) > 0 {
 		var as_numbersList []int64
 		for _, item := range v {
-			if n, ok := item.(float64); ok {
-				as_numbersList = append(as_numbersList, int64(n))
+			if s, ok := item.(float64); ok {
+				as_numbersList = append(as_numbersList, int64(s))
 			}
 		}
 		listVal, diags := types.ListValueFrom(ctx, types.Int64Type, as_numbersList)

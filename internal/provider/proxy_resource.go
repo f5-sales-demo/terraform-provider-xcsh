@@ -49,7 +49,7 @@ type ProxyEmptyModel struct {
 
 // ProxyActiveForwardProxyPoliciesModel represents active_forward_proxy_policies block
 type ProxyActiveForwardProxyPoliciesModel struct {
-	ForwardProxyPolicies []ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel `tfsdk:"forward_proxy_policies"`
+	ForwardProxyPolicies types.List `tfsdk:"forward_proxy_policies"`
 }
 
 // ProxyActiveForwardProxyPoliciesModelAttrTypes defines the attribute types for ProxyActiveForwardProxyPoliciesModel
@@ -1289,7 +1289,7 @@ var ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModelA
 
 // ProxySiteVirtualSitesModel represents site_virtual_sites block
 type ProxySiteVirtualSitesModel struct {
-	AdvertiseWhere []ProxySiteVirtualSitesAdvertiseWhereModel `tfsdk:"advertise_where"`
+	AdvertiseWhere types.List `tfsdk:"advertise_where"`
 }
 
 // ProxySiteVirtualSitesModelAttrTypes defines the attribute types for ProxySiteVirtualSitesModel
@@ -1652,7 +1652,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								MarkdownDescription: "Defines various OPTIONS to define a route.",
 								Attributes: map[string]schema.Attribute{
 									"disable_default_error_pages": schema.BoolAttribute{
-										MarkdownDescription: "Disable the use of default XCSH error pages.",
+										MarkdownDescription: "Disable the use of default F5XC error pages.",
 										Optional:            true,
 									},
 									"idle_timeout": schema.Int64Attribute{
@@ -1780,7 +1780,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
-															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1849,7 +1849,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
-															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1988,7 +1988,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
-															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2057,7 +2057,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
-															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2109,7 +2109,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								MarkdownDescription: "Defines various OPTIONS to define a route.",
 								Attributes: map[string]schema.Attribute{
 									"disable_default_error_pages": schema.BoolAttribute{
-										MarkdownDescription: "Disable the use of default XCSH error pages.",
+										MarkdownDescription: "Disable the use of default F5XC error pages.",
 										Optional:            true,
 									},
 									"idle_timeout": schema.Int64Attribute{
@@ -2237,7 +2237,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
-															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2306,7 +2306,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
-															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2445,7 +2445,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
-															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2514,7 +2514,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
-															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2601,7 +2601,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
-															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2811,7 +2811,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						MarkdownDescription: "Defines various OPTIONS to define a route.",
 						Attributes: map[string]schema.Attribute{
 							"disable_default_error_pages": schema.BoolAttribute{
-								MarkdownDescription: "Disable the use of default XCSH error pages.",
+								MarkdownDescription: "Disable the use of default F5XC error pages.",
 								Optional:            true,
 							},
 							"idle_timeout": schema.Int64Attribute{
@@ -2939,7 +2939,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
-													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 													Attributes: map[string]schema.Attribute{
 														"decryption_provider": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -3008,7 +3008,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
-													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 													Attributes: map[string]schema.Attribute{
 														"decryption_provider": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -3147,7 +3147,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
-													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 													Attributes: map[string]schema.Attribute{
 														"decryption_provider": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -3216,7 +3216,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
-													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 													Attributes: map[string]schema.Attribute{
 														"decryption_provider": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -3446,7 +3446,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
-										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by XCSH Secret Management.",
+										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 										Attributes: map[string]schema.Attribute{
 											"decryption_provider": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -3652,165 +3652,1356 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.ActiveForwardProxyPolicies != nil {
-		active_forward_proxy_policiesMap := make(map[string]interface{})
-		if len(data.ActiveForwardProxyPolicies.ForwardProxyPolicies) > 0 {
-			var forward_proxy_policiesList []map[string]interface{}
-			for _, listItem := range data.ActiveForwardProxyPolicies.ForwardProxyPolicies {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
+		ActiveForwardProxyPoliciesMap := make(map[string]interface{})
+		if !data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
+			var ForwardProxyPoliciesElems []ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel
+			diags := data.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(ForwardProxyPoliciesElems) > 0 {
+				var ForwardProxyPoliciesList []map[string]interface{}
+				for _, ForwardProxyPoliciesItem := range ForwardProxyPoliciesElems {
+					ForwardProxyPoliciesItemMap := make(map[string]interface{})
+					if !ForwardProxyPoliciesItem.Name.IsNull() && !ForwardProxyPoliciesItem.Name.IsUnknown() {
+						ForwardProxyPoliciesItemMap["name"] = ForwardProxyPoliciesItem.Name.ValueString()
+					}
+					if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
+						ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
+					}
+					if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
+						ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
+					}
+					ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				forward_proxy_policiesList = append(forward_proxy_policiesList, listItemMap)
+				ActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
 			}
-			active_forward_proxy_policiesMap["forward_proxy_policies"] = forward_proxy_policiesList
 		}
-		createReq.Spec["active_forward_proxy_policies"] = active_forward_proxy_policiesMap
+		createReq.Spec["active_forward_proxy_policies"] = ActiveForwardProxyPoliciesMap
 	}
 	if data.DoNotAdvertise != nil {
-		do_not_advertiseMap := make(map[string]interface{})
-		createReq.Spec["do_not_advertise"] = do_not_advertiseMap
+		createReq.Spec["do_not_advertise"] = map[string]interface{}{}
 	}
 	if data.DynamicProxy != nil {
-		dynamic_proxyMap := make(map[string]interface{})
+		DynamicProxyMap := make(map[string]interface{})
 		if data.DynamicProxy.DisableDNSMasquerade != nil {
-			dynamic_proxyMap["disable_dns_masquerade"] = map[string]interface{}{}
+			DynamicProxyMap["disable_dns_masquerade"] = map[string]interface{}{}
 		}
 		if !data.DynamicProxy.Domains.IsNull() && !data.DynamicProxy.Domains.IsUnknown() {
-			var domainsItems []string
-			diags := data.DynamicProxy.Domains.ElementsAs(ctx, &domainsItems, false)
+			var DomainsItems []string
+			diags := data.DynamicProxy.Domains.ElementsAs(ctx, &DomainsItems, false)
 			if !diags.HasError() {
-				dynamic_proxyMap["domains"] = domainsItems
+				DynamicProxyMap["domains"] = DomainsItems
 			}
 		}
 		if data.DynamicProxy.EnableDNSMasquerade != nil {
-			dynamic_proxyMap["enable_dns_masquerade"] = map[string]interface{}{}
+			DynamicProxyMap["enable_dns_masquerade"] = map[string]interface{}{}
 		}
 		if data.DynamicProxy.HTTPProxy != nil {
-			http_proxyNestedMap := make(map[string]interface{})
-			dynamic_proxyMap["http_proxy"] = http_proxyNestedMap
+			HTTPProxyMap := make(map[string]interface{})
+			if data.DynamicProxy.HTTPProxy.MoreOption != nil {
+				MoreOptionMap := make(map[string]interface{})
+				if data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy != nil {
+					BufferPolicyMap := make(map[string]interface{})
+					if !data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.Disabled.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.Disabled.IsUnknown() {
+						BufferPolicyMap["disabled"] = data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.Disabled.ValueBool()
+					}
+					if !data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes.IsUnknown() {
+						BufferPolicyMap["max_request_bytes"] = data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes.ValueInt64()
+					}
+					MoreOptionMap["buffer_policy"] = BufferPolicyMap
+				}
+				if data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams != nil {
+					CompressionParamsMap := make(map[string]interface{})
+					if !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentLength.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentLength.IsUnknown() {
+						CompressionParamsMap["content_length"] = data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentLength.ValueInt64()
+					}
+					if !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentType.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentType.IsUnknown() {
+						var ContentTypeItems []string
+						diags := data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentType.ElementsAs(ctx, &ContentTypeItems, false)
+						if !diags.HasError() {
+							CompressionParamsMap["content_type"] = ContentTypeItems
+						}
+					}
+					if !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader.IsUnknown() {
+						CompressionParamsMap["disable_on_etag_header"] = data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader.ValueBool()
+					}
+					if !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.IsUnknown() {
+						CompressionParamsMap["remove_accept_encoding_header"] = data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.ValueBool()
+					}
+					MoreOptionMap["compression_params"] = CompressionParamsMap
+				}
+				if data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors != nil {
+					MoreOptionMap["custom_errors"] = map[string]interface{}{}
+				}
+				if !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
+					MoreOptionMap["disable_default_error_pages"] = data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.ValueBool()
+				}
+				if data.DynamicProxy.HTTPProxy.MoreOption.DisablePathNormalize != nil {
+					MoreOptionMap["disable_path_normalize"] = map[string]interface{}{}
+				}
+				if data.DynamicProxy.HTTPProxy.MoreOption.EnablePathNormalize != nil {
+					MoreOptionMap["enable_path_normalize"] = map[string]interface{}{}
+				}
+				if !data.DynamicProxy.HTTPProxy.MoreOption.IdleTimeout.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.IdleTimeout.IsUnknown() {
+					MoreOptionMap["idle_timeout"] = data.DynamicProxy.HTTPProxy.MoreOption.IdleTimeout.ValueInt64()
+				}
+				if !data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestHeaderSize.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestHeaderSize.IsUnknown() {
+					MoreOptionMap["max_request_header_size"] = data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestHeaderSize.ValueInt64()
+				}
+				if !data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestsPerConnection.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestsPerConnection.IsUnknown() {
+					MoreOptionMap["max_requests_per_connection"] = data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestsPerConnection.ValueInt64()
+				}
+				if data.DynamicProxy.HTTPProxy.MoreOption.NoRequestLimitPerConnection != nil {
+					MoreOptionMap["no_request_limit_per_connection"] = map[string]interface{}{}
+				}
+				if len(data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd) > 0 {
+					var RequestCookiesToAddList []map[string]interface{}
+					for _, RequestCookiesToAddItem := range data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd {
+						RequestCookiesToAddItemMap := make(map[string]interface{})
+						if !RequestCookiesToAddItem.Name.IsNull() && !RequestCookiesToAddItem.Name.IsUnknown() {
+							RequestCookiesToAddItemMap["name"] = RequestCookiesToAddItem.Name.ValueString()
+						}
+						if !RequestCookiesToAddItem.Overwrite.IsNull() && !RequestCookiesToAddItem.Overwrite.IsUnknown() {
+							RequestCookiesToAddItemMap["overwrite"] = RequestCookiesToAddItem.Overwrite.ValueBool()
+						}
+						if RequestCookiesToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if RequestCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							RequestCookiesToAddItemMap["secret_value"] = SecretValueMap
+						}
+						if !RequestCookiesToAddItem.Value.IsNull() && !RequestCookiesToAddItem.Value.IsUnknown() {
+							RequestCookiesToAddItemMap["value"] = RequestCookiesToAddItem.Value.ValueString()
+						}
+						RequestCookiesToAddList = append(RequestCookiesToAddList, RequestCookiesToAddItemMap)
+					}
+					MoreOptionMap["request_cookies_to_add"] = RequestCookiesToAddList
+				}
+				if !data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToRemove.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToRemove.IsUnknown() {
+					var RequestCookiesToRemoveItems []string
+					diags := data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+					if !diags.HasError() {
+						MoreOptionMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
+					}
+				}
+				if len(data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToAdd) > 0 {
+					var RequestHeadersToAddList []map[string]interface{}
+					for _, RequestHeadersToAddItem := range data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToAdd {
+						RequestHeadersToAddItemMap := make(map[string]interface{})
+						if !RequestHeadersToAddItem.Append.IsNull() && !RequestHeadersToAddItem.Append.IsUnknown() {
+							RequestHeadersToAddItemMap["append"] = RequestHeadersToAddItem.Append.ValueBool()
+						}
+						if !RequestHeadersToAddItem.Name.IsNull() && !RequestHeadersToAddItem.Name.IsUnknown() {
+							RequestHeadersToAddItemMap["name"] = RequestHeadersToAddItem.Name.ValueString()
+						}
+						if RequestHeadersToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if RequestHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							RequestHeadersToAddItemMap["secret_value"] = SecretValueMap
+						}
+						if !RequestHeadersToAddItem.Value.IsNull() && !RequestHeadersToAddItem.Value.IsUnknown() {
+							RequestHeadersToAddItemMap["value"] = RequestHeadersToAddItem.Value.ValueString()
+						}
+						RequestHeadersToAddList = append(RequestHeadersToAddList, RequestHeadersToAddItemMap)
+					}
+					MoreOptionMap["request_headers_to_add"] = RequestHeadersToAddList
+				}
+				if !data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToRemove.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToRemove.IsUnknown() {
+					var RequestHeadersToRemoveItems []string
+					diags := data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+					if !diags.HasError() {
+						MoreOptionMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
+					}
+				}
+				if len(data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToAdd) > 0 {
+					var ResponseCookiesToAddList []map[string]interface{}
+					for _, ResponseCookiesToAddItem := range data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToAdd {
+						ResponseCookiesToAddItemMap := make(map[string]interface{})
+						if !ResponseCookiesToAddItem.AddDomain.IsNull() && !ResponseCookiesToAddItem.AddDomain.IsUnknown() {
+							ResponseCookiesToAddItemMap["add_domain"] = ResponseCookiesToAddItem.AddDomain.ValueString()
+						}
+						if !ResponseCookiesToAddItem.AddExpiry.IsNull() && !ResponseCookiesToAddItem.AddExpiry.IsUnknown() {
+							ResponseCookiesToAddItemMap["add_expiry"] = ResponseCookiesToAddItem.AddExpiry.ValueString()
+						}
+						if ResponseCookiesToAddItem.AddHttponly != nil {
+							ResponseCookiesToAddItemMap["add_httponly"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.AddPartitioned != nil {
+							ResponseCookiesToAddItemMap["add_partitioned"] = map[string]interface{}{}
+						}
+						if !ResponseCookiesToAddItem.AddPath.IsNull() && !ResponseCookiesToAddItem.AddPath.IsUnknown() {
+							ResponseCookiesToAddItemMap["add_path"] = ResponseCookiesToAddItem.AddPath.ValueString()
+						}
+						if ResponseCookiesToAddItem.AddSecure != nil {
+							ResponseCookiesToAddItemMap["add_secure"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreDomain != nil {
+							ResponseCookiesToAddItemMap["ignore_domain"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreExpiry != nil {
+							ResponseCookiesToAddItemMap["ignore_expiry"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreHttponly != nil {
+							ResponseCookiesToAddItemMap["ignore_httponly"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreMaxAge != nil {
+							ResponseCookiesToAddItemMap["ignore_max_age"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnorePartitioned != nil {
+							ResponseCookiesToAddItemMap["ignore_partitioned"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnorePath != nil {
+							ResponseCookiesToAddItemMap["ignore_path"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreSamesite != nil {
+							ResponseCookiesToAddItemMap["ignore_samesite"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreSecure != nil {
+							ResponseCookiesToAddItemMap["ignore_secure"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreValue != nil {
+							ResponseCookiesToAddItemMap["ignore_value"] = map[string]interface{}{}
+						}
+						if !ResponseCookiesToAddItem.MaxAgeValue.IsNull() && !ResponseCookiesToAddItem.MaxAgeValue.IsUnknown() {
+							ResponseCookiesToAddItemMap["max_age_value"] = ResponseCookiesToAddItem.MaxAgeValue.ValueInt64()
+						}
+						if !ResponseCookiesToAddItem.Name.IsNull() && !ResponseCookiesToAddItem.Name.IsUnknown() {
+							ResponseCookiesToAddItemMap["name"] = ResponseCookiesToAddItem.Name.ValueString()
+						}
+						if !ResponseCookiesToAddItem.Overwrite.IsNull() && !ResponseCookiesToAddItem.Overwrite.IsUnknown() {
+							ResponseCookiesToAddItemMap["overwrite"] = ResponseCookiesToAddItem.Overwrite.ValueBool()
+						}
+						if ResponseCookiesToAddItem.SamesiteLax != nil {
+							ResponseCookiesToAddItemMap["samesite_lax"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.SamesiteNone != nil {
+							ResponseCookiesToAddItemMap["samesite_none"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.SamesiteStrict != nil {
+							ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if ResponseCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							ResponseCookiesToAddItemMap["secret_value"] = SecretValueMap
+						}
+						if !ResponseCookiesToAddItem.Value.IsNull() && !ResponseCookiesToAddItem.Value.IsUnknown() {
+							ResponseCookiesToAddItemMap["value"] = ResponseCookiesToAddItem.Value.ValueString()
+						}
+						ResponseCookiesToAddList = append(ResponseCookiesToAddList, ResponseCookiesToAddItemMap)
+					}
+					MoreOptionMap["response_cookies_to_add"] = ResponseCookiesToAddList
+				}
+				if !data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToRemove.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToRemove.IsUnknown() {
+					var ResponseCookiesToRemoveItems []string
+					diags := data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+					if !diags.HasError() {
+						MoreOptionMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
+					}
+				}
+				if len(data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToAdd) > 0 {
+					var ResponseHeadersToAddList []map[string]interface{}
+					for _, ResponseHeadersToAddItem := range data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToAdd {
+						ResponseHeadersToAddItemMap := make(map[string]interface{})
+						if !ResponseHeadersToAddItem.Append.IsNull() && !ResponseHeadersToAddItem.Append.IsUnknown() {
+							ResponseHeadersToAddItemMap["append"] = ResponseHeadersToAddItem.Append.ValueBool()
+						}
+						if !ResponseHeadersToAddItem.Name.IsNull() && !ResponseHeadersToAddItem.Name.IsUnknown() {
+							ResponseHeadersToAddItemMap["name"] = ResponseHeadersToAddItem.Name.ValueString()
+						}
+						if ResponseHeadersToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if ResponseHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							ResponseHeadersToAddItemMap["secret_value"] = SecretValueMap
+						}
+						if !ResponseHeadersToAddItem.Value.IsNull() && !ResponseHeadersToAddItem.Value.IsUnknown() {
+							ResponseHeadersToAddItemMap["value"] = ResponseHeadersToAddItem.Value.ValueString()
+						}
+						ResponseHeadersToAddList = append(ResponseHeadersToAddList, ResponseHeadersToAddItemMap)
+					}
+					MoreOptionMap["response_headers_to_add"] = ResponseHeadersToAddList
+				}
+				if !data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToRemove.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToRemove.IsUnknown() {
+					var ResponseHeadersToRemoveItems []string
+					diags := data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+					if !diags.HasError() {
+						MoreOptionMap["response_headers_to_remove"] = ResponseHeadersToRemoveItems
+					}
+				}
+				HTTPProxyMap["more_option"] = MoreOptionMap
+			}
+			DynamicProxyMap["http_proxy"] = HTTPProxyMap
 		}
 		if data.DynamicProxy.HTTPSProxy != nil {
-			https_proxyNestedMap := make(map[string]interface{})
-			dynamic_proxyMap["https_proxy"] = https_proxyNestedMap
+			HTTPSProxyMap := make(map[string]interface{})
+			if data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+				MoreOptionMap := make(map[string]interface{})
+				if data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy != nil {
+					BufferPolicyMap := make(map[string]interface{})
+					if !data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.Disabled.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.Disabled.IsUnknown() {
+						BufferPolicyMap["disabled"] = data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.Disabled.ValueBool()
+					}
+					if !data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.MaxRequestBytes.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.MaxRequestBytes.IsUnknown() {
+						BufferPolicyMap["max_request_bytes"] = data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.MaxRequestBytes.ValueInt64()
+					}
+					MoreOptionMap["buffer_policy"] = BufferPolicyMap
+				}
+				if data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams != nil {
+					CompressionParamsMap := make(map[string]interface{})
+					if !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentLength.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentLength.IsUnknown() {
+						CompressionParamsMap["content_length"] = data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentLength.ValueInt64()
+					}
+					if !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentType.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentType.IsUnknown() {
+						var ContentTypeItems []string
+						diags := data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentType.ElementsAs(ctx, &ContentTypeItems, false)
+						if !diags.HasError() {
+							CompressionParamsMap["content_type"] = ContentTypeItems
+						}
+					}
+					if !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.DisableOnEtagHeader.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.DisableOnEtagHeader.IsUnknown() {
+						CompressionParamsMap["disable_on_etag_header"] = data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.DisableOnEtagHeader.ValueBool()
+					}
+					if !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.IsUnknown() {
+						CompressionParamsMap["remove_accept_encoding_header"] = data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.ValueBool()
+					}
+					MoreOptionMap["compression_params"] = CompressionParamsMap
+				}
+				if data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors != nil {
+					MoreOptionMap["custom_errors"] = map[string]interface{}{}
+				}
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
+					MoreOptionMap["disable_default_error_pages"] = data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.ValueBool()
+				}
+				if data.DynamicProxy.HTTPSProxy.MoreOption.DisablePathNormalize != nil {
+					MoreOptionMap["disable_path_normalize"] = map[string]interface{}{}
+				}
+				if data.DynamicProxy.HTTPSProxy.MoreOption.EnablePathNormalize != nil {
+					MoreOptionMap["enable_path_normalize"] = map[string]interface{}{}
+				}
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.IdleTimeout.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.IdleTimeout.IsUnknown() {
+					MoreOptionMap["idle_timeout"] = data.DynamicProxy.HTTPSProxy.MoreOption.IdleTimeout.ValueInt64()
+				}
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestHeaderSize.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestHeaderSize.IsUnknown() {
+					MoreOptionMap["max_request_header_size"] = data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestHeaderSize.ValueInt64()
+				}
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestsPerConnection.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestsPerConnection.IsUnknown() {
+					MoreOptionMap["max_requests_per_connection"] = data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestsPerConnection.ValueInt64()
+				}
+				if data.DynamicProxy.HTTPSProxy.MoreOption.NoRequestLimitPerConnection != nil {
+					MoreOptionMap["no_request_limit_per_connection"] = map[string]interface{}{}
+				}
+				if len(data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd) > 0 {
+					var RequestCookiesToAddList []map[string]interface{}
+					for _, RequestCookiesToAddItem := range data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd {
+						RequestCookiesToAddItemMap := make(map[string]interface{})
+						if !RequestCookiesToAddItem.Name.IsNull() && !RequestCookiesToAddItem.Name.IsUnknown() {
+							RequestCookiesToAddItemMap["name"] = RequestCookiesToAddItem.Name.ValueString()
+						}
+						if !RequestCookiesToAddItem.Overwrite.IsNull() && !RequestCookiesToAddItem.Overwrite.IsUnknown() {
+							RequestCookiesToAddItemMap["overwrite"] = RequestCookiesToAddItem.Overwrite.ValueBool()
+						}
+						if RequestCookiesToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if RequestCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							RequestCookiesToAddItemMap["secret_value"] = SecretValueMap
+						}
+						if !RequestCookiesToAddItem.Value.IsNull() && !RequestCookiesToAddItem.Value.IsUnknown() {
+							RequestCookiesToAddItemMap["value"] = RequestCookiesToAddItem.Value.ValueString()
+						}
+						RequestCookiesToAddList = append(RequestCookiesToAddList, RequestCookiesToAddItemMap)
+					}
+					MoreOptionMap["request_cookies_to_add"] = RequestCookiesToAddList
+				}
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToRemove.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToRemove.IsUnknown() {
+					var RequestCookiesToRemoveItems []string
+					diags := data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+					if !diags.HasError() {
+						MoreOptionMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
+					}
+				}
+				if len(data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToAdd) > 0 {
+					var RequestHeadersToAddList []map[string]interface{}
+					for _, RequestHeadersToAddItem := range data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToAdd {
+						RequestHeadersToAddItemMap := make(map[string]interface{})
+						if !RequestHeadersToAddItem.Append.IsNull() && !RequestHeadersToAddItem.Append.IsUnknown() {
+							RequestHeadersToAddItemMap["append"] = RequestHeadersToAddItem.Append.ValueBool()
+						}
+						if !RequestHeadersToAddItem.Name.IsNull() && !RequestHeadersToAddItem.Name.IsUnknown() {
+							RequestHeadersToAddItemMap["name"] = RequestHeadersToAddItem.Name.ValueString()
+						}
+						if RequestHeadersToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if RequestHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							RequestHeadersToAddItemMap["secret_value"] = SecretValueMap
+						}
+						if !RequestHeadersToAddItem.Value.IsNull() && !RequestHeadersToAddItem.Value.IsUnknown() {
+							RequestHeadersToAddItemMap["value"] = RequestHeadersToAddItem.Value.ValueString()
+						}
+						RequestHeadersToAddList = append(RequestHeadersToAddList, RequestHeadersToAddItemMap)
+					}
+					MoreOptionMap["request_headers_to_add"] = RequestHeadersToAddList
+				}
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToRemove.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToRemove.IsUnknown() {
+					var RequestHeadersToRemoveItems []string
+					diags := data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+					if !diags.HasError() {
+						MoreOptionMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
+					}
+				}
+				if len(data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToAdd) > 0 {
+					var ResponseCookiesToAddList []map[string]interface{}
+					for _, ResponseCookiesToAddItem := range data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToAdd {
+						ResponseCookiesToAddItemMap := make(map[string]interface{})
+						if !ResponseCookiesToAddItem.AddDomain.IsNull() && !ResponseCookiesToAddItem.AddDomain.IsUnknown() {
+							ResponseCookiesToAddItemMap["add_domain"] = ResponseCookiesToAddItem.AddDomain.ValueString()
+						}
+						if !ResponseCookiesToAddItem.AddExpiry.IsNull() && !ResponseCookiesToAddItem.AddExpiry.IsUnknown() {
+							ResponseCookiesToAddItemMap["add_expiry"] = ResponseCookiesToAddItem.AddExpiry.ValueString()
+						}
+						if ResponseCookiesToAddItem.AddHttponly != nil {
+							ResponseCookiesToAddItemMap["add_httponly"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.AddPartitioned != nil {
+							ResponseCookiesToAddItemMap["add_partitioned"] = map[string]interface{}{}
+						}
+						if !ResponseCookiesToAddItem.AddPath.IsNull() && !ResponseCookiesToAddItem.AddPath.IsUnknown() {
+							ResponseCookiesToAddItemMap["add_path"] = ResponseCookiesToAddItem.AddPath.ValueString()
+						}
+						if ResponseCookiesToAddItem.AddSecure != nil {
+							ResponseCookiesToAddItemMap["add_secure"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreDomain != nil {
+							ResponseCookiesToAddItemMap["ignore_domain"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreExpiry != nil {
+							ResponseCookiesToAddItemMap["ignore_expiry"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreHttponly != nil {
+							ResponseCookiesToAddItemMap["ignore_httponly"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreMaxAge != nil {
+							ResponseCookiesToAddItemMap["ignore_max_age"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnorePartitioned != nil {
+							ResponseCookiesToAddItemMap["ignore_partitioned"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnorePath != nil {
+							ResponseCookiesToAddItemMap["ignore_path"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreSamesite != nil {
+							ResponseCookiesToAddItemMap["ignore_samesite"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreSecure != nil {
+							ResponseCookiesToAddItemMap["ignore_secure"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreValue != nil {
+							ResponseCookiesToAddItemMap["ignore_value"] = map[string]interface{}{}
+						}
+						if !ResponseCookiesToAddItem.MaxAgeValue.IsNull() && !ResponseCookiesToAddItem.MaxAgeValue.IsUnknown() {
+							ResponseCookiesToAddItemMap["max_age_value"] = ResponseCookiesToAddItem.MaxAgeValue.ValueInt64()
+						}
+						if !ResponseCookiesToAddItem.Name.IsNull() && !ResponseCookiesToAddItem.Name.IsUnknown() {
+							ResponseCookiesToAddItemMap["name"] = ResponseCookiesToAddItem.Name.ValueString()
+						}
+						if !ResponseCookiesToAddItem.Overwrite.IsNull() && !ResponseCookiesToAddItem.Overwrite.IsUnknown() {
+							ResponseCookiesToAddItemMap["overwrite"] = ResponseCookiesToAddItem.Overwrite.ValueBool()
+						}
+						if ResponseCookiesToAddItem.SamesiteLax != nil {
+							ResponseCookiesToAddItemMap["samesite_lax"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.SamesiteNone != nil {
+							ResponseCookiesToAddItemMap["samesite_none"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.SamesiteStrict != nil {
+							ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if ResponseCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							ResponseCookiesToAddItemMap["secret_value"] = SecretValueMap
+						}
+						if !ResponseCookiesToAddItem.Value.IsNull() && !ResponseCookiesToAddItem.Value.IsUnknown() {
+							ResponseCookiesToAddItemMap["value"] = ResponseCookiesToAddItem.Value.ValueString()
+						}
+						ResponseCookiesToAddList = append(ResponseCookiesToAddList, ResponseCookiesToAddItemMap)
+					}
+					MoreOptionMap["response_cookies_to_add"] = ResponseCookiesToAddList
+				}
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToRemove.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToRemove.IsUnknown() {
+					var ResponseCookiesToRemoveItems []string
+					diags := data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+					if !diags.HasError() {
+						MoreOptionMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
+					}
+				}
+				if len(data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToAdd) > 0 {
+					var ResponseHeadersToAddList []map[string]interface{}
+					for _, ResponseHeadersToAddItem := range data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToAdd {
+						ResponseHeadersToAddItemMap := make(map[string]interface{})
+						if !ResponseHeadersToAddItem.Append.IsNull() && !ResponseHeadersToAddItem.Append.IsUnknown() {
+							ResponseHeadersToAddItemMap["append"] = ResponseHeadersToAddItem.Append.ValueBool()
+						}
+						if !ResponseHeadersToAddItem.Name.IsNull() && !ResponseHeadersToAddItem.Name.IsUnknown() {
+							ResponseHeadersToAddItemMap["name"] = ResponseHeadersToAddItem.Name.ValueString()
+						}
+						if ResponseHeadersToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if ResponseHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							ResponseHeadersToAddItemMap["secret_value"] = SecretValueMap
+						}
+						if !ResponseHeadersToAddItem.Value.IsNull() && !ResponseHeadersToAddItem.Value.IsUnknown() {
+							ResponseHeadersToAddItemMap["value"] = ResponseHeadersToAddItem.Value.ValueString()
+						}
+						ResponseHeadersToAddList = append(ResponseHeadersToAddList, ResponseHeadersToAddItemMap)
+					}
+					MoreOptionMap["response_headers_to_add"] = ResponseHeadersToAddList
+				}
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToRemove.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToRemove.IsUnknown() {
+					var ResponseHeadersToRemoveItems []string
+					diags := data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+					if !diags.HasError() {
+						MoreOptionMap["response_headers_to_remove"] = ResponseHeadersToRemoveItems
+					}
+				}
+				HTTPSProxyMap["more_option"] = MoreOptionMap
+			}
+			if data.DynamicProxy.HTTPSProxy.TLSParams != nil {
+				TLSParamsMap := make(map[string]interface{})
+				if data.DynamicProxy.HTTPSProxy.TLSParams.NoMtls != nil {
+					TLSParamsMap["no_mtls"] = map[string]interface{}{}
+				}
+				if len(data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates) > 0 {
+					var TLSCertificatesList []map[string]interface{}
+					for _, TLSCertificatesItem := range data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates {
+						TLSCertificatesItemMap := make(map[string]interface{})
+						if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
+						}
+						if TLSCertificatesItem.CustomHashAlgorithms != nil {
+							CustomHashAlgorithmsMap := make(map[string]interface{})
+							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+								var HashAlgorithmsItems []string
+								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								if !diags.HasError() {
+									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+								}
+							}
+							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+						}
+						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
+						}
+						if TLSCertificatesItem.DisableOCSPStapling != nil {
+							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+						}
+						if TLSCertificatesItem.PrivateKey != nil {
+							PrivateKeyMap := make(map[string]interface{})
+							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+								}
+								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+						}
+						if TLSCertificatesItem.UseSystemDefaults != nil {
+							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+						}
+						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+					}
+					TLSParamsMap["tls_certificates"] = TLSCertificatesList
+				}
+				if data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil {
+					TLSConfigMap := make(map[string]interface{})
+					if data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity != nil {
+						CustomSecurityMap := make(map[string]interface{})
+						if !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
+							var CipherSuitesItems []string
+							diags := data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+							if !diags.HasError() {
+								CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+							}
+						}
+						if !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
+							CustomSecurityMap["max_version"] = data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+						}
+						if !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
+							CustomSecurityMap["min_version"] = data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.MinVersion.ValueString()
+						}
+						TLSConfigMap["custom_security"] = CustomSecurityMap
+					}
+					if data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.DefaultSecurity != nil {
+						TLSConfigMap["default_security"] = map[string]interface{}{}
+					}
+					if data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.LowSecurity != nil {
+						TLSConfigMap["low_security"] = map[string]interface{}{}
+					}
+					if data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.MediumSecurity != nil {
+						TLSConfigMap["medium_security"] = map[string]interface{}{}
+					}
+					TLSParamsMap["tls_config"] = TLSConfigMap
+				}
+				if data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil {
+					UseMtlsMap := make(map[string]interface{})
+					if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.ClientCertificateOptional.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.ClientCertificateOptional.IsUnknown() {
+						UseMtlsMap["client_certificate_optional"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.ClientCertificateOptional.ValueBool()
+					}
+					if data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL != nil {
+						CRLMap := make(map[string]interface{})
+						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Name.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Name.IsUnknown() {
+							CRLMap["name"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Name.ValueString()
+						}
+						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Namespace.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Namespace.IsUnknown() {
+							CRLMap["namespace"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Namespace.ValueString()
+						}
+						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Tenant.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Tenant.IsUnknown() {
+							CRLMap["tenant"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Tenant.ValueString()
+						}
+						UseMtlsMap["crl"] = CRLMap
+					}
+					if data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.NoCRL != nil {
+						UseMtlsMap["no_crl"] = map[string]interface{}{}
+					}
+					if data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA != nil {
+						TrustedCAMap := make(map[string]interface{})
+						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Name.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Name.IsUnknown() {
+							TrustedCAMap["name"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Name.ValueString()
+						}
+						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
+							TrustedCAMap["namespace"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Namespace.ValueString()
+						}
+						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
+							TrustedCAMap["tenant"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Tenant.ValueString()
+						}
+						UseMtlsMap["trusted_ca"] = TrustedCAMap
+					}
+					if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCAURL.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCAURL.IsUnknown() {
+						UseMtlsMap["trusted_ca_url"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCAURL.ValueString()
+					}
+					if data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccDisabled != nil {
+						UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+					}
+					if data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions != nil {
+						XfccOptionsMap := make(map[string]interface{})
+						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
+							var XfccHeaderElementsItems []string
+							diags := data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+							if !diags.HasError() {
+								XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+							}
+						}
+						UseMtlsMap["xfcc_options"] = XfccOptionsMap
+					}
+					TLSParamsMap["use_mtls"] = UseMtlsMap
+				}
+				HTTPSProxyMap["tls_params"] = TLSParamsMap
+			}
+			DynamicProxyMap["https_proxy"] = HTTPSProxyMap
 		}
 		if data.DynamicProxy.SniProxy != nil {
-			sni_proxyNestedMap := make(map[string]interface{})
+			SniProxyMap := make(map[string]interface{})
 			if !data.DynamicProxy.SniProxy.IdleTimeout.IsNull() && !data.DynamicProxy.SniProxy.IdleTimeout.IsUnknown() {
-				sni_proxyNestedMap["idle_timeout"] = data.DynamicProxy.SniProxy.IdleTimeout.ValueInt64()
+				SniProxyMap["idle_timeout"] = data.DynamicProxy.SniProxy.IdleTimeout.ValueInt64()
 			}
-			dynamic_proxyMap["sni_proxy"] = sni_proxyNestedMap
+			DynamicProxyMap["sni_proxy"] = SniProxyMap
 		}
-		createReq.Spec["dynamic_proxy"] = dynamic_proxyMap
+		createReq.Spec["dynamic_proxy"] = DynamicProxyMap
 	}
 	if data.HTTPProxy != nil {
-		http_proxyMap := make(map[string]interface{})
+		HTTPProxyMap := make(map[string]interface{})
 		if data.HTTPProxy.EnableHTTP != nil {
-			http_proxyMap["enable_http"] = map[string]interface{}{}
+			HTTPProxyMap["enable_http"] = map[string]interface{}{}
 		}
 		if data.HTTPProxy.MoreOption != nil {
-			more_optionNestedMap := make(map[string]interface{})
+			MoreOptionMap := make(map[string]interface{})
+			if data.HTTPProxy.MoreOption.BufferPolicy != nil {
+				BufferPolicyMap := make(map[string]interface{})
+				if !data.HTTPProxy.MoreOption.BufferPolicy.Disabled.IsNull() && !data.HTTPProxy.MoreOption.BufferPolicy.Disabled.IsUnknown() {
+					BufferPolicyMap["disabled"] = data.HTTPProxy.MoreOption.BufferPolicy.Disabled.ValueBool()
+				}
+				if !data.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes.IsNull() && !data.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes.IsUnknown() {
+					BufferPolicyMap["max_request_bytes"] = data.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes.ValueInt64()
+				}
+				MoreOptionMap["buffer_policy"] = BufferPolicyMap
+			}
+			if data.HTTPProxy.MoreOption.CompressionParams != nil {
+				CompressionParamsMap := make(map[string]interface{})
+				if !data.HTTPProxy.MoreOption.CompressionParams.ContentLength.IsNull() && !data.HTTPProxy.MoreOption.CompressionParams.ContentLength.IsUnknown() {
+					CompressionParamsMap["content_length"] = data.HTTPProxy.MoreOption.CompressionParams.ContentLength.ValueInt64()
+				}
+				if !data.HTTPProxy.MoreOption.CompressionParams.ContentType.IsNull() && !data.HTTPProxy.MoreOption.CompressionParams.ContentType.IsUnknown() {
+					var ContentTypeItems []string
+					diags := data.HTTPProxy.MoreOption.CompressionParams.ContentType.ElementsAs(ctx, &ContentTypeItems, false)
+					if !diags.HasError() {
+						CompressionParamsMap["content_type"] = ContentTypeItems
+					}
+				}
+				if !data.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader.IsNull() && !data.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader.IsUnknown() {
+					CompressionParamsMap["disable_on_etag_header"] = data.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader.ValueBool()
+				}
+				if !data.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.IsNull() && !data.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.IsUnknown() {
+					CompressionParamsMap["remove_accept_encoding_header"] = data.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.ValueBool()
+				}
+				MoreOptionMap["compression_params"] = CompressionParamsMap
+			}
+			if data.HTTPProxy.MoreOption.CustomErrors != nil {
+				MoreOptionMap["custom_errors"] = map[string]interface{}{}
+			}
 			if !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsNull() && !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
-				more_optionNestedMap["disable_default_error_pages"] = data.HTTPProxy.MoreOption.DisableDefaultErrorPages.ValueBool()
+				MoreOptionMap["disable_default_error_pages"] = data.HTTPProxy.MoreOption.DisableDefaultErrorPages.ValueBool()
+			}
+			if data.HTTPProxy.MoreOption.DisablePathNormalize != nil {
+				MoreOptionMap["disable_path_normalize"] = map[string]interface{}{}
+			}
+			if data.HTTPProxy.MoreOption.EnablePathNormalize != nil {
+				MoreOptionMap["enable_path_normalize"] = map[string]interface{}{}
 			}
 			if !data.HTTPProxy.MoreOption.IdleTimeout.IsNull() && !data.HTTPProxy.MoreOption.IdleTimeout.IsUnknown() {
-				more_optionNestedMap["idle_timeout"] = data.HTTPProxy.MoreOption.IdleTimeout.ValueInt64()
+				MoreOptionMap["idle_timeout"] = data.HTTPProxy.MoreOption.IdleTimeout.ValueInt64()
 			}
 			if !data.HTTPProxy.MoreOption.MaxRequestHeaderSize.IsNull() && !data.HTTPProxy.MoreOption.MaxRequestHeaderSize.IsUnknown() {
-				more_optionNestedMap["max_request_header_size"] = data.HTTPProxy.MoreOption.MaxRequestHeaderSize.ValueInt64()
+				MoreOptionMap["max_request_header_size"] = data.HTTPProxy.MoreOption.MaxRequestHeaderSize.ValueInt64()
 			}
 			if !data.HTTPProxy.MoreOption.MaxRequestsPerConnection.IsNull() && !data.HTTPProxy.MoreOption.MaxRequestsPerConnection.IsUnknown() {
-				more_optionNestedMap["max_requests_per_connection"] = data.HTTPProxy.MoreOption.MaxRequestsPerConnection.ValueInt64()
+				MoreOptionMap["max_requests_per_connection"] = data.HTTPProxy.MoreOption.MaxRequestsPerConnection.ValueInt64()
 			}
-			http_proxyMap["more_option"] = more_optionNestedMap
+			if data.HTTPProxy.MoreOption.NoRequestLimitPerConnection != nil {
+				MoreOptionMap["no_request_limit_per_connection"] = map[string]interface{}{}
+			}
+			if len(data.HTTPProxy.MoreOption.RequestCookiesToAdd) > 0 {
+				var RequestCookiesToAddList []map[string]interface{}
+				for _, RequestCookiesToAddItem := range data.HTTPProxy.MoreOption.RequestCookiesToAdd {
+					RequestCookiesToAddItemMap := make(map[string]interface{})
+					if !RequestCookiesToAddItem.Name.IsNull() && !RequestCookiesToAddItem.Name.IsUnknown() {
+						RequestCookiesToAddItemMap["name"] = RequestCookiesToAddItem.Name.ValueString()
+					}
+					if !RequestCookiesToAddItem.Overwrite.IsNull() && !RequestCookiesToAddItem.Overwrite.IsUnknown() {
+						RequestCookiesToAddItemMap["overwrite"] = RequestCookiesToAddItem.Overwrite.ValueBool()
+					}
+					if RequestCookiesToAddItem.SecretValue != nil {
+						SecretValueMap := make(map[string]interface{})
+						if RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if RequestCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+							}
+							if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+							}
+							SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						RequestCookiesToAddItemMap["secret_value"] = SecretValueMap
+					}
+					if !RequestCookiesToAddItem.Value.IsNull() && !RequestCookiesToAddItem.Value.IsUnknown() {
+						RequestCookiesToAddItemMap["value"] = RequestCookiesToAddItem.Value.ValueString()
+					}
+					RequestCookiesToAddList = append(RequestCookiesToAddList, RequestCookiesToAddItemMap)
+				}
+				MoreOptionMap["request_cookies_to_add"] = RequestCookiesToAddList
+			}
+			if !data.HTTPProxy.MoreOption.RequestCookiesToRemove.IsNull() && !data.HTTPProxy.MoreOption.RequestCookiesToRemove.IsUnknown() {
+				var RequestCookiesToRemoveItems []string
+				diags := data.HTTPProxy.MoreOption.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+				if !diags.HasError() {
+					MoreOptionMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
+				}
+			}
+			if len(data.HTTPProxy.MoreOption.RequestHeadersToAdd) > 0 {
+				var RequestHeadersToAddList []map[string]interface{}
+				for _, RequestHeadersToAddItem := range data.HTTPProxy.MoreOption.RequestHeadersToAdd {
+					RequestHeadersToAddItemMap := make(map[string]interface{})
+					if !RequestHeadersToAddItem.Append.IsNull() && !RequestHeadersToAddItem.Append.IsUnknown() {
+						RequestHeadersToAddItemMap["append"] = RequestHeadersToAddItem.Append.ValueBool()
+					}
+					if !RequestHeadersToAddItem.Name.IsNull() && !RequestHeadersToAddItem.Name.IsUnknown() {
+						RequestHeadersToAddItemMap["name"] = RequestHeadersToAddItem.Name.ValueString()
+					}
+					if RequestHeadersToAddItem.SecretValue != nil {
+						SecretValueMap := make(map[string]interface{})
+						if RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if RequestHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+							}
+							if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+							}
+							SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						RequestHeadersToAddItemMap["secret_value"] = SecretValueMap
+					}
+					if !RequestHeadersToAddItem.Value.IsNull() && !RequestHeadersToAddItem.Value.IsUnknown() {
+						RequestHeadersToAddItemMap["value"] = RequestHeadersToAddItem.Value.ValueString()
+					}
+					RequestHeadersToAddList = append(RequestHeadersToAddList, RequestHeadersToAddItemMap)
+				}
+				MoreOptionMap["request_headers_to_add"] = RequestHeadersToAddList
+			}
+			if !data.HTTPProxy.MoreOption.RequestHeadersToRemove.IsNull() && !data.HTTPProxy.MoreOption.RequestHeadersToRemove.IsUnknown() {
+				var RequestHeadersToRemoveItems []string
+				diags := data.HTTPProxy.MoreOption.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+				if !diags.HasError() {
+					MoreOptionMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
+				}
+			}
+			if len(data.HTTPProxy.MoreOption.ResponseCookiesToAdd) > 0 {
+				var ResponseCookiesToAddList []map[string]interface{}
+				for _, ResponseCookiesToAddItem := range data.HTTPProxy.MoreOption.ResponseCookiesToAdd {
+					ResponseCookiesToAddItemMap := make(map[string]interface{})
+					if !ResponseCookiesToAddItem.AddDomain.IsNull() && !ResponseCookiesToAddItem.AddDomain.IsUnknown() {
+						ResponseCookiesToAddItemMap["add_domain"] = ResponseCookiesToAddItem.AddDomain.ValueString()
+					}
+					if !ResponseCookiesToAddItem.AddExpiry.IsNull() && !ResponseCookiesToAddItem.AddExpiry.IsUnknown() {
+						ResponseCookiesToAddItemMap["add_expiry"] = ResponseCookiesToAddItem.AddExpiry.ValueString()
+					}
+					if ResponseCookiesToAddItem.AddHttponly != nil {
+						ResponseCookiesToAddItemMap["add_httponly"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.AddPartitioned != nil {
+						ResponseCookiesToAddItemMap["add_partitioned"] = map[string]interface{}{}
+					}
+					if !ResponseCookiesToAddItem.AddPath.IsNull() && !ResponseCookiesToAddItem.AddPath.IsUnknown() {
+						ResponseCookiesToAddItemMap["add_path"] = ResponseCookiesToAddItem.AddPath.ValueString()
+					}
+					if ResponseCookiesToAddItem.AddSecure != nil {
+						ResponseCookiesToAddItemMap["add_secure"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.IgnoreDomain != nil {
+						ResponseCookiesToAddItemMap["ignore_domain"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.IgnoreExpiry != nil {
+						ResponseCookiesToAddItemMap["ignore_expiry"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.IgnoreHttponly != nil {
+						ResponseCookiesToAddItemMap["ignore_httponly"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.IgnoreMaxAge != nil {
+						ResponseCookiesToAddItemMap["ignore_max_age"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.IgnorePartitioned != nil {
+						ResponseCookiesToAddItemMap["ignore_partitioned"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.IgnorePath != nil {
+						ResponseCookiesToAddItemMap["ignore_path"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.IgnoreSamesite != nil {
+						ResponseCookiesToAddItemMap["ignore_samesite"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.IgnoreSecure != nil {
+						ResponseCookiesToAddItemMap["ignore_secure"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.IgnoreValue != nil {
+						ResponseCookiesToAddItemMap["ignore_value"] = map[string]interface{}{}
+					}
+					if !ResponseCookiesToAddItem.MaxAgeValue.IsNull() && !ResponseCookiesToAddItem.MaxAgeValue.IsUnknown() {
+						ResponseCookiesToAddItemMap["max_age_value"] = ResponseCookiesToAddItem.MaxAgeValue.ValueInt64()
+					}
+					if !ResponseCookiesToAddItem.Name.IsNull() && !ResponseCookiesToAddItem.Name.IsUnknown() {
+						ResponseCookiesToAddItemMap["name"] = ResponseCookiesToAddItem.Name.ValueString()
+					}
+					if !ResponseCookiesToAddItem.Overwrite.IsNull() && !ResponseCookiesToAddItem.Overwrite.IsUnknown() {
+						ResponseCookiesToAddItemMap["overwrite"] = ResponseCookiesToAddItem.Overwrite.ValueBool()
+					}
+					if ResponseCookiesToAddItem.SamesiteLax != nil {
+						ResponseCookiesToAddItemMap["samesite_lax"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.SamesiteNone != nil {
+						ResponseCookiesToAddItemMap["samesite_none"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.SamesiteStrict != nil {
+						ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.SecretValue != nil {
+						SecretValueMap := make(map[string]interface{})
+						if ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if ResponseCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+							}
+							if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+							}
+							SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						ResponseCookiesToAddItemMap["secret_value"] = SecretValueMap
+					}
+					if !ResponseCookiesToAddItem.Value.IsNull() && !ResponseCookiesToAddItem.Value.IsUnknown() {
+						ResponseCookiesToAddItemMap["value"] = ResponseCookiesToAddItem.Value.ValueString()
+					}
+					ResponseCookiesToAddList = append(ResponseCookiesToAddList, ResponseCookiesToAddItemMap)
+				}
+				MoreOptionMap["response_cookies_to_add"] = ResponseCookiesToAddList
+			}
+			if !data.HTTPProxy.MoreOption.ResponseCookiesToRemove.IsNull() && !data.HTTPProxy.MoreOption.ResponseCookiesToRemove.IsUnknown() {
+				var ResponseCookiesToRemoveItems []string
+				diags := data.HTTPProxy.MoreOption.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+				if !diags.HasError() {
+					MoreOptionMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
+				}
+			}
+			if len(data.HTTPProxy.MoreOption.ResponseHeadersToAdd) > 0 {
+				var ResponseHeadersToAddList []map[string]interface{}
+				for _, ResponseHeadersToAddItem := range data.HTTPProxy.MoreOption.ResponseHeadersToAdd {
+					ResponseHeadersToAddItemMap := make(map[string]interface{})
+					if !ResponseHeadersToAddItem.Append.IsNull() && !ResponseHeadersToAddItem.Append.IsUnknown() {
+						ResponseHeadersToAddItemMap["append"] = ResponseHeadersToAddItem.Append.ValueBool()
+					}
+					if !ResponseHeadersToAddItem.Name.IsNull() && !ResponseHeadersToAddItem.Name.IsUnknown() {
+						ResponseHeadersToAddItemMap["name"] = ResponseHeadersToAddItem.Name.ValueString()
+					}
+					if ResponseHeadersToAddItem.SecretValue != nil {
+						SecretValueMap := make(map[string]interface{})
+						if ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if ResponseHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+							}
+							if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+							}
+							SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						ResponseHeadersToAddItemMap["secret_value"] = SecretValueMap
+					}
+					if !ResponseHeadersToAddItem.Value.IsNull() && !ResponseHeadersToAddItem.Value.IsUnknown() {
+						ResponseHeadersToAddItemMap["value"] = ResponseHeadersToAddItem.Value.ValueString()
+					}
+					ResponseHeadersToAddList = append(ResponseHeadersToAddList, ResponseHeadersToAddItemMap)
+				}
+				MoreOptionMap["response_headers_to_add"] = ResponseHeadersToAddList
+			}
+			if !data.HTTPProxy.MoreOption.ResponseHeadersToRemove.IsNull() && !data.HTTPProxy.MoreOption.ResponseHeadersToRemove.IsUnknown() {
+				var ResponseHeadersToRemoveItems []string
+				diags := data.HTTPProxy.MoreOption.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+				if !diags.HasError() {
+					MoreOptionMap["response_headers_to_remove"] = ResponseHeadersToRemoveItems
+				}
+			}
+			HTTPProxyMap["more_option"] = MoreOptionMap
 		}
-		createReq.Spec["http_proxy"] = http_proxyMap
+		createReq.Spec["http_proxy"] = HTTPProxyMap
 	}
 	if data.NoForwardProxyPolicy != nil {
-		no_forward_proxy_policyMap := make(map[string]interface{})
-		createReq.Spec["no_forward_proxy_policy"] = no_forward_proxy_policyMap
+		createReq.Spec["no_forward_proxy_policy"] = map[string]interface{}{}
 	}
 	if data.NoInterception != nil {
-		no_interceptionMap := make(map[string]interface{})
-		createReq.Spec["no_interception"] = no_interceptionMap
+		createReq.Spec["no_interception"] = map[string]interface{}{}
 	}
 	if data.SiteLocalInsideNetwork != nil {
-		site_local_inside_networkMap := make(map[string]interface{})
-		createReq.Spec["site_local_inside_network"] = site_local_inside_networkMap
+		createReq.Spec["site_local_inside_network"] = map[string]interface{}{}
 	}
 	if data.SiteLocalNetwork != nil {
-		site_local_networkMap := make(map[string]interface{})
-		createReq.Spec["site_local_network"] = site_local_networkMap
+		createReq.Spec["site_local_network"] = map[string]interface{}{}
 	}
 	if data.SiteVirtualSites != nil {
-		site_virtual_sitesMap := make(map[string]interface{})
-		if len(data.SiteVirtualSites.AdvertiseWhere) > 0 {
-			var advertise_whereList []map[string]interface{}
-			for _, listItem := range data.SiteVirtualSites.AdvertiseWhere {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Port.IsNull() && !listItem.Port.IsUnknown() {
-					listItemMap["port"] = listItem.Port.ValueInt64()
-				}
-				if listItem.Site != nil {
-					siteDeepMap := make(map[string]interface{})
-					if !listItem.Site.IP.IsNull() && !listItem.Site.IP.IsUnknown() {
-						siteDeepMap["ip"] = listItem.Site.IP.ValueString()
+		SiteVirtualSitesMap := make(map[string]interface{})
+		if !data.SiteVirtualSites.AdvertiseWhere.IsNull() && !data.SiteVirtualSites.AdvertiseWhere.IsUnknown() {
+			var AdvertiseWhereElems []ProxySiteVirtualSitesAdvertiseWhereModel
+			diags := data.SiteVirtualSites.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(AdvertiseWhereElems) > 0 {
+				var AdvertiseWhereList []map[string]interface{}
+				for _, AdvertiseWhereItem := range AdvertiseWhereElems {
+					AdvertiseWhereItemMap := make(map[string]interface{})
+					if !AdvertiseWhereItem.Port.IsNull() && !AdvertiseWhereItem.Port.IsUnknown() {
+						AdvertiseWhereItemMap["port"] = AdvertiseWhereItem.Port.ValueInt64()
 					}
-					if !listItem.Site.Network.IsNull() && !listItem.Site.Network.IsUnknown() {
-						siteDeepMap["network"] = listItem.Site.Network.ValueString()
+					if AdvertiseWhereItem.Site != nil {
+						SiteMap := make(map[string]interface{})
+						if !AdvertiseWhereItem.Site.IP.IsNull() && !AdvertiseWhereItem.Site.IP.IsUnknown() {
+							SiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
+						}
+						if !AdvertiseWhereItem.Site.Network.IsNull() && !AdvertiseWhereItem.Site.Network.IsUnknown() {
+							SiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
+						}
+						if AdvertiseWhereItem.Site.Site != nil {
+							SiteMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.Site.Site.Name.IsNull() && !AdvertiseWhereItem.Site.Site.Name.IsUnknown() {
+								SiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
+								SiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
+							}
+							if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
+								SiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
+							}
+							SiteMap["site"] = SiteMap
+						}
+						AdvertiseWhereItemMap["site"] = SiteMap
 					}
-					listItemMap["site"] = siteDeepMap
-				}
-				if listItem.UseDefaultPort != nil {
-					listItemMap["use_default_port"] = map[string]interface{}{}
-				}
-				if listItem.VirtualSite != nil {
-					virtual_siteDeepMap := make(map[string]interface{})
-					if !listItem.VirtualSite.Network.IsNull() && !listItem.VirtualSite.Network.IsUnknown() {
-						virtual_siteDeepMap["network"] = listItem.VirtualSite.Network.ValueString()
+					if AdvertiseWhereItem.UseDefaultPort != nil {
+						AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
 					}
-					listItemMap["virtual_site"] = virtual_siteDeepMap
+					if AdvertiseWhereItem.VirtualSite != nil {
+						VirtualSiteMap := make(map[string]interface{})
+						if !AdvertiseWhereItem.VirtualSite.Network.IsNull() && !AdvertiseWhereItem.VirtualSite.Network.IsUnknown() {
+							VirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
+						}
+						if AdvertiseWhereItem.VirtualSite.VirtualSite != nil {
+							VirtualSiteMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsUnknown() {
+								VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
+								VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
+								VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
+							}
+							VirtualSiteMap["virtual_site"] = VirtualSiteMap
+						}
+						AdvertiseWhereItemMap["virtual_site"] = VirtualSiteMap
+					}
+					AdvertiseWhereList = append(AdvertiseWhereList, AdvertiseWhereItemMap)
 				}
-				advertise_whereList = append(advertise_whereList, listItemMap)
+				SiteVirtualSitesMap["advertise_where"] = AdvertiseWhereList
 			}
-			site_virtual_sitesMap["advertise_where"] = advertise_whereList
 		}
-		createReq.Spec["site_virtual_sites"] = site_virtual_sitesMap
+		createReq.Spec["site_virtual_sites"] = SiteVirtualSitesMap
 	}
 	if data.TLSIntercept != nil {
-		tls_interceptMap := make(map[string]interface{})
+		TLSInterceptMap := make(map[string]interface{})
 		if data.TLSIntercept.CustomCertificate != nil {
-			custom_certificateNestedMap := make(map[string]interface{})
+			CustomCertificateMap := make(map[string]interface{})
 			if !data.TLSIntercept.CustomCertificate.CertificateURL.IsNull() && !data.TLSIntercept.CustomCertificate.CertificateURL.IsUnknown() {
-				custom_certificateNestedMap["certificate_url"] = data.TLSIntercept.CustomCertificate.CertificateURL.ValueString()
+				CustomCertificateMap["certificate_url"] = data.TLSIntercept.CustomCertificate.CertificateURL.ValueString()
+			}
+			if data.TLSIntercept.CustomCertificate.CustomHashAlgorithms != nil {
+				CustomHashAlgorithmsMap := make(map[string]interface{})
+				if !data.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.IsNull() && !data.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+					var HashAlgorithmsItems []string
+					diags := data.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+					if !diags.HasError() {
+						CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+					}
+				}
+				CustomCertificateMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
 			}
 			if !data.TLSIntercept.CustomCertificate.DescriptionSpec.IsNull() && !data.TLSIntercept.CustomCertificate.DescriptionSpec.IsUnknown() {
-				custom_certificateNestedMap["description"] = data.TLSIntercept.CustomCertificate.DescriptionSpec.ValueString()
+				CustomCertificateMap["description"] = data.TLSIntercept.CustomCertificate.DescriptionSpec.ValueString()
 			}
-			tls_interceptMap["custom_certificate"] = custom_certificateNestedMap
+			if data.TLSIntercept.CustomCertificate.DisableOCSPStapling != nil {
+				CustomCertificateMap["disable_ocsp_stapling"] = map[string]interface{}{}
+			}
+			if data.TLSIntercept.CustomCertificate.PrivateKey != nil {
+				PrivateKeyMap := make(map[string]interface{})
+				if data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.Provider.IsNull() && !data.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.URL.IsNull() && !data.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.URL.ValueString()
+					}
+					PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				CustomCertificateMap["private_key"] = PrivateKeyMap
+			}
+			if data.TLSIntercept.CustomCertificate.UseSystemDefaults != nil {
+				CustomCertificateMap["use_system_defaults"] = map[string]interface{}{}
+			}
+			TLSInterceptMap["custom_certificate"] = CustomCertificateMap
 		}
 		if data.TLSIntercept.EnableForAllDomains != nil {
-			tls_interceptMap["enable_for_all_domains"] = map[string]interface{}{}
+			TLSInterceptMap["enable_for_all_domains"] = map[string]interface{}{}
 		}
 		if data.TLSIntercept.Policy != nil {
-			policyNestedMap := make(map[string]interface{})
-			tls_interceptMap["policy"] = policyNestedMap
+			PolicyMap := make(map[string]interface{})
+			if len(data.TLSIntercept.Policy.InterceptionRules) > 0 {
+				var InterceptionRulesList []map[string]interface{}
+				for _, InterceptionRulesItem := range data.TLSIntercept.Policy.InterceptionRules {
+					InterceptionRulesItemMap := make(map[string]interface{})
+					if InterceptionRulesItem.DisableInterception != nil {
+						InterceptionRulesItemMap["disable_interception"] = map[string]interface{}{}
+					}
+					if InterceptionRulesItem.DomainMatch != nil {
+						DomainMatchMap := make(map[string]interface{})
+						if !InterceptionRulesItem.DomainMatch.ExactValue.IsNull() && !InterceptionRulesItem.DomainMatch.ExactValue.IsUnknown() {
+							DomainMatchMap["exact_value"] = InterceptionRulesItem.DomainMatch.ExactValue.ValueString()
+						}
+						if !InterceptionRulesItem.DomainMatch.RegexValue.IsNull() && !InterceptionRulesItem.DomainMatch.RegexValue.IsUnknown() {
+							DomainMatchMap["regex_value"] = InterceptionRulesItem.DomainMatch.RegexValue.ValueString()
+						}
+						if !InterceptionRulesItem.DomainMatch.SuffixValue.IsNull() && !InterceptionRulesItem.DomainMatch.SuffixValue.IsUnknown() {
+							DomainMatchMap["suffix_value"] = InterceptionRulesItem.DomainMatch.SuffixValue.ValueString()
+						}
+						InterceptionRulesItemMap["domain_match"] = DomainMatchMap
+					}
+					if InterceptionRulesItem.EnableInterception != nil {
+						InterceptionRulesItemMap["enable_interception"] = map[string]interface{}{}
+					}
+					InterceptionRulesList = append(InterceptionRulesList, InterceptionRulesItemMap)
+				}
+				PolicyMap["interception_rules"] = InterceptionRulesList
+			}
+			TLSInterceptMap["policy"] = PolicyMap
 		}
 		if !data.TLSIntercept.TrustedCAURL.IsNull() && !data.TLSIntercept.TrustedCAURL.IsUnknown() {
-			tls_interceptMap["trusted_ca_url"] = data.TLSIntercept.TrustedCAURL.ValueString()
+			TLSInterceptMap["trusted_ca_url"] = data.TLSIntercept.TrustedCAURL.ValueString()
 		}
 		if data.TLSIntercept.VolterraCertificate != nil {
-			tls_interceptMap["volterra_certificate"] = map[string]interface{}{}
+			TLSInterceptMap["volterra_certificate"] = map[string]interface{}{}
 		}
 		if data.TLSIntercept.VolterraTrustedCA != nil {
-			tls_interceptMap["volterra_trusted_ca"] = map[string]interface{}{}
+			TLSInterceptMap["volterra_trusted_ca"] = map[string]interface{}{}
 		}
-		createReq.Spec["tls_intercept"] = tls_interceptMap
+		createReq.Spec["tls_intercept"] = TLSInterceptMap
 	}
 	if !data.ConnectionTimeout.IsNull() && !data.ConnectionTimeout.IsUnknown() {
 		createReq.Spec["connection_timeout"] = data.ConnectionTimeout.ValueInt64()
@@ -3830,26 +5021,29 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["active_forward_proxy_policies"].(map[string]interface{}); ok && (isImport || data.ActiveForwardProxyPolicies != nil) {
 		data.ActiveForwardProxyPolicies = &ProxyActiveForwardProxyPoliciesModel{
-			ForwardProxyPolicies: func() []ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel {
-				if listData, ok := blockData["forward_proxy_policies"].([]interface{}); ok && len(listData) > 0 {
-					var result []ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel{
+			ForwardProxyPolicies: func() types.List {
+				if !isImport && data.ActiveForwardProxyPolicies != nil && (data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() || len(data.ActiveForwardProxyPolicies.ForwardProxyPolicies.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
+				}
+				if rawList, ok := blockData["forward_proxy_policies"].([]interface{}); ok && len(rawList) > 0 {
+					var ForwardProxyPoliciesResult []ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel
+					for _, ForwardProxyPoliciesItem := range rawList {
+						if ForwardProxyPoliciesItemMap, ok := ForwardProxyPoliciesItem.(map[string]interface{}); ok {
+							ForwardProxyPoliciesResult = append(ForwardProxyPoliciesResult, ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := ForwardProxyPoliciesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := ForwardProxyPoliciesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := ForwardProxyPoliciesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -3857,26 +5051,22 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes}, ForwardProxyPoliciesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
 			}(),
 		}
 	}
 	if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok && isImport && data.DoNotAdvertise == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DoNotAdvertise = &ProxyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["dynamic_proxy"].(map[string]interface{}); ok && (isImport || data.DynamicProxy != nil) {
 		data.DynamicProxy = &ProxyDynamicProxyModel{
 			DisableDNSMasquerade: func() *ProxyEmptyModel {
 				if !isImport && data.DynamicProxy != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DynamicProxy.DisableDNSMasquerade
 				}
-				// Import case: read from API
 				if _, ok := blockData["disable_dns_masquerade"].(map[string]interface{}); ok {
 					return &ProxyEmptyModel{}
 				}
@@ -3897,11 +5087,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 			}(),
 			EnableDNSMasquerade: func() *ProxyEmptyModel {
 				if !isImport && data.DynamicProxy != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DynamicProxy.EnableDNSMasquerade
 				}
-				// Import case: read from API
 				if _, ok := blockData["enable_dns_masquerade"].(map[string]interface{}); ok {
 					return &ProxyEmptyModel{}
 				}
@@ -3909,36 +5096,1523 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 			}(),
 			HTTPProxy: func() *ProxyDynamicProxyHTTPProxyModel {
 				if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil {
-					// Normal Read: preserve existing state value
 					return data.DynamicProxy.HTTPProxy
 				}
-				// Import case: read from API
-				if _, ok := blockData["http_proxy"].(map[string]interface{}); ok {
-					return &ProxyDynamicProxyHTTPProxyModel{}
+				if HTTPProxyData, ok := blockData["http_proxy"].(map[string]interface{}); ok {
+					return &ProxyDynamicProxyHTTPProxyModel{
+						MoreOption: func() *ProxyDynamicProxyHTTPProxyMoreOptionModel {
+							if MoreOptionData, ok := HTTPProxyData["more_option"].(map[string]interface{}); ok {
+								return &ProxyDynamicProxyHTTPProxyMoreOptionModel{
+									BufferPolicy: func() *ProxyDynamicProxyHTTPProxyMoreOptionBufferPolicyModel {
+										if BufferPolicyData, ok := MoreOptionData["buffer_policy"].(map[string]interface{}); ok {
+											return &ProxyDynamicProxyHTTPProxyMoreOptionBufferPolicyModel{
+												Disabled: func() types.Bool {
+													if v, ok := BufferPolicyData["disabled"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												MaxRequestBytes: func() types.Int64 {
+													if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
+														return types.Int64Value(int64(v))
+													}
+													return types.Int64Null()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									CompressionParams: func() *ProxyDynamicProxyHTTPProxyMoreOptionCompressionParamsModel {
+										if CompressionParamsData, ok := MoreOptionData["compression_params"].(map[string]interface{}); ok {
+											return &ProxyDynamicProxyHTTPProxyMoreOptionCompressionParamsModel{
+												ContentLength: func() types.Int64 {
+													if v, ok := CompressionParamsData["content_length"].(float64); ok && v != 0 {
+														return types.Int64Value(int64(v))
+													}
+													return types.Int64Null()
+												}(),
+												ContentType: func() types.List {
+													if v, ok := CompressionParamsData["content_type"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												DisableOnEtagHeader: func() types.Bool {
+													if v, ok := CompressionParamsData["disable_on_etag_header"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												RemoveAcceptEncodingHeader: func() types.Bool {
+													if v, ok := CompressionParamsData["remove_accept_encoding_header"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									CustomErrors: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									DisableDefaultErrorPages: func() types.Bool {
+										if v, ok := MoreOptionData["disable_default_error_pages"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									DisablePathNormalize: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									EnablePathNormalize: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									IdleTimeout: func() types.Int64 {
+										if v, ok := MoreOptionData["idle_timeout"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									MaxRequestHeaderSize: func() types.Int64 {
+										if v, ok := MoreOptionData["max_request_header_size"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									MaxRequestsPerConnection: func() types.Int64 {
+										if v, ok := MoreOptionData["max_requests_per_connection"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									NoRequestLimitPerConnection: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									RequestCookiesToAdd: func() []ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddModel {
+										if rawList, ok := MoreOptionData["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var RequestCookiesToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddModel
+											for _, RequestCookiesToAddItem := range rawList {
+												if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
+													RequestCookiesToAddResult = append(RequestCookiesToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddModel{
+														Name: func() types.String {
+															if v, ok := RequestCookiesToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Overwrite: func() types.Bool {
+															if v, ok := RequestCookiesToAddItemMap["overwrite"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueModel {
+															if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := RequestCookiesToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return RequestCookiesToAddResult
+										}
+										return nil
+									}(),
+									RequestCookiesToRemove: func() types.List {
+										if v, ok := MoreOptionData["request_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									RequestHeadersToAdd: func() []ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddModel {
+										if rawList, ok := MoreOptionData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var RequestHeadersToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddModel
+											for _, RequestHeadersToAddItem := range rawList {
+												if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
+													RequestHeadersToAddResult = append(RequestHeadersToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddModel{
+														Append: func() types.Bool {
+															if v, ok := RequestHeadersToAddItemMap["append"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := RequestHeadersToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueModel {
+															if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := RequestHeadersToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return RequestHeadersToAddResult
+										}
+										return nil
+									}(),
+									RequestHeadersToRemove: func() types.List {
+										if v, ok := MoreOptionData["request_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									ResponseCookiesToAdd: func() []ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModel {
+										if rawList, ok := MoreOptionData["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var ResponseCookiesToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModel
+											for _, ResponseCookiesToAddItem := range rawList {
+												if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
+													ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModel{
+														AddDomain: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["add_domain"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														AddExpiry: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["add_expiry"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														AddHttponly: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														AddPartitioned: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														AddPath: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														AddSecure: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreDomain: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreExpiry: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreHttponly: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreMaxAge: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnorePartitioned: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnorePath: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreSamesite: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreSecure: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreValue: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														MaxAgeValue: func() types.Int64 {
+															if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														Name: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Overwrite: func() types.Bool {
+															if v, ok := ResponseCookiesToAddItemMap["overwrite"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														SamesiteLax: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SamesiteNone: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SamesiteStrict: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel {
+															if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return ResponseCookiesToAddResult
+										}
+										return nil
+									}(),
+									ResponseCookiesToRemove: func() types.List {
+										if v, ok := MoreOptionData["response_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									ResponseHeadersToAdd: func() []ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddModel {
+										if rawList, ok := MoreOptionData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var ResponseHeadersToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddModel
+											for _, ResponseHeadersToAddItem := range rawList {
+												if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
+													ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddModel{
+														Append: func() types.Bool {
+															if v, ok := ResponseHeadersToAddItemMap["append"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := ResponseHeadersToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueModel {
+															if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := ResponseHeadersToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return ResponseHeadersToAddResult
+										}
+										return nil
+									}(),
+									ResponseHeadersToRemove: func() types.List {
+										if v, ok := MoreOptionData["response_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			HTTPSProxy: func() *ProxyDynamicProxyHTTPSProxyModel {
 				if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil {
-					// Normal Read: preserve existing state value
 					return data.DynamicProxy.HTTPSProxy
 				}
-				// Import case: read from API
-				if _, ok := blockData["https_proxy"].(map[string]interface{}); ok {
-					return &ProxyDynamicProxyHTTPSProxyModel{}
+				if HTTPSProxyData, ok := blockData["https_proxy"].(map[string]interface{}); ok {
+					return &ProxyDynamicProxyHTTPSProxyModel{
+						MoreOption: func() *ProxyDynamicProxyHTTPSProxyMoreOptionModel {
+							if MoreOptionData, ok := HTTPSProxyData["more_option"].(map[string]interface{}); ok {
+								return &ProxyDynamicProxyHTTPSProxyMoreOptionModel{
+									BufferPolicy: func() *ProxyDynamicProxyHTTPSProxyMoreOptionBufferPolicyModel {
+										if BufferPolicyData, ok := MoreOptionData["buffer_policy"].(map[string]interface{}); ok {
+											return &ProxyDynamicProxyHTTPSProxyMoreOptionBufferPolicyModel{
+												Disabled: func() types.Bool {
+													if v, ok := BufferPolicyData["disabled"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												MaxRequestBytes: func() types.Int64 {
+													if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
+														return types.Int64Value(int64(v))
+													}
+													return types.Int64Null()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									CompressionParams: func() *ProxyDynamicProxyHTTPSProxyMoreOptionCompressionParamsModel {
+										if CompressionParamsData, ok := MoreOptionData["compression_params"].(map[string]interface{}); ok {
+											return &ProxyDynamicProxyHTTPSProxyMoreOptionCompressionParamsModel{
+												ContentLength: func() types.Int64 {
+													if v, ok := CompressionParamsData["content_length"].(float64); ok && v != 0 {
+														return types.Int64Value(int64(v))
+													}
+													return types.Int64Null()
+												}(),
+												ContentType: func() types.List {
+													if v, ok := CompressionParamsData["content_type"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												DisableOnEtagHeader: func() types.Bool {
+													if v, ok := CompressionParamsData["disable_on_etag_header"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												RemoveAcceptEncodingHeader: func() types.Bool {
+													if v, ok := CompressionParamsData["remove_accept_encoding_header"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									CustomErrors: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									DisableDefaultErrorPages: func() types.Bool {
+										if v, ok := MoreOptionData["disable_default_error_pages"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									DisablePathNormalize: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									EnablePathNormalize: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									IdleTimeout: func() types.Int64 {
+										if v, ok := MoreOptionData["idle_timeout"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									MaxRequestHeaderSize: func() types.Int64 {
+										if v, ok := MoreOptionData["max_request_header_size"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									MaxRequestsPerConnection: func() types.Int64 {
+										if v, ok := MoreOptionData["max_requests_per_connection"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									NoRequestLimitPerConnection: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									RequestCookiesToAdd: func() []ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddModel {
+										if rawList, ok := MoreOptionData["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var RequestCookiesToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddModel
+											for _, RequestCookiesToAddItem := range rawList {
+												if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
+													RequestCookiesToAddResult = append(RequestCookiesToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddModel{
+														Name: func() types.String {
+															if v, ok := RequestCookiesToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Overwrite: func() types.Bool {
+															if v, ok := RequestCookiesToAddItemMap["overwrite"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueModel {
+															if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := RequestCookiesToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return RequestCookiesToAddResult
+										}
+										return nil
+									}(),
+									RequestCookiesToRemove: func() types.List {
+										if v, ok := MoreOptionData["request_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									RequestHeadersToAdd: func() []ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddModel {
+										if rawList, ok := MoreOptionData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var RequestHeadersToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddModel
+											for _, RequestHeadersToAddItem := range rawList {
+												if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
+													RequestHeadersToAddResult = append(RequestHeadersToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddModel{
+														Append: func() types.Bool {
+															if v, ok := RequestHeadersToAddItemMap["append"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := RequestHeadersToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueModel {
+															if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := RequestHeadersToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return RequestHeadersToAddResult
+										}
+										return nil
+									}(),
+									RequestHeadersToRemove: func() types.List {
+										if v, ok := MoreOptionData["request_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									ResponseCookiesToAdd: func() []ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModel {
+										if rawList, ok := MoreOptionData["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var ResponseCookiesToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModel
+											for _, ResponseCookiesToAddItem := range rawList {
+												if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
+													ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModel{
+														AddDomain: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["add_domain"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														AddExpiry: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["add_expiry"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														AddHttponly: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														AddPartitioned: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														AddPath: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														AddSecure: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreDomain: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreExpiry: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreHttponly: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreMaxAge: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnorePartitioned: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnorePath: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreSamesite: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreSecure: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreValue: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														MaxAgeValue: func() types.Int64 {
+															if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														Name: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Overwrite: func() types.Bool {
+															if v, ok := ResponseCookiesToAddItemMap["overwrite"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														SamesiteLax: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SamesiteNone: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SamesiteStrict: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueModel {
+															if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return ResponseCookiesToAddResult
+										}
+										return nil
+									}(),
+									ResponseCookiesToRemove: func() types.List {
+										if v, ok := MoreOptionData["response_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									ResponseHeadersToAdd: func() []ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddModel {
+										if rawList, ok := MoreOptionData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var ResponseHeadersToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddModel
+											for _, ResponseHeadersToAddItem := range rawList {
+												if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
+													ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddModel{
+														Append: func() types.Bool {
+															if v, ok := ResponseHeadersToAddItemMap["append"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := ResponseHeadersToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueModel {
+															if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := ResponseHeadersToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return ResponseHeadersToAddResult
+										}
+										return nil
+									}(),
+									ResponseHeadersToRemove: func() types.List {
+										if v, ok := MoreOptionData["response_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
+						}(),
+						TLSParams: func() *ProxyDynamicProxyHTTPSProxyTLSParamsModel {
+							if TLSParamsData, ok := HTTPSProxyData["tls_params"].(map[string]interface{}); ok {
+								return &ProxyDynamicProxyHTTPSProxyTLSParamsModel{
+									NoMtls: func() *ProxyEmptyModel {
+										if _, ok := TLSParamsData["no_mtls"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									TLSCertificates: func() []ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModel {
+										if rawList, ok := TLSParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+											var TLSCertificatesResult []ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModel
+											for _, TLSCertificatesItem := range rawList {
+												if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+													TLSCertificatesResult = append(TLSCertificatesResult, ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModel{
+														CertificateURL: func() types.String {
+															if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														CustomHashAlgorithms: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesCustomHashAlgorithmsModel {
+															if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesCustomHashAlgorithmsModel{
+																	HashAlgorithms: func() types.List {
+																		if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														DescriptionSpec: func() types.String {
+															if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														DisableOCSPStapling: func() *ProxyEmptyModel {
+															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														PrivateKey: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyModel {
+															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														UseSystemDefaults: func() *ProxyEmptyModel {
+															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											return TLSCertificatesResult
+										}
+										return nil
+									}(),
+									TLSConfig: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigModel {
+										if TLSConfigData, ok := TLSParamsData["tls_config"].(map[string]interface{}); ok {
+											return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigModel{
+												CustomSecurity: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigCustomSecurityModel {
+													if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+														return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigCustomSecurityModel{
+															CipherSuites: func() types.List {
+																if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+																	var items []string
+																	for _, item := range v {
+																		if s, ok := item.(string); ok {
+																			items = append(items, s)
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	return listVal
+																}
+																return types.ListNull(types.StringType)
+															}(),
+															MaxVersion: func() types.String {
+																if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															MinVersion: func() types.String {
+																if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												DefaultSecurity: func() *ProxyEmptyModel {
+													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+														return &ProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												LowSecurity: func() *ProxyEmptyModel {
+													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+														return &ProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												MediumSecurity: func() *ProxyEmptyModel {
+													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+														return &ProxyEmptyModel{}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									UseMtls: func() *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsModel {
+										if UseMtlsData, ok := TLSParamsData["use_mtls"].(map[string]interface{}); ok {
+											return &ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsModel{
+												ClientCertificateOptional: func() types.Bool {
+													if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												CRL: func() *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsCRLModel {
+													if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+														return &ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsCRLModel{
+															Name: func() types.String {
+																if v, ok := CRLData["name"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Namespace: func() types.String {
+																if v, ok := CRLData["namespace"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Tenant: func() types.String {
+																if v, ok := CRLData["tenant"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												NoCRL: func() *ProxyEmptyModel {
+													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+														return &ProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												TrustedCA: func() *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsTrustedCAModel {
+													if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+														return &ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsTrustedCAModel{
+															Name: func() types.String {
+																if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Namespace: func() types.String {
+																if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Tenant: func() types.String {
+																if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												TrustedCAURL: func() types.String {
+													if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												XfccDisabled: func() *ProxyEmptyModel {
+													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+														return &ProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												XfccOptions: func() *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsXfccOptionsModel {
+													if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+														return &ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsXfccOptionsModel{
+															XfccHeaderElements: func() types.List {
+																if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+																	var items []string
+																	for _, item := range v {
+																		if s, ok := item.(string); ok {
+																			items = append(items, s)
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	return listVal
+																}
+																return types.ListNull(types.StringType)
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			SniProxy: func() *ProxyDynamicProxySniProxyModel {
 				if !isImport && data.DynamicProxy != nil && data.DynamicProxy.SniProxy != nil {
-					// Normal Read: preserve existing state value
 					return data.DynamicProxy.SniProxy
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["sni_proxy"].(map[string]interface{}); ok {
+				if SniProxyData, ok := blockData["sni_proxy"].(map[string]interface{}); ok {
 					return &ProxyDynamicProxySniProxyModel{
 						IdleTimeout: func() types.Int64 {
-							if v, ok := nestedBlockData["idle_timeout"].(float64); ok {
+							if v, ok := SniProxyData["idle_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
@@ -3949,78 +6623,740 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["http_proxy"].(map[string]interface{}); ok && isImport && data.HTTPProxy == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.HTTPProxy = &ProxyHTTPProxyModel{}
+	if blockData, ok := apiResource.Spec["http_proxy"].(map[string]interface{}); ok && (isImport || data.HTTPProxy != nil) {
+		data.HTTPProxy = &ProxyHTTPProxyModel{
+			EnableHTTP: func() *ProxyEmptyModel {
+				if !isImport && data.HTTPProxy != nil {
+					return data.HTTPProxy.EnableHTTP
+				}
+				if _, ok := blockData["enable_http"].(map[string]interface{}); ok {
+					return &ProxyEmptyModel{}
+				}
+				return nil
+			}(),
+			MoreOption: func() *ProxyHTTPProxyMoreOptionModel {
+				if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+					return data.HTTPProxy.MoreOption
+				}
+				if MoreOptionData, ok := blockData["more_option"].(map[string]interface{}); ok {
+					return &ProxyHTTPProxyMoreOptionModel{
+						BufferPolicy: func() *ProxyHTTPProxyMoreOptionBufferPolicyModel {
+							if BufferPolicyData, ok := MoreOptionData["buffer_policy"].(map[string]interface{}); ok {
+								return &ProxyHTTPProxyMoreOptionBufferPolicyModel{
+									Disabled: func() types.Bool {
+										if v, ok := BufferPolicyData["disabled"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									MaxRequestBytes: func() types.Int64 {
+										if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						CompressionParams: func() *ProxyHTTPProxyMoreOptionCompressionParamsModel {
+							if CompressionParamsData, ok := MoreOptionData["compression_params"].(map[string]interface{}); ok {
+								return &ProxyHTTPProxyMoreOptionCompressionParamsModel{
+									ContentLength: func() types.Int64 {
+										if v, ok := CompressionParamsData["content_length"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									ContentType: func() types.List {
+										if v, ok := CompressionParamsData["content_type"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									DisableOnEtagHeader: func() types.Bool {
+										if v, ok := CompressionParamsData["disable_on_etag_header"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									RemoveAcceptEncodingHeader: func() types.Bool {
+										if v, ok := CompressionParamsData["remove_accept_encoding_header"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						CustomErrors: func() *ProxyEmptyModel {
+							if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
+								return &ProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						DisableDefaultErrorPages: func() types.Bool {
+							if v, ok := MoreOptionData["disable_default_error_pages"].(bool); ok {
+								return types.BoolValue(v)
+							}
+							return types.BoolNull()
+						}(),
+						DisablePathNormalize: func() *ProxyEmptyModel {
+							if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
+								return &ProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						EnablePathNormalize: func() *ProxyEmptyModel {
+							if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
+								return &ProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						IdleTimeout: func() types.Int64 {
+							if v, ok := MoreOptionData["idle_timeout"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxRequestHeaderSize: func() types.Int64 {
+							if v, ok := MoreOptionData["max_request_header_size"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxRequestsPerConnection: func() types.Int64 {
+							if v, ok := MoreOptionData["max_requests_per_connection"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						NoRequestLimitPerConnection: func() *ProxyEmptyModel {
+							if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
+								return &ProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						RequestCookiesToAdd: func() []ProxyHTTPProxyMoreOptionRequestCookiesToAddModel {
+							if rawList, ok := MoreOptionData["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+								var RequestCookiesToAddResult []ProxyHTTPProxyMoreOptionRequestCookiesToAddModel
+								for _, RequestCookiesToAddItem := range rawList {
+									if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
+										RequestCookiesToAddResult = append(RequestCookiesToAddResult, ProxyHTTPProxyMoreOptionRequestCookiesToAddModel{
+											Name: func() types.String {
+												if v, ok := RequestCookiesToAddItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Overwrite: func() types.Bool {
+												if v, ok := RequestCookiesToAddItemMap["overwrite"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											SecretValue: func() *ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueModel {
+												if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+													return &ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueModel{
+														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel {
+															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Value: func() types.String {
+												if v, ok := RequestCookiesToAddItemMap["value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return RequestCookiesToAddResult
+							}
+							return nil
+						}(),
+						RequestCookiesToRemove: func() types.List {
+							if v, ok := MoreOptionData["request_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+						RequestHeadersToAdd: func() []ProxyHTTPProxyMoreOptionRequestHeadersToAddModel {
+							if rawList, ok := MoreOptionData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+								var RequestHeadersToAddResult []ProxyHTTPProxyMoreOptionRequestHeadersToAddModel
+								for _, RequestHeadersToAddItem := range rawList {
+									if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
+										RequestHeadersToAddResult = append(RequestHeadersToAddResult, ProxyHTTPProxyMoreOptionRequestHeadersToAddModel{
+											Append: func() types.Bool {
+												if v, ok := RequestHeadersToAddItemMap["append"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RequestHeadersToAddItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											SecretValue: func() *ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueModel {
+												if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+													return &ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueModel{
+														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel {
+															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Value: func() types.String {
+												if v, ok := RequestHeadersToAddItemMap["value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return RequestHeadersToAddResult
+							}
+							return nil
+						}(),
+						RequestHeadersToRemove: func() types.List {
+							if v, ok := MoreOptionData["request_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+						ResponseCookiesToAdd: func() []ProxyHTTPProxyMoreOptionResponseCookiesToAddModel {
+							if rawList, ok := MoreOptionData["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+								var ResponseCookiesToAddResult []ProxyHTTPProxyMoreOptionResponseCookiesToAddModel
+								for _, ResponseCookiesToAddItem := range rawList {
+									if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
+										ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, ProxyHTTPProxyMoreOptionResponseCookiesToAddModel{
+											AddDomain: func() types.String {
+												if v, ok := ResponseCookiesToAddItemMap["add_domain"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											AddExpiry: func() types.String {
+												if v, ok := ResponseCookiesToAddItemMap["add_expiry"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											AddHttponly: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											AddPartitioned: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											AddPath: func() types.String {
+												if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											AddSecure: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnoreDomain: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnoreExpiry: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnoreHttponly: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnoreMaxAge: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnorePartitioned: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnorePath: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnoreSamesite: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnoreSecure: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnoreValue: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											MaxAgeValue: func() types.Int64 {
+												if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+											Name: func() types.String {
+												if v, ok := ResponseCookiesToAddItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Overwrite: func() types.Bool {
+												if v, ok := ResponseCookiesToAddItemMap["overwrite"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											SamesiteLax: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											SamesiteNone: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											SamesiteStrict: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											SecretValue: func() *ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel {
+												if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+													return &ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel{
+														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel {
+															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Value: func() types.String {
+												if v, ok := ResponseCookiesToAddItemMap["value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return ResponseCookiesToAddResult
+							}
+							return nil
+						}(),
+						ResponseCookiesToRemove: func() types.List {
+							if v, ok := MoreOptionData["response_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+						ResponseHeadersToAdd: func() []ProxyHTTPProxyMoreOptionResponseHeadersToAddModel {
+							if rawList, ok := MoreOptionData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+								var ResponseHeadersToAddResult []ProxyHTTPProxyMoreOptionResponseHeadersToAddModel
+								for _, ResponseHeadersToAddItem := range rawList {
+									if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
+										ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, ProxyHTTPProxyMoreOptionResponseHeadersToAddModel{
+											Append: func() types.Bool {
+												if v, ok := ResponseHeadersToAddItemMap["append"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ResponseHeadersToAddItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											SecretValue: func() *ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueModel {
+												if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+													return &ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueModel{
+														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel {
+															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Value: func() types.String {
+												if v, ok := ResponseHeadersToAddItemMap["value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return ResponseHeadersToAddResult
+							}
+							return nil
+						}(),
+						ResponseHeadersToRemove: func() types.List {
+							if v, ok := MoreOptionData["response_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_forward_proxy_policy"].(map[string]interface{}); ok && isImport && data.NoForwardProxyPolicy == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoForwardProxyPolicy = &ProxyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_interception"].(map[string]interface{}); ok && isImport && data.NoInterception == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoInterception = &ProxyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["site_local_inside_network"].(map[string]interface{}); ok && isImport && data.SiteLocalInsideNetwork == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.SiteLocalInsideNetwork = &ProxyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["site_local_network"].(map[string]interface{}); ok && isImport && data.SiteLocalNetwork == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.SiteLocalNetwork = &ProxyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["site_virtual_sites"].(map[string]interface{}); ok && (isImport || data.SiteVirtualSites != nil) {
 		data.SiteVirtualSites = &ProxySiteVirtualSitesModel{
-			AdvertiseWhere: func() []ProxySiteVirtualSitesAdvertiseWhereModel {
-				if listData, ok := blockData["advertise_where"].([]interface{}); ok && len(listData) > 0 {
-					var result []ProxySiteVirtualSitesAdvertiseWhereModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ProxySiteVirtualSitesAdvertiseWhereModel{
+			AdvertiseWhere: func() types.List {
+				if !isImport && data.SiteVirtualSites != nil && (data.SiteVirtualSites.AdvertiseWhere.IsNull() || len(data.SiteVirtualSites.AdvertiseWhere.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ProxySiteVirtualSitesAdvertiseWhereModelAttrTypes})
+				}
+				if rawList, ok := blockData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
+					var AdvertiseWhereResult []ProxySiteVirtualSitesAdvertiseWhereModel
+					for _, AdvertiseWhereItem := range rawList {
+						if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
+							AdvertiseWhereResult = append(AdvertiseWhereResult, ProxySiteVirtualSitesAdvertiseWhereModel{
 								Port: func() types.Int64 {
-									if v, ok := itemMap["port"].(float64); ok {
+									if v, ok := AdvertiseWhereItemMap["port"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								Site: func() *ProxySiteVirtualSitesAdvertiseWhereSiteModel {
-									if deepMap, ok := itemMap["site"].(map[string]interface{}); ok {
+									if SiteData, ok := AdvertiseWhereItemMap["site"].(map[string]interface{}); ok {
 										return &ProxySiteVirtualSitesAdvertiseWhereSiteModel{
 											IP: func() types.String {
-												if v, ok := deepMap["ip"].(string); ok && v != "" {
+												if v, ok := SiteData["ip"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Network: func() types.String {
-												if v, ok := deepMap["network"].(string); ok && v != "" {
+												if v, ok := SiteData["network"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
+											}(),
+											Site: func() *ProxySiteVirtualSitesAdvertiseWhereSiteSiteModel {
+												if SiteData, ok := SiteData["site"].(map[string]interface{}); ok {
+													return &ProxySiteVirtualSitesAdvertiseWhereSiteSiteModel{
+														Name: func() types.String {
+															if v, ok := SiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
 											}(),
 										}
 									}
 									return nil
 								}(),
 								UseDefaultPort: func() *ProxyEmptyModel {
-									if _, ok := itemMap["use_default_port"].(map[string]interface{}); ok {
+									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &ProxyEmptyModel{}
 									}
 									return nil
 								}(),
 								VirtualSite: func() *ProxySiteVirtualSitesAdvertiseWhereVirtualSiteModel {
-									if deepMap, ok := itemMap["virtual_site"].(map[string]interface{}); ok {
+									if VirtualSiteData, ok := AdvertiseWhereItemMap["virtual_site"].(map[string]interface{}); ok {
 										return &ProxySiteVirtualSitesAdvertiseWhereVirtualSiteModel{
 											Network: func() types.String {
-												if v, ok := deepMap["network"].(string); ok && v != "" {
+												if v, ok := VirtualSiteData["network"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
+											}(),
+											VirtualSite: func() *ProxySiteVirtualSitesAdvertiseWhereVirtualSiteVirtualSiteModel {
+												if VirtualSiteData, ok := VirtualSiteData["virtual_site"].(map[string]interface{}); ok {
+													return &ProxySiteVirtualSitesAdvertiseWhereVirtualSiteVirtualSiteModel{
+														Name: func() types.String {
+															if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
 											}(),
 										}
 									}
@@ -4029,9 +7365,10 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProxySiteVirtualSitesAdvertiseWhereModelAttrTypes}, AdvertiseWhereResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ProxySiteVirtualSitesAdvertiseWhereModelAttrTypes})
 			}(),
 		}
 	}
@@ -4039,23 +7376,104 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 		data.TLSIntercept = &ProxyTLSInterceptModel{
 			CustomCertificate: func() *ProxyTLSInterceptCustomCertificateModel {
 				if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil {
-					// Normal Read: preserve existing state value
 					return data.TLSIntercept.CustomCertificate
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["custom_certificate"].(map[string]interface{}); ok {
+				if CustomCertificateData, ok := blockData["custom_certificate"].(map[string]interface{}); ok {
 					return &ProxyTLSInterceptCustomCertificateModel{
 						CertificateURL: func() types.String {
-							if v, ok := nestedBlockData["certificate_url"].(string); ok && v != "" {
+							if v, ok := CustomCertificateData["certificate_url"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
+						CustomHashAlgorithms: func() *ProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel {
+							if CustomHashAlgorithmsData, ok := CustomCertificateData["custom_hash_algorithms"].(map[string]interface{}); ok {
+								return &ProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel{
+									HashAlgorithms: func() types.List {
+										if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
+						}(),
 						DescriptionSpec: func() types.String {
-							if v, ok := nestedBlockData["description"].(string); ok && v != "" {
+							if v, ok := CustomCertificateData["description"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						DisableOCSPStapling: func() *ProxyEmptyModel {
+							if _, ok := CustomCertificateData["disable_ocsp_stapling"].(map[string]interface{}); ok {
+								return &ProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						PrivateKey: func() *ProxyTLSInterceptCustomCertificatePrivateKeyModel {
+							if PrivateKeyData, ok := CustomCertificateData["private_key"].(map[string]interface{}); ok {
+								return &ProxyTLSInterceptCustomCertificatePrivateKeyModel{
+									BlindfoldSecretInfo: func() *ProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &ProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *ProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel {
+										if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+											return &ProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseSystemDefaults: func() *ProxyEmptyModel {
+							if _, ok := CustomCertificateData["use_system_defaults"].(map[string]interface{}); ok {
+								return &ProxyEmptyModel{}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -4063,11 +7481,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 			}(),
 			EnableForAllDomains: func() *ProxyEmptyModel {
 				if !isImport && data.TLSIntercept != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSIntercept.EnableForAllDomains
 				}
-				// Import case: read from API
 				if _, ok := blockData["enable_for_all_domains"].(map[string]interface{}); ok {
 					return &ProxyEmptyModel{}
 				}
@@ -4075,12 +7490,61 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 			}(),
 			Policy: func() *ProxyTLSInterceptPolicyModel {
 				if !isImport && data.TLSIntercept != nil && data.TLSIntercept.Policy != nil {
-					// Normal Read: preserve existing state value
 					return data.TLSIntercept.Policy
 				}
-				// Import case: read from API
-				if _, ok := blockData["policy"].(map[string]interface{}); ok {
-					return &ProxyTLSInterceptPolicyModel{}
+				if PolicyData, ok := blockData["policy"].(map[string]interface{}); ok {
+					return &ProxyTLSInterceptPolicyModel{
+						InterceptionRules: func() []ProxyTLSInterceptPolicyInterceptionRulesModel {
+							if rawList, ok := PolicyData["interception_rules"].([]interface{}); ok && len(rawList) > 0 {
+								var InterceptionRulesResult []ProxyTLSInterceptPolicyInterceptionRulesModel
+								for _, InterceptionRulesItem := range rawList {
+									if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
+										InterceptionRulesResult = append(InterceptionRulesResult, ProxyTLSInterceptPolicyInterceptionRulesModel{
+											DisableInterception: func() *ProxyEmptyModel {
+												if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											DomainMatch: func() *ProxyTLSInterceptPolicyInterceptionRulesDomainMatchModel {
+												if DomainMatchData, ok := InterceptionRulesItemMap["domain_match"].(map[string]interface{}); ok {
+													return &ProxyTLSInterceptPolicyInterceptionRulesDomainMatchModel{
+														ExactValue: func() types.String {
+															if v, ok := DomainMatchData["exact_value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														RegexValue: func() types.String {
+															if v, ok := DomainMatchData["regex_value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SuffixValue: func() types.String {
+															if v, ok := DomainMatchData["suffix_value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											EnableInterception: func() *ProxyEmptyModel {
+												if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return InterceptionRulesResult
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -4092,11 +7556,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 			}(),
 			VolterraCertificate: func() *ProxyEmptyModel {
 				if !isImport && data.TLSIntercept != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSIntercept.VolterraCertificate
 				}
-				// Import case: read from API
 				if _, ok := blockData["volterra_certificate"].(map[string]interface{}); ok {
 					return &ProxyEmptyModel{}
 				}
@@ -4104,11 +7565,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 			}(),
 			VolterraTrustedCA: func() *ProxyEmptyModel {
 				if !isImport && data.TLSIntercept != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSIntercept.VolterraTrustedCA
 				}
-				// Import case: read from API
 				if _, ok := blockData["volterra_trusted_ca"].(map[string]interface{}); ok {
 					return &ProxyEmptyModel{}
 				}
@@ -4203,26 +7661,29 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 	_ = isImport // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["active_forward_proxy_policies"].(map[string]interface{}); ok && (isImport || data.ActiveForwardProxyPolicies != nil) {
 		data.ActiveForwardProxyPolicies = &ProxyActiveForwardProxyPoliciesModel{
-			ForwardProxyPolicies: func() []ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel {
-				if listData, ok := blockData["forward_proxy_policies"].([]interface{}); ok && len(listData) > 0 {
-					var result []ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel{
+			ForwardProxyPolicies: func() types.List {
+				if !isImport && data.ActiveForwardProxyPolicies != nil && (data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() || len(data.ActiveForwardProxyPolicies.ForwardProxyPolicies.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
+				}
+				if rawList, ok := blockData["forward_proxy_policies"].([]interface{}); ok && len(rawList) > 0 {
+					var ForwardProxyPoliciesResult []ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel
+					for _, ForwardProxyPoliciesItem := range rawList {
+						if ForwardProxyPoliciesItemMap, ok := ForwardProxyPoliciesItem.(map[string]interface{}); ok {
+							ForwardProxyPoliciesResult = append(ForwardProxyPoliciesResult, ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := ForwardProxyPoliciesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := ForwardProxyPoliciesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := ForwardProxyPoliciesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -4230,26 +7691,22 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes}, ForwardProxyPoliciesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
 			}(),
 		}
 	}
 	if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok && isImport && data.DoNotAdvertise == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DoNotAdvertise = &ProxyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["dynamic_proxy"].(map[string]interface{}); ok && (isImport || data.DynamicProxy != nil) {
 		data.DynamicProxy = &ProxyDynamicProxyModel{
 			DisableDNSMasquerade: func() *ProxyEmptyModel {
 				if !isImport && data.DynamicProxy != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DynamicProxy.DisableDNSMasquerade
 				}
-				// Import case: read from API
 				if _, ok := blockData["disable_dns_masquerade"].(map[string]interface{}); ok {
 					return &ProxyEmptyModel{}
 				}
@@ -4270,11 +7727,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 			}(),
 			EnableDNSMasquerade: func() *ProxyEmptyModel {
 				if !isImport && data.DynamicProxy != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DynamicProxy.EnableDNSMasquerade
 				}
-				// Import case: read from API
 				if _, ok := blockData["enable_dns_masquerade"].(map[string]interface{}); ok {
 					return &ProxyEmptyModel{}
 				}
@@ -4282,36 +7736,1523 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 			}(),
 			HTTPProxy: func() *ProxyDynamicProxyHTTPProxyModel {
 				if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil {
-					// Normal Read: preserve existing state value
 					return data.DynamicProxy.HTTPProxy
 				}
-				// Import case: read from API
-				if _, ok := blockData["http_proxy"].(map[string]interface{}); ok {
-					return &ProxyDynamicProxyHTTPProxyModel{}
+				if HTTPProxyData, ok := blockData["http_proxy"].(map[string]interface{}); ok {
+					return &ProxyDynamicProxyHTTPProxyModel{
+						MoreOption: func() *ProxyDynamicProxyHTTPProxyMoreOptionModel {
+							if MoreOptionData, ok := HTTPProxyData["more_option"].(map[string]interface{}); ok {
+								return &ProxyDynamicProxyHTTPProxyMoreOptionModel{
+									BufferPolicy: func() *ProxyDynamicProxyHTTPProxyMoreOptionBufferPolicyModel {
+										if BufferPolicyData, ok := MoreOptionData["buffer_policy"].(map[string]interface{}); ok {
+											return &ProxyDynamicProxyHTTPProxyMoreOptionBufferPolicyModel{
+												Disabled: func() types.Bool {
+													if v, ok := BufferPolicyData["disabled"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												MaxRequestBytes: func() types.Int64 {
+													if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
+														return types.Int64Value(int64(v))
+													}
+													return types.Int64Null()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									CompressionParams: func() *ProxyDynamicProxyHTTPProxyMoreOptionCompressionParamsModel {
+										if CompressionParamsData, ok := MoreOptionData["compression_params"].(map[string]interface{}); ok {
+											return &ProxyDynamicProxyHTTPProxyMoreOptionCompressionParamsModel{
+												ContentLength: func() types.Int64 {
+													if v, ok := CompressionParamsData["content_length"].(float64); ok && v != 0 {
+														return types.Int64Value(int64(v))
+													}
+													return types.Int64Null()
+												}(),
+												ContentType: func() types.List {
+													if v, ok := CompressionParamsData["content_type"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												DisableOnEtagHeader: func() types.Bool {
+													if v, ok := CompressionParamsData["disable_on_etag_header"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												RemoveAcceptEncodingHeader: func() types.Bool {
+													if v, ok := CompressionParamsData["remove_accept_encoding_header"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									CustomErrors: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									DisableDefaultErrorPages: func() types.Bool {
+										if v, ok := MoreOptionData["disable_default_error_pages"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									DisablePathNormalize: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									EnablePathNormalize: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									IdleTimeout: func() types.Int64 {
+										if v, ok := MoreOptionData["idle_timeout"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									MaxRequestHeaderSize: func() types.Int64 {
+										if v, ok := MoreOptionData["max_request_header_size"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									MaxRequestsPerConnection: func() types.Int64 {
+										if v, ok := MoreOptionData["max_requests_per_connection"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									NoRequestLimitPerConnection: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									RequestCookiesToAdd: func() []ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddModel {
+										if rawList, ok := MoreOptionData["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var RequestCookiesToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddModel
+											for _, RequestCookiesToAddItem := range rawList {
+												if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
+													RequestCookiesToAddResult = append(RequestCookiesToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddModel{
+														Name: func() types.String {
+															if v, ok := RequestCookiesToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Overwrite: func() types.Bool {
+															if v, ok := RequestCookiesToAddItemMap["overwrite"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueModel {
+															if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := RequestCookiesToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return RequestCookiesToAddResult
+										}
+										return nil
+									}(),
+									RequestCookiesToRemove: func() types.List {
+										if v, ok := MoreOptionData["request_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									RequestHeadersToAdd: func() []ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddModel {
+										if rawList, ok := MoreOptionData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var RequestHeadersToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddModel
+											for _, RequestHeadersToAddItem := range rawList {
+												if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
+													RequestHeadersToAddResult = append(RequestHeadersToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddModel{
+														Append: func() types.Bool {
+															if v, ok := RequestHeadersToAddItemMap["append"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := RequestHeadersToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueModel {
+															if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := RequestHeadersToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return RequestHeadersToAddResult
+										}
+										return nil
+									}(),
+									RequestHeadersToRemove: func() types.List {
+										if v, ok := MoreOptionData["request_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									ResponseCookiesToAdd: func() []ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModel {
+										if rawList, ok := MoreOptionData["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var ResponseCookiesToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModel
+											for _, ResponseCookiesToAddItem := range rawList {
+												if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
+													ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModel{
+														AddDomain: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["add_domain"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														AddExpiry: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["add_expiry"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														AddHttponly: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														AddPartitioned: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														AddPath: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														AddSecure: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreDomain: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreExpiry: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreHttponly: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreMaxAge: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnorePartitioned: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnorePath: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreSamesite: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreSecure: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreValue: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														MaxAgeValue: func() types.Int64 {
+															if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														Name: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Overwrite: func() types.Bool {
+															if v, ok := ResponseCookiesToAddItemMap["overwrite"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														SamesiteLax: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SamesiteNone: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SamesiteStrict: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel {
+															if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return ResponseCookiesToAddResult
+										}
+										return nil
+									}(),
+									ResponseCookiesToRemove: func() types.List {
+										if v, ok := MoreOptionData["response_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									ResponseHeadersToAdd: func() []ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddModel {
+										if rawList, ok := MoreOptionData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var ResponseHeadersToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddModel
+											for _, ResponseHeadersToAddItem := range rawList {
+												if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
+													ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddModel{
+														Append: func() types.Bool {
+															if v, ok := ResponseHeadersToAddItemMap["append"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := ResponseHeadersToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueModel {
+															if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := ResponseHeadersToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return ResponseHeadersToAddResult
+										}
+										return nil
+									}(),
+									ResponseHeadersToRemove: func() types.List {
+										if v, ok := MoreOptionData["response_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			HTTPSProxy: func() *ProxyDynamicProxyHTTPSProxyModel {
 				if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil {
-					// Normal Read: preserve existing state value
 					return data.DynamicProxy.HTTPSProxy
 				}
-				// Import case: read from API
-				if _, ok := blockData["https_proxy"].(map[string]interface{}); ok {
-					return &ProxyDynamicProxyHTTPSProxyModel{}
+				if HTTPSProxyData, ok := blockData["https_proxy"].(map[string]interface{}); ok {
+					return &ProxyDynamicProxyHTTPSProxyModel{
+						MoreOption: func() *ProxyDynamicProxyHTTPSProxyMoreOptionModel {
+							if MoreOptionData, ok := HTTPSProxyData["more_option"].(map[string]interface{}); ok {
+								return &ProxyDynamicProxyHTTPSProxyMoreOptionModel{
+									BufferPolicy: func() *ProxyDynamicProxyHTTPSProxyMoreOptionBufferPolicyModel {
+										if BufferPolicyData, ok := MoreOptionData["buffer_policy"].(map[string]interface{}); ok {
+											return &ProxyDynamicProxyHTTPSProxyMoreOptionBufferPolicyModel{
+												Disabled: func() types.Bool {
+													if v, ok := BufferPolicyData["disabled"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												MaxRequestBytes: func() types.Int64 {
+													if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
+														return types.Int64Value(int64(v))
+													}
+													return types.Int64Null()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									CompressionParams: func() *ProxyDynamicProxyHTTPSProxyMoreOptionCompressionParamsModel {
+										if CompressionParamsData, ok := MoreOptionData["compression_params"].(map[string]interface{}); ok {
+											return &ProxyDynamicProxyHTTPSProxyMoreOptionCompressionParamsModel{
+												ContentLength: func() types.Int64 {
+													if v, ok := CompressionParamsData["content_length"].(float64); ok && v != 0 {
+														return types.Int64Value(int64(v))
+													}
+													return types.Int64Null()
+												}(),
+												ContentType: func() types.List {
+													if v, ok := CompressionParamsData["content_type"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												DisableOnEtagHeader: func() types.Bool {
+													if v, ok := CompressionParamsData["disable_on_etag_header"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												RemoveAcceptEncodingHeader: func() types.Bool {
+													if v, ok := CompressionParamsData["remove_accept_encoding_header"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									CustomErrors: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									DisableDefaultErrorPages: func() types.Bool {
+										if v, ok := MoreOptionData["disable_default_error_pages"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									DisablePathNormalize: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									EnablePathNormalize: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									IdleTimeout: func() types.Int64 {
+										if v, ok := MoreOptionData["idle_timeout"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									MaxRequestHeaderSize: func() types.Int64 {
+										if v, ok := MoreOptionData["max_request_header_size"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									MaxRequestsPerConnection: func() types.Int64 {
+										if v, ok := MoreOptionData["max_requests_per_connection"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									NoRequestLimitPerConnection: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									RequestCookiesToAdd: func() []ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddModel {
+										if rawList, ok := MoreOptionData["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var RequestCookiesToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddModel
+											for _, RequestCookiesToAddItem := range rawList {
+												if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
+													RequestCookiesToAddResult = append(RequestCookiesToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddModel{
+														Name: func() types.String {
+															if v, ok := RequestCookiesToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Overwrite: func() types.Bool {
+															if v, ok := RequestCookiesToAddItemMap["overwrite"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueModel {
+															if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := RequestCookiesToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return RequestCookiesToAddResult
+										}
+										return nil
+									}(),
+									RequestCookiesToRemove: func() types.List {
+										if v, ok := MoreOptionData["request_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									RequestHeadersToAdd: func() []ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddModel {
+										if rawList, ok := MoreOptionData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var RequestHeadersToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddModel
+											for _, RequestHeadersToAddItem := range rawList {
+												if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
+													RequestHeadersToAddResult = append(RequestHeadersToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddModel{
+														Append: func() types.Bool {
+															if v, ok := RequestHeadersToAddItemMap["append"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := RequestHeadersToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueModel {
+															if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := RequestHeadersToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return RequestHeadersToAddResult
+										}
+										return nil
+									}(),
+									RequestHeadersToRemove: func() types.List {
+										if v, ok := MoreOptionData["request_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									ResponseCookiesToAdd: func() []ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModel {
+										if rawList, ok := MoreOptionData["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var ResponseCookiesToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModel
+											for _, ResponseCookiesToAddItem := range rawList {
+												if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
+													ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModel{
+														AddDomain: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["add_domain"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														AddExpiry: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["add_expiry"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														AddHttponly: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														AddPartitioned: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														AddPath: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														AddSecure: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreDomain: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreExpiry: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreHttponly: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreMaxAge: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnorePartitioned: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnorePath: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreSamesite: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreSecure: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreValue: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														MaxAgeValue: func() types.Int64 {
+															if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														Name: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Overwrite: func() types.Bool {
+															if v, ok := ResponseCookiesToAddItemMap["overwrite"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														SamesiteLax: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SamesiteNone: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SamesiteStrict: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueModel {
+															if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return ResponseCookiesToAddResult
+										}
+										return nil
+									}(),
+									ResponseCookiesToRemove: func() types.List {
+										if v, ok := MoreOptionData["response_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									ResponseHeadersToAdd: func() []ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddModel {
+										if rawList, ok := MoreOptionData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var ResponseHeadersToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddModel
+											for _, ResponseHeadersToAddItem := range rawList {
+												if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
+													ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddModel{
+														Append: func() types.Bool {
+															if v, ok := ResponseHeadersToAddItemMap["append"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := ResponseHeadersToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueModel {
+															if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := ResponseHeadersToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return ResponseHeadersToAddResult
+										}
+										return nil
+									}(),
+									ResponseHeadersToRemove: func() types.List {
+										if v, ok := MoreOptionData["response_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
+						}(),
+						TLSParams: func() *ProxyDynamicProxyHTTPSProxyTLSParamsModel {
+							if TLSParamsData, ok := HTTPSProxyData["tls_params"].(map[string]interface{}); ok {
+								return &ProxyDynamicProxyHTTPSProxyTLSParamsModel{
+									NoMtls: func() *ProxyEmptyModel {
+										if _, ok := TLSParamsData["no_mtls"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									TLSCertificates: func() []ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModel {
+										if rawList, ok := TLSParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+											var TLSCertificatesResult []ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModel
+											for _, TLSCertificatesItem := range rawList {
+												if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+													TLSCertificatesResult = append(TLSCertificatesResult, ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModel{
+														CertificateURL: func() types.String {
+															if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														CustomHashAlgorithms: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesCustomHashAlgorithmsModel {
+															if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesCustomHashAlgorithmsModel{
+																	HashAlgorithms: func() types.List {
+																		if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														DescriptionSpec: func() types.String {
+															if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														DisableOCSPStapling: func() *ProxyEmptyModel {
+															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														PrivateKey: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyModel {
+															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														UseSystemDefaults: func() *ProxyEmptyModel {
+															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											return TLSCertificatesResult
+										}
+										return nil
+									}(),
+									TLSConfig: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigModel {
+										if TLSConfigData, ok := TLSParamsData["tls_config"].(map[string]interface{}); ok {
+											return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigModel{
+												CustomSecurity: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigCustomSecurityModel {
+													if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+														return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigCustomSecurityModel{
+															CipherSuites: func() types.List {
+																if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+																	var items []string
+																	for _, item := range v {
+																		if s, ok := item.(string); ok {
+																			items = append(items, s)
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	return listVal
+																}
+																return types.ListNull(types.StringType)
+															}(),
+															MaxVersion: func() types.String {
+																if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															MinVersion: func() types.String {
+																if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												DefaultSecurity: func() *ProxyEmptyModel {
+													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+														return &ProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												LowSecurity: func() *ProxyEmptyModel {
+													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+														return &ProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												MediumSecurity: func() *ProxyEmptyModel {
+													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+														return &ProxyEmptyModel{}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									UseMtls: func() *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsModel {
+										if UseMtlsData, ok := TLSParamsData["use_mtls"].(map[string]interface{}); ok {
+											return &ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsModel{
+												ClientCertificateOptional: func() types.Bool {
+													if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												CRL: func() *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsCRLModel {
+													if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+														return &ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsCRLModel{
+															Name: func() types.String {
+																if v, ok := CRLData["name"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Namespace: func() types.String {
+																if v, ok := CRLData["namespace"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Tenant: func() types.String {
+																if v, ok := CRLData["tenant"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												NoCRL: func() *ProxyEmptyModel {
+													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+														return &ProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												TrustedCA: func() *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsTrustedCAModel {
+													if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+														return &ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsTrustedCAModel{
+															Name: func() types.String {
+																if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Namespace: func() types.String {
+																if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Tenant: func() types.String {
+																if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												TrustedCAURL: func() types.String {
+													if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												XfccDisabled: func() *ProxyEmptyModel {
+													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+														return &ProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												XfccOptions: func() *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsXfccOptionsModel {
+													if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+														return &ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsXfccOptionsModel{
+															XfccHeaderElements: func() types.List {
+																if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+																	var items []string
+																	for _, item := range v {
+																		if s, ok := item.(string); ok {
+																			items = append(items, s)
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	return listVal
+																}
+																return types.ListNull(types.StringType)
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			SniProxy: func() *ProxyDynamicProxySniProxyModel {
 				if !isImport && data.DynamicProxy != nil && data.DynamicProxy.SniProxy != nil {
-					// Normal Read: preserve existing state value
 					return data.DynamicProxy.SniProxy
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["sni_proxy"].(map[string]interface{}); ok {
+				if SniProxyData, ok := blockData["sni_proxy"].(map[string]interface{}); ok {
 					return &ProxyDynamicProxySniProxyModel{
 						IdleTimeout: func() types.Int64 {
-							if v, ok := nestedBlockData["idle_timeout"].(float64); ok {
+							if v, ok := SniProxyData["idle_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
@@ -4322,78 +9263,740 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["http_proxy"].(map[string]interface{}); ok && isImport && data.HTTPProxy == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.HTTPProxy = &ProxyHTTPProxyModel{}
+	if blockData, ok := apiResource.Spec["http_proxy"].(map[string]interface{}); ok && (isImport || data.HTTPProxy != nil) {
+		data.HTTPProxy = &ProxyHTTPProxyModel{
+			EnableHTTP: func() *ProxyEmptyModel {
+				if !isImport && data.HTTPProxy != nil {
+					return data.HTTPProxy.EnableHTTP
+				}
+				if _, ok := blockData["enable_http"].(map[string]interface{}); ok {
+					return &ProxyEmptyModel{}
+				}
+				return nil
+			}(),
+			MoreOption: func() *ProxyHTTPProxyMoreOptionModel {
+				if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+					return data.HTTPProxy.MoreOption
+				}
+				if MoreOptionData, ok := blockData["more_option"].(map[string]interface{}); ok {
+					return &ProxyHTTPProxyMoreOptionModel{
+						BufferPolicy: func() *ProxyHTTPProxyMoreOptionBufferPolicyModel {
+							if BufferPolicyData, ok := MoreOptionData["buffer_policy"].(map[string]interface{}); ok {
+								return &ProxyHTTPProxyMoreOptionBufferPolicyModel{
+									Disabled: func() types.Bool {
+										if v, ok := BufferPolicyData["disabled"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									MaxRequestBytes: func() types.Int64 {
+										if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						CompressionParams: func() *ProxyHTTPProxyMoreOptionCompressionParamsModel {
+							if CompressionParamsData, ok := MoreOptionData["compression_params"].(map[string]interface{}); ok {
+								return &ProxyHTTPProxyMoreOptionCompressionParamsModel{
+									ContentLength: func() types.Int64 {
+										if v, ok := CompressionParamsData["content_length"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									ContentType: func() types.List {
+										if v, ok := CompressionParamsData["content_type"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									DisableOnEtagHeader: func() types.Bool {
+										if v, ok := CompressionParamsData["disable_on_etag_header"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									RemoveAcceptEncodingHeader: func() types.Bool {
+										if v, ok := CompressionParamsData["remove_accept_encoding_header"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						CustomErrors: func() *ProxyEmptyModel {
+							if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
+								return &ProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						DisableDefaultErrorPages: func() types.Bool {
+							if v, ok := MoreOptionData["disable_default_error_pages"].(bool); ok {
+								return types.BoolValue(v)
+							}
+							return types.BoolNull()
+						}(),
+						DisablePathNormalize: func() *ProxyEmptyModel {
+							if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
+								return &ProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						EnablePathNormalize: func() *ProxyEmptyModel {
+							if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
+								return &ProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						IdleTimeout: func() types.Int64 {
+							if v, ok := MoreOptionData["idle_timeout"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxRequestHeaderSize: func() types.Int64 {
+							if v, ok := MoreOptionData["max_request_header_size"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxRequestsPerConnection: func() types.Int64 {
+							if v, ok := MoreOptionData["max_requests_per_connection"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						NoRequestLimitPerConnection: func() *ProxyEmptyModel {
+							if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
+								return &ProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						RequestCookiesToAdd: func() []ProxyHTTPProxyMoreOptionRequestCookiesToAddModel {
+							if rawList, ok := MoreOptionData["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+								var RequestCookiesToAddResult []ProxyHTTPProxyMoreOptionRequestCookiesToAddModel
+								for _, RequestCookiesToAddItem := range rawList {
+									if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
+										RequestCookiesToAddResult = append(RequestCookiesToAddResult, ProxyHTTPProxyMoreOptionRequestCookiesToAddModel{
+											Name: func() types.String {
+												if v, ok := RequestCookiesToAddItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Overwrite: func() types.Bool {
+												if v, ok := RequestCookiesToAddItemMap["overwrite"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											SecretValue: func() *ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueModel {
+												if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+													return &ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueModel{
+														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel {
+															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Value: func() types.String {
+												if v, ok := RequestCookiesToAddItemMap["value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return RequestCookiesToAddResult
+							}
+							return nil
+						}(),
+						RequestCookiesToRemove: func() types.List {
+							if v, ok := MoreOptionData["request_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+						RequestHeadersToAdd: func() []ProxyHTTPProxyMoreOptionRequestHeadersToAddModel {
+							if rawList, ok := MoreOptionData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+								var RequestHeadersToAddResult []ProxyHTTPProxyMoreOptionRequestHeadersToAddModel
+								for _, RequestHeadersToAddItem := range rawList {
+									if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
+										RequestHeadersToAddResult = append(RequestHeadersToAddResult, ProxyHTTPProxyMoreOptionRequestHeadersToAddModel{
+											Append: func() types.Bool {
+												if v, ok := RequestHeadersToAddItemMap["append"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RequestHeadersToAddItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											SecretValue: func() *ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueModel {
+												if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+													return &ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueModel{
+														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel {
+															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Value: func() types.String {
+												if v, ok := RequestHeadersToAddItemMap["value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return RequestHeadersToAddResult
+							}
+							return nil
+						}(),
+						RequestHeadersToRemove: func() types.List {
+							if v, ok := MoreOptionData["request_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+						ResponseCookiesToAdd: func() []ProxyHTTPProxyMoreOptionResponseCookiesToAddModel {
+							if rawList, ok := MoreOptionData["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+								var ResponseCookiesToAddResult []ProxyHTTPProxyMoreOptionResponseCookiesToAddModel
+								for _, ResponseCookiesToAddItem := range rawList {
+									if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
+										ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, ProxyHTTPProxyMoreOptionResponseCookiesToAddModel{
+											AddDomain: func() types.String {
+												if v, ok := ResponseCookiesToAddItemMap["add_domain"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											AddExpiry: func() types.String {
+												if v, ok := ResponseCookiesToAddItemMap["add_expiry"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											AddHttponly: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											AddPartitioned: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											AddPath: func() types.String {
+												if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											AddSecure: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnoreDomain: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnoreExpiry: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnoreHttponly: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnoreMaxAge: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnorePartitioned: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnorePath: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnoreSamesite: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnoreSecure: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnoreValue: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											MaxAgeValue: func() types.Int64 {
+												if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+											Name: func() types.String {
+												if v, ok := ResponseCookiesToAddItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Overwrite: func() types.Bool {
+												if v, ok := ResponseCookiesToAddItemMap["overwrite"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											SamesiteLax: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											SamesiteNone: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											SamesiteStrict: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											SecretValue: func() *ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel {
+												if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+													return &ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel{
+														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel {
+															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Value: func() types.String {
+												if v, ok := ResponseCookiesToAddItemMap["value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return ResponseCookiesToAddResult
+							}
+							return nil
+						}(),
+						ResponseCookiesToRemove: func() types.List {
+							if v, ok := MoreOptionData["response_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+						ResponseHeadersToAdd: func() []ProxyHTTPProxyMoreOptionResponseHeadersToAddModel {
+							if rawList, ok := MoreOptionData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+								var ResponseHeadersToAddResult []ProxyHTTPProxyMoreOptionResponseHeadersToAddModel
+								for _, ResponseHeadersToAddItem := range rawList {
+									if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
+										ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, ProxyHTTPProxyMoreOptionResponseHeadersToAddModel{
+											Append: func() types.Bool {
+												if v, ok := ResponseHeadersToAddItemMap["append"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ResponseHeadersToAddItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											SecretValue: func() *ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueModel {
+												if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+													return &ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueModel{
+														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel {
+															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Value: func() types.String {
+												if v, ok := ResponseHeadersToAddItemMap["value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return ResponseHeadersToAddResult
+							}
+							return nil
+						}(),
+						ResponseHeadersToRemove: func() types.List {
+							if v, ok := MoreOptionData["response_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_forward_proxy_policy"].(map[string]interface{}); ok && isImport && data.NoForwardProxyPolicy == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoForwardProxyPolicy = &ProxyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_interception"].(map[string]interface{}); ok && isImport && data.NoInterception == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoInterception = &ProxyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["site_local_inside_network"].(map[string]interface{}); ok && isImport && data.SiteLocalInsideNetwork == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.SiteLocalInsideNetwork = &ProxyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["site_local_network"].(map[string]interface{}); ok && isImport && data.SiteLocalNetwork == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.SiteLocalNetwork = &ProxyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["site_virtual_sites"].(map[string]interface{}); ok && (isImport || data.SiteVirtualSites != nil) {
 		data.SiteVirtualSites = &ProxySiteVirtualSitesModel{
-			AdvertiseWhere: func() []ProxySiteVirtualSitesAdvertiseWhereModel {
-				if listData, ok := blockData["advertise_where"].([]interface{}); ok && len(listData) > 0 {
-					var result []ProxySiteVirtualSitesAdvertiseWhereModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ProxySiteVirtualSitesAdvertiseWhereModel{
+			AdvertiseWhere: func() types.List {
+				if !isImport && data.SiteVirtualSites != nil && (data.SiteVirtualSites.AdvertiseWhere.IsNull() || len(data.SiteVirtualSites.AdvertiseWhere.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ProxySiteVirtualSitesAdvertiseWhereModelAttrTypes})
+				}
+				if rawList, ok := blockData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
+					var AdvertiseWhereResult []ProxySiteVirtualSitesAdvertiseWhereModel
+					for _, AdvertiseWhereItem := range rawList {
+						if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
+							AdvertiseWhereResult = append(AdvertiseWhereResult, ProxySiteVirtualSitesAdvertiseWhereModel{
 								Port: func() types.Int64 {
-									if v, ok := itemMap["port"].(float64); ok {
+									if v, ok := AdvertiseWhereItemMap["port"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								Site: func() *ProxySiteVirtualSitesAdvertiseWhereSiteModel {
-									if deepMap, ok := itemMap["site"].(map[string]interface{}); ok {
+									if SiteData, ok := AdvertiseWhereItemMap["site"].(map[string]interface{}); ok {
 										return &ProxySiteVirtualSitesAdvertiseWhereSiteModel{
 											IP: func() types.String {
-												if v, ok := deepMap["ip"].(string); ok && v != "" {
+												if v, ok := SiteData["ip"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Network: func() types.String {
-												if v, ok := deepMap["network"].(string); ok && v != "" {
+												if v, ok := SiteData["network"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
+											}(),
+											Site: func() *ProxySiteVirtualSitesAdvertiseWhereSiteSiteModel {
+												if SiteData, ok := SiteData["site"].(map[string]interface{}); ok {
+													return &ProxySiteVirtualSitesAdvertiseWhereSiteSiteModel{
+														Name: func() types.String {
+															if v, ok := SiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
 											}(),
 										}
 									}
 									return nil
 								}(),
 								UseDefaultPort: func() *ProxyEmptyModel {
-									if _, ok := itemMap["use_default_port"].(map[string]interface{}); ok {
+									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &ProxyEmptyModel{}
 									}
 									return nil
 								}(),
 								VirtualSite: func() *ProxySiteVirtualSitesAdvertiseWhereVirtualSiteModel {
-									if deepMap, ok := itemMap["virtual_site"].(map[string]interface{}); ok {
+									if VirtualSiteData, ok := AdvertiseWhereItemMap["virtual_site"].(map[string]interface{}); ok {
 										return &ProxySiteVirtualSitesAdvertiseWhereVirtualSiteModel{
 											Network: func() types.String {
-												if v, ok := deepMap["network"].(string); ok && v != "" {
+												if v, ok := VirtualSiteData["network"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
+											}(),
+											VirtualSite: func() *ProxySiteVirtualSitesAdvertiseWhereVirtualSiteVirtualSiteModel {
+												if VirtualSiteData, ok := VirtualSiteData["virtual_site"].(map[string]interface{}); ok {
+													return &ProxySiteVirtualSitesAdvertiseWhereVirtualSiteVirtualSiteModel{
+														Name: func() types.String {
+															if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
 											}(),
 										}
 									}
@@ -4402,9 +10005,10 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProxySiteVirtualSitesAdvertiseWhereModelAttrTypes}, AdvertiseWhereResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ProxySiteVirtualSitesAdvertiseWhereModelAttrTypes})
 			}(),
 		}
 	}
@@ -4412,23 +10016,104 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 		data.TLSIntercept = &ProxyTLSInterceptModel{
 			CustomCertificate: func() *ProxyTLSInterceptCustomCertificateModel {
 				if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil {
-					// Normal Read: preserve existing state value
 					return data.TLSIntercept.CustomCertificate
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["custom_certificate"].(map[string]interface{}); ok {
+				if CustomCertificateData, ok := blockData["custom_certificate"].(map[string]interface{}); ok {
 					return &ProxyTLSInterceptCustomCertificateModel{
 						CertificateURL: func() types.String {
-							if v, ok := nestedBlockData["certificate_url"].(string); ok && v != "" {
+							if v, ok := CustomCertificateData["certificate_url"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
+						CustomHashAlgorithms: func() *ProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel {
+							if CustomHashAlgorithmsData, ok := CustomCertificateData["custom_hash_algorithms"].(map[string]interface{}); ok {
+								return &ProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel{
+									HashAlgorithms: func() types.List {
+										if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
+						}(),
 						DescriptionSpec: func() types.String {
-							if v, ok := nestedBlockData["description"].(string); ok && v != "" {
+							if v, ok := CustomCertificateData["description"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						DisableOCSPStapling: func() *ProxyEmptyModel {
+							if _, ok := CustomCertificateData["disable_ocsp_stapling"].(map[string]interface{}); ok {
+								return &ProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						PrivateKey: func() *ProxyTLSInterceptCustomCertificatePrivateKeyModel {
+							if PrivateKeyData, ok := CustomCertificateData["private_key"].(map[string]interface{}); ok {
+								return &ProxyTLSInterceptCustomCertificatePrivateKeyModel{
+									BlindfoldSecretInfo: func() *ProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &ProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *ProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel {
+										if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+											return &ProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseSystemDefaults: func() *ProxyEmptyModel {
+							if _, ok := CustomCertificateData["use_system_defaults"].(map[string]interface{}); ok {
+								return &ProxyEmptyModel{}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -4436,11 +10121,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 			}(),
 			EnableForAllDomains: func() *ProxyEmptyModel {
 				if !isImport && data.TLSIntercept != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSIntercept.EnableForAllDomains
 				}
-				// Import case: read from API
 				if _, ok := blockData["enable_for_all_domains"].(map[string]interface{}); ok {
 					return &ProxyEmptyModel{}
 				}
@@ -4448,12 +10130,61 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 			}(),
 			Policy: func() *ProxyTLSInterceptPolicyModel {
 				if !isImport && data.TLSIntercept != nil && data.TLSIntercept.Policy != nil {
-					// Normal Read: preserve existing state value
 					return data.TLSIntercept.Policy
 				}
-				// Import case: read from API
-				if _, ok := blockData["policy"].(map[string]interface{}); ok {
-					return &ProxyTLSInterceptPolicyModel{}
+				if PolicyData, ok := blockData["policy"].(map[string]interface{}); ok {
+					return &ProxyTLSInterceptPolicyModel{
+						InterceptionRules: func() []ProxyTLSInterceptPolicyInterceptionRulesModel {
+							if rawList, ok := PolicyData["interception_rules"].([]interface{}); ok && len(rawList) > 0 {
+								var InterceptionRulesResult []ProxyTLSInterceptPolicyInterceptionRulesModel
+								for _, InterceptionRulesItem := range rawList {
+									if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
+										InterceptionRulesResult = append(InterceptionRulesResult, ProxyTLSInterceptPolicyInterceptionRulesModel{
+											DisableInterception: func() *ProxyEmptyModel {
+												if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											DomainMatch: func() *ProxyTLSInterceptPolicyInterceptionRulesDomainMatchModel {
+												if DomainMatchData, ok := InterceptionRulesItemMap["domain_match"].(map[string]interface{}); ok {
+													return &ProxyTLSInterceptPolicyInterceptionRulesDomainMatchModel{
+														ExactValue: func() types.String {
+															if v, ok := DomainMatchData["exact_value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														RegexValue: func() types.String {
+															if v, ok := DomainMatchData["regex_value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SuffixValue: func() types.String {
+															if v, ok := DomainMatchData["suffix_value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											EnableInterception: func() *ProxyEmptyModel {
+												if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return InterceptionRulesResult
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -4465,11 +10196,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 			}(),
 			VolterraCertificate: func() *ProxyEmptyModel {
 				if !isImport && data.TLSIntercept != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSIntercept.VolterraCertificate
 				}
-				// Import case: read from API
 				if _, ok := blockData["volterra_certificate"].(map[string]interface{}); ok {
 					return &ProxyEmptyModel{}
 				}
@@ -4477,11 +10205,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 			}(),
 			VolterraTrustedCA: func() *ProxyEmptyModel {
 				if !isImport && data.TLSIntercept != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSIntercept.VolterraTrustedCA
 				}
-				// Import case: read from API
 				if _, ok := blockData["volterra_trusted_ca"].(map[string]interface{}); ok {
 					return &ProxyEmptyModel{}
 				}
@@ -4493,6 +10218,14 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 		data.ConnectionTimeout = types.Int64Value(int64(v))
 	} else {
 		data.ConnectionTimeout = types.Int64Null()
+	}
+
+	// The import marker is a one-shot signal for the import Read only. Clear it so every
+	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
+	// resource stays in "import mode" forever and re-reads server-managed fields the user
+	// never configured, producing perpetual plan drift.
+	if isImport {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "isImport", nil)...)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -4546,165 +10279,1356 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 
 	// Marshal spec fields from Terraform state to API struct
 	if data.ActiveForwardProxyPolicies != nil {
-		active_forward_proxy_policiesMap := make(map[string]interface{})
-		if len(data.ActiveForwardProxyPolicies.ForwardProxyPolicies) > 0 {
-			var forward_proxy_policiesList []map[string]interface{}
-			for _, listItem := range data.ActiveForwardProxyPolicies.ForwardProxyPolicies {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Name.IsNull() && !listItem.Name.IsUnknown() {
-					listItemMap["name"] = listItem.Name.ValueString()
+		ActiveForwardProxyPoliciesMap := make(map[string]interface{})
+		if !data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
+			var ForwardProxyPoliciesElems []ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel
+			diags := data.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(ForwardProxyPoliciesElems) > 0 {
+				var ForwardProxyPoliciesList []map[string]interface{}
+				for _, ForwardProxyPoliciesItem := range ForwardProxyPoliciesElems {
+					ForwardProxyPoliciesItemMap := make(map[string]interface{})
+					if !ForwardProxyPoliciesItem.Name.IsNull() && !ForwardProxyPoliciesItem.Name.IsUnknown() {
+						ForwardProxyPoliciesItemMap["name"] = ForwardProxyPoliciesItem.Name.ValueString()
+					}
+					if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
+						ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
+					}
+					if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
+						ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
+					}
+					ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 				}
-				if !listItem.Namespace.IsNull() && !listItem.Namespace.IsUnknown() {
-					listItemMap["namespace"] = listItem.Namespace.ValueString()
-				}
-				if !listItem.Tenant.IsNull() && !listItem.Tenant.IsUnknown() {
-					listItemMap["tenant"] = listItem.Tenant.ValueString()
-				}
-				forward_proxy_policiesList = append(forward_proxy_policiesList, listItemMap)
+				ActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
 			}
-			active_forward_proxy_policiesMap["forward_proxy_policies"] = forward_proxy_policiesList
 		}
-		apiResource.Spec["active_forward_proxy_policies"] = active_forward_proxy_policiesMap
+		apiResource.Spec["active_forward_proxy_policies"] = ActiveForwardProxyPoliciesMap
 	}
 	if data.DoNotAdvertise != nil {
-		do_not_advertiseMap := make(map[string]interface{})
-		apiResource.Spec["do_not_advertise"] = do_not_advertiseMap
+		apiResource.Spec["do_not_advertise"] = map[string]interface{}{}
 	}
 	if data.DynamicProxy != nil {
-		dynamic_proxyMap := make(map[string]interface{})
+		DynamicProxyMap := make(map[string]interface{})
 		if data.DynamicProxy.DisableDNSMasquerade != nil {
-			dynamic_proxyMap["disable_dns_masquerade"] = map[string]interface{}{}
+			DynamicProxyMap["disable_dns_masquerade"] = map[string]interface{}{}
 		}
 		if !data.DynamicProxy.Domains.IsNull() && !data.DynamicProxy.Domains.IsUnknown() {
-			var domainsItems []string
-			diags := data.DynamicProxy.Domains.ElementsAs(ctx, &domainsItems, false)
+			var DomainsItems []string
+			diags := data.DynamicProxy.Domains.ElementsAs(ctx, &DomainsItems, false)
 			if !diags.HasError() {
-				dynamic_proxyMap["domains"] = domainsItems
+				DynamicProxyMap["domains"] = DomainsItems
 			}
 		}
 		if data.DynamicProxy.EnableDNSMasquerade != nil {
-			dynamic_proxyMap["enable_dns_masquerade"] = map[string]interface{}{}
+			DynamicProxyMap["enable_dns_masquerade"] = map[string]interface{}{}
 		}
 		if data.DynamicProxy.HTTPProxy != nil {
-			http_proxyNestedMap := make(map[string]interface{})
-			dynamic_proxyMap["http_proxy"] = http_proxyNestedMap
+			HTTPProxyMap := make(map[string]interface{})
+			if data.DynamicProxy.HTTPProxy.MoreOption != nil {
+				MoreOptionMap := make(map[string]interface{})
+				if data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy != nil {
+					BufferPolicyMap := make(map[string]interface{})
+					if !data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.Disabled.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.Disabled.IsUnknown() {
+						BufferPolicyMap["disabled"] = data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.Disabled.ValueBool()
+					}
+					if !data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes.IsUnknown() {
+						BufferPolicyMap["max_request_bytes"] = data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes.ValueInt64()
+					}
+					MoreOptionMap["buffer_policy"] = BufferPolicyMap
+				}
+				if data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams != nil {
+					CompressionParamsMap := make(map[string]interface{})
+					if !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentLength.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentLength.IsUnknown() {
+						CompressionParamsMap["content_length"] = data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentLength.ValueInt64()
+					}
+					if !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentType.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentType.IsUnknown() {
+						var ContentTypeItems []string
+						diags := data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentType.ElementsAs(ctx, &ContentTypeItems, false)
+						if !diags.HasError() {
+							CompressionParamsMap["content_type"] = ContentTypeItems
+						}
+					}
+					if !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader.IsUnknown() {
+						CompressionParamsMap["disable_on_etag_header"] = data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader.ValueBool()
+					}
+					if !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.IsUnknown() {
+						CompressionParamsMap["remove_accept_encoding_header"] = data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.ValueBool()
+					}
+					MoreOptionMap["compression_params"] = CompressionParamsMap
+				}
+				if data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors != nil {
+					MoreOptionMap["custom_errors"] = map[string]interface{}{}
+				}
+				if !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
+					MoreOptionMap["disable_default_error_pages"] = data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.ValueBool()
+				}
+				if data.DynamicProxy.HTTPProxy.MoreOption.DisablePathNormalize != nil {
+					MoreOptionMap["disable_path_normalize"] = map[string]interface{}{}
+				}
+				if data.DynamicProxy.HTTPProxy.MoreOption.EnablePathNormalize != nil {
+					MoreOptionMap["enable_path_normalize"] = map[string]interface{}{}
+				}
+				if !data.DynamicProxy.HTTPProxy.MoreOption.IdleTimeout.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.IdleTimeout.IsUnknown() {
+					MoreOptionMap["idle_timeout"] = data.DynamicProxy.HTTPProxy.MoreOption.IdleTimeout.ValueInt64()
+				}
+				if !data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestHeaderSize.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestHeaderSize.IsUnknown() {
+					MoreOptionMap["max_request_header_size"] = data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestHeaderSize.ValueInt64()
+				}
+				if !data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestsPerConnection.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestsPerConnection.IsUnknown() {
+					MoreOptionMap["max_requests_per_connection"] = data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestsPerConnection.ValueInt64()
+				}
+				if data.DynamicProxy.HTTPProxy.MoreOption.NoRequestLimitPerConnection != nil {
+					MoreOptionMap["no_request_limit_per_connection"] = map[string]interface{}{}
+				}
+				if len(data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd) > 0 {
+					var RequestCookiesToAddList []map[string]interface{}
+					for _, RequestCookiesToAddItem := range data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd {
+						RequestCookiesToAddItemMap := make(map[string]interface{})
+						if !RequestCookiesToAddItem.Name.IsNull() && !RequestCookiesToAddItem.Name.IsUnknown() {
+							RequestCookiesToAddItemMap["name"] = RequestCookiesToAddItem.Name.ValueString()
+						}
+						if !RequestCookiesToAddItem.Overwrite.IsNull() && !RequestCookiesToAddItem.Overwrite.IsUnknown() {
+							RequestCookiesToAddItemMap["overwrite"] = RequestCookiesToAddItem.Overwrite.ValueBool()
+						}
+						if RequestCookiesToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if RequestCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							RequestCookiesToAddItemMap["secret_value"] = SecretValueMap
+						}
+						if !RequestCookiesToAddItem.Value.IsNull() && !RequestCookiesToAddItem.Value.IsUnknown() {
+							RequestCookiesToAddItemMap["value"] = RequestCookiesToAddItem.Value.ValueString()
+						}
+						RequestCookiesToAddList = append(RequestCookiesToAddList, RequestCookiesToAddItemMap)
+					}
+					MoreOptionMap["request_cookies_to_add"] = RequestCookiesToAddList
+				}
+				if !data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToRemove.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToRemove.IsUnknown() {
+					var RequestCookiesToRemoveItems []string
+					diags := data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+					if !diags.HasError() {
+						MoreOptionMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
+					}
+				}
+				if len(data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToAdd) > 0 {
+					var RequestHeadersToAddList []map[string]interface{}
+					for _, RequestHeadersToAddItem := range data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToAdd {
+						RequestHeadersToAddItemMap := make(map[string]interface{})
+						if !RequestHeadersToAddItem.Append.IsNull() && !RequestHeadersToAddItem.Append.IsUnknown() {
+							RequestHeadersToAddItemMap["append"] = RequestHeadersToAddItem.Append.ValueBool()
+						}
+						if !RequestHeadersToAddItem.Name.IsNull() && !RequestHeadersToAddItem.Name.IsUnknown() {
+							RequestHeadersToAddItemMap["name"] = RequestHeadersToAddItem.Name.ValueString()
+						}
+						if RequestHeadersToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if RequestHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							RequestHeadersToAddItemMap["secret_value"] = SecretValueMap
+						}
+						if !RequestHeadersToAddItem.Value.IsNull() && !RequestHeadersToAddItem.Value.IsUnknown() {
+							RequestHeadersToAddItemMap["value"] = RequestHeadersToAddItem.Value.ValueString()
+						}
+						RequestHeadersToAddList = append(RequestHeadersToAddList, RequestHeadersToAddItemMap)
+					}
+					MoreOptionMap["request_headers_to_add"] = RequestHeadersToAddList
+				}
+				if !data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToRemove.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToRemove.IsUnknown() {
+					var RequestHeadersToRemoveItems []string
+					diags := data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+					if !diags.HasError() {
+						MoreOptionMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
+					}
+				}
+				if len(data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToAdd) > 0 {
+					var ResponseCookiesToAddList []map[string]interface{}
+					for _, ResponseCookiesToAddItem := range data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToAdd {
+						ResponseCookiesToAddItemMap := make(map[string]interface{})
+						if !ResponseCookiesToAddItem.AddDomain.IsNull() && !ResponseCookiesToAddItem.AddDomain.IsUnknown() {
+							ResponseCookiesToAddItemMap["add_domain"] = ResponseCookiesToAddItem.AddDomain.ValueString()
+						}
+						if !ResponseCookiesToAddItem.AddExpiry.IsNull() && !ResponseCookiesToAddItem.AddExpiry.IsUnknown() {
+							ResponseCookiesToAddItemMap["add_expiry"] = ResponseCookiesToAddItem.AddExpiry.ValueString()
+						}
+						if ResponseCookiesToAddItem.AddHttponly != nil {
+							ResponseCookiesToAddItemMap["add_httponly"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.AddPartitioned != nil {
+							ResponseCookiesToAddItemMap["add_partitioned"] = map[string]interface{}{}
+						}
+						if !ResponseCookiesToAddItem.AddPath.IsNull() && !ResponseCookiesToAddItem.AddPath.IsUnknown() {
+							ResponseCookiesToAddItemMap["add_path"] = ResponseCookiesToAddItem.AddPath.ValueString()
+						}
+						if ResponseCookiesToAddItem.AddSecure != nil {
+							ResponseCookiesToAddItemMap["add_secure"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreDomain != nil {
+							ResponseCookiesToAddItemMap["ignore_domain"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreExpiry != nil {
+							ResponseCookiesToAddItemMap["ignore_expiry"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreHttponly != nil {
+							ResponseCookiesToAddItemMap["ignore_httponly"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreMaxAge != nil {
+							ResponseCookiesToAddItemMap["ignore_max_age"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnorePartitioned != nil {
+							ResponseCookiesToAddItemMap["ignore_partitioned"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnorePath != nil {
+							ResponseCookiesToAddItemMap["ignore_path"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreSamesite != nil {
+							ResponseCookiesToAddItemMap["ignore_samesite"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreSecure != nil {
+							ResponseCookiesToAddItemMap["ignore_secure"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreValue != nil {
+							ResponseCookiesToAddItemMap["ignore_value"] = map[string]interface{}{}
+						}
+						if !ResponseCookiesToAddItem.MaxAgeValue.IsNull() && !ResponseCookiesToAddItem.MaxAgeValue.IsUnknown() {
+							ResponseCookiesToAddItemMap["max_age_value"] = ResponseCookiesToAddItem.MaxAgeValue.ValueInt64()
+						}
+						if !ResponseCookiesToAddItem.Name.IsNull() && !ResponseCookiesToAddItem.Name.IsUnknown() {
+							ResponseCookiesToAddItemMap["name"] = ResponseCookiesToAddItem.Name.ValueString()
+						}
+						if !ResponseCookiesToAddItem.Overwrite.IsNull() && !ResponseCookiesToAddItem.Overwrite.IsUnknown() {
+							ResponseCookiesToAddItemMap["overwrite"] = ResponseCookiesToAddItem.Overwrite.ValueBool()
+						}
+						if ResponseCookiesToAddItem.SamesiteLax != nil {
+							ResponseCookiesToAddItemMap["samesite_lax"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.SamesiteNone != nil {
+							ResponseCookiesToAddItemMap["samesite_none"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.SamesiteStrict != nil {
+							ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if ResponseCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							ResponseCookiesToAddItemMap["secret_value"] = SecretValueMap
+						}
+						if !ResponseCookiesToAddItem.Value.IsNull() && !ResponseCookiesToAddItem.Value.IsUnknown() {
+							ResponseCookiesToAddItemMap["value"] = ResponseCookiesToAddItem.Value.ValueString()
+						}
+						ResponseCookiesToAddList = append(ResponseCookiesToAddList, ResponseCookiesToAddItemMap)
+					}
+					MoreOptionMap["response_cookies_to_add"] = ResponseCookiesToAddList
+				}
+				if !data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToRemove.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToRemove.IsUnknown() {
+					var ResponseCookiesToRemoveItems []string
+					diags := data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+					if !diags.HasError() {
+						MoreOptionMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
+					}
+				}
+				if len(data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToAdd) > 0 {
+					var ResponseHeadersToAddList []map[string]interface{}
+					for _, ResponseHeadersToAddItem := range data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToAdd {
+						ResponseHeadersToAddItemMap := make(map[string]interface{})
+						if !ResponseHeadersToAddItem.Append.IsNull() && !ResponseHeadersToAddItem.Append.IsUnknown() {
+							ResponseHeadersToAddItemMap["append"] = ResponseHeadersToAddItem.Append.ValueBool()
+						}
+						if !ResponseHeadersToAddItem.Name.IsNull() && !ResponseHeadersToAddItem.Name.IsUnknown() {
+							ResponseHeadersToAddItemMap["name"] = ResponseHeadersToAddItem.Name.ValueString()
+						}
+						if ResponseHeadersToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if ResponseHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							ResponseHeadersToAddItemMap["secret_value"] = SecretValueMap
+						}
+						if !ResponseHeadersToAddItem.Value.IsNull() && !ResponseHeadersToAddItem.Value.IsUnknown() {
+							ResponseHeadersToAddItemMap["value"] = ResponseHeadersToAddItem.Value.ValueString()
+						}
+						ResponseHeadersToAddList = append(ResponseHeadersToAddList, ResponseHeadersToAddItemMap)
+					}
+					MoreOptionMap["response_headers_to_add"] = ResponseHeadersToAddList
+				}
+				if !data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToRemove.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToRemove.IsUnknown() {
+					var ResponseHeadersToRemoveItems []string
+					diags := data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+					if !diags.HasError() {
+						MoreOptionMap["response_headers_to_remove"] = ResponseHeadersToRemoveItems
+					}
+				}
+				HTTPProxyMap["more_option"] = MoreOptionMap
+			}
+			DynamicProxyMap["http_proxy"] = HTTPProxyMap
 		}
 		if data.DynamicProxy.HTTPSProxy != nil {
-			https_proxyNestedMap := make(map[string]interface{})
-			dynamic_proxyMap["https_proxy"] = https_proxyNestedMap
+			HTTPSProxyMap := make(map[string]interface{})
+			if data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+				MoreOptionMap := make(map[string]interface{})
+				if data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy != nil {
+					BufferPolicyMap := make(map[string]interface{})
+					if !data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.Disabled.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.Disabled.IsUnknown() {
+						BufferPolicyMap["disabled"] = data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.Disabled.ValueBool()
+					}
+					if !data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.MaxRequestBytes.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.MaxRequestBytes.IsUnknown() {
+						BufferPolicyMap["max_request_bytes"] = data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.MaxRequestBytes.ValueInt64()
+					}
+					MoreOptionMap["buffer_policy"] = BufferPolicyMap
+				}
+				if data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams != nil {
+					CompressionParamsMap := make(map[string]interface{})
+					if !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentLength.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentLength.IsUnknown() {
+						CompressionParamsMap["content_length"] = data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentLength.ValueInt64()
+					}
+					if !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentType.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentType.IsUnknown() {
+						var ContentTypeItems []string
+						diags := data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentType.ElementsAs(ctx, &ContentTypeItems, false)
+						if !diags.HasError() {
+							CompressionParamsMap["content_type"] = ContentTypeItems
+						}
+					}
+					if !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.DisableOnEtagHeader.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.DisableOnEtagHeader.IsUnknown() {
+						CompressionParamsMap["disable_on_etag_header"] = data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.DisableOnEtagHeader.ValueBool()
+					}
+					if !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.IsUnknown() {
+						CompressionParamsMap["remove_accept_encoding_header"] = data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.ValueBool()
+					}
+					MoreOptionMap["compression_params"] = CompressionParamsMap
+				}
+				if data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors != nil {
+					MoreOptionMap["custom_errors"] = map[string]interface{}{}
+				}
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
+					MoreOptionMap["disable_default_error_pages"] = data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.ValueBool()
+				}
+				if data.DynamicProxy.HTTPSProxy.MoreOption.DisablePathNormalize != nil {
+					MoreOptionMap["disable_path_normalize"] = map[string]interface{}{}
+				}
+				if data.DynamicProxy.HTTPSProxy.MoreOption.EnablePathNormalize != nil {
+					MoreOptionMap["enable_path_normalize"] = map[string]interface{}{}
+				}
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.IdleTimeout.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.IdleTimeout.IsUnknown() {
+					MoreOptionMap["idle_timeout"] = data.DynamicProxy.HTTPSProxy.MoreOption.IdleTimeout.ValueInt64()
+				}
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestHeaderSize.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestHeaderSize.IsUnknown() {
+					MoreOptionMap["max_request_header_size"] = data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestHeaderSize.ValueInt64()
+				}
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestsPerConnection.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestsPerConnection.IsUnknown() {
+					MoreOptionMap["max_requests_per_connection"] = data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestsPerConnection.ValueInt64()
+				}
+				if data.DynamicProxy.HTTPSProxy.MoreOption.NoRequestLimitPerConnection != nil {
+					MoreOptionMap["no_request_limit_per_connection"] = map[string]interface{}{}
+				}
+				if len(data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd) > 0 {
+					var RequestCookiesToAddList []map[string]interface{}
+					for _, RequestCookiesToAddItem := range data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd {
+						RequestCookiesToAddItemMap := make(map[string]interface{})
+						if !RequestCookiesToAddItem.Name.IsNull() && !RequestCookiesToAddItem.Name.IsUnknown() {
+							RequestCookiesToAddItemMap["name"] = RequestCookiesToAddItem.Name.ValueString()
+						}
+						if !RequestCookiesToAddItem.Overwrite.IsNull() && !RequestCookiesToAddItem.Overwrite.IsUnknown() {
+							RequestCookiesToAddItemMap["overwrite"] = RequestCookiesToAddItem.Overwrite.ValueBool()
+						}
+						if RequestCookiesToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if RequestCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							RequestCookiesToAddItemMap["secret_value"] = SecretValueMap
+						}
+						if !RequestCookiesToAddItem.Value.IsNull() && !RequestCookiesToAddItem.Value.IsUnknown() {
+							RequestCookiesToAddItemMap["value"] = RequestCookiesToAddItem.Value.ValueString()
+						}
+						RequestCookiesToAddList = append(RequestCookiesToAddList, RequestCookiesToAddItemMap)
+					}
+					MoreOptionMap["request_cookies_to_add"] = RequestCookiesToAddList
+				}
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToRemove.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToRemove.IsUnknown() {
+					var RequestCookiesToRemoveItems []string
+					diags := data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+					if !diags.HasError() {
+						MoreOptionMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
+					}
+				}
+				if len(data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToAdd) > 0 {
+					var RequestHeadersToAddList []map[string]interface{}
+					for _, RequestHeadersToAddItem := range data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToAdd {
+						RequestHeadersToAddItemMap := make(map[string]interface{})
+						if !RequestHeadersToAddItem.Append.IsNull() && !RequestHeadersToAddItem.Append.IsUnknown() {
+							RequestHeadersToAddItemMap["append"] = RequestHeadersToAddItem.Append.ValueBool()
+						}
+						if !RequestHeadersToAddItem.Name.IsNull() && !RequestHeadersToAddItem.Name.IsUnknown() {
+							RequestHeadersToAddItemMap["name"] = RequestHeadersToAddItem.Name.ValueString()
+						}
+						if RequestHeadersToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if RequestHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							RequestHeadersToAddItemMap["secret_value"] = SecretValueMap
+						}
+						if !RequestHeadersToAddItem.Value.IsNull() && !RequestHeadersToAddItem.Value.IsUnknown() {
+							RequestHeadersToAddItemMap["value"] = RequestHeadersToAddItem.Value.ValueString()
+						}
+						RequestHeadersToAddList = append(RequestHeadersToAddList, RequestHeadersToAddItemMap)
+					}
+					MoreOptionMap["request_headers_to_add"] = RequestHeadersToAddList
+				}
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToRemove.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToRemove.IsUnknown() {
+					var RequestHeadersToRemoveItems []string
+					diags := data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+					if !diags.HasError() {
+						MoreOptionMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
+					}
+				}
+				if len(data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToAdd) > 0 {
+					var ResponseCookiesToAddList []map[string]interface{}
+					for _, ResponseCookiesToAddItem := range data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToAdd {
+						ResponseCookiesToAddItemMap := make(map[string]interface{})
+						if !ResponseCookiesToAddItem.AddDomain.IsNull() && !ResponseCookiesToAddItem.AddDomain.IsUnknown() {
+							ResponseCookiesToAddItemMap["add_domain"] = ResponseCookiesToAddItem.AddDomain.ValueString()
+						}
+						if !ResponseCookiesToAddItem.AddExpiry.IsNull() && !ResponseCookiesToAddItem.AddExpiry.IsUnknown() {
+							ResponseCookiesToAddItemMap["add_expiry"] = ResponseCookiesToAddItem.AddExpiry.ValueString()
+						}
+						if ResponseCookiesToAddItem.AddHttponly != nil {
+							ResponseCookiesToAddItemMap["add_httponly"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.AddPartitioned != nil {
+							ResponseCookiesToAddItemMap["add_partitioned"] = map[string]interface{}{}
+						}
+						if !ResponseCookiesToAddItem.AddPath.IsNull() && !ResponseCookiesToAddItem.AddPath.IsUnknown() {
+							ResponseCookiesToAddItemMap["add_path"] = ResponseCookiesToAddItem.AddPath.ValueString()
+						}
+						if ResponseCookiesToAddItem.AddSecure != nil {
+							ResponseCookiesToAddItemMap["add_secure"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreDomain != nil {
+							ResponseCookiesToAddItemMap["ignore_domain"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreExpiry != nil {
+							ResponseCookiesToAddItemMap["ignore_expiry"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreHttponly != nil {
+							ResponseCookiesToAddItemMap["ignore_httponly"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreMaxAge != nil {
+							ResponseCookiesToAddItemMap["ignore_max_age"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnorePartitioned != nil {
+							ResponseCookiesToAddItemMap["ignore_partitioned"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnorePath != nil {
+							ResponseCookiesToAddItemMap["ignore_path"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreSamesite != nil {
+							ResponseCookiesToAddItemMap["ignore_samesite"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreSecure != nil {
+							ResponseCookiesToAddItemMap["ignore_secure"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.IgnoreValue != nil {
+							ResponseCookiesToAddItemMap["ignore_value"] = map[string]interface{}{}
+						}
+						if !ResponseCookiesToAddItem.MaxAgeValue.IsNull() && !ResponseCookiesToAddItem.MaxAgeValue.IsUnknown() {
+							ResponseCookiesToAddItemMap["max_age_value"] = ResponseCookiesToAddItem.MaxAgeValue.ValueInt64()
+						}
+						if !ResponseCookiesToAddItem.Name.IsNull() && !ResponseCookiesToAddItem.Name.IsUnknown() {
+							ResponseCookiesToAddItemMap["name"] = ResponseCookiesToAddItem.Name.ValueString()
+						}
+						if !ResponseCookiesToAddItem.Overwrite.IsNull() && !ResponseCookiesToAddItem.Overwrite.IsUnknown() {
+							ResponseCookiesToAddItemMap["overwrite"] = ResponseCookiesToAddItem.Overwrite.ValueBool()
+						}
+						if ResponseCookiesToAddItem.SamesiteLax != nil {
+							ResponseCookiesToAddItemMap["samesite_lax"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.SamesiteNone != nil {
+							ResponseCookiesToAddItemMap["samesite_none"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.SamesiteStrict != nil {
+							ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
+						}
+						if ResponseCookiesToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if ResponseCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							ResponseCookiesToAddItemMap["secret_value"] = SecretValueMap
+						}
+						if !ResponseCookiesToAddItem.Value.IsNull() && !ResponseCookiesToAddItem.Value.IsUnknown() {
+							ResponseCookiesToAddItemMap["value"] = ResponseCookiesToAddItem.Value.ValueString()
+						}
+						ResponseCookiesToAddList = append(ResponseCookiesToAddList, ResponseCookiesToAddItemMap)
+					}
+					MoreOptionMap["response_cookies_to_add"] = ResponseCookiesToAddList
+				}
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToRemove.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToRemove.IsUnknown() {
+					var ResponseCookiesToRemoveItems []string
+					diags := data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+					if !diags.HasError() {
+						MoreOptionMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
+					}
+				}
+				if len(data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToAdd) > 0 {
+					var ResponseHeadersToAddList []map[string]interface{}
+					for _, ResponseHeadersToAddItem := range data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToAdd {
+						ResponseHeadersToAddItemMap := make(map[string]interface{})
+						if !ResponseHeadersToAddItem.Append.IsNull() && !ResponseHeadersToAddItem.Append.IsUnknown() {
+							ResponseHeadersToAddItemMap["append"] = ResponseHeadersToAddItem.Append.ValueBool()
+						}
+						if !ResponseHeadersToAddItem.Name.IsNull() && !ResponseHeadersToAddItem.Name.IsUnknown() {
+							ResponseHeadersToAddItemMap["name"] = ResponseHeadersToAddItem.Name.ValueString()
+						}
+						if ResponseHeadersToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if ResponseHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							ResponseHeadersToAddItemMap["secret_value"] = SecretValueMap
+						}
+						if !ResponseHeadersToAddItem.Value.IsNull() && !ResponseHeadersToAddItem.Value.IsUnknown() {
+							ResponseHeadersToAddItemMap["value"] = ResponseHeadersToAddItem.Value.ValueString()
+						}
+						ResponseHeadersToAddList = append(ResponseHeadersToAddList, ResponseHeadersToAddItemMap)
+					}
+					MoreOptionMap["response_headers_to_add"] = ResponseHeadersToAddList
+				}
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToRemove.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToRemove.IsUnknown() {
+					var ResponseHeadersToRemoveItems []string
+					diags := data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+					if !diags.HasError() {
+						MoreOptionMap["response_headers_to_remove"] = ResponseHeadersToRemoveItems
+					}
+				}
+				HTTPSProxyMap["more_option"] = MoreOptionMap
+			}
+			if data.DynamicProxy.HTTPSProxy.TLSParams != nil {
+				TLSParamsMap := make(map[string]interface{})
+				if data.DynamicProxy.HTTPSProxy.TLSParams.NoMtls != nil {
+					TLSParamsMap["no_mtls"] = map[string]interface{}{}
+				}
+				if len(data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates) > 0 {
+					var TLSCertificatesList []map[string]interface{}
+					for _, TLSCertificatesItem := range data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates {
+						TLSCertificatesItemMap := make(map[string]interface{})
+						if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
+						}
+						if TLSCertificatesItem.CustomHashAlgorithms != nil {
+							CustomHashAlgorithmsMap := make(map[string]interface{})
+							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+								var HashAlgorithmsItems []string
+								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								if !diags.HasError() {
+									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+								}
+							}
+							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+						}
+						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
+						}
+						if TLSCertificatesItem.DisableOCSPStapling != nil {
+							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+						}
+						if TLSCertificatesItem.PrivateKey != nil {
+							PrivateKeyMap := make(map[string]interface{})
+							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+								}
+								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+						}
+						if TLSCertificatesItem.UseSystemDefaults != nil {
+							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+						}
+						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+					}
+					TLSParamsMap["tls_certificates"] = TLSCertificatesList
+				}
+				if data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil {
+					TLSConfigMap := make(map[string]interface{})
+					if data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity != nil {
+						CustomSecurityMap := make(map[string]interface{})
+						if !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
+							var CipherSuitesItems []string
+							diags := data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+							if !diags.HasError() {
+								CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+							}
+						}
+						if !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
+							CustomSecurityMap["max_version"] = data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+						}
+						if !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
+							CustomSecurityMap["min_version"] = data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.MinVersion.ValueString()
+						}
+						TLSConfigMap["custom_security"] = CustomSecurityMap
+					}
+					if data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.DefaultSecurity != nil {
+						TLSConfigMap["default_security"] = map[string]interface{}{}
+					}
+					if data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.LowSecurity != nil {
+						TLSConfigMap["low_security"] = map[string]interface{}{}
+					}
+					if data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.MediumSecurity != nil {
+						TLSConfigMap["medium_security"] = map[string]interface{}{}
+					}
+					TLSParamsMap["tls_config"] = TLSConfigMap
+				}
+				if data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil {
+					UseMtlsMap := make(map[string]interface{})
+					if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.ClientCertificateOptional.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.ClientCertificateOptional.IsUnknown() {
+						UseMtlsMap["client_certificate_optional"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.ClientCertificateOptional.ValueBool()
+					}
+					if data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL != nil {
+						CRLMap := make(map[string]interface{})
+						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Name.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Name.IsUnknown() {
+							CRLMap["name"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Name.ValueString()
+						}
+						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Namespace.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Namespace.IsUnknown() {
+							CRLMap["namespace"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Namespace.ValueString()
+						}
+						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Tenant.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Tenant.IsUnknown() {
+							CRLMap["tenant"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Tenant.ValueString()
+						}
+						UseMtlsMap["crl"] = CRLMap
+					}
+					if data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.NoCRL != nil {
+						UseMtlsMap["no_crl"] = map[string]interface{}{}
+					}
+					if data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA != nil {
+						TrustedCAMap := make(map[string]interface{})
+						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Name.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Name.IsUnknown() {
+							TrustedCAMap["name"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Name.ValueString()
+						}
+						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
+							TrustedCAMap["namespace"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Namespace.ValueString()
+						}
+						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
+							TrustedCAMap["tenant"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Tenant.ValueString()
+						}
+						UseMtlsMap["trusted_ca"] = TrustedCAMap
+					}
+					if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCAURL.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCAURL.IsUnknown() {
+						UseMtlsMap["trusted_ca_url"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCAURL.ValueString()
+					}
+					if data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccDisabled != nil {
+						UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+					}
+					if data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions != nil {
+						XfccOptionsMap := make(map[string]interface{})
+						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
+							var XfccHeaderElementsItems []string
+							diags := data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+							if !diags.HasError() {
+								XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+							}
+						}
+						UseMtlsMap["xfcc_options"] = XfccOptionsMap
+					}
+					TLSParamsMap["use_mtls"] = UseMtlsMap
+				}
+				HTTPSProxyMap["tls_params"] = TLSParamsMap
+			}
+			DynamicProxyMap["https_proxy"] = HTTPSProxyMap
 		}
 		if data.DynamicProxy.SniProxy != nil {
-			sni_proxyNestedMap := make(map[string]interface{})
+			SniProxyMap := make(map[string]interface{})
 			if !data.DynamicProxy.SniProxy.IdleTimeout.IsNull() && !data.DynamicProxy.SniProxy.IdleTimeout.IsUnknown() {
-				sni_proxyNestedMap["idle_timeout"] = data.DynamicProxy.SniProxy.IdleTimeout.ValueInt64()
+				SniProxyMap["idle_timeout"] = data.DynamicProxy.SniProxy.IdleTimeout.ValueInt64()
 			}
-			dynamic_proxyMap["sni_proxy"] = sni_proxyNestedMap
+			DynamicProxyMap["sni_proxy"] = SniProxyMap
 		}
-		apiResource.Spec["dynamic_proxy"] = dynamic_proxyMap
+		apiResource.Spec["dynamic_proxy"] = DynamicProxyMap
 	}
 	if data.HTTPProxy != nil {
-		http_proxyMap := make(map[string]interface{})
+		HTTPProxyMap := make(map[string]interface{})
 		if data.HTTPProxy.EnableHTTP != nil {
-			http_proxyMap["enable_http"] = map[string]interface{}{}
+			HTTPProxyMap["enable_http"] = map[string]interface{}{}
 		}
 		if data.HTTPProxy.MoreOption != nil {
-			more_optionNestedMap := make(map[string]interface{})
+			MoreOptionMap := make(map[string]interface{})
+			if data.HTTPProxy.MoreOption.BufferPolicy != nil {
+				BufferPolicyMap := make(map[string]interface{})
+				if !data.HTTPProxy.MoreOption.BufferPolicy.Disabled.IsNull() && !data.HTTPProxy.MoreOption.BufferPolicy.Disabled.IsUnknown() {
+					BufferPolicyMap["disabled"] = data.HTTPProxy.MoreOption.BufferPolicy.Disabled.ValueBool()
+				}
+				if !data.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes.IsNull() && !data.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes.IsUnknown() {
+					BufferPolicyMap["max_request_bytes"] = data.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes.ValueInt64()
+				}
+				MoreOptionMap["buffer_policy"] = BufferPolicyMap
+			}
+			if data.HTTPProxy.MoreOption.CompressionParams != nil {
+				CompressionParamsMap := make(map[string]interface{})
+				if !data.HTTPProxy.MoreOption.CompressionParams.ContentLength.IsNull() && !data.HTTPProxy.MoreOption.CompressionParams.ContentLength.IsUnknown() {
+					CompressionParamsMap["content_length"] = data.HTTPProxy.MoreOption.CompressionParams.ContentLength.ValueInt64()
+				}
+				if !data.HTTPProxy.MoreOption.CompressionParams.ContentType.IsNull() && !data.HTTPProxy.MoreOption.CompressionParams.ContentType.IsUnknown() {
+					var ContentTypeItems []string
+					diags := data.HTTPProxy.MoreOption.CompressionParams.ContentType.ElementsAs(ctx, &ContentTypeItems, false)
+					if !diags.HasError() {
+						CompressionParamsMap["content_type"] = ContentTypeItems
+					}
+				}
+				if !data.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader.IsNull() && !data.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader.IsUnknown() {
+					CompressionParamsMap["disable_on_etag_header"] = data.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader.ValueBool()
+				}
+				if !data.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.IsNull() && !data.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.IsUnknown() {
+					CompressionParamsMap["remove_accept_encoding_header"] = data.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.ValueBool()
+				}
+				MoreOptionMap["compression_params"] = CompressionParamsMap
+			}
+			if data.HTTPProxy.MoreOption.CustomErrors != nil {
+				MoreOptionMap["custom_errors"] = map[string]interface{}{}
+			}
 			if !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsNull() && !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
-				more_optionNestedMap["disable_default_error_pages"] = data.HTTPProxy.MoreOption.DisableDefaultErrorPages.ValueBool()
+				MoreOptionMap["disable_default_error_pages"] = data.HTTPProxy.MoreOption.DisableDefaultErrorPages.ValueBool()
+			}
+			if data.HTTPProxy.MoreOption.DisablePathNormalize != nil {
+				MoreOptionMap["disable_path_normalize"] = map[string]interface{}{}
+			}
+			if data.HTTPProxy.MoreOption.EnablePathNormalize != nil {
+				MoreOptionMap["enable_path_normalize"] = map[string]interface{}{}
 			}
 			if !data.HTTPProxy.MoreOption.IdleTimeout.IsNull() && !data.HTTPProxy.MoreOption.IdleTimeout.IsUnknown() {
-				more_optionNestedMap["idle_timeout"] = data.HTTPProxy.MoreOption.IdleTimeout.ValueInt64()
+				MoreOptionMap["idle_timeout"] = data.HTTPProxy.MoreOption.IdleTimeout.ValueInt64()
 			}
 			if !data.HTTPProxy.MoreOption.MaxRequestHeaderSize.IsNull() && !data.HTTPProxy.MoreOption.MaxRequestHeaderSize.IsUnknown() {
-				more_optionNestedMap["max_request_header_size"] = data.HTTPProxy.MoreOption.MaxRequestHeaderSize.ValueInt64()
+				MoreOptionMap["max_request_header_size"] = data.HTTPProxy.MoreOption.MaxRequestHeaderSize.ValueInt64()
 			}
 			if !data.HTTPProxy.MoreOption.MaxRequestsPerConnection.IsNull() && !data.HTTPProxy.MoreOption.MaxRequestsPerConnection.IsUnknown() {
-				more_optionNestedMap["max_requests_per_connection"] = data.HTTPProxy.MoreOption.MaxRequestsPerConnection.ValueInt64()
+				MoreOptionMap["max_requests_per_connection"] = data.HTTPProxy.MoreOption.MaxRequestsPerConnection.ValueInt64()
 			}
-			http_proxyMap["more_option"] = more_optionNestedMap
+			if data.HTTPProxy.MoreOption.NoRequestLimitPerConnection != nil {
+				MoreOptionMap["no_request_limit_per_connection"] = map[string]interface{}{}
+			}
+			if len(data.HTTPProxy.MoreOption.RequestCookiesToAdd) > 0 {
+				var RequestCookiesToAddList []map[string]interface{}
+				for _, RequestCookiesToAddItem := range data.HTTPProxy.MoreOption.RequestCookiesToAdd {
+					RequestCookiesToAddItemMap := make(map[string]interface{})
+					if !RequestCookiesToAddItem.Name.IsNull() && !RequestCookiesToAddItem.Name.IsUnknown() {
+						RequestCookiesToAddItemMap["name"] = RequestCookiesToAddItem.Name.ValueString()
+					}
+					if !RequestCookiesToAddItem.Overwrite.IsNull() && !RequestCookiesToAddItem.Overwrite.IsUnknown() {
+						RequestCookiesToAddItemMap["overwrite"] = RequestCookiesToAddItem.Overwrite.ValueBool()
+					}
+					if RequestCookiesToAddItem.SecretValue != nil {
+						SecretValueMap := make(map[string]interface{})
+						if RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if RequestCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+							}
+							if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+							}
+							SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						RequestCookiesToAddItemMap["secret_value"] = SecretValueMap
+					}
+					if !RequestCookiesToAddItem.Value.IsNull() && !RequestCookiesToAddItem.Value.IsUnknown() {
+						RequestCookiesToAddItemMap["value"] = RequestCookiesToAddItem.Value.ValueString()
+					}
+					RequestCookiesToAddList = append(RequestCookiesToAddList, RequestCookiesToAddItemMap)
+				}
+				MoreOptionMap["request_cookies_to_add"] = RequestCookiesToAddList
+			}
+			if !data.HTTPProxy.MoreOption.RequestCookiesToRemove.IsNull() && !data.HTTPProxy.MoreOption.RequestCookiesToRemove.IsUnknown() {
+				var RequestCookiesToRemoveItems []string
+				diags := data.HTTPProxy.MoreOption.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+				if !diags.HasError() {
+					MoreOptionMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
+				}
+			}
+			if len(data.HTTPProxy.MoreOption.RequestHeadersToAdd) > 0 {
+				var RequestHeadersToAddList []map[string]interface{}
+				for _, RequestHeadersToAddItem := range data.HTTPProxy.MoreOption.RequestHeadersToAdd {
+					RequestHeadersToAddItemMap := make(map[string]interface{})
+					if !RequestHeadersToAddItem.Append.IsNull() && !RequestHeadersToAddItem.Append.IsUnknown() {
+						RequestHeadersToAddItemMap["append"] = RequestHeadersToAddItem.Append.ValueBool()
+					}
+					if !RequestHeadersToAddItem.Name.IsNull() && !RequestHeadersToAddItem.Name.IsUnknown() {
+						RequestHeadersToAddItemMap["name"] = RequestHeadersToAddItem.Name.ValueString()
+					}
+					if RequestHeadersToAddItem.SecretValue != nil {
+						SecretValueMap := make(map[string]interface{})
+						if RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if RequestHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+							}
+							if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+							}
+							SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						RequestHeadersToAddItemMap["secret_value"] = SecretValueMap
+					}
+					if !RequestHeadersToAddItem.Value.IsNull() && !RequestHeadersToAddItem.Value.IsUnknown() {
+						RequestHeadersToAddItemMap["value"] = RequestHeadersToAddItem.Value.ValueString()
+					}
+					RequestHeadersToAddList = append(RequestHeadersToAddList, RequestHeadersToAddItemMap)
+				}
+				MoreOptionMap["request_headers_to_add"] = RequestHeadersToAddList
+			}
+			if !data.HTTPProxy.MoreOption.RequestHeadersToRemove.IsNull() && !data.HTTPProxy.MoreOption.RequestHeadersToRemove.IsUnknown() {
+				var RequestHeadersToRemoveItems []string
+				diags := data.HTTPProxy.MoreOption.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+				if !diags.HasError() {
+					MoreOptionMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
+				}
+			}
+			if len(data.HTTPProxy.MoreOption.ResponseCookiesToAdd) > 0 {
+				var ResponseCookiesToAddList []map[string]interface{}
+				for _, ResponseCookiesToAddItem := range data.HTTPProxy.MoreOption.ResponseCookiesToAdd {
+					ResponseCookiesToAddItemMap := make(map[string]interface{})
+					if !ResponseCookiesToAddItem.AddDomain.IsNull() && !ResponseCookiesToAddItem.AddDomain.IsUnknown() {
+						ResponseCookiesToAddItemMap["add_domain"] = ResponseCookiesToAddItem.AddDomain.ValueString()
+					}
+					if !ResponseCookiesToAddItem.AddExpiry.IsNull() && !ResponseCookiesToAddItem.AddExpiry.IsUnknown() {
+						ResponseCookiesToAddItemMap["add_expiry"] = ResponseCookiesToAddItem.AddExpiry.ValueString()
+					}
+					if ResponseCookiesToAddItem.AddHttponly != nil {
+						ResponseCookiesToAddItemMap["add_httponly"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.AddPartitioned != nil {
+						ResponseCookiesToAddItemMap["add_partitioned"] = map[string]interface{}{}
+					}
+					if !ResponseCookiesToAddItem.AddPath.IsNull() && !ResponseCookiesToAddItem.AddPath.IsUnknown() {
+						ResponseCookiesToAddItemMap["add_path"] = ResponseCookiesToAddItem.AddPath.ValueString()
+					}
+					if ResponseCookiesToAddItem.AddSecure != nil {
+						ResponseCookiesToAddItemMap["add_secure"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.IgnoreDomain != nil {
+						ResponseCookiesToAddItemMap["ignore_domain"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.IgnoreExpiry != nil {
+						ResponseCookiesToAddItemMap["ignore_expiry"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.IgnoreHttponly != nil {
+						ResponseCookiesToAddItemMap["ignore_httponly"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.IgnoreMaxAge != nil {
+						ResponseCookiesToAddItemMap["ignore_max_age"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.IgnorePartitioned != nil {
+						ResponseCookiesToAddItemMap["ignore_partitioned"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.IgnorePath != nil {
+						ResponseCookiesToAddItemMap["ignore_path"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.IgnoreSamesite != nil {
+						ResponseCookiesToAddItemMap["ignore_samesite"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.IgnoreSecure != nil {
+						ResponseCookiesToAddItemMap["ignore_secure"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.IgnoreValue != nil {
+						ResponseCookiesToAddItemMap["ignore_value"] = map[string]interface{}{}
+					}
+					if !ResponseCookiesToAddItem.MaxAgeValue.IsNull() && !ResponseCookiesToAddItem.MaxAgeValue.IsUnknown() {
+						ResponseCookiesToAddItemMap["max_age_value"] = ResponseCookiesToAddItem.MaxAgeValue.ValueInt64()
+					}
+					if !ResponseCookiesToAddItem.Name.IsNull() && !ResponseCookiesToAddItem.Name.IsUnknown() {
+						ResponseCookiesToAddItemMap["name"] = ResponseCookiesToAddItem.Name.ValueString()
+					}
+					if !ResponseCookiesToAddItem.Overwrite.IsNull() && !ResponseCookiesToAddItem.Overwrite.IsUnknown() {
+						ResponseCookiesToAddItemMap["overwrite"] = ResponseCookiesToAddItem.Overwrite.ValueBool()
+					}
+					if ResponseCookiesToAddItem.SamesiteLax != nil {
+						ResponseCookiesToAddItemMap["samesite_lax"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.SamesiteNone != nil {
+						ResponseCookiesToAddItemMap["samesite_none"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.SamesiteStrict != nil {
+						ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
+					}
+					if ResponseCookiesToAddItem.SecretValue != nil {
+						SecretValueMap := make(map[string]interface{})
+						if ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if ResponseCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+							}
+							if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+							}
+							SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						ResponseCookiesToAddItemMap["secret_value"] = SecretValueMap
+					}
+					if !ResponseCookiesToAddItem.Value.IsNull() && !ResponseCookiesToAddItem.Value.IsUnknown() {
+						ResponseCookiesToAddItemMap["value"] = ResponseCookiesToAddItem.Value.ValueString()
+					}
+					ResponseCookiesToAddList = append(ResponseCookiesToAddList, ResponseCookiesToAddItemMap)
+				}
+				MoreOptionMap["response_cookies_to_add"] = ResponseCookiesToAddList
+			}
+			if !data.HTTPProxy.MoreOption.ResponseCookiesToRemove.IsNull() && !data.HTTPProxy.MoreOption.ResponseCookiesToRemove.IsUnknown() {
+				var ResponseCookiesToRemoveItems []string
+				diags := data.HTTPProxy.MoreOption.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+				if !diags.HasError() {
+					MoreOptionMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
+				}
+			}
+			if len(data.HTTPProxy.MoreOption.ResponseHeadersToAdd) > 0 {
+				var ResponseHeadersToAddList []map[string]interface{}
+				for _, ResponseHeadersToAddItem := range data.HTTPProxy.MoreOption.ResponseHeadersToAdd {
+					ResponseHeadersToAddItemMap := make(map[string]interface{})
+					if !ResponseHeadersToAddItem.Append.IsNull() && !ResponseHeadersToAddItem.Append.IsUnknown() {
+						ResponseHeadersToAddItemMap["append"] = ResponseHeadersToAddItem.Append.ValueBool()
+					}
+					if !ResponseHeadersToAddItem.Name.IsNull() && !ResponseHeadersToAddItem.Name.IsUnknown() {
+						ResponseHeadersToAddItemMap["name"] = ResponseHeadersToAddItem.Name.ValueString()
+					}
+					if ResponseHeadersToAddItem.SecretValue != nil {
+						SecretValueMap := make(map[string]interface{})
+						if ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+							BlindfoldSecretInfoMap := make(map[string]interface{})
+							if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["decryption_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							}
+							if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+								BlindfoldSecretInfoMap["location"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+							}
+							if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+								BlindfoldSecretInfoMap["store_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+							}
+							SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						}
+						if ResponseHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+							ClearSecretInfoMap := make(map[string]interface{})
+							if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+								ClearSecretInfoMap["provider"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+							}
+							if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+								ClearSecretInfoMap["url"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+							}
+							SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+						}
+						ResponseHeadersToAddItemMap["secret_value"] = SecretValueMap
+					}
+					if !ResponseHeadersToAddItem.Value.IsNull() && !ResponseHeadersToAddItem.Value.IsUnknown() {
+						ResponseHeadersToAddItemMap["value"] = ResponseHeadersToAddItem.Value.ValueString()
+					}
+					ResponseHeadersToAddList = append(ResponseHeadersToAddList, ResponseHeadersToAddItemMap)
+				}
+				MoreOptionMap["response_headers_to_add"] = ResponseHeadersToAddList
+			}
+			if !data.HTTPProxy.MoreOption.ResponseHeadersToRemove.IsNull() && !data.HTTPProxy.MoreOption.ResponseHeadersToRemove.IsUnknown() {
+				var ResponseHeadersToRemoveItems []string
+				diags := data.HTTPProxy.MoreOption.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+				if !diags.HasError() {
+					MoreOptionMap["response_headers_to_remove"] = ResponseHeadersToRemoveItems
+				}
+			}
+			HTTPProxyMap["more_option"] = MoreOptionMap
 		}
-		apiResource.Spec["http_proxy"] = http_proxyMap
+		apiResource.Spec["http_proxy"] = HTTPProxyMap
 	}
 	if data.NoForwardProxyPolicy != nil {
-		no_forward_proxy_policyMap := make(map[string]interface{})
-		apiResource.Spec["no_forward_proxy_policy"] = no_forward_proxy_policyMap
+		apiResource.Spec["no_forward_proxy_policy"] = map[string]interface{}{}
 	}
 	if data.NoInterception != nil {
-		no_interceptionMap := make(map[string]interface{})
-		apiResource.Spec["no_interception"] = no_interceptionMap
+		apiResource.Spec["no_interception"] = map[string]interface{}{}
 	}
 	if data.SiteLocalInsideNetwork != nil {
-		site_local_inside_networkMap := make(map[string]interface{})
-		apiResource.Spec["site_local_inside_network"] = site_local_inside_networkMap
+		apiResource.Spec["site_local_inside_network"] = map[string]interface{}{}
 	}
 	if data.SiteLocalNetwork != nil {
-		site_local_networkMap := make(map[string]interface{})
-		apiResource.Spec["site_local_network"] = site_local_networkMap
+		apiResource.Spec["site_local_network"] = map[string]interface{}{}
 	}
 	if data.SiteVirtualSites != nil {
-		site_virtual_sitesMap := make(map[string]interface{})
-		if len(data.SiteVirtualSites.AdvertiseWhere) > 0 {
-			var advertise_whereList []map[string]interface{}
-			for _, listItem := range data.SiteVirtualSites.AdvertiseWhere {
-				listItemMap := make(map[string]interface{})
-				if !listItem.Port.IsNull() && !listItem.Port.IsUnknown() {
-					listItemMap["port"] = listItem.Port.ValueInt64()
-				}
-				if listItem.Site != nil {
-					siteDeepMap := make(map[string]interface{})
-					if !listItem.Site.IP.IsNull() && !listItem.Site.IP.IsUnknown() {
-						siteDeepMap["ip"] = listItem.Site.IP.ValueString()
+		SiteVirtualSitesMap := make(map[string]interface{})
+		if !data.SiteVirtualSites.AdvertiseWhere.IsNull() && !data.SiteVirtualSites.AdvertiseWhere.IsUnknown() {
+			var AdvertiseWhereElems []ProxySiteVirtualSitesAdvertiseWhereModel
+			diags := data.SiteVirtualSites.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(AdvertiseWhereElems) > 0 {
+				var AdvertiseWhereList []map[string]interface{}
+				for _, AdvertiseWhereItem := range AdvertiseWhereElems {
+					AdvertiseWhereItemMap := make(map[string]interface{})
+					if !AdvertiseWhereItem.Port.IsNull() && !AdvertiseWhereItem.Port.IsUnknown() {
+						AdvertiseWhereItemMap["port"] = AdvertiseWhereItem.Port.ValueInt64()
 					}
-					if !listItem.Site.Network.IsNull() && !listItem.Site.Network.IsUnknown() {
-						siteDeepMap["network"] = listItem.Site.Network.ValueString()
+					if AdvertiseWhereItem.Site != nil {
+						SiteMap := make(map[string]interface{})
+						if !AdvertiseWhereItem.Site.IP.IsNull() && !AdvertiseWhereItem.Site.IP.IsUnknown() {
+							SiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
+						}
+						if !AdvertiseWhereItem.Site.Network.IsNull() && !AdvertiseWhereItem.Site.Network.IsUnknown() {
+							SiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
+						}
+						if AdvertiseWhereItem.Site.Site != nil {
+							SiteMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.Site.Site.Name.IsNull() && !AdvertiseWhereItem.Site.Site.Name.IsUnknown() {
+								SiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
+								SiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
+							}
+							if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
+								SiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
+							}
+							SiteMap["site"] = SiteMap
+						}
+						AdvertiseWhereItemMap["site"] = SiteMap
 					}
-					listItemMap["site"] = siteDeepMap
-				}
-				if listItem.UseDefaultPort != nil {
-					listItemMap["use_default_port"] = map[string]interface{}{}
-				}
-				if listItem.VirtualSite != nil {
-					virtual_siteDeepMap := make(map[string]interface{})
-					if !listItem.VirtualSite.Network.IsNull() && !listItem.VirtualSite.Network.IsUnknown() {
-						virtual_siteDeepMap["network"] = listItem.VirtualSite.Network.ValueString()
+					if AdvertiseWhereItem.UseDefaultPort != nil {
+						AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
 					}
-					listItemMap["virtual_site"] = virtual_siteDeepMap
+					if AdvertiseWhereItem.VirtualSite != nil {
+						VirtualSiteMap := make(map[string]interface{})
+						if !AdvertiseWhereItem.VirtualSite.Network.IsNull() && !AdvertiseWhereItem.VirtualSite.Network.IsUnknown() {
+							VirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
+						}
+						if AdvertiseWhereItem.VirtualSite.VirtualSite != nil {
+							VirtualSiteMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsUnknown() {
+								VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
+								VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
+							}
+							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
+								VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
+							}
+							VirtualSiteMap["virtual_site"] = VirtualSiteMap
+						}
+						AdvertiseWhereItemMap["virtual_site"] = VirtualSiteMap
+					}
+					AdvertiseWhereList = append(AdvertiseWhereList, AdvertiseWhereItemMap)
 				}
-				advertise_whereList = append(advertise_whereList, listItemMap)
+				SiteVirtualSitesMap["advertise_where"] = AdvertiseWhereList
 			}
-			site_virtual_sitesMap["advertise_where"] = advertise_whereList
 		}
-		apiResource.Spec["site_virtual_sites"] = site_virtual_sitesMap
+		apiResource.Spec["site_virtual_sites"] = SiteVirtualSitesMap
 	}
 	if data.TLSIntercept != nil {
-		tls_interceptMap := make(map[string]interface{})
+		TLSInterceptMap := make(map[string]interface{})
 		if data.TLSIntercept.CustomCertificate != nil {
-			custom_certificateNestedMap := make(map[string]interface{})
+			CustomCertificateMap := make(map[string]interface{})
 			if !data.TLSIntercept.CustomCertificate.CertificateURL.IsNull() && !data.TLSIntercept.CustomCertificate.CertificateURL.IsUnknown() {
-				custom_certificateNestedMap["certificate_url"] = data.TLSIntercept.CustomCertificate.CertificateURL.ValueString()
+				CustomCertificateMap["certificate_url"] = data.TLSIntercept.CustomCertificate.CertificateURL.ValueString()
+			}
+			if data.TLSIntercept.CustomCertificate.CustomHashAlgorithms != nil {
+				CustomHashAlgorithmsMap := make(map[string]interface{})
+				if !data.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.IsNull() && !data.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+					var HashAlgorithmsItems []string
+					diags := data.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+					if !diags.HasError() {
+						CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+					}
+				}
+				CustomCertificateMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
 			}
 			if !data.TLSIntercept.CustomCertificate.DescriptionSpec.IsNull() && !data.TLSIntercept.CustomCertificate.DescriptionSpec.IsUnknown() {
-				custom_certificateNestedMap["description"] = data.TLSIntercept.CustomCertificate.DescriptionSpec.ValueString()
+				CustomCertificateMap["description"] = data.TLSIntercept.CustomCertificate.DescriptionSpec.ValueString()
 			}
-			tls_interceptMap["custom_certificate"] = custom_certificateNestedMap
+			if data.TLSIntercept.CustomCertificate.DisableOCSPStapling != nil {
+				CustomCertificateMap["disable_ocsp_stapling"] = map[string]interface{}{}
+			}
+			if data.TLSIntercept.CustomCertificate.PrivateKey != nil {
+				PrivateKeyMap := make(map[string]interface{})
+				if data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo != nil {
+					BlindfoldSecretInfoMap := make(map[string]interface{})
+					if !data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["decryption_provider"] = data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					}
+					if !data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+						BlindfoldSecretInfoMap["location"] = data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+					}
+					if !data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+						BlindfoldSecretInfoMap["store_provider"] = data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+					}
+					PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				}
+				if data.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo != nil {
+					ClearSecretInfoMap := make(map[string]interface{})
+					if !data.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.Provider.IsNull() && !data.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+						ClearSecretInfoMap["provider"] = data.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.Provider.ValueString()
+					}
+					if !data.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.URL.IsNull() && !data.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+						ClearSecretInfoMap["url"] = data.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.URL.ValueString()
+					}
+					PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+				}
+				CustomCertificateMap["private_key"] = PrivateKeyMap
+			}
+			if data.TLSIntercept.CustomCertificate.UseSystemDefaults != nil {
+				CustomCertificateMap["use_system_defaults"] = map[string]interface{}{}
+			}
+			TLSInterceptMap["custom_certificate"] = CustomCertificateMap
 		}
 		if data.TLSIntercept.EnableForAllDomains != nil {
-			tls_interceptMap["enable_for_all_domains"] = map[string]interface{}{}
+			TLSInterceptMap["enable_for_all_domains"] = map[string]interface{}{}
 		}
 		if data.TLSIntercept.Policy != nil {
-			policyNestedMap := make(map[string]interface{})
-			tls_interceptMap["policy"] = policyNestedMap
+			PolicyMap := make(map[string]interface{})
+			if len(data.TLSIntercept.Policy.InterceptionRules) > 0 {
+				var InterceptionRulesList []map[string]interface{}
+				for _, InterceptionRulesItem := range data.TLSIntercept.Policy.InterceptionRules {
+					InterceptionRulesItemMap := make(map[string]interface{})
+					if InterceptionRulesItem.DisableInterception != nil {
+						InterceptionRulesItemMap["disable_interception"] = map[string]interface{}{}
+					}
+					if InterceptionRulesItem.DomainMatch != nil {
+						DomainMatchMap := make(map[string]interface{})
+						if !InterceptionRulesItem.DomainMatch.ExactValue.IsNull() && !InterceptionRulesItem.DomainMatch.ExactValue.IsUnknown() {
+							DomainMatchMap["exact_value"] = InterceptionRulesItem.DomainMatch.ExactValue.ValueString()
+						}
+						if !InterceptionRulesItem.DomainMatch.RegexValue.IsNull() && !InterceptionRulesItem.DomainMatch.RegexValue.IsUnknown() {
+							DomainMatchMap["regex_value"] = InterceptionRulesItem.DomainMatch.RegexValue.ValueString()
+						}
+						if !InterceptionRulesItem.DomainMatch.SuffixValue.IsNull() && !InterceptionRulesItem.DomainMatch.SuffixValue.IsUnknown() {
+							DomainMatchMap["suffix_value"] = InterceptionRulesItem.DomainMatch.SuffixValue.ValueString()
+						}
+						InterceptionRulesItemMap["domain_match"] = DomainMatchMap
+					}
+					if InterceptionRulesItem.EnableInterception != nil {
+						InterceptionRulesItemMap["enable_interception"] = map[string]interface{}{}
+					}
+					InterceptionRulesList = append(InterceptionRulesList, InterceptionRulesItemMap)
+				}
+				PolicyMap["interception_rules"] = InterceptionRulesList
+			}
+			TLSInterceptMap["policy"] = PolicyMap
 		}
 		if !data.TLSIntercept.TrustedCAURL.IsNull() && !data.TLSIntercept.TrustedCAURL.IsUnknown() {
-			tls_interceptMap["trusted_ca_url"] = data.TLSIntercept.TrustedCAURL.ValueString()
+			TLSInterceptMap["trusted_ca_url"] = data.TLSIntercept.TrustedCAURL.ValueString()
 		}
 		if data.TLSIntercept.VolterraCertificate != nil {
-			tls_interceptMap["volterra_certificate"] = map[string]interface{}{}
+			TLSInterceptMap["volterra_certificate"] = map[string]interface{}{}
 		}
 		if data.TLSIntercept.VolterraTrustedCA != nil {
-			tls_interceptMap["volterra_trusted_ca"] = map[string]interface{}{}
+			TLSInterceptMap["volterra_trusted_ca"] = map[string]interface{}{}
 		}
-		apiResource.Spec["tls_intercept"] = tls_interceptMap
+		apiResource.Spec["tls_intercept"] = TLSInterceptMap
 	}
 	if !data.ConnectionTimeout.IsNull() && !data.ConnectionTimeout.IsUnknown() {
 		apiResource.Spec["connection_timeout"] = data.ConnectionTimeout.ValueInt64()
@@ -4735,26 +11659,29 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	_ = isImport          // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["active_forward_proxy_policies"].(map[string]interface{}); ok && (isImport || data.ActiveForwardProxyPolicies != nil) {
 		data.ActiveForwardProxyPolicies = &ProxyActiveForwardProxyPoliciesModel{
-			ForwardProxyPolicies: func() []ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel {
-				if listData, ok := blockData["forward_proxy_policies"].([]interface{}); ok && len(listData) > 0 {
-					var result []ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel{
+			ForwardProxyPolicies: func() types.List {
+				if !isImport && data.ActiveForwardProxyPolicies != nil && (data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() || len(data.ActiveForwardProxyPolicies.ForwardProxyPolicies.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
+				}
+				if rawList, ok := blockData["forward_proxy_policies"].([]interface{}); ok && len(rawList) > 0 {
+					var ForwardProxyPoliciesResult []ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel
+					for _, ForwardProxyPoliciesItem := range rawList {
+						if ForwardProxyPoliciesItemMap, ok := ForwardProxyPoliciesItem.(map[string]interface{}); ok {
+							ForwardProxyPoliciesResult = append(ForwardProxyPoliciesResult, ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel{
 								Name: func() types.String {
-									if v, ok := itemMap["name"].(string); ok && v != "" {
+									if v, ok := ForwardProxyPoliciesItemMap["name"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Namespace: func() types.String {
-									if v, ok := itemMap["namespace"].(string); ok && v != "" {
+									if v, ok := ForwardProxyPoliciesItemMap["namespace"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								Tenant: func() types.String {
-									if v, ok := itemMap["tenant"].(string); ok && v != "" {
+									if v, ok := ForwardProxyPoliciesItemMap["tenant"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -4762,26 +11689,22 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes}, ForwardProxyPoliciesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
 			}(),
 		}
 	}
 	if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok && isImport && data.DoNotAdvertise == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.DoNotAdvertise = &ProxyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["dynamic_proxy"].(map[string]interface{}); ok && (isImport || data.DynamicProxy != nil) {
 		data.DynamicProxy = &ProxyDynamicProxyModel{
 			DisableDNSMasquerade: func() *ProxyEmptyModel {
 				if !isImport && data.DynamicProxy != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DynamicProxy.DisableDNSMasquerade
 				}
-				// Import case: read from API
 				if _, ok := blockData["disable_dns_masquerade"].(map[string]interface{}); ok {
 					return &ProxyEmptyModel{}
 				}
@@ -4802,11 +11725,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			}(),
 			EnableDNSMasquerade: func() *ProxyEmptyModel {
 				if !isImport && data.DynamicProxy != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.DynamicProxy.EnableDNSMasquerade
 				}
-				// Import case: read from API
 				if _, ok := blockData["enable_dns_masquerade"].(map[string]interface{}); ok {
 					return &ProxyEmptyModel{}
 				}
@@ -4814,36 +11734,1523 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			}(),
 			HTTPProxy: func() *ProxyDynamicProxyHTTPProxyModel {
 				if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil {
-					// Normal Read: preserve existing state value
 					return data.DynamicProxy.HTTPProxy
 				}
-				// Import case: read from API
-				if _, ok := blockData["http_proxy"].(map[string]interface{}); ok {
-					return &ProxyDynamicProxyHTTPProxyModel{}
+				if HTTPProxyData, ok := blockData["http_proxy"].(map[string]interface{}); ok {
+					return &ProxyDynamicProxyHTTPProxyModel{
+						MoreOption: func() *ProxyDynamicProxyHTTPProxyMoreOptionModel {
+							if MoreOptionData, ok := HTTPProxyData["more_option"].(map[string]interface{}); ok {
+								return &ProxyDynamicProxyHTTPProxyMoreOptionModel{
+									BufferPolicy: func() *ProxyDynamicProxyHTTPProxyMoreOptionBufferPolicyModel {
+										if BufferPolicyData, ok := MoreOptionData["buffer_policy"].(map[string]interface{}); ok {
+											return &ProxyDynamicProxyHTTPProxyMoreOptionBufferPolicyModel{
+												Disabled: func() types.Bool {
+													if v, ok := BufferPolicyData["disabled"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												MaxRequestBytes: func() types.Int64 {
+													if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
+														return types.Int64Value(int64(v))
+													}
+													return types.Int64Null()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									CompressionParams: func() *ProxyDynamicProxyHTTPProxyMoreOptionCompressionParamsModel {
+										if CompressionParamsData, ok := MoreOptionData["compression_params"].(map[string]interface{}); ok {
+											return &ProxyDynamicProxyHTTPProxyMoreOptionCompressionParamsModel{
+												ContentLength: func() types.Int64 {
+													if v, ok := CompressionParamsData["content_length"].(float64); ok && v != 0 {
+														return types.Int64Value(int64(v))
+													}
+													return types.Int64Null()
+												}(),
+												ContentType: func() types.List {
+													if v, ok := CompressionParamsData["content_type"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												DisableOnEtagHeader: func() types.Bool {
+													if v, ok := CompressionParamsData["disable_on_etag_header"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												RemoveAcceptEncodingHeader: func() types.Bool {
+													if v, ok := CompressionParamsData["remove_accept_encoding_header"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									CustomErrors: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									DisableDefaultErrorPages: func() types.Bool {
+										if v, ok := MoreOptionData["disable_default_error_pages"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									DisablePathNormalize: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									EnablePathNormalize: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									IdleTimeout: func() types.Int64 {
+										if v, ok := MoreOptionData["idle_timeout"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									MaxRequestHeaderSize: func() types.Int64 {
+										if v, ok := MoreOptionData["max_request_header_size"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									MaxRequestsPerConnection: func() types.Int64 {
+										if v, ok := MoreOptionData["max_requests_per_connection"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									NoRequestLimitPerConnection: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									RequestCookiesToAdd: func() []ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddModel {
+										if rawList, ok := MoreOptionData["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var RequestCookiesToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddModel
+											for _, RequestCookiesToAddItem := range rawList {
+												if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
+													RequestCookiesToAddResult = append(RequestCookiesToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddModel{
+														Name: func() types.String {
+															if v, ok := RequestCookiesToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Overwrite: func() types.Bool {
+															if v, ok := RequestCookiesToAddItemMap["overwrite"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueModel {
+															if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := RequestCookiesToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return RequestCookiesToAddResult
+										}
+										return nil
+									}(),
+									RequestCookiesToRemove: func() types.List {
+										if v, ok := MoreOptionData["request_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									RequestHeadersToAdd: func() []ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddModel {
+										if rawList, ok := MoreOptionData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var RequestHeadersToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddModel
+											for _, RequestHeadersToAddItem := range rawList {
+												if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
+													RequestHeadersToAddResult = append(RequestHeadersToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddModel{
+														Append: func() types.Bool {
+															if v, ok := RequestHeadersToAddItemMap["append"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := RequestHeadersToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueModel {
+															if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := RequestHeadersToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return RequestHeadersToAddResult
+										}
+										return nil
+									}(),
+									RequestHeadersToRemove: func() types.List {
+										if v, ok := MoreOptionData["request_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									ResponseCookiesToAdd: func() []ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModel {
+										if rawList, ok := MoreOptionData["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var ResponseCookiesToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModel
+											for _, ResponseCookiesToAddItem := range rawList {
+												if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
+													ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModel{
+														AddDomain: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["add_domain"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														AddExpiry: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["add_expiry"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														AddHttponly: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														AddPartitioned: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														AddPath: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														AddSecure: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreDomain: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreExpiry: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreHttponly: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreMaxAge: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnorePartitioned: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnorePath: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreSamesite: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreSecure: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreValue: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														MaxAgeValue: func() types.Int64 {
+															if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														Name: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Overwrite: func() types.Bool {
+															if v, ok := ResponseCookiesToAddItemMap["overwrite"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														SamesiteLax: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SamesiteNone: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SamesiteStrict: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel {
+															if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return ResponseCookiesToAddResult
+										}
+										return nil
+									}(),
+									ResponseCookiesToRemove: func() types.List {
+										if v, ok := MoreOptionData["response_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									ResponseHeadersToAdd: func() []ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddModel {
+										if rawList, ok := MoreOptionData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var ResponseHeadersToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddModel
+											for _, ResponseHeadersToAddItem := range rawList {
+												if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
+													ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddModel{
+														Append: func() types.Bool {
+															if v, ok := ResponseHeadersToAddItemMap["append"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := ResponseHeadersToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueModel {
+															if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := ResponseHeadersToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return ResponseHeadersToAddResult
+										}
+										return nil
+									}(),
+									ResponseHeadersToRemove: func() types.List {
+										if v, ok := MoreOptionData["response_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			HTTPSProxy: func() *ProxyDynamicProxyHTTPSProxyModel {
 				if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil {
-					// Normal Read: preserve existing state value
 					return data.DynamicProxy.HTTPSProxy
 				}
-				// Import case: read from API
-				if _, ok := blockData["https_proxy"].(map[string]interface{}); ok {
-					return &ProxyDynamicProxyHTTPSProxyModel{}
+				if HTTPSProxyData, ok := blockData["https_proxy"].(map[string]interface{}); ok {
+					return &ProxyDynamicProxyHTTPSProxyModel{
+						MoreOption: func() *ProxyDynamicProxyHTTPSProxyMoreOptionModel {
+							if MoreOptionData, ok := HTTPSProxyData["more_option"].(map[string]interface{}); ok {
+								return &ProxyDynamicProxyHTTPSProxyMoreOptionModel{
+									BufferPolicy: func() *ProxyDynamicProxyHTTPSProxyMoreOptionBufferPolicyModel {
+										if BufferPolicyData, ok := MoreOptionData["buffer_policy"].(map[string]interface{}); ok {
+											return &ProxyDynamicProxyHTTPSProxyMoreOptionBufferPolicyModel{
+												Disabled: func() types.Bool {
+													if v, ok := BufferPolicyData["disabled"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												MaxRequestBytes: func() types.Int64 {
+													if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
+														return types.Int64Value(int64(v))
+													}
+													return types.Int64Null()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									CompressionParams: func() *ProxyDynamicProxyHTTPSProxyMoreOptionCompressionParamsModel {
+										if CompressionParamsData, ok := MoreOptionData["compression_params"].(map[string]interface{}); ok {
+											return &ProxyDynamicProxyHTTPSProxyMoreOptionCompressionParamsModel{
+												ContentLength: func() types.Int64 {
+													if v, ok := CompressionParamsData["content_length"].(float64); ok && v != 0 {
+														return types.Int64Value(int64(v))
+													}
+													return types.Int64Null()
+												}(),
+												ContentType: func() types.List {
+													if v, ok := CompressionParamsData["content_type"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+												DisableOnEtagHeader: func() types.Bool {
+													if v, ok := CompressionParamsData["disable_on_etag_header"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												RemoveAcceptEncodingHeader: func() types.Bool {
+													if v, ok := CompressionParamsData["remove_accept_encoding_header"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									CustomErrors: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									DisableDefaultErrorPages: func() types.Bool {
+										if v, ok := MoreOptionData["disable_default_error_pages"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									DisablePathNormalize: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									EnablePathNormalize: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									IdleTimeout: func() types.Int64 {
+										if v, ok := MoreOptionData["idle_timeout"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									MaxRequestHeaderSize: func() types.Int64 {
+										if v, ok := MoreOptionData["max_request_header_size"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									MaxRequestsPerConnection: func() types.Int64 {
+										if v, ok := MoreOptionData["max_requests_per_connection"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									NoRequestLimitPerConnection: func() *ProxyEmptyModel {
+										if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									RequestCookiesToAdd: func() []ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddModel {
+										if rawList, ok := MoreOptionData["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var RequestCookiesToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddModel
+											for _, RequestCookiesToAddItem := range rawList {
+												if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
+													RequestCookiesToAddResult = append(RequestCookiesToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddModel{
+														Name: func() types.String {
+															if v, ok := RequestCookiesToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Overwrite: func() types.Bool {
+															if v, ok := RequestCookiesToAddItemMap["overwrite"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueModel {
+															if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := RequestCookiesToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return RequestCookiesToAddResult
+										}
+										return nil
+									}(),
+									RequestCookiesToRemove: func() types.List {
+										if v, ok := MoreOptionData["request_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									RequestHeadersToAdd: func() []ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddModel {
+										if rawList, ok := MoreOptionData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var RequestHeadersToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddModel
+											for _, RequestHeadersToAddItem := range rawList {
+												if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
+													RequestHeadersToAddResult = append(RequestHeadersToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddModel{
+														Append: func() types.Bool {
+															if v, ok := RequestHeadersToAddItemMap["append"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := RequestHeadersToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueModel {
+															if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := RequestHeadersToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return RequestHeadersToAddResult
+										}
+										return nil
+									}(),
+									RequestHeadersToRemove: func() types.List {
+										if v, ok := MoreOptionData["request_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									ResponseCookiesToAdd: func() []ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModel {
+										if rawList, ok := MoreOptionData["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var ResponseCookiesToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModel
+											for _, ResponseCookiesToAddItem := range rawList {
+												if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
+													ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModel{
+														AddDomain: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["add_domain"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														AddExpiry: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["add_expiry"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														AddHttponly: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														AddPartitioned: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														AddPath: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														AddSecure: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreDomain: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreExpiry: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreHttponly: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreMaxAge: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnorePartitioned: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnorePath: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreSamesite: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreSecure: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														IgnoreValue: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														MaxAgeValue: func() types.Int64 {
+															if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														Name: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Overwrite: func() types.Bool {
+															if v, ok := ResponseCookiesToAddItemMap["overwrite"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														SamesiteLax: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SamesiteNone: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SamesiteStrict: func() *ProxyEmptyModel {
+															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueModel {
+															if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := ResponseCookiesToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return ResponseCookiesToAddResult
+										}
+										return nil
+									}(),
+									ResponseCookiesToRemove: func() types.List {
+										if v, ok := MoreOptionData["response_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									ResponseHeadersToAdd: func() []ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddModel {
+										if rawList, ok := MoreOptionData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+											var ResponseHeadersToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddModel
+											for _, ResponseHeadersToAddItem := range rawList {
+												if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
+													ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddModel{
+														Append: func() types.Bool {
+															if v, ok := ResponseHeadersToAddItemMap["append"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := ResponseHeadersToAddItemMap["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SecretValue: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueModel {
+															if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Value: func() types.String {
+															if v, ok := ResponseHeadersToAddItemMap["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													})
+												}
+											}
+											return ResponseHeadersToAddResult
+										}
+										return nil
+									}(),
+									ResponseHeadersToRemove: func() types.List {
+										if v, ok := MoreOptionData["response_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
+						}(),
+						TLSParams: func() *ProxyDynamicProxyHTTPSProxyTLSParamsModel {
+							if TLSParamsData, ok := HTTPSProxyData["tls_params"].(map[string]interface{}); ok {
+								return &ProxyDynamicProxyHTTPSProxyTLSParamsModel{
+									NoMtls: func() *ProxyEmptyModel {
+										if _, ok := TLSParamsData["no_mtls"].(map[string]interface{}); ok {
+											return &ProxyEmptyModel{}
+										}
+										return nil
+									}(),
+									TLSCertificates: func() []ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModel {
+										if rawList, ok := TLSParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+											var TLSCertificatesResult []ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModel
+											for _, TLSCertificatesItem := range rawList {
+												if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+													TLSCertificatesResult = append(TLSCertificatesResult, ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModel{
+														CertificateURL: func() types.String {
+															if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														CustomHashAlgorithms: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesCustomHashAlgorithmsModel {
+															if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesCustomHashAlgorithmsModel{
+																	HashAlgorithms: func() types.List {
+																		if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														DescriptionSpec: func() types.String {
+															if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														DisableOCSPStapling: func() *ProxyEmptyModel {
+															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+														PrivateKey: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyModel {
+															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+																return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyModel{
+																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																				DecryptionProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Location: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				StoreProvider: func() types.String {
+																					if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																			return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
+																				Provider: func() types.String {
+																					if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				URL: func() types.String {
+																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														UseSystemDefaults: func() *ProxyEmptyModel {
+															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+																return &ProxyEmptyModel{}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											return TLSCertificatesResult
+										}
+										return nil
+									}(),
+									TLSConfig: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigModel {
+										if TLSConfigData, ok := TLSParamsData["tls_config"].(map[string]interface{}); ok {
+											return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigModel{
+												CustomSecurity: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigCustomSecurityModel {
+													if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+														return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigCustomSecurityModel{
+															CipherSuites: func() types.List {
+																if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+																	var items []string
+																	for _, item := range v {
+																		if s, ok := item.(string); ok {
+																			items = append(items, s)
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	return listVal
+																}
+																return types.ListNull(types.StringType)
+															}(),
+															MaxVersion: func() types.String {
+																if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															MinVersion: func() types.String {
+																if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												DefaultSecurity: func() *ProxyEmptyModel {
+													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+														return &ProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												LowSecurity: func() *ProxyEmptyModel {
+													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+														return &ProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												MediumSecurity: func() *ProxyEmptyModel {
+													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+														return &ProxyEmptyModel{}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									UseMtls: func() *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsModel {
+										if UseMtlsData, ok := TLSParamsData["use_mtls"].(map[string]interface{}); ok {
+											return &ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsModel{
+												ClientCertificateOptional: func() types.Bool {
+													if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
+														return types.BoolValue(v)
+													}
+													return types.BoolNull()
+												}(),
+												CRL: func() *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsCRLModel {
+													if CRLData, ok := UseMtlsData["crl"].(map[string]interface{}); ok {
+														return &ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsCRLModel{
+															Name: func() types.String {
+																if v, ok := CRLData["name"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Namespace: func() types.String {
+																if v, ok := CRLData["namespace"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Tenant: func() types.String {
+																if v, ok := CRLData["tenant"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												NoCRL: func() *ProxyEmptyModel {
+													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
+														return &ProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												TrustedCA: func() *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsTrustedCAModel {
+													if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
+														return &ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsTrustedCAModel{
+															Name: func() types.String {
+																if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Namespace: func() types.String {
+																if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Tenant: func() types.String {
+																if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												TrustedCAURL: func() types.String {
+													if v, ok := UseMtlsData["trusted_ca_url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												XfccDisabled: func() *ProxyEmptyModel {
+													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
+														return &ProxyEmptyModel{}
+													}
+													return nil
+												}(),
+												XfccOptions: func() *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsXfccOptionsModel {
+													if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
+														return &ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsXfccOptionsModel{
+															XfccHeaderElements: func() types.List {
+																if v, ok := XfccOptionsData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+																	var items []string
+																	for _, item := range v {
+																		if s, ok := item.(string); ok {
+																			items = append(items, s)
+																		}
+																	}
+																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	return listVal
+																}
+																return types.ListNull(types.StringType)
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
 			SniProxy: func() *ProxyDynamicProxySniProxyModel {
 				if !isImport && data.DynamicProxy != nil && data.DynamicProxy.SniProxy != nil {
-					// Normal Read: preserve existing state value
 					return data.DynamicProxy.SniProxy
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["sni_proxy"].(map[string]interface{}); ok {
+				if SniProxyData, ok := blockData["sni_proxy"].(map[string]interface{}); ok {
 					return &ProxyDynamicProxySniProxyModel{
 						IdleTimeout: func() types.Int64 {
-							if v, ok := nestedBlockData["idle_timeout"].(float64); ok {
+							if v, ok := SniProxyData["idle_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
@@ -4854,78 +13261,740 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["http_proxy"].(map[string]interface{}); ok && isImport && data.HTTPProxy == nil {
-		// Import case: populate from API since state is nil and psd is empty
-		data.HTTPProxy = &ProxyHTTPProxyModel{}
+	if blockData, ok := apiResource.Spec["http_proxy"].(map[string]interface{}); ok && (isImport || data.HTTPProxy != nil) {
+		data.HTTPProxy = &ProxyHTTPProxyModel{
+			EnableHTTP: func() *ProxyEmptyModel {
+				if !isImport && data.HTTPProxy != nil {
+					return data.HTTPProxy.EnableHTTP
+				}
+				if _, ok := blockData["enable_http"].(map[string]interface{}); ok {
+					return &ProxyEmptyModel{}
+				}
+				return nil
+			}(),
+			MoreOption: func() *ProxyHTTPProxyMoreOptionModel {
+				if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+					return data.HTTPProxy.MoreOption
+				}
+				if MoreOptionData, ok := blockData["more_option"].(map[string]interface{}); ok {
+					return &ProxyHTTPProxyMoreOptionModel{
+						BufferPolicy: func() *ProxyHTTPProxyMoreOptionBufferPolicyModel {
+							if BufferPolicyData, ok := MoreOptionData["buffer_policy"].(map[string]interface{}); ok {
+								return &ProxyHTTPProxyMoreOptionBufferPolicyModel{
+									Disabled: func() types.Bool {
+										if v, ok := BufferPolicyData["disabled"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									MaxRequestBytes: func() types.Int64 {
+										if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						CompressionParams: func() *ProxyHTTPProxyMoreOptionCompressionParamsModel {
+							if CompressionParamsData, ok := MoreOptionData["compression_params"].(map[string]interface{}); ok {
+								return &ProxyHTTPProxyMoreOptionCompressionParamsModel{
+									ContentLength: func() types.Int64 {
+										if v, ok := CompressionParamsData["content_length"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									ContentType: func() types.List {
+										if v, ok := CompressionParamsData["content_type"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									DisableOnEtagHeader: func() types.Bool {
+										if v, ok := CompressionParamsData["disable_on_etag_header"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									RemoveAcceptEncodingHeader: func() types.Bool {
+										if v, ok := CompressionParamsData["remove_accept_encoding_header"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						CustomErrors: func() *ProxyEmptyModel {
+							if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
+								return &ProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						DisableDefaultErrorPages: func() types.Bool {
+							if v, ok := MoreOptionData["disable_default_error_pages"].(bool); ok {
+								return types.BoolValue(v)
+							}
+							return types.BoolNull()
+						}(),
+						DisablePathNormalize: func() *ProxyEmptyModel {
+							if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
+								return &ProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						EnablePathNormalize: func() *ProxyEmptyModel {
+							if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
+								return &ProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						IdleTimeout: func() types.Int64 {
+							if v, ok := MoreOptionData["idle_timeout"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxRequestHeaderSize: func() types.Int64 {
+							if v, ok := MoreOptionData["max_request_header_size"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxRequestsPerConnection: func() types.Int64 {
+							if v, ok := MoreOptionData["max_requests_per_connection"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						NoRequestLimitPerConnection: func() *ProxyEmptyModel {
+							if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
+								return &ProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						RequestCookiesToAdd: func() []ProxyHTTPProxyMoreOptionRequestCookiesToAddModel {
+							if rawList, ok := MoreOptionData["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+								var RequestCookiesToAddResult []ProxyHTTPProxyMoreOptionRequestCookiesToAddModel
+								for _, RequestCookiesToAddItem := range rawList {
+									if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
+										RequestCookiesToAddResult = append(RequestCookiesToAddResult, ProxyHTTPProxyMoreOptionRequestCookiesToAddModel{
+											Name: func() types.String {
+												if v, ok := RequestCookiesToAddItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Overwrite: func() types.Bool {
+												if v, ok := RequestCookiesToAddItemMap["overwrite"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											SecretValue: func() *ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueModel {
+												if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+													return &ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueModel{
+														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel {
+															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Value: func() types.String {
+												if v, ok := RequestCookiesToAddItemMap["value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return RequestCookiesToAddResult
+							}
+							return nil
+						}(),
+						RequestCookiesToRemove: func() types.List {
+							if v, ok := MoreOptionData["request_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+						RequestHeadersToAdd: func() []ProxyHTTPProxyMoreOptionRequestHeadersToAddModel {
+							if rawList, ok := MoreOptionData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+								var RequestHeadersToAddResult []ProxyHTTPProxyMoreOptionRequestHeadersToAddModel
+								for _, RequestHeadersToAddItem := range rawList {
+									if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
+										RequestHeadersToAddResult = append(RequestHeadersToAddResult, ProxyHTTPProxyMoreOptionRequestHeadersToAddModel{
+											Append: func() types.Bool {
+												if v, ok := RequestHeadersToAddItemMap["append"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RequestHeadersToAddItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											SecretValue: func() *ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueModel {
+												if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+													return &ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueModel{
+														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel {
+															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Value: func() types.String {
+												if v, ok := RequestHeadersToAddItemMap["value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return RequestHeadersToAddResult
+							}
+							return nil
+						}(),
+						RequestHeadersToRemove: func() types.List {
+							if v, ok := MoreOptionData["request_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+						ResponseCookiesToAdd: func() []ProxyHTTPProxyMoreOptionResponseCookiesToAddModel {
+							if rawList, ok := MoreOptionData["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
+								var ResponseCookiesToAddResult []ProxyHTTPProxyMoreOptionResponseCookiesToAddModel
+								for _, ResponseCookiesToAddItem := range rawList {
+									if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
+										ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, ProxyHTTPProxyMoreOptionResponseCookiesToAddModel{
+											AddDomain: func() types.String {
+												if v, ok := ResponseCookiesToAddItemMap["add_domain"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											AddExpiry: func() types.String {
+												if v, ok := ResponseCookiesToAddItemMap["add_expiry"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											AddHttponly: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											AddPartitioned: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											AddPath: func() types.String {
+												if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											AddSecure: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnoreDomain: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnoreExpiry: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnoreHttponly: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnoreMaxAge: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnorePartitioned: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnorePath: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnoreSamesite: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnoreSecure: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											IgnoreValue: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											MaxAgeValue: func() types.Int64 {
+												if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+											Name: func() types.String {
+												if v, ok := ResponseCookiesToAddItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Overwrite: func() types.Bool {
+												if v, ok := ResponseCookiesToAddItemMap["overwrite"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											SamesiteLax: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											SamesiteNone: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											SamesiteStrict: func() *ProxyEmptyModel {
+												if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											SecretValue: func() *ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel {
+												if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
+													return &ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel{
+														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel {
+															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Value: func() types.String {
+												if v, ok := ResponseCookiesToAddItemMap["value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return ResponseCookiesToAddResult
+							}
+							return nil
+						}(),
+						ResponseCookiesToRemove: func() types.List {
+							if v, ok := MoreOptionData["response_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+						ResponseHeadersToAdd: func() []ProxyHTTPProxyMoreOptionResponseHeadersToAddModel {
+							if rawList, ok := MoreOptionData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
+								var ResponseHeadersToAddResult []ProxyHTTPProxyMoreOptionResponseHeadersToAddModel
+								for _, ResponseHeadersToAddItem := range rawList {
+									if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
+										ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, ProxyHTTPProxyMoreOptionResponseHeadersToAddModel{
+											Append: func() types.Bool {
+												if v, ok := ResponseHeadersToAddItemMap["append"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ResponseHeadersToAddItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											SecretValue: func() *ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueModel {
+												if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
+													return &ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueModel{
+														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel {
+															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
+																return &ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Value: func() types.String {
+												if v, ok := ResponseHeadersToAddItemMap["value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								return ResponseHeadersToAddResult
+							}
+							return nil
+						}(),
+						ResponseHeadersToRemove: func() types.List {
+							if v, ok := MoreOptionData["response_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_forward_proxy_policy"].(map[string]interface{}); ok && isImport && data.NoForwardProxyPolicy == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoForwardProxyPolicy = &ProxyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["no_interception"].(map[string]interface{}); ok && isImport && data.NoInterception == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.NoInterception = &ProxyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["site_local_inside_network"].(map[string]interface{}); ok && isImport && data.SiteLocalInsideNetwork == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.SiteLocalInsideNetwork = &ProxyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if _, ok := apiResource.Spec["site_local_network"].(map[string]interface{}); ok && isImport && data.SiteLocalNetwork == nil {
-		// Import case: populate from API since state is nil and psd is empty
 		data.SiteLocalNetwork = &ProxyEmptyModel{}
 	}
-	// Normal Read: preserve existing state value
 	if blockData, ok := apiResource.Spec["site_virtual_sites"].(map[string]interface{}); ok && (isImport || data.SiteVirtualSites != nil) {
 		data.SiteVirtualSites = &ProxySiteVirtualSitesModel{
-			AdvertiseWhere: func() []ProxySiteVirtualSitesAdvertiseWhereModel {
-				if listData, ok := blockData["advertise_where"].([]interface{}); ok && len(listData) > 0 {
-					var result []ProxySiteVirtualSitesAdvertiseWhereModel
-					for _, item := range listData {
-						if itemMap, ok := item.(map[string]interface{}); ok {
-							result = append(result, ProxySiteVirtualSitesAdvertiseWhereModel{
+			AdvertiseWhere: func() types.List {
+				if !isImport && data.SiteVirtualSites != nil && (data.SiteVirtualSites.AdvertiseWhere.IsNull() || len(data.SiteVirtualSites.AdvertiseWhere.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ProxySiteVirtualSitesAdvertiseWhereModelAttrTypes})
+				}
+				if rawList, ok := blockData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
+					var AdvertiseWhereResult []ProxySiteVirtualSitesAdvertiseWhereModel
+					for _, AdvertiseWhereItem := range rawList {
+						if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
+							AdvertiseWhereResult = append(AdvertiseWhereResult, ProxySiteVirtualSitesAdvertiseWhereModel{
 								Port: func() types.Int64 {
-									if v, ok := itemMap["port"].(float64); ok {
+									if v, ok := AdvertiseWhereItemMap["port"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								Site: func() *ProxySiteVirtualSitesAdvertiseWhereSiteModel {
-									if deepMap, ok := itemMap["site"].(map[string]interface{}); ok {
+									if SiteData, ok := AdvertiseWhereItemMap["site"].(map[string]interface{}); ok {
 										return &ProxySiteVirtualSitesAdvertiseWhereSiteModel{
 											IP: func() types.String {
-												if v, ok := deepMap["ip"].(string); ok && v != "" {
+												if v, ok := SiteData["ip"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Network: func() types.String {
-												if v, ok := deepMap["network"].(string); ok && v != "" {
+												if v, ok := SiteData["network"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
+											}(),
+											Site: func() *ProxySiteVirtualSitesAdvertiseWhereSiteSiteModel {
+												if SiteData, ok := SiteData["site"].(map[string]interface{}); ok {
+													return &ProxySiteVirtualSitesAdvertiseWhereSiteSiteModel{
+														Name: func() types.String {
+															if v, ok := SiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
 											}(),
 										}
 									}
 									return nil
 								}(),
 								UseDefaultPort: func() *ProxyEmptyModel {
-									if _, ok := itemMap["use_default_port"].(map[string]interface{}); ok {
+									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &ProxyEmptyModel{}
 									}
 									return nil
 								}(),
 								VirtualSite: func() *ProxySiteVirtualSitesAdvertiseWhereVirtualSiteModel {
-									if deepMap, ok := itemMap["virtual_site"].(map[string]interface{}); ok {
+									if VirtualSiteData, ok := AdvertiseWhereItemMap["virtual_site"].(map[string]interface{}); ok {
 										return &ProxySiteVirtualSitesAdvertiseWhereVirtualSiteModel{
 											Network: func() types.String {
-												if v, ok := deepMap["network"].(string); ok && v != "" {
+												if v, ok := VirtualSiteData["network"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
+											}(),
+											VirtualSite: func() *ProxySiteVirtualSitesAdvertiseWhereVirtualSiteVirtualSiteModel {
+												if VirtualSiteData, ok := VirtualSiteData["virtual_site"].(map[string]interface{}); ok {
+													return &ProxySiteVirtualSitesAdvertiseWhereVirtualSiteVirtualSiteModel{
+														Name: func() types.String {
+															if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
 											}(),
 										}
 									}
@@ -4934,9 +14003,10 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							})
 						}
 					}
-					return result
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProxySiteVirtualSitesAdvertiseWhereModelAttrTypes}, AdvertiseWhereResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ProxySiteVirtualSitesAdvertiseWhereModelAttrTypes})
 			}(),
 		}
 	}
@@ -4944,23 +14014,104 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		data.TLSIntercept = &ProxyTLSInterceptModel{
 			CustomCertificate: func() *ProxyTLSInterceptCustomCertificateModel {
 				if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil {
-					// Normal Read: preserve existing state value
 					return data.TLSIntercept.CustomCertificate
 				}
-				// Import case: read from API
-				if nestedBlockData, ok := blockData["custom_certificate"].(map[string]interface{}); ok {
+				if CustomCertificateData, ok := blockData["custom_certificate"].(map[string]interface{}); ok {
 					return &ProxyTLSInterceptCustomCertificateModel{
 						CertificateURL: func() types.String {
-							if v, ok := nestedBlockData["certificate_url"].(string); ok && v != "" {
+							if v, ok := CustomCertificateData["certificate_url"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
 						}(),
+						CustomHashAlgorithms: func() *ProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel {
+							if CustomHashAlgorithmsData, ok := CustomCertificateData["custom_hash_algorithms"].(map[string]interface{}); ok {
+								return &ProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel{
+									HashAlgorithms: func() types.List {
+										if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
+						}(),
 						DescriptionSpec: func() types.String {
-							if v, ok := nestedBlockData["description"].(string); ok && v != "" {
+							if v, ok := CustomCertificateData["description"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
+						}(),
+						DisableOCSPStapling: func() *ProxyEmptyModel {
+							if _, ok := CustomCertificateData["disable_ocsp_stapling"].(map[string]interface{}); ok {
+								return &ProxyEmptyModel{}
+							}
+							return nil
+						}(),
+						PrivateKey: func() *ProxyTLSInterceptCustomCertificatePrivateKeyModel {
+							if PrivateKeyData, ok := CustomCertificateData["private_key"].(map[string]interface{}); ok {
+								return &ProxyTLSInterceptCustomCertificatePrivateKeyModel{
+									BlindfoldSecretInfo: func() *ProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &ProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *ProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel {
+										if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+											return &ProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UseSystemDefaults: func() *ProxyEmptyModel {
+							if _, ok := CustomCertificateData["use_system_defaults"].(map[string]interface{}); ok {
+								return &ProxyEmptyModel{}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -4968,11 +14119,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			}(),
 			EnableForAllDomains: func() *ProxyEmptyModel {
 				if !isImport && data.TLSIntercept != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSIntercept.EnableForAllDomains
 				}
-				// Import case: read from API
 				if _, ok := blockData["enable_for_all_domains"].(map[string]interface{}); ok {
 					return &ProxyEmptyModel{}
 				}
@@ -4980,12 +14128,61 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			}(),
 			Policy: func() *ProxyTLSInterceptPolicyModel {
 				if !isImport && data.TLSIntercept != nil && data.TLSIntercept.Policy != nil {
-					// Normal Read: preserve existing state value
 					return data.TLSIntercept.Policy
 				}
-				// Import case: read from API
-				if _, ok := blockData["policy"].(map[string]interface{}); ok {
-					return &ProxyTLSInterceptPolicyModel{}
+				if PolicyData, ok := blockData["policy"].(map[string]interface{}); ok {
+					return &ProxyTLSInterceptPolicyModel{
+						InterceptionRules: func() []ProxyTLSInterceptPolicyInterceptionRulesModel {
+							if rawList, ok := PolicyData["interception_rules"].([]interface{}); ok && len(rawList) > 0 {
+								var InterceptionRulesResult []ProxyTLSInterceptPolicyInterceptionRulesModel
+								for _, InterceptionRulesItem := range rawList {
+									if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
+										InterceptionRulesResult = append(InterceptionRulesResult, ProxyTLSInterceptPolicyInterceptionRulesModel{
+											DisableInterception: func() *ProxyEmptyModel {
+												if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+											DomainMatch: func() *ProxyTLSInterceptPolicyInterceptionRulesDomainMatchModel {
+												if DomainMatchData, ok := InterceptionRulesItemMap["domain_match"].(map[string]interface{}); ok {
+													return &ProxyTLSInterceptPolicyInterceptionRulesDomainMatchModel{
+														ExactValue: func() types.String {
+															if v, ok := DomainMatchData["exact_value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														RegexValue: func() types.String {
+															if v, ok := DomainMatchData["regex_value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SuffixValue: func() types.String {
+															if v, ok := DomainMatchData["suffix_value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											EnableInterception: func() *ProxyEmptyModel {
+												if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
+													return &ProxyEmptyModel{}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								return InterceptionRulesResult
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -4997,11 +14194,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			}(),
 			VolterraCertificate: func() *ProxyEmptyModel {
 				if !isImport && data.TLSIntercept != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSIntercept.VolterraCertificate
 				}
-				// Import case: read from API
 				if _, ok := blockData["volterra_certificate"].(map[string]interface{}); ok {
 					return &ProxyEmptyModel{}
 				}
@@ -5009,11 +14203,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			}(),
 			VolterraTrustedCA: func() *ProxyEmptyModel {
 				if !isImport && data.TLSIntercept != nil {
-					// Normal Read: preserve existing state value (even if nil)
-					// This prevents API returning empty objects from overwriting user's 'not configured' intent
 					return data.TLSIntercept.VolterraTrustedCA
 				}
-				// Import case: read from API
 				if _, ok := blockData["volterra_trusted_ca"].(map[string]interface{}); ok {
 					return &ProxyEmptyModel{}
 				}
