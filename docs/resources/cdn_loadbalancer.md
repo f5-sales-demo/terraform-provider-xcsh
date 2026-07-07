@@ -14,7 +14,7 @@ Manages a CDN Load Balancer resource in F5 Distributed Cloud for content deliver
 ## Example Usage
 
 ```terraform
-# CDN Loadbalancer Resource Example
+# CDNLoadBalancer Resource Example
 # Manages a CDN Load Balancer resource in F5 Distributed Cloud for content delivery and edge caching with load balancing.
 
 terraform {
@@ -22,50 +22,18 @@ terraform {
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic CDN Loadbalancer configuration
+# Basic CDNLoadBalancer configuration
 resource "xcsh_cdn_loadbalancer" "example" {
   name      = "example-CDN-loadbalancer"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # CDN Load Balancer configuration
-  domains = ["CDN.example.com"]
-
-  # Origin pool
-  origin_pool {
-    public_name {
-      dns_name = "origin.example.com"
-    }
-    follow_origin_redirect = true
-    no_tls {}
-  }
-
-  # Cache TTL settings
-  cache_ttl_options {
-    cache_ttl_default = "1h"
-  }
-
-  # HTTP protocol
-  https_auto_cert {
-    http_redirect = true
-  }
-
-  # Add location header
-  add_location = true
+  domains = ["example-value"]
 }
 ```
 

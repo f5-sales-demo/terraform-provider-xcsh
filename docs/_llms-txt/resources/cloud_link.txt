@@ -14,22 +14,6 @@ New CloudLink with configured parameters
 resource "xcsh_cloud_link" "example" {
   name      = "example-cloud-link"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  aws {
-  }
-  aws_cred {
-  }
-  byoc {
-  }
 }
 ```
 

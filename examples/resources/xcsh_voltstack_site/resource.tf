@@ -1,4 +1,4 @@
-# Voltstack Site Resource Example
+# VoltstackSite Resource Example
 # Manages a Voltstack Site resource in F5 Distributed Cloud for deploying Volterra stack sites for edge computing.
 
 terraform {
@@ -6,32 +6,18 @@ terraform {
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Voltstack Site configuration
+# Basic VoltstackSite configuration
 resource "xcsh_voltstack_site" "example" {
   name      = "example-voltstack-site"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  volterra_certified_hw = "kvm-voltstack-combo"
-  worker_nodes          = []
-  address               = "123 Main St, Example City, EX 12345"
-
-  k8s_cluster {
-    name      = "example-k8s-cluster"
-    namespace = "staging"
-  }
+  volterra_certified_hw = "example-value"
+  worker_nodes          = ["example-value"]
+  address               = "example-value"
 }

@@ -14,22 +14,6 @@ New Fast ACL rule, has specification to match source IP, source port and action 
 resource "xcsh_fast_acl_rule" "example" {
   name      = "example-fast-acl-rule"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  port {
-  }
-  all {
-  }
-  dns {
-  }
 }
 ```
 

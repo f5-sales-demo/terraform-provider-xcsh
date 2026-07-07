@@ -15,14 +15,13 @@ Retrieves information about a BGP resource in F5 Distributed Cloud for bgp objec
 
 ```terraform
 # BGP Data Source Example
-# Retrieves information about an existing BGP
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
@@ -32,10 +31,6 @@ terraform {
 data "xcsh_bgp" "example" {
   name      = "example-bgp"
   namespace = "staging"
-}
-
-output "bgp_id" {
-  value = data.xcsh_bgp.example.id
 }
 ```
 

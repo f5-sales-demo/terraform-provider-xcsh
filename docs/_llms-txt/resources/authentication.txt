@@ -14,22 +14,6 @@ Authentication resource
 resource "xcsh_authentication" "example" {
   name      = "example-authentication"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  cookie_params {
-  }
-  auth_hmac {
-  }
-  prim_key {
-  }
 }
 ```
 

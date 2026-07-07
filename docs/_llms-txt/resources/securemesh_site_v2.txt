@@ -14,22 +14,6 @@ Deploying secure mesh edge sites with enhanced security and networking features
 resource "xcsh_securemesh_site_v2" "example" {
   name      = "example-securemesh-site-v2"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  performance_enhancement_mode {
-  }
-  perf_mode_l3_enhanced {
-  }
-  jumbo {
-  }
 }
 ```
 

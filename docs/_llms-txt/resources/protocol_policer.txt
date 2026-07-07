@@ -14,22 +14,6 @@ Protocol_policer object, protocol_policer object contains list of L4 protocol ma
 resource "xcsh_protocol_policer" "example" {
   name      = "example-protocol-policer"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  protocol_policer {
-  }
-  policer {
-  }
-  protocol {
-  }
 }
 ```
 

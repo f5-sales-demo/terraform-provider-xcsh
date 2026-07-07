@@ -14,22 +14,6 @@ Api to create nginx service discovery object for a site or virtual site in syste
 resource "xcsh_nginx_service_discovery" "example" {
   name      = "example-nginx-service-discovery"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  discovery_target {
-  }
-  config_sync_group {
-  }
-  nginx_instance {
-  }
 }
 ```
 

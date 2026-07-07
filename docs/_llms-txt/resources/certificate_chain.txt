@@ -16,14 +16,7 @@ resource "xcsh_certificate_chain" "example" {
   name      = "example-certificate-chain"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
+  certificate_url = "example-value"
 }
 ```
 

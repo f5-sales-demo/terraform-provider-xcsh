@@ -15,14 +15,13 @@ Manages App type will create the configuration in namespace metadata.namespace. 
 
 ```terraform
 # Cminstance Data Source Example
-# Retrieves information about an existing Cminstance
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
@@ -32,10 +31,6 @@ terraform {
 data "xcsh_cminstance" "example" {
   name      = "example-cminstance"
   namespace = "staging"
-}
-
-output "cminstance_id" {
-  value = data.xcsh_cminstance.example.id
 }
 ```
 

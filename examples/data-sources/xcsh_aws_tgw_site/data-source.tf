@@ -1,18 +1,17 @@
-# AWS TGW Site Data Source Example
-# Retrieves information about an existing AWS TGW Site
+# AWSTGWSite Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing AWS TGW Site by name
+# Look up an existing AWSTGWSite by name
 data "xcsh_aws_tgw_site" "example" {
   name      = "example-aws-tgw-site"
   namespace = "staging"

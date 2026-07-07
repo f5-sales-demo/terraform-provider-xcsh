@@ -1,18 +1,17 @@
-# Third Party Application Data Source Example
-# Retrieves information about an existing Third Party Application
+# ThirdPartyApplication Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Third Party Application by name
+# Look up an existing ThirdPartyApplication by name
 data "xcsh_third_party_application" "example" {
   name      = "example-third-party-application"
   namespace = "staging"

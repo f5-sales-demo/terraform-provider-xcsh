@@ -14,24 +14,6 @@ Network connector is created by users in system namespace. configuration
 resource "xcsh_network_connector" "example" {
   name      = "example-network-connector"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  sli_to_global_dr {
-    global_vn {
-      name      = "global-network"
-      namespace = "staging"
-    }
-  }
-
-  disable_forward_proxy {}
 }
 ```
 

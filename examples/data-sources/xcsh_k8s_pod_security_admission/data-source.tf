@@ -1,18 +1,17 @@
-# K8S Pod Security Admission Data Source Example
-# Retrieves information about an existing K8S Pod Security Admission
+# K8SPodSecurityAdmission Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing K8S Pod Security Admission by name
+# Look up an existing K8SPodSecurityAdmission by name
 data "xcsh_k8s_pod_security_admission" "example" {
   name      = "example-k8s-pod-security-admission"
   namespace = "staging"

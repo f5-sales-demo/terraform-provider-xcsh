@@ -15,14 +15,13 @@ Manages cluster will create the object in the storage backend for namespace meta
 
 ```terraform
 # Cluster Data Source Example
-# Retrieves information about an existing Cluster
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
@@ -32,10 +31,6 @@ terraform {
 data "xcsh_cluster" "example" {
   name      = "example-cluster"
   namespace = "staging"
-}
-
-output "cluster_id" {
-  value = data.xcsh_cluster.example.id
 }
 ```
 

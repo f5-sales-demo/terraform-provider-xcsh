@@ -14,39 +14,24 @@ Manages new Alert Receiver object. in F5 Distributed Cloud.
 ## Example Usage
 
 ```terraform
-# Alert Receiver Resource Example
-# Manages new Alert Receiver object. in F5 Distributed Cloud.
+# AlertReceiver Resource Example
+# Manages new Alert Receiver object.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Alert Receiver configuration
+# Basic AlertReceiver configuration
 resource "xcsh_alert_receiver" "example" {
   name      = "example-alert-receiver"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Alert Receiver configuration
-  # Slack configuration
-  slack {
-    url = "`https://your-slack-webhook-url"`
-  }
 }
 ```
 

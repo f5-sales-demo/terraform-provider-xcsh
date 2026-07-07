@@ -1,12 +1,12 @@
 # Site Resource Example
-# Manages virtual site object in given namespace. in F5 Distributed Cloud.
+# Manages virtual site object in given namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
@@ -17,18 +17,5 @@ resource "xcsh_site" "example" {
   name      = "example-site"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # Type can be used to establish a 'selector reference' from...
-  site_selector {
-    # Configure site_selector settings
-  }
+  site_type = "INVALID"
 }

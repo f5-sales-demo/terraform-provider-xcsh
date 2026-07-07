@@ -13,17 +13,6 @@ New namespace. Name of the object is name of the namespace
 resource "xcsh_namespace" "example" {
   name      = "example-namespace"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  description = "Example namespace for application workloads"
 }
 ```
 

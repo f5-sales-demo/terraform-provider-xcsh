@@ -1,18 +1,17 @@
-# BGP Asn Set Data Source Example
-# Retrieves information about an existing BGP Asn Set
+# BGPAsnSet Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing BGP Asn Set by name
+# Look up an existing BGPAsnSet by name
 data "xcsh_bgp_asn_set" "example" {
   name      = "example-bgp-asn-set"
   namespace = "staging"

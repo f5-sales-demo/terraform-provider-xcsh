@@ -14,37 +14,28 @@ Manages workload_flavor. in F5 Distributed Cloud.
 ## Example Usage
 
 ```terraform
-# Workload Flavor Resource Example
-# Manages workload_flavor. in F5 Distributed Cloud.
+# WorkloadFlavor Resource Example
+# Manages workload_flavor.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Workload Flavor configuration
+# Basic WorkloadFlavor configuration
 resource "xcsh_workload_flavor" "example" {
   name      = "example-workload-flavor"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
+  ephemeral_storage = "example-value"
+  memory            = "example-value"
   vcpus             = 1
-  memory            = "1024"
-  ephemeral_storage = "1024"
 }
 ```
 

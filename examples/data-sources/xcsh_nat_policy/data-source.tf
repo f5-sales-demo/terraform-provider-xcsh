@@ -1,18 +1,17 @@
-# NAT Policy Data Source Example
-# Retrieves information about an existing NAT Policy
+# NATPolicy Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing NAT Policy by name
+# Look up an existing NATPolicy by name
 data "xcsh_nat_policy" "example" {
   name      = "example-nat-policy"
   namespace = "staging"

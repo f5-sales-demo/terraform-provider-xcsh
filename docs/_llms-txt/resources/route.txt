@@ -14,32 +14,6 @@ Route object in a given namespace. Route object is list of route rules. Each rul
 resource "xcsh_route" "example" {
   name      = "example-route"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  routes {
-    match {
-      path {
-        prefix = "/api/"
-      }
-    }
-    route_destination {
-      destinations {
-        cluster {
-          name      = "api-cluster"
-          namespace = "staging"
-        }
-        weight = 100
-      }
-    }
-  }
 }
 ```
 

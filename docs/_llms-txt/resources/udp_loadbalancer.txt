@@ -18,23 +18,10 @@ resource "xcsh_udp_loadbalancer" "example" {
   name      = "example-udp-loadbalancer"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  domains                          = ["dns.example.com"]
-  listen_port                      = 53
-  idle_timeout                     = 30000
+  domains                          = ["example-value"]
+  dns_volterra_managed             = true
   enable_per_packet_load_balancing = true
-
-  dns_volterra_managed = true
-
-  advertise_on_public_default_vip {}
+  idle_timeout                     = 1
 }
 ```
 

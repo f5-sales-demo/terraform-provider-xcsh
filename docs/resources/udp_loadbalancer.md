@@ -14,7 +14,7 @@ Manages a UDP Load Balancer resource in F5 Distributed Cloud for load balancing 
 ## Example Usage
 
 ```terraform
-# UDP Loadbalancer Resource Example
+# UDPLoadBalancer Resource Example
 # Manages a UDP Load Balancer resource in F5 Distributed Cloud for load balancing UDP traffic across origin pools.
 
 terraform {
@@ -22,34 +22,21 @@ terraform {
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic UDP Loadbalancer configuration
+# Basic UDPLoadBalancer configuration
 resource "xcsh_udp_loadbalancer" "example" {
   name      = "example-udp-loadbalancer"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  domains                          = ["dns.example.com"]
-  listen_port                      = 53
-  idle_timeout                     = 30000
+  domains                          = ["example-value"]
+  dns_volterra_managed             = true
   enable_per_packet_load_balancing = true
-
-  dns_volterra_managed = true
-
-  advertise_on_public_default_vip {}
+  idle_timeout                     = 1
 }
 ```
 
@@ -90,7 +77,7 @@ resource "xcsh_udp_loadbalancer" "example" {
 <a id="domains"></a>&#x2022; [`domains`](#domains) - Required List<br>List of domains (host/authority header) that will be matched to this load balancer
 
 <a id="enable-per-packet-load-balancing"></a>&#x2022; [`enable_per_packet_load_balancing`](#enable-per-packet-load-balancing) - Required Bool<br>Per packet load balancing: If disabled (default): First packet identified by source IP/port and local IP/port is sent to an upstream server as the load balancing algorithm dictates, and subsequent packets with the same identity are forwarded to the same
-upstream server without recheckingggggg the
+upstream server without recheckinggggggg the
 
 -> **One of the following:**
 &#x2022; <a id="hash-policy-choice-random"></a>[`hash_policy_choice_random`](#hash-policy-choice-random) - Optional Block<br>Configuration parameter for hash policy choice random

@@ -14,22 +14,6 @@ Network policy based routing create specification. configuration
 resource "xcsh_policy_based_routing" "example" {
   name      = "example-policy-based-routing"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  forwarding_class_list {
-  }
-  forward_proxy_pbr {
-  }
-  forward_proxy_pbr_rules {
-  }
 }
 ```
 

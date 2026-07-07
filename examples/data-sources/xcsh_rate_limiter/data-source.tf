@@ -1,18 +1,17 @@
-# Rate Limiter Data Source Example
-# Retrieves information about an existing Rate Limiter
+# RateLimiter Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Rate Limiter by name
+# Look up an existing RateLimiter by name
 data "xcsh_rate_limiter" "example" {
   name      = "example-rate-limiter"
   namespace = "staging"
@@ -21,16 +20,3 @@ data "xcsh_rate_limiter" "example" {
 output "rate_limiter_id" {
   value = data.xcsh_rate_limiter.example.id
 }
-
-# Example: Reference rate limiter in HTTP load balancer
-# resource "xcsh_http_loadbalancer" "example" {
-#   name      = "rate-limited-lb"
-#   namespace = "staging"
-#
-#   rate_limit {
-#     rate_limiter {
-#       name      = data.xcsh_rate_limiter.example.name
-#       namespace = data.xcsh_rate_limiter.example.namespace
-#     }
-#   }
-# }

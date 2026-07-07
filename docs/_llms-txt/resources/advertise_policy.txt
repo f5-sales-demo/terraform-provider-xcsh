@@ -18,21 +18,9 @@ resource "xcsh_advertise_policy" "example" {
   name      = "example-advertise-policy"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  public_ip {
-  }
-  tls_parameters {
-  }
-  client_certificate_optional {
-  }
+  address         = "example-value"
+  protocol        = "example-value"
+  skip_xff_append = true
 }
 ```
 

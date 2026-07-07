@@ -14,28 +14,23 @@ Retrieves information about new CloudLink with configured parameters. in F5 Dist
 ## Example Usage
 
 ```terraform
-# Cloud Link Data Source Example
-# Retrieves information about an existing Cloud Link
+# CloudLink Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Cloud Link by name
+# Look up an existing CloudLink by name
 data "xcsh_cloud_link" "example" {
   name      = "example-cloud-link"
   namespace = "staging"
-}
-
-output "cloud_link_id" {
-  value = data.xcsh_cloud_link.example.id
 }
 ```
 

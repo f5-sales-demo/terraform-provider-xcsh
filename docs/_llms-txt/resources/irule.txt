@@ -18,14 +18,9 @@ resource "xcsh_irule" "example" {
   name      = "example-irule"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
+  description_spec = "example-value"
+  irule            = "example-value"
+  description      = "example-value"
 }
 ```
 

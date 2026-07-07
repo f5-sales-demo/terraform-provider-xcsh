@@ -14,22 +14,6 @@ Network policy view specification. configuration
 resource "xcsh_network_policy_view" "example" {
   name      = "example-network-policy-view"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  egress_rules {
-  }
-  adv_action {
-  }
-  all_tcp_traffic {
-  }
 }
 ```
 

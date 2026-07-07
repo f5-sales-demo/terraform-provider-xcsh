@@ -15,14 +15,7 @@ resource "xcsh_bgp_asn_set" "example" {
   name      = "example-bgp-asn-set"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
+  as_numbers = [1]
 }
 ```
 

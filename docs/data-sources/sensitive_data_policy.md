@@ -14,28 +14,23 @@ Manages sensitive_data_policy creates a new object in the storage backend for me
 ## Example Usage
 
 ```terraform
-# Sensitive Data Policy Data Source Example
-# Retrieves information about an existing Sensitive Data Policy
+# SensitiveDataPolicy Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Sensitive Data Policy by name
+# Look up an existing SensitiveDataPolicy by name
 data "xcsh_sensitive_data_policy" "example" {
   name      = "example-sensitive-data-policy"
   namespace = "staging"
-}
-
-output "sensitive_data_policy_id" {
-  value = data.xcsh_sensitive_data_policy.example.id
 }
 ```
 

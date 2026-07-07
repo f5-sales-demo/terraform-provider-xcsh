@@ -8,57 +8,12 @@ Load balancing TCP traffic across origin pools
 - name
 - namespace
 
-## OneOf Groups
-
-Pick exactly one:
-  advertise_custom {}
-  advertise_on_public {}
-  advertise_on_public_default_vip {}
-  do_not_advertise {}
-
-## Server Defaults (safe to omit)
-
-- dns_volterra_managed
-- idle_timeout
-- hash_policy_choice_round_robin
-- no_sni
-- retract_cluster
-- service_policies_from_namespace
-- tcp
-
 ## Minimal Valid Config
 
 ```terraform
 resource "xcsh_tcp_loadbalancer" "example" {
   name      = "example-tcp-loadbalancer"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  listen_port = 8443
-
-  // One of the arguments from this list "advertise_custom advertise_on_public advertise_on_public_default_vip do_not_advertise" must be set
-
-  advertise_on_public_default_vip {}
-
-  origin_pools_weights {
-    pool {
-      name      = "example-tcp-pool"
-      namespace = "staging"
-    }
-    weight = 1
-  }
-
-  dns_volterra_managed = true
-
-  retract_cluster {}
 }
 ```
 

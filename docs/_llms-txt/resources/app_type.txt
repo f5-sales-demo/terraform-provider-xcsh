@@ -14,22 +14,6 @@ App type will create the configuration in namespace metadata.namespace
 resource "xcsh_app_type" "example" {
   name      = "example-app-type"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  business_logic_markup_setting {
-  }
-  disable_spec {
-  }
-  discovered_api_settings {
-  }
 }
 ```
 

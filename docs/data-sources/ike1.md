@@ -15,14 +15,13 @@ Retrieves information about a Ike1 resource in F5 Distributed Cloud for ike phas
 
 ```terraform
 # Ike1 Data Source Example
-# Retrieves information about an existing Ike1
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
@@ -32,10 +31,6 @@ terraform {
 data "xcsh_ike1" "example" {
   name      = "example-ike1"
   namespace = "staging"
-}
-
-output "ike1_id" {
-  value = data.xcsh_ike1.example.id
 }
 ```
 

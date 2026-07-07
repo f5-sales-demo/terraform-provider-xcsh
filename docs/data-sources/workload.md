@@ -15,14 +15,13 @@ Retrieves information about a Workload resource in F5 Distributed Cloud for work
 
 ```terraform
 # Workload Data Source Example
-# Retrieves information about an existing Workload
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
@@ -32,10 +31,6 @@ terraform {
 data "xcsh_workload" "example" {
   name      = "example-workload"
   namespace = "staging"
-}
-
-output "workload_id" {
-  value = data.xcsh_workload.example.id
 }
 ```
 

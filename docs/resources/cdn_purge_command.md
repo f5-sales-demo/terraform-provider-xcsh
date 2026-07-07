@@ -14,47 +14,24 @@ Manages a CDN Purge Command resource in F5 Distributed Cloud for CDN purge comma
 ## Example Usage
 
 ```terraform
-# CDN Purge Command Resource Example
-# Manages a CDN Purge Command resource in F5 Distributed Cloud for CDN purge command specification. configuration.
+# CDNPurgeCommand Resource Example
+# Manages a CDN Purge Command resource in F5 Distributed Cloud for CDN purge command specification.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic CDN Purge Command configuration
+# Basic CDNPurgeCommand configuration
 resource "xcsh_cdn_purge_command" "example" {
   name      = "example-CDN-purge-command"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # [OneOf: hard_purge, soft_purge] Enable this option
-  hard_purge {
-    # Configure hard_purge settings
-  }
-  # Enable this option
-  purge_all {
-    # Configure purge_all settings
-  }
-  # Enable this option
-  soft_purge {
-    # Configure soft_purge settings
-  }
 }
 ```
 

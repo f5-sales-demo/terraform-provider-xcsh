@@ -16,20 +16,7 @@ resource "xcsh_virtual_site" "example" {
   name      = "example-virtual-site"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  site_type = "CUSTOMER_EDGE"
-
-  site_selector {
-    expressions = ["region in (us-west-2, us-east-1)"]
-  }
+  site_type = "INVALID"
 }
 ```
 

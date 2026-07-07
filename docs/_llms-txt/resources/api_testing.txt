@@ -16,21 +16,7 @@ resource "xcsh_api_testing" "example" {
   name      = "example-api-testing"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  domains {
-  }
-  credentials {
-  }
-  admin {
-  }
+  custom_header_value = "example-value"
 }
 ```
 

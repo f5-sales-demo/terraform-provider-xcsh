@@ -16,17 +16,7 @@ resource "xcsh_dns_domain" "example" {
   name      = "example-dns-domain"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  volterra_managed {
-  }
+  dnssec_mode = "DNSSEC_DISABLE"
 }
 ```
 

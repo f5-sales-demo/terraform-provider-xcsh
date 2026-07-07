@@ -14,28 +14,23 @@ Manages Site Mesh Group in system namespace of user. in F5 Distributed Cloud. Th
 ## Example Usage
 
 ```terraform
-# Site Mesh Group Data Source Example
-# Retrieves information about an existing Site Mesh Group
+# SiteMeshGroup Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Site Mesh Group by name
+# Look up an existing SiteMeshGroup by name
 data "xcsh_site_mesh_group" "example" {
   name      = "example-site-mesh-group"
   namespace = "staging"
-}
-
-output "site_mesh_group_id" {
-  value = data.xcsh_site_mesh_group.example.id
 }
 ```
 

@@ -14,28 +14,23 @@ Retrieves information about a UDP Load Balancer resource in F5 Distributed Cloud
 ## Example Usage
 
 ```terraform
-# UDP Loadbalancer Data Source Example
-# Retrieves information about an existing UDP Loadbalancer
+# UDPLoadBalancer Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing UDP Loadbalancer by name
+# Look up an existing UDPLoadBalancer by name
 data "xcsh_udp_loadbalancer" "example" {
   name      = "example-udp-loadbalancer"
   namespace = "staging"
-}
-
-output "udp_loadbalancer_id" {
-  value = data.xcsh_udp_loadbalancer.example.id
 }
 ```
 

@@ -14,22 +14,6 @@ Ike phase1 profile specification. configuration
 resource "xcsh_ike1" "example" {
   name      = "example-ike1"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  ike_keylifetime_hours {
-  }
-  ike_keylifetime_minutes {
-  }
-  reauth_disabled {
-  }
 }
 ```
 

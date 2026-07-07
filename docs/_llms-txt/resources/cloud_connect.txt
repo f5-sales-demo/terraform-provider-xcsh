@@ -14,22 +14,6 @@ Establishing connectivity to cloud provider networks
 resource "xcsh_cloud_connect" "example" {
   name      = "example-cloud-connect"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  aws_provider {
-  }
-  aws_tgw_site {
-  }
-  cred {
-  }
 }
 ```
 

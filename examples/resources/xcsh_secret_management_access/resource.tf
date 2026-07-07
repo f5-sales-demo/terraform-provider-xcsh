@@ -1,42 +1,21 @@
-# Secret Management Access Resource Example
-# Manages secret_management_access creates a new object in storage backend for metadata.namespace. in F5 Distributed Cloud.
+# SecretManagementAccess Resource Example
+# Manages secret_management_access creates a new object in storage backend for metadata.namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic Secret Management Access configuration
+# Basic SecretManagementAccess configuration
 resource "xcsh_secret_management_access" "example" {
   name      = "example-secret-management-access"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # HostAccessInfoType contains the information about how to ...
-  access_info {
-    # Configure access_info settings
-  }
-  # Authentication parameters for REST based hosts.
-  rest_auth_info {
-    # Configure rest_auth_info settings
-  }
-  # AuthnTypeBasicAuth is used for using basic_auth mode of H...
-  basic_auth {
-    # Configure basic_auth settings
-  }
+  provider_name = "example-value"
 }

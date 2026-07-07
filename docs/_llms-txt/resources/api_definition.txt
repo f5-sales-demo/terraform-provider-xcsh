@@ -8,33 +8,12 @@ API Definition
 - name
 - namespace
 
-## Server Defaults (safe to omit)
-
-- swagger_specs
-- api_inventory_exclusion_list
-- api_inventory_inclusion_list
-- non_api_endpoints
-- strict_schema_origin
-
 ## Minimal Valid Config
 
 ```terraform
 resource "xcsh_api_definition" "example" {
   name      = "example-api-definition"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  swagger_specs = ["string:///base64-openapi-spec"]
-
-  non_validation_mode {}
 }
 ```
 

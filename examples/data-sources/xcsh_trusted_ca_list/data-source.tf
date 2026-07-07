@@ -1,18 +1,17 @@
-# Trusted CA List Data Source Example
-# Retrieves information about an existing Trusted CA List
+# TrustedCAList Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Trusted CA List by name
+# Look up an existing TrustedCAList by name
 data "xcsh_trusted_ca_list" "example" {
   name      = "example-trusted-ca-list"
   namespace = "staging"

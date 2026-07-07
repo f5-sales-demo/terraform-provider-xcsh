@@ -14,28 +14,23 @@ Manages user_identification creates a new object in the storage backend for meta
 ## Example Usage
 
 ```terraform
-# User Identification Data Source Example
-# Retrieves information about an existing User Identification
+# UserIdentification Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing User Identification by name
+# Look up an existing UserIdentification by name
 data "xcsh_user_identification" "example" {
   name      = "example-user-identification"
   namespace = "staging"
-}
-
-output "user_identification_id" {
-  value = data.xcsh_user_identification.example.id
 }
 ```
 

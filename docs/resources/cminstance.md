@@ -15,14 +15,14 @@ Manages App type will create the configuration in namespace metadata.namespace. 
 
 ```terraform
 # Cminstance Resource Example
-# Manages App type will create the configuration in namespace metadata.namespace. in F5 Distributed Cloud.
+# Manages App type will create the configuration in namespace metadata.namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
@@ -33,28 +33,8 @@ resource "xcsh_cminstance" "example" {
   name      = "example-cminstance"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # SecretType is used in an object to indicate a sensitive/c...
-  api_token {
-    # Configure api_token settings
-  }
-  # BlindfoldSecretInfoType specifies information about the S...
-  blindfold_secret_info {
-    # Configure blindfold_secret_info settings
-  }
-  # ClearSecretInfoType specifies information about the Secre...
-  clear_secret_info {
-    # Configure clear_secret_info settings
-  }
+  port     = 1
+  username = "example-value"
 }
 ```
 

@@ -14,47 +14,26 @@ Manages DNS Proxy in a given namespace. If one already exists it will give an er
 ## Example Usage
 
 ```terraform
-# DNS Proxy Resource Example
-# Manages DNS Proxy in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud.
+# DNSProxy Resource Example
+# Manages DNS Proxy in a given namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic DNS Proxy configuration
+# Basic DNSProxy configuration
 resource "xcsh_dns_proxy" "example" {
   name      = "example-dns-proxy"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  # Resource-specific configuration
-  # DNS Cache specifies cache configuration.
-  cache_profile {
-    # Configure cache_profile settings
-  }
-  # Configuration parameter for disable cache profile.
-  disable_cache_profile {
-    # Configure disable_cache_profile settings
-  }
-  # Configuration parameter for ddos profile.
-  ddos_profile {
-    # Configure ddos_profile settings
-  }
+  transport_type = "UDP"
 }
 ```
 
@@ -157,7 +136,7 @@ A [`health_checks`](#origin-servers-health-checks) block (within [`origin_server
 
 <a id="origin-servers-health-checks-timeout"></a>&#x2022; [`timeout`](#origin-servers-health-checks-timeout) - Optional Number<br>Timeout in seconds to wait for successful response. In other words, it is the time to wait for a health check response. If the timeout is reached the health check attempt will be considered a failure
 
-<a id="threshold-5d9f0b"></a>&#x2022; [`unhealthy_threshold`](#threshold-5d9f0b) - Optional Number<br>Number of failed responses before declaring unhealthy. In other words, this is the number of unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health checkingggggg if a host responds with 503 this threshold is ignored and the host is considered unhealthy
+<a id="threshold-5d9f0b"></a>&#x2022; [`unhealthy_threshold`](#threshold-5d9f0b) - Optional Number<br>Number of failed responses before declaring unhealthy. In other words, this is the number of unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health checkinggggggg if a host responds with 503 this threshold is ignored and the host is considered unhealthy
 immediately
 
 #### Origin Servers Health Checks Health Check

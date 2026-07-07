@@ -14,22 +14,6 @@ K8s_cluster_role_binding will create the object in the storage backend for names
 resource "xcsh_k8s_cluster_role_binding" "example" {
   name      = "example-k8s-cluster-role-binding"
   namespace = "staging"
-
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
-
-  subjects {
-  }
-  service_account {
-  }
-  k8s_cluster_role {
-  }
 }
 ```
 

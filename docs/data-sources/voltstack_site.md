@@ -14,28 +14,23 @@ Retrieves information about a Voltstack Site resource in F5 Distributed Cloud fo
 ## Example Usage
 
 ```terraform
-# Voltstack Site Data Source Example
-# Retrieves information about an existing Voltstack Site
+# VoltstackSite Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Voltstack Site by name
+# Look up an existing VoltstackSite by name
 data "xcsh_voltstack_site" "example" {
   name      = "example-voltstack-site"
   namespace = "staging"
-}
-
-output "voltstack_site_id" {
-  value = data.xcsh_voltstack_site.example.id
 }
 ```
 

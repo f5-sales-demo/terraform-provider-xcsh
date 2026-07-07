@@ -14,28 +14,23 @@ Manages network policy rule with configured parameters in specified namespace. i
 ## Example Usage
 
 ```terraform
-# Network Policy Rule Data Source Example
-# Retrieves information about an existing Network Policy Rule
+# NetworkPolicyRule Data Source Example
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Look up an existing Network Policy Rule by name
+# Look up an existing NetworkPolicyRule by name
 data "xcsh_network_policy_rule" "example" {
   name      = "example-network-policy-rule"
   namespace = "staging"
-}
-
-output "network_policy_rule_id" {
-  value = data.xcsh_network_policy_rule.example.id
 }
 ```
 

@@ -1,28 +1,23 @@
-# DNS Compliance Checks Resource Example
-# Manages DNS Compliance Checks Specification in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud.
+# DNSComplianceChecks Resource Example
+# Manages DNS Compliance Checks Specification in a given namespace.
 
 terraform {
   required_version = ">= 1.0"
 
   required_providers {
     xcsh = {
-      source  = "f5-sales-demo/f5xc"
+      source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
     }
   }
 }
 
-# Basic DNS Compliance Checks configuration
+# Basic DNSComplianceChecks configuration
 resource "xcsh_dns_compliance_checks" "example" {
   name      = "example-dns-compliance-checks"
   namespace = "staging"
 
-  labels = {
-    environment = "production"
-    managed_by  = "terraform"
-  }
-
-  annotations = {
-    "owner" = "platform-team"
-  }
+  domain_denylist                      = ["example-value"]
+  disallowed_query_type_list           = ["example-value"]
+  disallowed_resource_record_type_list = ["example-value"]
 }
