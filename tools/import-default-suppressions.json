@@ -1,5 +1,6 @@
 {
   "HTTPLoadBalancer": [
+    "add_location",
     "default_sensitive_data_policy",
     "disable_api_definition",
     "disable_api_discovery",
