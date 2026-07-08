@@ -518,14 +518,29 @@ func renderUnmarshalTopLevelSingle(sb *strings.Builder, rc string, attr openapi.
 	childPath := naming.ToResourceTypeName(attr.TfsdkTag)
 
 	if len(attr.NestedAttributes) == 0 {
-		sb.WriteString(fmt.Sprintf("%sif _, ok := apiResource.Spec[\"%s\"].(map[string]interface{}); ok && isImport && data.%s == nil {\n", indent, jsonName, fieldName))
-		sb.WriteString(fmt.Sprintf("%s\tdata.%s = &%sEmptyModel{}\n", indent, fieldName, rc))
-		sb.WriteString(fmt.Sprintf("%s}\n", indent))
+		// Skip populating server-default oneof empty markers on import: with no
+		// prior config to preserve, importing them causes spurious post-import
+		// drift. Omitting a default member = the server re-applies the same
+		// default, so behavior is unchanged. Non-default/user-intent markers still
+		// import normally.
+		if !isImportDefaultSuppressed(rc, jsonName) {
+			sb.WriteString(fmt.Sprintf("%sif _, ok := apiResource.Spec[\"%s\"].(map[string]interface{}); ok && isImport && data.%s == nil {\n", indent, jsonName, fieldName))
+			sb.WriteString(fmt.Sprintf("%s\tdata.%s = &%sEmptyModel{}\n", indent, fieldName, rc))
+			sb.WriteString(fmt.Sprintf("%s}\n", indent))
+		}
 		return
 	}
 
 	model := rc + childPath + "Model"
-	sb.WriteString(fmt.Sprintf("%sif blockData, ok := apiResource.Spec[\"%s\"].(map[string]interface{}); ok && (isImport || data.%s != nil) {\n", indent, jsonName, fieldName))
+	// For server-default blocks (suppressed), skip building on import when the API
+	// returned an empty object — otherwise import materializes an all-defaults block
+	// the user never configured, causing post-import drift. A non-empty response
+	// (user configured something) still imports normally.
+	buildGuard := fmt.Sprintf("(isImport || data.%s != nil)", fieldName)
+	if isImportDefaultSuppressed(rc, jsonName) {
+		buildGuard = fmt.Sprintf("((isImport && len(blockData) > 0) || data.%s != nil)", fieldName)
+	}
+	sb.WriteString(fmt.Sprintf("%sif blockData, ok := apiResource.Spec[\"%s\"].(map[string]interface{}); ok && %s {\n", indent, jsonName, buildGuard))
 	sb.WriteString(fmt.Sprintf("%s\tdata.%s = &%s{\n", indent, fieldName, model))
 	for _, child := range attr.NestedAttributes {
 		renderUnmarshalChild(sb, rc, childPath, child, "blockData", "data."+fieldName, "data."+fieldName+" != nil", "single", indent+"\t\t")
@@ -541,7 +556,7 @@ func renderUnmarshalTopLevelSingle(sb *strings.Builder, rc string, attr openapi.
 // stateGuard is a boolean Go expr true when stateBase is safe to read. It recurses to any depth.
 func renderUnmarshalChild(sb *strings.Builder, rc, prefixPath string, child openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string) {
 	if !child.IsBlock {
-		renderUnmarshalScalarChild(sb, child, srcMap, stateBase, stateGuard, container, indent)
+		renderUnmarshalScalarChild(sb, rc, child, srcMap, stateBase, stateGuard, container, indent)
 		return
 	}
 	childPath := prefixPath + naming.ToResourceTypeName(child.TfsdkTag)
@@ -553,7 +568,8 @@ func renderUnmarshalChild(sb *strings.Builder, rc, prefixPath string, child open
 }
 
 // renderUnmarshalScalarChild emits the closure entry for a primitive/list child.
-func renderUnmarshalScalarChild(sb *strings.Builder, attr openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string) {
+// rc is the resource title-case prefix, used for import-default suppression lookups.
+func renderUnmarshalScalarChild(sb *strings.Builder, rc string, attr openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string) {
 	fieldName := attr.GoName
 	jsonName := attr.JsonName
 	if jsonName == "" {
@@ -595,6 +611,16 @@ func renderUnmarshalScalarChild(sb *strings.Builder, attr openapi.TerraformAttri
 			// returning an unknown here trips "invalid result object after apply".
 			sb.WriteString(fmt.Sprintf("%s\tif !isImport && %s && !%s.%s.IsUnknown() {\n", indent, stateGuard, stateBase, fieldName))
 			sb.WriteString(fmt.Sprintf("%s\t\treturn %s.%s\n", indent, stateBase, fieldName))
+			sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
+		}
+		if isImportDefaultSuppressed(rc, jsonName) {
+			// On import a suppressed server-default bool at its false default must not
+			// be populated (config omits it) — otherwise the next plan shows a spurious
+			// "false -> null". A true value is a real user choice and still imports.
+			sb.WriteString(fmt.Sprintf("%s\tif isImport {\n", indent))
+			sb.WriteString(fmt.Sprintf("%s\t\tif v, ok := %s[\"%s\"].(bool); ok && !v {\n", indent, srcMap, jsonName))
+			sb.WriteString(fmt.Sprintf("%s\t\t\treturn types.BoolNull()\n", indent))
+			sb.WriteString(fmt.Sprintf("%s\t\t}\n", indent))
 			sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
 		}
 		sb.WriteString(fmt.Sprintf("%s\tif v, ok := %s[\"%s\"].(bool); ok {\n", indent, srcMap, jsonName))
@@ -650,9 +676,23 @@ func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr 
 				sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
 			}
 		}
-		sb.WriteString(fmt.Sprintf("%s\tif _, ok := %s[\"%s\"].(map[string]interface{}); ok {\n", indent, srcMap, jsonName))
-		sb.WriteString(fmt.Sprintf("%s\t\treturn &%sEmptyModel{}\n", indent, rc))
-		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
+		// Server-default oneof members must NOT be populated from the API
+		// response on import: there is no prior config to preserve, so importing
+		// them causes spurious "was absent, now present" drift on the next plan.
+		// Guard the response-populate with !isImport for those members; omitting a
+		// default member means the server re-applies the same default (safe).
+		suppress := isImportDefaultSuppressed(rc, jsonName)
+		popIndent := indent
+		if suppress {
+			sb.WriteString(fmt.Sprintf("%s\tif !isImport {\n", indent))
+			popIndent = indent + "\t"
+		}
+		sb.WriteString(fmt.Sprintf("%s\tif _, ok := %s[\"%s\"].(map[string]interface{}); ok {\n", popIndent, srcMap, jsonName))
+		sb.WriteString(fmt.Sprintf("%s\t\treturn &%sEmptyModel{}\n", popIndent, rc))
+		sb.WriteString(fmt.Sprintf("%s\t}\n", popIndent))
+		if suppress {
+			sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
+		}
 		sb.WriteString(fmt.Sprintf("%s\treturn nil\n", indent))
 		sb.WriteString(fmt.Sprintf("%s}(),\n", indent))
 		return

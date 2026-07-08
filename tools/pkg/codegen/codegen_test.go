@@ -305,7 +305,7 @@ func TestRenderUnmarshalScalarChild_PreserveGuardsUnknown(t *testing.T) {
 		GoName: "UseHttp2", TfsdkTag: "use_http2", JsonName: "use_http2",
 		Type: "bool", Optional: true,
 	}
-	renderUnmarshalScalarChild(&sb, attr, "blockData", "data.HTTPHealthCheck", "data.HTTPHealthCheck != nil", "single", "\t")
+	renderUnmarshalScalarChild(&sb, "Healthcheck", attr, "blockData", "data.HTTPHealthCheck", "data.HTTPHealthCheck != nil", "single", "\t")
 	got := sb.String()
 
 	if !strings.Contains(got, "!data.HTTPHealthCheck.UseHttp2.IsUnknown()") {
@@ -318,6 +318,76 @@ func TestRenderUnmarshalScalarChild_PreserveGuardsUnknown(t *testing.T) {
 	// Still falls through to the API response.
 	if !strings.Contains(got, `blockData["use_http2"].(bool)`) {
 		t.Errorf("expected fallthrough to API response; got:\n%s", got)
+	}
+}
+
+// Server-default oneof empty-marker members must not be populated from the API
+// response on import (they cause spurious post-import drift). The flatten must
+// guard the response-populate with !isImport for suppressed members, and leave
+// non-suppressed members (user-intent markers) untouched.
+func TestRenderUnmarshalSingleChild_ImportSuppressesServerDefault(t *testing.T) {
+	mk := func(go_, tfsdk string) openapi.TerraformAttribute {
+		return openapi.TerraformAttribute{GoName: go_, TfsdkTag: tfsdk, JsonName: tfsdk, IsBlock: true, NestedBlockType: "single"}
+	}
+
+	// Suppressed default marker (disable_waf) -> guarded by !isImport.
+	var sb strings.Builder
+	renderUnmarshalSingleChild(&sb, "HTTPLoadBalancer", "", mk("DisableWaf", "disable_waf"), "apiResource.Spec", "data", "true", "single", "\t")
+	got := sb.String()
+	if !strings.Contains(got, "if !isImport {") {
+		t.Errorf("suppressed member disable_waf must guard response-populate with !isImport; got:\n%s", got)
+	}
+
+	// Non-suppressed user-intent marker (advertise_on_public_default_vip) -> no import guard on the populate.
+	var sb2 strings.Builder
+	renderUnmarshalSingleChild(&sb2, "HTTPLoadBalancer", "", mk("AdvertiseOnPublicDefaultVip", "advertise_on_public_default_vip"), "apiResource.Spec", "data", "true", "single", "\t")
+	got2 := sb2.String()
+	// The only !isImport in a non-suppressed member is the preserve branch, not a wrapper
+	// around the response-populate. Assert the populate line is not nested under an extra guard.
+	if strings.Count(got2, "if !isImport {") != 0 {
+		t.Errorf("non-suppressed member must not add an import-suppression guard; got:\n%s", got2)
+	}
+
+	if !isImportDefaultSuppressed("HTTPLoadBalancer", "round_robin") {
+		t.Error("round_robin should be a suppressed server default for HTTPLoadBalancer")
+	}
+	if isImportDefaultSuppressed("HTTPLoadBalancer", "advertise_on_public_default_vip") {
+		t.Error("advertise_on_public_default_vip is user intent and must NOT be suppressed")
+	}
+}
+
+// A suppressed non-empty server-default block (e.g. l7_ddos_protection, which the
+// API returns as an empty object for a minimal LB) must not be materialized on
+// import from an empty response — otherwise import creates an all-defaults block
+// the user never set. The build guard must require a non-empty response on import.
+func TestRenderUnmarshalTopLevelSingle_SuppressedNonEmptyRequiresContentOnImport(t *testing.T) {
+	attr := openapi.TerraformAttribute{
+		GoName: "L7DDOSProtection", TfsdkTag: "l7_ddos_protection", JsonName: "l7_ddos_protection",
+		IsBlock: true, NestedBlockType: "single", IsSpecField: true,
+		NestedAttributes: []openapi.TerraformAttribute{
+			{GoName: "L7DdosActionDefault", TfsdkTag: "l7_ddos_action_default", JsonName: "l7_ddos_action_default", IsBlock: true, NestedBlockType: "single"},
+		},
+	}
+	var sb strings.Builder
+	renderUnmarshalTopLevelSingle(&sb, "HTTPLoadBalancer", attr, "\t")
+	got := sb.String()
+	if !strings.Contains(got, "isImport && len(blockData) > 0") {
+		t.Errorf("suppressed non-empty block must require non-empty response on import; got:\n%s", got)
+	}
+}
+
+// A suppressed Optional bool at its false server default must return null on
+// import (config omits it) — otherwise post-import plan shows "false -> null".
+func TestRenderUnmarshalScalarChild_ImportSuppressesDefaultBool(t *testing.T) {
+	attr := openapi.TerraformAttribute{
+		GoName: "DNSVolterraManaged", TfsdkTag: "dns_volterra_managed", JsonName: "dns_volterra_managed",
+		Type: "bool", Optional: true,
+	}
+	var sb strings.Builder
+	renderUnmarshalScalarChild(&sb, "HTTPLoadBalancer", attr, "blockData", "data.HTTP", "data.HTTP != nil", "single", "\t")
+	got := sb.String()
+	if !strings.Contains(got, "if isImport {") || !strings.Contains(got, "ok && !v {") {
+		t.Errorf("suppressed default bool must return null on import when false; got:\n%s", got)
 	}
 }
 
