@@ -33,6 +33,7 @@ import (
 	"time"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/discovery"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/resource"
 )
 
@@ -103,6 +104,19 @@ type MinimalConfig struct {
 	Category    ResourceCategory
 	Namespace   bool                   // true if resource requires namespace
 	RequiredSpec map[string]interface{} // minimal spec fields required
+	// Prerequisites are dependency objects created (in order) before this resource
+	// and deleted (in reverse) after discovery. Reference a prerequisite's created
+	// name in RequiredSpec with the string "@prereq:<kind>" and its namespace with
+	// "@prereq-ns:<kind>"; these are substituted at discovery time. Enables
+	// discovering resources the API won't accept in isolation (e.g. an
+	// http_loadbalancer whose default_route_pools must reference a real origin_pool).
+	Prerequisites []Prerequisite
+}
+
+// Prerequisite is a dependency object created before the resource under discovery.
+type Prerequisite struct {
+	Kind string                 // resource kind, e.g. "origin_pool"
+	Spec map[string]interface{} // minimal spec to create it
 }
 
 // ResourceConfigs maps resource names to their minimal configurations
@@ -176,18 +190,37 @@ var ResourceConfigs = map[string]MinimalConfig{
 	"http_loadbalancer": {
 		Category:  CategoryLoadBalancer,
 		Namespace: true,
+		// Minimal spec only — send nothing we want to DISCOVER as a default
+		// (disable_waf, round_robin, dns_volterra_managed, …). default_route_pools
+		// must reference a real origin_pool (created as a prerequisite).
 		RequiredSpec: map[string]interface{}{
-			"domains": []interface{}{"test.example.com"},
+			"domains": []interface{}{"tf-discover.example.com"},
 			"http": map[string]interface{}{
-				"dns_volterra_managed": true,
-				"port":                 80,
+				"port": 80,
+			},
+			"default_route_pools": []interface{}{
+				map[string]interface{}{
+					"pool": map[string]interface{}{
+						"name":      "@prereq:origin_pool",
+						"namespace": "@prereq-ns:origin_pool",
+					},
+					"weight":   1,
+					"priority": 1,
+				},
 			},
 			"advertise_on_public_default_vip": map[string]interface{}{},
-			"disable_rate_limit":              map[string]interface{}{},
-			"no_service_policies":             map[string]interface{}{},
-			"round_robin":                     map[string]interface{}{},
-			"disable_waf":                     map[string]interface{}{},
-			"default_route_pools":             []interface{}{},
+		},
+		Prerequisites: []Prerequisite{
+			{Kind: "origin_pool", Spec: map[string]interface{}{
+				"port": 80,
+				"origin_servers": []interface{}{
+					map[string]interface{}{
+						"public_name": map[string]interface{}{"dns_name": "example.com"},
+					},
+				},
+				"no_tls":                map[string]interface{}{},
+				"same_as_endpoint_port": map[string]interface{}{},
+			}},
 		},
 	},
 	"tcp_loadbalancer": {
@@ -659,12 +692,46 @@ func discoverResource(apiClient *client.Client, resourceName string) *DiscoveryR
 		return result
 	}
 
-	request := buildRequest(testName, testNamespace, config)
-	result.RequestSent = request
-
-	// Make API call
-	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	// Context for all API calls in this discovery (prerequisites + resource).
+	ctx, cancel := context.WithTimeout(context.Background(), 120*time.Second)
 	defer cancel()
+
+	// Create prerequisite dependencies first (e.g. the origin_pool an LB must
+	// reference — the API rejects dangling references). Clean up in reverse.
+	prereqNames := map[string]string{}
+	var createdKinds []string
+	cleanupPrereqs := func() {
+		for i := len(createdKinds) - 1; i >= 0; i-- {
+			kind := createdKinds[i]
+			cleanupResource(ctx, apiClient, kind, testNamespace, prereqNames[kind])
+		}
+	}
+	defer cleanupPrereqs()
+	for i, p := range config.Prerequisites {
+		pName := fmt.Sprintf("tf-discover-%s-%d", strings.ReplaceAll(p.Kind, "_", "-"), time.Now().UnixNano()+int64(i))
+		preq := map[string]interface{}{
+			"metadata": map[string]interface{}{"name": pName, "namespace": testNamespace},
+			"spec":     p.Spec,
+		}
+		if _, err := createAndGetResource(ctx, apiClient, p.Kind, testNamespace, preq); err != nil {
+			result.Status = "failed"
+			result.Error = fmt.Sprintf("prerequisite %s: %v", p.Kind, err)
+			return result
+		}
+		prereqNames[p.Kind] = pName
+		createdKinds = append(createdKinds, p.Kind)
+	}
+
+	// Wire prerequisite references into the spec (substitute @prereq placeholders).
+	effectiveConfig := config
+	if len(config.Prerequisites) > 0 {
+		if sub, ok := discovery.SubstitutePlaceholders(config.RequiredSpec, prereqNames, testNamespace).(map[string]interface{}); ok {
+			effectiveConfig.RequiredSpec = sub
+		}
+	}
+
+	request := buildRequest(testName, testNamespace, effectiveConfig)
+	result.RequestSent = request
 
 	response, err := createAndGetResource(ctx, apiClient, resourceName, testNamespace, request)
 	if err != nil {
