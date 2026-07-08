@@ -133,6 +133,14 @@ download-specs:
 generate: generate-schemas
 	@echo "Generation complete"
 
+# Derive the import-default suppression data file from discovered API defaults
+# (tools/api-defaults.json). Run after 'make discover' (or the discover-defaults
+# workflow) to auto-populate server-default oneof members suppressed on import.
+# Consumed by the code generator; see issue #1006.
+emit-import-suppressions:
+	@echo "Deriving import-default suppressions from $(TOOLS_DIR)/api-defaults.json..."
+	@$(GO) run $(TOOLS_DIR)/emit-import-suppressions.go
+
 generate-schemas:
 	@echo "Generating schemas from OpenAPI specs..."
 	@if [ -d "$(SPEC_DIR)" ] && [ -f "$(SPEC_DIR)/index.json" ] && [ -d "$(SPEC_DIR)/domains" ]; then \

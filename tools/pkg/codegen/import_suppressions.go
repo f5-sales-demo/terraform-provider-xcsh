@@ -2,56 +2,91 @@
 
 package codegen
 
-// importDefaultSuppressions lists, per resource (title-case model prefix), the
-// empty-marker oneof members that the F5 XC API ALWAYS returns as the server
-// default for their oneof group. On `terraform import` there is no prior config
-// to preserve, so the flatten would otherwise populate every such default member
-// and the next plan would show spurious drift (it wants to remove blocks the user
-// never configured).
+import (
+	"encoding/json"
+	"os"
+	"path/filepath"
+	"runtime"
+	"sync"
+)
+
+// Import-default suppression: per resource (title-case model prefix), the oneof
+// members the F5 XC API ALWAYS returns as the server default for their group. On
+// `terraform import` there is no prior config to preserve, so the flatten would
+// otherwise populate every such default member and the next plan would show
+// spurious drift. Suppressing the DEFAULT member on import is semantically safe:
+// omitting it means the server re-applies the same default. Non-default and
+// user-intent markers (e.g. app_firewall, advertise_on_public_default_vip) are
+// NOT listed and still import normally.
 //
-// Suppressing the DEFAULT member of a oneof on import is semantically safe:
-// omitting it means the server re-applies the same default, so behavior is
-// unchanged. Non-default members (e.g. app_firewall vs disable_waf) are NOT
-// listed and still import normally, as are user-intent markers such as
-// advertise_on_public_default_vip.
-//
-// Data source: discovered from the live tenant (create a minimal object, diff the
-// response against the request). Seeded here for http_loadbalancer from the
-// staging tenant; see tracking issue #1006 for auto-populating this from the
-// discover-defaults pipeline across all resources.
-var importDefaultSuppressions = map[string]map[string]bool{
-	// Healthcheck: http_health_check.headers is a server-default empty marker
-	// (verified via live API — returned as {} for a minimal health check).
-	"Healthcheck": {
-		"headers": true,
-	},
+// Data lives in tools/import-default-suppressions.json (auto-populated by
+// tools/discover-defaults.go against a live tenant). The seed below is the
+// built-in fallback used when that file is absent; the JSON is merged over it.
+// See tracking issue #1006.
+var importDefaultSuppressionsSeed = map[string][]string{
+	"Healthcheck": {"headers"},
 	"HTTPLoadBalancer": {
-		// http.dns_volterra_managed: Optional bool, server default false. On import
-		// the API returns false; suppress so config omission doesn't drift.
-		"dns_volterra_managed":             true,
-		"default_sensitive_data_policy":    true,
-		"disable_api_definition":           true,
-		"disable_api_discovery":            true,
-		"disable_api_testing":              true,
-		"disable_malicious_user_detection": true,
-		"disable_malware_protection":       true,
-		"disable_rate_limit":               true,
-		"disable_threat_mesh":              true,
-		"disable_trust_client_ip_headers":  true,
-		"disable_waf":                      true,
-		"l7_ddos_protection":               true,
-		"no_challenge":                     true,
-		"round_robin":                      true,
-		"service_policies_from_namespace":  true,
-		"user_id_client_ip":                true,
+		"dns_volterra_managed",
+		"default_sensitive_data_policy",
+		"disable_api_definition",
+		"disable_api_discovery",
+		"disable_api_testing",
+		"disable_malicious_user_detection",
+		"disable_malware_protection",
+		"disable_rate_limit",
+		"disable_threat_mesh",
+		"disable_trust_client_ip_headers",
+		"disable_waf",
+		"l7_ddos_protection",
+		"no_challenge",
+		"round_robin",
+		"service_policies_from_namespace",
+		"user_id_client_ip",
 	},
 }
 
-// isImportDefaultSuppressed reports whether the given empty-marker member of the
-// given resource is a server-default oneof member that must not be populated from
-// the API response on the import path.
+var (
+	suppressOnce sync.Once
+	suppressMap  map[string]map[string]bool
+)
+
+// loadImportSuppressions builds the effective suppression map: the built-in seed
+// overlaid with tools/import-default-suppressions.json when present.
+func loadImportSuppressions() {
+	suppressMap = map[string]map[string]bool{}
+	add := func(resource string, members []string) {
+		if suppressMap[resource] == nil {
+			suppressMap[resource] = map[string]bool{}
+		}
+		for _, m := range members {
+			suppressMap[resource][m] = true
+		}
+	}
+	for r, members := range importDefaultSuppressionsSeed {
+		add(r, members)
+	}
+	if _, file, _, ok := runtime.Caller(0); ok {
+		jsonPath := filepath.Join(filepath.Dir(file), "..", "..", "import-default-suppressions.json")
+		if data, err := os.ReadFile(jsonPath); err == nil {
+			var fromJSON map[string][]string
+			if json.Unmarshal(data, &fromJSON) == nil {
+				for r, members := range fromJSON {
+					if r == "_comment" {
+						continue
+					}
+					add(r, members)
+				}
+			}
+		}
+	}
+}
+
+// isImportDefaultSuppressed reports whether the given member of the given resource
+// is a server-default oneof member that must not be populated from the API
+// response on the import path.
 func isImportDefaultSuppressed(resourceTitleCase, jsonName string) bool {
-	members, ok := importDefaultSuppressions[resourceTitleCase]
+	suppressOnce.Do(loadImportSuppressions)
+	members, ok := suppressMap[resourceTitleCase]
 	if !ok {
 		return false
 	}
