@@ -15,7 +15,7 @@ terraform {
 # Basic VirtualSite configuration
 resource "xcsh_virtual_site" "example" {
   name      = "example-virtual-site"
-  namespace = "system"
+  namespace = "staging"
 
   site_type = "INVALID"
 }

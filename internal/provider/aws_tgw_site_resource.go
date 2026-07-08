@@ -18,7 +18,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
-	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -1266,16 +1265,13 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace for the AWS TGW Site. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
-				Optional:            true,
-				Computed:            true,
-				Default:             stringdefault.StaticString("system"),
+				MarkdownDescription: "Namespace where the AWS TGW Site will be created.",
+				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
-					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
@@ -4275,7 +4271,7 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			DiskSize: func() types.Int64 {
-				if !isImport && data.AWSParameters != nil {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.DiskSize.IsUnknown() {
 					return data.AWSParameters.DiskSize
 				}
 				if v, ok := blockData["disk_size"].(float64); ok && v != 0 {
@@ -4430,7 +4426,7 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			NodesPerAz: func() types.Int64 {
-				if !isImport && data.AWSParameters != nil {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.NodesPerAz.IsUnknown() {
 					return data.AWSParameters.NodesPerAz
 				}
 				if v, ok := blockData["nodes_per_az"].(float64); ok && v != 0 {
@@ -4470,7 +4466,7 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			TotalNodes: func() types.Int64 {
-				if !isImport && data.AWSParameters != nil {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.TotalNodes.IsUnknown() {
 					return data.AWSParameters.TotalNodes
 				}
 				if v, ok := blockData["total_nodes"].(float64); ok && v != 0 {
@@ -4536,7 +4532,7 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	if blockData, ok := apiResource.Spec["coordinates"].(map[string]interface{}); ok && (isImport || data.Coordinates != nil) {
 		data.Coordinates = &AWSTGWSiteCoordinatesModel{
 			Latitude: func() types.Int64 {
-				if !isImport && data.Coordinates != nil {
+				if !isImport && data.Coordinates != nil && !data.Coordinates.Latitude.IsUnknown() {
 					return data.Coordinates.Latitude
 				}
 				if v, ok := blockData["latitude"].(float64); ok && v != 0 {
@@ -4545,7 +4541,7 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return types.Int64Null()
 			}(),
 			Longitude: func() types.Int64 {
-				if !isImport && data.Coordinates != nil {
+				if !isImport && data.Coordinates != nil && !data.Coordinates.Longitude.IsUnknown() {
 					return data.Coordinates.Longitude
 				}
 				if v, ok := blockData["longitude"].(float64); ok && v != 0 {
@@ -4589,7 +4585,7 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			CustomAsn: func() types.Int64 {
-				if !isImport && data.DirectConnectEnabled != nil {
+				if !isImport && data.DirectConnectEnabled != nil && !data.DirectConnectEnabled.CustomAsn.IsUnknown() {
 					return data.DirectConnectEnabled.CustomAsn
 				}
 				if v, ok := blockData["custom_asn"].(float64); ok && v != 0 {
@@ -6225,7 +6221,7 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			DiskSize: func() types.Int64 {
-				if !isImport && data.AWSParameters != nil {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.DiskSize.IsUnknown() {
 					return data.AWSParameters.DiskSize
 				}
 				if v, ok := blockData["disk_size"].(float64); ok && v != 0 {
@@ -6380,7 +6376,7 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			NodesPerAz: func() types.Int64 {
-				if !isImport && data.AWSParameters != nil {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.NodesPerAz.IsUnknown() {
 					return data.AWSParameters.NodesPerAz
 				}
 				if v, ok := blockData["nodes_per_az"].(float64); ok && v != 0 {
@@ -6420,7 +6416,7 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			TotalNodes: func() types.Int64 {
-				if !isImport && data.AWSParameters != nil {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.TotalNodes.IsUnknown() {
 					return data.AWSParameters.TotalNodes
 				}
 				if v, ok := blockData["total_nodes"].(float64); ok && v != 0 {
@@ -6486,7 +6482,7 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 	if blockData, ok := apiResource.Spec["coordinates"].(map[string]interface{}); ok && (isImport || data.Coordinates != nil) {
 		data.Coordinates = &AWSTGWSiteCoordinatesModel{
 			Latitude: func() types.Int64 {
-				if !isImport && data.Coordinates != nil {
+				if !isImport && data.Coordinates != nil && !data.Coordinates.Latitude.IsUnknown() {
 					return data.Coordinates.Latitude
 				}
 				if v, ok := blockData["latitude"].(float64); ok && v != 0 {
@@ -6495,7 +6491,7 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return types.Int64Null()
 			}(),
 			Longitude: func() types.Int64 {
-				if !isImport && data.Coordinates != nil {
+				if !isImport && data.Coordinates != nil && !data.Coordinates.Longitude.IsUnknown() {
 					return data.Coordinates.Longitude
 				}
 				if v, ok := blockData["longitude"].(float64); ok && v != 0 {
@@ -6539,7 +6535,7 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			CustomAsn: func() types.Int64 {
-				if !isImport && data.DirectConnectEnabled != nil {
+				if !isImport && data.DirectConnectEnabled != nil && !data.DirectConnectEnabled.CustomAsn.IsUnknown() {
 					return data.DirectConnectEnabled.CustomAsn
 				}
 				if v, ok := blockData["custom_asn"].(float64); ok && v != 0 {
@@ -9154,7 +9150,7 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			DiskSize: func() types.Int64 {
-				if !isImport && data.AWSParameters != nil {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.DiskSize.IsUnknown() {
 					return data.AWSParameters.DiskSize
 				}
 				if v, ok := blockData["disk_size"].(float64); ok && v != 0 {
@@ -9309,7 +9305,7 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			NodesPerAz: func() types.Int64 {
-				if !isImport && data.AWSParameters != nil {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.NodesPerAz.IsUnknown() {
 					return data.AWSParameters.NodesPerAz
 				}
 				if v, ok := blockData["nodes_per_az"].(float64); ok && v != 0 {
@@ -9349,7 +9345,7 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			TotalNodes: func() types.Int64 {
-				if !isImport && data.AWSParameters != nil {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.TotalNodes.IsUnknown() {
 					return data.AWSParameters.TotalNodes
 				}
 				if v, ok := blockData["total_nodes"].(float64); ok && v != 0 {
@@ -9415,7 +9411,7 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	if blockData, ok := apiResource.Spec["coordinates"].(map[string]interface{}); ok && (isImport || data.Coordinates != nil) {
 		data.Coordinates = &AWSTGWSiteCoordinatesModel{
 			Latitude: func() types.Int64 {
-				if !isImport && data.Coordinates != nil {
+				if !isImport && data.Coordinates != nil && !data.Coordinates.Latitude.IsUnknown() {
 					return data.Coordinates.Latitude
 				}
 				if v, ok := blockData["latitude"].(float64); ok && v != 0 {
@@ -9424,7 +9420,7 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return types.Int64Null()
 			}(),
 			Longitude: func() types.Int64 {
-				if !isImport && data.Coordinates != nil {
+				if !isImport && data.Coordinates != nil && !data.Coordinates.Longitude.IsUnknown() {
 					return data.Coordinates.Longitude
 				}
 				if v, ok := blockData["longitude"].(float64); ok && v != 0 {
@@ -9468,7 +9464,7 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			CustomAsn: func() types.Int64 {
-				if !isImport && data.DirectConnectEnabled != nil {
+				if !isImport && data.DirectConnectEnabled != nil && !data.DirectConnectEnabled.CustomAsn.IsUnknown() {
 					return data.DirectConnectEnabled.CustomAsn
 				}
 				if v, ok := blockData["custom_asn"].(float64); ok && v != 0 {

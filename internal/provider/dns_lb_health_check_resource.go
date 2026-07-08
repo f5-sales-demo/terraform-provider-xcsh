@@ -604,7 +604,7 @@ func (r *DNSLBHealthCheckResource) Create(ctx context.Context, req resource.Crea
 				return nil
 			}(),
 			HealthCheckPort: func() types.Int64 {
-				if !isImport && data.HTTPHealthCheck != nil {
+				if !isImport && data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.HealthCheckPort.IsUnknown() {
 					return data.HTTPHealthCheck.HealthCheckPort
 				}
 				if v, ok := blockData["health_check_port"].(float64); ok && v != 0 {
@@ -613,7 +613,7 @@ func (r *DNSLBHealthCheckResource) Create(ctx context.Context, req resource.Crea
 				return types.Int64Null()
 			}(),
 			HealthCheckSecondaryPort: func() types.Int64 {
-				if !isImport && data.HTTPHealthCheck != nil {
+				if !isImport && data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.HealthCheckSecondaryPort.IsUnknown() {
 					return data.HTTPHealthCheck.HealthCheckSecondaryPort
 				}
 				if v, ok := blockData["health_check_secondary_port"].(float64); ok && v != 0 {
@@ -653,7 +653,7 @@ func (r *DNSLBHealthCheckResource) Create(ctx context.Context, req resource.Crea
 				return nil
 			}(),
 			HealthCheckPort: func() types.Int64 {
-				if !isImport && data.HTTPSHealthCheck != nil {
+				if !isImport && data.HTTPSHealthCheck != nil && !data.HTTPSHealthCheck.HealthCheckPort.IsUnknown() {
 					return data.HTTPSHealthCheck.HealthCheckPort
 				}
 				if v, ok := blockData["health_check_port"].(float64); ok && v != 0 {
@@ -662,7 +662,7 @@ func (r *DNSLBHealthCheckResource) Create(ctx context.Context, req resource.Crea
 				return types.Int64Null()
 			}(),
 			HealthCheckSecondaryPort: func() types.Int64 {
-				if !isImport && data.HTTPSHealthCheck != nil {
+				if !isImport && data.HTTPSHealthCheck != nil && !data.HTTPSHealthCheck.HealthCheckSecondaryPort.IsUnknown() {
 					return data.HTTPSHealthCheck.HealthCheckSecondaryPort
 				}
 				if v, ok := blockData["health_check_secondary_port"].(float64); ok && v != 0 {
@@ -696,7 +696,7 @@ func (r *DNSLBHealthCheckResource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["tcp_health_check"].(map[string]interface{}); ok && (isImport || data.TCPHealthCheck != nil) {
 		data.TCPHealthCheck = &DNSLBHealthCheckTCPHealthCheckModel{
 			HealthCheckPort: func() types.Int64 {
-				if !isImport && data.TCPHealthCheck != nil {
+				if !isImport && data.TCPHealthCheck != nil && !data.TCPHealthCheck.HealthCheckPort.IsUnknown() {
 					return data.TCPHealthCheck.HealthCheckPort
 				}
 				if v, ok := blockData["health_check_port"].(float64); ok && v != 0 {
@@ -705,7 +705,7 @@ func (r *DNSLBHealthCheckResource) Create(ctx context.Context, req resource.Crea
 				return types.Int64Null()
 			}(),
 			HealthCheckSecondaryPort: func() types.Int64 {
-				if !isImport && data.TCPHealthCheck != nil {
+				if !isImport && data.TCPHealthCheck != nil && !data.TCPHealthCheck.HealthCheckSecondaryPort.IsUnknown() {
 					return data.TCPHealthCheck.HealthCheckSecondaryPort
 				}
 				if v, ok := blockData["health_check_secondary_port"].(float64); ok && v != 0 {
@@ -730,7 +730,7 @@ func (r *DNSLBHealthCheckResource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["tcp_hex_health_check"].(map[string]interface{}); ok && (isImport || data.TCPHexHealthCheck != nil) {
 		data.TCPHexHealthCheck = &DNSLBHealthCheckTCPHexHealthCheckModel{
 			HealthCheckPort: func() types.Int64 {
-				if !isImport && data.TCPHexHealthCheck != nil {
+				if !isImport && data.TCPHexHealthCheck != nil && !data.TCPHexHealthCheck.HealthCheckPort.IsUnknown() {
 					return data.TCPHexHealthCheck.HealthCheckPort
 				}
 				if v, ok := blockData["health_check_port"].(float64); ok && v != 0 {
@@ -739,7 +739,7 @@ func (r *DNSLBHealthCheckResource) Create(ctx context.Context, req resource.Crea
 				return types.Int64Null()
 			}(),
 			HealthCheckSecondaryPort: func() types.Int64 {
-				if !isImport && data.TCPHexHealthCheck != nil {
+				if !isImport && data.TCPHexHealthCheck != nil && !data.TCPHexHealthCheck.HealthCheckSecondaryPort.IsUnknown() {
 					return data.TCPHexHealthCheck.HealthCheckSecondaryPort
 				}
 				if v, ok := blockData["health_check_secondary_port"].(float64); ok && v != 0 {
@@ -764,7 +764,7 @@ func (r *DNSLBHealthCheckResource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["udp_health_check"].(map[string]interface{}); ok && (isImport || data.UDPHealthCheck != nil) {
 		data.UDPHealthCheck = &DNSLBHealthCheckUDPHealthCheckModel{
 			HealthCheckPort: func() types.Int64 {
-				if !isImport && data.UDPHealthCheck != nil {
+				if !isImport && data.UDPHealthCheck != nil && !data.UDPHealthCheck.HealthCheckPort.IsUnknown() {
 					return data.UDPHealthCheck.HealthCheckPort
 				}
 				if v, ok := blockData["health_check_port"].(float64); ok && v != 0 {
@@ -773,7 +773,7 @@ func (r *DNSLBHealthCheckResource) Create(ctx context.Context, req resource.Crea
 				return types.Int64Null()
 			}(),
 			HealthCheckSecondaryPort: func() types.Int64 {
-				if !isImport && data.UDPHealthCheck != nil {
+				if !isImport && data.UDPHealthCheck != nil && !data.UDPHealthCheck.HealthCheckSecondaryPort.IsUnknown() {
 					return data.UDPHealthCheck.HealthCheckSecondaryPort
 				}
 				if v, ok := blockData["health_check_secondary_port"].(float64); ok && v != 0 {
@@ -887,7 +887,7 @@ func (r *DNSLBHealthCheckResource) Read(ctx context.Context, req resource.ReadRe
 				return nil
 			}(),
 			HealthCheckPort: func() types.Int64 {
-				if !isImport && data.HTTPHealthCheck != nil {
+				if !isImport && data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.HealthCheckPort.IsUnknown() {
 					return data.HTTPHealthCheck.HealthCheckPort
 				}
 				if v, ok := blockData["health_check_port"].(float64); ok && v != 0 {
@@ -896,7 +896,7 @@ func (r *DNSLBHealthCheckResource) Read(ctx context.Context, req resource.ReadRe
 				return types.Int64Null()
 			}(),
 			HealthCheckSecondaryPort: func() types.Int64 {
-				if !isImport && data.HTTPHealthCheck != nil {
+				if !isImport && data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.HealthCheckSecondaryPort.IsUnknown() {
 					return data.HTTPHealthCheck.HealthCheckSecondaryPort
 				}
 				if v, ok := blockData["health_check_secondary_port"].(float64); ok && v != 0 {
@@ -936,7 +936,7 @@ func (r *DNSLBHealthCheckResource) Read(ctx context.Context, req resource.ReadRe
 				return nil
 			}(),
 			HealthCheckPort: func() types.Int64 {
-				if !isImport && data.HTTPSHealthCheck != nil {
+				if !isImport && data.HTTPSHealthCheck != nil && !data.HTTPSHealthCheck.HealthCheckPort.IsUnknown() {
 					return data.HTTPSHealthCheck.HealthCheckPort
 				}
 				if v, ok := blockData["health_check_port"].(float64); ok && v != 0 {
@@ -945,7 +945,7 @@ func (r *DNSLBHealthCheckResource) Read(ctx context.Context, req resource.ReadRe
 				return types.Int64Null()
 			}(),
 			HealthCheckSecondaryPort: func() types.Int64 {
-				if !isImport && data.HTTPSHealthCheck != nil {
+				if !isImport && data.HTTPSHealthCheck != nil && !data.HTTPSHealthCheck.HealthCheckSecondaryPort.IsUnknown() {
 					return data.HTTPSHealthCheck.HealthCheckSecondaryPort
 				}
 				if v, ok := blockData["health_check_secondary_port"].(float64); ok && v != 0 {
@@ -979,7 +979,7 @@ func (r *DNSLBHealthCheckResource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["tcp_health_check"].(map[string]interface{}); ok && (isImport || data.TCPHealthCheck != nil) {
 		data.TCPHealthCheck = &DNSLBHealthCheckTCPHealthCheckModel{
 			HealthCheckPort: func() types.Int64 {
-				if !isImport && data.TCPHealthCheck != nil {
+				if !isImport && data.TCPHealthCheck != nil && !data.TCPHealthCheck.HealthCheckPort.IsUnknown() {
 					return data.TCPHealthCheck.HealthCheckPort
 				}
 				if v, ok := blockData["health_check_port"].(float64); ok && v != 0 {
@@ -988,7 +988,7 @@ func (r *DNSLBHealthCheckResource) Read(ctx context.Context, req resource.ReadRe
 				return types.Int64Null()
 			}(),
 			HealthCheckSecondaryPort: func() types.Int64 {
-				if !isImport && data.TCPHealthCheck != nil {
+				if !isImport && data.TCPHealthCheck != nil && !data.TCPHealthCheck.HealthCheckSecondaryPort.IsUnknown() {
 					return data.TCPHealthCheck.HealthCheckSecondaryPort
 				}
 				if v, ok := blockData["health_check_secondary_port"].(float64); ok && v != 0 {
@@ -1013,7 +1013,7 @@ func (r *DNSLBHealthCheckResource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["tcp_hex_health_check"].(map[string]interface{}); ok && (isImport || data.TCPHexHealthCheck != nil) {
 		data.TCPHexHealthCheck = &DNSLBHealthCheckTCPHexHealthCheckModel{
 			HealthCheckPort: func() types.Int64 {
-				if !isImport && data.TCPHexHealthCheck != nil {
+				if !isImport && data.TCPHexHealthCheck != nil && !data.TCPHexHealthCheck.HealthCheckPort.IsUnknown() {
 					return data.TCPHexHealthCheck.HealthCheckPort
 				}
 				if v, ok := blockData["health_check_port"].(float64); ok && v != 0 {
@@ -1022,7 +1022,7 @@ func (r *DNSLBHealthCheckResource) Read(ctx context.Context, req resource.ReadRe
 				return types.Int64Null()
 			}(),
 			HealthCheckSecondaryPort: func() types.Int64 {
-				if !isImport && data.TCPHexHealthCheck != nil {
+				if !isImport && data.TCPHexHealthCheck != nil && !data.TCPHexHealthCheck.HealthCheckSecondaryPort.IsUnknown() {
 					return data.TCPHexHealthCheck.HealthCheckSecondaryPort
 				}
 				if v, ok := blockData["health_check_secondary_port"].(float64); ok && v != 0 {
@@ -1047,7 +1047,7 @@ func (r *DNSLBHealthCheckResource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["udp_health_check"].(map[string]interface{}); ok && (isImport || data.UDPHealthCheck != nil) {
 		data.UDPHealthCheck = &DNSLBHealthCheckUDPHealthCheckModel{
 			HealthCheckPort: func() types.Int64 {
-				if !isImport && data.UDPHealthCheck != nil {
+				if !isImport && data.UDPHealthCheck != nil && !data.UDPHealthCheck.HealthCheckPort.IsUnknown() {
 					return data.UDPHealthCheck.HealthCheckPort
 				}
 				if v, ok := blockData["health_check_port"].(float64); ok && v != 0 {
@@ -1056,7 +1056,7 @@ func (r *DNSLBHealthCheckResource) Read(ctx context.Context, req resource.ReadRe
 				return types.Int64Null()
 			}(),
 			HealthCheckSecondaryPort: func() types.Int64 {
-				if !isImport && data.UDPHealthCheck != nil {
+				if !isImport && data.UDPHealthCheck != nil && !data.UDPHealthCheck.HealthCheckSecondaryPort.IsUnknown() {
 					return data.UDPHealthCheck.HealthCheckSecondaryPort
 				}
 				if v, ok := blockData["health_check_secondary_port"].(float64); ok && v != 0 {
@@ -1268,7 +1268,7 @@ func (r *DNSLBHealthCheckResource) Update(ctx context.Context, req resource.Upda
 				return nil
 			}(),
 			HealthCheckPort: func() types.Int64 {
-				if !isImport && data.HTTPHealthCheck != nil {
+				if !isImport && data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.HealthCheckPort.IsUnknown() {
 					return data.HTTPHealthCheck.HealthCheckPort
 				}
 				if v, ok := blockData["health_check_port"].(float64); ok && v != 0 {
@@ -1277,7 +1277,7 @@ func (r *DNSLBHealthCheckResource) Update(ctx context.Context, req resource.Upda
 				return types.Int64Null()
 			}(),
 			HealthCheckSecondaryPort: func() types.Int64 {
-				if !isImport && data.HTTPHealthCheck != nil {
+				if !isImport && data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.HealthCheckSecondaryPort.IsUnknown() {
 					return data.HTTPHealthCheck.HealthCheckSecondaryPort
 				}
 				if v, ok := blockData["health_check_secondary_port"].(float64); ok && v != 0 {
@@ -1317,7 +1317,7 @@ func (r *DNSLBHealthCheckResource) Update(ctx context.Context, req resource.Upda
 				return nil
 			}(),
 			HealthCheckPort: func() types.Int64 {
-				if !isImport && data.HTTPSHealthCheck != nil {
+				if !isImport && data.HTTPSHealthCheck != nil && !data.HTTPSHealthCheck.HealthCheckPort.IsUnknown() {
 					return data.HTTPSHealthCheck.HealthCheckPort
 				}
 				if v, ok := blockData["health_check_port"].(float64); ok && v != 0 {
@@ -1326,7 +1326,7 @@ func (r *DNSLBHealthCheckResource) Update(ctx context.Context, req resource.Upda
 				return types.Int64Null()
 			}(),
 			HealthCheckSecondaryPort: func() types.Int64 {
-				if !isImport && data.HTTPSHealthCheck != nil {
+				if !isImport && data.HTTPSHealthCheck != nil && !data.HTTPSHealthCheck.HealthCheckSecondaryPort.IsUnknown() {
 					return data.HTTPSHealthCheck.HealthCheckSecondaryPort
 				}
 				if v, ok := blockData["health_check_secondary_port"].(float64); ok && v != 0 {
@@ -1360,7 +1360,7 @@ func (r *DNSLBHealthCheckResource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["tcp_health_check"].(map[string]interface{}); ok && (isImport || data.TCPHealthCheck != nil) {
 		data.TCPHealthCheck = &DNSLBHealthCheckTCPHealthCheckModel{
 			HealthCheckPort: func() types.Int64 {
-				if !isImport && data.TCPHealthCheck != nil {
+				if !isImport && data.TCPHealthCheck != nil && !data.TCPHealthCheck.HealthCheckPort.IsUnknown() {
 					return data.TCPHealthCheck.HealthCheckPort
 				}
 				if v, ok := blockData["health_check_port"].(float64); ok && v != 0 {
@@ -1369,7 +1369,7 @@ func (r *DNSLBHealthCheckResource) Update(ctx context.Context, req resource.Upda
 				return types.Int64Null()
 			}(),
 			HealthCheckSecondaryPort: func() types.Int64 {
-				if !isImport && data.TCPHealthCheck != nil {
+				if !isImport && data.TCPHealthCheck != nil && !data.TCPHealthCheck.HealthCheckSecondaryPort.IsUnknown() {
 					return data.TCPHealthCheck.HealthCheckSecondaryPort
 				}
 				if v, ok := blockData["health_check_secondary_port"].(float64); ok && v != 0 {
@@ -1394,7 +1394,7 @@ func (r *DNSLBHealthCheckResource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["tcp_hex_health_check"].(map[string]interface{}); ok && (isImport || data.TCPHexHealthCheck != nil) {
 		data.TCPHexHealthCheck = &DNSLBHealthCheckTCPHexHealthCheckModel{
 			HealthCheckPort: func() types.Int64 {
-				if !isImport && data.TCPHexHealthCheck != nil {
+				if !isImport && data.TCPHexHealthCheck != nil && !data.TCPHexHealthCheck.HealthCheckPort.IsUnknown() {
 					return data.TCPHexHealthCheck.HealthCheckPort
 				}
 				if v, ok := blockData["health_check_port"].(float64); ok && v != 0 {
@@ -1403,7 +1403,7 @@ func (r *DNSLBHealthCheckResource) Update(ctx context.Context, req resource.Upda
 				return types.Int64Null()
 			}(),
 			HealthCheckSecondaryPort: func() types.Int64 {
-				if !isImport && data.TCPHexHealthCheck != nil {
+				if !isImport && data.TCPHexHealthCheck != nil && !data.TCPHexHealthCheck.HealthCheckSecondaryPort.IsUnknown() {
 					return data.TCPHexHealthCheck.HealthCheckSecondaryPort
 				}
 				if v, ok := blockData["health_check_secondary_port"].(float64); ok && v != 0 {
@@ -1428,7 +1428,7 @@ func (r *DNSLBHealthCheckResource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["udp_health_check"].(map[string]interface{}); ok && (isImport || data.UDPHealthCheck != nil) {
 		data.UDPHealthCheck = &DNSLBHealthCheckUDPHealthCheckModel{
 			HealthCheckPort: func() types.Int64 {
-				if !isImport && data.UDPHealthCheck != nil {
+				if !isImport && data.UDPHealthCheck != nil && !data.UDPHealthCheck.HealthCheckPort.IsUnknown() {
 					return data.UDPHealthCheck.HealthCheckPort
 				}
 				if v, ok := blockData["health_check_port"].(float64); ok && v != 0 {
@@ -1437,7 +1437,7 @@ func (r *DNSLBHealthCheckResource) Update(ctx context.Context, req resource.Upda
 				return types.Int64Null()
 			}(),
 			HealthCheckSecondaryPort: func() types.Int64 {
-				if !isImport && data.UDPHealthCheck != nil {
+				if !isImport && data.UDPHealthCheck != nil && !data.UDPHealthCheck.HealthCheckSecondaryPort.IsUnknown() {
 					return data.UDPHealthCheck.HealthCheckSecondaryPort
 				}
 				if v, ok := blockData["health_check_secondary_port"].(float64); ok && v != 0 {

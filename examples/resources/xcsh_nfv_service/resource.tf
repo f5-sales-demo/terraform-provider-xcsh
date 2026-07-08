@@ -15,5 +15,5 @@ terraform {
 # Basic NfvService configuration
 resource "xcsh_nfv_service" "example" {
   name      = "example-nfv-service"
-  namespace = "system"
+  namespace = "staging"
 }

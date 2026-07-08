@@ -884,7 +884,7 @@ func (r *AuthenticationResource) Create(ctx context.Context, req resource.Create
 				return nil
 			}(),
 			CookieExpiry: func() types.Int64 {
-				if !isImport && data.CookieParams != nil {
+				if !isImport && data.CookieParams != nil && !data.CookieParams.CookieExpiry.IsUnknown() {
 					return data.CookieParams.CookieExpiry
 				}
 				if v, ok := blockData["cookie_expiry"].(float64); ok && v != 0 {
@@ -893,7 +893,7 @@ func (r *AuthenticationResource) Create(ctx context.Context, req resource.Create
 				return types.Int64Null()
 			}(),
 			CookieRefreshInterval: func() types.Int64 {
-				if !isImport && data.CookieParams != nil {
+				if !isImport && data.CookieParams != nil && !data.CookieParams.CookieRefreshInterval.IsUnknown() {
 					return data.CookieParams.CookieRefreshInterval
 				}
 				if v, ok := blockData["cookie_refresh_interval"].(float64); ok && v != 0 {
@@ -911,7 +911,7 @@ func (r *AuthenticationResource) Create(ctx context.Context, req resource.Create
 				return nil
 			}(),
 			SessionExpiry: func() types.Int64 {
-				if !isImport && data.CookieParams != nil {
+				if !isImport && data.CookieParams != nil && !data.CookieParams.SessionExpiry.IsUnknown() {
 					return data.CookieParams.SessionExpiry
 				}
 				if v, ok := blockData["session_expiry"].(float64); ok && v != 0 {
@@ -1226,7 +1226,7 @@ func (r *AuthenticationResource) Read(ctx context.Context, req resource.ReadRequ
 				return nil
 			}(),
 			CookieExpiry: func() types.Int64 {
-				if !isImport && data.CookieParams != nil {
+				if !isImport && data.CookieParams != nil && !data.CookieParams.CookieExpiry.IsUnknown() {
 					return data.CookieParams.CookieExpiry
 				}
 				if v, ok := blockData["cookie_expiry"].(float64); ok && v != 0 {
@@ -1235,7 +1235,7 @@ func (r *AuthenticationResource) Read(ctx context.Context, req resource.ReadRequ
 				return types.Int64Null()
 			}(),
 			CookieRefreshInterval: func() types.Int64 {
-				if !isImport && data.CookieParams != nil {
+				if !isImport && data.CookieParams != nil && !data.CookieParams.CookieRefreshInterval.IsUnknown() {
 					return data.CookieParams.CookieRefreshInterval
 				}
 				if v, ok := blockData["cookie_refresh_interval"].(float64); ok && v != 0 {
@@ -1253,7 +1253,7 @@ func (r *AuthenticationResource) Read(ctx context.Context, req resource.ReadRequ
 				return nil
 			}(),
 			SessionExpiry: func() types.Int64 {
-				if !isImport && data.CookieParams != nil {
+				if !isImport && data.CookieParams != nil && !data.CookieParams.SessionExpiry.IsUnknown() {
 					return data.CookieParams.SessionExpiry
 				}
 				if v, ok := blockData["session_expiry"].(float64); ok && v != 0 {
@@ -1701,7 +1701,7 @@ func (r *AuthenticationResource) Update(ctx context.Context, req resource.Update
 				return nil
 			}(),
 			CookieExpiry: func() types.Int64 {
-				if !isImport && data.CookieParams != nil {
+				if !isImport && data.CookieParams != nil && !data.CookieParams.CookieExpiry.IsUnknown() {
 					return data.CookieParams.CookieExpiry
 				}
 				if v, ok := blockData["cookie_expiry"].(float64); ok && v != 0 {
@@ -1710,7 +1710,7 @@ func (r *AuthenticationResource) Update(ctx context.Context, req resource.Update
 				return types.Int64Null()
 			}(),
 			CookieRefreshInterval: func() types.Int64 {
-				if !isImport && data.CookieParams != nil {
+				if !isImport && data.CookieParams != nil && !data.CookieParams.CookieRefreshInterval.IsUnknown() {
 					return data.CookieParams.CookieRefreshInterval
 				}
 				if v, ok := blockData["cookie_refresh_interval"].(float64); ok && v != 0 {
@@ -1728,7 +1728,7 @@ func (r *AuthenticationResource) Update(ctx context.Context, req resource.Update
 				return nil
 			}(),
 			SessionExpiry: func() types.Int64 {
-				if !isImport && data.CookieParams != nil {
+				if !isImport && data.CookieParams != nil && !data.CookieParams.SessionExpiry.IsUnknown() {
 					return data.CookieParams.SessionExpiry
 				}
 				if v, ok := blockData["session_expiry"].(float64); ok && v != 0 {

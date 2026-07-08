@@ -15,5 +15,5 @@ terraform {
 # Basic AWSTGWSite configuration
 resource "xcsh_aws_tgw_site" "example" {
   name      = "example-aws-tgw-site"
-  namespace = "system"
+  namespace = "staging"
 }

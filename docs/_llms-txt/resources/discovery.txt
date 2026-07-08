@@ -6,13 +6,14 @@ Api to create discovery object for a site or virtual site in system namespace. c
 ## Required
 
 - name
+- namespace
 
 ## Minimal Valid Config
 
 ```terraform
 resource "xcsh_discovery" "example" {
   name      = "example-discovery"
-  namespace = "system"
+  namespace = "staging"
 }
 ```
 

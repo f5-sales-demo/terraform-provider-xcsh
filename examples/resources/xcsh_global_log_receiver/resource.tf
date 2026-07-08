@@ -15,5 +15,5 @@ terraform {
 # Basic GlobalLogReceiver configuration
 resource "xcsh_global_log_receiver" "example" {
   name      = "example-global-log-receiver"
-  namespace = "system"
+  namespace = "staging"
 }

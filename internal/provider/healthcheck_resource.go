@@ -554,7 +554,7 @@ func (r *HealthcheckResource) Create(ctx context.Context, req resource.CreateReq
 				return types.ListNull(types.StringType)
 			}(),
 			UseHttp2: func() types.Bool {
-				if !isImport && data.HTTPHealthCheck != nil {
+				if !isImport && data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.UseHttp2.IsUnknown() {
 					return data.HTTPHealthCheck.UseHttp2
 				}
 				if v, ok := blockData["use_http2"].(bool); ok {
@@ -753,7 +753,7 @@ func (r *HealthcheckResource) Read(ctx context.Context, req resource.ReadRequest
 				return types.ListNull(types.StringType)
 			}(),
 			UseHttp2: func() types.Bool {
-				if !isImport && data.HTTPHealthCheck != nil {
+				if !isImport && data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.UseHttp2.IsUnknown() {
 					return data.HTTPHealthCheck.UseHttp2
 				}
 				if v, ok := blockData["use_http2"].(bool); ok {
@@ -1026,7 +1026,7 @@ func (r *HealthcheckResource) Update(ctx context.Context, req resource.UpdateReq
 				return types.ListNull(types.StringType)
 			}(),
 			UseHttp2: func() types.Bool {
-				if !isImport && data.HTTPHealthCheck != nil {
+				if !isImport && data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.UseHttp2.IsUnknown() {
 					return data.HTTPHealthCheck.UseHttp2
 				}
 				if v, ok := blockData["use_http2"].(bool); ok {

@@ -331,7 +331,7 @@ func (r *AddressAllocatorResource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["address_allocation_scheme"].(map[string]interface{}); ok && (isImport || data.AddressAllocationScheme != nil) {
 		data.AddressAllocationScheme = &AddressAllocatorAddressAllocationSchemeModel{
 			AllocationUnit: func() types.Int64 {
-				if !isImport && data.AddressAllocationScheme != nil {
+				if !isImport && data.AddressAllocationScheme != nil && !data.AddressAllocationScheme.AllocationUnit.IsUnknown() {
 					return data.AddressAllocationScheme.AllocationUnit
 				}
 				if v, ok := blockData["allocation_unit"].(float64); ok && v != 0 {
@@ -340,7 +340,7 @@ func (r *AddressAllocatorResource) Create(ctx context.Context, req resource.Crea
 				return types.Int64Null()
 			}(),
 			LocalInterfaceAddressOffset: func() types.Int64 {
-				if !isImport && data.AddressAllocationScheme != nil {
+				if !isImport && data.AddressAllocationScheme != nil && !data.AddressAllocationScheme.LocalInterfaceAddressOffset.IsUnknown() {
 					return data.AddressAllocationScheme.LocalInterfaceAddressOffset
 				}
 				if v, ok := blockData["local_interface_address_offset"].(float64); ok && v != 0 {
@@ -459,7 +459,7 @@ func (r *AddressAllocatorResource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["address_allocation_scheme"].(map[string]interface{}); ok && (isImport || data.AddressAllocationScheme != nil) {
 		data.AddressAllocationScheme = &AddressAllocatorAddressAllocationSchemeModel{
 			AllocationUnit: func() types.Int64 {
-				if !isImport && data.AddressAllocationScheme != nil {
+				if !isImport && data.AddressAllocationScheme != nil && !data.AddressAllocationScheme.AllocationUnit.IsUnknown() {
 					return data.AddressAllocationScheme.AllocationUnit
 				}
 				if v, ok := blockData["allocation_unit"].(float64); ok && v != 0 {
@@ -468,7 +468,7 @@ func (r *AddressAllocatorResource) Read(ctx context.Context, req resource.ReadRe
 				return types.Int64Null()
 			}(),
 			LocalInterfaceAddressOffset: func() types.Int64 {
-				if !isImport && data.AddressAllocationScheme != nil {
+				if !isImport && data.AddressAllocationScheme != nil && !data.AddressAllocationScheme.LocalInterfaceAddressOffset.IsUnknown() {
 					return data.AddressAllocationScheme.LocalInterfaceAddressOffset
 				}
 				if v, ok := blockData["local_interface_address_offset"].(float64); ok && v != 0 {
@@ -613,7 +613,7 @@ func (r *AddressAllocatorResource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["address_allocation_scheme"].(map[string]interface{}); ok && (isImport || data.AddressAllocationScheme != nil) {
 		data.AddressAllocationScheme = &AddressAllocatorAddressAllocationSchemeModel{
 			AllocationUnit: func() types.Int64 {
-				if !isImport && data.AddressAllocationScheme != nil {
+				if !isImport && data.AddressAllocationScheme != nil && !data.AddressAllocationScheme.AllocationUnit.IsUnknown() {
 					return data.AddressAllocationScheme.AllocationUnit
 				}
 				if v, ok := blockData["allocation_unit"].(float64); ok && v != 0 {
@@ -622,7 +622,7 @@ func (r *AddressAllocatorResource) Update(ctx context.Context, req resource.Upda
 				return types.Int64Null()
 			}(),
 			LocalInterfaceAddressOffset: func() types.Int64 {
-				if !isImport && data.AddressAllocationScheme != nil {
+				if !isImport && data.AddressAllocationScheme != nil && !data.AddressAllocationScheme.LocalInterfaceAddressOffset.IsUnknown() {
 					return data.AddressAllocationScheme.LocalInterfaceAddressOffset
 				}
 				if v, ok := blockData["local_interface_address_offset"].(float64); ok && v != 0 {

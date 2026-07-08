@@ -4378,7 +4378,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 	if blockData, ok := apiResource.Spec["primary"].(map[string]interface{}); ok && (isImport || data.Primary != nil) {
 		data.Primary = &DNSZonePrimaryModel{
 			AllowHTTPLBManagedRecords: func() types.Bool {
-				if !isImport && data.Primary != nil {
+				if !isImport && data.Primary != nil && !data.Primary.AllowHTTPLBManagedRecords.IsUnknown() {
 					return data.Primary.AllowHTTPLBManagedRecords
 				}
 				if v, ok := blockData["allow_http_lb_managed_records"].(bool); ok {
@@ -6476,7 +6476,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 	if blockData, ok := apiResource.Spec["primary"].(map[string]interface{}); ok && (isImport || data.Primary != nil) {
 		data.Primary = &DNSZonePrimaryModel{
 			AllowHTTPLBManagedRecords: func() types.Bool {
-				if !isImport && data.Primary != nil {
+				if !isImport && data.Primary != nil && !data.Primary.AllowHTTPLBManagedRecords.IsUnknown() {
 					return data.Primary.AllowHTTPLBManagedRecords
 				}
 				if v, ok := blockData["allow_http_lb_managed_records"].(bool); ok {
@@ -9669,7 +9669,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 	if blockData, ok := apiResource.Spec["primary"].(map[string]interface{}); ok && (isImport || data.Primary != nil) {
 		data.Primary = &DNSZonePrimaryModel{
 			AllowHTTPLBManagedRecords: func() types.Bool {
-				if !isImport && data.Primary != nil {
+				if !isImport && data.Primary != nil && !data.Primary.AllowHTTPLBManagedRecords.IsUnknown() {
 					return data.Primary.AllowHTTPLBManagedRecords
 				}
 				if v, ok := blockData["allow_http_lb_managed_records"].(bool); ok {

@@ -16,7 +16,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
-	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -289,16 +288,13 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace for the Network Connector. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
-				Optional:            true,
-				Computed:            true,
-				Default:             stringdefault.StaticString("system"),
+				MarkdownDescription: "Namespace where the Network Connector will be created.",
+				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
-					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
@@ -911,7 +907,7 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["enable_forward_proxy"].(map[string]interface{}); ok && (isImport || data.EnableForwardProxy != nil) {
 		data.EnableForwardProxy = &NetworkConnectorEnableForwardProxyModel{
 			ConnectionTimeout: func() types.Int64 {
-				if !isImport && data.EnableForwardProxy != nil {
+				if !isImport && data.EnableForwardProxy != nil && !data.EnableForwardProxy.ConnectionTimeout.IsUnknown() {
 					return data.EnableForwardProxy.ConnectionTimeout
 				}
 				if v, ok := blockData["connection_timeout"].(float64); ok && v != 0 {
@@ -920,7 +916,7 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 				return types.Int64Null()
 			}(),
 			MaxConnectAttempts: func() types.Int64 {
-				if !isImport && data.EnableForwardProxy != nil {
+				if !isImport && data.EnableForwardProxy != nil && !data.EnableForwardProxy.MaxConnectAttempts.IsUnknown() {
 					return data.EnableForwardProxy.MaxConnectAttempts
 				}
 				if v, ok := blockData["max_connect_attempts"].(float64); ok && v != 0 {
@@ -1330,7 +1326,7 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["enable_forward_proxy"].(map[string]interface{}); ok && (isImport || data.EnableForwardProxy != nil) {
 		data.EnableForwardProxy = &NetworkConnectorEnableForwardProxyModel{
 			ConnectionTimeout: func() types.Int64 {
-				if !isImport && data.EnableForwardProxy != nil {
+				if !isImport && data.EnableForwardProxy != nil && !data.EnableForwardProxy.ConnectionTimeout.IsUnknown() {
 					return data.EnableForwardProxy.ConnectionTimeout
 				}
 				if v, ok := blockData["connection_timeout"].(float64); ok && v != 0 {
@@ -1339,7 +1335,7 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 				return types.Int64Null()
 			}(),
 			MaxConnectAttempts: func() types.Int64 {
-				if !isImport && data.EnableForwardProxy != nil {
+				if !isImport && data.EnableForwardProxy != nil && !data.EnableForwardProxy.MaxConnectAttempts.IsUnknown() {
 					return data.EnableForwardProxy.MaxConnectAttempts
 				}
 				if v, ok := blockData["max_connect_attempts"].(float64); ok && v != 0 {
@@ -1927,7 +1923,7 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["enable_forward_proxy"].(map[string]interface{}); ok && (isImport || data.EnableForwardProxy != nil) {
 		data.EnableForwardProxy = &NetworkConnectorEnableForwardProxyModel{
 			ConnectionTimeout: func() types.Int64 {
-				if !isImport && data.EnableForwardProxy != nil {
+				if !isImport && data.EnableForwardProxy != nil && !data.EnableForwardProxy.ConnectionTimeout.IsUnknown() {
 					return data.EnableForwardProxy.ConnectionTimeout
 				}
 				if v, ok := blockData["connection_timeout"].(float64); ok && v != 0 {
@@ -1936,7 +1932,7 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 				return types.Int64Null()
 			}(),
 			MaxConnectAttempts: func() types.Int64 {
-				if !isImport && data.EnableForwardProxy != nil {
+				if !isImport && data.EnableForwardProxy != nil && !data.EnableForwardProxy.MaxConnectAttempts.IsUnknown() {
 					return data.EnableForwardProxy.MaxConnectAttempts
 				}
 				if v, ok := blockData["max_connect_attempts"].(float64); ok && v != 0 {

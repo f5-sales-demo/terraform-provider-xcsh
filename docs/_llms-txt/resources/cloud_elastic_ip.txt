@@ -6,6 +6,7 @@ Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site
 ## Required
 
 - name
+- namespace
 - item_count
 
 ## Minimal Valid Config
@@ -13,7 +14,7 @@ Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site
 ```terraform
 resource "xcsh_cloud_elastic_ip" "example" {
   name      = "example-cloud-elastic-ip"
-  namespace = "system"
+  namespace = "staging"
 
   item_count = 1
 }

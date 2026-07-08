@@ -19,7 +19,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
-	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -4614,16 +4613,13 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace for the Securemesh Site V2. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
-				Optional:            true,
-				Computed:            true,
-				Default:             stringdefault.StaticString("system"),
+				MarkdownDescription: "Namespace where the Securemesh Site V2 will be created.",
+				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
-					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
@@ -16134,7 +16130,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 				return types.StringNull()
 			}(),
 			ProxyPort: func() types.Int64 {
-				if !isImport && data.CustomProxy != nil {
+				if !isImport && data.CustomProxy != nil && !data.CustomProxy.ProxyPort.IsUnknown() {
 					return data.CustomProxy.ProxyPort
 				}
 				if v, ok := blockData["proxy_port"].(float64); ok && v != 0 {
@@ -23274,7 +23270,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 				return types.StringNull()
 			}(),
 			ProxyPort: func() types.Int64 {
-				if !isImport && data.CustomProxy != nil {
+				if !isImport && data.CustomProxy != nil && !data.CustomProxy.ProxyPort.IsUnknown() {
 					return data.CustomProxy.ProxyPort
 				}
 				if v, ok := blockData["proxy_port"].(float64); ok && v != 0 {
@@ -34298,7 +34294,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 				return types.StringNull()
 			}(),
 			ProxyPort: func() types.Int64 {
-				if !isImport && data.CustomProxy != nil {
+				if !isImport && data.CustomProxy != nil && !data.CustomProxy.ProxyPort.IsUnknown() {
 					return data.CustomProxy.ProxyPort
 				}
 				if v, ok := blockData["proxy_port"].(float64); ok && v != 0 {

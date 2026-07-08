@@ -17,7 +17,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
-	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -171,16 +170,13 @@ func (r *SiteMeshGroupResource) Schema(ctx context.Context, req resource.SchemaR
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace for the Site Mesh Group. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
-				Optional:            true,
-				Computed:            true,
-				Default:             stringdefault.StaticString("system"),
+				MarkdownDescription: "Namespace where the Site Mesh Group will be created.",
+				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
-					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
@@ -581,7 +577,7 @@ func (r *SiteMeshGroupResource) Create(ctx context.Context, req resource.CreateR
 	if blockData, ok := apiResource.Spec["bfd_enabled"].(map[string]interface{}); ok && (isImport || data.BfdEnabled != nil) {
 		data.BfdEnabled = &SiteMeshGroupBfdEnabledModel{
 			Multiplier: func() types.Int64 {
-				if !isImport && data.BfdEnabled != nil {
+				if !isImport && data.BfdEnabled != nil && !data.BfdEnabled.Multiplier.IsUnknown() {
 					return data.BfdEnabled.Multiplier
 				}
 				if v, ok := blockData["multiplier"].(float64); ok && v != 0 {
@@ -590,7 +586,7 @@ func (r *SiteMeshGroupResource) Create(ctx context.Context, req resource.CreateR
 				return types.Int64Null()
 			}(),
 			ReceiveIntervalMilliseconds: func() types.Int64 {
-				if !isImport && data.BfdEnabled != nil {
+				if !isImport && data.BfdEnabled != nil && !data.BfdEnabled.ReceiveIntervalMilliseconds.IsUnknown() {
 					return data.BfdEnabled.ReceiveIntervalMilliseconds
 				}
 				if v, ok := blockData["receive_interval_milliseconds"].(float64); ok && v != 0 {
@@ -599,7 +595,7 @@ func (r *SiteMeshGroupResource) Create(ctx context.Context, req resource.CreateR
 				return types.Int64Null()
 			}(),
 			TransmitIntervalMilliseconds: func() types.Int64 {
-				if !isImport && data.BfdEnabled != nil {
+				if !isImport && data.BfdEnabled != nil && !data.BfdEnabled.TransmitIntervalMilliseconds.IsUnknown() {
 					return data.BfdEnabled.TransmitIntervalMilliseconds
 				}
 				if v, ok := blockData["transmit_interval_milliseconds"].(float64); ok && v != 0 {
@@ -848,7 +844,7 @@ func (r *SiteMeshGroupResource) Read(ctx context.Context, req resource.ReadReque
 	if blockData, ok := apiResource.Spec["bfd_enabled"].(map[string]interface{}); ok && (isImport || data.BfdEnabled != nil) {
 		data.BfdEnabled = &SiteMeshGroupBfdEnabledModel{
 			Multiplier: func() types.Int64 {
-				if !isImport && data.BfdEnabled != nil {
+				if !isImport && data.BfdEnabled != nil && !data.BfdEnabled.Multiplier.IsUnknown() {
 					return data.BfdEnabled.Multiplier
 				}
 				if v, ok := blockData["multiplier"].(float64); ok && v != 0 {
@@ -857,7 +853,7 @@ func (r *SiteMeshGroupResource) Read(ctx context.Context, req resource.ReadReque
 				return types.Int64Null()
 			}(),
 			ReceiveIntervalMilliseconds: func() types.Int64 {
-				if !isImport && data.BfdEnabled != nil {
+				if !isImport && data.BfdEnabled != nil && !data.BfdEnabled.ReceiveIntervalMilliseconds.IsUnknown() {
 					return data.BfdEnabled.ReceiveIntervalMilliseconds
 				}
 				if v, ok := blockData["receive_interval_milliseconds"].(float64); ok && v != 0 {
@@ -866,7 +862,7 @@ func (r *SiteMeshGroupResource) Read(ctx context.Context, req resource.ReadReque
 				return types.Int64Null()
 			}(),
 			TransmitIntervalMilliseconds: func() types.Int64 {
-				if !isImport && data.BfdEnabled != nil {
+				if !isImport && data.BfdEnabled != nil && !data.BfdEnabled.TransmitIntervalMilliseconds.IsUnknown() {
 					return data.BfdEnabled.TransmitIntervalMilliseconds
 				}
 				if v, ok := blockData["transmit_interval_milliseconds"].(float64); ok && v != 0 {
@@ -1211,7 +1207,7 @@ func (r *SiteMeshGroupResource) Update(ctx context.Context, req resource.UpdateR
 	if blockData, ok := apiResource.Spec["bfd_enabled"].(map[string]interface{}); ok && (isImport || data.BfdEnabled != nil) {
 		data.BfdEnabled = &SiteMeshGroupBfdEnabledModel{
 			Multiplier: func() types.Int64 {
-				if !isImport && data.BfdEnabled != nil {
+				if !isImport && data.BfdEnabled != nil && !data.BfdEnabled.Multiplier.IsUnknown() {
 					return data.BfdEnabled.Multiplier
 				}
 				if v, ok := blockData["multiplier"].(float64); ok && v != 0 {
@@ -1220,7 +1216,7 @@ func (r *SiteMeshGroupResource) Update(ctx context.Context, req resource.UpdateR
 				return types.Int64Null()
 			}(),
 			ReceiveIntervalMilliseconds: func() types.Int64 {
-				if !isImport && data.BfdEnabled != nil {
+				if !isImport && data.BfdEnabled != nil && !data.BfdEnabled.ReceiveIntervalMilliseconds.IsUnknown() {
 					return data.BfdEnabled.ReceiveIntervalMilliseconds
 				}
 				if v, ok := blockData["receive_interval_milliseconds"].(float64); ok && v != 0 {
@@ -1229,7 +1225,7 @@ func (r *SiteMeshGroupResource) Update(ctx context.Context, req resource.UpdateR
 				return types.Int64Null()
 			}(),
 			TransmitIntervalMilliseconds: func() types.Int64 {
-				if !isImport && data.BfdEnabled != nil {
+				if !isImport && data.BfdEnabled != nil && !data.BfdEnabled.TransmitIntervalMilliseconds.IsUnknown() {
 					return data.BfdEnabled.TransmitIntervalMilliseconds
 				}
 				if v, ok := blockData["transmit_interval_milliseconds"].(float64); ok && v != 0 {

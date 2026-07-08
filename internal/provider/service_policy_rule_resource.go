@@ -2767,7 +2767,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 	if blockData, ok := apiResource.Spec["api_group_matcher"].(map[string]interface{}); ok && (isImport || data.APIGroupMatcher != nil) {
 		data.APIGroupMatcher = &ServicePolicyRuleAPIGroupMatcherModel{
 			InvertMatcher: func() types.Bool {
-				if !isImport && data.APIGroupMatcher != nil {
+				if !isImport && data.APIGroupMatcher != nil && !data.APIGroupMatcher.InvertMatcher.IsUnknown() {
 					return data.APIGroupMatcher.InvertMatcher
 				}
 				if v, ok := blockData["invert_matcher"].(bool); ok {
@@ -3300,7 +3300,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 	if blockData, ok := apiResource.Spec["http_method"].(map[string]interface{}); ok && (isImport || data.HTTPMethod != nil) {
 		data.HTTPMethod = &ServicePolicyRuleHTTPMethodModel{
 			InvertMatcher: func() types.Bool {
-				if !isImport && data.HTTPMethod != nil {
+				if !isImport && data.HTTPMethod != nil && !data.HTTPMethod.InvertMatcher.IsUnknown() {
 					return data.HTTPMethod.InvertMatcher
 				}
 				if v, ok := blockData["invert_matcher"].(bool); ok {
@@ -3326,7 +3326,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 	if blockData, ok := apiResource.Spec["ip_matcher"].(map[string]interface{}); ok && (isImport || data.IPMatcher != nil) {
 		data.IPMatcher = &ServicePolicyRuleIPMatcherModel{
 			InvertMatcher: func() types.Bool {
-				if !isImport && data.IPMatcher != nil {
+				if !isImport && data.IPMatcher != nil && !data.IPMatcher.InvertMatcher.IsUnknown() {
 					return data.IPMatcher.InvertMatcher
 				}
 				if v, ok := blockData["invert_matcher"].(bool); ok {
@@ -3386,7 +3386,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 	if blockData, ok := apiResource.Spec["ip_prefix_list"].(map[string]interface{}); ok && (isImport || data.IPPrefixList != nil) {
 		data.IPPrefixList = &ServicePolicyRuleIPPrefixListModel{
 			InvertMatch: func() types.Bool {
-				if !isImport && data.IPPrefixList != nil {
+				if !isImport && data.IPPrefixList != nil && !data.IPPrefixList.InvertMatch.IsUnknown() {
 					return data.IPPrefixList.InvertMatch
 				}
 				if v, ok := blockData["invert_match"].(bool); ok {
@@ -3597,7 +3597,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				return types.ListNull(types.StringType)
 			}(),
 			InvertMatcher: func() types.Bool {
-				if !isImport && data.Path != nil {
+				if !isImport && data.Path != nil && !data.Path.InvertMatcher.IsUnknown() {
 					return data.Path.InvertMatcher
 				}
 				if v, ok := blockData["invert_matcher"].(bool); ok {
@@ -3761,7 +3761,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 	if blockData, ok := apiResource.Spec["request_constraints"].(map[string]interface{}); ok && (isImport || data.RequestConstraints != nil) {
 		data.RequestConstraints = &ServicePolicyRuleRequestConstraintsModel{
 			MaxCookieCountExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxCookieCountExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxCookieCountExceeds
 				}
 				if v, ok := blockData["max_cookie_count_exceeds"].(float64); ok && v != 0 {
@@ -3779,7 +3779,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				return nil
 			}(),
 			MaxCookieKeySizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxCookieKeySizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxCookieKeySizeExceeds
 				}
 				if v, ok := blockData["max_cookie_key_size_exceeds"].(float64); ok && v != 0 {
@@ -3797,7 +3797,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				return nil
 			}(),
 			MaxCookieValueSizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxCookieValueSizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxCookieValueSizeExceeds
 				}
 				if v, ok := blockData["max_cookie_value_size_exceeds"].(float64); ok && v != 0 {
@@ -3815,7 +3815,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				return nil
 			}(),
 			MaxHeaderCountExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxHeaderCountExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxHeaderCountExceeds
 				}
 				if v, ok := blockData["max_header_count_exceeds"].(float64); ok && v != 0 {
@@ -3833,7 +3833,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				return nil
 			}(),
 			MaxHeaderKeySizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxHeaderKeySizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxHeaderKeySizeExceeds
 				}
 				if v, ok := blockData["max_header_key_size_exceeds"].(float64); ok && v != 0 {
@@ -3851,7 +3851,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				return nil
 			}(),
 			MaxHeaderValueSizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxHeaderValueSizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxHeaderValueSizeExceeds
 				}
 				if v, ok := blockData["max_header_value_size_exceeds"].(float64); ok && v != 0 {
@@ -3869,7 +3869,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				return nil
 			}(),
 			MaxParameterCountExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxParameterCountExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxParameterCountExceeds
 				}
 				if v, ok := blockData["max_parameter_count_exceeds"].(float64); ok && v != 0 {
@@ -3887,7 +3887,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				return nil
 			}(),
 			MaxParameterNameSizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxParameterNameSizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxParameterNameSizeExceeds
 				}
 				if v, ok := blockData["max_parameter_name_size_exceeds"].(float64); ok && v != 0 {
@@ -3905,7 +3905,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				return nil
 			}(),
 			MaxParameterValueSizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxParameterValueSizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxParameterValueSizeExceeds
 				}
 				if v, ok := blockData["max_parameter_value_size_exceeds"].(float64); ok && v != 0 {
@@ -3923,7 +3923,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				return nil
 			}(),
 			MaxQuerySizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxQuerySizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxQuerySizeExceeds
 				}
 				if v, ok := blockData["max_query_size_exceeds"].(float64); ok && v != 0 {
@@ -3941,7 +3941,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				return nil
 			}(),
 			MaxRequestLineSizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxRequestLineSizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxRequestLineSizeExceeds
 				}
 				if v, ok := blockData["max_request_line_size_exceeds"].(float64); ok && v != 0 {
@@ -3959,7 +3959,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				return nil
 			}(),
 			MaxRequestSizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxRequestSizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxRequestSizeExceeds
 				}
 				if v, ok := blockData["max_request_size_exceeds"].(float64); ok && v != 0 {
@@ -3977,7 +3977,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				return nil
 			}(),
 			MaxURLSizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxURLSizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxURLSizeExceeds
 				}
 				if v, ok := blockData["max_url_size_exceeds"].(float64); ok && v != 0 {
@@ -4316,7 +4316,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 	if blockData, ok := apiResource.Spec["port_matcher"].(map[string]interface{}); ok && (isImport || data.PortMatcher != nil) {
 		data.PortMatcher = &ServicePolicyRulePortMatcherModel{
 			InvertMatcher: func() types.Bool {
-				if !isImport && data.PortMatcher != nil {
+				if !isImport && data.PortMatcher != nil && !data.PortMatcher.InvertMatcher.IsUnknown() {
 					return data.PortMatcher.InvertMatcher
 				}
 				if v, ok := blockData["invert_matcher"].(bool); ok {
@@ -4431,7 +4431,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 	if blockData, ok := apiResource.Spec["api_group_matcher"].(map[string]interface{}); ok && (isImport || data.APIGroupMatcher != nil) {
 		data.APIGroupMatcher = &ServicePolicyRuleAPIGroupMatcherModel{
 			InvertMatcher: func() types.Bool {
-				if !isImport && data.APIGroupMatcher != nil {
+				if !isImport && data.APIGroupMatcher != nil && !data.APIGroupMatcher.InvertMatcher.IsUnknown() {
 					return data.APIGroupMatcher.InvertMatcher
 				}
 				if v, ok := blockData["invert_matcher"].(bool); ok {
@@ -4964,7 +4964,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 	if blockData, ok := apiResource.Spec["http_method"].(map[string]interface{}); ok && (isImport || data.HTTPMethod != nil) {
 		data.HTTPMethod = &ServicePolicyRuleHTTPMethodModel{
 			InvertMatcher: func() types.Bool {
-				if !isImport && data.HTTPMethod != nil {
+				if !isImport && data.HTTPMethod != nil && !data.HTTPMethod.InvertMatcher.IsUnknown() {
 					return data.HTTPMethod.InvertMatcher
 				}
 				if v, ok := blockData["invert_matcher"].(bool); ok {
@@ -4990,7 +4990,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 	if blockData, ok := apiResource.Spec["ip_matcher"].(map[string]interface{}); ok && (isImport || data.IPMatcher != nil) {
 		data.IPMatcher = &ServicePolicyRuleIPMatcherModel{
 			InvertMatcher: func() types.Bool {
-				if !isImport && data.IPMatcher != nil {
+				if !isImport && data.IPMatcher != nil && !data.IPMatcher.InvertMatcher.IsUnknown() {
 					return data.IPMatcher.InvertMatcher
 				}
 				if v, ok := blockData["invert_matcher"].(bool); ok {
@@ -5050,7 +5050,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 	if blockData, ok := apiResource.Spec["ip_prefix_list"].(map[string]interface{}); ok && (isImport || data.IPPrefixList != nil) {
 		data.IPPrefixList = &ServicePolicyRuleIPPrefixListModel{
 			InvertMatch: func() types.Bool {
-				if !isImport && data.IPPrefixList != nil {
+				if !isImport && data.IPPrefixList != nil && !data.IPPrefixList.InvertMatch.IsUnknown() {
 					return data.IPPrefixList.InvertMatch
 				}
 				if v, ok := blockData["invert_match"].(bool); ok {
@@ -5261,7 +5261,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				return types.ListNull(types.StringType)
 			}(),
 			InvertMatcher: func() types.Bool {
-				if !isImport && data.Path != nil {
+				if !isImport && data.Path != nil && !data.Path.InvertMatcher.IsUnknown() {
 					return data.Path.InvertMatcher
 				}
 				if v, ok := blockData["invert_matcher"].(bool); ok {
@@ -5425,7 +5425,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 	if blockData, ok := apiResource.Spec["request_constraints"].(map[string]interface{}); ok && (isImport || data.RequestConstraints != nil) {
 		data.RequestConstraints = &ServicePolicyRuleRequestConstraintsModel{
 			MaxCookieCountExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxCookieCountExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxCookieCountExceeds
 				}
 				if v, ok := blockData["max_cookie_count_exceeds"].(float64); ok && v != 0 {
@@ -5443,7 +5443,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				return nil
 			}(),
 			MaxCookieKeySizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxCookieKeySizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxCookieKeySizeExceeds
 				}
 				if v, ok := blockData["max_cookie_key_size_exceeds"].(float64); ok && v != 0 {
@@ -5461,7 +5461,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				return nil
 			}(),
 			MaxCookieValueSizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxCookieValueSizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxCookieValueSizeExceeds
 				}
 				if v, ok := blockData["max_cookie_value_size_exceeds"].(float64); ok && v != 0 {
@@ -5479,7 +5479,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				return nil
 			}(),
 			MaxHeaderCountExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxHeaderCountExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxHeaderCountExceeds
 				}
 				if v, ok := blockData["max_header_count_exceeds"].(float64); ok && v != 0 {
@@ -5497,7 +5497,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				return nil
 			}(),
 			MaxHeaderKeySizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxHeaderKeySizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxHeaderKeySizeExceeds
 				}
 				if v, ok := blockData["max_header_key_size_exceeds"].(float64); ok && v != 0 {
@@ -5515,7 +5515,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				return nil
 			}(),
 			MaxHeaderValueSizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxHeaderValueSizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxHeaderValueSizeExceeds
 				}
 				if v, ok := blockData["max_header_value_size_exceeds"].(float64); ok && v != 0 {
@@ -5533,7 +5533,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				return nil
 			}(),
 			MaxParameterCountExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxParameterCountExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxParameterCountExceeds
 				}
 				if v, ok := blockData["max_parameter_count_exceeds"].(float64); ok && v != 0 {
@@ -5551,7 +5551,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				return nil
 			}(),
 			MaxParameterNameSizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxParameterNameSizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxParameterNameSizeExceeds
 				}
 				if v, ok := blockData["max_parameter_name_size_exceeds"].(float64); ok && v != 0 {
@@ -5569,7 +5569,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				return nil
 			}(),
 			MaxParameterValueSizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxParameterValueSizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxParameterValueSizeExceeds
 				}
 				if v, ok := blockData["max_parameter_value_size_exceeds"].(float64); ok && v != 0 {
@@ -5587,7 +5587,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				return nil
 			}(),
 			MaxQuerySizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxQuerySizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxQuerySizeExceeds
 				}
 				if v, ok := blockData["max_query_size_exceeds"].(float64); ok && v != 0 {
@@ -5605,7 +5605,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				return nil
 			}(),
 			MaxRequestLineSizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxRequestLineSizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxRequestLineSizeExceeds
 				}
 				if v, ok := blockData["max_request_line_size_exceeds"].(float64); ok && v != 0 {
@@ -5623,7 +5623,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				return nil
 			}(),
 			MaxRequestSizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxRequestSizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxRequestSizeExceeds
 				}
 				if v, ok := blockData["max_request_size_exceeds"].(float64); ok && v != 0 {
@@ -5641,7 +5641,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				return nil
 			}(),
 			MaxURLSizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxURLSizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxURLSizeExceeds
 				}
 				if v, ok := blockData["max_url_size_exceeds"].(float64); ok && v != 0 {
@@ -5980,7 +5980,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 	if blockData, ok := apiResource.Spec["port_matcher"].(map[string]interface{}); ok && (isImport || data.PortMatcher != nil) {
 		data.PortMatcher = &ServicePolicyRulePortMatcherModel{
 			InvertMatcher: func() types.Bool {
-				if !isImport && data.PortMatcher != nil {
+				if !isImport && data.PortMatcher != nil && !data.PortMatcher.InvertMatcher.IsUnknown() {
 					return data.PortMatcher.InvertMatcher
 				}
 				if v, ok := blockData["invert_matcher"].(bool); ok {
@@ -6936,7 +6936,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 	if blockData, ok := apiResource.Spec["api_group_matcher"].(map[string]interface{}); ok && (isImport || data.APIGroupMatcher != nil) {
 		data.APIGroupMatcher = &ServicePolicyRuleAPIGroupMatcherModel{
 			InvertMatcher: func() types.Bool {
-				if !isImport && data.APIGroupMatcher != nil {
+				if !isImport && data.APIGroupMatcher != nil && !data.APIGroupMatcher.InvertMatcher.IsUnknown() {
 					return data.APIGroupMatcher.InvertMatcher
 				}
 				if v, ok := blockData["invert_matcher"].(bool); ok {
@@ -7469,7 +7469,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 	if blockData, ok := apiResource.Spec["http_method"].(map[string]interface{}); ok && (isImport || data.HTTPMethod != nil) {
 		data.HTTPMethod = &ServicePolicyRuleHTTPMethodModel{
 			InvertMatcher: func() types.Bool {
-				if !isImport && data.HTTPMethod != nil {
+				if !isImport && data.HTTPMethod != nil && !data.HTTPMethod.InvertMatcher.IsUnknown() {
 					return data.HTTPMethod.InvertMatcher
 				}
 				if v, ok := blockData["invert_matcher"].(bool); ok {
@@ -7495,7 +7495,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 	if blockData, ok := apiResource.Spec["ip_matcher"].(map[string]interface{}); ok && (isImport || data.IPMatcher != nil) {
 		data.IPMatcher = &ServicePolicyRuleIPMatcherModel{
 			InvertMatcher: func() types.Bool {
-				if !isImport && data.IPMatcher != nil {
+				if !isImport && data.IPMatcher != nil && !data.IPMatcher.InvertMatcher.IsUnknown() {
 					return data.IPMatcher.InvertMatcher
 				}
 				if v, ok := blockData["invert_matcher"].(bool); ok {
@@ -7555,7 +7555,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 	if blockData, ok := apiResource.Spec["ip_prefix_list"].(map[string]interface{}); ok && (isImport || data.IPPrefixList != nil) {
 		data.IPPrefixList = &ServicePolicyRuleIPPrefixListModel{
 			InvertMatch: func() types.Bool {
-				if !isImport && data.IPPrefixList != nil {
+				if !isImport && data.IPPrefixList != nil && !data.IPPrefixList.InvertMatch.IsUnknown() {
 					return data.IPPrefixList.InvertMatch
 				}
 				if v, ok := blockData["invert_match"].(bool); ok {
@@ -7766,7 +7766,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				return types.ListNull(types.StringType)
 			}(),
 			InvertMatcher: func() types.Bool {
-				if !isImport && data.Path != nil {
+				if !isImport && data.Path != nil && !data.Path.InvertMatcher.IsUnknown() {
 					return data.Path.InvertMatcher
 				}
 				if v, ok := blockData["invert_matcher"].(bool); ok {
@@ -7930,7 +7930,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 	if blockData, ok := apiResource.Spec["request_constraints"].(map[string]interface{}); ok && (isImport || data.RequestConstraints != nil) {
 		data.RequestConstraints = &ServicePolicyRuleRequestConstraintsModel{
 			MaxCookieCountExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxCookieCountExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxCookieCountExceeds
 				}
 				if v, ok := blockData["max_cookie_count_exceeds"].(float64); ok && v != 0 {
@@ -7948,7 +7948,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				return nil
 			}(),
 			MaxCookieKeySizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxCookieKeySizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxCookieKeySizeExceeds
 				}
 				if v, ok := blockData["max_cookie_key_size_exceeds"].(float64); ok && v != 0 {
@@ -7966,7 +7966,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				return nil
 			}(),
 			MaxCookieValueSizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxCookieValueSizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxCookieValueSizeExceeds
 				}
 				if v, ok := blockData["max_cookie_value_size_exceeds"].(float64); ok && v != 0 {
@@ -7984,7 +7984,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				return nil
 			}(),
 			MaxHeaderCountExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxHeaderCountExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxHeaderCountExceeds
 				}
 				if v, ok := blockData["max_header_count_exceeds"].(float64); ok && v != 0 {
@@ -8002,7 +8002,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				return nil
 			}(),
 			MaxHeaderKeySizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxHeaderKeySizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxHeaderKeySizeExceeds
 				}
 				if v, ok := blockData["max_header_key_size_exceeds"].(float64); ok && v != 0 {
@@ -8020,7 +8020,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				return nil
 			}(),
 			MaxHeaderValueSizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxHeaderValueSizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxHeaderValueSizeExceeds
 				}
 				if v, ok := blockData["max_header_value_size_exceeds"].(float64); ok && v != 0 {
@@ -8038,7 +8038,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				return nil
 			}(),
 			MaxParameterCountExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxParameterCountExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxParameterCountExceeds
 				}
 				if v, ok := blockData["max_parameter_count_exceeds"].(float64); ok && v != 0 {
@@ -8056,7 +8056,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				return nil
 			}(),
 			MaxParameterNameSizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxParameterNameSizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxParameterNameSizeExceeds
 				}
 				if v, ok := blockData["max_parameter_name_size_exceeds"].(float64); ok && v != 0 {
@@ -8074,7 +8074,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				return nil
 			}(),
 			MaxParameterValueSizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxParameterValueSizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxParameterValueSizeExceeds
 				}
 				if v, ok := blockData["max_parameter_value_size_exceeds"].(float64); ok && v != 0 {
@@ -8092,7 +8092,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				return nil
 			}(),
 			MaxQuerySizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxQuerySizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxQuerySizeExceeds
 				}
 				if v, ok := blockData["max_query_size_exceeds"].(float64); ok && v != 0 {
@@ -8110,7 +8110,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				return nil
 			}(),
 			MaxRequestLineSizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxRequestLineSizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxRequestLineSizeExceeds
 				}
 				if v, ok := blockData["max_request_line_size_exceeds"].(float64); ok && v != 0 {
@@ -8128,7 +8128,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				return nil
 			}(),
 			MaxRequestSizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxRequestSizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxRequestSizeExceeds
 				}
 				if v, ok := blockData["max_request_size_exceeds"].(float64); ok && v != 0 {
@@ -8146,7 +8146,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				return nil
 			}(),
 			MaxURLSizeExceeds: func() types.Int64 {
-				if !isImport && data.RequestConstraints != nil {
+				if !isImport && data.RequestConstraints != nil && !data.RequestConstraints.MaxURLSizeExceeds.IsUnknown() {
 					return data.RequestConstraints.MaxURLSizeExceeds
 				}
 				if v, ok := blockData["max_url_size_exceeds"].(float64); ok && v != 0 {
@@ -8485,7 +8485,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 	if blockData, ok := apiResource.Spec["port_matcher"].(map[string]interface{}); ok && (isImport || data.PortMatcher != nil) {
 		data.PortMatcher = &ServicePolicyRulePortMatcherModel{
 			InvertMatcher: func() types.Bool {
-				if !isImport && data.PortMatcher != nil {
+				if !isImport && data.PortMatcher != nil && !data.PortMatcher.InvertMatcher.IsUnknown() {
 					return data.PortMatcher.InvertMatcher
 				}
 				if v, ok := blockData["invert_matcher"].(bool); ok {

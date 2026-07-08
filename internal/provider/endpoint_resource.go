@@ -19,7 +19,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
-	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -258,16 +257,13 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace for the Endpoint. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
-				Optional:            true,
-				Computed:            true,
-				Default:             stringdefault.StaticString("system"),
+				MarkdownDescription: "Namespace where the Endpoint will be created.",
+				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
-					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
@@ -935,7 +931,7 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 				return types.StringNull()
 			}(),
 			RefreshInterval: func() types.Int64 {
-				if !isImport && data.DNSNameAdvanced != nil {
+				if !isImport && data.DNSNameAdvanced != nil && !data.DNSNameAdvanced.RefreshInterval.IsUnknown() {
 					return data.DNSNameAdvanced.RefreshInterval
 				}
 				if v, ok := blockData["refresh_interval"].(float64); ok && v != 0 {
@@ -1336,7 +1332,7 @@ func (r *EndpointResource) Read(ctx context.Context, req resource.ReadRequest, r
 				return types.StringNull()
 			}(),
 			RefreshInterval: func() types.Int64 {
-				if !isImport && data.DNSNameAdvanced != nil {
+				if !isImport && data.DNSNameAdvanced != nil && !data.DNSNameAdvanced.RefreshInterval.IsUnknown() {
 					return data.DNSNameAdvanced.RefreshInterval
 				}
 				if v, ok := blockData["refresh_interval"].(float64); ok && v != 0 {
@@ -1936,7 +1932,7 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 				return types.StringNull()
 			}(),
 			RefreshInterval: func() types.Int64 {
-				if !isImport && data.DNSNameAdvanced != nil {
+				if !isImport && data.DNSNameAdvanced != nil && !data.DNSNameAdvanced.RefreshInterval.IsUnknown() {
 					return data.DNSNameAdvanced.RefreshInterval
 				}
 				if v, ok := blockData["refresh_interval"].(float64); ok && v != 0 {

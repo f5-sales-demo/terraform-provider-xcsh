@@ -18,7 +18,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
-	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -1604,16 +1603,13 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace for the GCP VPC Site. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
-				Optional:            true,
-				Computed:            true,
-				Default:             stringdefault.StaticString("system"),
+				MarkdownDescription: "Namespace where the GCP VPC Site will be created.",
+				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
-					stringvalidator.OneOf("system"),
 				},
 			},
 			"gcp_region": schema.StringAttribute{
@@ -5225,7 +5221,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	if blockData, ok := apiResource.Spec["coordinates"].(map[string]interface{}); ok && (isImport || data.Coordinates != nil) {
 		data.Coordinates = &GCPVPCSiteCoordinatesModel{
 			Latitude: func() types.Int64 {
-				if !isImport && data.Coordinates != nil {
+				if !isImport && data.Coordinates != nil && !data.Coordinates.Latitude.IsUnknown() {
 					return data.Coordinates.Latitude
 				}
 				if v, ok := blockData["latitude"].(float64); ok && v != 0 {
@@ -5234,7 +5230,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return types.Int64Null()
 			}(),
 			Longitude: func() types.Int64 {
-				if !isImport && data.Coordinates != nil {
+				if !isImport && data.Coordinates != nil && !data.Coordinates.Longitude.IsUnknown() {
 					return data.Coordinates.Longitude
 				}
 				if v, ok := blockData["longitude"].(float64); ok && v != 0 {
@@ -5921,7 +5917,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			NodeNumber: func() types.Int64 {
-				if !isImport && data.IngressEgressGw != nil {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NodeNumber.IsUnknown() {
 					return data.IngressEgressGw.NodeNumber
 				}
 				if v, ok := blockData["node_number"].(float64); ok && v != 0 {
@@ -6371,7 +6367,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			NodeNumber: func() types.Int64 {
-				if !isImport && data.IngressGw != nil {
+				if !isImport && data.IngressGw != nil && !data.IngressGw.NodeNumber.IsUnknown() {
 					return data.IngressGw.NodeNumber
 				}
 				if v, ok := blockData["node_number"].(float64); ok && v != 0 {
@@ -6965,7 +6961,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			NodeNumber: func() types.Int64 {
-				if !isImport && data.VoltstackCluster != nil {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NodeNumber.IsUnknown() {
 					return data.VoltstackCluster.NodeNumber
 				}
 				if v, ok := blockData["node_number"].(float64); ok && v != 0 {
@@ -7630,7 +7626,7 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 	if blockData, ok := apiResource.Spec["coordinates"].(map[string]interface{}); ok && (isImport || data.Coordinates != nil) {
 		data.Coordinates = &GCPVPCSiteCoordinatesModel{
 			Latitude: func() types.Int64 {
-				if !isImport && data.Coordinates != nil {
+				if !isImport && data.Coordinates != nil && !data.Coordinates.Latitude.IsUnknown() {
 					return data.Coordinates.Latitude
 				}
 				if v, ok := blockData["latitude"].(float64); ok && v != 0 {
@@ -7639,7 +7635,7 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return types.Int64Null()
 			}(),
 			Longitude: func() types.Int64 {
-				if !isImport && data.Coordinates != nil {
+				if !isImport && data.Coordinates != nil && !data.Coordinates.Longitude.IsUnknown() {
 					return data.Coordinates.Longitude
 				}
 				if v, ok := blockData["longitude"].(float64); ok && v != 0 {
@@ -8326,7 +8322,7 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			NodeNumber: func() types.Int64 {
-				if !isImport && data.IngressEgressGw != nil {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NodeNumber.IsUnknown() {
 					return data.IngressEgressGw.NodeNumber
 				}
 				if v, ok := blockData["node_number"].(float64); ok && v != 0 {
@@ -8776,7 +8772,7 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			NodeNumber: func() types.Int64 {
-				if !isImport && data.IngressGw != nil {
+				if !isImport && data.IngressGw != nil && !data.IngressGw.NodeNumber.IsUnknown() {
 					return data.IngressGw.NodeNumber
 				}
 				if v, ok := blockData["node_number"].(float64); ok && v != 0 {
@@ -9370,7 +9366,7 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			NodeNumber: func() types.Int64 {
-				if !isImport && data.VoltstackCluster != nil {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NodeNumber.IsUnknown() {
 					return data.VoltstackCluster.NodeNumber
 				}
 				if v, ok := blockData["node_number"].(float64); ok && v != 0 {
@@ -11279,7 +11275,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	if blockData, ok := apiResource.Spec["coordinates"].(map[string]interface{}); ok && (isImport || data.Coordinates != nil) {
 		data.Coordinates = &GCPVPCSiteCoordinatesModel{
 			Latitude: func() types.Int64 {
-				if !isImport && data.Coordinates != nil {
+				if !isImport && data.Coordinates != nil && !data.Coordinates.Latitude.IsUnknown() {
 					return data.Coordinates.Latitude
 				}
 				if v, ok := blockData["latitude"].(float64); ok && v != 0 {
@@ -11288,7 +11284,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return types.Int64Null()
 			}(),
 			Longitude: func() types.Int64 {
-				if !isImport && data.Coordinates != nil {
+				if !isImport && data.Coordinates != nil && !data.Coordinates.Longitude.IsUnknown() {
 					return data.Coordinates.Longitude
 				}
 				if v, ok := blockData["longitude"].(float64); ok && v != 0 {
@@ -11975,7 +11971,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			NodeNumber: func() types.Int64 {
-				if !isImport && data.IngressEgressGw != nil {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NodeNumber.IsUnknown() {
 					return data.IngressEgressGw.NodeNumber
 				}
 				if v, ok := blockData["node_number"].(float64); ok && v != 0 {
@@ -12425,7 +12421,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			NodeNumber: func() types.Int64 {
-				if !isImport && data.IngressGw != nil {
+				if !isImport && data.IngressGw != nil && !data.IngressGw.NodeNumber.IsUnknown() {
 					return data.IngressGw.NodeNumber
 				}
 				if v, ok := blockData["node_number"].(float64); ok && v != 0 {
@@ -13019,7 +13015,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			NodeNumber: func() types.Int64 {
-				if !isImport && data.VoltstackCluster != nil {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NodeNumber.IsUnknown() {
 					return data.VoltstackCluster.NodeNumber
 				}
 				if v, ok := blockData["node_number"].(float64); ok && v != 0 {

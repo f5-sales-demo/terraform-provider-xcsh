@@ -15,5 +15,5 @@ terraform {
 # Basic DcClusterGroup configuration
 resource "xcsh_dc_cluster_group" "example" {
   name      = "example-dc-cluster-group"
-  namespace = "system"
+  namespace = "staging"
 }

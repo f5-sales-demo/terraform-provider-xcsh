@@ -15,5 +15,5 @@ terraform {
 # Basic SiteMeshGroup configuration
 resource "xcsh_site_mesh_group" "example" {
   name      = "example-site-mesh-group"
-  namespace = "system"
+  namespace = "staging"
 }

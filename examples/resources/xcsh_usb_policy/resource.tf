@@ -15,5 +15,5 @@ terraform {
 # Basic UsbPolicy configuration
 resource "xcsh_usb_policy" "example" {
   name      = "example-usb-policy"
-  namespace = "system"
+  namespace = "staging"
 }

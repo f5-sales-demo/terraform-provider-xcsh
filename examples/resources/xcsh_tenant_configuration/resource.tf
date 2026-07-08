@@ -15,5 +15,5 @@ terraform {
 # Basic TenantConfiguration configuration
 resource "xcsh_tenant_configuration" "example" {
   name      = "example-tenant-configuration"
-  namespace = "system"
+  namespace = "staging"
 }

@@ -16,6 +16,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -625,13 +626,16 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the DNS Proxy will be created.",
-				Required:            true,
+				MarkdownDescription: "Namespace for the DNS Proxy. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
+				Optional:            true,
+				Computed:            true,
+				Default:             stringdefault.StaticString("system"),
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
+					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
@@ -2071,7 +2075,7 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 	if blockData, ok := apiResource.Spec["cache_profile"].(map[string]interface{}); ok && (isImport || data.CacheProfile != nil) {
 		data.CacheProfile = &DNSProxyCacheProfileModel{
 			CacheSize: func() types.Int64 {
-				if !isImport && data.CacheProfile != nil {
+				if !isImport && data.CacheProfile != nil && !data.CacheProfile.CacheSize.IsUnknown() {
 					return data.CacheProfile.CacheSize
 				}
 				if v, ok := blockData["cache_size"].(float64); ok && v != 0 {
@@ -2986,7 +2990,7 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 	if blockData, ok := apiResource.Spec["cache_profile"].(map[string]interface{}); ok && (isImport || data.CacheProfile != nil) {
 		data.CacheProfile = &DNSProxyCacheProfileModel{
 			CacheSize: func() types.Int64 {
-				if !isImport && data.CacheProfile != nil {
+				if !isImport && data.CacheProfile != nil && !data.CacheProfile.CacheSize.IsUnknown() {
 					return data.CacheProfile.CacheSize
 				}
 				if v, ok := blockData["cache_size"].(float64); ok && v != 0 {
@@ -4353,7 +4357,7 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 	if blockData, ok := apiResource.Spec["cache_profile"].(map[string]interface{}); ok && (isImport || data.CacheProfile != nil) {
 		data.CacheProfile = &DNSProxyCacheProfileModel{
 			CacheSize: func() types.Int64 {
-				if !isImport && data.CacheProfile != nil {
+				if !isImport && data.CacheProfile != nil && !data.CacheProfile.CacheSize.IsUnknown() {
 					return data.CacheProfile.CacheSize
 				}
 				if v, ok := blockData["cache_size"].(float64); ok && v != 0 {

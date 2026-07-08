@@ -15,7 +15,7 @@ terraform {
 # Basic DNSProxy configuration
 resource "xcsh_dns_proxy" "example" {
   name      = "example-dns-proxy"
-  namespace = "staging"
+  namespace = "system"
 
   transport_type = "UDP"
 }

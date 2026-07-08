@@ -4426,7 +4426,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	if blockData, ok := apiResource.Spec["buffer_policy"].(map[string]interface{}); ok && (isImport || data.BufferPolicy != nil) {
 		data.BufferPolicy = &VirtualHostBufferPolicyModel{
 			Disabled: func() types.Bool {
-				if !isImport && data.BufferPolicy != nil {
+				if !isImport && data.BufferPolicy != nil && !data.BufferPolicy.Disabled.IsUnknown() {
 					return data.BufferPolicy.Disabled
 				}
 				if v, ok := blockData["disabled"].(bool); ok {
@@ -4435,7 +4435,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				return types.BoolNull()
 			}(),
 			MaxRequestBytes: func() types.Int64 {
-				if !isImport && data.BufferPolicy != nil {
+				if !isImport && data.BufferPolicy != nil && !data.BufferPolicy.MaxRequestBytes.IsUnknown() {
 					return data.BufferPolicy.MaxRequestBytes
 				}
 				if v, ok := blockData["max_request_bytes"].(float64); ok && v != 0 {
@@ -4448,7 +4448,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	if blockData, ok := apiResource.Spec["captcha_challenge"].(map[string]interface{}); ok && (isImport || data.CaptchaChallenge != nil) {
 		data.CaptchaChallenge = &VirtualHostCaptchaChallengeModel{
 			CookieExpiry: func() types.Int64 {
-				if !isImport && data.CaptchaChallenge != nil {
+				if !isImport && data.CaptchaChallenge != nil && !data.CaptchaChallenge.CookieExpiry.IsUnknown() {
 					return data.CaptchaChallenge.CookieExpiry
 				}
 				if v, ok := blockData["cookie_expiry"].(float64); ok && v != 0 {
@@ -4489,7 +4489,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	if blockData, ok := apiResource.Spec["compression_params"].(map[string]interface{}); ok && (isImport || data.CompressionParams != nil) {
 		data.CompressionParams = &VirtualHostCompressionParamsModel{
 			ContentLength: func() types.Int64 {
-				if !isImport && data.CompressionParams != nil {
+				if !isImport && data.CompressionParams != nil && !data.CompressionParams.ContentLength.IsUnknown() {
 					return data.CompressionParams.ContentLength
 				}
 				if v, ok := blockData["content_length"].(float64); ok && v != 0 {
@@ -4511,7 +4511,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				return types.ListNull(types.StringType)
 			}(),
 			DisableOnEtagHeader: func() types.Bool {
-				if !isImport && data.CompressionParams != nil {
+				if !isImport && data.CompressionParams != nil && !data.CompressionParams.DisableOnEtagHeader.IsUnknown() {
 					return data.CompressionParams.DisableOnEtagHeader
 				}
 				if v, ok := blockData["disable_on_etag_header"].(bool); ok {
@@ -4520,7 +4520,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				return types.BoolNull()
 			}(),
 			RemoveAcceptEncodingHeader: func() types.Bool {
-				if !isImport && data.CompressionParams != nil {
+				if !isImport && data.CompressionParams != nil && !data.CompressionParams.RemoveAcceptEncodingHeader.IsUnknown() {
 					return data.CompressionParams.RemoveAcceptEncodingHeader
 				}
 				if v, ok := blockData["remove_accept_encoding_header"].(bool); ok {
@@ -4533,7 +4533,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	if blockData, ok := apiResource.Spec["cors_policy"].(map[string]interface{}); ok && (isImport || data.CORSPolicy != nil) {
 		data.CORSPolicy = &VirtualHostCORSPolicyModel{
 			AllowCredentials: func() types.Bool {
-				if !isImport && data.CORSPolicy != nil {
+				if !isImport && data.CORSPolicy != nil && !data.CORSPolicy.AllowCredentials.IsUnknown() {
 					return data.CORSPolicy.AllowCredentials
 				}
 				if v, ok := blockData["allow_credentials"].(bool); ok {
@@ -4580,7 +4580,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				return types.ListNull(types.StringType)
 			}(),
 			Disabled: func() types.Bool {
-				if !isImport && data.CORSPolicy != nil {
+				if !isImport && data.CORSPolicy != nil && !data.CORSPolicy.Disabled.IsUnknown() {
 					return data.CORSPolicy.Disabled
 				}
 				if v, ok := blockData["disabled"].(bool); ok {
@@ -4595,7 +4595,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				return types.StringNull()
 			}(),
 			MaximumAge: func() types.Int64 {
-				if !isImport && data.CORSPolicy != nil {
+				if !isImport && data.CORSPolicy != nil && !data.CORSPolicy.MaximumAge.IsUnknown() {
 					return data.CORSPolicy.MaximumAge
 				}
 				if v, ok := blockData["maximum_age"].(float64); ok && v != 0 {
@@ -4680,7 +4680,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	if blockData, ok := apiResource.Spec["dynamic_reverse_proxy"].(map[string]interface{}); ok && (isImport || data.DynamicReverseProxy != nil) {
 		data.DynamicReverseProxy = &VirtualHostDynamicReverseProxyModel{
 			ConnectionTimeout: func() types.Int64 {
-				if !isImport && data.DynamicReverseProxy != nil {
+				if !isImport && data.DynamicReverseProxy != nil && !data.DynamicReverseProxy.ConnectionTimeout.IsUnknown() {
 					return data.DynamicReverseProxy.ConnectionTimeout
 				}
 				if v, ok := blockData["connection_timeout"].(float64); ok && v != 0 {
@@ -4742,7 +4742,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				return types.StringNull()
 			}(),
 			ResolveEndpointDynamically: func() types.Bool {
-				if !isImport && data.DynamicReverseProxy != nil {
+				if !isImport && data.DynamicReverseProxy != nil && !data.DynamicReverseProxy.ResolveEndpointDynamically.IsUnknown() {
 					return data.DynamicReverseProxy.ResolveEndpointDynamically
 				}
 				if v, ok := blockData["resolve_endpoint_dynamically"].(bool); ok {
@@ -4821,7 +4821,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	if blockData, ok := apiResource.Spec["js_challenge"].(map[string]interface{}); ok && (isImport || data.JsChallenge != nil) {
 		data.JsChallenge = &VirtualHostJsChallengeModel{
 			CookieExpiry: func() types.Int64 {
-				if !isImport && data.JsChallenge != nil {
+				if !isImport && data.JsChallenge != nil && !data.JsChallenge.CookieExpiry.IsUnknown() {
 					return data.JsChallenge.CookieExpiry
 				}
 				if v, ok := blockData["cookie_expiry"].(float64); ok && v != 0 {
@@ -4836,7 +4836,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				return types.StringNull()
 			}(),
 			JsScriptDelay: func() types.Int64 {
-				if !isImport && data.JsChallenge != nil {
+				if !isImport && data.JsChallenge != nil && !data.JsChallenge.JsScriptDelay.IsUnknown() {
 					return data.JsChallenge.JsScriptDelay
 				}
 				if v, ok := blockData["js_script_delay"].(float64); ok && v != 0 {
@@ -5526,7 +5526,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				return nil
 			}(),
 			NumRetries: func() types.Int64 {
-				if !isImport && data.RetryPolicy != nil {
+				if !isImport && data.RetryPolicy != nil && !data.RetryPolicy.NumRetries.IsUnknown() {
 					return data.RetryPolicy.NumRetries
 				}
 				if v, ok := blockData["num_retries"].(float64); ok && v != 0 {
@@ -5535,7 +5535,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				return types.Int64Null()
 			}(),
 			PerTryTimeout: func() types.Int64 {
-				if !isImport && data.RetryPolicy != nil {
+				if !isImport && data.RetryPolicy != nil && !data.RetryPolicy.PerTryTimeout.IsUnknown() {
 					return data.RetryPolicy.PerTryTimeout
 				}
 				if v, ok := blockData["per_try_timeout"].(float64); ok && v != 0 {
@@ -5689,7 +5689,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				return nil
 			}(),
 			RequestHeadersTimeout: func() types.Int64 {
-				if !isImport && data.SlowDDOSMitigation != nil {
+				if !isImport && data.SlowDDOSMitigation != nil && !data.SlowDDOSMitigation.RequestHeadersTimeout.IsUnknown() {
 					return data.SlowDDOSMitigation.RequestHeadersTimeout
 				}
 				if v, ok := blockData["request_headers_timeout"].(float64); ok && v != 0 {
@@ -5698,7 +5698,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				return types.Int64Null()
 			}(),
 			RequestTimeout: func() types.Int64 {
-				if !isImport && data.SlowDDOSMitigation != nil {
+				if !isImport && data.SlowDDOSMitigation != nil && !data.SlowDDOSMitigation.RequestTimeout.IsUnknown() {
 					return data.SlowDDOSMitigation.RequestTimeout
 				}
 				if v, ok := blockData["request_timeout"].(float64); ok && v != 0 {
@@ -6725,7 +6725,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 	if blockData, ok := apiResource.Spec["buffer_policy"].(map[string]interface{}); ok && (isImport || data.BufferPolicy != nil) {
 		data.BufferPolicy = &VirtualHostBufferPolicyModel{
 			Disabled: func() types.Bool {
-				if !isImport && data.BufferPolicy != nil {
+				if !isImport && data.BufferPolicy != nil && !data.BufferPolicy.Disabled.IsUnknown() {
 					return data.BufferPolicy.Disabled
 				}
 				if v, ok := blockData["disabled"].(bool); ok {
@@ -6734,7 +6734,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				return types.BoolNull()
 			}(),
 			MaxRequestBytes: func() types.Int64 {
-				if !isImport && data.BufferPolicy != nil {
+				if !isImport && data.BufferPolicy != nil && !data.BufferPolicy.MaxRequestBytes.IsUnknown() {
 					return data.BufferPolicy.MaxRequestBytes
 				}
 				if v, ok := blockData["max_request_bytes"].(float64); ok && v != 0 {
@@ -6747,7 +6747,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 	if blockData, ok := apiResource.Spec["captcha_challenge"].(map[string]interface{}); ok && (isImport || data.CaptchaChallenge != nil) {
 		data.CaptchaChallenge = &VirtualHostCaptchaChallengeModel{
 			CookieExpiry: func() types.Int64 {
-				if !isImport && data.CaptchaChallenge != nil {
+				if !isImport && data.CaptchaChallenge != nil && !data.CaptchaChallenge.CookieExpiry.IsUnknown() {
 					return data.CaptchaChallenge.CookieExpiry
 				}
 				if v, ok := blockData["cookie_expiry"].(float64); ok && v != 0 {
@@ -6788,7 +6788,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 	if blockData, ok := apiResource.Spec["compression_params"].(map[string]interface{}); ok && (isImport || data.CompressionParams != nil) {
 		data.CompressionParams = &VirtualHostCompressionParamsModel{
 			ContentLength: func() types.Int64 {
-				if !isImport && data.CompressionParams != nil {
+				if !isImport && data.CompressionParams != nil && !data.CompressionParams.ContentLength.IsUnknown() {
 					return data.CompressionParams.ContentLength
 				}
 				if v, ok := blockData["content_length"].(float64); ok && v != 0 {
@@ -6810,7 +6810,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				return types.ListNull(types.StringType)
 			}(),
 			DisableOnEtagHeader: func() types.Bool {
-				if !isImport && data.CompressionParams != nil {
+				if !isImport && data.CompressionParams != nil && !data.CompressionParams.DisableOnEtagHeader.IsUnknown() {
 					return data.CompressionParams.DisableOnEtagHeader
 				}
 				if v, ok := blockData["disable_on_etag_header"].(bool); ok {
@@ -6819,7 +6819,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				return types.BoolNull()
 			}(),
 			RemoveAcceptEncodingHeader: func() types.Bool {
-				if !isImport && data.CompressionParams != nil {
+				if !isImport && data.CompressionParams != nil && !data.CompressionParams.RemoveAcceptEncodingHeader.IsUnknown() {
 					return data.CompressionParams.RemoveAcceptEncodingHeader
 				}
 				if v, ok := blockData["remove_accept_encoding_header"].(bool); ok {
@@ -6832,7 +6832,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 	if blockData, ok := apiResource.Spec["cors_policy"].(map[string]interface{}); ok && (isImport || data.CORSPolicy != nil) {
 		data.CORSPolicy = &VirtualHostCORSPolicyModel{
 			AllowCredentials: func() types.Bool {
-				if !isImport && data.CORSPolicy != nil {
+				if !isImport && data.CORSPolicy != nil && !data.CORSPolicy.AllowCredentials.IsUnknown() {
 					return data.CORSPolicy.AllowCredentials
 				}
 				if v, ok := blockData["allow_credentials"].(bool); ok {
@@ -6879,7 +6879,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				return types.ListNull(types.StringType)
 			}(),
 			Disabled: func() types.Bool {
-				if !isImport && data.CORSPolicy != nil {
+				if !isImport && data.CORSPolicy != nil && !data.CORSPolicy.Disabled.IsUnknown() {
 					return data.CORSPolicy.Disabled
 				}
 				if v, ok := blockData["disabled"].(bool); ok {
@@ -6894,7 +6894,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				return types.StringNull()
 			}(),
 			MaximumAge: func() types.Int64 {
-				if !isImport && data.CORSPolicy != nil {
+				if !isImport && data.CORSPolicy != nil && !data.CORSPolicy.MaximumAge.IsUnknown() {
 					return data.CORSPolicy.MaximumAge
 				}
 				if v, ok := blockData["maximum_age"].(float64); ok && v != 0 {
@@ -6979,7 +6979,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 	if blockData, ok := apiResource.Spec["dynamic_reverse_proxy"].(map[string]interface{}); ok && (isImport || data.DynamicReverseProxy != nil) {
 		data.DynamicReverseProxy = &VirtualHostDynamicReverseProxyModel{
 			ConnectionTimeout: func() types.Int64 {
-				if !isImport && data.DynamicReverseProxy != nil {
+				if !isImport && data.DynamicReverseProxy != nil && !data.DynamicReverseProxy.ConnectionTimeout.IsUnknown() {
 					return data.DynamicReverseProxy.ConnectionTimeout
 				}
 				if v, ok := blockData["connection_timeout"].(float64); ok && v != 0 {
@@ -7041,7 +7041,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				return types.StringNull()
 			}(),
 			ResolveEndpointDynamically: func() types.Bool {
-				if !isImport && data.DynamicReverseProxy != nil {
+				if !isImport && data.DynamicReverseProxy != nil && !data.DynamicReverseProxy.ResolveEndpointDynamically.IsUnknown() {
 					return data.DynamicReverseProxy.ResolveEndpointDynamically
 				}
 				if v, ok := blockData["resolve_endpoint_dynamically"].(bool); ok {
@@ -7120,7 +7120,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 	if blockData, ok := apiResource.Spec["js_challenge"].(map[string]interface{}); ok && (isImport || data.JsChallenge != nil) {
 		data.JsChallenge = &VirtualHostJsChallengeModel{
 			CookieExpiry: func() types.Int64 {
-				if !isImport && data.JsChallenge != nil {
+				if !isImport && data.JsChallenge != nil && !data.JsChallenge.CookieExpiry.IsUnknown() {
 					return data.JsChallenge.CookieExpiry
 				}
 				if v, ok := blockData["cookie_expiry"].(float64); ok && v != 0 {
@@ -7135,7 +7135,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				return types.StringNull()
 			}(),
 			JsScriptDelay: func() types.Int64 {
-				if !isImport && data.JsChallenge != nil {
+				if !isImport && data.JsChallenge != nil && !data.JsChallenge.JsScriptDelay.IsUnknown() {
 					return data.JsChallenge.JsScriptDelay
 				}
 				if v, ok := blockData["js_script_delay"].(float64); ok && v != 0 {
@@ -7825,7 +7825,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				return nil
 			}(),
 			NumRetries: func() types.Int64 {
-				if !isImport && data.RetryPolicy != nil {
+				if !isImport && data.RetryPolicy != nil && !data.RetryPolicy.NumRetries.IsUnknown() {
 					return data.RetryPolicy.NumRetries
 				}
 				if v, ok := blockData["num_retries"].(float64); ok && v != 0 {
@@ -7834,7 +7834,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				return types.Int64Null()
 			}(),
 			PerTryTimeout: func() types.Int64 {
-				if !isImport && data.RetryPolicy != nil {
+				if !isImport && data.RetryPolicy != nil && !data.RetryPolicy.PerTryTimeout.IsUnknown() {
 					return data.RetryPolicy.PerTryTimeout
 				}
 				if v, ok := blockData["per_try_timeout"].(float64); ok && v != 0 {
@@ -7988,7 +7988,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				return nil
 			}(),
 			RequestHeadersTimeout: func() types.Int64 {
-				if !isImport && data.SlowDDOSMitigation != nil {
+				if !isImport && data.SlowDDOSMitigation != nil && !data.SlowDDOSMitigation.RequestHeadersTimeout.IsUnknown() {
 					return data.SlowDDOSMitigation.RequestHeadersTimeout
 				}
 				if v, ok := blockData["request_headers_timeout"].(float64); ok && v != 0 {
@@ -7997,7 +7997,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				return types.Int64Null()
 			}(),
 			RequestTimeout: func() types.Int64 {
-				if !isImport && data.SlowDDOSMitigation != nil {
+				if !isImport && data.SlowDDOSMitigation != nil && !data.SlowDDOSMitigation.RequestTimeout.IsUnknown() {
 					return data.SlowDDOSMitigation.RequestTimeout
 				}
 				if v, ok := blockData["request_timeout"].(float64); ok && v != 0 {
@@ -10191,7 +10191,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	if blockData, ok := apiResource.Spec["buffer_policy"].(map[string]interface{}); ok && (isImport || data.BufferPolicy != nil) {
 		data.BufferPolicy = &VirtualHostBufferPolicyModel{
 			Disabled: func() types.Bool {
-				if !isImport && data.BufferPolicy != nil {
+				if !isImport && data.BufferPolicy != nil && !data.BufferPolicy.Disabled.IsUnknown() {
 					return data.BufferPolicy.Disabled
 				}
 				if v, ok := blockData["disabled"].(bool); ok {
@@ -10200,7 +10200,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				return types.BoolNull()
 			}(),
 			MaxRequestBytes: func() types.Int64 {
-				if !isImport && data.BufferPolicy != nil {
+				if !isImport && data.BufferPolicy != nil && !data.BufferPolicy.MaxRequestBytes.IsUnknown() {
 					return data.BufferPolicy.MaxRequestBytes
 				}
 				if v, ok := blockData["max_request_bytes"].(float64); ok && v != 0 {
@@ -10213,7 +10213,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	if blockData, ok := apiResource.Spec["captcha_challenge"].(map[string]interface{}); ok && (isImport || data.CaptchaChallenge != nil) {
 		data.CaptchaChallenge = &VirtualHostCaptchaChallengeModel{
 			CookieExpiry: func() types.Int64 {
-				if !isImport && data.CaptchaChallenge != nil {
+				if !isImport && data.CaptchaChallenge != nil && !data.CaptchaChallenge.CookieExpiry.IsUnknown() {
 					return data.CaptchaChallenge.CookieExpiry
 				}
 				if v, ok := blockData["cookie_expiry"].(float64); ok && v != 0 {
@@ -10254,7 +10254,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	if blockData, ok := apiResource.Spec["compression_params"].(map[string]interface{}); ok && (isImport || data.CompressionParams != nil) {
 		data.CompressionParams = &VirtualHostCompressionParamsModel{
 			ContentLength: func() types.Int64 {
-				if !isImport && data.CompressionParams != nil {
+				if !isImport && data.CompressionParams != nil && !data.CompressionParams.ContentLength.IsUnknown() {
 					return data.CompressionParams.ContentLength
 				}
 				if v, ok := blockData["content_length"].(float64); ok && v != 0 {
@@ -10276,7 +10276,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				return types.ListNull(types.StringType)
 			}(),
 			DisableOnEtagHeader: func() types.Bool {
-				if !isImport && data.CompressionParams != nil {
+				if !isImport && data.CompressionParams != nil && !data.CompressionParams.DisableOnEtagHeader.IsUnknown() {
 					return data.CompressionParams.DisableOnEtagHeader
 				}
 				if v, ok := blockData["disable_on_etag_header"].(bool); ok {
@@ -10285,7 +10285,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				return types.BoolNull()
 			}(),
 			RemoveAcceptEncodingHeader: func() types.Bool {
-				if !isImport && data.CompressionParams != nil {
+				if !isImport && data.CompressionParams != nil && !data.CompressionParams.RemoveAcceptEncodingHeader.IsUnknown() {
 					return data.CompressionParams.RemoveAcceptEncodingHeader
 				}
 				if v, ok := blockData["remove_accept_encoding_header"].(bool); ok {
@@ -10298,7 +10298,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	if blockData, ok := apiResource.Spec["cors_policy"].(map[string]interface{}); ok && (isImport || data.CORSPolicy != nil) {
 		data.CORSPolicy = &VirtualHostCORSPolicyModel{
 			AllowCredentials: func() types.Bool {
-				if !isImport && data.CORSPolicy != nil {
+				if !isImport && data.CORSPolicy != nil && !data.CORSPolicy.AllowCredentials.IsUnknown() {
 					return data.CORSPolicy.AllowCredentials
 				}
 				if v, ok := blockData["allow_credentials"].(bool); ok {
@@ -10345,7 +10345,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				return types.ListNull(types.StringType)
 			}(),
 			Disabled: func() types.Bool {
-				if !isImport && data.CORSPolicy != nil {
+				if !isImport && data.CORSPolicy != nil && !data.CORSPolicy.Disabled.IsUnknown() {
 					return data.CORSPolicy.Disabled
 				}
 				if v, ok := blockData["disabled"].(bool); ok {
@@ -10360,7 +10360,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				return types.StringNull()
 			}(),
 			MaximumAge: func() types.Int64 {
-				if !isImport && data.CORSPolicy != nil {
+				if !isImport && data.CORSPolicy != nil && !data.CORSPolicy.MaximumAge.IsUnknown() {
 					return data.CORSPolicy.MaximumAge
 				}
 				if v, ok := blockData["maximum_age"].(float64); ok && v != 0 {
@@ -10445,7 +10445,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	if blockData, ok := apiResource.Spec["dynamic_reverse_proxy"].(map[string]interface{}); ok && (isImport || data.DynamicReverseProxy != nil) {
 		data.DynamicReverseProxy = &VirtualHostDynamicReverseProxyModel{
 			ConnectionTimeout: func() types.Int64 {
-				if !isImport && data.DynamicReverseProxy != nil {
+				if !isImport && data.DynamicReverseProxy != nil && !data.DynamicReverseProxy.ConnectionTimeout.IsUnknown() {
 					return data.DynamicReverseProxy.ConnectionTimeout
 				}
 				if v, ok := blockData["connection_timeout"].(float64); ok && v != 0 {
@@ -10507,7 +10507,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				return types.StringNull()
 			}(),
 			ResolveEndpointDynamically: func() types.Bool {
-				if !isImport && data.DynamicReverseProxy != nil {
+				if !isImport && data.DynamicReverseProxy != nil && !data.DynamicReverseProxy.ResolveEndpointDynamically.IsUnknown() {
 					return data.DynamicReverseProxy.ResolveEndpointDynamically
 				}
 				if v, ok := blockData["resolve_endpoint_dynamically"].(bool); ok {
@@ -10586,7 +10586,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	if blockData, ok := apiResource.Spec["js_challenge"].(map[string]interface{}); ok && (isImport || data.JsChallenge != nil) {
 		data.JsChallenge = &VirtualHostJsChallengeModel{
 			CookieExpiry: func() types.Int64 {
-				if !isImport && data.JsChallenge != nil {
+				if !isImport && data.JsChallenge != nil && !data.JsChallenge.CookieExpiry.IsUnknown() {
 					return data.JsChallenge.CookieExpiry
 				}
 				if v, ok := blockData["cookie_expiry"].(float64); ok && v != 0 {
@@ -10601,7 +10601,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				return types.StringNull()
 			}(),
 			JsScriptDelay: func() types.Int64 {
-				if !isImport && data.JsChallenge != nil {
+				if !isImport && data.JsChallenge != nil && !data.JsChallenge.JsScriptDelay.IsUnknown() {
 					return data.JsChallenge.JsScriptDelay
 				}
 				if v, ok := blockData["js_script_delay"].(float64); ok && v != 0 {
@@ -11291,7 +11291,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				return nil
 			}(),
 			NumRetries: func() types.Int64 {
-				if !isImport && data.RetryPolicy != nil {
+				if !isImport && data.RetryPolicy != nil && !data.RetryPolicy.NumRetries.IsUnknown() {
 					return data.RetryPolicy.NumRetries
 				}
 				if v, ok := blockData["num_retries"].(float64); ok && v != 0 {
@@ -11300,7 +11300,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				return types.Int64Null()
 			}(),
 			PerTryTimeout: func() types.Int64 {
-				if !isImport && data.RetryPolicy != nil {
+				if !isImport && data.RetryPolicy != nil && !data.RetryPolicy.PerTryTimeout.IsUnknown() {
 					return data.RetryPolicy.PerTryTimeout
 				}
 				if v, ok := blockData["per_try_timeout"].(float64); ok && v != 0 {
@@ -11454,7 +11454,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				return nil
 			}(),
 			RequestHeadersTimeout: func() types.Int64 {
-				if !isImport && data.SlowDDOSMitigation != nil {
+				if !isImport && data.SlowDDOSMitigation != nil && !data.SlowDDOSMitigation.RequestHeadersTimeout.IsUnknown() {
 					return data.SlowDDOSMitigation.RequestHeadersTimeout
 				}
 				if v, ok := blockData["request_headers_timeout"].(float64); ok && v != 0 {
@@ -11463,7 +11463,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				return types.Int64Null()
 			}(),
 			RequestTimeout: func() types.Int64 {
-				if !isImport && data.SlowDDOSMitigation != nil {
+				if !isImport && data.SlowDDOSMitigation != nil && !data.SlowDDOSMitigation.RequestTimeout.IsUnknown() {
 					return data.SlowDDOSMitigation.RequestTimeout
 				}
 				if v, ok := blockData["request_timeout"].(float64); ok && v != 0 {

@@ -15,7 +15,7 @@ Protocol Inspection Specification in a given namespace. If one already exists it
 ```terraform
 resource "xcsh_protocol_inspection" "example" {
   name      = "example-protocol-inspection"
-  namespace = "system"
+  namespace = "staging"
 }
 ```
 
