@@ -321,6 +321,41 @@ func TestRenderUnmarshalScalarChild_PreserveGuardsUnknown(t *testing.T) {
 	}
 }
 
+// Server-default oneof empty-marker members must not be populated from the API
+// response on import (they cause spurious post-import drift). The flatten must
+// guard the response-populate with !isImport for suppressed members, and leave
+// non-suppressed members (user-intent markers) untouched.
+func TestRenderUnmarshalSingleChild_ImportSuppressesServerDefault(t *testing.T) {
+	mk := func(go_, tfsdk string) openapi.TerraformAttribute {
+		return openapi.TerraformAttribute{GoName: go_, TfsdkTag: tfsdk, JsonName: tfsdk, IsBlock: true, NestedBlockType: "single"}
+	}
+
+	// Suppressed default marker (disable_waf) -> guarded by !isImport.
+	var sb strings.Builder
+	renderUnmarshalSingleChild(&sb, "HTTPLoadBalancer", "", mk("DisableWaf", "disable_waf"), "apiResource.Spec", "data", "true", "single", "\t")
+	got := sb.String()
+	if !strings.Contains(got, "if !isImport {") {
+		t.Errorf("suppressed member disable_waf must guard response-populate with !isImport; got:\n%s", got)
+	}
+
+	// Non-suppressed user-intent marker (advertise_on_public_default_vip) -> no import guard on the populate.
+	var sb2 strings.Builder
+	renderUnmarshalSingleChild(&sb2, "HTTPLoadBalancer", "", mk("AdvertiseOnPublicDefaultVip", "advertise_on_public_default_vip"), "apiResource.Spec", "data", "true", "single", "\t")
+	got2 := sb2.String()
+	// The only !isImport in a non-suppressed member is the preserve branch, not a wrapper
+	// around the response-populate. Assert the populate line is not nested under an extra guard.
+	if strings.Count(got2, "if !isImport {") != 0 {
+		t.Errorf("non-suppressed member must not add an import-suppression guard; got:\n%s", got2)
+	}
+
+	if !isImportDefaultSuppressed("HTTPLoadBalancer", "round_robin") {
+		t.Error("round_robin should be a suppressed server default for HTTPLoadBalancer")
+	}
+	if isImportDefaultSuppressed("HTTPLoadBalancer", "advertise_on_public_default_vip") {
+		t.Error("advertise_on_public_default_vip is user intent and must NOT be suppressed")
+	}
+}
+
 func TestBlockHasComputedDescendant(t *testing.T) {
 	tests := []struct {
 		name string

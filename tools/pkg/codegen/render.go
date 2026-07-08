@@ -518,9 +518,16 @@ func renderUnmarshalTopLevelSingle(sb *strings.Builder, rc string, attr openapi.
 	childPath := naming.ToResourceTypeName(attr.TfsdkTag)
 
 	if len(attr.NestedAttributes) == 0 {
-		sb.WriteString(fmt.Sprintf("%sif _, ok := apiResource.Spec[\"%s\"].(map[string]interface{}); ok && isImport && data.%s == nil {\n", indent, jsonName, fieldName))
-		sb.WriteString(fmt.Sprintf("%s\tdata.%s = &%sEmptyModel{}\n", indent, fieldName, rc))
-		sb.WriteString(fmt.Sprintf("%s}\n", indent))
+		// Skip populating server-default oneof empty markers on import: with no
+		// prior config to preserve, importing them causes spurious post-import
+		// drift. Omitting a default member = the server re-applies the same
+		// default, so behavior is unchanged. Non-default/user-intent markers still
+		// import normally.
+		if !isImportDefaultSuppressed(rc, jsonName) {
+			sb.WriteString(fmt.Sprintf("%sif _, ok := apiResource.Spec[\"%s\"].(map[string]interface{}); ok && isImport && data.%s == nil {\n", indent, jsonName, fieldName))
+			sb.WriteString(fmt.Sprintf("%s\tdata.%s = &%sEmptyModel{}\n", indent, fieldName, rc))
+			sb.WriteString(fmt.Sprintf("%s}\n", indent))
+		}
 		return
 	}
 
@@ -650,9 +657,23 @@ func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr 
 				sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
 			}
 		}
-		sb.WriteString(fmt.Sprintf("%s\tif _, ok := %s[\"%s\"].(map[string]interface{}); ok {\n", indent, srcMap, jsonName))
-		sb.WriteString(fmt.Sprintf("%s\t\treturn &%sEmptyModel{}\n", indent, rc))
-		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
+		// Server-default oneof members must NOT be populated from the API
+		// response on import: there is no prior config to preserve, so importing
+		// them causes spurious "was absent, now present" drift on the next plan.
+		// Guard the response-populate with !isImport for those members; omitting a
+		// default member means the server re-applies the same default (safe).
+		suppress := isImportDefaultSuppressed(rc, jsonName)
+		popIndent := indent
+		if suppress {
+			sb.WriteString(fmt.Sprintf("%s\tif !isImport {\n", indent))
+			popIndent = indent + "\t"
+		}
+		sb.WriteString(fmt.Sprintf("%s\tif _, ok := %s[\"%s\"].(map[string]interface{}); ok {\n", popIndent, srcMap, jsonName))
+		sb.WriteString(fmt.Sprintf("%s\t\treturn &%sEmptyModel{}\n", popIndent, rc))
+		sb.WriteString(fmt.Sprintf("%s\t}\n", popIndent))
+		if suppress {
+			sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
+		}
 		sb.WriteString(fmt.Sprintf("%s\treturn nil\n", indent))
 		sb.WriteString(fmt.Sprintf("%s}(),\n", indent))
 		return
