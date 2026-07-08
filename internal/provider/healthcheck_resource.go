@@ -523,8 +523,10 @@ func (r *HealthcheckResource) Create(ctx context.Context, req resource.CreateReq
 				if !isImport && data.HTTPHealthCheck != nil {
 					return data.HTTPHealthCheck.Headers
 				}
-				if _, ok := blockData["headers"].(map[string]interface{}); ok {
-					return &HealthcheckEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["headers"].(map[string]interface{}); ok {
+						return &HealthcheckEmptyModel{}
+					}
 				}
 				return nil
 			}(),
@@ -722,8 +724,10 @@ func (r *HealthcheckResource) Read(ctx context.Context, req resource.ReadRequest
 				if !isImport && data.HTTPHealthCheck != nil {
 					return data.HTTPHealthCheck.Headers
 				}
-				if _, ok := blockData["headers"].(map[string]interface{}); ok {
-					return &HealthcheckEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["headers"].(map[string]interface{}); ok {
+						return &HealthcheckEmptyModel{}
+					}
 				}
 				return nil
 			}(),
@@ -995,8 +999,10 @@ func (r *HealthcheckResource) Update(ctx context.Context, req resource.UpdateReq
 				if !isImport && data.HTTPHealthCheck != nil {
 					return data.HTTPHealthCheck.Headers
 				}
-				if _, ok := blockData["headers"].(map[string]interface{}); ok {
-					return &HealthcheckEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["headers"].(map[string]interface{}); ok {
+						return &HealthcheckEmptyModel{}
+					}
 				}
 				return nil
 			}(),
