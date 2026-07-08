@@ -20,6 +20,11 @@ package codegen
 // staging tenant; see tracking issue #1006 for auto-populating this from the
 // discover-defaults pipeline across all resources.
 var importDefaultSuppressions = map[string]map[string]bool{
+	// Healthcheck: http_health_check.headers is a server-default empty marker
+	// (verified via live API — returned as {} for a minimal health check).
+	"Healthcheck": {
+		"headers": true,
+	},
 	"HTTPLoadBalancer": {
 		"default_sensitive_data_policy":    true,
 		"disable_api_definition":           true,
