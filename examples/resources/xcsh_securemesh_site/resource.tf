@@ -15,7 +15,7 @@ terraform {
 # Basic SecuremeshSite configuration
 resource "xcsh_securemesh_site" "example" {
   name      = "example-securemesh-site"
-  namespace = "system"
+  namespace = "staging"
 
   volterra_certified_hw = "example-value"
   worker_nodes          = ["example-value"]

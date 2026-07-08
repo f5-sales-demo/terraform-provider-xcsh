@@ -16,7 +16,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
-	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -541,16 +540,13 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace for the Network Interface. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
-				Optional:            true,
-				Computed:            true,
-				Default:             stringdefault.StaticString("system"),
+				MarkdownDescription: "Namespace where the Network Interface will be created.",
+				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
-					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
@@ -1700,7 +1696,7 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 				return nil
 			}(),
 			MTU: func() types.Int64 {
-				if !isImport && data.DedicatedInterface != nil {
+				if !isImport && data.DedicatedInterface != nil && !data.DedicatedInterface.MTU.IsUnknown() {
 					return data.DedicatedInterface.MTU
 				}
 				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
@@ -1724,7 +1720,7 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 				return nil
 			}(),
 			Priority: func() types.Int64 {
-				if !isImport && data.DedicatedInterface != nil {
+				if !isImport && data.DedicatedInterface != nil && !data.DedicatedInterface.Priority.IsUnknown() {
 					return data.DedicatedInterface.Priority
 				}
 				if v, ok := blockData["priority"].(float64); ok && v != 0 {
@@ -1752,7 +1748,7 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 				return types.StringNull()
 			}(),
 			MTU: func() types.Int64 {
-				if !isImport && data.DedicatedManagementInterface != nil {
+				if !isImport && data.DedicatedManagementInterface != nil && !data.DedicatedManagementInterface.MTU.IsUnknown() {
 					return data.DedicatedManagementInterface.MTU
 				}
 				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
@@ -2112,7 +2108,7 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 				return nil
 			}(),
 			MTU: func() types.Int64 {
-				if !isImport && data.EthernetInterface != nil {
+				if !isImport && data.EthernetInterface != nil && !data.EthernetInterface.MTU.IsUnknown() {
 					return data.EthernetInterface.MTU
 				}
 				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
@@ -2145,7 +2141,7 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 				return nil
 			}(),
 			Priority: func() types.Int64 {
-				if !isImport && data.EthernetInterface != nil {
+				if !isImport && data.EthernetInterface != nil && !data.EthernetInterface.Priority.IsUnknown() {
 					return data.EthernetInterface.Priority
 				}
 				if v, ok := blockData["priority"].(float64); ok && v != 0 {
@@ -2274,7 +2270,7 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 				return nil
 			}(),
 			VLANID: func() types.Int64 {
-				if !isImport && data.EthernetInterface != nil {
+				if !isImport && data.EthernetInterface != nil && !data.EthernetInterface.VLANID.IsUnknown() {
 					return data.EthernetInterface.VLANID
 				}
 				if v, ok := blockData["vlan_id"].(float64); ok && v != 0 {
@@ -2357,7 +2353,7 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["tunnel_interface"].(map[string]interface{}); ok && (isImport || data.TunnelInterface != nil) {
 		data.TunnelInterface = &NetworkInterfaceTunnelInterfaceModel{
 			MTU: func() types.Int64 {
-				if !isImport && data.TunnelInterface != nil {
+				if !isImport && data.TunnelInterface != nil && !data.TunnelInterface.MTU.IsUnknown() {
 					return data.TunnelInterface.MTU
 				}
 				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
@@ -2372,7 +2368,7 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 				return types.StringNull()
 			}(),
 			Priority: func() types.Int64 {
-				if !isImport && data.TunnelInterface != nil {
+				if !isImport && data.TunnelInterface != nil && !data.TunnelInterface.Priority.IsUnknown() {
 					return data.TunnelInterface.Priority
 				}
 				if v, ok := blockData["priority"].(float64); ok && v != 0 {
@@ -2595,7 +2591,7 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 				return nil
 			}(),
 			MTU: func() types.Int64 {
-				if !isImport && data.DedicatedInterface != nil {
+				if !isImport && data.DedicatedInterface != nil && !data.DedicatedInterface.MTU.IsUnknown() {
 					return data.DedicatedInterface.MTU
 				}
 				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
@@ -2619,7 +2615,7 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 				return nil
 			}(),
 			Priority: func() types.Int64 {
-				if !isImport && data.DedicatedInterface != nil {
+				if !isImport && data.DedicatedInterface != nil && !data.DedicatedInterface.Priority.IsUnknown() {
 					return data.DedicatedInterface.Priority
 				}
 				if v, ok := blockData["priority"].(float64); ok && v != 0 {
@@ -2647,7 +2643,7 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 				return types.StringNull()
 			}(),
 			MTU: func() types.Int64 {
-				if !isImport && data.DedicatedManagementInterface != nil {
+				if !isImport && data.DedicatedManagementInterface != nil && !data.DedicatedManagementInterface.MTU.IsUnknown() {
 					return data.DedicatedManagementInterface.MTU
 				}
 				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
@@ -3007,7 +3003,7 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 				return nil
 			}(),
 			MTU: func() types.Int64 {
-				if !isImport && data.EthernetInterface != nil {
+				if !isImport && data.EthernetInterface != nil && !data.EthernetInterface.MTU.IsUnknown() {
 					return data.EthernetInterface.MTU
 				}
 				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
@@ -3040,7 +3036,7 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 				return nil
 			}(),
 			Priority: func() types.Int64 {
-				if !isImport && data.EthernetInterface != nil {
+				if !isImport && data.EthernetInterface != nil && !data.EthernetInterface.Priority.IsUnknown() {
 					return data.EthernetInterface.Priority
 				}
 				if v, ok := blockData["priority"].(float64); ok && v != 0 {
@@ -3169,7 +3165,7 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 				return nil
 			}(),
 			VLANID: func() types.Int64 {
-				if !isImport && data.EthernetInterface != nil {
+				if !isImport && data.EthernetInterface != nil && !data.EthernetInterface.VLANID.IsUnknown() {
 					return data.EthernetInterface.VLANID
 				}
 				if v, ok := blockData["vlan_id"].(float64); ok && v != 0 {
@@ -3252,7 +3248,7 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["tunnel_interface"].(map[string]interface{}); ok && (isImport || data.TunnelInterface != nil) {
 		data.TunnelInterface = &NetworkInterfaceTunnelInterfaceModel{
 			MTU: func() types.Int64 {
-				if !isImport && data.TunnelInterface != nil {
+				if !isImport && data.TunnelInterface != nil && !data.TunnelInterface.MTU.IsUnknown() {
 					return data.TunnelInterface.MTU
 				}
 				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
@@ -3267,7 +3263,7 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 				return types.StringNull()
 			}(),
 			Priority: func() types.Int64 {
-				if !isImport && data.TunnelInterface != nil {
+				if !isImport && data.TunnelInterface != nil && !data.TunnelInterface.Priority.IsUnknown() {
 					return data.TunnelInterface.Priority
 				}
 				if v, ok := blockData["priority"].(float64); ok && v != 0 {
@@ -3874,7 +3870,7 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 				return nil
 			}(),
 			MTU: func() types.Int64 {
-				if !isImport && data.DedicatedInterface != nil {
+				if !isImport && data.DedicatedInterface != nil && !data.DedicatedInterface.MTU.IsUnknown() {
 					return data.DedicatedInterface.MTU
 				}
 				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
@@ -3898,7 +3894,7 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 				return nil
 			}(),
 			Priority: func() types.Int64 {
-				if !isImport && data.DedicatedInterface != nil {
+				if !isImport && data.DedicatedInterface != nil && !data.DedicatedInterface.Priority.IsUnknown() {
 					return data.DedicatedInterface.Priority
 				}
 				if v, ok := blockData["priority"].(float64); ok && v != 0 {
@@ -3926,7 +3922,7 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 				return types.StringNull()
 			}(),
 			MTU: func() types.Int64 {
-				if !isImport && data.DedicatedManagementInterface != nil {
+				if !isImport && data.DedicatedManagementInterface != nil && !data.DedicatedManagementInterface.MTU.IsUnknown() {
 					return data.DedicatedManagementInterface.MTU
 				}
 				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
@@ -4286,7 +4282,7 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 				return nil
 			}(),
 			MTU: func() types.Int64 {
-				if !isImport && data.EthernetInterface != nil {
+				if !isImport && data.EthernetInterface != nil && !data.EthernetInterface.MTU.IsUnknown() {
 					return data.EthernetInterface.MTU
 				}
 				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
@@ -4319,7 +4315,7 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 				return nil
 			}(),
 			Priority: func() types.Int64 {
-				if !isImport && data.EthernetInterface != nil {
+				if !isImport && data.EthernetInterface != nil && !data.EthernetInterface.Priority.IsUnknown() {
 					return data.EthernetInterface.Priority
 				}
 				if v, ok := blockData["priority"].(float64); ok && v != 0 {
@@ -4448,7 +4444,7 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 				return nil
 			}(),
 			VLANID: func() types.Int64 {
-				if !isImport && data.EthernetInterface != nil {
+				if !isImport && data.EthernetInterface != nil && !data.EthernetInterface.VLANID.IsUnknown() {
 					return data.EthernetInterface.VLANID
 				}
 				if v, ok := blockData["vlan_id"].(float64); ok && v != 0 {
@@ -4531,7 +4527,7 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["tunnel_interface"].(map[string]interface{}); ok && (isImport || data.TunnelInterface != nil) {
 		data.TunnelInterface = &NetworkInterfaceTunnelInterfaceModel{
 			MTU: func() types.Int64 {
-				if !isImport && data.TunnelInterface != nil {
+				if !isImport && data.TunnelInterface != nil && !data.TunnelInterface.MTU.IsUnknown() {
 					return data.TunnelInterface.MTU
 				}
 				if v, ok := blockData["mtu"].(float64); ok && v != 0 {
@@ -4546,7 +4542,7 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 				return types.StringNull()
 			}(),
 			Priority: func() types.Int64 {
-				if !isImport && data.TunnelInterface != nil {
+				if !isImport && data.TunnelInterface != nil && !data.TunnelInterface.Priority.IsUnknown() {
 					return data.TunnelInterface.Priority
 				}
 				if v, ok := blockData["priority"].(float64); ok && v != 0 {

@@ -17,7 +17,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
-	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -384,16 +383,13 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace for the BGP. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
-				Optional:            true,
-				Computed:            true,
-				Default:             stringdefault.StaticString("system"),
+				MarkdownDescription: "Namespace where the BGP will be created.",
+				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
-					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
@@ -1755,7 +1751,7 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 	if blockData, ok := apiResource.Spec["bgp_parameters"].(map[string]interface{}); ok && (isImport || data.BGPParameters != nil) {
 		data.BGPParameters = &BGPBGPParametersModel{
 			Asn: func() types.Int64 {
-				if !isImport && data.BGPParameters != nil {
+				if !isImport && data.BGPParameters != nil && !data.BGPParameters.Asn.IsUnknown() {
 					return data.BGPParameters.Asn
 				}
 				if v, ok := blockData["asn"].(float64); ok && v != 0 {
@@ -2424,7 +2420,7 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 	if blockData, ok := apiResource.Spec["bgp_parameters"].(map[string]interface{}); ok && (isImport || data.BGPParameters != nil) {
 		data.BGPParameters = &BGPBGPParametersModel{
 			Asn: func() types.Int64 {
-				if !isImport && data.BGPParameters != nil {
+				if !isImport && data.BGPParameters != nil && !data.BGPParameters.Asn.IsUnknown() {
 					return data.BGPParameters.Asn
 				}
 				if v, ok := blockData["asn"].(float64); ok && v != 0 {
@@ -3418,7 +3414,7 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 	if blockData, ok := apiResource.Spec["bgp_parameters"].(map[string]interface{}); ok && (isImport || data.BGPParameters != nil) {
 		data.BGPParameters = &BGPBGPParametersModel{
 			Asn: func() types.Int64 {
-				if !isImport && data.BGPParameters != nil {
+				if !isImport && data.BGPParameters != nil && !data.BGPParameters.Asn.IsUnknown() {
 					return data.BGPParameters.Asn
 				}
 				if v, ok := blockData["asn"].(float64); ok && v != 0 {

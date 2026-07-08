@@ -15,5 +15,5 @@ terraform {
 # Basic APIDiscovery configuration
 resource "xcsh_api_discovery" "example" {
   name      = "example-api-discovery"
-  namespace = "system"
+  namespace = "staging"
 }

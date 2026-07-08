@@ -969,7 +969,7 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 				return nil
 			}(),
 			MaxAnswers: func() types.Int64 {
-				if !isImport && data.APool != nil {
+				if !isImport && data.APool != nil && !data.APool.MaxAnswers.IsUnknown() {
 					return data.APool.MaxAnswers
 				}
 				if v, ok := blockData["max_answers"].(float64); ok && v != 0 {
@@ -1028,7 +1028,7 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 	if blockData, ok := apiResource.Spec["aaaa_pool"].(map[string]interface{}); ok && (isImport || data.AaaaPool != nil) {
 		data.AaaaPool = &DNSLBPoolAaaaPoolModel{
 			MaxAnswers: func() types.Int64 {
-				if !isImport && data.AaaaPool != nil {
+				if !isImport && data.AaaaPool != nil && !data.AaaaPool.MaxAnswers.IsUnknown() {
 					return data.AaaaPool.MaxAnswers
 				}
 				if v, ok := blockData["max_answers"].(float64); ok && v != 0 {
@@ -1168,7 +1168,7 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 	if blockData, ok := apiResource.Spec["mx_pool"].(map[string]interface{}); ok && (isImport || data.MxPool != nil) {
 		data.MxPool = &DNSLBPoolMxPoolModel{
 			MaxAnswers: func() types.Int64 {
-				if !isImport && data.MxPool != nil {
+				if !isImport && data.MxPool != nil && !data.MxPool.MaxAnswers.IsUnknown() {
 					return data.MxPool.MaxAnswers
 				}
 				if v, ok := blockData["max_answers"].(float64); ok && v != 0 {
@@ -1221,7 +1221,7 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 	if blockData, ok := apiResource.Spec["srv_pool"].(map[string]interface{}); ok && (isImport || data.SrvPool != nil) {
 		data.SrvPool = &DNSLBPoolSrvPoolModel{
 			MaxAnswers: func() types.Int64 {
-				if !isImport && data.SrvPool != nil {
+				if !isImport && data.SrvPool != nil && !data.SrvPool.MaxAnswers.IsUnknown() {
 					return data.SrvPool.MaxAnswers
 				}
 				if v, ok := blockData["max_answers"].(float64); ok && v != 0 {
@@ -1422,7 +1422,7 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 				return nil
 			}(),
 			MaxAnswers: func() types.Int64 {
-				if !isImport && data.APool != nil {
+				if !isImport && data.APool != nil && !data.APool.MaxAnswers.IsUnknown() {
 					return data.APool.MaxAnswers
 				}
 				if v, ok := blockData["max_answers"].(float64); ok && v != 0 {
@@ -1481,7 +1481,7 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 	if blockData, ok := apiResource.Spec["aaaa_pool"].(map[string]interface{}); ok && (isImport || data.AaaaPool != nil) {
 		data.AaaaPool = &DNSLBPoolAaaaPoolModel{
 			MaxAnswers: func() types.Int64 {
-				if !isImport && data.AaaaPool != nil {
+				if !isImport && data.AaaaPool != nil && !data.AaaaPool.MaxAnswers.IsUnknown() {
 					return data.AaaaPool.MaxAnswers
 				}
 				if v, ok := blockData["max_answers"].(float64); ok && v != 0 {
@@ -1621,7 +1621,7 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 	if blockData, ok := apiResource.Spec["mx_pool"].(map[string]interface{}); ok && (isImport || data.MxPool != nil) {
 		data.MxPool = &DNSLBPoolMxPoolModel{
 			MaxAnswers: func() types.Int64 {
-				if !isImport && data.MxPool != nil {
+				if !isImport && data.MxPool != nil && !data.MxPool.MaxAnswers.IsUnknown() {
 					return data.MxPool.MaxAnswers
 				}
 				if v, ok := blockData["max_answers"].(float64); ok && v != 0 {
@@ -1674,7 +1674,7 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 	if blockData, ok := apiResource.Spec["srv_pool"].(map[string]interface{}); ok && (isImport || data.SrvPool != nil) {
 		data.SrvPool = &DNSLBPoolSrvPoolModel{
 			MaxAnswers: func() types.Int64 {
-				if !isImport && data.SrvPool != nil {
+				if !isImport && data.SrvPool != nil && !data.SrvPool.MaxAnswers.IsUnknown() {
 					return data.SrvPool.MaxAnswers
 				}
 				if v, ok := blockData["max_answers"].(float64); ok && v != 0 {
@@ -2073,7 +2073,7 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 				return nil
 			}(),
 			MaxAnswers: func() types.Int64 {
-				if !isImport && data.APool != nil {
+				if !isImport && data.APool != nil && !data.APool.MaxAnswers.IsUnknown() {
 					return data.APool.MaxAnswers
 				}
 				if v, ok := blockData["max_answers"].(float64); ok && v != 0 {
@@ -2132,7 +2132,7 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 	if blockData, ok := apiResource.Spec["aaaa_pool"].(map[string]interface{}); ok && (isImport || data.AaaaPool != nil) {
 		data.AaaaPool = &DNSLBPoolAaaaPoolModel{
 			MaxAnswers: func() types.Int64 {
-				if !isImport && data.AaaaPool != nil {
+				if !isImport && data.AaaaPool != nil && !data.AaaaPool.MaxAnswers.IsUnknown() {
 					return data.AaaaPool.MaxAnswers
 				}
 				if v, ok := blockData["max_answers"].(float64); ok && v != 0 {
@@ -2272,7 +2272,7 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 	if blockData, ok := apiResource.Spec["mx_pool"].(map[string]interface{}); ok && (isImport || data.MxPool != nil) {
 		data.MxPool = &DNSLBPoolMxPoolModel{
 			MaxAnswers: func() types.Int64 {
-				if !isImport && data.MxPool != nil {
+				if !isImport && data.MxPool != nil && !data.MxPool.MaxAnswers.IsUnknown() {
 					return data.MxPool.MaxAnswers
 				}
 				if v, ok := blockData["max_answers"].(float64); ok && v != 0 {
@@ -2325,7 +2325,7 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 	if blockData, ok := apiResource.Spec["srv_pool"].(map[string]interface{}); ok && (isImport || data.SrvPool != nil) {
 		data.SrvPool = &DNSLBPoolSrvPoolModel{
 			MaxAnswers: func() types.Int64 {
-				if !isImport && data.SrvPool != nil {
+				if !isImport && data.SrvPool != nil && !data.SrvPool.MaxAnswers.IsUnknown() {
 					return data.SrvPool.MaxAnswers
 				}
 				if v, ok := blockData["max_answers"].(float64); ok && v != 0 {

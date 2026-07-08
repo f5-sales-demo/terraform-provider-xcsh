@@ -6,13 +6,14 @@ New Log Receiver object
 ## Required
 
 - name
+- namespace
 
 ## Minimal Valid Config
 
 ```terraform
 resource "xcsh_log_receiver" "example" {
   name      = "example-log-receiver"
-  namespace = "system"
+  namespace = "staging"
 }
 ```
 

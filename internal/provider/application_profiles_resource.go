@@ -4092,7 +4092,7 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolServerModelAttrTypes})
 			}(),
 			ConnectionLimit: func() types.Int64 {
-				if !isImport && data.VirtualServer != nil {
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.ConnectionLimit.IsUnknown() {
 					return data.VirtualServer.ConnectionLimit
 				}
 				if v, ok := blockData["connection_limit"].(float64); ok && v != 0 {
@@ -4101,7 +4101,7 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				return types.Int64Null()
 			}(),
 			ConnectionRateLimit: func() types.Int64 {
-				if !isImport && data.VirtualServer != nil {
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.ConnectionRateLimit.IsUnknown() {
 					return data.VirtualServer.ConnectionRateLimit
 				}
 				if v, ok := blockData["connection_rate_limit"].(float64); ok && v != 0 {
@@ -5499,7 +5499,7 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				return nil
 			}(),
 			VsScore: func() types.Int64 {
-				if !isImport && data.VirtualServer != nil {
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.VsScore.IsUnknown() {
 					return data.VirtualServer.VsScore
 				}
 				if v, ok := blockData["vs_score"].(float64); ok && v != 0 {
@@ -5886,7 +5886,7 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolServerModelAttrTypes})
 			}(),
 			ConnectionLimit: func() types.Int64 {
-				if !isImport && data.VirtualServer != nil {
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.ConnectionLimit.IsUnknown() {
 					return data.VirtualServer.ConnectionLimit
 				}
 				if v, ok := blockData["connection_limit"].(float64); ok && v != 0 {
@@ -5895,7 +5895,7 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				return types.Int64Null()
 			}(),
 			ConnectionRateLimit: func() types.Int64 {
-				if !isImport && data.VirtualServer != nil {
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.ConnectionRateLimit.IsUnknown() {
 					return data.VirtualServer.ConnectionRateLimit
 				}
 				if v, ok := blockData["connection_rate_limit"].(float64); ok && v != 0 {
@@ -7293,7 +7293,7 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				return nil
 			}(),
 			VsScore: func() types.Int64 {
-				if !isImport && data.VirtualServer != nil {
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.VsScore.IsUnknown() {
 					return data.VirtualServer.VsScore
 				}
 				if v, ok := blockData["vs_score"].(float64); ok && v != 0 {
@@ -8678,7 +8678,7 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolServerModelAttrTypes})
 			}(),
 			ConnectionLimit: func() types.Int64 {
-				if !isImport && data.VirtualServer != nil {
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.ConnectionLimit.IsUnknown() {
 					return data.VirtualServer.ConnectionLimit
 				}
 				if v, ok := blockData["connection_limit"].(float64); ok && v != 0 {
@@ -8687,7 +8687,7 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				return types.Int64Null()
 			}(),
 			ConnectionRateLimit: func() types.Int64 {
-				if !isImport && data.VirtualServer != nil {
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.ConnectionRateLimit.IsUnknown() {
 					return data.VirtualServer.ConnectionRateLimit
 				}
 				if v, ok := blockData["connection_rate_limit"].(float64); ok && v != 0 {
@@ -10085,7 +10085,7 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				return nil
 			}(),
 			VsScore: func() types.Int64 {
-				if !isImport && data.VirtualServer != nil {
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.VsScore.IsUnknown() {
 					return data.VirtualServer.VsScore
 				}
 				if v, ok := blockData["vs_score"].(float64); ok && v != 0 {

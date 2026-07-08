@@ -980,7 +980,7 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 	if blockData, ok := apiResource.Spec["psp_spec"].(map[string]interface{}); ok && (isImport || data.PspSpec != nil) {
 		data.PspSpec = &K8SPodSecurityPolicyPspSpecModel{
 			AllowPrivilegeEscalation: func() types.Bool {
-				if !isImport && data.PspSpec != nil {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.AllowPrivilegeEscalation.IsUnknown() {
 					return data.PspSpec.AllowPrivilegeEscalation
 				}
 				if v, ok := blockData["allow_privilege_escalation"].(bool); ok {
@@ -1092,7 +1092,7 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 				return types.ListNull(types.StringType)
 			}(),
 			DefaultAllowPrivilegeEscalation: func() types.Bool {
-				if !isImport && data.PspSpec != nil {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.DefaultAllowPrivilegeEscalation.IsUnknown() {
 					return data.PspSpec.DefaultAllowPrivilegeEscalation
 				}
 				if v, ok := blockData["default_allow_privilege_escalation"].(bool); ok {
@@ -1201,7 +1201,7 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 				return nil
 			}(),
 			HostIpc: func() types.Bool {
-				if !isImport && data.PspSpec != nil {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.HostIpc.IsUnknown() {
 					return data.PspSpec.HostIpc
 				}
 				if v, ok := blockData["host_ipc"].(bool); ok {
@@ -1210,7 +1210,7 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 				return types.BoolNull()
 			}(),
 			HostNetwork: func() types.Bool {
-				if !isImport && data.PspSpec != nil {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.HostNetwork.IsUnknown() {
 					return data.PspSpec.HostNetwork
 				}
 				if v, ok := blockData["host_network"].(bool); ok {
@@ -1219,7 +1219,7 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 				return types.BoolNull()
 			}(),
 			HostPid: func() types.Bool {
-				if !isImport && data.PspSpec != nil {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.HostPid.IsUnknown() {
 					return data.PspSpec.HostPid
 				}
 				if v, ok := blockData["host_pid"].(bool); ok {
@@ -1315,7 +1315,7 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 				return nil
 			}(),
 			Privileged: func() types.Bool {
-				if !isImport && data.PspSpec != nil {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.Privileged.IsUnknown() {
 					return data.PspSpec.Privileged
 				}
 				if v, ok := blockData["privileged"].(bool); ok {
@@ -1324,7 +1324,7 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 				return types.BoolNull()
 			}(),
 			ReadOnlyRootFilesystem: func() types.Bool {
-				if !isImport && data.PspSpec != nil {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.ReadOnlyRootFilesystem.IsUnknown() {
 					return data.PspSpec.ReadOnlyRootFilesystem
 				}
 				if v, ok := blockData["read_only_root_filesystem"].(bool); ok {
@@ -1558,7 +1558,7 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 	if blockData, ok := apiResource.Spec["psp_spec"].(map[string]interface{}); ok && (isImport || data.PspSpec != nil) {
 		data.PspSpec = &K8SPodSecurityPolicyPspSpecModel{
 			AllowPrivilegeEscalation: func() types.Bool {
-				if !isImport && data.PspSpec != nil {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.AllowPrivilegeEscalation.IsUnknown() {
 					return data.PspSpec.AllowPrivilegeEscalation
 				}
 				if v, ok := blockData["allow_privilege_escalation"].(bool); ok {
@@ -1670,7 +1670,7 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 				return types.ListNull(types.StringType)
 			}(),
 			DefaultAllowPrivilegeEscalation: func() types.Bool {
-				if !isImport && data.PspSpec != nil {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.DefaultAllowPrivilegeEscalation.IsUnknown() {
 					return data.PspSpec.DefaultAllowPrivilegeEscalation
 				}
 				if v, ok := blockData["default_allow_privilege_escalation"].(bool); ok {
@@ -1779,7 +1779,7 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 				return nil
 			}(),
 			HostIpc: func() types.Bool {
-				if !isImport && data.PspSpec != nil {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.HostIpc.IsUnknown() {
 					return data.PspSpec.HostIpc
 				}
 				if v, ok := blockData["host_ipc"].(bool); ok {
@@ -1788,7 +1788,7 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 				return types.BoolNull()
 			}(),
 			HostNetwork: func() types.Bool {
-				if !isImport && data.PspSpec != nil {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.HostNetwork.IsUnknown() {
 					return data.PspSpec.HostNetwork
 				}
 				if v, ok := blockData["host_network"].(bool); ok {
@@ -1797,7 +1797,7 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 				return types.BoolNull()
 			}(),
 			HostPid: func() types.Bool {
-				if !isImport && data.PspSpec != nil {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.HostPid.IsUnknown() {
 					return data.PspSpec.HostPid
 				}
 				if v, ok := blockData["host_pid"].(bool); ok {
@@ -1893,7 +1893,7 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 				return nil
 			}(),
 			Privileged: func() types.Bool {
-				if !isImport && data.PspSpec != nil {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.Privileged.IsUnknown() {
 					return data.PspSpec.Privileged
 				}
 				if v, ok := blockData["privileged"].(bool); ok {
@@ -1902,7 +1902,7 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 				return types.BoolNull()
 			}(),
 			ReadOnlyRootFilesystem: func() types.Bool {
-				if !isImport && data.PspSpec != nil {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.ReadOnlyRootFilesystem.IsUnknown() {
 					return data.PspSpec.ReadOnlyRootFilesystem
 				}
 				if v, ok := blockData["read_only_root_filesystem"].(bool); ok {
@@ -2377,7 +2377,7 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 	if blockData, ok := apiResource.Spec["psp_spec"].(map[string]interface{}); ok && (isImport || data.PspSpec != nil) {
 		data.PspSpec = &K8SPodSecurityPolicyPspSpecModel{
 			AllowPrivilegeEscalation: func() types.Bool {
-				if !isImport && data.PspSpec != nil {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.AllowPrivilegeEscalation.IsUnknown() {
 					return data.PspSpec.AllowPrivilegeEscalation
 				}
 				if v, ok := blockData["allow_privilege_escalation"].(bool); ok {
@@ -2489,7 +2489,7 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 				return types.ListNull(types.StringType)
 			}(),
 			DefaultAllowPrivilegeEscalation: func() types.Bool {
-				if !isImport && data.PspSpec != nil {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.DefaultAllowPrivilegeEscalation.IsUnknown() {
 					return data.PspSpec.DefaultAllowPrivilegeEscalation
 				}
 				if v, ok := blockData["default_allow_privilege_escalation"].(bool); ok {
@@ -2598,7 +2598,7 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 				return nil
 			}(),
 			HostIpc: func() types.Bool {
-				if !isImport && data.PspSpec != nil {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.HostIpc.IsUnknown() {
 					return data.PspSpec.HostIpc
 				}
 				if v, ok := blockData["host_ipc"].(bool); ok {
@@ -2607,7 +2607,7 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 				return types.BoolNull()
 			}(),
 			HostNetwork: func() types.Bool {
-				if !isImport && data.PspSpec != nil {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.HostNetwork.IsUnknown() {
 					return data.PspSpec.HostNetwork
 				}
 				if v, ok := blockData["host_network"].(bool); ok {
@@ -2616,7 +2616,7 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 				return types.BoolNull()
 			}(),
 			HostPid: func() types.Bool {
-				if !isImport && data.PspSpec != nil {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.HostPid.IsUnknown() {
 					return data.PspSpec.HostPid
 				}
 				if v, ok := blockData["host_pid"].(bool); ok {
@@ -2712,7 +2712,7 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 				return nil
 			}(),
 			Privileged: func() types.Bool {
-				if !isImport && data.PspSpec != nil {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.Privileged.IsUnknown() {
 					return data.PspSpec.Privileged
 				}
 				if v, ok := blockData["privileged"].(bool); ok {
@@ -2721,7 +2721,7 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 				return types.BoolNull()
 			}(),
 			ReadOnlyRootFilesystem: func() types.Bool {
-				if !isImport && data.PspSpec != nil {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.ReadOnlyRootFilesystem.IsUnknown() {
 					return data.PspSpec.ReadOnlyRootFilesystem
 				}
 				if v, ok := blockData["read_only_root_filesystem"].(bool); ok {

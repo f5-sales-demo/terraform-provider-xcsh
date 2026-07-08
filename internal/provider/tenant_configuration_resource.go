@@ -15,7 +15,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
-	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -223,16 +222,13 @@ func (r *TenantConfigurationResource) Schema(ctx context.Context, req resource.S
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace for the Tenant Configuration. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
-				Optional:            true,
-				Computed:            true,
-				Default:             stringdefault.StaticString("system"),
+				MarkdownDescription: "Namespace where the Tenant Configuration will be created.",
+				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
-					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
@@ -629,7 +625,7 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 	if blockData, ok := apiResource.Spec["brute_force_detection"].(map[string]interface{}); ok && (isImport || data.BruteForceDetection != nil) {
 		data.BruteForceDetection = &TenantConfigurationBruteForceDetectionModel{
 			MaxLoginFailures: func() types.Int64 {
-				if !isImport && data.BruteForceDetection != nil {
+				if !isImport && data.BruteForceDetection != nil && !data.BruteForceDetection.MaxLoginFailures.IsUnknown() {
 					return data.BruteForceDetection.MaxLoginFailures
 				}
 				if v, ok := blockData["max_login_failures"].(float64); ok && v != 0 {
@@ -642,7 +638,7 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 	if blockData, ok := apiResource.Spec["brute_force_detection_settings"].(map[string]interface{}); ok && (isImport || data.BruteForceDetectionSettings != nil) {
 		data.BruteForceDetectionSettings = &TenantConfigurationBruteForceDetectionSettingsModel{
 			MaxLoginFailures: func() types.Int64 {
-				if !isImport && data.BruteForceDetectionSettings != nil {
+				if !isImport && data.BruteForceDetectionSettings != nil && !data.BruteForceDetectionSettings.MaxLoginFailures.IsUnknown() {
 					return data.BruteForceDetectionSettings.MaxLoginFailures
 				}
 				if v, ok := blockData["max_login_failures"].(float64); ok && v != 0 {
@@ -655,7 +651,7 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 	if blockData, ok := apiResource.Spec["password_policy"].(map[string]interface{}); ok && (isImport || data.PasswordPolicy != nil) {
 		data.PasswordPolicy = &TenantConfigurationPasswordPolicyModel{
 			Digits: func() types.Int64 {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.Digits.IsUnknown() {
 					return data.PasswordPolicy.Digits
 				}
 				if v, ok := blockData["digits"].(float64); ok && v != 0 {
@@ -664,7 +660,7 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 				return types.Int64Null()
 			}(),
 			ExpirePassword: func() types.Int64 {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.ExpirePassword.IsUnknown() {
 					return data.PasswordPolicy.ExpirePassword
 				}
 				if v, ok := blockData["expire_password"].(float64); ok && v != 0 {
@@ -673,7 +669,7 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 				return types.Int64Null()
 			}(),
 			LowercaseCharacters: func() types.Int64 {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.LowercaseCharacters.IsUnknown() {
 					return data.PasswordPolicy.LowercaseCharacters
 				}
 				if v, ok := blockData["lowercase_characters"].(float64); ok && v != 0 {
@@ -682,7 +678,7 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 				return types.Int64Null()
 			}(),
 			MinimumLength: func() types.Int64 {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.MinimumLength.IsUnknown() {
 					return data.PasswordPolicy.MinimumLength
 				}
 				if v, ok := blockData["minimum_length"].(float64); ok && v != 0 {
@@ -691,7 +687,7 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 				return types.Int64Null()
 			}(),
 			NotRecentlyUsed: func() types.Int64 {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.NotRecentlyUsed.IsUnknown() {
 					return data.PasswordPolicy.NotRecentlyUsed
 				}
 				if v, ok := blockData["not_recently_used"].(float64); ok && v != 0 {
@@ -700,7 +696,7 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 				return types.Int64Null()
 			}(),
 			NotUsername: func() types.Bool {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.NotUsername.IsUnknown() {
 					return data.PasswordPolicy.NotUsername
 				}
 				if v, ok := blockData["not_username"].(bool); ok {
@@ -709,7 +705,7 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 				return types.BoolNull()
 			}(),
 			SpecialCharacters: func() types.Int64 {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.SpecialCharacters.IsUnknown() {
 					return data.PasswordPolicy.SpecialCharacters
 				}
 				if v, ok := blockData["special_characters"].(float64); ok && v != 0 {
@@ -718,7 +714,7 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 				return types.Int64Null()
 			}(),
 			UppercaseCharacters: func() types.Int64 {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.UppercaseCharacters.IsUnknown() {
 					return data.PasswordPolicy.UppercaseCharacters
 				}
 				if v, ok := blockData["uppercase_characters"].(float64); ok && v != 0 {
@@ -907,7 +903,7 @@ func (r *TenantConfigurationResource) Read(ctx context.Context, req resource.Rea
 	if blockData, ok := apiResource.Spec["brute_force_detection"].(map[string]interface{}); ok && (isImport || data.BruteForceDetection != nil) {
 		data.BruteForceDetection = &TenantConfigurationBruteForceDetectionModel{
 			MaxLoginFailures: func() types.Int64 {
-				if !isImport && data.BruteForceDetection != nil {
+				if !isImport && data.BruteForceDetection != nil && !data.BruteForceDetection.MaxLoginFailures.IsUnknown() {
 					return data.BruteForceDetection.MaxLoginFailures
 				}
 				if v, ok := blockData["max_login_failures"].(float64); ok && v != 0 {
@@ -920,7 +916,7 @@ func (r *TenantConfigurationResource) Read(ctx context.Context, req resource.Rea
 	if blockData, ok := apiResource.Spec["brute_force_detection_settings"].(map[string]interface{}); ok && (isImport || data.BruteForceDetectionSettings != nil) {
 		data.BruteForceDetectionSettings = &TenantConfigurationBruteForceDetectionSettingsModel{
 			MaxLoginFailures: func() types.Int64 {
-				if !isImport && data.BruteForceDetectionSettings != nil {
+				if !isImport && data.BruteForceDetectionSettings != nil && !data.BruteForceDetectionSettings.MaxLoginFailures.IsUnknown() {
 					return data.BruteForceDetectionSettings.MaxLoginFailures
 				}
 				if v, ok := blockData["max_login_failures"].(float64); ok && v != 0 {
@@ -933,7 +929,7 @@ func (r *TenantConfigurationResource) Read(ctx context.Context, req resource.Rea
 	if blockData, ok := apiResource.Spec["password_policy"].(map[string]interface{}); ok && (isImport || data.PasswordPolicy != nil) {
 		data.PasswordPolicy = &TenantConfigurationPasswordPolicyModel{
 			Digits: func() types.Int64 {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.Digits.IsUnknown() {
 					return data.PasswordPolicy.Digits
 				}
 				if v, ok := blockData["digits"].(float64); ok && v != 0 {
@@ -942,7 +938,7 @@ func (r *TenantConfigurationResource) Read(ctx context.Context, req resource.Rea
 				return types.Int64Null()
 			}(),
 			ExpirePassword: func() types.Int64 {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.ExpirePassword.IsUnknown() {
 					return data.PasswordPolicy.ExpirePassword
 				}
 				if v, ok := blockData["expire_password"].(float64); ok && v != 0 {
@@ -951,7 +947,7 @@ func (r *TenantConfigurationResource) Read(ctx context.Context, req resource.Rea
 				return types.Int64Null()
 			}(),
 			LowercaseCharacters: func() types.Int64 {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.LowercaseCharacters.IsUnknown() {
 					return data.PasswordPolicy.LowercaseCharacters
 				}
 				if v, ok := blockData["lowercase_characters"].(float64); ok && v != 0 {
@@ -960,7 +956,7 @@ func (r *TenantConfigurationResource) Read(ctx context.Context, req resource.Rea
 				return types.Int64Null()
 			}(),
 			MinimumLength: func() types.Int64 {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.MinimumLength.IsUnknown() {
 					return data.PasswordPolicy.MinimumLength
 				}
 				if v, ok := blockData["minimum_length"].(float64); ok && v != 0 {
@@ -969,7 +965,7 @@ func (r *TenantConfigurationResource) Read(ctx context.Context, req resource.Rea
 				return types.Int64Null()
 			}(),
 			NotRecentlyUsed: func() types.Int64 {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.NotRecentlyUsed.IsUnknown() {
 					return data.PasswordPolicy.NotRecentlyUsed
 				}
 				if v, ok := blockData["not_recently_used"].(float64); ok && v != 0 {
@@ -978,7 +974,7 @@ func (r *TenantConfigurationResource) Read(ctx context.Context, req resource.Rea
 				return types.Int64Null()
 			}(),
 			NotUsername: func() types.Bool {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.NotUsername.IsUnknown() {
 					return data.PasswordPolicy.NotUsername
 				}
 				if v, ok := blockData["not_username"].(bool); ok {
@@ -987,7 +983,7 @@ func (r *TenantConfigurationResource) Read(ctx context.Context, req resource.Rea
 				return types.BoolNull()
 			}(),
 			SpecialCharacters: func() types.Int64 {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.SpecialCharacters.IsUnknown() {
 					return data.PasswordPolicy.SpecialCharacters
 				}
 				if v, ok := blockData["special_characters"].(float64); ok && v != 0 {
@@ -996,7 +992,7 @@ func (r *TenantConfigurationResource) Read(ctx context.Context, req resource.Rea
 				return types.Int64Null()
 			}(),
 			UppercaseCharacters: func() types.Int64 {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.UppercaseCharacters.IsUnknown() {
 					return data.PasswordPolicy.UppercaseCharacters
 				}
 				if v, ok := blockData["uppercase_characters"].(float64); ok && v != 0 {
@@ -1284,7 +1280,7 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 	if blockData, ok := apiResource.Spec["brute_force_detection"].(map[string]interface{}); ok && (isImport || data.BruteForceDetection != nil) {
 		data.BruteForceDetection = &TenantConfigurationBruteForceDetectionModel{
 			MaxLoginFailures: func() types.Int64 {
-				if !isImport && data.BruteForceDetection != nil {
+				if !isImport && data.BruteForceDetection != nil && !data.BruteForceDetection.MaxLoginFailures.IsUnknown() {
 					return data.BruteForceDetection.MaxLoginFailures
 				}
 				if v, ok := blockData["max_login_failures"].(float64); ok && v != 0 {
@@ -1297,7 +1293,7 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 	if blockData, ok := apiResource.Spec["brute_force_detection_settings"].(map[string]interface{}); ok && (isImport || data.BruteForceDetectionSettings != nil) {
 		data.BruteForceDetectionSettings = &TenantConfigurationBruteForceDetectionSettingsModel{
 			MaxLoginFailures: func() types.Int64 {
-				if !isImport && data.BruteForceDetectionSettings != nil {
+				if !isImport && data.BruteForceDetectionSettings != nil && !data.BruteForceDetectionSettings.MaxLoginFailures.IsUnknown() {
 					return data.BruteForceDetectionSettings.MaxLoginFailures
 				}
 				if v, ok := blockData["max_login_failures"].(float64); ok && v != 0 {
@@ -1310,7 +1306,7 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 	if blockData, ok := apiResource.Spec["password_policy"].(map[string]interface{}); ok && (isImport || data.PasswordPolicy != nil) {
 		data.PasswordPolicy = &TenantConfigurationPasswordPolicyModel{
 			Digits: func() types.Int64 {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.Digits.IsUnknown() {
 					return data.PasswordPolicy.Digits
 				}
 				if v, ok := blockData["digits"].(float64); ok && v != 0 {
@@ -1319,7 +1315,7 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 				return types.Int64Null()
 			}(),
 			ExpirePassword: func() types.Int64 {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.ExpirePassword.IsUnknown() {
 					return data.PasswordPolicy.ExpirePassword
 				}
 				if v, ok := blockData["expire_password"].(float64); ok && v != 0 {
@@ -1328,7 +1324,7 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 				return types.Int64Null()
 			}(),
 			LowercaseCharacters: func() types.Int64 {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.LowercaseCharacters.IsUnknown() {
 					return data.PasswordPolicy.LowercaseCharacters
 				}
 				if v, ok := blockData["lowercase_characters"].(float64); ok && v != 0 {
@@ -1337,7 +1333,7 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 				return types.Int64Null()
 			}(),
 			MinimumLength: func() types.Int64 {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.MinimumLength.IsUnknown() {
 					return data.PasswordPolicy.MinimumLength
 				}
 				if v, ok := blockData["minimum_length"].(float64); ok && v != 0 {
@@ -1346,7 +1342,7 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 				return types.Int64Null()
 			}(),
 			NotRecentlyUsed: func() types.Int64 {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.NotRecentlyUsed.IsUnknown() {
 					return data.PasswordPolicy.NotRecentlyUsed
 				}
 				if v, ok := blockData["not_recently_used"].(float64); ok && v != 0 {
@@ -1355,7 +1351,7 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 				return types.Int64Null()
 			}(),
 			NotUsername: func() types.Bool {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.NotUsername.IsUnknown() {
 					return data.PasswordPolicy.NotUsername
 				}
 				if v, ok := blockData["not_username"].(bool); ok {
@@ -1364,7 +1360,7 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 				return types.BoolNull()
 			}(),
 			SpecialCharacters: func() types.Int64 {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.SpecialCharacters.IsUnknown() {
 					return data.PasswordPolicy.SpecialCharacters
 				}
 				if v, ok := blockData["special_characters"].(float64); ok && v != 0 {
@@ -1373,7 +1369,7 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 				return types.Int64Null()
 			}(),
 			UppercaseCharacters: func() types.Int64 {
-				if !isImport && data.PasswordPolicy != nil {
+				if !isImport && data.PasswordPolicy != nil && !data.PasswordPolicy.UppercaseCharacters.IsUnknown() {
 					return data.PasswordPolicy.UppercaseCharacters
 				}
 				if v, ok := blockData["uppercase_characters"].(float64); ok && v != 0 {

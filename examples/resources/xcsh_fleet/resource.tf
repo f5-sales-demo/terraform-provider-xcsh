@@ -15,7 +15,7 @@ terraform {
 # Basic Fleet configuration
 resource "xcsh_fleet" "example" {
   name      = "example-fleet"
-  namespace = "system"
+  namespace = "staging"
 
   fleet_label                          = "example-value"
   enable_default_fleet_config_download = true

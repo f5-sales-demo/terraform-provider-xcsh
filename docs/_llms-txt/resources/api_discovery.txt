@@ -14,7 +14,7 @@ API discovery creates a new object in the storage backend for metadata.namespace
 ```terraform
 resource "xcsh_api_discovery" "example" {
   name      = "example-api-discovery"
-  namespace = "system"
+  namespace = "staging"
 }
 ```
 

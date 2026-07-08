@@ -6,6 +6,7 @@ Virtual site object in given namespace
 ## Required
 
 - name
+- namespace
 - site_type
 
 ## Minimal Valid Config
@@ -13,7 +14,7 @@ Virtual site object in given namespace
 ```terraform
 resource "xcsh_site" "example" {
   name      = "example-site"
-  namespace = "system"
+  namespace = "staging"
 
   site_type = "INVALID"
 }

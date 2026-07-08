@@ -6,13 +6,14 @@ Integration details
 ## Required
 
 - name
+- namespace
 
 ## Minimal Valid Config
 
 ```terraform
 resource "xcsh_code_base_integration" "example" {
   name      = "example-code-base-integration"
-  namespace = "system"
+  namespace = "staging"
 }
 ```
 

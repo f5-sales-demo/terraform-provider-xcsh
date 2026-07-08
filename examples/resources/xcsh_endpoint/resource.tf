@@ -15,7 +15,7 @@ terraform {
 # Basic Endpoint configuration
 resource "xcsh_endpoint" "example" {
   name      = "example-endpoint"
-  namespace = "system"
+  namespace = "staging"
 
   health_check_port = 1
   port              = 1

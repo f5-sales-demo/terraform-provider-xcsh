@@ -6,6 +6,7 @@ Endpoint will create the object in the storage backend for namespace metadata.na
 ## Required
 
 - name
+- namespace
 - health_check_port
 - port
 - protocol
@@ -15,7 +16,7 @@ Endpoint will create the object in the storage backend for namespace metadata.na
 ```terraform
 resource "xcsh_endpoint" "example" {
   name      = "example-endpoint"
-  namespace = "system"
+  namespace = "staging"
 
   health_check_port = 1
   port              = 1

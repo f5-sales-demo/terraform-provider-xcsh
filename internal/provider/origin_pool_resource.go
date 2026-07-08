@@ -3885,7 +3885,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			ConnectionTimeout: func() types.Int64 {
-				if !isImport && data.AdvancedOptions != nil {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.ConnectionTimeout.IsUnknown() {
 					return data.AdvancedOptions.ConnectionTimeout
 				}
 				if v, ok := blockData["connection_timeout"].(float64); ok && v != 0 {
@@ -4075,7 +4075,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			HTTPIdleTimeout: func() types.Int64 {
-				if !isImport && data.AdvancedOptions != nil {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.HTTPIdleTimeout.IsUnknown() {
 					return data.AdvancedOptions.HTTPIdleTimeout
 				}
 				if v, ok := blockData["http_idle_timeout"].(float64); ok && v != 0 {
@@ -4084,7 +4084,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				return types.Int64Null()
 			}(),
 			MaxRequestsPerConnection: func() types.Int64 {
-				if !isImport && data.AdvancedOptions != nil {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.MaxRequestsPerConnection.IsUnknown() {
 					return data.AdvancedOptions.MaxRequestsPerConnection
 				}
 				if v, ok := blockData["max_requests_per_connection"].(float64); ok && v != 0 {
@@ -4151,7 +4151,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			PanicThreshold: func() types.Int64 {
-				if !isImport && data.AdvancedOptions != nil {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.PanicThreshold.IsUnknown() {
 					return data.AdvancedOptions.PanicThreshold
 				}
 				if v, ok := blockData["panic_threshold"].(float64); ok && v != 0 {
@@ -4237,7 +4237,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			MaxSessionKeys: func() types.Int64 {
-				if !isImport && data.UseTLS != nil {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.MaxSessionKeys.IsUnknown() {
 					return data.UseTLS.MaxSessionKeys
 				}
 				if v, ok := blockData["max_session_keys"].(float64); ok && v != 0 {
@@ -5448,7 +5448,7 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			ConnectionTimeout: func() types.Int64 {
-				if !isImport && data.AdvancedOptions != nil {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.ConnectionTimeout.IsUnknown() {
 					return data.AdvancedOptions.ConnectionTimeout
 				}
 				if v, ok := blockData["connection_timeout"].(float64); ok && v != 0 {
@@ -5638,7 +5638,7 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			HTTPIdleTimeout: func() types.Int64 {
-				if !isImport && data.AdvancedOptions != nil {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.HTTPIdleTimeout.IsUnknown() {
 					return data.AdvancedOptions.HTTPIdleTimeout
 				}
 				if v, ok := blockData["http_idle_timeout"].(float64); ok && v != 0 {
@@ -5647,7 +5647,7 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 				return types.Int64Null()
 			}(),
 			MaxRequestsPerConnection: func() types.Int64 {
-				if !isImport && data.AdvancedOptions != nil {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.MaxRequestsPerConnection.IsUnknown() {
 					return data.AdvancedOptions.MaxRequestsPerConnection
 				}
 				if v, ok := blockData["max_requests_per_connection"].(float64); ok && v != 0 {
@@ -5714,7 +5714,7 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			PanicThreshold: func() types.Int64 {
-				if !isImport && data.AdvancedOptions != nil {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.PanicThreshold.IsUnknown() {
 					return data.AdvancedOptions.PanicThreshold
 				}
 				if v, ok := blockData["panic_threshold"].(float64); ok && v != 0 {
@@ -5800,7 +5800,7 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			MaxSessionKeys: func() types.Int64 {
-				if !isImport && data.UseTLS != nil {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.MaxSessionKeys.IsUnknown() {
 					return data.UseTLS.MaxSessionKeys
 				}
 				if v, ok := blockData["max_session_keys"].(float64); ok && v != 0 {
@@ -7779,7 +7779,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			ConnectionTimeout: func() types.Int64 {
-				if !isImport && data.AdvancedOptions != nil {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.ConnectionTimeout.IsUnknown() {
 					return data.AdvancedOptions.ConnectionTimeout
 				}
 				if v, ok := blockData["connection_timeout"].(float64); ok && v != 0 {
@@ -7969,7 +7969,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			HTTPIdleTimeout: func() types.Int64 {
-				if !isImport && data.AdvancedOptions != nil {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.HTTPIdleTimeout.IsUnknown() {
 					return data.AdvancedOptions.HTTPIdleTimeout
 				}
 				if v, ok := blockData["http_idle_timeout"].(float64); ok && v != 0 {
@@ -7978,7 +7978,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				return types.Int64Null()
 			}(),
 			MaxRequestsPerConnection: func() types.Int64 {
-				if !isImport && data.AdvancedOptions != nil {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.MaxRequestsPerConnection.IsUnknown() {
 					return data.AdvancedOptions.MaxRequestsPerConnection
 				}
 				if v, ok := blockData["max_requests_per_connection"].(float64); ok && v != 0 {
@@ -8045,7 +8045,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			PanicThreshold: func() types.Int64 {
-				if !isImport && data.AdvancedOptions != nil {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.PanicThreshold.IsUnknown() {
 					return data.AdvancedOptions.PanicThreshold
 				}
 				if v, ok := blockData["panic_threshold"].(float64); ok && v != 0 {
@@ -8131,7 +8131,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			MaxSessionKeys: func() types.Int64 {
-				if !isImport && data.UseTLS != nil {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.MaxSessionKeys.IsUnknown() {
 					return data.UseTLS.MaxSessionKeys
 				}
 				if v, ok := blockData["max_session_keys"].(float64); ok && v != 0 {

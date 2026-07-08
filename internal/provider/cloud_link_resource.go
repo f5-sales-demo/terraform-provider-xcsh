@@ -1085,7 +1085,7 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 				return nil
 			}(),
 			CustomAsn: func() types.Int64 {
-				if !isImport && data.AWS != nil {
+				if !isImport && data.AWS != nil && !data.AWS.CustomAsn.IsUnknown() {
 					return data.AWS.CustomAsn
 				}
 				if v, ok := blockData["custom_asn"].(float64); ok && v != 0 {
@@ -1477,7 +1477,7 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 				return nil
 			}(),
 			CustomAsn: func() types.Int64 {
-				if !isImport && data.AWS != nil {
+				if !isImport && data.AWS != nil && !data.AWS.CustomAsn.IsUnknown() {
 					return data.AWS.CustomAsn
 				}
 				if v, ok := blockData["custom_asn"].(float64); ok && v != 0 {
@@ -2036,7 +2036,7 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 				return nil
 			}(),
 			CustomAsn: func() types.Int64 {
-				if !isImport && data.AWS != nil {
+				if !isImport && data.AWS != nil && !data.AWS.CustomAsn.IsUnknown() {
 					return data.AWS.CustomAsn
 				}
 				if v, ok := blockData["custom_asn"].(float64); ok && v != 0 {

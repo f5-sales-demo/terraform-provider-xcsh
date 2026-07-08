@@ -6,13 +6,14 @@ New Fast ACL rule, has specification to match source IP, source port and action 
 ## Required
 
 - name
+- namespace
 
 ## Minimal Valid Config
 
 ```terraform
 resource "xcsh_fast_acl_rule" "example" {
   name      = "example-fast-acl-rule"
-  namespace = "system"
+  namespace = "staging"
 }
 ```
 

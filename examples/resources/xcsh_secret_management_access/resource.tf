@@ -15,7 +15,7 @@ terraform {
 # Basic SecretManagementAccess configuration
 resource "xcsh_secret_management_access" "example" {
   name      = "example-secret-management-access"
-  namespace = "system"
+  namespace = "staging"
 
   provider_name = "example-value"
 }

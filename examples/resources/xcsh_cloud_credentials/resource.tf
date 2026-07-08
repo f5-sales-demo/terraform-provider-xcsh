@@ -15,5 +15,5 @@ terraform {
 # Basic CloudCredentials configuration
 resource "xcsh_cloud_credentials" "example" {
   name      = "example-cloud-credentials"
-  namespace = "system"
+  namespace = "staging"
 }

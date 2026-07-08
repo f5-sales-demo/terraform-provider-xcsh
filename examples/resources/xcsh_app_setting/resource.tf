@@ -15,5 +15,5 @@ terraform {
 # Basic AppSetting configuration
 resource "xcsh_app_setting" "example" {
   name      = "example-app-setting"
-  namespace = "system"
+  namespace = "staging"
 }

@@ -1722,7 +1722,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 	if blockData, ok := apiResource.Spec["circuit_breaker"].(map[string]interface{}); ok && (isImport || data.CircuitBreaker != nil) {
 		data.CircuitBreaker = &ClusterCircuitBreakerModel{
 			ConnectionLimit: func() types.Int64 {
-				if !isImport && data.CircuitBreaker != nil {
+				if !isImport && data.CircuitBreaker != nil && !data.CircuitBreaker.ConnectionLimit.IsUnknown() {
 					return data.CircuitBreaker.ConnectionLimit
 				}
 				if v, ok := blockData["connection_limit"].(float64); ok && v != 0 {
@@ -1731,7 +1731,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 				return types.Int64Null()
 			}(),
 			MaxRequests: func() types.Int64 {
-				if !isImport && data.CircuitBreaker != nil {
+				if !isImport && data.CircuitBreaker != nil && !data.CircuitBreaker.MaxRequests.IsUnknown() {
 					return data.CircuitBreaker.MaxRequests
 				}
 				if v, ok := blockData["max_requests"].(float64); ok && v != 0 {
@@ -1740,7 +1740,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 				return types.Int64Null()
 			}(),
 			PendingRequests: func() types.Int64 {
-				if !isImport && data.CircuitBreaker != nil {
+				if !isImport && data.CircuitBreaker != nil && !data.CircuitBreaker.PendingRequests.IsUnknown() {
 					return data.CircuitBreaker.PendingRequests
 				}
 				if v, ok := blockData["pending_requests"].(float64); ok && v != 0 {
@@ -1755,7 +1755,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 				return types.StringNull()
 			}(),
 			Retries: func() types.Int64 {
-				if !isImport && data.CircuitBreaker != nil {
+				if !isImport && data.CircuitBreaker != nil && !data.CircuitBreaker.Retries.IsUnknown() {
 					return data.CircuitBreaker.Retries
 				}
 				if v, ok := blockData["retries"].(float64); ok && v != 0 {
@@ -1954,7 +1954,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 	if blockData, ok := apiResource.Spec["http2_options"].(map[string]interface{}); ok && (isImport || data.Http2Options != nil) {
 		data.Http2Options = &ClusterHttp2OptionsModel{
 			Enabled: func() types.Bool {
-				if !isImport && data.Http2Options != nil {
+				if !isImport && data.Http2Options != nil && !data.Http2Options.Enabled.IsUnknown() {
 					return data.Http2Options.Enabled
 				}
 				if v, ok := blockData["enabled"].(bool); ok {
@@ -1973,7 +1973,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 	if blockData, ok := apiResource.Spec["outlier_detection"].(map[string]interface{}); ok && (isImport || data.OutlierDetection != nil) {
 		data.OutlierDetection = &ClusterOutlierDetectionModel{
 			BaseEjectionTime: func() types.Int64 {
-				if !isImport && data.OutlierDetection != nil {
+				if !isImport && data.OutlierDetection != nil && !data.OutlierDetection.BaseEjectionTime.IsUnknown() {
 					return data.OutlierDetection.BaseEjectionTime
 				}
 				if v, ok := blockData["base_ejection_time"].(float64); ok && v != 0 {
@@ -1982,7 +1982,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 				return types.Int64Null()
 			}(),
 			Consecutive5xx: func() types.Int64 {
-				if !isImport && data.OutlierDetection != nil {
+				if !isImport && data.OutlierDetection != nil && !data.OutlierDetection.Consecutive5xx.IsUnknown() {
 					return data.OutlierDetection.Consecutive5xx
 				}
 				if v, ok := blockData["consecutive_5xx"].(float64); ok && v != 0 {
@@ -1991,7 +1991,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 				return types.Int64Null()
 			}(),
 			ConsecutiveGatewayFailure: func() types.Int64 {
-				if !isImport && data.OutlierDetection != nil {
+				if !isImport && data.OutlierDetection != nil && !data.OutlierDetection.ConsecutiveGatewayFailure.IsUnknown() {
 					return data.OutlierDetection.ConsecutiveGatewayFailure
 				}
 				if v, ok := blockData["consecutive_gateway_failure"].(float64); ok && v != 0 {
@@ -2000,7 +2000,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 				return types.Int64Null()
 			}(),
 			Interval: func() types.Int64 {
-				if !isImport && data.OutlierDetection != nil {
+				if !isImport && data.OutlierDetection != nil && !data.OutlierDetection.Interval.IsUnknown() {
 					return data.OutlierDetection.Interval
 				}
 				if v, ok := blockData["interval"].(float64); ok && v != 0 {
@@ -2009,7 +2009,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 				return types.Int64Null()
 			}(),
 			MaxEjectionPercent: func() types.Int64 {
-				if !isImport && data.OutlierDetection != nil {
+				if !isImport && data.OutlierDetection != nil && !data.OutlierDetection.MaxEjectionPercent.IsUnknown() {
 					return data.OutlierDetection.MaxEjectionPercent
 				}
 				if v, ok := blockData["max_ejection_percent"].(float64); ok && v != 0 {
@@ -2443,7 +2443,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 				return nil
 			}(),
 			MaxSessionKeys: func() types.Int64 {
-				if !isImport && data.TLSParameters != nil {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.MaxSessionKeys.IsUnknown() {
 					return data.TLSParameters.MaxSessionKeys
 				}
 				if v, ok := blockData["max_session_keys"].(float64); ok && v != 0 {
@@ -2611,7 +2611,7 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 	if blockData, ok := apiResource.Spec["circuit_breaker"].(map[string]interface{}); ok && (isImport || data.CircuitBreaker != nil) {
 		data.CircuitBreaker = &ClusterCircuitBreakerModel{
 			ConnectionLimit: func() types.Int64 {
-				if !isImport && data.CircuitBreaker != nil {
+				if !isImport && data.CircuitBreaker != nil && !data.CircuitBreaker.ConnectionLimit.IsUnknown() {
 					return data.CircuitBreaker.ConnectionLimit
 				}
 				if v, ok := blockData["connection_limit"].(float64); ok && v != 0 {
@@ -2620,7 +2620,7 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 				return types.Int64Null()
 			}(),
 			MaxRequests: func() types.Int64 {
-				if !isImport && data.CircuitBreaker != nil {
+				if !isImport && data.CircuitBreaker != nil && !data.CircuitBreaker.MaxRequests.IsUnknown() {
 					return data.CircuitBreaker.MaxRequests
 				}
 				if v, ok := blockData["max_requests"].(float64); ok && v != 0 {
@@ -2629,7 +2629,7 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 				return types.Int64Null()
 			}(),
 			PendingRequests: func() types.Int64 {
-				if !isImport && data.CircuitBreaker != nil {
+				if !isImport && data.CircuitBreaker != nil && !data.CircuitBreaker.PendingRequests.IsUnknown() {
 					return data.CircuitBreaker.PendingRequests
 				}
 				if v, ok := blockData["pending_requests"].(float64); ok && v != 0 {
@@ -2644,7 +2644,7 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 				return types.StringNull()
 			}(),
 			Retries: func() types.Int64 {
-				if !isImport && data.CircuitBreaker != nil {
+				if !isImport && data.CircuitBreaker != nil && !data.CircuitBreaker.Retries.IsUnknown() {
 					return data.CircuitBreaker.Retries
 				}
 				if v, ok := blockData["retries"].(float64); ok && v != 0 {
@@ -2843,7 +2843,7 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 	if blockData, ok := apiResource.Spec["http2_options"].(map[string]interface{}); ok && (isImport || data.Http2Options != nil) {
 		data.Http2Options = &ClusterHttp2OptionsModel{
 			Enabled: func() types.Bool {
-				if !isImport && data.Http2Options != nil {
+				if !isImport && data.Http2Options != nil && !data.Http2Options.Enabled.IsUnknown() {
 					return data.Http2Options.Enabled
 				}
 				if v, ok := blockData["enabled"].(bool); ok {
@@ -2862,7 +2862,7 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 	if blockData, ok := apiResource.Spec["outlier_detection"].(map[string]interface{}); ok && (isImport || data.OutlierDetection != nil) {
 		data.OutlierDetection = &ClusterOutlierDetectionModel{
 			BaseEjectionTime: func() types.Int64 {
-				if !isImport && data.OutlierDetection != nil {
+				if !isImport && data.OutlierDetection != nil && !data.OutlierDetection.BaseEjectionTime.IsUnknown() {
 					return data.OutlierDetection.BaseEjectionTime
 				}
 				if v, ok := blockData["base_ejection_time"].(float64); ok && v != 0 {
@@ -2871,7 +2871,7 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 				return types.Int64Null()
 			}(),
 			Consecutive5xx: func() types.Int64 {
-				if !isImport && data.OutlierDetection != nil {
+				if !isImport && data.OutlierDetection != nil && !data.OutlierDetection.Consecutive5xx.IsUnknown() {
 					return data.OutlierDetection.Consecutive5xx
 				}
 				if v, ok := blockData["consecutive_5xx"].(float64); ok && v != 0 {
@@ -2880,7 +2880,7 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 				return types.Int64Null()
 			}(),
 			ConsecutiveGatewayFailure: func() types.Int64 {
-				if !isImport && data.OutlierDetection != nil {
+				if !isImport && data.OutlierDetection != nil && !data.OutlierDetection.ConsecutiveGatewayFailure.IsUnknown() {
 					return data.OutlierDetection.ConsecutiveGatewayFailure
 				}
 				if v, ok := blockData["consecutive_gateway_failure"].(float64); ok && v != 0 {
@@ -2889,7 +2889,7 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 				return types.Int64Null()
 			}(),
 			Interval: func() types.Int64 {
-				if !isImport && data.OutlierDetection != nil {
+				if !isImport && data.OutlierDetection != nil && !data.OutlierDetection.Interval.IsUnknown() {
 					return data.OutlierDetection.Interval
 				}
 				if v, ok := blockData["interval"].(float64); ok && v != 0 {
@@ -2898,7 +2898,7 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 				return types.Int64Null()
 			}(),
 			MaxEjectionPercent: func() types.Int64 {
-				if !isImport && data.OutlierDetection != nil {
+				if !isImport && data.OutlierDetection != nil && !data.OutlierDetection.MaxEjectionPercent.IsUnknown() {
 					return data.OutlierDetection.MaxEjectionPercent
 				}
 				if v, ok := blockData["max_ejection_percent"].(float64); ok && v != 0 {
@@ -3332,7 +3332,7 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 				return nil
 			}(),
 			MaxSessionKeys: func() types.Int64 {
-				if !isImport && data.TLSParameters != nil {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.MaxSessionKeys.IsUnknown() {
 					return data.TLSParameters.MaxSessionKeys
 				}
 				if v, ok := blockData["max_session_keys"].(float64); ok && v != 0 {
@@ -3950,7 +3950,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 	if blockData, ok := apiResource.Spec["circuit_breaker"].(map[string]interface{}); ok && (isImport || data.CircuitBreaker != nil) {
 		data.CircuitBreaker = &ClusterCircuitBreakerModel{
 			ConnectionLimit: func() types.Int64 {
-				if !isImport && data.CircuitBreaker != nil {
+				if !isImport && data.CircuitBreaker != nil && !data.CircuitBreaker.ConnectionLimit.IsUnknown() {
 					return data.CircuitBreaker.ConnectionLimit
 				}
 				if v, ok := blockData["connection_limit"].(float64); ok && v != 0 {
@@ -3959,7 +3959,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 				return types.Int64Null()
 			}(),
 			MaxRequests: func() types.Int64 {
-				if !isImport && data.CircuitBreaker != nil {
+				if !isImport && data.CircuitBreaker != nil && !data.CircuitBreaker.MaxRequests.IsUnknown() {
 					return data.CircuitBreaker.MaxRequests
 				}
 				if v, ok := blockData["max_requests"].(float64); ok && v != 0 {
@@ -3968,7 +3968,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 				return types.Int64Null()
 			}(),
 			PendingRequests: func() types.Int64 {
-				if !isImport && data.CircuitBreaker != nil {
+				if !isImport && data.CircuitBreaker != nil && !data.CircuitBreaker.PendingRequests.IsUnknown() {
 					return data.CircuitBreaker.PendingRequests
 				}
 				if v, ok := blockData["pending_requests"].(float64); ok && v != 0 {
@@ -3983,7 +3983,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 				return types.StringNull()
 			}(),
 			Retries: func() types.Int64 {
-				if !isImport && data.CircuitBreaker != nil {
+				if !isImport && data.CircuitBreaker != nil && !data.CircuitBreaker.Retries.IsUnknown() {
 					return data.CircuitBreaker.Retries
 				}
 				if v, ok := blockData["retries"].(float64); ok && v != 0 {
@@ -4182,7 +4182,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 	if blockData, ok := apiResource.Spec["http2_options"].(map[string]interface{}); ok && (isImport || data.Http2Options != nil) {
 		data.Http2Options = &ClusterHttp2OptionsModel{
 			Enabled: func() types.Bool {
-				if !isImport && data.Http2Options != nil {
+				if !isImport && data.Http2Options != nil && !data.Http2Options.Enabled.IsUnknown() {
 					return data.Http2Options.Enabled
 				}
 				if v, ok := blockData["enabled"].(bool); ok {
@@ -4201,7 +4201,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 	if blockData, ok := apiResource.Spec["outlier_detection"].(map[string]interface{}); ok && (isImport || data.OutlierDetection != nil) {
 		data.OutlierDetection = &ClusterOutlierDetectionModel{
 			BaseEjectionTime: func() types.Int64 {
-				if !isImport && data.OutlierDetection != nil {
+				if !isImport && data.OutlierDetection != nil && !data.OutlierDetection.BaseEjectionTime.IsUnknown() {
 					return data.OutlierDetection.BaseEjectionTime
 				}
 				if v, ok := blockData["base_ejection_time"].(float64); ok && v != 0 {
@@ -4210,7 +4210,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 				return types.Int64Null()
 			}(),
 			Consecutive5xx: func() types.Int64 {
-				if !isImport && data.OutlierDetection != nil {
+				if !isImport && data.OutlierDetection != nil && !data.OutlierDetection.Consecutive5xx.IsUnknown() {
 					return data.OutlierDetection.Consecutive5xx
 				}
 				if v, ok := blockData["consecutive_5xx"].(float64); ok && v != 0 {
@@ -4219,7 +4219,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 				return types.Int64Null()
 			}(),
 			ConsecutiveGatewayFailure: func() types.Int64 {
-				if !isImport && data.OutlierDetection != nil {
+				if !isImport && data.OutlierDetection != nil && !data.OutlierDetection.ConsecutiveGatewayFailure.IsUnknown() {
 					return data.OutlierDetection.ConsecutiveGatewayFailure
 				}
 				if v, ok := blockData["consecutive_gateway_failure"].(float64); ok && v != 0 {
@@ -4228,7 +4228,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 				return types.Int64Null()
 			}(),
 			Interval: func() types.Int64 {
-				if !isImport && data.OutlierDetection != nil {
+				if !isImport && data.OutlierDetection != nil && !data.OutlierDetection.Interval.IsUnknown() {
 					return data.OutlierDetection.Interval
 				}
 				if v, ok := blockData["interval"].(float64); ok && v != 0 {
@@ -4237,7 +4237,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 				return types.Int64Null()
 			}(),
 			MaxEjectionPercent: func() types.Int64 {
-				if !isImport && data.OutlierDetection != nil {
+				if !isImport && data.OutlierDetection != nil && !data.OutlierDetection.MaxEjectionPercent.IsUnknown() {
 					return data.OutlierDetection.MaxEjectionPercent
 				}
 				if v, ok := blockData["max_ejection_percent"].(float64); ok && v != 0 {
@@ -4671,7 +4671,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 				return nil
 			}(),
 			MaxSessionKeys: func() types.Int64 {
-				if !isImport && data.TLSParameters != nil {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.MaxSessionKeys.IsUnknown() {
 					return data.TLSParameters.MaxSessionKeys
 				}
 				if v, ok := blockData["max_session_keys"].(float64); ok && v != 0 {

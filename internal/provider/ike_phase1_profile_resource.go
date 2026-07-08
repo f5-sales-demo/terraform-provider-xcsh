@@ -473,7 +473,7 @@ func (r *IKEPhase1ProfileResource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["ike_keylifetime_hours"].(map[string]interface{}); ok && (isImport || data.IKEKeylifetimeHours != nil) {
 		data.IKEKeylifetimeHours = &IKEPhase1ProfileIKEKeylifetimeHoursModel{
 			Duration: func() types.Int64 {
-				if !isImport && data.IKEKeylifetimeHours != nil {
+				if !isImport && data.IKEKeylifetimeHours != nil && !data.IKEKeylifetimeHours.Duration.IsUnknown() {
 					return data.IKEKeylifetimeHours.Duration
 				}
 				if v, ok := blockData["duration"].(float64); ok && v != 0 {
@@ -486,7 +486,7 @@ func (r *IKEPhase1ProfileResource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["ike_keylifetime_minutes"].(map[string]interface{}); ok && (isImport || data.IKEKeylifetimeMinutes != nil) {
 		data.IKEKeylifetimeMinutes = &IKEPhase1ProfileIKEKeylifetimeMinutesModel{
 			Duration: func() types.Int64 {
-				if !isImport && data.IKEKeylifetimeMinutes != nil {
+				if !isImport && data.IKEKeylifetimeMinutes != nil && !data.IKEKeylifetimeMinutes.Duration.IsUnknown() {
 					return data.IKEKeylifetimeMinutes.Duration
 				}
 				if v, ok := blockData["duration"].(float64); ok && v != 0 {
@@ -502,7 +502,7 @@ func (r *IKEPhase1ProfileResource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["reauth_timeout_days"].(map[string]interface{}); ok && (isImport || data.ReauthTimeoutDays != nil) {
 		data.ReauthTimeoutDays = &IKEPhase1ProfileReauthTimeoutDaysModel{
 			Duration: func() types.Int64 {
-				if !isImport && data.ReauthTimeoutDays != nil {
+				if !isImport && data.ReauthTimeoutDays != nil && !data.ReauthTimeoutDays.Duration.IsUnknown() {
 					return data.ReauthTimeoutDays.Duration
 				}
 				if v, ok := blockData["duration"].(float64); ok && v != 0 {
@@ -515,7 +515,7 @@ func (r *IKEPhase1ProfileResource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["reauth_timeout_hours"].(map[string]interface{}); ok && (isImport || data.ReauthTimeoutHours != nil) {
 		data.ReauthTimeoutHours = &IKEPhase1ProfileReauthTimeoutHoursModel{
 			Duration: func() types.Int64 {
-				if !isImport && data.ReauthTimeoutHours != nil {
+				if !isImport && data.ReauthTimeoutHours != nil && !data.ReauthTimeoutHours.Duration.IsUnknown() {
 					return data.ReauthTimeoutHours.Duration
 				}
 				if v, ok := blockData["duration"].(float64); ok && v != 0 {
@@ -671,7 +671,7 @@ func (r *IKEPhase1ProfileResource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["ike_keylifetime_hours"].(map[string]interface{}); ok && (isImport || data.IKEKeylifetimeHours != nil) {
 		data.IKEKeylifetimeHours = &IKEPhase1ProfileIKEKeylifetimeHoursModel{
 			Duration: func() types.Int64 {
-				if !isImport && data.IKEKeylifetimeHours != nil {
+				if !isImport && data.IKEKeylifetimeHours != nil && !data.IKEKeylifetimeHours.Duration.IsUnknown() {
 					return data.IKEKeylifetimeHours.Duration
 				}
 				if v, ok := blockData["duration"].(float64); ok && v != 0 {
@@ -684,7 +684,7 @@ func (r *IKEPhase1ProfileResource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["ike_keylifetime_minutes"].(map[string]interface{}); ok && (isImport || data.IKEKeylifetimeMinutes != nil) {
 		data.IKEKeylifetimeMinutes = &IKEPhase1ProfileIKEKeylifetimeMinutesModel{
 			Duration: func() types.Int64 {
-				if !isImport && data.IKEKeylifetimeMinutes != nil {
+				if !isImport && data.IKEKeylifetimeMinutes != nil && !data.IKEKeylifetimeMinutes.Duration.IsUnknown() {
 					return data.IKEKeylifetimeMinutes.Duration
 				}
 				if v, ok := blockData["duration"].(float64); ok && v != 0 {
@@ -700,7 +700,7 @@ func (r *IKEPhase1ProfileResource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["reauth_timeout_days"].(map[string]interface{}); ok && (isImport || data.ReauthTimeoutDays != nil) {
 		data.ReauthTimeoutDays = &IKEPhase1ProfileReauthTimeoutDaysModel{
 			Duration: func() types.Int64 {
-				if !isImport && data.ReauthTimeoutDays != nil {
+				if !isImport && data.ReauthTimeoutDays != nil && !data.ReauthTimeoutDays.Duration.IsUnknown() {
 					return data.ReauthTimeoutDays.Duration
 				}
 				if v, ok := blockData["duration"].(float64); ok && v != 0 {
@@ -713,7 +713,7 @@ func (r *IKEPhase1ProfileResource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["reauth_timeout_hours"].(map[string]interface{}); ok && (isImport || data.ReauthTimeoutHours != nil) {
 		data.ReauthTimeoutHours = &IKEPhase1ProfileReauthTimeoutHoursModel{
 			Duration: func() types.Int64 {
-				if !isImport && data.ReauthTimeoutHours != nil {
+				if !isImport && data.ReauthTimeoutHours != nil && !data.ReauthTimeoutHours.Duration.IsUnknown() {
 					return data.ReauthTimeoutHours.Duration
 				}
 				if v, ok := blockData["duration"].(float64); ok && v != 0 {
@@ -934,7 +934,7 @@ func (r *IKEPhase1ProfileResource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["ike_keylifetime_hours"].(map[string]interface{}); ok && (isImport || data.IKEKeylifetimeHours != nil) {
 		data.IKEKeylifetimeHours = &IKEPhase1ProfileIKEKeylifetimeHoursModel{
 			Duration: func() types.Int64 {
-				if !isImport && data.IKEKeylifetimeHours != nil {
+				if !isImport && data.IKEKeylifetimeHours != nil && !data.IKEKeylifetimeHours.Duration.IsUnknown() {
 					return data.IKEKeylifetimeHours.Duration
 				}
 				if v, ok := blockData["duration"].(float64); ok && v != 0 {
@@ -947,7 +947,7 @@ func (r *IKEPhase1ProfileResource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["ike_keylifetime_minutes"].(map[string]interface{}); ok && (isImport || data.IKEKeylifetimeMinutes != nil) {
 		data.IKEKeylifetimeMinutes = &IKEPhase1ProfileIKEKeylifetimeMinutesModel{
 			Duration: func() types.Int64 {
-				if !isImport && data.IKEKeylifetimeMinutes != nil {
+				if !isImport && data.IKEKeylifetimeMinutes != nil && !data.IKEKeylifetimeMinutes.Duration.IsUnknown() {
 					return data.IKEKeylifetimeMinutes.Duration
 				}
 				if v, ok := blockData["duration"].(float64); ok && v != 0 {
@@ -963,7 +963,7 @@ func (r *IKEPhase1ProfileResource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["reauth_timeout_days"].(map[string]interface{}); ok && (isImport || data.ReauthTimeoutDays != nil) {
 		data.ReauthTimeoutDays = &IKEPhase1ProfileReauthTimeoutDaysModel{
 			Duration: func() types.Int64 {
-				if !isImport && data.ReauthTimeoutDays != nil {
+				if !isImport && data.ReauthTimeoutDays != nil && !data.ReauthTimeoutDays.Duration.IsUnknown() {
 					return data.ReauthTimeoutDays.Duration
 				}
 				if v, ok := blockData["duration"].(float64); ok && v != 0 {
@@ -976,7 +976,7 @@ func (r *IKEPhase1ProfileResource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["reauth_timeout_hours"].(map[string]interface{}); ok && (isImport || data.ReauthTimeoutHours != nil) {
 		data.ReauthTimeoutHours = &IKEPhase1ProfileReauthTimeoutHoursModel{
 			Duration: func() types.Int64 {
-				if !isImport && data.ReauthTimeoutHours != nil {
+				if !isImport && data.ReauthTimeoutHours != nil && !data.ReauthTimeoutHours.Duration.IsUnknown() {
 					return data.ReauthTimeoutHours.Duration
 				}
 				if v, ok := blockData["duration"].(float64); ok && v != 0 {

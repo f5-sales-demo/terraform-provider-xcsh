@@ -15,5 +15,5 @@ terraform {
 # Basic DNSLoadBalancer configuration
 resource "xcsh_dns_load_balancer" "example" {
   name      = "example-dns-load-balancer"
-  namespace = "staging"
+  namespace = "system"
 }

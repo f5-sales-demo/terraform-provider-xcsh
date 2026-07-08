@@ -5729,7 +5729,7 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 				return types.StringNull()
 			}(),
 			HTTPSPort: func() types.Int64 {
-				if !isImport && data.HTTPSManagement != nil {
+				if !isImport && data.HTTPSManagement != nil && !data.HTTPSManagement.HTTPSPort.IsUnknown() {
 					return data.HTTPSManagement.HTTPSPort
 				}
 				if v, ok := blockData["https_port"].(float64); ok && v != 0 {
@@ -7632,7 +7632,7 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 				return types.StringNull()
 			}(),
 			HTTPSPort: func() types.Int64 {
-				if !isImport && data.HTTPSManagement != nil {
+				if !isImport && data.HTTPSManagement != nil && !data.HTTPSManagement.HTTPSPort.IsUnknown() {
 					return data.HTTPSManagement.HTTPSPort
 				}
 				if v, ok := blockData["https_port"].(float64); ok && v != 0 {
@@ -10495,7 +10495,7 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 				return types.StringNull()
 			}(),
 			HTTPSPort: func() types.Int64 {
-				if !isImport && data.HTTPSManagement != nil {
+				if !isImport && data.HTTPSManagement != nil && !data.HTTPSManagement.HTTPSPort.IsUnknown() {
 					return data.HTTPSManagement.HTTPSPort
 				}
 				if v, ok := blockData["https_port"].(float64); ok && v != 0 {

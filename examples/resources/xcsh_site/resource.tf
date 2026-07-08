@@ -15,7 +15,7 @@ terraform {
 # Basic Site configuration
 resource "xcsh_site" "example" {
   name      = "example-site"
-  namespace = "system"
+  namespace = "staging"
 
   site_type = "INVALID"
 }

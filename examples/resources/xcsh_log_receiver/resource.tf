@@ -15,5 +15,5 @@ terraform {
 # Basic LogReceiver configuration
 resource "xcsh_log_receiver" "example" {
   name      = "example-log-receiver"
-  namespace = "system"
+  namespace = "staging"
 }

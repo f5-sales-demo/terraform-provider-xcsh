@@ -15,5 +15,5 @@ terraform {
 # Basic AlertReceiver configuration
 resource "xcsh_alert_receiver" "example" {
   name      = "example-alert-receiver"
-  namespace = "system"
+  namespace = "staging"
 }

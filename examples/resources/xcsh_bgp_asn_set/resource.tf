@@ -15,7 +15,7 @@ terraform {
 # Basic BGPAsnSet configuration
 resource "xcsh_bgp_asn_set" "example" {
   name      = "example-bgp-asn-set"
-  namespace = "system"
+  namespace = "staging"
 
   as_numbers = [1]
 }

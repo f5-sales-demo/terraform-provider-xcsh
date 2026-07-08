@@ -21243,7 +21243,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return types.StringNull()
 			}(),
 			Timeout: func() types.Int64 {
-				if !isImport && data.BotDefense != nil {
+				if !isImport && data.BotDefense != nil && !data.BotDefense.Timeout.IsUnknown() {
 					return data.BotDefense.Timeout
 				}
 				if v, ok := blockData["timeout"].(float64); ok && v != 0 {
@@ -21256,7 +21256,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if blockData, ok := apiResource.Spec["captcha_challenge"].(map[string]interface{}); ok && (isImport || data.CaptchaChallenge != nil) {
 		data.CaptchaChallenge = &CDNLoadBalancerCaptchaChallengeModel{
 			CookieExpiry: func() types.Int64 {
-				if !isImport && data.CaptchaChallenge != nil {
+				if !isImport && data.CaptchaChallenge != nil && !data.CaptchaChallenge.CookieExpiry.IsUnknown() {
 					return data.CaptchaChallenge.CookieExpiry
 				}
 				if v, ok := blockData["cookie_expiry"].(float64); ok && v != 0 {
@@ -21579,7 +21579,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if blockData, ok := apiResource.Spec["cors_policy"].(map[string]interface{}); ok && (isImport || data.CORSPolicy != nil) {
 		data.CORSPolicy = &CDNLoadBalancerCORSPolicyModel{
 			AllowCredentials: func() types.Bool {
-				if !isImport && data.CORSPolicy != nil {
+				if !isImport && data.CORSPolicy != nil && !data.CORSPolicy.AllowCredentials.IsUnknown() {
 					return data.CORSPolicy.AllowCredentials
 				}
 				if v, ok := blockData["allow_credentials"].(bool); ok {
@@ -21626,7 +21626,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return types.ListNull(types.StringType)
 			}(),
 			Disabled: func() types.Bool {
-				if !isImport && data.CORSPolicy != nil {
+				if !isImport && data.CORSPolicy != nil && !data.CORSPolicy.Disabled.IsUnknown() {
 					return data.CORSPolicy.Disabled
 				}
 				if v, ok := blockData["disabled"].(bool); ok {
@@ -21641,7 +21641,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return types.StringNull()
 			}(),
 			MaximumAge: func() types.Int64 {
-				if !isImport && data.CORSPolicy != nil {
+				if !isImport && data.CORSPolicy != nil && !data.CORSPolicy.MaximumAge.IsUnknown() {
 					return data.CORSPolicy.MaximumAge
 				}
 				if v, ok := blockData["maximum_age"].(float64); ok && v != 0 {
@@ -22604,7 +22604,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if blockData, ok := apiResource.Spec["http"].(map[string]interface{}); ok && (isImport || data.HTTP != nil) {
 		data.HTTP = &CDNLoadBalancerHTTPModel{
 			DNSVolterraManaged: func() types.Bool {
-				if !isImport && data.HTTP != nil {
+				if !isImport && data.HTTP != nil && !data.HTTP.DNSVolterraManaged.IsUnknown() {
 					return data.HTTP.DNSVolterraManaged
 				}
 				if v, ok := blockData["dns_volterra_managed"].(bool); ok {
@@ -22613,7 +22613,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return types.BoolNull()
 			}(),
 			Port: func() types.Int64 {
-				if !isImport && data.HTTP != nil {
+				if !isImport && data.HTTP != nil && !data.HTTP.Port.IsUnknown() {
 					return data.HTTP.Port
 				}
 				if v, ok := blockData["port"].(float64); ok && v != 0 {
@@ -22632,7 +22632,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if blockData, ok := apiResource.Spec["https"].(map[string]interface{}); ok && (isImport || data.HTTPS != nil) {
 		data.HTTPS = &CDNLoadBalancerHTTPSModel{
 			AddHsts: func() types.Bool {
-				if !isImport && data.HTTPS != nil {
+				if !isImport && data.HTTPS != nil && !data.HTTPS.AddHsts.IsUnknown() {
 					return data.HTTPS.AddHsts
 				}
 				if v, ok := blockData["add_hsts"].(bool); ok {
@@ -22641,7 +22641,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return types.BoolNull()
 			}(),
 			HTTPRedirect: func() types.Bool {
-				if !isImport && data.HTTPS != nil {
+				if !isImport && data.HTTPS != nil && !data.HTTPS.HTTPRedirect.IsUnknown() {
 					return data.HTTPS.HTTPRedirect
 				}
 				if v, ok := blockData["http_redirect"].(bool); ok {
@@ -23146,7 +23146,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if blockData, ok := apiResource.Spec["https_auto_cert"].(map[string]interface{}); ok && (isImport || data.HTTPSAutoCert != nil) {
 		data.HTTPSAutoCert = &CDNLoadBalancerHTTPSAutoCertModel{
 			AddHsts: func() types.Bool {
-				if !isImport && data.HTTPSAutoCert != nil {
+				if !isImport && data.HTTPSAutoCert != nil && !data.HTTPSAutoCert.AddHsts.IsUnknown() {
 					return data.HTTPSAutoCert.AddHsts
 				}
 				if v, ok := blockData["add_hsts"].(bool); ok {
@@ -23155,7 +23155,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return types.BoolNull()
 			}(),
 			HTTPRedirect: func() types.Bool {
-				if !isImport && data.HTTPSAutoCert != nil {
+				if !isImport && data.HTTPSAutoCert != nil && !data.HTTPSAutoCert.HTTPRedirect.IsUnknown() {
 					return data.HTTPSAutoCert.HTTPRedirect
 				}
 				if v, ok := blockData["http_redirect"].(bool); ok {
@@ -23190,7 +23190,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if blockData, ok := apiResource.Spec["js_challenge"].(map[string]interface{}); ok && (isImport || data.JsChallenge != nil) {
 		data.JsChallenge = &CDNLoadBalancerJsChallengeModel{
 			CookieExpiry: func() types.Int64 {
-				if !isImport && data.JsChallenge != nil {
+				if !isImport && data.JsChallenge != nil && !data.JsChallenge.CookieExpiry.IsUnknown() {
 					return data.JsChallenge.CookieExpiry
 				}
 				if v, ok := blockData["cookie_expiry"].(float64); ok && v != 0 {
@@ -23205,7 +23205,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return types.StringNull()
 			}(),
 			JsScriptDelay: func() types.Int64 {
-				if !isImport && data.JsChallenge != nil {
+				if !isImport && data.JsChallenge != nil && !data.JsChallenge.JsScriptDelay.IsUnknown() {
 					return data.JsChallenge.JsScriptDelay
 				}
 				if v, ok := blockData["js_script_delay"].(float64); ok && v != 0 {
@@ -23463,7 +23463,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if blockData, ok := apiResource.Spec["l7_ddos_action_js_challenge"].(map[string]interface{}); ok && (isImport || data.L7DDOSActionJsChallenge != nil) {
 		data.L7DDOSActionJsChallenge = &CDNLoadBalancerL7DDOSActionJsChallengeModel{
 			CookieExpiry: func() types.Int64 {
-				if !isImport && data.L7DDOSActionJsChallenge != nil {
+				if !isImport && data.L7DDOSActionJsChallenge != nil && !data.L7DDOSActionJsChallenge.CookieExpiry.IsUnknown() {
 					return data.L7DDOSActionJsChallenge.CookieExpiry
 				}
 				if v, ok := blockData["cookie_expiry"].(float64); ok && v != 0 {
@@ -23478,7 +23478,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return types.StringNull()
 			}(),
 			JsScriptDelay: func() types.Int64 {
-				if !isImport && data.L7DDOSActionJsChallenge != nil {
+				if !isImport && data.L7DDOSActionJsChallenge != nil && !data.L7DDOSActionJsChallenge.JsScriptDelay.IsUnknown() {
 					return data.L7DDOSActionJsChallenge.JsScriptDelay
 				}
 				if v, ok := blockData["js_script_delay"].(float64); ok && v != 0 {
@@ -23913,7 +23913,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if blockData, ok := apiResource.Spec["other_settings"].(map[string]interface{}); ok && (isImport || data.OtherSettings != nil) {
 		data.OtherSettings = &CDNLoadBalancerOtherSettingsModel{
 			AddLocation: func() types.Bool {
-				if !isImport && data.OtherSettings != nil {
+				if !isImport && data.OtherSettings != nil && !data.OtherSettings.AddLocation.IsUnknown() {
 					return data.OtherSettings.AddLocation
 				}
 				if v, ok := blockData["add_location"].(bool); ok {
@@ -25569,7 +25569,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return nil
 			}(),
 			RequestHeadersTimeout: func() types.Int64 {
-				if !isImport && data.SlowDDOSMitigation != nil {
+				if !isImport && data.SlowDDOSMitigation != nil && !data.SlowDDOSMitigation.RequestHeadersTimeout.IsUnknown() {
 					return data.SlowDDOSMitigation.RequestHeadersTimeout
 				}
 				if v, ok := blockData["request_headers_timeout"].(float64); ok && v != 0 {
@@ -25578,7 +25578,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return types.Int64Null()
 			}(),
 			RequestTimeout: func() types.Int64 {
-				if !isImport && data.SlowDDOSMitigation != nil {
+				if !isImport && data.SlowDDOSMitigation != nil && !data.SlowDDOSMitigation.RequestTimeout.IsUnknown() {
 					return data.SlowDDOSMitigation.RequestTimeout
 				}
 				if v, ok := blockData["request_timeout"].(float64); ok && v != 0 {
@@ -30357,7 +30357,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return types.StringNull()
 			}(),
 			Timeout: func() types.Int64 {
-				if !isImport && data.BotDefense != nil {
+				if !isImport && data.BotDefense != nil && !data.BotDefense.Timeout.IsUnknown() {
 					return data.BotDefense.Timeout
 				}
 				if v, ok := blockData["timeout"].(float64); ok && v != 0 {
@@ -30370,7 +30370,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	if blockData, ok := apiResource.Spec["captcha_challenge"].(map[string]interface{}); ok && (isImport || data.CaptchaChallenge != nil) {
 		data.CaptchaChallenge = &CDNLoadBalancerCaptchaChallengeModel{
 			CookieExpiry: func() types.Int64 {
-				if !isImport && data.CaptchaChallenge != nil {
+				if !isImport && data.CaptchaChallenge != nil && !data.CaptchaChallenge.CookieExpiry.IsUnknown() {
 					return data.CaptchaChallenge.CookieExpiry
 				}
 				if v, ok := blockData["cookie_expiry"].(float64); ok && v != 0 {
@@ -30693,7 +30693,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	if blockData, ok := apiResource.Spec["cors_policy"].(map[string]interface{}); ok && (isImport || data.CORSPolicy != nil) {
 		data.CORSPolicy = &CDNLoadBalancerCORSPolicyModel{
 			AllowCredentials: func() types.Bool {
-				if !isImport && data.CORSPolicy != nil {
+				if !isImport && data.CORSPolicy != nil && !data.CORSPolicy.AllowCredentials.IsUnknown() {
 					return data.CORSPolicy.AllowCredentials
 				}
 				if v, ok := blockData["allow_credentials"].(bool); ok {
@@ -30740,7 +30740,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return types.ListNull(types.StringType)
 			}(),
 			Disabled: func() types.Bool {
-				if !isImport && data.CORSPolicy != nil {
+				if !isImport && data.CORSPolicy != nil && !data.CORSPolicy.Disabled.IsUnknown() {
 					return data.CORSPolicy.Disabled
 				}
 				if v, ok := blockData["disabled"].(bool); ok {
@@ -30755,7 +30755,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return types.StringNull()
 			}(),
 			MaximumAge: func() types.Int64 {
-				if !isImport && data.CORSPolicy != nil {
+				if !isImport && data.CORSPolicy != nil && !data.CORSPolicy.MaximumAge.IsUnknown() {
 					return data.CORSPolicy.MaximumAge
 				}
 				if v, ok := blockData["maximum_age"].(float64); ok && v != 0 {
@@ -31718,7 +31718,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	if blockData, ok := apiResource.Spec["http"].(map[string]interface{}); ok && (isImport || data.HTTP != nil) {
 		data.HTTP = &CDNLoadBalancerHTTPModel{
 			DNSVolterraManaged: func() types.Bool {
-				if !isImport && data.HTTP != nil {
+				if !isImport && data.HTTP != nil && !data.HTTP.DNSVolterraManaged.IsUnknown() {
 					return data.HTTP.DNSVolterraManaged
 				}
 				if v, ok := blockData["dns_volterra_managed"].(bool); ok {
@@ -31727,7 +31727,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return types.BoolNull()
 			}(),
 			Port: func() types.Int64 {
-				if !isImport && data.HTTP != nil {
+				if !isImport && data.HTTP != nil && !data.HTTP.Port.IsUnknown() {
 					return data.HTTP.Port
 				}
 				if v, ok := blockData["port"].(float64); ok && v != 0 {
@@ -31746,7 +31746,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	if blockData, ok := apiResource.Spec["https"].(map[string]interface{}); ok && (isImport || data.HTTPS != nil) {
 		data.HTTPS = &CDNLoadBalancerHTTPSModel{
 			AddHsts: func() types.Bool {
-				if !isImport && data.HTTPS != nil {
+				if !isImport && data.HTTPS != nil && !data.HTTPS.AddHsts.IsUnknown() {
 					return data.HTTPS.AddHsts
 				}
 				if v, ok := blockData["add_hsts"].(bool); ok {
@@ -31755,7 +31755,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return types.BoolNull()
 			}(),
 			HTTPRedirect: func() types.Bool {
-				if !isImport && data.HTTPS != nil {
+				if !isImport && data.HTTPS != nil && !data.HTTPS.HTTPRedirect.IsUnknown() {
 					return data.HTTPS.HTTPRedirect
 				}
 				if v, ok := blockData["http_redirect"].(bool); ok {
@@ -32260,7 +32260,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	if blockData, ok := apiResource.Spec["https_auto_cert"].(map[string]interface{}); ok && (isImport || data.HTTPSAutoCert != nil) {
 		data.HTTPSAutoCert = &CDNLoadBalancerHTTPSAutoCertModel{
 			AddHsts: func() types.Bool {
-				if !isImport && data.HTTPSAutoCert != nil {
+				if !isImport && data.HTTPSAutoCert != nil && !data.HTTPSAutoCert.AddHsts.IsUnknown() {
 					return data.HTTPSAutoCert.AddHsts
 				}
 				if v, ok := blockData["add_hsts"].(bool); ok {
@@ -32269,7 +32269,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return types.BoolNull()
 			}(),
 			HTTPRedirect: func() types.Bool {
-				if !isImport && data.HTTPSAutoCert != nil {
+				if !isImport && data.HTTPSAutoCert != nil && !data.HTTPSAutoCert.HTTPRedirect.IsUnknown() {
 					return data.HTTPSAutoCert.HTTPRedirect
 				}
 				if v, ok := blockData["http_redirect"].(bool); ok {
@@ -32304,7 +32304,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	if blockData, ok := apiResource.Spec["js_challenge"].(map[string]interface{}); ok && (isImport || data.JsChallenge != nil) {
 		data.JsChallenge = &CDNLoadBalancerJsChallengeModel{
 			CookieExpiry: func() types.Int64 {
-				if !isImport && data.JsChallenge != nil {
+				if !isImport && data.JsChallenge != nil && !data.JsChallenge.CookieExpiry.IsUnknown() {
 					return data.JsChallenge.CookieExpiry
 				}
 				if v, ok := blockData["cookie_expiry"].(float64); ok && v != 0 {
@@ -32319,7 +32319,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return types.StringNull()
 			}(),
 			JsScriptDelay: func() types.Int64 {
-				if !isImport && data.JsChallenge != nil {
+				if !isImport && data.JsChallenge != nil && !data.JsChallenge.JsScriptDelay.IsUnknown() {
 					return data.JsChallenge.JsScriptDelay
 				}
 				if v, ok := blockData["js_script_delay"].(float64); ok && v != 0 {
@@ -32577,7 +32577,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	if blockData, ok := apiResource.Spec["l7_ddos_action_js_challenge"].(map[string]interface{}); ok && (isImport || data.L7DDOSActionJsChallenge != nil) {
 		data.L7DDOSActionJsChallenge = &CDNLoadBalancerL7DDOSActionJsChallengeModel{
 			CookieExpiry: func() types.Int64 {
-				if !isImport && data.L7DDOSActionJsChallenge != nil {
+				if !isImport && data.L7DDOSActionJsChallenge != nil && !data.L7DDOSActionJsChallenge.CookieExpiry.IsUnknown() {
 					return data.L7DDOSActionJsChallenge.CookieExpiry
 				}
 				if v, ok := blockData["cookie_expiry"].(float64); ok && v != 0 {
@@ -32592,7 +32592,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return types.StringNull()
 			}(),
 			JsScriptDelay: func() types.Int64 {
-				if !isImport && data.L7DDOSActionJsChallenge != nil {
+				if !isImport && data.L7DDOSActionJsChallenge != nil && !data.L7DDOSActionJsChallenge.JsScriptDelay.IsUnknown() {
 					return data.L7DDOSActionJsChallenge.JsScriptDelay
 				}
 				if v, ok := blockData["js_script_delay"].(float64); ok && v != 0 {
@@ -33027,7 +33027,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	if blockData, ok := apiResource.Spec["other_settings"].(map[string]interface{}); ok && (isImport || data.OtherSettings != nil) {
 		data.OtherSettings = &CDNLoadBalancerOtherSettingsModel{
 			AddLocation: func() types.Bool {
-				if !isImport && data.OtherSettings != nil {
+				if !isImport && data.OtherSettings != nil && !data.OtherSettings.AddLocation.IsUnknown() {
 					return data.OtherSettings.AddLocation
 				}
 				if v, ok := blockData["add_location"].(bool); ok {
@@ -34683,7 +34683,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return nil
 			}(),
 			RequestHeadersTimeout: func() types.Int64 {
-				if !isImport && data.SlowDDOSMitigation != nil {
+				if !isImport && data.SlowDDOSMitigation != nil && !data.SlowDDOSMitigation.RequestHeadersTimeout.IsUnknown() {
 					return data.SlowDDOSMitigation.RequestHeadersTimeout
 				}
 				if v, ok := blockData["request_headers_timeout"].(float64); ok && v != 0 {
@@ -34692,7 +34692,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return types.Int64Null()
 			}(),
 			RequestTimeout: func() types.Int64 {
-				if !isImport && data.SlowDDOSMitigation != nil {
+				if !isImport && data.SlowDDOSMitigation != nil && !data.SlowDDOSMitigation.RequestTimeout.IsUnknown() {
 					return data.SlowDDOSMitigation.RequestTimeout
 				}
 				if v, ok := blockData["request_timeout"].(float64); ok && v != 0 {
@@ -44291,7 +44291,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return types.StringNull()
 			}(),
 			Timeout: func() types.Int64 {
-				if !isImport && data.BotDefense != nil {
+				if !isImport && data.BotDefense != nil && !data.BotDefense.Timeout.IsUnknown() {
 					return data.BotDefense.Timeout
 				}
 				if v, ok := blockData["timeout"].(float64); ok && v != 0 {
@@ -44304,7 +44304,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if blockData, ok := apiResource.Spec["captcha_challenge"].(map[string]interface{}); ok && (isImport || data.CaptchaChallenge != nil) {
 		data.CaptchaChallenge = &CDNLoadBalancerCaptchaChallengeModel{
 			CookieExpiry: func() types.Int64 {
-				if !isImport && data.CaptchaChallenge != nil {
+				if !isImport && data.CaptchaChallenge != nil && !data.CaptchaChallenge.CookieExpiry.IsUnknown() {
 					return data.CaptchaChallenge.CookieExpiry
 				}
 				if v, ok := blockData["cookie_expiry"].(float64); ok && v != 0 {
@@ -44627,7 +44627,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if blockData, ok := apiResource.Spec["cors_policy"].(map[string]interface{}); ok && (isImport || data.CORSPolicy != nil) {
 		data.CORSPolicy = &CDNLoadBalancerCORSPolicyModel{
 			AllowCredentials: func() types.Bool {
-				if !isImport && data.CORSPolicy != nil {
+				if !isImport && data.CORSPolicy != nil && !data.CORSPolicy.AllowCredentials.IsUnknown() {
 					return data.CORSPolicy.AllowCredentials
 				}
 				if v, ok := blockData["allow_credentials"].(bool); ok {
@@ -44674,7 +44674,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return types.ListNull(types.StringType)
 			}(),
 			Disabled: func() types.Bool {
-				if !isImport && data.CORSPolicy != nil {
+				if !isImport && data.CORSPolicy != nil && !data.CORSPolicy.Disabled.IsUnknown() {
 					return data.CORSPolicy.Disabled
 				}
 				if v, ok := blockData["disabled"].(bool); ok {
@@ -44689,7 +44689,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return types.StringNull()
 			}(),
 			MaximumAge: func() types.Int64 {
-				if !isImport && data.CORSPolicy != nil {
+				if !isImport && data.CORSPolicy != nil && !data.CORSPolicy.MaximumAge.IsUnknown() {
 					return data.CORSPolicy.MaximumAge
 				}
 				if v, ok := blockData["maximum_age"].(float64); ok && v != 0 {
@@ -45652,7 +45652,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if blockData, ok := apiResource.Spec["http"].(map[string]interface{}); ok && (isImport || data.HTTP != nil) {
 		data.HTTP = &CDNLoadBalancerHTTPModel{
 			DNSVolterraManaged: func() types.Bool {
-				if !isImport && data.HTTP != nil {
+				if !isImport && data.HTTP != nil && !data.HTTP.DNSVolterraManaged.IsUnknown() {
 					return data.HTTP.DNSVolterraManaged
 				}
 				if v, ok := blockData["dns_volterra_managed"].(bool); ok {
@@ -45661,7 +45661,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return types.BoolNull()
 			}(),
 			Port: func() types.Int64 {
-				if !isImport && data.HTTP != nil {
+				if !isImport && data.HTTP != nil && !data.HTTP.Port.IsUnknown() {
 					return data.HTTP.Port
 				}
 				if v, ok := blockData["port"].(float64); ok && v != 0 {
@@ -45680,7 +45680,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if blockData, ok := apiResource.Spec["https"].(map[string]interface{}); ok && (isImport || data.HTTPS != nil) {
 		data.HTTPS = &CDNLoadBalancerHTTPSModel{
 			AddHsts: func() types.Bool {
-				if !isImport && data.HTTPS != nil {
+				if !isImport && data.HTTPS != nil && !data.HTTPS.AddHsts.IsUnknown() {
 					return data.HTTPS.AddHsts
 				}
 				if v, ok := blockData["add_hsts"].(bool); ok {
@@ -45689,7 +45689,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return types.BoolNull()
 			}(),
 			HTTPRedirect: func() types.Bool {
-				if !isImport && data.HTTPS != nil {
+				if !isImport && data.HTTPS != nil && !data.HTTPS.HTTPRedirect.IsUnknown() {
 					return data.HTTPS.HTTPRedirect
 				}
 				if v, ok := blockData["http_redirect"].(bool); ok {
@@ -46194,7 +46194,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if blockData, ok := apiResource.Spec["https_auto_cert"].(map[string]interface{}); ok && (isImport || data.HTTPSAutoCert != nil) {
 		data.HTTPSAutoCert = &CDNLoadBalancerHTTPSAutoCertModel{
 			AddHsts: func() types.Bool {
-				if !isImport && data.HTTPSAutoCert != nil {
+				if !isImport && data.HTTPSAutoCert != nil && !data.HTTPSAutoCert.AddHsts.IsUnknown() {
 					return data.HTTPSAutoCert.AddHsts
 				}
 				if v, ok := blockData["add_hsts"].(bool); ok {
@@ -46203,7 +46203,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return types.BoolNull()
 			}(),
 			HTTPRedirect: func() types.Bool {
-				if !isImport && data.HTTPSAutoCert != nil {
+				if !isImport && data.HTTPSAutoCert != nil && !data.HTTPSAutoCert.HTTPRedirect.IsUnknown() {
 					return data.HTTPSAutoCert.HTTPRedirect
 				}
 				if v, ok := blockData["http_redirect"].(bool); ok {
@@ -46238,7 +46238,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if blockData, ok := apiResource.Spec["js_challenge"].(map[string]interface{}); ok && (isImport || data.JsChallenge != nil) {
 		data.JsChallenge = &CDNLoadBalancerJsChallengeModel{
 			CookieExpiry: func() types.Int64 {
-				if !isImport && data.JsChallenge != nil {
+				if !isImport && data.JsChallenge != nil && !data.JsChallenge.CookieExpiry.IsUnknown() {
 					return data.JsChallenge.CookieExpiry
 				}
 				if v, ok := blockData["cookie_expiry"].(float64); ok && v != 0 {
@@ -46253,7 +46253,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return types.StringNull()
 			}(),
 			JsScriptDelay: func() types.Int64 {
-				if !isImport && data.JsChallenge != nil {
+				if !isImport && data.JsChallenge != nil && !data.JsChallenge.JsScriptDelay.IsUnknown() {
 					return data.JsChallenge.JsScriptDelay
 				}
 				if v, ok := blockData["js_script_delay"].(float64); ok && v != 0 {
@@ -46511,7 +46511,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if blockData, ok := apiResource.Spec["l7_ddos_action_js_challenge"].(map[string]interface{}); ok && (isImport || data.L7DDOSActionJsChallenge != nil) {
 		data.L7DDOSActionJsChallenge = &CDNLoadBalancerL7DDOSActionJsChallengeModel{
 			CookieExpiry: func() types.Int64 {
-				if !isImport && data.L7DDOSActionJsChallenge != nil {
+				if !isImport && data.L7DDOSActionJsChallenge != nil && !data.L7DDOSActionJsChallenge.CookieExpiry.IsUnknown() {
 					return data.L7DDOSActionJsChallenge.CookieExpiry
 				}
 				if v, ok := blockData["cookie_expiry"].(float64); ok && v != 0 {
@@ -46526,7 +46526,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return types.StringNull()
 			}(),
 			JsScriptDelay: func() types.Int64 {
-				if !isImport && data.L7DDOSActionJsChallenge != nil {
+				if !isImport && data.L7DDOSActionJsChallenge != nil && !data.L7DDOSActionJsChallenge.JsScriptDelay.IsUnknown() {
 					return data.L7DDOSActionJsChallenge.JsScriptDelay
 				}
 				if v, ok := blockData["js_script_delay"].(float64); ok && v != 0 {
@@ -46961,7 +46961,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if blockData, ok := apiResource.Spec["other_settings"].(map[string]interface{}); ok && (isImport || data.OtherSettings != nil) {
 		data.OtherSettings = &CDNLoadBalancerOtherSettingsModel{
 			AddLocation: func() types.Bool {
-				if !isImport && data.OtherSettings != nil {
+				if !isImport && data.OtherSettings != nil && !data.OtherSettings.AddLocation.IsUnknown() {
 					return data.OtherSettings.AddLocation
 				}
 				if v, ok := blockData["add_location"].(bool); ok {
@@ -48617,7 +48617,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return nil
 			}(),
 			RequestHeadersTimeout: func() types.Int64 {
-				if !isImport && data.SlowDDOSMitigation != nil {
+				if !isImport && data.SlowDDOSMitigation != nil && !data.SlowDDOSMitigation.RequestHeadersTimeout.IsUnknown() {
 					return data.SlowDDOSMitigation.RequestHeadersTimeout
 				}
 				if v, ok := blockData["request_headers_timeout"].(float64); ok && v != 0 {
@@ -48626,7 +48626,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return types.Int64Null()
 			}(),
 			RequestTimeout: func() types.Int64 {
-				if !isImport && data.SlowDDOSMitigation != nil {
+				if !isImport && data.SlowDDOSMitigation != nil && !data.SlowDDOSMitigation.RequestTimeout.IsUnknown() {
 					return data.SlowDDOSMitigation.RequestTimeout
 				}
 				if v, ok := blockData["request_timeout"].(float64); ok && v != 0 {

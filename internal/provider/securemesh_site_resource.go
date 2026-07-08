@@ -18,7 +18,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
-	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -1216,16 +1215,13 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace for the Securemesh Site. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
-				Optional:            true,
-				Computed:            true,
-				Default:             stringdefault.StaticString("system"),
+				MarkdownDescription: "Namespace where the Securemesh Site will be created.",
+				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
-					stringvalidator.OneOf("system"),
 				},
 			},
 			"volterra_certified_hw": schema.StringAttribute{
@@ -4305,7 +4301,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 	if blockData, ok := apiResource.Spec["coordinates"].(map[string]interface{}); ok && (isImport || data.Coordinates != nil) {
 		data.Coordinates = &SecuremeshSiteCoordinatesModel{
 			Latitude: func() types.Int64 {
-				if !isImport && data.Coordinates != nil {
+				if !isImport && data.Coordinates != nil && !data.Coordinates.Latitude.IsUnknown() {
 					return data.Coordinates.Latitude
 				}
 				if v, ok := blockData["latitude"].(float64); ok && v != 0 {
@@ -4314,7 +4310,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 				return types.Int64Null()
 			}(),
 			Longitude: func() types.Int64 {
-				if !isImport && data.Coordinates != nil {
+				if !isImport && data.Coordinates != nil && !data.Coordinates.Longitude.IsUnknown() {
 					return data.Coordinates.Longitude
 				}
 				if v, ok := blockData["longitude"].(float64); ok && v != 0 {
@@ -5921,7 +5917,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 				return nil
 			}(),
 			TunnelDeadTimeout: func() types.Int64 {
-				if !isImport && data.CustomNetworkConfig != nil {
+				if !isImport && data.CustomNetworkConfig != nil && !data.CustomNetworkConfig.TunnelDeadTimeout.IsUnknown() {
 					return data.CustomNetworkConfig.TunnelDeadTimeout
 				}
 				if v, ok := blockData["tunnel_dead_timeout"].(float64); ok && v != 0 {
@@ -6370,7 +6366,7 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 	if blockData, ok := apiResource.Spec["coordinates"].(map[string]interface{}); ok && (isImport || data.Coordinates != nil) {
 		data.Coordinates = &SecuremeshSiteCoordinatesModel{
 			Latitude: func() types.Int64 {
-				if !isImport && data.Coordinates != nil {
+				if !isImport && data.Coordinates != nil && !data.Coordinates.Latitude.IsUnknown() {
 					return data.Coordinates.Latitude
 				}
 				if v, ok := blockData["latitude"].(float64); ok && v != 0 {
@@ -6379,7 +6375,7 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 				return types.Int64Null()
 			}(),
 			Longitude: func() types.Int64 {
-				if !isImport && data.Coordinates != nil {
+				if !isImport && data.Coordinates != nil && !data.Coordinates.Longitude.IsUnknown() {
 					return data.Coordinates.Longitude
 				}
 				if v, ok := blockData["longitude"].(float64); ok && v != 0 {
@@ -7986,7 +7982,7 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 				return nil
 			}(),
 			TunnelDeadTimeout: func() types.Int64 {
-				if !isImport && data.CustomNetworkConfig != nil {
+				if !isImport && data.CustomNetworkConfig != nil && !data.CustomNetworkConfig.TunnelDeadTimeout.IsUnknown() {
 					return data.CustomNetworkConfig.TunnelDeadTimeout
 				}
 				if v, ok := blockData["tunnel_dead_timeout"].(float64); ok && v != 0 {
@@ -9557,7 +9553,7 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 	if blockData, ok := apiResource.Spec["coordinates"].(map[string]interface{}); ok && (isImport || data.Coordinates != nil) {
 		data.Coordinates = &SecuremeshSiteCoordinatesModel{
 			Latitude: func() types.Int64 {
-				if !isImport && data.Coordinates != nil {
+				if !isImport && data.Coordinates != nil && !data.Coordinates.Latitude.IsUnknown() {
 					return data.Coordinates.Latitude
 				}
 				if v, ok := blockData["latitude"].(float64); ok && v != 0 {
@@ -9566,7 +9562,7 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 				return types.Int64Null()
 			}(),
 			Longitude: func() types.Int64 {
-				if !isImport && data.Coordinates != nil {
+				if !isImport && data.Coordinates != nil && !data.Coordinates.Longitude.IsUnknown() {
 					return data.Coordinates.Longitude
 				}
 				if v, ok := blockData["longitude"].(float64); ok && v != 0 {
@@ -11173,7 +11169,7 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 				return nil
 			}(),
 			TunnelDeadTimeout: func() types.Int64 {
-				if !isImport && data.CustomNetworkConfig != nil {
+				if !isImport && data.CustomNetworkConfig != nil && !data.CustomNetworkConfig.TunnelDeadTimeout.IsUnknown() {
 					return data.CustomNetworkConfig.TunnelDeadTimeout
 				}
 				if v, ok := blockData["tunnel_dead_timeout"].(float64); ok && v != 0 {

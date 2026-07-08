@@ -15,7 +15,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
-	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -193,16 +192,13 @@ func (r *LogReceiverResource) Schema(ctx context.Context, req resource.SchemaReq
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace for the Log Receiver. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
-				Optional:            true,
-				Computed:            true,
-				Default:             stringdefault.StaticString("system"),
+				MarkdownDescription: "Namespace where the Log Receiver will be created.",
+				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
-					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
@@ -591,7 +587,7 @@ func (r *LogReceiverResource) Create(ctx context.Context, req resource.CreateReq
 	if blockData, ok := apiResource.Spec["syslog"].(map[string]interface{}); ok && (isImport || data.Syslog != nil) {
 		data.Syslog = &LogReceiverSyslogModel{
 			SyslogRfc5424: func() types.Int64 {
-				if !isImport && data.Syslog != nil {
+				if !isImport && data.Syslog != nil && !data.Syslog.SyslogRfc5424.IsUnknown() {
 					return data.Syslog.SyslogRfc5424
 				}
 				if v, ok := blockData["syslog_rfc5424"].(float64); ok && v != 0 {
@@ -847,7 +843,7 @@ func (r *LogReceiverResource) Read(ctx context.Context, req resource.ReadRequest
 	if blockData, ok := apiResource.Spec["syslog"].(map[string]interface{}); ok && (isImport || data.Syslog != nil) {
 		data.Syslog = &LogReceiverSyslogModel{
 			SyslogRfc5424: func() types.Int64 {
-				if !isImport && data.Syslog != nil {
+				if !isImport && data.Syslog != nil && !data.Syslog.SyslogRfc5424.IsUnknown() {
 					return data.Syslog.SyslogRfc5424
 				}
 				if v, ok := blockData["syslog_rfc5424"].(float64); ok && v != 0 {
@@ -1195,7 +1191,7 @@ func (r *LogReceiverResource) Update(ctx context.Context, req resource.UpdateReq
 	if blockData, ok := apiResource.Spec["syslog"].(map[string]interface{}); ok && (isImport || data.Syslog != nil) {
 		data.Syslog = &LogReceiverSyslogModel{
 			SyslogRfc5424: func() types.Int64 {
-				if !isImport && data.Syslog != nil {
+				if !isImport && data.Syslog != nil && !data.Syslog.SyslogRfc5424.IsUnknown() {
 					return data.Syslog.SyslogRfc5424
 				}
 				if v, ok := blockData["syslog_rfc5424"].(float64); ok && v != 0 {

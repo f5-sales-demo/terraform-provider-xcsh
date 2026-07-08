@@ -6,13 +6,14 @@ Nat policy create specification configures nat policy with multiple rules,. conf
 ## Required
 
 - name
+- namespace
 
 ## Minimal Valid Config
 
 ```terraform
 resource "xcsh_nat_policy" "example" {
   name      = "example-nat-policy"
-  namespace = "system"
+  namespace = "staging"
 }
 ```
 
