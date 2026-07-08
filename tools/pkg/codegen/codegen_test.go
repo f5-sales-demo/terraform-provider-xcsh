@@ -294,6 +294,33 @@ func deepComputedTree() openapi.TerraformAttribute {
 	}
 }
 
+// A Computed+Optional scalar in a single nested block (e.g. http_health_check.use_http2)
+// that the user leaves unset has an unknown planned value. The unmarshal "preserve"
+// path must NOT return that unknown value — it must guard on !IsUnknown() and fall
+// through to the API response / null, else apply fails with "invalid result object
+// after apply". Regression test.
+func TestRenderUnmarshalScalarChild_PreserveGuardsUnknown(t *testing.T) {
+	var sb strings.Builder
+	attr := openapi.TerraformAttribute{
+		GoName: "UseHttp2", TfsdkTag: "use_http2", JsonName: "use_http2",
+		Type: "bool", Optional: true,
+	}
+	renderUnmarshalScalarChild(&sb, attr, "blockData", "data.HTTPHealthCheck", "data.HTTPHealthCheck != nil", "single", "\t")
+	got := sb.String()
+
+	if !strings.Contains(got, "!data.HTTPHealthCheck.UseHttp2.IsUnknown()") {
+		t.Errorf("preserve guard must check IsUnknown() before returning the planned value; got:\n%s", got)
+	}
+	// Still preserves a known explicitly-set value.
+	if !strings.Contains(got, "return data.HTTPHealthCheck.UseHttp2") {
+		t.Errorf("expected preserve path to return the prior value when known; got:\n%s", got)
+	}
+	// Still falls through to the API response.
+	if !strings.Contains(got, `blockData["use_http2"].(bool)`) {
+		t.Errorf("expected fallthrough to API response; got:\n%s", got)
+	}
+}
+
 func TestBlockHasComputedDescendant(t *testing.T) {
 	tests := []struct {
 		name string

@@ -573,7 +573,11 @@ func renderUnmarshalScalarChild(sb *strings.Builder, attr openapi.TerraformAttri
 	case "int64":
 		sb.WriteString(fmt.Sprintf("%s%s: func() types.Int64 {\n", indent, fieldName))
 		if preserve {
-			sb.WriteString(fmt.Sprintf("%s\tif !isImport && %s {\n", indent, stateGuard))
+			// Preserve an explicitly-set prior value to avoid API-default drift, but
+			// only when it is KNOWN. If the planned value is unknown (Computed+Optional
+			// field left unset by the user), fall through to the API response / null —
+			// returning an unknown here trips "invalid result object after apply".
+			sb.WriteString(fmt.Sprintf("%s\tif !isImport && %s && !%s.%s.IsUnknown() {\n", indent, stateGuard, stateBase, fieldName))
 			sb.WriteString(fmt.Sprintf("%s\t\treturn %s.%s\n", indent, stateBase, fieldName))
 			sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
 		}
@@ -585,7 +589,11 @@ func renderUnmarshalScalarChild(sb *strings.Builder, attr openapi.TerraformAttri
 	case "bool":
 		sb.WriteString(fmt.Sprintf("%s%s: func() types.Bool {\n", indent, fieldName))
 		if preserve {
-			sb.WriteString(fmt.Sprintf("%s\tif !isImport && %s {\n", indent, stateGuard))
+			// Preserve an explicitly-set prior value to avoid API-default drift, but
+			// only when it is KNOWN. If the planned value is unknown (Computed+Optional
+			// field left unset by the user), fall through to the API response / null —
+			// returning an unknown here trips "invalid result object after apply".
+			sb.WriteString(fmt.Sprintf("%s\tif !isImport && %s && !%s.%s.IsUnknown() {\n", indent, stateGuard, stateBase, fieldName))
 			sb.WriteString(fmt.Sprintf("%s\t\treturn %s.%s\n", indent, stateBase, fieldName))
 			sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
 		}
