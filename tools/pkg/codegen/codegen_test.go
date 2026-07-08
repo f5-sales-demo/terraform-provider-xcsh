@@ -305,7 +305,7 @@ func TestRenderUnmarshalScalarChild_PreserveGuardsUnknown(t *testing.T) {
 		GoName: "UseHttp2", TfsdkTag: "use_http2", JsonName: "use_http2",
 		Type: "bool", Optional: true,
 	}
-	renderUnmarshalScalarChild(&sb, attr, "blockData", "data.HTTPHealthCheck", "data.HTTPHealthCheck != nil", "single", "\t")
+	renderUnmarshalScalarChild(&sb, "Healthcheck", attr, "blockData", "data.HTTPHealthCheck", "data.HTTPHealthCheck != nil", "single", "\t")
 	got := sb.String()
 
 	if !strings.Contains(got, "!data.HTTPHealthCheck.UseHttp2.IsUnknown()") {
@@ -353,6 +353,41 @@ func TestRenderUnmarshalSingleChild_ImportSuppressesServerDefault(t *testing.T) 
 	}
 	if isImportDefaultSuppressed("HTTPLoadBalancer", "advertise_on_public_default_vip") {
 		t.Error("advertise_on_public_default_vip is user intent and must NOT be suppressed")
+	}
+}
+
+// A suppressed non-empty server-default block (e.g. l7_ddos_protection, which the
+// API returns as an empty object for a minimal LB) must not be materialized on
+// import from an empty response — otherwise import creates an all-defaults block
+// the user never set. The build guard must require a non-empty response on import.
+func TestRenderUnmarshalTopLevelSingle_SuppressedNonEmptyRequiresContentOnImport(t *testing.T) {
+	attr := openapi.TerraformAttribute{
+		GoName: "L7DDOSProtection", TfsdkTag: "l7_ddos_protection", JsonName: "l7_ddos_protection",
+		IsBlock: true, NestedBlockType: "single", IsSpecField: true,
+		NestedAttributes: []openapi.TerraformAttribute{
+			{GoName: "L7DdosActionDefault", TfsdkTag: "l7_ddos_action_default", JsonName: "l7_ddos_action_default", IsBlock: true, NestedBlockType: "single"},
+		},
+	}
+	var sb strings.Builder
+	renderUnmarshalTopLevelSingle(&sb, "HTTPLoadBalancer", attr, "\t")
+	got := sb.String()
+	if !strings.Contains(got, "isImport && len(blockData) > 0") {
+		t.Errorf("suppressed non-empty block must require non-empty response on import; got:\n%s", got)
+	}
+}
+
+// A suppressed Optional bool at its false server default must return null on
+// import (config omits it) — otherwise post-import plan shows "false -> null".
+func TestRenderUnmarshalScalarChild_ImportSuppressesDefaultBool(t *testing.T) {
+	attr := openapi.TerraformAttribute{
+		GoName: "DNSVolterraManaged", TfsdkTag: "dns_volterra_managed", JsonName: "dns_volterra_managed",
+		Type: "bool", Optional: true,
+	}
+	var sb strings.Builder
+	renderUnmarshalScalarChild(&sb, "HTTPLoadBalancer", attr, "blockData", "data.HTTP", "data.HTTP != nil", "single", "\t")
+	got := sb.String()
+	if !strings.Contains(got, "if isImport {") || !strings.Contains(got, "ok && !v {") {
+		t.Errorf("suppressed default bool must return null on import when false; got:\n%s", got)
 	}
 }
 

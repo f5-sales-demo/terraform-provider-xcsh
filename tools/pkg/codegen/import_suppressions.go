@@ -26,6 +26,9 @@ var importDefaultSuppressions = map[string]map[string]bool{
 		"headers": true,
 	},
 	"HTTPLoadBalancer": {
+		// http.dns_volterra_managed: Optional bool, server default false. On import
+		// the API returns false; suppress so config omission doesn't drift.
+		"dns_volterra_managed":             true,
 		"default_sensitive_data_policy":    true,
 		"disable_api_definition":           true,
 		"disable_api_discovery":            true,
