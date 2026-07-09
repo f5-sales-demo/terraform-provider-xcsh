@@ -6,7 +6,7 @@
       "list_path": "/api/shape/csd/namespaces/%s/protected_domains",
       "requires": "client_side_defense requires a protected_domain (eTLD+1) registered in the load balancer's own namespace",
       "error_title": "Client-Side Defense prerequisite missing",
-      "error_detail": "client_side_defense is enabled but no protected_domain is registered in namespace %s. F5 Distributed Cloud builds the Client-Side Defense JavaScript configuration from a protected_domain (an eTLD+1 such as \"example.com\") in the load balancer's own namespace; without one the API rejects the load balancer with 500 \"Failed to get CSD JS Configuration\". Create an xcsh_protected_domain in this namespace (set protected_domain to your eTLD+1) and have the load balancer depend on it before enabling client_side_defense."
+      "error_detail": "client_side_defense is enabled but no protected_domain is registered in namespace %s. F5 Distributed Cloud builds the Client-Side Defense JavaScript configuration from a protected_domain (an eTLD+1 such as \"example.com\"; the xcsh_protected_domain resource validates this format at plan time) in the load balancer's own namespace; without one the API rejects the load balancer with 500 \"Failed to get CSD JS Configuration\". Create an xcsh_protected_domain in this namespace (set protected_domain to your eTLD+1) and have the load balancer depend on it before enabling client_side_defense."
     }
   ]
 }
