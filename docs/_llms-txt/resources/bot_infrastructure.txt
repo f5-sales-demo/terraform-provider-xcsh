@@ -1,0 +1,25 @@
+# xcsh_bot_infrastructure
+
+Category: Uncategorized
+Bot Infrastructure
+
+## Required
+
+- name
+- namespace
+- traffic_type
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_bot_infrastructure" "example" {
+  name      = "example-bot-infrastructure"
+  namespace = "staging"
+
+  traffic_type = "WEB"
+}
+```
+
+## Dependencies
+
+Requires: none
