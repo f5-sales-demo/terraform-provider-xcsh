@@ -649,3 +649,15 @@ func TestRenderRequirementPreflights_Empty(t *testing.T) {
 		t.Errorf("want empty output for no preflights, got:\n%s", got)
 	}
 }
+
+// A nested string attribute carrying the etld_plus_one flag must emit the eTLD+1
+// validator (the top-level path is exercised by regeneration of protected_domain).
+func TestRenderNestedAttributes_ETLDPlusOne(t *testing.T) {
+	attrs := []openapi.TerraformAttribute{
+		{GoName: "Domain", TfsdkTag: "domain", Type: "string", ETLDPlusOne: true},
+	}
+	got := RenderNestedAttributes(attrs, "\t")
+	if !strings.Contains(got, "validators.ETLDPlusOneValidator()") {
+		t.Errorf("expected ETLDPlusOneValidator for etld_plus_one attribute, got:\n%s", got)
+	}
+}

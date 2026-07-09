@@ -279,6 +279,12 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 	if len(schema.XValidationRules) > 0 {
 		attr.ValidationRules = schema.XValidationRules
 	}
+	// etld_plus_one: the value must itself be an eTLD+1 (registrable) domain. Translate
+	// the F5 XC rule into a generated plan-time validator (see codegen templates).
+	const etldRule = "ves.io.schema.rules.string.etld_plus_one"
+	if schema.XVesValidationRules[etldRule] == "true" || schema.XValidationRules[etldRule] == "true" {
+		attr.ETLDPlusOne = true
+	}
 	// x-required / x-ves-required are additional Required signals, but only
 	// apply at depth 0 (top-level resource spec attributes). For nested
 	// attributes inside optional blocks, Required: true causes Terraform

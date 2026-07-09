@@ -143,7 +143,7 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 					stringvalidator.OneOf({{enumValuesLiteral .EnumValues}}),
 {{- end}}
 				},
-{{- else if and (eq .Type "string") (or (gt .MinLength 0) (gt .MaxLength 0) (ne .Pattern "") (gt (len .EnumValues) 0))}}
+{{- else if and (eq .Type "string") (or (gt .MinLength 0) (gt .MaxLength 0) (ne .Pattern "") (gt (len .EnumValues) 0) .ETLDPlusOne)}}
 				Validators: []validator.String{
 {{- if and (gt .MinLength 0) (gt .MaxLength 0)}}
 					stringvalidator.LengthBetween({{.MinLength}}, {{.MaxLength}}),
@@ -157,6 +157,9 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 {{- end}}
 {{- if gt (len .EnumValues) 0}}
 					stringvalidator.OneOf({{enumValuesLiteral .EnumValues}}),
+{{- end}}
+{{- if .ETLDPlusOne}}
+					validators.ETLDPlusOneValidator(),
 {{- end}}
 				},
 {{- else if and (or (eq .Type "list") (eq .Type "set")) (or (gt .MinItems 0) (gt .MaxItems 0))}}
