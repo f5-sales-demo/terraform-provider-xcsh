@@ -31,6 +31,7 @@ var importDefaultSuppressionsSeed = map[string][]string{
 		"disable_api_definition",
 		"disable_api_discovery",
 		"disable_api_testing",
+		"disable_client_side_defense",
 		"disable_malicious_user_detection",
 		"disable_malware_protection",
 		"disable_rate_limit",
