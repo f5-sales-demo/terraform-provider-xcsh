@@ -68,17 +68,33 @@ func loadImportSuppressions() {
 	if _, file, _, ok := runtime.Caller(0); ok {
 		jsonPath := filepath.Join(filepath.Dir(file), "..", "..", "import-default-suppressions.json")
 		if data, err := os.ReadFile(jsonPath); err == nil {
-			var fromJSON map[string][]string
-			if json.Unmarshal(data, &fromJSON) == nil {
-				for r, members := range fromJSON {
-					if r == "_comment" {
-						continue
-					}
-					add(r, members)
-				}
+			for r, members := range parseSuppressionsJSON(data) {
+				add(r, members)
 			}
 		}
 	}
+}
+
+// parseSuppressionsJSON parses the suppression data file into resource -> members.
+// It parses via RawMessage so the string "_comment" field does not break
+// unmarshalling of the []string resource entries (a regression that silently
+// disabled the whole JSON, leaving only the built-in seed active).
+func parseSuppressionsJSON(data []byte) map[string][]string {
+	out := map[string][]string{}
+	var raw map[string]json.RawMessage
+	if json.Unmarshal(data, &raw) != nil {
+		return out
+	}
+	for r, rawMembers := range raw {
+		if r == "_comment" {
+			continue
+		}
+		var members []string
+		if json.Unmarshal(rawMembers, &members) == nil {
+			out[r] = members
+		}
+	}
+	return out
 }
 
 // isImportDefaultSuppressed reports whether the given member of the given resource

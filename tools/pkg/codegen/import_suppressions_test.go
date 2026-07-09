@@ -1,0 +1,32 @@
+// Copyright (c) 2026 Robin Mordasiewicz. MIT License.
+
+package codegen
+
+import (
+	"reflect"
+	"testing"
+)
+
+// The suppression data file carries a string "_comment" field alongside the
+// []string resource entries. Parsing into map[string][]string fails on that
+// string, which silently disabled the whole JSON (only the built-in seed stayed
+// active). Regression test: _comment is skipped and resource entries load.
+func TestParseSuppressionsJSON_SkipsComment(t *testing.T) {
+	data := []byte(`{"_comment":"docs here","AppFirewall":["allow_all_response_codes","default_bot_setting"],"APIDefinition":["strict_schema_origin"]}`)
+	got := parseSuppressionsJSON(data)
+	want := map[string][]string{
+		"AppFirewall":   {"allow_all_response_codes", "default_bot_setting"},
+		"APIDefinition": {"strict_schema_origin"},
+	}
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("parseSuppressionsJSON() = %#v, want %#v", got, want)
+	}
+}
+
+// End-to-end: an entry present only in the JSON data file (not the Go seed) must
+// be honored, proving the file is actually loaded.
+func TestImportSuppressions_JSONEntryHonored(t *testing.T) {
+	if !isImportDefaultSuppressed("AppFirewall", "allow_all_response_codes") {
+		t.Error("AppFirewall.allow_all_response_codes (JSON-only) should be suppressed; JSON not loaded?")
+	}
+}

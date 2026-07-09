@@ -240,15 +240,34 @@ var ResourceConfigs = map[string]MinimalConfig{
 	"app_firewall": {
 		Category:  CategorySecurity,
 		Namespace: true,
+		// Minimal: send only what's required so the API-applied defaults
+		// (blocking/monitoring mode, bot settings, detection settings, …) are
+		// observed as defaults rather than pre-sent.
 		RequiredSpec: map[string]interface{}{
-			"allow_all_response_codes": true,
-			"default_anonymization":    true,
-			"use_default_blocking_page": true,
-			"default_bot_setting":      true,
-			"default_detection_settings": true,
-			"use_loadbalancer_setting": true,
-			"blocking":                 map[string]interface{}{},
+			"blocking":                   map[string]interface{}{},
+			"default_detection_settings": map[string]interface{}{},
 		},
+	},
+	// API protection / discovery family (webapp-api-protection roadmap).
+	"api_definition": {
+		Category:     CategorySecurity,
+		Namespace:    true,
+		RequiredSpec: map[string]interface{}{},
+	},
+	"api_discovery": {
+		Category:     CategorySecurity,
+		Namespace:    true,
+		RequiredSpec: map[string]interface{}{},
+	},
+	"api_crawler": {
+		Category:     CategorySecurity,
+		Namespace:    true,
+		RequiredSpec: map[string]interface{}{},
+	},
+	"api_testing": {
+		Category:     CategorySecurity,
+		Namespace:    true,
+		RequiredSpec: map[string]interface{}{},
 	},
 	"service_policy": {
 		Category:  CategorySecurity,
