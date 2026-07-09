@@ -1,0 +1,25 @@
+# xcsh_protected_domain
+
+Category: Uncategorized
+Domain to protect
+
+## Required
+
+- name
+- namespace
+- protected_domain
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_protected_domain" "example" {
+  name      = "example-protected-domain"
+  namespace = "staging"
+
+  protected_domain = "example-value"
+}
+```
+
+## Dependencies
+
+Requires: none
