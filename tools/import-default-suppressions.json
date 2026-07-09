@@ -1,4 +1,17 @@
 {
+  "APIDefinition": [
+    "strict_schema_origin"
+  ],
+  "APITesting": [
+    "every_week"
+  ],
+  "AppFirewall": [
+    "allow_all_response_codes",
+    "default_anonymization",
+    "default_bot_setting",
+    "disable_ai_enhancements",
+    "use_default_blocking_page"
+  ],
   "HTTPLoadBalancer": [
     "add_location",
     "default_sensitive_data_policy",
