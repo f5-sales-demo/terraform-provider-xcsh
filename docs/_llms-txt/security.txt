@@ -5,6 +5,7 @@ WAF, bot defense, rate limiting, firewall policies, and security controls
 ## Resources
 
 - [app_firewall](_llms-txt/resources/app_firewall.txt) : Application Firewall
+- [alert_gen_policy](_llms-txt/resources/alert_gen_policy.txt) : Alert Generation Policy
 - [alert_policy](_llms-txt/resources/alert_policy.txt) : New Alert Policy Object
 - [bgp_routing_policy](_llms-txt/resources/bgp_routing_policy.txt) : Bgp routing policy is a list of rules containing match criteria and action...
 - [bot_defense_app_infrastructure](_llms-txt/resources/bot_defense_app_infrastructure.txt) : Bot Defense App Infrastructure in a given namespace

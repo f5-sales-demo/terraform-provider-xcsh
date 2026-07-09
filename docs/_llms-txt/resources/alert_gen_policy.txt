@@ -1,0 +1,25 @@
+# xcsh_alert_gen_policy
+
+Category: Security
+Alert Generation Policy
+
+## Required
+
+- name
+- namespace
+- alert_status
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_alert_gen_policy" "example" {
+  name      = "example-alert-gen-policy"
+  namespace = "staging"
+
+  alert_status = "ALERT_ACTIVE"
+}
+```
+
+## Dependencies
+
+Requires: none
