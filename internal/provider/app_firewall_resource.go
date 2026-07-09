@@ -1139,8 +1139,10 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 				if !isImport && data.DetectionSettings != nil {
 					return data.DetectionSettings.DefaultBotSetting
 				}
-				if _, ok := blockData["default_bot_setting"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["default_bot_setting"].(map[string]interface{}); ok {
+						return &AppFirewallEmptyModel{}
+					}
 				}
 				return nil
 			}(),
@@ -1380,26 +1382,11 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["allow_all_response_codes"].(map[string]interface{}); ok && isImport && data.AllowAllResponseCodes == nil {
-		data.AllowAllResponseCodes = &AppFirewallEmptyModel{}
-	}
-	if _, ok := apiResource.Spec["default_anonymization"].(map[string]interface{}); ok && isImport && data.DefaultAnonymization == nil {
-		data.DefaultAnonymization = &AppFirewallEmptyModel{}
-	}
-	if _, ok := apiResource.Spec["default_bot_setting"].(map[string]interface{}); ok && isImport && data.DefaultBotSetting == nil {
-		data.DefaultBotSetting = &AppFirewallEmptyModel{}
-	}
 	if _, ok := apiResource.Spec["default_detection_settings"].(map[string]interface{}); ok && isImport && data.DefaultDetectionSettings == nil {
 		data.DefaultDetectionSettings = &AppFirewallEmptyModel{}
 	}
-	if _, ok := apiResource.Spec["disable_ai_enhancements"].(map[string]interface{}); ok && isImport && data.DisableAiEnhancements == nil {
-		data.DisableAiEnhancements = &AppFirewallEmptyModel{}
-	}
 	if _, ok := apiResource.Spec["monitoring"].(map[string]interface{}); ok && isImport && data.Monitoring == nil {
 		data.Monitoring = &AppFirewallEmptyModel{}
-	}
-	if _, ok := apiResource.Spec["use_default_blocking_page"].(map[string]interface{}); ok && isImport && data.UseDefaultBlockingPage == nil {
-		data.UseDefaultBlockingPage = &AppFirewallEmptyModel{}
 	}
 
 	tflog.Trace(ctx, "created AppFirewall resource")
@@ -1632,8 +1619,10 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 				if !isImport && data.DetectionSettings != nil {
 					return data.DetectionSettings.DefaultBotSetting
 				}
-				if _, ok := blockData["default_bot_setting"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["default_bot_setting"].(map[string]interface{}); ok {
+						return &AppFirewallEmptyModel{}
+					}
 				}
 				return nil
 			}(),
@@ -1873,26 +1862,11 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["allow_all_response_codes"].(map[string]interface{}); ok && isImport && data.AllowAllResponseCodes == nil {
-		data.AllowAllResponseCodes = &AppFirewallEmptyModel{}
-	}
-	if _, ok := apiResource.Spec["default_anonymization"].(map[string]interface{}); ok && isImport && data.DefaultAnonymization == nil {
-		data.DefaultAnonymization = &AppFirewallEmptyModel{}
-	}
-	if _, ok := apiResource.Spec["default_bot_setting"].(map[string]interface{}); ok && isImport && data.DefaultBotSetting == nil {
-		data.DefaultBotSetting = &AppFirewallEmptyModel{}
-	}
 	if _, ok := apiResource.Spec["default_detection_settings"].(map[string]interface{}); ok && isImport && data.DefaultDetectionSettings == nil {
 		data.DefaultDetectionSettings = &AppFirewallEmptyModel{}
 	}
-	if _, ok := apiResource.Spec["disable_ai_enhancements"].(map[string]interface{}); ok && isImport && data.DisableAiEnhancements == nil {
-		data.DisableAiEnhancements = &AppFirewallEmptyModel{}
-	}
 	if _, ok := apiResource.Spec["monitoring"].(map[string]interface{}); ok && isImport && data.Monitoring == nil {
 		data.Monitoring = &AppFirewallEmptyModel{}
-	}
-	if _, ok := apiResource.Spec["use_default_blocking_page"].(map[string]interface{}); ok && isImport && data.UseDefaultBlockingPage == nil {
-		data.UseDefaultBlockingPage = &AppFirewallEmptyModel{}
 	}
 
 	// The import marker is a one-shot signal for the import Read only. Clear it so every
@@ -2345,8 +2319,10 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 				if !isImport && data.DetectionSettings != nil {
 					return data.DetectionSettings.DefaultBotSetting
 				}
-				if _, ok := blockData["default_bot_setting"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["default_bot_setting"].(map[string]interface{}); ok {
+						return &AppFirewallEmptyModel{}
+					}
 				}
 				return nil
 			}(),
@@ -2586,26 +2562,11 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["allow_all_response_codes"].(map[string]interface{}); ok && isImport && data.AllowAllResponseCodes == nil {
-		data.AllowAllResponseCodes = &AppFirewallEmptyModel{}
-	}
-	if _, ok := apiResource.Spec["default_anonymization"].(map[string]interface{}); ok && isImport && data.DefaultAnonymization == nil {
-		data.DefaultAnonymization = &AppFirewallEmptyModel{}
-	}
-	if _, ok := apiResource.Spec["default_bot_setting"].(map[string]interface{}); ok && isImport && data.DefaultBotSetting == nil {
-		data.DefaultBotSetting = &AppFirewallEmptyModel{}
-	}
 	if _, ok := apiResource.Spec["default_detection_settings"].(map[string]interface{}); ok && isImport && data.DefaultDetectionSettings == nil {
 		data.DefaultDetectionSettings = &AppFirewallEmptyModel{}
 	}
-	if _, ok := apiResource.Spec["disable_ai_enhancements"].(map[string]interface{}); ok && isImport && data.DisableAiEnhancements == nil {
-		data.DisableAiEnhancements = &AppFirewallEmptyModel{}
-	}
 	if _, ok := apiResource.Spec["monitoring"].(map[string]interface{}); ok && isImport && data.Monitoring == nil {
 		data.Monitoring = &AppFirewallEmptyModel{}
-	}
-	if _, ok := apiResource.Spec["use_default_blocking_page"].(map[string]interface{}); ok && isImport && data.UseDefaultBlockingPage == nil {
-		data.UseDefaultBlockingPage = &AppFirewallEmptyModel{}
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

@@ -1286,9 +1286,6 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 	if _, ok := apiResource.Spec["every_month"].(map[string]interface{}); ok && isImport && data.EveryMonth == nil {
 		data.EveryMonth = &APITestingEmptyModel{}
 	}
-	if _, ok := apiResource.Spec["every_week"].(map[string]interface{}); ok && isImport && data.EveryWeek == nil {
-		data.EveryWeek = &APITestingEmptyModel{}
-	}
 	if v, ok := apiResource.Spec["custom_header_value"].(string); ok && v != "" {
 		data.CustomHeaderValue = types.StringValue(v)
 	} else {
@@ -1707,9 +1704,6 @@ func (r *APITestingResource) Read(ctx context.Context, req resource.ReadRequest,
 	}
 	if _, ok := apiResource.Spec["every_month"].(map[string]interface{}); ok && isImport && data.EveryMonth == nil {
 		data.EveryMonth = &APITestingEmptyModel{}
-	}
-	if _, ok := apiResource.Spec["every_week"].(map[string]interface{}); ok && isImport && data.EveryWeek == nil {
-		data.EveryWeek = &APITestingEmptyModel{}
 	}
 	if v, ok := apiResource.Spec["custom_header_value"].(string); ok && v != "" {
 		data.CustomHeaderValue = types.StringValue(v)
@@ -2319,9 +2313,6 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 	}
 	if _, ok := apiResource.Spec["every_month"].(map[string]interface{}); ok && isImport && data.EveryMonth == nil {
 		data.EveryMonth = &APITestingEmptyModel{}
-	}
-	if _, ok := apiResource.Spec["every_week"].(map[string]interface{}); ok && isImport && data.EveryWeek == nil {
-		data.EveryWeek = &APITestingEmptyModel{}
 	}
 	if v, ok := apiResource.Spec["custom_header_value"].(string); ok && v != "" {
 		data.CustomHeaderValue = types.StringValue(v)
