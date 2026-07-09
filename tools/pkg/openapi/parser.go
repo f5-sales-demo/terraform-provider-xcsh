@@ -330,6 +330,14 @@ func extractResourcePathsFromPaths(paths map[string]interface{}) []resourcePath 
 	// Secondary pattern: /api/web/{resource_plural} (for system-level resources like namespace)
 	webPathRegex := regexp.MustCompile(`^/api/web/([a-z_0-9]+s)$`)
 
+	// Shape-service pattern: /api/shape/{service}/namespaces/{namespace}/{resource_plural}
+	// (e.g. /api/shape/csd/namespaces/{namespace}/protected_domains — Client-Side Defense
+	// domain-management objects). These live outside /api/config. The resource name is kept
+	// as the natural API kind (protected_domain/allowed_domain/mitigated_domain) so the
+	// generator resolves its {resourceName}CreateSpecType schema; the full shape path is
+	// preserved as the resource's APIPath so the client targets /api/shape/... correctly.
+	shapeServicePathRegex := regexp.MustCompile(`^/api/shape/[a-z_0-9]+/namespaces/\{namespace\}/([a-z_0-9]+s)$`)
+
 	for path := range paths {
 		var resourcePlural string
 
@@ -341,6 +349,9 @@ func extractResourcePathsFromPaths(paths map[string]interface{}) []resourcePath 
 			resourcePlural = matches[1]
 		} else if matches := webPathRegex.FindStringSubmatch(path); len(matches) >= 2 {
 			// Try web pattern for system-level resources (e.g., namespace)
+			resourcePlural = matches[1]
+		} else if matches := shapeServicePathRegex.FindStringSubmatch(path); len(matches) >= 2 {
+			// Shape-service resources (e.g. Client-Side Defense protected_domains)
 			resourcePlural = matches[1]
 		} else {
 			continue

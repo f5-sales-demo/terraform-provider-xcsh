@@ -521,22 +521,22 @@ func TestTerraformAttribute_AllFields(t *testing.T) {
 		GoType:      "string",
 
 		// SP-1 additions
-		ServerDefault:        true,
-		Default:              "default-value",
+		ServerDefault:         true,
+		Default:               "default-value",
 		MinimumConfigRequired: true,
-		RecommendedValue:     "recommended-value",
-		ValidationRules:      map[string]string{"max_length": "256"},
-		Complexity:           "advanced",
-		UseCases:             []string{"use-case-1"},
-		DeprecationMessage:   "Deprecated: use new_field",
-		ConflictsWith:        []string{"other_field"},
-		MaxLength:            256,
-		Immutable:            true,
-		EnumValues:           []string{"a", "b", "c"},
-		MinLength:            1,
-		Pattern:              "^[a-z]+$",
-		MinItems:             1,
-		MaxItems:             10,
+		RecommendedValue:      "recommended-value",
+		ValidationRules:       map[string]string{"max_length": "256"},
+		Complexity:            "advanced",
+		UseCases:              []string{"use-case-1"},
+		DeprecationMessage:    "Deprecated: use new_field",
+		ConflictsWith:         []string{"other_field"},
+		MaxLength:             256,
+		Immutable:             true,
+		EnumValues:            []string{"a", "b", "c"},
+		MinLength:             1,
+		Pattern:               "^[a-z]+$",
+		MinItems:              1,
+		MaxItems:              10,
 	}
 
 	// Existing fields
@@ -785,4 +785,24 @@ func TestGenerationResult_AllFields(t *testing.T) {
 	assertEqual(t, "FilePath", result.FilePath, "/path/to/resource.go")
 	assertIntEqual(t, "AttrCount", result.AttrCount, 15)
 	assertIntEqual(t, "BlockCount", result.BlockCount, 3)
+}
+
+// Client-Side Defense domain-management objects live under /api/shape/csd/ (not
+// /api/config/), so resource discovery must recognize the shape-service pattern.
+// Without it, protected_domain/allowed_domain/mitigated_domain are never generated.
+func TestExtractResourcePaths_ShapeServiceCSD(t *testing.T) {
+	paths := map[string]interface{}{
+		"/api/shape/csd/namespaces/{namespace}/protected_domains": map[string]interface{}{"get": map[string]interface{}{}},
+		"/api/shape/csd/namespaces/{namespace}/allowed_domains":   map[string]interface{}{"get": map[string]interface{}{}},
+		"/api/shape/csd/namespaces/{namespace}/mitigated_domains": map[string]interface{}{"get": map[string]interface{}{}},
+	}
+	got := map[string]bool{}
+	for _, rp := range extractResourcePathsFromPaths(paths) {
+		got[rp.ResourceName] = true
+	}
+	for _, want := range []string{"protected_domain", "allowed_domain", "mitigated_domain"} {
+		if !got[want] {
+			t.Errorf("expected shape-service resource %q to be discovered; got %v", want, got)
+		}
+	}
 }

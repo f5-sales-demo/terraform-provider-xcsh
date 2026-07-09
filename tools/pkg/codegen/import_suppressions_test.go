@@ -44,3 +44,14 @@ func TestImportSuppressions_EnableAPIDiscoveryInnerDefaults(t *testing.T) {
 		}
 	}
 }
+
+// disable_client_side_defense is the server default of the client_side_defense
+// oneof on the HTTP load balancer. On any LB that does not enable CSD, the server
+// materializes disable_client_side_defense {}, so it must be suppressed on import
+// (same pattern as disable_waf / disable_api_discovery) to keep round-trip import
+// clean.
+func TestImportSuppressions_DisableClientSideDefense(t *testing.T) {
+	if !isImportDefaultSuppressed("HTTPLoadBalancer", "disable_client_side_defense") {
+		t.Error("HTTPLoadBalancer.disable_client_side_defense must be a suppressed server-default (client_side_defense oneof)")
+	}
+}
