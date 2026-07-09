@@ -4051,9 +4051,6 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			data.DNSVolterraManaged = types.BoolNull()
 		}
 	}
-	if _, ok := apiResource.Spec["hash_policy_choice_round_robin"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRoundRobin == nil {
-		data.HashPolicyChoiceRoundRobin = &TCPLoadBalancerEmptyModel{}
-	}
 	if v, ok := apiResource.Spec["idle_timeout"].(float64); ok {
 		data.IdleTimeout = types.Int64Value(int64(v))
 	} else {
@@ -4071,12 +4068,6 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		data.PortRanges = types.StringValue(v)
 	} else {
 		data.PortRanges = types.StringNull()
-	}
-	if _, ok := apiResource.Spec["retract_cluster"].(map[string]interface{}); ok && isImport && data.RetractCluster == nil {
-		data.RetractCluster = &TCPLoadBalancerEmptyModel{}
-	}
-	if _, ok := apiResource.Spec["service_policies_from_namespace"].(map[string]interface{}); ok && isImport && data.ServicePoliciesFromNamespace == nil {
-		data.ServicePoliciesFromNamespace = &TCPLoadBalancerEmptyModel{}
 	}
 	if _, ok := apiResource.Spec["tcp"].(map[string]interface{}); ok && isImport && data.TCP == nil {
 		data.TCP = &TCPLoadBalancerEmptyModel{}
@@ -5357,9 +5348,6 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 			data.DNSVolterraManaged = types.BoolNull()
 		}
 	}
-	if _, ok := apiResource.Spec["hash_policy_choice_round_robin"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRoundRobin == nil {
-		data.HashPolicyChoiceRoundRobin = &TCPLoadBalancerEmptyModel{}
-	}
 	if v, ok := apiResource.Spec["idle_timeout"].(float64); ok {
 		data.IdleTimeout = types.Int64Value(int64(v))
 	} else {
@@ -5377,12 +5365,6 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 		data.PortRanges = types.StringValue(v)
 	} else {
 		data.PortRanges = types.StringNull()
-	}
-	if _, ok := apiResource.Spec["retract_cluster"].(map[string]interface{}); ok && isImport && data.RetractCluster == nil {
-		data.RetractCluster = &TCPLoadBalancerEmptyModel{}
-	}
-	if _, ok := apiResource.Spec["service_policies_from_namespace"].(map[string]interface{}); ok && isImport && data.ServicePoliciesFromNamespace == nil {
-		data.ServicePoliciesFromNamespace = &TCPLoadBalancerEmptyModel{}
 	}
 	if _, ok := apiResource.Spec["tcp"].(map[string]interface{}); ok && isImport && data.TCP == nil {
 		data.TCP = &TCPLoadBalancerEmptyModel{}
@@ -7368,9 +7350,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			data.DNSVolterraManaged = types.BoolNull()
 		}
 	}
-	if _, ok := apiResource.Spec["hash_policy_choice_round_robin"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRoundRobin == nil {
-		data.HashPolicyChoiceRoundRobin = &TCPLoadBalancerEmptyModel{}
-	}
 	if v, ok := apiResource.Spec["idle_timeout"].(float64); ok {
 		data.IdleTimeout = types.Int64Value(int64(v))
 	} else {
@@ -7388,12 +7367,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		data.PortRanges = types.StringValue(v)
 	} else {
 		data.PortRanges = types.StringNull()
-	}
-	if _, ok := apiResource.Spec["retract_cluster"].(map[string]interface{}); ok && isImport && data.RetractCluster == nil {
-		data.RetractCluster = &TCPLoadBalancerEmptyModel{}
-	}
-	if _, ok := apiResource.Spec["service_policies_from_namespace"].(map[string]interface{}); ok && isImport && data.ServicePoliciesFromNamespace == nil {
-		data.ServicePoliciesFromNamespace = &TCPLoadBalancerEmptyModel{}
 	}
 	if _, ok := apiResource.Spec["tcp"].(map[string]interface{}); ok && isImport && data.TCP == nil {
 		data.TCP = &TCPLoadBalancerEmptyModel{}
