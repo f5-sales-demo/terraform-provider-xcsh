@@ -35,5 +35,11 @@
     "headers",
     "use_http2"
   ],
+  "TCPLoadBalancer": [
+    "dns_volterra_managed",
+    "hash_policy_choice_round_robin",
+    "retract_cluster",
+    "service_policies_from_namespace"
+  ],
   "_comment": "Per-resource (title-case model prefix) server-default oneof members suppressed on the terraform import path. Auto-populated by tools/discover-defaults.go (create a minimal object in an isolated namespace, diff response vs request); hand-seeded entries live in tools/pkg/codegen/import_suppressions.go. See issue #1006."
 }
