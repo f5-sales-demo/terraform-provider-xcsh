@@ -188,6 +188,28 @@ type ResourceTemplate struct {
 	HasConflicts            bool   // True if any attribute has ConflictsWith
 	ConflictCheckCode       string // Generated Go code for conflict checks
 	IsReadOnly              bool   // True if resource has GetSpecType only (data source, no resource)
+
+	// Preflights are apply-time requirement checks compiled into Create/Update.
+	// Source of truth: x-f5xc-requires (api-specs-enriched). Loaded from
+	// tools/preflight-requirements.json keyed by TitleCase; see preflight.go.
+	Preflights []RequirementPreflight
+}
+
+// RequirementPreflight is one apply-time prerequisite the provider verifies
+// before writing a resource. When the model field WhenGoField is set (non-nil),
+// the generated Create/Update lists ListPath in the resource's namespace and, if
+// the collection is empty, fails fast with ErrorTitle/ErrorDetail — turning an
+// opaque server error into an actionable remediation. It encodes, in the shipped
+// binary, the dependency declared by x-f5xc-requires (e.g. client_side_defense
+// requires a same-namespace protected_domain), so every remote workstation
+// enforces it identically without relying on out-of-band knowledge.
+type RequirementPreflight struct {
+	WhenField   string `json:"when_field"`   // JSON/tfsdk name of the triggering field, e.g. "client_side_defense"
+	WhenGoField string `json:"-"`            // Go model field to nil-check, e.g. "ClientSideDefense" (resolved from attributes)
+	ListPath    string `json:"list_path"`    // LIST path with a single %s for the namespace
+	Requires    string `json:"requires"`     // Human-readable requirement (rendered as a code comment)
+	ErrorTitle  string `json:"error_title"`  // Diagnostic summary
+	ErrorDetail string `json:"error_detail"` // Diagnostic detail; must contain exactly one %s for the namespace
 }
 
 // GenerationResult tracks the result of generating a resource.

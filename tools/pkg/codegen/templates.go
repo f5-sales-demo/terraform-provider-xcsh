@@ -281,7 +281,7 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 
 	ctx, cancel := context.WithTimeout(ctx, createTimeout)
 	defer cancel()
-
+{{ renderPreflights .Preflights "r" }}
 	tflog.Debug(ctx, "Creating {{.Name}}", map[string]interface{}{
 		"name":      data.Name.ValueString(),
 		"namespace": data.Namespace.ValueString(),
@@ -458,7 +458,7 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
-
+{{ renderPreflights .Preflights "r" }}
 	apiResource := &client.{{.TitleCase}}{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),

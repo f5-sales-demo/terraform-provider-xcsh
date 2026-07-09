@@ -7,12 +7,51 @@ package codegen
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/schema"
 )
+
+// RenderRequirementPreflights emits apply-time prerequisite guards for a resource's
+// Create/Update. For each declared preflight it nil-checks the triggering block, LISTs
+// the requirement's collection in the resource's own namespace, and fails fast with the
+// remediation message when the collection is empty — turning an opaque server error
+// (e.g. CSD's 500 "Failed to get CSD JS Configuration") into an actionable diagnostic.
+// This compiles the dependency declared by x-f5xc-requires into the shipped binary, so
+// every remote workstation enforces it identically. recvVar is the resource receiver
+// (typically "r"); the emitted code also references the ambient ctx, data, and resp
+// that both the Create and Update method bodies provide. Empty input emits nothing, so
+// resources without preflights are byte-identical to before.
+func RenderRequirementPreflights(preflights []openapi.RequirementPreflight, recvVar string) string {
+	if len(preflights) == 0 {
+		return ""
+	}
+	var sb strings.Builder
+	for _, p := range preflights {
+		listErr := "Failed to verify the " + p.WhenField + " prerequisite (namespace %s): %s"
+		sb.WriteString("\n")
+		sb.WriteString("\t// Requirement pre-flight (generated; source: x-f5xc-requires):\n")
+		sb.WriteString("\t// " + p.Requires + "\n")
+		fmt.Fprintf(&sb, "\tif data.%s != nil {\n", p.WhenGoField)
+		fmt.Fprintf(&sb, "\t\tpreflightPath := fmt.Sprintf(%s, data.Namespace.ValueString())\n", strconv.Quote(p.ListPath))
+		sb.WriteString("\t\tvar preflightResp struct {\n")
+		sb.WriteString("\t\t\tItems []map[string]interface{} `json:\"items\"`\n")
+		sb.WriteString("\t\t}\n")
+		fmt.Fprintf(&sb, "\t\tif err := %s.client.Get(ctx, preflightPath, &preflightResp); err != nil {\n", recvVar)
+		fmt.Fprintf(&sb, "\t\t\tresp.Diagnostics.AddError(%s, fmt.Sprintf(%s, data.Namespace.ValueString(), err))\n", strconv.Quote(p.ErrorTitle), strconv.Quote(listErr))
+		sb.WriteString("\t\t\treturn\n")
+		sb.WriteString("\t\t}\n")
+		sb.WriteString("\t\tif len(preflightResp.Items) == 0 {\n")
+		fmt.Fprintf(&sb, "\t\t\tresp.Diagnostics.AddError(%s, fmt.Sprintf(%s, data.Namespace.ValueString()))\n", strconv.Quote(p.ErrorTitle), strconv.Quote(p.ErrorDetail))
+		sb.WriteString("\t\t\treturn\n")
+		sb.WriteString("\t\t}\n")
+		sb.WriteString("\t}\n")
+	}
+	return sb.String()
+}
 
 // NestedModelInfo holds information needed to generate a nested model type
 type NestedModelInfo struct {

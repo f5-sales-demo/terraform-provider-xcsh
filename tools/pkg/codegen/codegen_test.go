@@ -606,3 +606,46 @@ func TestRecursiveEmitters_DeepListConversion(t *testing.T) {
 		t.Errorf("expected unmarshal to ListValueFrom the deep rr_set with its AttrTypes, got:\n%s", unmarshal)
 	}
 }
+
+// RenderRequirementPreflights emits, for each declared prerequisite, an apply-time
+// guard: nil-check the triggering block, LIST the requirement's collection in the
+// resource namespace, and fail fast with the remediation message when it is empty.
+// This is the shipped-binary enforcement of x-f5xc-requires.
+func TestRenderRequirementPreflights_CSD(t *testing.T) {
+	pf := []openapi.RequirementPreflight{{
+		WhenField:   "client_side_defense",
+		WhenGoField: "ClientSideDefense",
+		ListPath:    "/api/shape/csd/namespaces/%s/protected_domains",
+		Requires:    "client_side_defense requires a same-namespace protected_domain",
+		ErrorTitle:  "Client-Side Defense prerequisite missing",
+		ErrorDetail: `no protected_domain in namespace %s; create an xcsh_protected_domain (the API says "Failed to get CSD JS Configuration")`,
+	}}
+	got := RenderRequirementPreflights(pf, "r")
+
+	for _, want := range []string{
+		"if data.ClientSideDefense != nil {",
+		`fmt.Sprintf("/api/shape/csd/namespaces/%s/protected_domains", data.Namespace.ValueString())`,
+		"r.client.Get(ctx,",
+		"Items []map[string]interface{} `json:\"items\"`",
+		"len(preflightResp.Items) == 0",
+		`resp.Diagnostics.AddError(`,
+		`"Client-Side Defense prerequisite missing"`,
+		"return",
+	} {
+		if !strings.Contains(got, want) {
+			t.Errorf("preflight code missing %q, got:\n%s", want, got)
+		}
+	}
+	// The detail string carries embedded quotes and a %s verb; it must be emitted as a
+	// valid, correctly-escaped Go literal (via strconv.Quote), not spliced raw.
+	if strings.Contains(got, `Configuration")`) && !strings.Contains(got, `Configuration\")`) {
+		t.Errorf("error_detail quotes must be escaped in the generated literal, got:\n%s", got)
+	}
+}
+
+// No declared preflights -> no emitted code (so unaffected resources are byte-identical).
+func TestRenderRequirementPreflights_Empty(t *testing.T) {
+	if got := RenderRequirementPreflights(nil, "r"); strings.TrimSpace(got) != "" {
+		t.Errorf("want empty output for no preflights, got:\n%s", got)
+	}
+}
