@@ -30,3 +30,17 @@ func TestImportSuppressions_JSONEntryHonored(t *testing.T) {
 		t.Error("AppFirewall.allow_all_response_codes (JSON-only) should be suppressed; JSON not loaded?")
 	}
 }
+
+// enable_api_discovery's inner oneof defaults are materialized by the server
+// whenever discovery is enabled, but discover-defaults.go cannot observe them
+// (its probe LB never enables discovery — it's the non-default side of the
+// disable/enable oneof). Without suppression, a bare `enable_api_discovery {}`
+// hard-errors on first apply and drifts on round-trip import. They are matched by
+// leaf name at any depth, so listing them under HTTPLoadBalancer suffices.
+func TestImportSuppressions_EnableAPIDiscoveryInnerDefaults(t *testing.T) {
+	for _, m := range []string{"default_api_auth_discovery", "disable_learn_from_redirect_traffic"} {
+		if !isImportDefaultSuppressed("HTTPLoadBalancer", m) {
+			t.Errorf("HTTPLoadBalancer.%s must be a suppressed server-default (enable_api_discovery inner oneof)", m)
+		}
+	}
+}

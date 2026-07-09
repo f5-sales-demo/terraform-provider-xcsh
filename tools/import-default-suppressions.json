@@ -14,10 +14,12 @@
   ],
   "HTTPLoadBalancer": [
     "add_location",
+    "default_api_auth_discovery",
     "default_sensitive_data_policy",
     "disable_api_definition",
     "disable_api_discovery",
     "disable_api_testing",
+    "disable_learn_from_redirect_traffic",
     "disable_malicious_user_detection",
     "disable_malware_protection",
     "disable_rate_limit",

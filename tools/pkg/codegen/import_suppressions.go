@@ -42,6 +42,13 @@ var importDefaultSuppressionsSeed = map[string][]string{
 		"round_robin",
 		"service_policies_from_namespace",
 		"user_id_client_ip",
+		// enable_api_discovery inner oneof defaults: the server materializes these
+		// whenever discovery is enabled, but discover-defaults.go can't observe them
+		// (its probe LB never enables discovery). Hand-seeded so a bare
+		// enable_api_discovery {} is import-clean and consistent on first apply.
+		// Matched by leaf name at any depth (see isImportDefaultSuppressed).
+		"default_api_auth_discovery",
+		"disable_learn_from_redirect_traffic",
 	},
 }
 
