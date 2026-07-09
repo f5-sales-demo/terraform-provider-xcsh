@@ -568,13 +568,17 @@ func main() {
 		time.Sleep(2 * time.Second)
 	}
 
-	// Cleanup function for test namespace
+	// Cleanup function for test namespace. F5 XC namespaces require a cascade
+	// delete (a plain DELETE does not remove them and leaves an orphan namespace).
 	defer func() {
 		if createdNamespace && testNamespace != "" {
 			fmt.Printf("\nCleaning up test namespace: %s\n", testNamespace)
 			ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
 			defer cancel()
-			_ = apiClient.Delete(ctx, fmt.Sprintf("/api/web/namespaces/%s", testNamespace))
+			var resp map[string]interface{}
+			if err := apiClient.Post(ctx, fmt.Sprintf("/api/web/namespaces/%s/cascade_delete", testNamespace), map[string]interface{}{"name": testNamespace}, &resp); err != nil {
+				fmt.Fprintf(os.Stderr, "warning: failed to cascade-delete test namespace %s: %v\n", testNamespace, err)
+			}
 		}
 	}()
 
