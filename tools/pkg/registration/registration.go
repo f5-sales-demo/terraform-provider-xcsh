@@ -24,6 +24,16 @@ import (
 // Note: namespace was removed in v3.0.0 as part of backwards compatibility cleanup
 var CoreResources = []string{}
 
+// StandaloneDataSources are hand-written data sources that have no generated
+// resource companion (so they are not registered via CoreResources or the
+// spec-generation results). They must still be wired into provider.DataSources().
+// Each entry NAME must map (via naming.ToResourceTypeName) to an existing
+// New<TitleCase>DataSource constructor in internal/provider.
+var StandaloneDataSources = []string{
+	"addon_service",                  // xcsh_addon_service — addon tier/details
+	"addon_service_activation_status", // xcsh_addon_service_activation_status — entitlement/subscription state
+}
+
 // GenerateCombinedClientTypes is a no-op placeholder retained for interface
 // compatibility. Individual client type files are generated per-resource
 // during the main generation loop.
@@ -136,6 +146,15 @@ func GenerateProviderRegistration(results []openapi.GenerationResult, outputDir 
 			}
 			dataSources = append(dataSources, fmt.Sprintf("\t\tNew%sDataSource,", titleCase))
 		}
+	}
+
+	// Wire standalone hand-written data sources (no generated resource companion).
+	for _, ds := range StandaloneDataSources {
+		if added[ds] {
+			continue
+		}
+		titleCase := naming.ToResourceTypeName(ds)
+		dataSources = append(dataSources, fmt.Sprintf("\t\tNew%sDataSource,", titleCase))
 	}
 
 	// Sort for consistent output
