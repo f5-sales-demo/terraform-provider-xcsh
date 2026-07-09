@@ -12,6 +12,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
+	"golang.org/x/net/publicsuffix"
 )
 
 // Common regex patterns for F5 XC resources
@@ -255,5 +256,40 @@ func RequiredNamespaceValidators() []validator.String {
 func OptionalDomainValidators() []validator.String {
 	return []validator.String{
 		DomainValidator(),
+	}
+}
+
+// ETLDPlusOneValidator enforces ves.io.schema.rules.string.etld_plus_one: the value must
+// itself be an effective-TLD-plus-one (registrable) domain — e.g. "example.com" or
+// "example.co.uk", not a subdomain ("www.example.com") or a bare label ("example"). A
+// single trailing dot (fully-qualified form) is tolerated. The public suffix list is
+// embedded in the binary, so the check is identical on every workstation.
+func ETLDPlusOneValidator() validator.String {
+	return &etldPlusOneValidator{}
+}
+
+type etldPlusOneValidator struct{}
+
+func (v etldPlusOneValidator) Description(ctx context.Context) string {
+	return "value must be an eTLD+1 (registrable) domain, e.g. example.com"
+}
+
+func (v etldPlusOneValidator) MarkdownDescription(ctx context.Context) string {
+	return v.Description(ctx)
+}
+
+func (v etldPlusOneValidator) ValidateString(ctx context.Context, req validator.StringRequest, resp *validator.StringResponse) {
+	if req.ConfigValue.IsNull() || req.ConfigValue.IsUnknown() {
+		return
+	}
+	value := req.ConfigValue.ValueString()
+	domain := strings.TrimSuffix(value, ".")
+	etld1, err := publicsuffix.EffectiveTLDPlusOne(domain)
+	if err != nil || etld1 != domain {
+		resp.Diagnostics.AddAttributeError(
+			req.Path,
+			"Invalid Domain",
+			fmt.Sprintf("Value %q must be an eTLD+1 (registrable) domain such as \"example.com\" or \"example.co.uk\" — not a subdomain (e.g. \"www.example.com\") or a bare label (e.g. \"example\").", value),
+		)
 	}
 }

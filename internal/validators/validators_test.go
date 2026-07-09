@@ -349,3 +349,43 @@ func TestValidatorDescriptions(t *testing.T) {
 		})
 	}
 }
+
+func TestETLDPlusOneValidator(t *testing.T) {
+	tests := []struct {
+		name        string
+		input       string
+		isNull      bool
+		expectError bool
+	}{
+		{"registrable .com", "example.com", false, false},
+		{"multi-level public suffix", "example.co.uk", false, false},
+		{"trailing dot tolerated", "example.com.", false, false},
+		{"real demo domain", "f5-sales-demo.com", false, false},
+		{"subdomain rejected", "www.example.com", false, true},
+		{"deep subdomain rejected", "a.b.example.com", false, true},
+		{"bare label rejected", "example", false, true},
+		{"empty string rejected", "", false, true},
+		{"null allowed", "", true, false},
+	}
+
+	ctx := context.Background()
+	v := ETLDPlusOneValidator()
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			req := validator.StringRequest{
+				Path:        path.Root("protected_domain"),
+				ConfigValue: types.StringValue(tt.input),
+			}
+			if tt.isNull {
+				req.ConfigValue = types.StringNull()
+			}
+			resp := &validator.StringResponse{}
+			v.ValidateString(ctx, req, resp)
+
+			if got := resp.Diagnostics.HasError(); got != tt.expectError {
+				t.Errorf("ETLDPlusOneValidator(%q): hasError = %v, want %v", tt.input, got, tt.expectError)
+			}
+		})
+	}
+}

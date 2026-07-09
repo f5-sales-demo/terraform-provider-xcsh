@@ -930,6 +930,9 @@ func RenderNestedAttributes(attrs []openapi.TerraformAttribute, indent string) s
 				}
 				stringValidators = append(stringValidators, fmt.Sprintf("stringvalidator.OneOf(%s)", strings.Join(quoted, ", ")))
 			}
+			if attr.ETLDPlusOne {
+				stringValidators = append(stringValidators, "validators.ETLDPlusOneValidator()")
+			}
 			if len(stringValidators) > 0 {
 				sb.WriteString(fmt.Sprintf("%s\t\tValidators: []validator.String{\n", indent))
 				for _, sv := range stringValidators {
