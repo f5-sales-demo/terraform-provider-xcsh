@@ -226,13 +226,37 @@ var ResourceConfigs = map[string]MinimalConfig{
 	"tcp_loadbalancer": {
 		Category:  CategoryLoadBalancer,
 		Namespace: true,
+		// Like http_loadbalancer: origin_pools_weights must reference a real
+		// origin_pool (created as a prerequisite); send only the minimal so
+		// server defaults are discovered.
 		RequiredSpec: map[string]interface{}{
-			"domains":       []interface{}{"test.example.com"},
-			"listen_port":   8080,
-			"with_sni":      map[string]interface{}{},
-			"tcp":           map[string]interface{}{},
+			"domains": []interface{}{"tf-discover.example.com"},
+			// SNI on the shared public VIP requires a TLS-class port (443, 2053, …).
+			"listen_port": 443,
+			"sni":         map[string]interface{}{},
+			"tcp":         map[string]interface{}{},
+			"origin_pools_weights": []interface{}{
+				map[string]interface{}{
+					"pool": map[string]interface{}{
+						"name":      "@prereq:origin_pool",
+						"namespace": "@prereq-ns:origin_pool",
+					},
+					"weight": 1,
+				},
+			},
 			"advertise_on_public_default_vip": map[string]interface{}{},
-			"origin_pools_weights":            []interface{}{},
+		},
+		Prerequisites: []Prerequisite{
+			{Kind: "origin_pool", Spec: map[string]interface{}{
+				"port": 80,
+				"origin_servers": []interface{}{
+					map[string]interface{}{
+						"public_name": map[string]interface{}{"dns_name": "example.com"},
+					},
+				},
+				"no_tls":                map[string]interface{}{},
+				"same_as_endpoint_port": map[string]interface{}{},
+			}},
 		},
 	},
 
