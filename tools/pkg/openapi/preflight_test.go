@@ -58,3 +58,27 @@ func TestLoadPreflights_None(t *testing.T) {
 		t.Errorf("want no preflights for unknown resource, got %#v", got)
 	}
 }
+
+// Guard the data file: every declared preflight must be well-formed so the codegen
+// emits valid, correctly-argumented Sprintf calls. error_detail and list_path each take
+// exactly the namespace, so each must contain exactly one %s; the human-facing fields
+// must be non-empty. This prevents the malformed-format class of bug at the source.
+func TestLoadPreflights_AllEntriesWellFormed(t *testing.T) {
+	preflightOnce.Do(loadPreflights)
+	if len(preflightMap) == 0 {
+		t.Fatal("preflight-requirements.json loaded no resources")
+	}
+	for resource, entries := range preflightMap {
+		for i, p := range entries {
+			if p.WhenField == "" || p.ListPath == "" || p.ErrorTitle == "" || p.ErrorDetail == "" || p.Requires == "" {
+				t.Errorf("%s[%d]: required field empty: %+v", resource, i, p)
+			}
+			if n := strings.Count(p.ListPath, "%s"); n != 1 {
+				t.Errorf("%s[%d]: list_path must contain exactly one %%s, got %d", resource, i, n)
+			}
+			if n := strings.Count(p.ErrorDetail, "%s"); n != 1 {
+				t.Errorf("%s[%d]: error_detail must contain exactly one %%s, got %d", resource, i, n)
+			}
+		}
+	}
+}
