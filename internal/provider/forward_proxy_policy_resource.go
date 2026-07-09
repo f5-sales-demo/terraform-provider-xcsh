@@ -2515,6 +2515,19 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 			resp.State.RemoveResource(ctx)
 			return
 		}
+		// Some F5 XC APIs do not implement GET-by-name (read returns 501 Not
+		// Implemented — e.g. the shape/csd domain objects, which support only
+		// list/create/delete). Treat that as "cannot refresh" and preserve the
+		// prior state rather than erroring, so the resource stays manageable and
+		// idempotent (create/delete still work).
+		if strings.Contains(err.Error(), "501") {
+			tflog.Warn(ctx, "ForwardProxyPolicy read not implemented by API (501); keeping prior state", map[string]interface{}{
+				"name":      data.Name.ValueString(),
+				"namespace": data.Namespace.ValueString(),
+			})
+			resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read ForwardProxyPolicy: %s", err))
 		return
 	}
