@@ -286,9 +286,16 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 	conflictAttrs, goNameLookup := CollectConflictAttrs(attributes)
 	conflictCode := conflicts.GenerateChecks(conflictAttrs, goNameLookup)
 
+	// Compile declared apply-time prerequisites (x-f5xc-requires) into this resource,
+	// resolving each preflight's trigger field to its Go model field so Create/Update
+	// can nil-check it. Preflights whose trigger is not a top-level attribute are dropped.
+	titleCase := naming.ToResourceTypeName(resourceName)
+	preflights := ResolvePreflightGoFields(openapi.LoadPreflights(titleCase), attributes)
+
 	return &openapi.ResourceTemplate{
 		Name:                    resourceName,
-		TitleCase:               naming.ToResourceTypeName(resourceName),
+		TitleCase:               titleCase,
+		Preflights:              preflights,
 		APIPath:                 apiPath,
 		APIPathPlural:           resourceName + "s",
 		APIPathItem:             apiPathItem,
@@ -313,6 +320,31 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 		HasConflicts:            conflictCode != "",
 		ConflictCheckCode:       conflictCode,
 	}, nil
+}
+
+// ResolvePreflightGoFields binds each preflight's declared trigger field (WhenField,
+// a tfsdk tag such as "client_side_defense") to its generated Go model field name
+// (WhenGoField, e.g. "ClientSideDefense") using the resource's top-level attributes.
+// A preflight whose trigger is not a top-level attribute is dropped so the generator
+// never emits a reference to a field that does not exist.
+func ResolvePreflightGoFields(preflights []openapi.RequirementPreflight, attributes []openapi.TerraformAttribute) []openapi.RequirementPreflight {
+	if len(preflights) == 0 {
+		return nil
+	}
+	goByTfsdk := make(map[string]string, len(attributes))
+	for _, a := range attributes {
+		goByTfsdk[a.TfsdkTag] = a.GoName
+	}
+	resolved := make([]openapi.RequirementPreflight, 0, len(preflights))
+	for _, p := range preflights {
+		goName, ok := goByTfsdk[p.WhenField]
+		if !ok || goName == "" {
+			continue
+		}
+		p.WhenGoField = goName
+		resolved = append(resolved, p)
+	}
+	return resolved
 }
 
 // ExtractReadOnlyResourceSchema extracts a data-source-only schema from a GetSpecType.
