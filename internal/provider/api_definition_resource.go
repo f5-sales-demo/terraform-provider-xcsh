@@ -540,9 +540,6 @@ func (r *APIDefinitionResource) Create(ctx context.Context, req resource.CreateR
 	} else {
 		data.NonAPIEndpoints = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionNonAPIEndpointsModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["strict_schema_origin"].(map[string]interface{}); ok && isImport && data.StrictSchemaOrigin == nil {
-		data.StrictSchemaOrigin = &APIDefinitionEmptyModel{}
-	}
 	if v, ok := apiResource.Spec["swagger_specs"].([]interface{}); ok && len(v) > 0 {
 		var swagger_specsList []string
 		for _, item := range v {
@@ -745,9 +742,6 @@ func (r *APIDefinitionResource) Read(ctx context.Context, req resource.ReadReque
 		}
 	} else {
 		data.NonAPIEndpoints = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionNonAPIEndpointsModelAttrTypes})
-	}
-	if _, ok := apiResource.Spec["strict_schema_origin"].(map[string]interface{}); ok && isImport && data.StrictSchemaOrigin == nil {
-		data.StrictSchemaOrigin = &APIDefinitionEmptyModel{}
 	}
 	if v, ok := apiResource.Spec["swagger_specs"].([]interface{}); ok && len(v) > 0 {
 		var swagger_specsList []string
@@ -1024,9 +1018,6 @@ func (r *APIDefinitionResource) Update(ctx context.Context, req resource.UpdateR
 		}
 	} else {
 		data.NonAPIEndpoints = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionNonAPIEndpointsModelAttrTypes})
-	}
-	if _, ok := apiResource.Spec["strict_schema_origin"].(map[string]interface{}); ok && isImport && data.StrictSchemaOrigin == nil {
-		data.StrictSchemaOrigin = &APIDefinitionEmptyModel{}
 	}
 	if v, ok := apiResource.Spec["swagger_specs"].([]interface{}); ok && len(v) > 0 {
 		var swagger_specsList []string
