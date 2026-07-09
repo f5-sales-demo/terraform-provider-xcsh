@@ -25,9 +25,10 @@
       "name": "Security",
       "slug": "security",
       "description": "WAF, bot defense, rate limiting, firewall policies, and security controls",
-      "resource_count": 26,
+      "resource_count": 27,
       "resources": [
         "app_firewall",
+        "alert_gen_policy",
         "alert_policy",
         "bgp_routing_policy",
         "bot_defense_app_infrastructure",
@@ -156,11 +157,32 @@
       ]
     },
     {
+      "name": "Uncategorized",
+      "slug": "uncategorized",
+      "description": "Resources pending categorization",
+      "resource_count": 6,
+      "resources": [
+        "application_profiles",
+        "authorization_server",
+        "bot_infrastructure",
+        "mitigated_domain",
+        "protected_application",
+        "protected_domain"
+      ]
+    },
+    {
       "name": "API Security",
       "slug": "api-security",
       "description": "API definition, discovery, testing, and security controls for web APIs",
       "resource_count": 5,
       "resources": ["api_crawler", "api_definition", "api_discovery", "api_testing", "app_api_group"]
+    },
+    {
+      "name": "Monitoring",
+      "slug": "monitoring",
+      "description": "Log receivers, alert policies, APM, and global logging configuration",
+      "resource_count": 5,
+      "resources": ["alert_receiver", "alert_template", "apm", "global_log_receiver", "log_receiver"]
     },
     {
       "name": "Applications",
@@ -175,13 +197,6 @@
       "description": "TLS certificates, certificate chains, CRLs, and trusted CA lists",
       "resource_count": 4,
       "resources": ["certificate", "certificate_chain", "crl", "trusted_ca_list"]
-    },
-    {
-      "name": "Monitoring",
-      "slug": "monitoring",
-      "description": "Log receivers, alert policies, APM, and global logging configuration",
-      "resource_count": 4,
-      "resources": ["alert_receiver", "apm", "global_log_receiver", "log_receiver"]
     },
     {
       "name": "VPN",
@@ -215,15 +230,8 @@
       "name": "Organization",
       "slug": "organization",
       "description": "Namespaces, tenant configuration, and organizational settings",
-      "resource_count": 2,
-      "resources": ["namespace", "tenant_configuration"]
-    },
-    {
-      "name": "Uncategorized",
-      "slug": "uncategorized",
-      "description": "Resources pending categorization",
-      "resource_count": 2,
-      "resources": ["application_profiles", "authorization_server"]
+      "resource_count": 3,
+      "resources": ["allowed_domain", "namespace", "tenant_configuration"]
     },
     {
       "name": "Integrations",
@@ -268,6 +276,16 @@
       },
       "import_syntax": "terraform import xcsh_advertise_policy.example namespace/name"
     },
+    "alert_gen_policy": {
+      "category": "security",
+      "description": "Alert Generation Policy",
+      "required": ["name", "namespace", "alert_status"],
+      "minimal_config": "resource \"xcsh_alert_gen_policy\" \"example\" {\n  name      = \"example-alert-gen-policy\"\n  namespace = \"staging\"\n\n  alert_status = \"ALERT_ACTIVE\"\n}",
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_alert_gen_policy.example namespace/name"
+    },
     "alert_policy": {
       "category": "security",
       "description": "New Alert Policy Object",
@@ -287,6 +305,26 @@
         "requires": []
       },
       "import_syntax": "terraform import xcsh_alert_receiver.example namespace/name"
+    },
+    "alert_template": {
+      "category": "monitoring",
+      "description": "Domain to protect",
+      "required": ["name", "namespace", "alert_message", "alert_message_details", "alert_name", "severity"],
+      "minimal_config": "resource \"xcsh_alert_template\" \"example\" {\n  name      = \"example-alert-template\"\n  namespace = \"staging\"\n\n  alert_message         = \"example-value\"\n  alert_message_details = \"example-value\"\n  alert_name            = \"example-value\"\n  severity              = \"MINOR\"\n}",
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_alert_template.example namespace/name"
+    },
+    "allowed_domain": {
+      "category": "organization",
+      "description": "Allowed domain",
+      "required": ["name", "namespace", "allowed_domain"],
+      "minimal_config": "resource \"xcsh_allowed_domain\" \"example\" {\n  name      = \"example-allowed-domain\"\n  namespace = \"staging\"\n\n  allowed_domain = \"example-value\"\n}",
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_allowed_domain.example namespace/name"
     },
     "api_crawler": {
       "category": "api-security",
@@ -487,6 +525,16 @@
         "requires": []
       },
       "import_syntax": "terraform import xcsh_bot_defense_app_infrastructure.example namespace/name"
+    },
+    "bot_infrastructure": {
+      "category": "uncategorized",
+      "description": "Bot Infrastructure",
+      "required": ["name", "namespace", "traffic_type"],
+      "minimal_config": "resource \"xcsh_bot_infrastructure\" \"example\" {\n  name      = \"example-bot-infrastructure\"\n  namespace = \"staging\"\n\n  traffic_type = \"WEB\"\n}",
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_bot_infrastructure.example namespace/name"
     },
     "cdn_cache_rule": {
       "category": "load-balancing",
@@ -1027,6 +1075,16 @@
       },
       "import_syntax": "terraform import xcsh_malicious_user_mitigation.example namespace/name"
     },
+    "mitigated_domain": {
+      "category": "uncategorized",
+      "description": "Mitigated Domain",
+      "required": ["name", "namespace", "mitigated_domain"],
+      "minimal_config": "resource \"xcsh_mitigated_domain\" \"example\" {\n  name      = \"example-mitigated-domain\"\n  namespace = \"staging\"\n\n  mitigated_domain = \"example-value\"\n}",
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_mitigated_domain.example namespace/name"
+    },
     "namespace": {
       "category": "organization",
       "description": "New namespace. Name of the object is name of the namespace",
@@ -1171,6 +1229,26 @@
         "requires": []
       },
       "import_syntax": "terraform import xcsh_policy_based_routing.example namespace/name"
+    },
+    "protected_application": {
+      "category": "uncategorized",
+      "description": "Applications protected by Bot Defense",
+      "required": ["name", "namespace", "region"],
+      "minimal_config": "resource \"xcsh_protected_application\" \"example\" {\n  name      = \"example-protected-application\"\n  namespace = \"staging\"\n\n  region = \"US\"\n}",
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_protected_application.example namespace/name"
+    },
+    "protected_domain": {
+      "category": "uncategorized",
+      "description": "Domain to protect",
+      "required": ["name", "namespace", "protected_domain"],
+      "minimal_config": "resource \"xcsh_protected_domain\" \"example\" {\n  name      = \"example-protected-domain\"\n  namespace = \"staging\"\n\n  protected_domain = \"example-value\"\n}",
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_protected_domain.example namespace/name"
     },
     "protocol_inspection": {
       "category": "security",

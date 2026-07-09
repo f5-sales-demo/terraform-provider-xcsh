@@ -1,0 +1,31 @@
+# xcsh_alert_template
+
+Category: Monitoring
+Domain to protect
+
+## Required
+
+- name
+- namespace
+- alert_message
+- alert_message_details
+- alert_name
+- severity
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_alert_template" "example" {
+  name      = "example-alert-template"
+  namespace = "staging"
+
+  alert_message         = "example-value"
+  alert_message_details = "example-value"
+  alert_name            = "example-value"
+  severity              = "MINOR"
+}
+```
+
+## Dependencies
+
+Requires: none
