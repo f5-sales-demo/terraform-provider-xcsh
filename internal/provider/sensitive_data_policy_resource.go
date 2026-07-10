@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 	"strings"
+	"time"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
@@ -841,7 +842,36 @@ func (r *SensitiveDataPolicyResource) Delete(ctx context.Context, req resource.D
 
 	ctx, cancel := context.WithTimeout(ctx, deleteTimeout)
 	defer cancel()
-	err := r.client.DeleteSensitiveDataPolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+
+	// Delete with bounded retry on transient referential BAD_REQUEST: during teardown a
+	// resource can briefly still be referenced by another object (a healthcheck by an origin
+	// pool, an origin pool by a load balancer, etc.), which the API rejects with 400 until
+	// the referrer is gone. NOT_FOUND/404 (already deleted) and 501 (delete unsupported) are
+	// terminal and handled after the loop.
+	var err error
+	for attempt := 0; ; attempt++ {
+		err = r.client.DeleteSensitiveDataPolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+		if err == nil {
+			break
+		}
+		msg := err.Error()
+		transient := (strings.Contains(msg, "400") || strings.Contains(msg, "BAD_REQUEST")) &&
+			!strings.Contains(msg, "NOT_FOUND") && !strings.Contains(msg, "404") && !strings.Contains(msg, "501")
+		if !transient || attempt >= 5 {
+			break
+		}
+		tflog.Warn(ctx, "SensitiveDataPolicy delete hit transient BAD_REQUEST (likely still referenced); retrying", map[string]interface{}{
+			"name":      data.Name.ValueString(),
+			"namespace": data.Namespace.ValueString(),
+			"attempt":   attempt + 1,
+		})
+		select {
+		case <-ctx.Done():
+			resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Timed out retrying delete of SensitiveDataPolicy (still referenced): %s", err))
+			return
+		case <-time.After(5 * time.Second):
+		}
+	}
 	if err != nil {
 		// If the resource is already gone, consider deletion successful (idempotent delete)
 		if strings.Contains(err.Error(), "NOT_FOUND") || strings.Contains(err.Error(), "404") {
