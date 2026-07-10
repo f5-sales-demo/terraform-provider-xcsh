@@ -286,11 +286,30 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 	conflictAttrs, goNameLookup := CollectConflictAttrs(attributes)
 	conflictCode := conflicts.GenerateChecks(conflictAttrs, goNameLookup)
 
-	// Compile declared apply-time prerequisites (x-f5xc-requires) into this resource,
-	// resolving each preflight's trigger field to its Go model field so Create/Update
-	// can nil-check it. Preflights whose trigger is not a top-level attribute are dropped.
+	// Compile declared apply-time prerequisites into this resource. The source of
+	// truth is x-f5xc-requires in the enriched spec: DeriveRequirementPreflights
+	// turns each structured cross-resource requirement into a preflight, resolving
+	// the required resource's LIST path from the spec's own paths. Hand-maintained
+	// preflight-requirements.json entries override the derived ones by trigger
+	// field, so the file is an override/supplement rather than the sole source.
+	// Each preflight's trigger field is then resolved to its Go model field so
+	// Create/Update can nil-check it; those whose trigger is not a top-level
+	// attribute are dropped.
 	titleCase := naming.ToResourceTypeName(resourceName)
-	preflights := ResolvePreflightGoFields(openapi.LoadPreflights(titleCase), attributes)
+	// extractAPIPath already returns the collection path with the namespace
+	// placeholder substituted to %s (e.g. /api/shape/csd/namespaces/%s/protected_domains),
+	// which is exactly the LIST-path form a preflight needs. Require a namespaced
+	// path with a single %s so we never emit a malformed list_path.
+	resolveListPath := func(resource string) (string, bool) {
+		p, _, hasNamespace := extractAPIPath(spec, resource)
+		if p == "" || !hasNamespace || strings.Count(p, "%s") != 1 {
+			return "", false
+		}
+		return p, true
+	}
+	derivedPreflights := openapi.DeriveRequirementPreflights(createSpec, resolveListPath)
+	mergedPreflights := openapi.MergePreflights(derivedPreflights, openapi.LoadPreflights(titleCase))
+	preflights := ResolvePreflightGoFields(mergedPreflights, attributes)
 
 	return &openapi.ResourceTemplate{
 		Name:                    resourceName,
