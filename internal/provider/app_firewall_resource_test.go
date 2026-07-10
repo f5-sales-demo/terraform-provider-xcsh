@@ -640,20 +640,13 @@ resource "xcsh_app_firewall" "test" {
   # Use default detection settings
   default_detection_settings {}
 
-  # Allow all response codes
-  allow_all_response_codes {}
-
   # Blocking mode - actively block malicious requests
   blocking {}
 
-  # Use default blocking page
-  use_default_blocking_page {}
-
-  # Use default bot settings
-  default_bot_setting {}
-
-  # Use default anonymization
-  default_anonymization {}
+  # allow_all_response_codes / use_default_blocking_page / default_bot_setting /
+  # default_anonymization are server-default oneof markers the provider import-suppresses.
+  # Declaring them makes the config import-unclean (config has them, imported state does
+  # not), so they are intentionally omitted here — the server still materializes them.
 }
 `, name)
 }

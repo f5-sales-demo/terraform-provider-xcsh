@@ -194,6 +194,11 @@ type ResourceTemplate struct {
 	// Source of truth: x-f5xc-requires (api-specs-enriched). Loaded from
 	// tools/preflight-requirements.json keyed by TitleCase; see preflight.go.
 	Preflights []RequirementPreflight
+
+	// ImportIDExtraFields are create-only spec fields the API cannot return on read,
+	// so their values ride in the import ID as trailing segments after namespace/name.
+	// Loaded from tools/import-id-fields.json keyed by TitleCase; see import_id_fields.go.
+	ImportIDExtraFields []string
 }
 
 // RequirementPreflight is one apply-time prerequisite the provider verifies
