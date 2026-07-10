@@ -661,3 +661,40 @@ func TestRenderNestedAttributes_ETLDPlusOne(t *testing.T) {
 		t.Errorf("expected ETLDPlusOneValidator for etld_plus_one attribute, got:\n%s", got)
 	}
 }
+
+// The Delete template must retry transient referential BAD_REQUEST (a resource briefly
+// still referenced during teardown) with a bounded, context-aware loop, while leaving
+// NOT_FOUND/404 (already deleted) and 501 (unsupported) as terminal.
+func TestResourceTemplate_DeleteRetriesTransient400(t *testing.T) {
+	for _, want := range []string{
+		"for attempt := 0; ; attempt++ {",
+		`strings.Contains(msg, "400") || strings.Contains(msg, "BAD_REQUEST")`,
+		"attempt >= 5",
+		"time.After(5 * time.Second)",
+		"case <-ctx.Done():",
+	} {
+		if !strings.Contains(ResourceTemplate, want) {
+			t.Errorf("Delete template missing retry construct %q", want)
+		}
+	}
+	// The transient guard must exclude the terminal conditions so they aren't retried.
+	if !strings.Contains(ResourceTemplate, `!strings.Contains(msg, "NOT_FOUND") && !strings.Contains(msg, "404") && !strings.Contains(msg, "501")`) {
+		t.Error("transient guard must exclude NOT_FOUND/404/501")
+	}
+}
+
+// Resources with create-only, API-unreadable fields carry those fields in the import ID
+// (namespace/name/<field>...) so a round-trip import is drift-free. The ImportState
+// template must parse the extra segments and set the attributes.
+func TestResourceTemplate_ImportIDExtraFields(t *testing.T) {
+	for _, want := range []string{
+		"{{- if .ImportIDExtraFields}}",
+		"len(parts) != {{add 2 (len .ImportIDExtraFields)}}",
+		"{{- range $i, $f := .ImportIDExtraFields}}",
+		`path.Root("{{$f}}"), parts[{{add 2 $i}}]`,
+	} {
+		if !strings.Contains(ResourceTemplate, want) {
+			t.Errorf("ImportState template missing extra-fields construct %q", want)
+		}
+	}
+}

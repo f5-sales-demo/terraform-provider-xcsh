@@ -296,6 +296,7 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 		Name:                    resourceName,
 		TitleCase:               titleCase,
 		Preflights:              preflights,
+		ImportIDExtraFields:     openapi.LoadImportIDFields(titleCase),
 		APIPath:                 apiPath,
 		APIPathPlural:           resourceName + "s",
 		APIPathItem:             apiPathItem,

@@ -35,6 +35,7 @@ func GenerateResourceFile(resource *openapi.ResourceTemplate, outputDir string) 
 		"renderSpecMarshalCodeForCreate":  RenderSpecMarshalCodeForCreate,
 		"renderSpecUnmarshalCode":         RenderSpecUnmarshalCode,
 		"renderPreflights":                RenderRequirementPreflights,
+		"add":                             func(a, b int) int { return a + b },
 		"renderCreateComputedFieldsCode":  RenderCreateComputedFieldsCode,
 		"renderUpdateComputedFieldsCode":  RenderUpdateComputedFieldsCode,
 		"renderFetchedComputedFieldsCode": RenderFetchedComputedFieldsCode,
