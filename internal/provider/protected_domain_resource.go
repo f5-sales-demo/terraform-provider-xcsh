@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 	"strings"
+	"time"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
@@ -457,7 +458,36 @@ func (r *ProtectedDomainResource) Delete(ctx context.Context, req resource.Delet
 
 	ctx, cancel := context.WithTimeout(ctx, deleteTimeout)
 	defer cancel()
-	err := r.client.DeleteProtectedDomain(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+
+	// Delete with bounded retry on transient referential BAD_REQUEST: during teardown a
+	// resource can briefly still be referenced by another object (a healthcheck by an origin
+	// pool, an origin pool by a load balancer, etc.), which the API rejects with 400 until
+	// the referrer is gone. NOT_FOUND/404 (already deleted) and 501 (delete unsupported) are
+	// terminal and handled after the loop.
+	var err error
+	for attempt := 0; ; attempt++ {
+		err = r.client.DeleteProtectedDomain(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+		if err == nil {
+			break
+		}
+		msg := err.Error()
+		transient := (strings.Contains(msg, "400") || strings.Contains(msg, "BAD_REQUEST")) &&
+			!strings.Contains(msg, "NOT_FOUND") && !strings.Contains(msg, "404") && !strings.Contains(msg, "501")
+		if !transient || attempt >= 5 {
+			break
+		}
+		tflog.Warn(ctx, "ProtectedDomain delete hit transient BAD_REQUEST (likely still referenced); retrying", map[string]interface{}{
+			"name":      data.Name.ValueString(),
+			"namespace": data.Namespace.ValueString(),
+			"attempt":   attempt + 1,
+		})
+		select {
+		case <-ctx.Done():
+			resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Timed out retrying delete of ProtectedDomain (still referenced): %s", err))
+			return
+		case <-time.After(5 * time.Second):
+		}
+	}
 	if err != nil {
 		// If the resource is already gone, consider deletion successful (idempotent delete)
 		if strings.Contains(err.Error(), "NOT_FOUND") || strings.Contains(err.Error(), "404") {
@@ -482,21 +512,22 @@ func (r *ProtectedDomainResource) Delete(ctx context.Context, req resource.Delet
 }
 
 func (r *ProtectedDomainResource) ImportState(ctx context.Context, req resource.ImportStateRequest, resp *resource.ImportStateResponse) {
-	// Import ID format: namespace/name
+	// Import ID format: namespace/name/protected_domain
+	// Trailing fields are create-only and not readable from the API (e.g. GET-by-name
+	// returns 501), so they ride in the import ID to keep round-trip import drift-free.
 	parts := strings.Split(req.ID, "/")
-	if len(parts) != 2 || parts[0] == "" || parts[1] == "" {
+	if len(parts) != 3 || parts[0] == "" || parts[1] == "" {
 		resp.Diagnostics.AddError(
 			"Invalid Import ID",
-			fmt.Sprintf("Expected import ID format: namespace/name, got: %s", req.ID),
+			fmt.Sprintf("Expected import ID format: namespace/name/protected_domain, got: %s", req.ID),
 		)
 		return
 	}
-	namespace := parts[0]
-	name := parts[1]
 
-	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("namespace"), namespace)...)
-	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("name"), name)...)
-	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("id"), name)...)
+	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("namespace"), parts[0])...)
+	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("name"), parts[1])...)
+	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("id"), parts[1])...)
+	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("protected_domain"), parts[2])...)
 
 	// Set private state marker to indicate this is an import operation
 	// This allows Read to populate all nested blocks from API response
