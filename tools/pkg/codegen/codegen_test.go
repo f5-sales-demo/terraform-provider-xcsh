@@ -698,3 +698,44 @@ func TestResourceTemplate_ImportIDExtraFields(t *testing.T) {
 		}
 	}
 }
+
+// #1079 part 2: the read-back for an object-reference nested block must reconstruct
+// from the API response (so Computed-only tenant/uid/kind become known), NOT preserve
+// the planned value (which carries an unknown tenant -> "invalid result object after
+// apply"). Non-reference single blocks keep the drift-preserving behavior.
+func TestRenderUnmarshalSingleChild_ObjectRefReadsFromAPI(t *testing.T) {
+	ref := openapi.TerraformAttribute{
+		GoName: "MaliciousUserMitigation", JsonName: "malicious_user_mitigation", TfsdkTag: "malicious_user_mitigation",
+		NestedAttributes: []openapi.TerraformAttribute{
+			{GoName: "Name", TfsdkTag: "name", JsonName: "name", Type: "string"},
+			{GoName: "Namespace", TfsdkTag: "namespace", JsonName: "namespace", Type: "string"},
+			{GoName: "Tenant", TfsdkTag: "tenant", JsonName: "tenant", Type: "string"},
+		},
+	}
+	var sb strings.Builder
+	renderUnmarshalSingleChild(&sb, "R", "EnableChallengeMaliciousUserMitigation", ref,
+		"blockData", "data.EnableChallenge", "data.EnableChallenge != nil", "single", "\t")
+	out := sb.String()
+	if strings.Contains(out, "return data.EnableChallenge.MaliciousUserMitigation") {
+		t.Errorf("object-reference block must NOT preserve the planned value (carries unknown tenant):\n%s", out)
+	}
+	if !strings.Contains(out, `MaliciousUserMitigationData["tenant"]`) {
+		t.Errorf("object-reference block read-back must read tenant from the API response:\n%s", out)
+	}
+}
+
+// A non-reference single block (no tenant child) keeps the drift-preserving early return.
+func TestRenderUnmarshalSingleChild_NonRefPreserves(t *testing.T) {
+	nonRef := openapi.TerraformAttribute{
+		GoName: "Policy", JsonName: "policy", TfsdkTag: "policy",
+		NestedAttributes: []openapi.TerraformAttribute{
+			{GoName: "CookieExpiry", TfsdkTag: "cookie_expiry", JsonName: "cookie_expiry", Type: "int64"},
+		},
+	}
+	var sb strings.Builder
+	renderUnmarshalSingleChild(&sb, "R", "Policy", nonRef,
+		"blockData", "data", "data != nil", "single", "\t")
+	if !strings.Contains(sb.String(), "return data.Policy") {
+		t.Errorf("non-reference single block must keep the drift-preserving early return:\n%s", sb.String())
+	}
+}

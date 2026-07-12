@@ -279,8 +279,8 @@ func TestConvertToTerraformAttribute_RequiredForCreate(t *testing.T) {
 
 func TestConvertToTerraformAttribute_RequiredForCreate_NestedIgnored(t *testing.T) {
 	schema := openapi.Schema{
-		Type:        "string",
-		Description: "A nested field",
+		Type:             "string",
+		Description:      "A nested field",
 		XF5XCRequiredFor: openapi.RequiredFor{Create: true},
 	}
 	spec := &openapi.Spec{Components: openapi.Components{Schemas: map[string]openapi.Schema{}}}
@@ -464,5 +464,39 @@ func TestConvertToTerraformAttribute_AllOfRef_PreservesExtensions(t *testing.T) 
 	}
 	if attr.Type != "string" {
 		t.Errorf("allOf-wrapped $ref to string should produce Type=string, got %q", attr.Type)
+	}
+}
+
+// #1079 part 1: object-reference server fields (tenant/uid/kind) must be Computed-only,
+// not Optional+Computed+UseStateForUnknown (which plans null on a newly-added block ->
+// "inconsistent result after apply"). namespace stays user-settable.
+func TestExtractNestedAttributes_ObjectReferenceServerFieldsComputedOnly(t *testing.T) {
+	ref := openapi.Schema{
+		Type: "object",
+		Properties: map[string]openapi.Schema{
+			"name": {Type: "string"}, "namespace": {Type: "string"},
+			"tenant": {Type: "string"}, "uid": {Type: "string"},
+		},
+	}
+	attrs := ExtractNestedAttributes(ref, &openapi.Spec{}, 1, "some_ref")
+	get := func(n string) *openapi.TerraformAttribute {
+		for i := range attrs {
+			if attrs[i].Name == n {
+				return &attrs[i]
+			}
+		}
+		return nil
+	}
+	for _, name := range []string{"tenant", "uid"} {
+		a := get(name)
+		if a == nil {
+			t.Fatalf("%s attribute missing", name)
+		}
+		if a.Optional || !a.Computed || a.PlanModifier != "" {
+			t.Errorf("%s must be Computed-only (Optional=false, no plan modifier), got Optional=%v Computed=%v PM=%q", name, a.Optional, a.Computed, a.PlanModifier)
+		}
+	}
+	if ns := get("namespace"); ns == nil || !ns.Optional || !ns.Computed || ns.PlanModifier != "UseStateForUnknown" {
+		t.Errorf("namespace must stay Optional+Computed+UseStateForUnknown, got %+v", ns)
 	}
 }

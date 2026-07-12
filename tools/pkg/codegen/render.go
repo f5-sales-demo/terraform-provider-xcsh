@@ -693,6 +693,25 @@ func renderUnmarshalScalarChild(sb *strings.Builder, rc string, attr openapi.Ter
 	}
 }
 
+// isObjectReferenceBlock reports whether a nested block is an F5 XC object reference
+// (kind/name/namespace/tenant/uid pattern). Such blocks have a server-derived "tenant"
+// child. Their server fields (tenant/uid/kind) are Computed-only, so the read-back must
+// reconstruct them from the API response rather than preserving the planned value — a
+// preserved unknown tenant yields "invalid result object after apply" and a preserved
+// null yields "inconsistent result after apply" on newly-added blocks. See #1079.
+func isObjectReferenceBlock(attr openapi.TerraformAttribute) bool {
+	for _, child := range attr.NestedAttributes {
+		tag := child.TfsdkTag
+		if tag == "" {
+			tag = child.JsonName
+		}
+		if tag == "tenant" {
+			return true
+		}
+	}
+	return false
+}
+
 // renderUnmarshalSingleChild emits the closure entry for a single nested block child.
 func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string) {
 	fieldName := attr.GoName
@@ -739,7 +758,10 @@ func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr 
 
 	model := rc + childPath + "Model"
 	dataVar := fieldName + "Data"
-	preserveWhole := container == "single" && stateBase != ""
+	// Object-reference blocks must reconstruct from the API response (their
+	// tenant/uid/kind are Computed-only and server-derived); preserving the planned
+	// value would carry an unknown/null tenant. See isObjectReferenceBlock / #1079.
+	preserveWhole := container == "single" && stateBase != "" && !isObjectReferenceBlock(attr)
 
 	sb.WriteString(fmt.Sprintf("%s%s: func() *%s {\n", indent, fieldName, model))
 	if preserveWhole {
