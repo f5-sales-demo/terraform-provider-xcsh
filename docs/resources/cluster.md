@@ -153,11 +153,11 @@ An [`endpoint_subsets`](#endpoint-subsets) block supports the following:
 
 An [`endpoints`](#endpoints) block supports the following:
 
-<a id="endpoints-kind"></a>&#x2022; [`kind`](#endpoints-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="endpoints-name"></a>&#x2022; [`name`](#endpoints-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="endpoints-namespace"></a>&#x2022; [`namespace`](#endpoints-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="endpoints-kind"></a>&#x2022; [`kind`](#endpoints-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="endpoints-tenant"></a>&#x2022; [`tenant`](#endpoints-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
@@ -167,11 +167,11 @@ An [`endpoints`](#endpoints) block supports the following:
 
 A [`health_checks`](#health-checks) block supports the following:
 
-<a id="health-checks-kind"></a>&#x2022; [`kind`](#health-checks-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="health-checks-name"></a>&#x2022; [`name`](#health-checks-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="health-checks-namespace"></a>&#x2022; [`namespace`](#health-checks-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="health-checks-kind"></a>&#x2022; [`kind`](#health-checks-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="health-checks-tenant"></a>&#x2022; [`tenant`](#health-checks-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
@@ -266,11 +266,11 @@ A [`cert_params`](#tls-parameters-cert-params) block (within [`tls_parameters`](
 
 A [`certificates`](#tls-parameters-cert-params-certificates) block (within [`tls_parameters.cert_params`](#tls-parameters-cert-params)) supports the following:
 
-<a id="kind-8b8a07"></a>&#x2022; [`kind`](#kind-8b8a07) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="name-d17505"></a>&#x2022; [`name`](#name-d17505) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="namespace-d38fb9"></a>&#x2022; [`namespace`](#namespace-d38fb9) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-8b8a07"></a>&#x2022; [`kind`](#kind-8b8a07) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="tenant-34f974"></a>&#x2022; [`tenant`](#tenant-34f974) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 

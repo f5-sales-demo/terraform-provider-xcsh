@@ -1477,11 +1477,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 									},
 									"tenant": schema.StringAttribute{
 										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-										Optional:            true,
 										Computed:            true,
-										PlanModifiers: []planmodifier.String{
-											stringplanmodifier.UseStateForUnknown(),
-										},
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(64),
 										},
@@ -1673,11 +1669,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 									},
 									"tenant": schema.StringAttribute{
 										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-										Optional:            true,
 										Computed:            true,
-										PlanModifiers: []planmodifier.String{
-											stringplanmodifier.UseStateForUnknown(),
-										},
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(64),
 										},
@@ -1855,11 +1847,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 											},
 											"tenant": schema.StringAttribute{
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-												Optional:            true,
 												Computed:            true,
-												PlanModifiers: []planmodifier.String{
-													stringplanmodifier.UseStateForUnknown(),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthAtMost(64),
 												},
@@ -1892,11 +1880,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 											},
 											"tenant": schema.StringAttribute{
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-												Optional:            true,
 												Computed:            true,
-												PlanModifiers: []planmodifier.String{
-													stringplanmodifier.UseStateForUnknown(),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthAtMost(64),
 												},
@@ -2086,11 +2070,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 											},
 											"tenant": schema.StringAttribute{
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-												Optional:            true,
 												Computed:            true,
-												PlanModifiers: []planmodifier.String{
-													stringplanmodifier.UseStateForUnknown(),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthAtMost(64),
 												},
@@ -2123,11 +2103,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 											},
 											"tenant": schema.StringAttribute{
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-												Optional:            true,
 												Computed:            true,
-												PlanModifiers: []planmodifier.String{
-													stringplanmodifier.UseStateForUnknown(),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthAtMost(64),
 												},
@@ -2317,11 +2293,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 											},
 											"tenant": schema.StringAttribute{
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-												Optional:            true,
 												Computed:            true,
-												PlanModifiers: []planmodifier.String{
-													stringplanmodifier.UseStateForUnknown(),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthAtMost(64),
 												},
@@ -2354,11 +2326,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 											},
 											"tenant": schema.StringAttribute{
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-												Optional:            true,
 												Computed:            true,
-												PlanModifiers: []planmodifier.String{
-													stringplanmodifier.UseStateForUnknown(),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthAtMost(64),
 												},
@@ -2548,11 +2516,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 											},
 											"tenant": schema.StringAttribute{
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-												Optional:            true,
 												Computed:            true,
-												PlanModifiers: []planmodifier.String{
-													stringplanmodifier.UseStateForUnknown(),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthAtMost(64),
 												},
@@ -2585,11 +2549,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 											},
 											"tenant": schema.StringAttribute{
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-												Optional:            true,
 												Computed:            true,
-												PlanModifiers: []planmodifier.String{
-													stringplanmodifier.UseStateForUnknown(),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthAtMost(64),
 												},
@@ -2776,11 +2736,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -5770,9 +5726,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			AWSTGWSite: func() *NfvServicePaloAltoFwServiceAWSTGWSiteModel {
-				if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AWSTGWSite != nil {
-					return data.PaloAltoFwService.AWSTGWSite
-				}
 				if AWSTGWSiteData, ok := blockData["aws_tgw_site"].(map[string]interface{}); ok {
 					return &NfvServicePaloAltoFwServiceAWSTGWSiteModel{
 						Name: func() types.String {
@@ -7815,9 +7768,6 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			AWSTGWSite: func() *NfvServicePaloAltoFwServiceAWSTGWSiteModel {
-				if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AWSTGWSite != nil {
-					return data.PaloAltoFwService.AWSTGWSite
-				}
 				if AWSTGWSiteData, ok := blockData["aws_tgw_site"].(map[string]interface{}); ok {
 					return &NfvServicePaloAltoFwServiceAWSTGWSiteModel{
 						Name: func() types.String {
@@ -10852,9 +10802,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			AWSTGWSite: func() *NfvServicePaloAltoFwServiceAWSTGWSiteModel {
-				if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AWSTGWSite != nil {
-					return data.PaloAltoFwService.AWSTGWSite
-				}
 				if AWSTGWSiteData, ok := blockData["aws_tgw_site"].(map[string]interface{}); ok {
 					return &NfvServicePaloAltoFwServiceAWSTGWSiteModel{
 						Name: func() types.String {

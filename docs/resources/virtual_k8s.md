@@ -103,11 +103,11 @@ A [`timeouts`](#timeouts) block supports the following:
 
 A [`vsite_refs`](#vsite-refs) block supports the following:
 
-<a id="vsite-refs-kind"></a>&#x2022; [`kind`](#vsite-refs-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="vsite-refs-name"></a>&#x2022; [`name`](#vsite-refs-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="vsite-refs-namespace"></a>&#x2022; [`namespace`](#vsite-refs-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="vsite-refs-kind"></a>&#x2022; [`kind`](#vsite-refs-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="vsite-refs-tenant"></a>&#x2022; [`tenant`](#vsite-refs-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 

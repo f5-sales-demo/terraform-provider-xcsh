@@ -151,11 +151,11 @@ An [`asn_matcher`](#rule-list-rules-asn-matcher) block (within [`rule_list.rules
 
 An [`asn_sets`](#rule-list-rules-asn-matcher-asn-sets) block (within [`rule_list.rules.asn_matcher`](#rule-list-rules-asn-matcher)) supports the following:
 
-<a id="kind-bd89a0"></a>&#x2022; [`kind`](#kind-bd89a0) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="name-378ca0"></a>&#x2022; [`name`](#name-378ca0) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="namespace-963f1b"></a>&#x2022; [`namespace`](#namespace-963f1b) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-bd89a0"></a>&#x2022; [`kind`](#kind-bd89a0) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="tenant-c46e8d"></a>&#x2022; [`tenant`](#tenant-c46e8d) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 

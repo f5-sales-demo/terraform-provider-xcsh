@@ -228,11 +228,7 @@ func (r *SubnetResource) Schema(ctx context.Context, req resource.SchemaRequest,
 								},
 								"tenant": schema.StringAttribute{
 									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-									Optional:            true,
 									Computed:            true,
-									PlanModifiers: []planmodifier.String{
-										stringplanmodifier.UseStateForUnknown(),
-									},
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(64),
 									},
@@ -289,11 +285,7 @@ func (r *SubnetResource) Schema(ctx context.Context, req resource.SchemaRequest,
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -592,9 +584,6 @@ func (r *SubnetResource) Create(ctx context.Context, req resource.CreateRequest,
 	if blockData, ok := apiResource.Spec["connect_to_layer2"].(map[string]interface{}); ok && (isImport || data.ConnectToLayer2 != nil) {
 		data.ConnectToLayer2 = &SubnetConnectToLayer2Model{
 			Layer2IntfRef: func() *SubnetConnectToLayer2Layer2IntfRefModel {
-				if !isImport && data.ConnectToLayer2 != nil && data.ConnectToLayer2.Layer2IntfRef != nil {
-					return data.ConnectToLayer2.Layer2IntfRef
-				}
 				if Layer2IntfRefData, ok := blockData["layer2_intf_ref"].(map[string]interface{}); ok {
 					return &SubnetConnectToLayer2Layer2IntfRefModel{
 						Name: func() types.String {
@@ -815,9 +804,6 @@ func (r *SubnetResource) Read(ctx context.Context, req resource.ReadRequest, res
 	if blockData, ok := apiResource.Spec["connect_to_layer2"].(map[string]interface{}); ok && (isImport || data.ConnectToLayer2 != nil) {
 		data.ConnectToLayer2 = &SubnetConnectToLayer2Model{
 			Layer2IntfRef: func() *SubnetConnectToLayer2Layer2IntfRefModel {
-				if !isImport && data.ConnectToLayer2 != nil && data.ConnectToLayer2.Layer2IntfRef != nil {
-					return data.ConnectToLayer2.Layer2IntfRef
-				}
 				if Layer2IntfRefData, ok := blockData["layer2_intf_ref"].(map[string]interface{}); ok {
 					return &SubnetConnectToLayer2Layer2IntfRefModel{
 						Name: func() types.String {
@@ -1098,9 +1084,6 @@ func (r *SubnetResource) Update(ctx context.Context, req resource.UpdateRequest,
 	if blockData, ok := apiResource.Spec["connect_to_layer2"].(map[string]interface{}); ok && (isImport || data.ConnectToLayer2 != nil) {
 		data.ConnectToLayer2 = &SubnetConnectToLayer2Model{
 			Layer2IntfRef: func() *SubnetConnectToLayer2Layer2IntfRefModel {
-				if !isImport && data.ConnectToLayer2 != nil && data.ConnectToLayer2.Layer2IntfRef != nil {
-					return data.ConnectToLayer2.Layer2IntfRef
-				}
 				if Layer2IntfRefData, ok := blockData["layer2_intf_ref"].(map[string]interface{}); ok {
 					return &SubnetConnectToLayer2Layer2IntfRefModel{
 						Name: func() types.String {

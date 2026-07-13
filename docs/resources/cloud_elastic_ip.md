@@ -78,11 +78,11 @@ In addition to all arguments above, the following attributes are exported:
 
 A [`site_ref`](#site-ref) block supports the following:
 
-<a id="site-ref-kind"></a>&#x2022; [`kind`](#site-ref-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="site-ref-name"></a>&#x2022; [`name`](#site-ref-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="site-ref-namespace"></a>&#x2022; [`namespace`](#site-ref-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="site-ref-kind"></a>&#x2022; [`kind`](#site-ref-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="site-ref-tenant"></a>&#x2022; [`tenant`](#site-ref-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 

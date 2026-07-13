@@ -1139,11 +1139,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -2438,9 +2434,6 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 				return nil
 			}(),
 			Tunnel: func() *NetworkInterfaceTunnelInterfaceTunnelModel {
-				if !isImport && data.TunnelInterface != nil && data.TunnelInterface.Tunnel != nil {
-					return data.TunnelInterface.Tunnel
-				}
 				if TunnelData, ok := blockData["tunnel"].(map[string]interface{}); ok {
 					return &NetworkInterfaceTunnelInterfaceTunnelModel{
 						Name: func() types.String {
@@ -3346,9 +3339,6 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 				return nil
 			}(),
 			Tunnel: func() *NetworkInterfaceTunnelInterfaceTunnelModel {
-				if !isImport && data.TunnelInterface != nil && data.TunnelInterface.Tunnel != nil {
-					return data.TunnelInterface.Tunnel
-				}
 				if TunnelData, ok := blockData["tunnel"].(map[string]interface{}); ok {
 					return &NetworkInterfaceTunnelInterfaceTunnelModel{
 						Name: func() types.String {
@@ -4625,9 +4615,6 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 				return nil
 			}(),
 			Tunnel: func() *NetworkInterfaceTunnelInterfaceTunnelModel {
-				if !isImport && data.TunnelInterface != nil && data.TunnelInterface.Tunnel != nil {
-					return data.TunnelInterface.Tunnel
-				}
 				if TunnelData, ok := blockData["tunnel"].(map[string]interface{}); ok {
 					return &NetworkInterfaceTunnelInterfaceTunnelModel{
 						Name: func() types.String {

@@ -5176,11 +5176,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								},
 								"tenant": schema.StringAttribute{
 									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-									Optional:            true,
 									Computed:            true,
-									PlanModifiers: []planmodifier.String{
-										stringplanmodifier.UseStateForUnknown(),
-									},
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(64),
 									},
@@ -5267,11 +5263,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														Attributes: map[string]schema.Attribute{
 															"kind": schema.StringAttribute{
 																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																Optional:            true,
 																Computed:            true,
-																PlanModifiers: []planmodifier.String{
-																	stringplanmodifier.UseStateForUnknown(),
-																},
 															},
 															"name": schema.StringAttribute{
 																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -5295,19 +5287,11 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 															},
 															"tenant": schema.StringAttribute{
 																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																Optional:            true,
 																Computed:            true,
-																PlanModifiers: []planmodifier.String{
-																	stringplanmodifier.UseStateForUnknown(),
-																},
 															},
 															"uid": schema.StringAttribute{
 																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																Optional:            true,
 																Computed:            true,
-																PlanModifiers: []planmodifier.String{
-																	stringplanmodifier.UseStateForUnknown(),
-																},
 															},
 														},
 													},
@@ -5342,11 +5326,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														Attributes: map[string]schema.Attribute{
 															"kind": schema.StringAttribute{
 																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																Optional:            true,
 																Computed:            true,
-																PlanModifiers: []planmodifier.String{
-																	stringplanmodifier.UseStateForUnknown(),
-																},
 															},
 															"name": schema.StringAttribute{
 																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -5370,19 +5350,11 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 															},
 															"tenant": schema.StringAttribute{
 																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																Optional:            true,
 																Computed:            true,
-																PlanModifiers: []planmodifier.String{
-																	stringplanmodifier.UseStateForUnknown(),
-																},
 															},
 															"uid": schema.StringAttribute{
 																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																Optional:            true,
 																Computed:            true,
-																PlanModifiers: []planmodifier.String{
-																	stringplanmodifier.UseStateForUnknown(),
-																},
 															},
 														},
 													},
@@ -5489,11 +5461,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												},
 												"tenant": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-													Optional:            true,
 													Computed:            true,
-													PlanModifiers: []planmodifier.String{
-														stringplanmodifier.UseStateForUnknown(),
-													},
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(64),
 													},
@@ -5528,11 +5496,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -5864,11 +5828,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																Attributes: map[string]schema.Attribute{
 																	"kind": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"name": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -5892,19 +5852,11 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																	},
 																	"tenant": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"uid": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																},
 															},
@@ -5939,11 +5891,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																Attributes: map[string]schema.Attribute{
 																	"kind": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"name": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -5967,19 +5915,11 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																	},
 																	"tenant": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"uid": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																},
 															},
@@ -6306,11 +6246,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -6399,11 +6335,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														Attributes: map[string]schema.Attribute{
 															"kind": schema.StringAttribute{
 																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																Optional:            true,
 																Computed:            true,
-																PlanModifiers: []planmodifier.String{
-																	stringplanmodifier.UseStateForUnknown(),
-																},
 															},
 															"name": schema.StringAttribute{
 																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -6427,19 +6359,11 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 															},
 															"tenant": schema.StringAttribute{
 																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																Optional:            true,
 																Computed:            true,
-																PlanModifiers: []planmodifier.String{
-																	stringplanmodifier.UseStateForUnknown(),
-																},
 															},
 															"uid": schema.StringAttribute{
 																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																Optional:            true,
 																Computed:            true,
-																PlanModifiers: []planmodifier.String{
-																	stringplanmodifier.UseStateForUnknown(),
-																},
 															},
 														},
 													},
@@ -6474,11 +6398,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														Attributes: map[string]schema.Attribute{
 															"kind": schema.StringAttribute{
 																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																Optional:            true,
 																Computed:            true,
-																PlanModifiers: []planmodifier.String{
-																	stringplanmodifier.UseStateForUnknown(),
-																},
 															},
 															"name": schema.StringAttribute{
 																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -6502,19 +6422,11 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 															},
 															"tenant": schema.StringAttribute{
 																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																Optional:            true,
 																Computed:            true,
-																PlanModifiers: []planmodifier.String{
-																	stringplanmodifier.UseStateForUnknown(),
-																},
 															},
 															"uid": schema.StringAttribute{
 																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																Optional:            true,
 																Computed:            true,
-																PlanModifiers: []planmodifier.String{
-																	stringplanmodifier.UseStateForUnknown(),
-																},
 															},
 														},
 													},
@@ -6621,11 +6533,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												},
 												"tenant": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-													Optional:            true,
 													Computed:            true,
-													PlanModifiers: []planmodifier.String{
-														stringplanmodifier.UseStateForUnknown(),
-													},
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(64),
 													},
@@ -6660,11 +6568,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -6929,11 +6833,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -7398,11 +7298,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					},
 					"tenant": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-						Optional:            true,
 						Computed:            true,
-						PlanModifiers: []planmodifier.String{
-							stringplanmodifier.UseStateForUnknown(),
-						},
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
 						},
@@ -8808,11 +8704,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								},
 								"tenant": schema.StringAttribute{
 									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-									Optional:            true,
 									Computed:            true,
-									PlanModifiers: []planmodifier.String{
-										stringplanmodifier.UseStateForUnknown(),
-									},
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(64),
 									},
@@ -9192,11 +9084,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												},
 												"tenant": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-													Optional:            true,
 													Computed:            true,
-													PlanModifiers: []planmodifier.String{
-														stringplanmodifier.UseStateForUnknown(),
-													},
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(64),
 													},
@@ -9245,11 +9133,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									},
 									"tenant": schema.StringAttribute{
 										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-										Optional:            true,
 										Computed:            true,
-										PlanModifiers: []planmodifier.String{
-											stringplanmodifier.UseStateForUnknown(),
-										},
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(64),
 										},
@@ -9350,11 +9234,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -9530,11 +9410,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												},
 												"tenant": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-													Optional:            true,
 													Computed:            true,
-													PlanModifiers: []planmodifier.String{
-														stringplanmodifier.UseStateForUnknown(),
-													},
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(64),
 													},
@@ -9623,11 +9499,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													},
 													"tenant": schema.StringAttribute{
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-														Optional:            true,
 														Computed:            true,
-														PlanModifiers: []planmodifier.String{
-															stringplanmodifier.UseStateForUnknown(),
-														},
 														Validators: []validator.String{
 															stringvalidator.LengthAtMost(64),
 														},
@@ -9660,11 +9532,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													},
 													"tenant": schema.StringAttribute{
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-														Optional:            true,
 														Computed:            true,
-														PlanModifiers: []planmodifier.String{
-															stringplanmodifier.UseStateForUnknown(),
-														},
 														Validators: []validator.String{
 															stringvalidator.LengthAtMost(64),
 														},
@@ -9854,11 +9722,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													},
 													"tenant": schema.StringAttribute{
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-														Optional:            true,
 														Computed:            true,
-														PlanModifiers: []planmodifier.String{
-															stringplanmodifier.UseStateForUnknown(),
-														},
 														Validators: []validator.String{
 															stringvalidator.LengthAtMost(64),
 														},
@@ -9891,11 +9755,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													},
 													"tenant": schema.StringAttribute{
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-														Optional:            true,
 														Computed:            true,
-														PlanModifiers: []planmodifier.String{
-															stringplanmodifier.UseStateForUnknown(),
-														},
 														Validators: []validator.String{
 															stringvalidator.LengthAtMost(64),
 														},
@@ -10014,11 +9874,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -10429,11 +10285,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									},
 									"tenant": schema.StringAttribute{
 										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-										Optional:            true,
 										Computed:            true,
-										PlanModifiers: []planmodifier.String{
-											stringplanmodifier.UseStateForUnknown(),
-										},
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(64),
 										},
@@ -10475,11 +10327,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											},
 											"tenant": schema.StringAttribute{
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-												Optional:            true,
 												Computed:            true,
-												PlanModifiers: []planmodifier.String{
-													stringplanmodifier.UseStateForUnknown(),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthAtMost(64),
 												},
@@ -10780,11 +10628,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -10918,11 +10762,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																Attributes: map[string]schema.Attribute{
 																	"kind": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"name": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -10946,19 +10786,11 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																	},
 																	"tenant": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"uid": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																},
 															},
@@ -11179,11 +11011,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																Attributes: map[string]schema.Attribute{
 																	"kind": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"name": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -11207,19 +11035,11 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																	},
 																	"tenant": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"uid": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																},
 															},
@@ -11482,11 +11302,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -11543,11 +11359,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -11658,11 +11470,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -11831,11 +11639,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					},
 					"tenant": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-						Optional:            true,
 						Computed:            true,
-						PlanModifiers: []planmodifier.String{
-							stringplanmodifier.UseStateForUnknown(),
-						},
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
 						},
@@ -12050,11 +11854,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -19274,9 +19074,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if blockData, ok := apiResource.Spec["api_specification"].(map[string]interface{}); ok && (isImport || data.APISpecification != nil) {
 		data.APISpecification = &CDNLoadBalancerAPISpecificationModel{
 			APIDefinition: func() *CDNLoadBalancerAPISpecificationAPIDefinitionModel {
-				if !isImport && data.APISpecification != nil && data.APISpecification.APIDefinition != nil {
-					return data.APISpecification.APIDefinition
-				}
 				if APIDefinitionData, ok := blockData["api_definition"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerAPISpecificationAPIDefinitionModel{
 						Name: func() types.String {
@@ -22426,9 +22223,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return nil
 			}(),
 			MaliciousUserMitigation: func() *CDNLoadBalancerEnableChallengeMaliciousUserMitigationModel {
-				if !isImport && data.EnableChallenge != nil && data.EnableChallenge.MaliciousUserMitigation != nil {
-					return data.EnableChallenge.MaliciousUserMitigation
-				}
 				if MaliciousUserMitigationData, ok := blockData["malicious_user_mitigation"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableChallengeMaliciousUserMitigationModel{
 						Name: func() types.String {
@@ -24281,9 +24075,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return nil
 			}(),
 			MaliciousUserMitigation: func() *CDNLoadBalancerPolicyBasedChallengeMaliciousUserMitigationModel {
-				if !isImport && data.PolicyBasedChallenge != nil && data.PolicyBasedChallenge.MaliciousUserMitigation != nil {
-					return data.PolicyBasedChallenge.MaliciousUserMitigation
-				}
 				if MaliciousUserMitigationData, ok := blockData["malicious_user_mitigation"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerPolicyBasedChallengeMaliciousUserMitigationModel{
 						Name: func() types.String {
@@ -25526,9 +25317,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if blockData, ok := apiResource.Spec["sensitive_data_policy"].(map[string]interface{}); ok && (isImport || data.SensitiveDataPolicy != nil) {
 		data.SensitiveDataPolicy = &CDNLoadBalancerSensitiveDataPolicyModel{
 			SensitiveDataPolicyRef: func() *CDNLoadBalancerSensitiveDataPolicySensitiveDataPolicyRefModel {
-				if !isImport && data.SensitiveDataPolicy != nil && data.SensitiveDataPolicy.SensitiveDataPolicyRef != nil {
-					return data.SensitiveDataPolicy.SensitiveDataPolicyRef
-				}
 				if SensitiveDataPolicyRefData, ok := blockData["sensitive_data_policy_ref"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerSensitiveDataPolicySensitiveDataPolicyRefModel{
 						Name: func() types.String {
@@ -26004,9 +25792,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return nil
 			}(),
 			WAFExclusionPolicy: func() *CDNLoadBalancerWAFExclusionWAFExclusionPolicyModel {
-				if !isImport && data.WAFExclusion != nil && data.WAFExclusion.WAFExclusionPolicy != nil {
-					return data.WAFExclusion.WAFExclusionPolicy
-				}
 				if WAFExclusionPolicyData, ok := blockData["waf_exclusion_policy"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerWAFExclusionWAFExclusionPolicyModel{
 						Name: func() types.String {
@@ -28401,9 +28186,6 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	if blockData, ok := apiResource.Spec["api_specification"].(map[string]interface{}); ok && (isImport || data.APISpecification != nil) {
 		data.APISpecification = &CDNLoadBalancerAPISpecificationModel{
 			APIDefinition: func() *CDNLoadBalancerAPISpecificationAPIDefinitionModel {
-				if !isImport && data.APISpecification != nil && data.APISpecification.APIDefinition != nil {
-					return data.APISpecification.APIDefinition
-				}
 				if APIDefinitionData, ok := blockData["api_definition"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerAPISpecificationAPIDefinitionModel{
 						Name: func() types.String {
@@ -31553,9 +31335,6 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return nil
 			}(),
 			MaliciousUserMitigation: func() *CDNLoadBalancerEnableChallengeMaliciousUserMitigationModel {
-				if !isImport && data.EnableChallenge != nil && data.EnableChallenge.MaliciousUserMitigation != nil {
-					return data.EnableChallenge.MaliciousUserMitigation
-				}
 				if MaliciousUserMitigationData, ok := blockData["malicious_user_mitigation"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableChallengeMaliciousUserMitigationModel{
 						Name: func() types.String {
@@ -33408,9 +33187,6 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return nil
 			}(),
 			MaliciousUserMitigation: func() *CDNLoadBalancerPolicyBasedChallengeMaliciousUserMitigationModel {
-				if !isImport && data.PolicyBasedChallenge != nil && data.PolicyBasedChallenge.MaliciousUserMitigation != nil {
-					return data.PolicyBasedChallenge.MaliciousUserMitigation
-				}
 				if MaliciousUserMitigationData, ok := blockData["malicious_user_mitigation"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerPolicyBasedChallengeMaliciousUserMitigationModel{
 						Name: func() types.String {
@@ -34653,9 +34429,6 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	if blockData, ok := apiResource.Spec["sensitive_data_policy"].(map[string]interface{}); ok && (isImport || data.SensitiveDataPolicy != nil) {
 		data.SensitiveDataPolicy = &CDNLoadBalancerSensitiveDataPolicyModel{
 			SensitiveDataPolicyRef: func() *CDNLoadBalancerSensitiveDataPolicySensitiveDataPolicyRefModel {
-				if !isImport && data.SensitiveDataPolicy != nil && data.SensitiveDataPolicy.SensitiveDataPolicyRef != nil {
-					return data.SensitiveDataPolicy.SensitiveDataPolicyRef
-				}
 				if SensitiveDataPolicyRefData, ok := blockData["sensitive_data_policy_ref"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerSensitiveDataPolicySensitiveDataPolicyRefModel{
 						Name: func() types.String {
@@ -35131,9 +34904,6 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return nil
 			}(),
 			WAFExclusionPolicy: func() *CDNLoadBalancerWAFExclusionWAFExclusionPolicyModel {
-				if !isImport && data.WAFExclusion != nil && data.WAFExclusion.WAFExclusionPolicy != nil {
-					return data.WAFExclusion.WAFExclusionPolicy
-				}
 				if WAFExclusionPolicyData, ok := blockData["waf_exclusion_policy"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerWAFExclusionWAFExclusionPolicyModel{
 						Name: func() types.String {
@@ -42335,9 +42105,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if blockData, ok := apiResource.Spec["api_specification"].(map[string]interface{}); ok && (isImport || data.APISpecification != nil) {
 		data.APISpecification = &CDNLoadBalancerAPISpecificationModel{
 			APIDefinition: func() *CDNLoadBalancerAPISpecificationAPIDefinitionModel {
-				if !isImport && data.APISpecification != nil && data.APISpecification.APIDefinition != nil {
-					return data.APISpecification.APIDefinition
-				}
 				if APIDefinitionData, ok := blockData["api_definition"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerAPISpecificationAPIDefinitionModel{
 						Name: func() types.String {
@@ -45487,9 +45254,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return nil
 			}(),
 			MaliciousUserMitigation: func() *CDNLoadBalancerEnableChallengeMaliciousUserMitigationModel {
-				if !isImport && data.EnableChallenge != nil && data.EnableChallenge.MaliciousUserMitigation != nil {
-					return data.EnableChallenge.MaliciousUserMitigation
-				}
 				if MaliciousUserMitigationData, ok := blockData["malicious_user_mitigation"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableChallengeMaliciousUserMitigationModel{
 						Name: func() types.String {
@@ -47342,9 +47106,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return nil
 			}(),
 			MaliciousUserMitigation: func() *CDNLoadBalancerPolicyBasedChallengeMaliciousUserMitigationModel {
-				if !isImport && data.PolicyBasedChallenge != nil && data.PolicyBasedChallenge.MaliciousUserMitigation != nil {
-					return data.PolicyBasedChallenge.MaliciousUserMitigation
-				}
 				if MaliciousUserMitigationData, ok := blockData["malicious_user_mitigation"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerPolicyBasedChallengeMaliciousUserMitigationModel{
 						Name: func() types.String {
@@ -48587,9 +48348,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if blockData, ok := apiResource.Spec["sensitive_data_policy"].(map[string]interface{}); ok && (isImport || data.SensitiveDataPolicy != nil) {
 		data.SensitiveDataPolicy = &CDNLoadBalancerSensitiveDataPolicyModel{
 			SensitiveDataPolicyRef: func() *CDNLoadBalancerSensitiveDataPolicySensitiveDataPolicyRefModel {
-				if !isImport && data.SensitiveDataPolicy != nil && data.SensitiveDataPolicy.SensitiveDataPolicyRef != nil {
-					return data.SensitiveDataPolicy.SensitiveDataPolicyRef
-				}
 				if SensitiveDataPolicyRefData, ok := blockData["sensitive_data_policy_ref"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerSensitiveDataPolicySensitiveDataPolicyRefModel{
 						Name: func() types.String {
@@ -49065,9 +48823,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return nil
 			}(),
 			WAFExclusionPolicy: func() *CDNLoadBalancerWAFExclusionWAFExclusionPolicyModel {
-				if !isImport && data.WAFExclusion != nil && data.WAFExclusion.WAFExclusionPolicy != nil {
-					return data.WAFExclusion.WAFExclusionPolicy
-				}
 				if WAFExclusionPolicyData, ok := blockData["waf_exclusion_policy"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerWAFExclusionWAFExclusionPolicyModel{
 						Name: func() types.String {

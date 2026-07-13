@@ -1846,11 +1846,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"tenant": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-						Optional:            true,
 						Computed:            true,
-						PlanModifiers: []planmodifier.String{
-							stringplanmodifier.UseStateForUnknown(),
-						},
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
 						},
@@ -1963,11 +1959,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -2005,11 +1997,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -2047,11 +2035,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -2084,11 +2068,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -2118,11 +2098,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -2168,11 +2144,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														},
 														"tenant": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-															Optional:            true,
 															Computed:            true,
-															PlanModifiers: []planmodifier.String{
-																stringplanmodifier.UseStateForUnknown(),
-															},
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(64),
 															},
@@ -2208,11 +2180,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														},
 														"tenant": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-															Optional:            true,
 															Computed:            true,
-															PlanModifiers: []planmodifier.String{
-																stringplanmodifier.UseStateForUnknown(),
-															},
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(64),
 															},
@@ -2307,11 +2275,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 																Attributes: map[string]schema.Attribute{
 																	"kind": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"name": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2335,19 +2299,11 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 																	},
 																	"tenant": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"uid": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																},
 															},
@@ -2564,11 +2520,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 																Attributes: map[string]schema.Attribute{
 																	"kind": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"name": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2592,19 +2544,11 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 																	},
 																	"tenant": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"uid": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																},
 															},
@@ -2918,11 +2862,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"tenant": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-						Optional:            true,
 						Computed:            true,
-						PlanModifiers: []planmodifier.String{
-							stringplanmodifier.UseStateForUnknown(),
-						},
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
 						},
@@ -2991,11 +2931,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -3079,11 +3015,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -3121,11 +3053,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -3163,11 +3091,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -3200,11 +3124,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -3253,11 +3173,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														},
 														"tenant": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-															Optional:            true,
 															Computed:            true,
-															PlanModifiers: []planmodifier.String{
-																stringplanmodifier.UseStateForUnknown(),
-															},
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(64),
 															},
@@ -3293,11 +3209,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														},
 														"tenant": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-															Optional:            true,
 															Computed:            true,
-															PlanModifiers: []planmodifier.String{
-																stringplanmodifier.UseStateForUnknown(),
-															},
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(64),
 															},
@@ -3334,11 +3246,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -3411,11 +3319,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 																Attributes: map[string]schema.Attribute{
 																	"kind": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"name": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -3439,19 +3343,11 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 																	},
 																	"tenant": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"uid": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																},
 															},
@@ -5411,9 +5307,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			DcClusterGroupInsideVn: func() *GCPVPCSiteIngressEgressGwDcClusterGroupInsideVnModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.DcClusterGroupInsideVn != nil {
-					return data.IngressEgressGw.DcClusterGroupInsideVn
-				}
 				if DcClusterGroupInsideVnData, ok := blockData["dc_cluster_group_inside_vn"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwDcClusterGroupInsideVnModel{
 						Name: func() types.String {
@@ -5439,9 +5332,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			DcClusterGroupOutsideVn: func() *GCPVPCSiteIngressEgressGwDcClusterGroupOutsideVnModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.DcClusterGroupOutsideVn != nil {
-					return data.IngressEgressGw.DcClusterGroupOutsideVn
-				}
 				if DcClusterGroupOutsideVnData, ok := blockData["dc_cluster_group_outside_vn"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwDcClusterGroupOutsideVnModel{
 						Name: func() types.String {
@@ -6532,9 +6422,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	if blockData, ok := apiResource.Spec["private_connectivity"].(map[string]interface{}); ok && (isImport || data.PrivateConnectivity != nil) {
 		data.PrivateConnectivity = &GCPVPCSitePrivateConnectivityModel{
 			CloudLink: func() *GCPVPCSitePrivateConnectivityCloudLinkModel {
-				if !isImport && data.PrivateConnectivity != nil && data.PrivateConnectivity.CloudLink != nil {
-					return data.PrivateConnectivity.CloudLink
-				}
 				if CloudLinkData, ok := blockData["cloud_link"].(map[string]interface{}); ok {
 					return &GCPVPCSitePrivateConnectivityCloudLinkModel{
 						Name: func() types.String {
@@ -6727,9 +6614,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			DcClusterGroup: func() *GCPVPCSiteVoltstackClusterDcClusterGroupModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.DcClusterGroup != nil {
-					return data.VoltstackCluster.DcClusterGroup
-				}
 				if DcClusterGroupData, ok := blockData["dc_cluster_group"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterDcClusterGroupModel{
 						Name: func() types.String {
@@ -6880,9 +6764,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			K8SCluster: func() *GCPVPCSiteVoltstackClusterK8SClusterModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.K8SCluster != nil {
-					return data.VoltstackCluster.K8SCluster
-				}
 				if K8SClusterData, ok := blockData["k8s_cluster"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterK8SClusterModel{
 						Name: func() types.String {
@@ -7829,9 +7710,6 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			DcClusterGroupInsideVn: func() *GCPVPCSiteIngressEgressGwDcClusterGroupInsideVnModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.DcClusterGroupInsideVn != nil {
-					return data.IngressEgressGw.DcClusterGroupInsideVn
-				}
 				if DcClusterGroupInsideVnData, ok := blockData["dc_cluster_group_inside_vn"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwDcClusterGroupInsideVnModel{
 						Name: func() types.String {
@@ -7857,9 +7735,6 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			DcClusterGroupOutsideVn: func() *GCPVPCSiteIngressEgressGwDcClusterGroupOutsideVnModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.DcClusterGroupOutsideVn != nil {
-					return data.IngressEgressGw.DcClusterGroupOutsideVn
-				}
 				if DcClusterGroupOutsideVnData, ok := blockData["dc_cluster_group_outside_vn"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwDcClusterGroupOutsideVnModel{
 						Name: func() types.String {
@@ -8950,9 +8825,6 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 	if blockData, ok := apiResource.Spec["private_connectivity"].(map[string]interface{}); ok && (isImport || data.PrivateConnectivity != nil) {
 		data.PrivateConnectivity = &GCPVPCSitePrivateConnectivityModel{
 			CloudLink: func() *GCPVPCSitePrivateConnectivityCloudLinkModel {
-				if !isImport && data.PrivateConnectivity != nil && data.PrivateConnectivity.CloudLink != nil {
-					return data.PrivateConnectivity.CloudLink
-				}
 				if CloudLinkData, ok := blockData["cloud_link"].(map[string]interface{}); ok {
 					return &GCPVPCSitePrivateConnectivityCloudLinkModel{
 						Name: func() types.String {
@@ -9145,9 +9017,6 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			DcClusterGroup: func() *GCPVPCSiteVoltstackClusterDcClusterGroupModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.DcClusterGroup != nil {
-					return data.VoltstackCluster.DcClusterGroup
-				}
 				if DcClusterGroupData, ok := blockData["dc_cluster_group"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterDcClusterGroupModel{
 						Name: func() types.String {
@@ -9298,9 +9167,6 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			K8SCluster: func() *GCPVPCSiteVoltstackClusterK8SClusterModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.K8SCluster != nil {
-					return data.VoltstackCluster.K8SCluster
-				}
 				if K8SClusterData, ok := blockData["k8s_cluster"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterK8SClusterModel{
 						Name: func() types.String {
@@ -11478,9 +11344,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			DcClusterGroupInsideVn: func() *GCPVPCSiteIngressEgressGwDcClusterGroupInsideVnModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.DcClusterGroupInsideVn != nil {
-					return data.IngressEgressGw.DcClusterGroupInsideVn
-				}
 				if DcClusterGroupInsideVnData, ok := blockData["dc_cluster_group_inside_vn"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwDcClusterGroupInsideVnModel{
 						Name: func() types.String {
@@ -11506,9 +11369,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			DcClusterGroupOutsideVn: func() *GCPVPCSiteIngressEgressGwDcClusterGroupOutsideVnModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.DcClusterGroupOutsideVn != nil {
-					return data.IngressEgressGw.DcClusterGroupOutsideVn
-				}
 				if DcClusterGroupOutsideVnData, ok := blockData["dc_cluster_group_outside_vn"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwDcClusterGroupOutsideVnModel{
 						Name: func() types.String {
@@ -12599,9 +12459,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	if blockData, ok := apiResource.Spec["private_connectivity"].(map[string]interface{}); ok && (isImport || data.PrivateConnectivity != nil) {
 		data.PrivateConnectivity = &GCPVPCSitePrivateConnectivityModel{
 			CloudLink: func() *GCPVPCSitePrivateConnectivityCloudLinkModel {
-				if !isImport && data.PrivateConnectivity != nil && data.PrivateConnectivity.CloudLink != nil {
-					return data.PrivateConnectivity.CloudLink
-				}
 				if CloudLinkData, ok := blockData["cloud_link"].(map[string]interface{}); ok {
 					return &GCPVPCSitePrivateConnectivityCloudLinkModel{
 						Name: func() types.String {
@@ -12794,9 +12651,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			DcClusterGroup: func() *GCPVPCSiteVoltstackClusterDcClusterGroupModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.DcClusterGroup != nil {
-					return data.VoltstackCluster.DcClusterGroup
-				}
 				if DcClusterGroupData, ok := blockData["dc_cluster_group"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterDcClusterGroupModel{
 						Name: func() types.String {
@@ -12947,9 +12801,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			K8SCluster: func() *GCPVPCSiteVoltstackClusterK8SClusterModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.K8SCluster != nil {
-					return data.VoltstackCluster.K8SCluster
-				}
 				if K8SClusterData, ok := blockData["k8s_cluster"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterK8SClusterModel{
 						Name: func() types.String {

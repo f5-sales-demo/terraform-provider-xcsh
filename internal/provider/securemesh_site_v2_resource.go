@@ -4724,11 +4724,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 								},
 								"tenant": schema.StringAttribute{
 									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-									Optional:            true,
 									Computed:            true,
-									PlanModifiers: []planmodifier.String{
-										stringplanmodifier.UseStateForUnknown(),
-									},
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(64),
 									},
@@ -4766,11 +4762,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 								},
 								"tenant": schema.StringAttribute{
 									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-									Optional:            true,
 									Computed:            true,
-									PlanModifiers: []planmodifier.String{
-										stringplanmodifier.UseStateForUnknown(),
-									},
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(64),
 									},
@@ -6203,11 +6195,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 					},
 					"tenant": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-						Optional:            true,
 						Computed:            true,
-						PlanModifiers: []planmodifier.String{
-							stringplanmodifier.UseStateForUnknown(),
-						},
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
 						},
@@ -6237,11 +6225,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 					},
 					"tenant": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-						Optional:            true,
 						Computed:            true,
-						PlanModifiers: []planmodifier.String{
-							stringplanmodifier.UseStateForUnknown(),
-						},
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
 						},
@@ -7509,11 +7493,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			Attributes: map[string]schema.Attribute{
 																				"kind": schema.StringAttribute{
 																					MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																					Optional:            true,
 																					Computed:            true,
-																					PlanModifiers: []planmodifier.String{
-																						stringplanmodifier.UseStateForUnknown(),
-																					},
 																				},
 																				"name": schema.StringAttribute{
 																					MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -7537,19 +7517,11 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				},
 																				"tenant": schema.StringAttribute{
 																					MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																					Optional:            true,
 																					Computed:            true,
-																					PlanModifiers: []planmodifier.String{
-																						stringplanmodifier.UseStateForUnknown(),
-																					},
 																				},
 																				"uid": schema.StringAttribute{
 																					MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																					Optional:            true,
 																					Computed:            true,
-																					PlanModifiers: []planmodifier.String{
-																						stringplanmodifier.UseStateForUnknown(),
-																					},
 																				},
 																			},
 																		},
@@ -7620,11 +7592,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			Attributes: map[string]schema.Attribute{
 																				"kind": schema.StringAttribute{
 																					MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																					Optional:            true,
 																					Computed:            true,
-																					PlanModifiers: []planmodifier.String{
-																						stringplanmodifier.UseStateForUnknown(),
-																					},
 																				},
 																				"name": schema.StringAttribute{
 																					MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -7648,19 +7616,11 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				},
 																				"tenant": schema.StringAttribute{
 																					MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																					Optional:            true,
 																					Computed:            true,
-																					PlanModifiers: []planmodifier.String{
-																						stringplanmodifier.UseStateForUnknown(),
-																					},
 																				},
 																				"uid": schema.StringAttribute{
 																					MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																					Optional:            true,
 																					Computed:            true,
-																					PlanModifiers: []planmodifier.String{
-																						stringplanmodifier.UseStateForUnknown(),
-																					},
 																				},
 																			},
 																		},
@@ -7768,11 +7728,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			Attributes: map[string]schema.Attribute{
 																				"kind": schema.StringAttribute{
 																					MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																					Optional:            true,
 																					Computed:            true,
-																					PlanModifiers: []planmodifier.String{
-																						stringplanmodifier.UseStateForUnknown(),
-																					},
 																				},
 																				"name": schema.StringAttribute{
 																					MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -7796,19 +7752,11 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				},
 																				"tenant": schema.StringAttribute{
 																					MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																					Optional:            true,
 																					Computed:            true,
-																					PlanModifiers: []planmodifier.String{
-																						stringplanmodifier.UseStateForUnknown(),
-																					},
 																				},
 																				"uid": schema.StringAttribute{
 																					MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																					Optional:            true,
 																					Computed:            true,
-																					PlanModifiers: []planmodifier.String{
-																						stringplanmodifier.UseStateForUnknown(),
-																					},
 																				},
 																			},
 																		},
@@ -7879,11 +7827,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			Attributes: map[string]schema.Attribute{
 																				"kind": schema.StringAttribute{
 																					MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																					Optional:            true,
 																					Computed:            true,
-																					PlanModifiers: []planmodifier.String{
-																						stringplanmodifier.UseStateForUnknown(),
-																					},
 																				},
 																				"name": schema.StringAttribute{
 																					MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -7907,19 +7851,11 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				},
 																				"tenant": schema.StringAttribute{
 																					MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																					Optional:            true,
 																					Computed:            true,
-																					PlanModifiers: []planmodifier.String{
-																						stringplanmodifier.UseStateForUnknown(),
-																					},
 																				},
 																				"uid": schema.StringAttribute{
 																					MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																					Optional:            true,
 																					Computed:            true,
-																					PlanModifiers: []planmodifier.String{
-																						stringplanmodifier.UseStateForUnknown(),
-																					},
 																				},
 																			},
 																		},
@@ -7961,11 +7897,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 					},
 					"tenant": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-						Optional:            true,
 						Computed:            true,
-						PlanModifiers: []planmodifier.String{
-							stringplanmodifier.UseStateForUnknown(),
-						},
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
 						},
@@ -7999,11 +7931,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -9615,11 +9543,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				Attributes: map[string]schema.Attribute{
 																					"kind": schema.StringAttribute{
 																						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																						Optional:            true,
 																						Computed:            true,
-																						PlanModifiers: []planmodifier.String{
-																							stringplanmodifier.UseStateForUnknown(),
-																						},
 																					},
 																					"name": schema.StringAttribute{
 																						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -9643,19 +9567,11 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																					},
 																					"tenant": schema.StringAttribute{
 																						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																						Optional:            true,
 																						Computed:            true,
-																						PlanModifiers: []planmodifier.String{
-																							stringplanmodifier.UseStateForUnknown(),
-																						},
 																					},
 																					"uid": schema.StringAttribute{
 																						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																						Optional:            true,
 																						Computed:            true,
-																						PlanModifiers: []planmodifier.String{
-																							stringplanmodifier.UseStateForUnknown(),
-																						},
 																					},
 																				},
 																			},
@@ -9726,11 +9642,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				Attributes: map[string]schema.Attribute{
 																					"kind": schema.StringAttribute{
 																						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																						Optional:            true,
 																						Computed:            true,
-																						PlanModifiers: []planmodifier.String{
-																							stringplanmodifier.UseStateForUnknown(),
-																						},
 																					},
 																					"name": schema.StringAttribute{
 																						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -9754,19 +9666,11 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																					},
 																					"tenant": schema.StringAttribute{
 																						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																						Optional:            true,
 																						Computed:            true,
-																						PlanModifiers: []planmodifier.String{
-																							stringplanmodifier.UseStateForUnknown(),
-																						},
 																					},
 																					"uid": schema.StringAttribute{
 																						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																						Optional:            true,
 																						Computed:            true,
-																						PlanModifiers: []planmodifier.String{
-																							stringplanmodifier.UseStateForUnknown(),
-																						},
 																					},
 																				},
 																			},
@@ -9816,11 +9720,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -18370,9 +18270,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["log_receiver_with_net"].(map[string]interface{}); ok && (isImport || data.LogReceiverWithNet != nil) {
 		data.LogReceiverWithNet = &SecuremeshSiteV2LogReceiverWithNetModel{
 			LogReceiver: func() *SecuremeshSiteV2LogReceiverWithNetLogReceiverModel {
-				if !isImport && data.LogReceiverWithNet != nil && data.LogReceiverWithNet.LogReceiver != nil {
-					return data.LogReceiverWithNet.LogReceiver
-				}
 				if LogReceiverData, ok := blockData["log_receiver"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2LogReceiverWithNetLogReceiverModel{
 						Name: func() types.String {
@@ -20696,9 +20593,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 				return nil
 			}(),
 			SiteMeshGroup: func() *SecuremeshSiteV2SiteMeshGroupOnSloSiteMeshGroupModel {
-				if !isImport && data.SiteMeshGroupOnSlo != nil && data.SiteMeshGroupOnSlo.SiteMeshGroup != nil {
-					return data.SiteMeshGroupOnSlo.SiteMeshGroup
-				}
 				if SiteMeshGroupData, ok := blockData["site_mesh_group"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2SiteMeshGroupOnSloSiteMeshGroupModel{
 						Name: func() types.String {
@@ -25523,9 +25417,6 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["log_receiver_with_net"].(map[string]interface{}); ok && (isImport || data.LogReceiverWithNet != nil) {
 		data.LogReceiverWithNet = &SecuremeshSiteV2LogReceiverWithNetModel{
 			LogReceiver: func() *SecuremeshSiteV2LogReceiverWithNetLogReceiverModel {
-				if !isImport && data.LogReceiverWithNet != nil && data.LogReceiverWithNet.LogReceiver != nil {
-					return data.LogReceiverWithNet.LogReceiver
-				}
 				if LogReceiverData, ok := blockData["log_receiver"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2LogReceiverWithNetLogReceiverModel{
 						Name: func() types.String {
@@ -27849,9 +27740,6 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 				return nil
 			}(),
 			SiteMeshGroup: func() *SecuremeshSiteV2SiteMeshGroupOnSloSiteMeshGroupModel {
-				if !isImport && data.SiteMeshGroupOnSlo != nil && data.SiteMeshGroupOnSlo.SiteMeshGroup != nil {
-					return data.SiteMeshGroupOnSlo.SiteMeshGroup
-				}
 				if SiteMeshGroupData, ok := blockData["site_mesh_group"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2SiteMeshGroupOnSloSiteMeshGroupModel{
 						Name: func() types.String {
@@ -36547,9 +36435,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["log_receiver_with_net"].(map[string]interface{}); ok && (isImport || data.LogReceiverWithNet != nil) {
 		data.LogReceiverWithNet = &SecuremeshSiteV2LogReceiverWithNetModel{
 			LogReceiver: func() *SecuremeshSiteV2LogReceiverWithNetLogReceiverModel {
-				if !isImport && data.LogReceiverWithNet != nil && data.LogReceiverWithNet.LogReceiver != nil {
-					return data.LogReceiverWithNet.LogReceiver
-				}
 				if LogReceiverData, ok := blockData["log_receiver"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2LogReceiverWithNetLogReceiverModel{
 						Name: func() types.String {
@@ -38873,9 +38758,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 				return nil
 			}(),
 			SiteMeshGroup: func() *SecuremeshSiteV2SiteMeshGroupOnSloSiteMeshGroupModel {
-				if !isImport && data.SiteMeshGroupOnSlo != nil && data.SiteMeshGroupOnSlo.SiteMeshGroup != nil {
-					return data.SiteMeshGroupOnSlo.SiteMeshGroup
-				}
 				if SiteMeshGroupData, ok := blockData["site_mesh_group"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2SiteMeshGroupOnSloSiteMeshGroupModel{
 						Name: func() types.String {

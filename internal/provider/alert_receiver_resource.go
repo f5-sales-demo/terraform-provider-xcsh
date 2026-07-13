@@ -875,11 +875,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 											Attributes: map[string]schema.Attribute{
 												"kind": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-													Optional:            true,
 													Computed:            true,
-													PlanModifiers: []planmodifier.String{
-														stringplanmodifier.UseStateForUnknown(),
-													},
 												},
 												"name": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -903,19 +899,11 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"tenant": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-													Optional:            true,
 													Computed:            true,
-													PlanModifiers: []planmodifier.String{
-														stringplanmodifier.UseStateForUnknown(),
-													},
 												},
 												"uid": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-													Optional:            true,
 													Computed:            true,
-													PlanModifiers: []planmodifier.String{
-														stringplanmodifier.UseStateForUnknown(),
-													},
 												},
 											},
 										},
@@ -971,11 +959,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 															Attributes: map[string]schema.Attribute{
 																"kind": schema.StringAttribute{
 																	MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																	Optional:            true,
 																	Computed:            true,
-																	PlanModifiers: []planmodifier.String{
-																		stringplanmodifier.UseStateForUnknown(),
-																	},
 																},
 																"name": schema.StringAttribute{
 																	MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -999,19 +983,11 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 																},
 																"tenant": schema.StringAttribute{
 																	MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																	Optional:            true,
 																	Computed:            true,
-																	PlanModifiers: []planmodifier.String{
-																		stringplanmodifier.UseStateForUnknown(),
-																	},
 																},
 																"uid": schema.StringAttribute{
 																	MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																	Optional:            true,
 																	Computed:            true,
-																	PlanModifiers: []planmodifier.String{
-																		stringplanmodifier.UseStateForUnknown(),
-																	},
 																},
 															},
 														},
