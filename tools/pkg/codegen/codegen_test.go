@@ -356,6 +356,38 @@ func TestRenderUnmarshalSingleChild_ImportSuppressesServerDefault(t *testing.T) 
 	}
 }
 
+// A suppressed server-computed LIST block nested inside another block (e.g.
+// app_firewall detection_settings.violations_view — the server materializes the
+// full violation catalog whenever detection_settings is set) must not be populated
+// from the API on import, or a config omitting it drifts on round-trip. The nested
+// list-child renderer must emit an `if isImport { return nil }` early return for a
+// suppressed leaf. Non-suppressed list children must NOT get that guard.
+func TestRenderUnmarshalListChild_ImportSuppressesServerComputedList(t *testing.T) {
+	mk := func(goName, tfsdk string) openapi.TerraformAttribute {
+		return openapi.TerraformAttribute{
+			GoName: goName, TfsdkTag: tfsdk, JsonName: tfsdk, IsBlock: true, NestedBlockType: "list",
+			NestedAttributes: []openapi.TerraformAttribute{
+				{GoName: "Name", TfsdkTag: "name", JsonName: "name"},
+			},
+		}
+	}
+
+	// Suppressed nested list (AppFirewall violations_view) -> early import return.
+	var sb strings.Builder
+	renderUnmarshalListChild(&sb, "AppFirewall", "", mk("ViolationsView", "violations_view"), "blockData", "data.DetectionSettings", "data.DetectionSettings != nil", "single", "\t")
+	got := sb.String()
+	if !strings.Contains(got, "if isImport {") {
+		t.Errorf("suppressed nested list violations_view must skip populate on import; got:\n%s", got)
+	}
+
+	// Non-suppressed nested list -> no import-skip guard.
+	var sb2 strings.Builder
+	renderUnmarshalListChild(&sb2, "AppFirewall", "", mk("SomeUserList", "some_user_list"), "blockData", "data.DetectionSettings", "data.DetectionSettings != nil", "single", "\t")
+	if strings.Contains(sb2.String(), "if isImport {") {
+		t.Errorf("non-suppressed nested list must not add an import-skip guard; got:\n%s", sb2.String())
+	}
+}
+
 // A suppressed non-empty server-default block (e.g. l7_ddos_protection, which the
 // API returns as an empty object for a minimal LB) must not be materialized on
 // import from an empty response — otherwise import creates an all-defaults block

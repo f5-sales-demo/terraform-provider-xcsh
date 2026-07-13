@@ -55,3 +55,17 @@ func TestImportSuppressions_DisableClientSideDefense(t *testing.T) {
 		t.Error("HTTPLoadBalancer.disable_client_side_defense must be a suppressed server-default (client_side_defense oneof)")
 	}
 }
+
+// violations_view is the server-materialized catalog of WAF violation checks:
+// whenever detection_settings is configured, the API populates the full
+// violations_view list (name/title/description_spec/enabled/enabled_by_default)
+// regardless of whether the config sets it. Without suppression, a
+// detection_settings {} config drifts on round-trip import (the imported state
+// carries dozens of server-populated violations_view blocks the config omits).
+// Verified live against the f5-sales-demo tenant (webapp-api-protection WAF
+// exhaustive-coverage matrix). Matched by leaf name at any depth.
+func TestImportSuppressions_AppFirewallViolationsView(t *testing.T) {
+	if !isImportDefaultSuppressed("AppFirewall", "violations_view") {
+		t.Error("AppFirewall.violations_view must be a suppressed server-computed field (detection_settings round-trip import drift)")
+	}
+}

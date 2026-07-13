@@ -801,6 +801,19 @@ func renderUnmarshalListChild(sb *strings.Builder, rc, childPath string, attr op
 	}
 
 	sb.WriteString(fmt.Sprintf("%s%s: func() %s {\n", indent, fieldName, retType))
+	// A suppressed server-computed list (e.g. app_firewall detection_settings.
+	// violations_view — the server materializes the full violation catalog whenever
+	// detection_settings is configured) must NOT be populated from the API on import,
+	// or a config that omits it drifts on round-trip. Matched by leaf name at any
+	// depth, mirroring the top-level list suppression. Verified live on the
+	// f5-sales-demo WAF exhaustive-coverage matrix.
+	if isImportDefaultSuppressed(rc, jsonName) {
+		if isTypesList {
+			sb.WriteString(fmt.Sprintf("%s\tif isImport {\n%s\t\treturn types.ListNull(%s)\n%s\t}\n", indent, indent, objType, indent))
+		} else {
+			sb.WriteString(fmt.Sprintf("%s\tif isImport {\n%s\t\treturn nil\n%s\t}\n", indent, indent, indent))
+		}
+	}
 	// Preserve an unconfigured (null/empty) list block on normal Read/Create so a
 	// server-managed list the user did not configure does not drift the plan
 	// ("Provider produced inconsistent result after apply"). Import still reads the API.
