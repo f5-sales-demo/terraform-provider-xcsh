@@ -1505,11 +1505,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -1911,11 +1907,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"tenant": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-						Optional:            true,
 						Computed:            true,
-						PlanModifiers: []planmodifier.String{
-							stringplanmodifier.UseStateForUnknown(),
-						},
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
 						},
@@ -1981,11 +1973,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -2052,11 +2040,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -2094,11 +2078,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -2136,11 +2116,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -2178,11 +2154,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -2296,11 +2268,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -2330,11 +2298,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -2377,11 +2341,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														},
 														"tenant": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-															Optional:            true,
 															Computed:            true,
-															PlanModifiers: []planmodifier.String{
-																stringplanmodifier.UseStateForUnknown(),
-															},
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(64),
 															},
@@ -2417,11 +2377,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														},
 														"tenant": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-															Optional:            true,
 															Computed:            true,
-															PlanModifiers: []planmodifier.String{
-																stringplanmodifier.UseStateForUnknown(),
-															},
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(64),
 															},
@@ -2483,11 +2439,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 																Attributes: map[string]schema.Attribute{
 																	"kind": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"name": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2511,19 +2463,11 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 																	},
 																	"tenant": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"uid": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																},
 															},
@@ -2667,11 +2611,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 																Attributes: map[string]schema.Attribute{
 																	"kind": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"name": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2695,19 +2635,11 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 																	},
 																	"tenant": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"uid": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																},
 															},
@@ -4092,9 +4024,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			AWSCred: func() *AWSTGWSiteAWSParametersAWSCredModel {
-				if !isImport && data.AWSParameters != nil && data.AWSParameters.AWSCred != nil {
-					return data.AWSParameters.AWSCred
-				}
 				if AWSCredData, ok := blockData["aws_cred"].(map[string]interface{}); ok {
 					return &AWSTGWSiteAWSParametersAWSCredModel{
 						Name: func() types.String {
@@ -4781,9 +4710,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	if blockData, ok := apiResource.Spec["private_connectivity"].(map[string]interface{}); ok && (isImport || data.PrivateConnectivity != nil) {
 		data.PrivateConnectivity = &AWSTGWSitePrivateConnectivityModel{
 			CloudLink: func() *AWSTGWSitePrivateConnectivityCloudLinkModel {
-				if !isImport && data.PrivateConnectivity != nil && data.PrivateConnectivity.CloudLink != nil {
-					return data.PrivateConnectivity.CloudLink
-				}
 				if CloudLinkData, ok := blockData["cloud_link"].(map[string]interface{}); ok {
 					return &AWSTGWSitePrivateConnectivityCloudLinkModel{
 						Name: func() types.String {
@@ -5164,9 +5090,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			DcClusterGroupInsideVn: func() *AWSTGWSiteVnConfigDcClusterGroupInsideVnModel {
-				if !isImport && data.VnConfig != nil && data.VnConfig.DcClusterGroupInsideVn != nil {
-					return data.VnConfig.DcClusterGroupInsideVn
-				}
 				if DcClusterGroupInsideVnData, ok := blockData["dc_cluster_group_inside_vn"].(map[string]interface{}); ok {
 					return &AWSTGWSiteVnConfigDcClusterGroupInsideVnModel{
 						Name: func() types.String {
@@ -5192,9 +5115,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			DcClusterGroupOutsideVn: func() *AWSTGWSiteVnConfigDcClusterGroupOutsideVnModel {
-				if !isImport && data.VnConfig != nil && data.VnConfig.DcClusterGroupOutsideVn != nil {
-					return data.VnConfig.DcClusterGroupOutsideVn
-				}
 				if DcClusterGroupOutsideVnData, ok := blockData["dc_cluster_group_outside_vn"].(map[string]interface{}); ok {
 					return &AWSTGWSiteVnConfigDcClusterGroupOutsideVnModel{
 						Name: func() types.String {
@@ -6055,9 +5975,6 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			AWSCred: func() *AWSTGWSiteAWSParametersAWSCredModel {
-				if !isImport && data.AWSParameters != nil && data.AWSParameters.AWSCred != nil {
-					return data.AWSParameters.AWSCred
-				}
 				if AWSCredData, ok := blockData["aws_cred"].(map[string]interface{}); ok {
 					return &AWSTGWSiteAWSParametersAWSCredModel{
 						Name: func() types.String {
@@ -6744,9 +6661,6 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 	if blockData, ok := apiResource.Spec["private_connectivity"].(map[string]interface{}); ok && (isImport || data.PrivateConnectivity != nil) {
 		data.PrivateConnectivity = &AWSTGWSitePrivateConnectivityModel{
 			CloudLink: func() *AWSTGWSitePrivateConnectivityCloudLinkModel {
-				if !isImport && data.PrivateConnectivity != nil && data.PrivateConnectivity.CloudLink != nil {
-					return data.PrivateConnectivity.CloudLink
-				}
 				if CloudLinkData, ok := blockData["cloud_link"].(map[string]interface{}); ok {
 					return &AWSTGWSitePrivateConnectivityCloudLinkModel{
 						Name: func() types.String {
@@ -7127,9 +7041,6 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			DcClusterGroupInsideVn: func() *AWSTGWSiteVnConfigDcClusterGroupInsideVnModel {
-				if !isImport && data.VnConfig != nil && data.VnConfig.DcClusterGroupInsideVn != nil {
-					return data.VnConfig.DcClusterGroupInsideVn
-				}
 				if DcClusterGroupInsideVnData, ok := blockData["dc_cluster_group_inside_vn"].(map[string]interface{}); ok {
 					return &AWSTGWSiteVnConfigDcClusterGroupInsideVnModel{
 						Name: func() types.String {
@@ -7155,9 +7066,6 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			DcClusterGroupOutsideVn: func() *AWSTGWSiteVnConfigDcClusterGroupOutsideVnModel {
-				if !isImport && data.VnConfig != nil && data.VnConfig.DcClusterGroupOutsideVn != nil {
-					return data.VnConfig.DcClusterGroupOutsideVn
-				}
 				if DcClusterGroupOutsideVnData, ok := blockData["dc_cluster_group_outside_vn"].(map[string]interface{}); ok {
 					return &AWSTGWSiteVnConfigDcClusterGroupOutsideVnModel{
 						Name: func() types.String {
@@ -8984,9 +8892,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			AWSCred: func() *AWSTGWSiteAWSParametersAWSCredModel {
-				if !isImport && data.AWSParameters != nil && data.AWSParameters.AWSCred != nil {
-					return data.AWSParameters.AWSCred
-				}
 				if AWSCredData, ok := blockData["aws_cred"].(map[string]interface{}); ok {
 					return &AWSTGWSiteAWSParametersAWSCredModel{
 						Name: func() types.String {
@@ -9673,9 +9578,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	if blockData, ok := apiResource.Spec["private_connectivity"].(map[string]interface{}); ok && (isImport || data.PrivateConnectivity != nil) {
 		data.PrivateConnectivity = &AWSTGWSitePrivateConnectivityModel{
 			CloudLink: func() *AWSTGWSitePrivateConnectivityCloudLinkModel {
-				if !isImport && data.PrivateConnectivity != nil && data.PrivateConnectivity.CloudLink != nil {
-					return data.PrivateConnectivity.CloudLink
-				}
 				if CloudLinkData, ok := blockData["cloud_link"].(map[string]interface{}); ok {
 					return &AWSTGWSitePrivateConnectivityCloudLinkModel{
 						Name: func() types.String {
@@ -10056,9 +9958,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			DcClusterGroupInsideVn: func() *AWSTGWSiteVnConfigDcClusterGroupInsideVnModel {
-				if !isImport && data.VnConfig != nil && data.VnConfig.DcClusterGroupInsideVn != nil {
-					return data.VnConfig.DcClusterGroupInsideVn
-				}
 				if DcClusterGroupInsideVnData, ok := blockData["dc_cluster_group_inside_vn"].(map[string]interface{}); ok {
 					return &AWSTGWSiteVnConfigDcClusterGroupInsideVnModel{
 						Name: func() types.String {
@@ -10084,9 +9983,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			DcClusterGroupOutsideVn: func() *AWSTGWSiteVnConfigDcClusterGroupOutsideVnModel {
-				if !isImport && data.VnConfig != nil && data.VnConfig.DcClusterGroupOutsideVn != nil {
-					return data.VnConfig.DcClusterGroupOutsideVn
-				}
 				if DcClusterGroupOutsideVnData, ok := blockData["dc_cluster_group_outside_vn"].(map[string]interface{}); ok {
 					return &AWSTGWSiteVnConfigDcClusterGroupOutsideVnModel{
 						Name: func() types.String {

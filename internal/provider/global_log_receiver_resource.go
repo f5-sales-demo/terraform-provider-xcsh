@@ -1504,11 +1504,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -2042,11 +2038,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -2726,11 +2718,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -4239,9 +4227,6 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 	if blockData, ok := apiResource.Spec["aws_cloud_watch_receiver"].(map[string]interface{}); ok && (isImport || data.AWSCloudWatchReceiver != nil) {
 		data.AWSCloudWatchReceiver = &GlobalLogReceiverAWSCloudWatchReceiverModel{
 			AWSCred: func() *GlobalLogReceiverAWSCloudWatchReceiverAWSCredModel {
-				if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.AWSCred != nil {
-					return data.AWSCloudWatchReceiver.AWSCred
-				}
 				if AWSCredData, ok := blockData["aws_cred"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverAWSCloudWatchReceiverAWSCredModel{
 						Name: func() types.String {
@@ -4979,9 +4964,6 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				return nil
 			}(),
 			GCPCred: func() *GlobalLogReceiverGCPBucketReceiverGCPCredModel {
-				if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.GCPCred != nil {
-					return data.GCPBucketReceiver.GCPCred
-				}
 				if GCPCredData, ok := blockData["gcp_cred"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverGCPBucketReceiverGCPCredModel{
 						Name: func() types.String {
@@ -5887,9 +5869,6 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 	if blockData, ok := apiResource.Spec["s3_receiver"].(map[string]interface{}); ok && (isImport || data.S3Receiver != nil) {
 		data.S3Receiver = &GlobalLogReceiverS3ReceiverModel{
 			AWSCred: func() *GlobalLogReceiverS3ReceiverAWSCredModel {
-				if !isImport && data.S3Receiver != nil && data.S3Receiver.AWSCred != nil {
-					return data.S3Receiver.AWSCred
-				}
 				if AWSCredData, ok := blockData["aws_cred"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverS3ReceiverAWSCredModel{
 						Name: func() types.String {
@@ -6456,9 +6435,6 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 	if blockData, ok := apiResource.Spec["aws_cloud_watch_receiver"].(map[string]interface{}); ok && (isImport || data.AWSCloudWatchReceiver != nil) {
 		data.AWSCloudWatchReceiver = &GlobalLogReceiverAWSCloudWatchReceiverModel{
 			AWSCred: func() *GlobalLogReceiverAWSCloudWatchReceiverAWSCredModel {
-				if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.AWSCred != nil {
-					return data.AWSCloudWatchReceiver.AWSCred
-				}
 				if AWSCredData, ok := blockData["aws_cred"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverAWSCloudWatchReceiverAWSCredModel{
 						Name: func() types.String {
@@ -7196,9 +7172,6 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				return nil
 			}(),
 			GCPCred: func() *GlobalLogReceiverGCPBucketReceiverGCPCredModel {
-				if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.GCPCred != nil {
-					return data.GCPBucketReceiver.GCPCred
-				}
 				if GCPCredData, ok := blockData["gcp_cred"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverGCPBucketReceiverGCPCredModel{
 						Name: func() types.String {
@@ -8104,9 +8077,6 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 	if blockData, ok := apiResource.Spec["s3_receiver"].(map[string]interface{}); ok && (isImport || data.S3Receiver != nil) {
 		data.S3Receiver = &GlobalLogReceiverS3ReceiverModel{
 			AWSCred: func() *GlobalLogReceiverS3ReceiverAWSCredModel {
-				if !isImport && data.S3Receiver != nil && data.S3Receiver.AWSCred != nil {
-					return data.S3Receiver.AWSCred
-				}
 				if AWSCredData, ok := blockData["aws_cred"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverS3ReceiverAWSCredModel{
 						Name: func() types.String {
@@ -9731,9 +9701,6 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 	if blockData, ok := apiResource.Spec["aws_cloud_watch_receiver"].(map[string]interface{}); ok && (isImport || data.AWSCloudWatchReceiver != nil) {
 		data.AWSCloudWatchReceiver = &GlobalLogReceiverAWSCloudWatchReceiverModel{
 			AWSCred: func() *GlobalLogReceiverAWSCloudWatchReceiverAWSCredModel {
-				if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.AWSCred != nil {
-					return data.AWSCloudWatchReceiver.AWSCred
-				}
 				if AWSCredData, ok := blockData["aws_cred"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverAWSCloudWatchReceiverAWSCredModel{
 						Name: func() types.String {
@@ -10471,9 +10438,6 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				return nil
 			}(),
 			GCPCred: func() *GlobalLogReceiverGCPBucketReceiverGCPCredModel {
-				if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.GCPCred != nil {
-					return data.GCPBucketReceiver.GCPCred
-				}
 				if GCPCredData, ok := blockData["gcp_cred"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverGCPBucketReceiverGCPCredModel{
 						Name: func() types.String {
@@ -11379,9 +11343,6 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 	if blockData, ok := apiResource.Spec["s3_receiver"].(map[string]interface{}); ok && (isImport || data.S3Receiver != nil) {
 		data.S3Receiver = &GlobalLogReceiverS3ReceiverModel{
 			AWSCred: func() *GlobalLogReceiverS3ReceiverAWSCredModel {
-				if !isImport && data.S3Receiver != nil && data.S3Receiver.AWSCred != nil {
-					return data.S3Receiver.AWSCred
-				}
 				if AWSCredData, ok := blockData["aws_cred"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverS3ReceiverAWSCredModel{
 						Name: func() types.String {

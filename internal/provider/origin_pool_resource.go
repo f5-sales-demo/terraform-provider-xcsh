@@ -1099,11 +1099,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 												},
 												"tenant": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-													Optional:            true,
 													Computed:            true,
-													PlanModifiers: []planmodifier.String{
-														stringplanmodifier.UseStateForUnknown(),
-													},
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(64),
 													},
@@ -1133,11 +1129,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 												},
 												"tenant": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-													Optional:            true,
 													Computed:            true,
-													PlanModifiers: []planmodifier.String{
-														stringplanmodifier.UseStateForUnknown(),
-													},
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(64),
 													},
@@ -1197,11 +1189,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -1259,11 +1247,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 												},
 												"tenant": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-													Optional:            true,
 													Computed:            true,
-													PlanModifiers: []planmodifier.String{
-														stringplanmodifier.UseStateForUnknown(),
-													},
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(64),
 													},
@@ -1293,11 +1277,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 												},
 												"tenant": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-													Optional:            true,
 													Computed:            true,
-													PlanModifiers: []planmodifier.String{
-														stringplanmodifier.UseStateForUnknown(),
-													},
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(64),
 													},
@@ -1377,11 +1357,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -1415,11 +1391,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 												},
 												"tenant": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-													Optional:            true,
 													Computed:            true,
-													PlanModifiers: []planmodifier.String{
-														stringplanmodifier.UseStateForUnknown(),
-													},
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(64),
 													},
@@ -1449,11 +1421,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 												},
 												"tenant": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-													Optional:            true,
 													Computed:            true,
-													PlanModifiers: []planmodifier.String{
-														stringplanmodifier.UseStateForUnknown(),
-													},
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(64),
 													},
@@ -1532,11 +1500,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -1570,11 +1534,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 												},
 												"tenant": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-													Optional:            true,
 													Computed:            true,
-													PlanModifiers: []planmodifier.String{
-														stringplanmodifier.UseStateForUnknown(),
-													},
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(64),
 													},
@@ -1604,11 +1564,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 												},
 												"tenant": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-													Optional:            true,
 													Computed:            true,
-													PlanModifiers: []planmodifier.String{
-														stringplanmodifier.UseStateForUnknown(),
-													},
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(64),
 													},
@@ -1704,11 +1660,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -1753,11 +1705,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -2159,11 +2107,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -2205,11 +2149,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 									},
 									"tenant": schema.StringAttribute{
 										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-										Optional:            true,
 										Computed:            true,
-										PlanModifiers: []planmodifier.String{
-											stringplanmodifier.UseStateForUnknown(),
-										},
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(64),
 										},
@@ -2247,11 +2187,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						},
 						"tenant": schema.StringAttribute{
 							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-							Optional:            true,
 							Computed:            true,
-							PlanModifiers: []planmodifier.String{
-								stringplanmodifier.UseStateForUnknown(),
-							},
 							Validators: []validator.String{
 								stringvalidator.LengthAtMost(64),
 							},
@@ -4458,9 +4394,6 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			UseMtlsObj: func() *OriginPoolUseTLSUseMtlsObjModel {
-				if !isImport && data.UseTLS != nil && data.UseTLS.UseMtlsObj != nil {
-					return data.UseTLS.UseMtlsObj
-				}
 				if UseMtlsObjData, ok := blockData["use_mtls_obj"].(map[string]interface{}); ok {
 					return &OriginPoolUseTLSUseMtlsObjModel{
 						Name: func() types.String {
@@ -6034,9 +5967,6 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			UseMtlsObj: func() *OriginPoolUseTLSUseMtlsObjModel {
-				if !isImport && data.UseTLS != nil && data.UseTLS.UseMtlsObj != nil {
-					return data.UseTLS.UseMtlsObj
-				}
 				if UseMtlsObjData, ok := blockData["use_mtls_obj"].(map[string]interface{}); ok {
 					return &OriginPoolUseTLSUseMtlsObjModel{
 						Name: func() types.String {
@@ -8365,9 +8295,6 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			UseMtlsObj: func() *OriginPoolUseTLSUseMtlsObjModel {
-				if !isImport && data.UseTLS != nil && data.UseTLS.UseMtlsObj != nil {
-					return data.UseTLS.UseMtlsObj
-				}
 				if UseMtlsObjData, ok := blockData["use_mtls_obj"].(map[string]interface{}); ok {
 					return &OriginPoolUseTLSUseMtlsObjModel{
 						Name: func() types.String {

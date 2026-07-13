@@ -514,11 +514,7 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								},
 								"tenant": schema.StringAttribute{
 									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-									Optional:            true,
 									Computed:            true,
-									PlanModifiers: []planmodifier.String{
-										stringplanmodifier.UseStateForUnknown(),
-									},
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(64),
 									},
@@ -576,11 +572,7 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												},
 												"tenant": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-													Optional:            true,
 													Computed:            true,
-													PlanModifiers: []planmodifier.String{
-														stringplanmodifier.UseStateForUnknown(),
-													},
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(64),
 													},
@@ -631,11 +623,7 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												},
 												"tenant": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-													Optional:            true,
 													Computed:            true,
-													PlanModifiers: []planmodifier.String{
-														stringplanmodifier.UseStateForUnknown(),
-													},
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(64),
 													},
@@ -695,11 +683,7 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												},
 												"tenant": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-													Optional:            true,
 													Computed:            true,
-													PlanModifiers: []planmodifier.String{
-														stringplanmodifier.UseStateForUnknown(),
-													},
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(64),
 													},
@@ -743,11 +727,7 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												},
 												"tenant": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-													Optional:            true,
 													Computed:            true,
-													PlanModifiers: []planmodifier.String{
-														stringplanmodifier.UseStateForUnknown(),
-													},
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(64),
 													},
@@ -798,11 +778,7 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												},
 												"tenant": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-													Optional:            true,
 													Computed:            true,
-													PlanModifiers: []planmodifier.String{
-														stringplanmodifier.UseStateForUnknown(),
-													},
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(64),
 													},
@@ -838,11 +814,7 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												},
 												"tenant": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-													Optional:            true,
 													Computed:            true,
-													PlanModifiers: []planmodifier.String{
-														stringplanmodifier.UseStateForUnknown(),
-													},
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(64),
 													},
@@ -872,11 +844,7 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												},
 												"tenant": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-													Optional:            true,
 													Computed:            true,
-													PlanModifiers: []planmodifier.String{
-														stringplanmodifier.UseStateForUnknown(),
-													},
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(64),
 													},
@@ -917,11 +885,7 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -985,11 +949,7 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								},
 								"tenant": schema.StringAttribute{
 									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-									Optional:            true,
 									Computed:            true,
-									PlanModifiers: []planmodifier.String{
-										stringplanmodifier.UseStateForUnknown(),
-									},
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(64),
 									},
@@ -1022,11 +982,7 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								},
 								"tenant": schema.StringAttribute{
 									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-									Optional:            true,
 									Computed:            true,
-									PlanModifiers: []planmodifier.String{
-										stringplanmodifier.UseStateForUnknown(),
-									},
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(64),
 									},
@@ -1826,9 +1782,6 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if blockData, ok := apiResource.Spec["advertise_on_public"].(map[string]interface{}); ok && (isImport || data.AdvertiseOnPublic != nil) {
 		data.AdvertiseOnPublic = &UDPLoadBalancerAdvertiseOnPublicModel{
 			PublicIP: func() *UDPLoadBalancerAdvertiseOnPublicPublicIPModel {
-				if !isImport && data.AdvertiseOnPublic != nil && data.AdvertiseOnPublic.PublicIP != nil {
-					return data.AdvertiseOnPublic.PublicIP
-				}
 				if PublicIPData, ok := blockData["public_ip"].(map[string]interface{}); ok {
 					return &UDPLoadBalancerAdvertiseOnPublicPublicIPModel{
 						Name: func() types.String {
@@ -2458,9 +2411,6 @@ func (r *UDPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	if blockData, ok := apiResource.Spec["advertise_on_public"].(map[string]interface{}); ok && (isImport || data.AdvertiseOnPublic != nil) {
 		data.AdvertiseOnPublic = &UDPLoadBalancerAdvertiseOnPublicModel{
 			PublicIP: func() *UDPLoadBalancerAdvertiseOnPublicPublicIPModel {
-				if !isImport && data.AdvertiseOnPublic != nil && data.AdvertiseOnPublic.PublicIP != nil {
-					return data.AdvertiseOnPublic.PublicIP
-				}
 				if PublicIPData, ok := blockData["public_ip"].(map[string]interface{}); ok {
 					return &UDPLoadBalancerAdvertiseOnPublicPublicIPModel{
 						Name: func() types.String {
@@ -3399,9 +3349,6 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if blockData, ok := apiResource.Spec["advertise_on_public"].(map[string]interface{}); ok && (isImport || data.AdvertiseOnPublic != nil) {
 		data.AdvertiseOnPublic = &UDPLoadBalancerAdvertiseOnPublicModel{
 			PublicIP: func() *UDPLoadBalancerAdvertiseOnPublicPublicIPModel {
-				if !isImport && data.AdvertiseOnPublic != nil && data.AdvertiseOnPublic.PublicIP != nil {
-					return data.AdvertiseOnPublic.PublicIP
-				}
 				if PublicIPData, ok := blockData["public_ip"].(map[string]interface{}); ok {
 					return &UDPLoadBalancerAdvertiseOnPublicPublicIPModel{
 						Name: func() types.String {

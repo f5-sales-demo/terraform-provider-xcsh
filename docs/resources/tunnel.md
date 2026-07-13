@@ -96,11 +96,11 @@ An [`intf`](#local-ip-intf) block (within [`local_ip`](#local-ip)) supports the 
 
 A [`local_intf`](#local-ip-intf-local-intf) block (within [`local_ip.intf`](#local-ip-intf)) supports the following:
 
-<a id="local-ip-intf-local-intf-kind"></a>&#x2022; [`kind`](#local-ip-intf-local-intf-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="local-ip-intf-local-intf-name"></a>&#x2022; [`name`](#local-ip-intf-local-intf-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="local-ip-intf-local-intf-namespace"></a>&#x2022; [`namespace`](#local-ip-intf-local-intf-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="local-ip-intf-local-intf-kind"></a>&#x2022; [`kind`](#local-ip-intf-local-intf-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="local-ip-intf-local-intf-tenant"></a>&#x2022; [`tenant`](#local-ip-intf-local-intf-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 

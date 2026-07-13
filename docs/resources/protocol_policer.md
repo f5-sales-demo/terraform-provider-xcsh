@@ -82,11 +82,11 @@ A [`protocol_policer`](#protocol-policer) block supports the following:
 
 A [`policer`](#protocol-policer-policer) block (within [`protocol_policer`](#protocol-policer)) supports the following:
 
-<a id="protocol-policer-policer-kind"></a>&#x2022; [`kind`](#protocol-policer-policer-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="protocol-policer-policer-name"></a>&#x2022; [`name`](#protocol-policer-policer-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="protocol-policer-policer-namespace"></a>&#x2022; [`namespace`](#protocol-policer-policer-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="protocol-policer-policer-kind"></a>&#x2022; [`kind`](#protocol-policer-policer-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="protocol-policer-policer-tenant"></a>&#x2022; [`tenant`](#protocol-policer-policer-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 

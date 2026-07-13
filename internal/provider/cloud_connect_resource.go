@@ -507,11 +507,7 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 									},
 									"tenant": schema.StringAttribute{
 										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-										Optional:            true,
 										Computed:            true,
-										PlanModifiers: []planmodifier.String{
-											stringplanmodifier.UseStateForUnknown(),
-										},
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(64),
 										},
@@ -541,11 +537,7 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 									},
 									"tenant": schema.StringAttribute{
 										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-										Optional:            true,
 										Computed:            true,
-										PlanModifiers: []planmodifier.String{
-											stringplanmodifier.UseStateForUnknown(),
-										},
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(64),
 										},
@@ -658,11 +650,7 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -692,11 +680,7 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -807,11 +791,7 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -925,11 +905,7 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 					},
 					"tenant": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-						Optional:            true,
 						Computed:            true,
-						PlanModifiers: []planmodifier.String{
-							stringplanmodifier.UseStateForUnknown(),
-						},
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
 						},
@@ -1512,9 +1488,6 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 	if blockData, ok := apiResource.Spec["aws_tgw_site"].(map[string]interface{}); ok && (isImport || data.AWSTGWSite != nil) {
 		data.AWSTGWSite = &CloudConnectAWSTGWSiteModel{
 			Cred: func() *CloudConnectAWSTGWSiteCredModel {
-				if !isImport && data.AWSTGWSite != nil && data.AWSTGWSite.Cred != nil {
-					return data.AWSTGWSite.Cred
-				}
 				if CredData, ok := blockData["cred"].(map[string]interface{}); ok {
 					return &CloudConnectAWSTGWSiteCredModel{
 						Name: func() types.String {
@@ -1540,9 +1513,6 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 				return nil
 			}(),
 			Site: func() *CloudConnectAWSTGWSiteSiteModel {
-				if !isImport && data.AWSTGWSite != nil && data.AWSTGWSite.Site != nil {
-					return data.AWSTGWSite.Site
-				}
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &CloudConnectAWSTGWSiteSiteModel{
 						Name: func() types.String {
@@ -1685,9 +1655,6 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 	if blockData, ok := apiResource.Spec["azure_vnet_site"].(map[string]interface{}); ok && (isImport || data.AzureVNETSite != nil) {
 		data.AzureVNETSite = &CloudConnectAzureVNETSiteModel{
 			Site: func() *CloudConnectAzureVNETSiteSiteModel {
-				if !isImport && data.AzureVNETSite != nil && data.AzureVNETSite.Site != nil {
-					return data.AzureVNETSite.Site
-				}
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &CloudConnectAzureVNETSiteSiteModel{
 						Name: func() types.String {
@@ -2125,9 +2092,6 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 	if blockData, ok := apiResource.Spec["aws_tgw_site"].(map[string]interface{}); ok && (isImport || data.AWSTGWSite != nil) {
 		data.AWSTGWSite = &CloudConnectAWSTGWSiteModel{
 			Cred: func() *CloudConnectAWSTGWSiteCredModel {
-				if !isImport && data.AWSTGWSite != nil && data.AWSTGWSite.Cred != nil {
-					return data.AWSTGWSite.Cred
-				}
 				if CredData, ok := blockData["cred"].(map[string]interface{}); ok {
 					return &CloudConnectAWSTGWSiteCredModel{
 						Name: func() types.String {
@@ -2153,9 +2117,6 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 				return nil
 			}(),
 			Site: func() *CloudConnectAWSTGWSiteSiteModel {
-				if !isImport && data.AWSTGWSite != nil && data.AWSTGWSite.Site != nil {
-					return data.AWSTGWSite.Site
-				}
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &CloudConnectAWSTGWSiteSiteModel{
 						Name: func() types.String {
@@ -2298,9 +2259,6 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 	if blockData, ok := apiResource.Spec["azure_vnet_site"].(map[string]interface{}); ok && (isImport || data.AzureVNETSite != nil) {
 		data.AzureVNETSite = &CloudConnectAzureVNETSiteModel{
 			Site: func() *CloudConnectAzureVNETSiteSiteModel {
-				if !isImport && data.AzureVNETSite != nil && data.AzureVNETSite.Site != nil {
-					return data.AzureVNETSite.Site
-				}
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &CloudConnectAzureVNETSiteSiteModel{
 						Name: func() types.String {
@@ -3008,9 +2966,6 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 	if blockData, ok := apiResource.Spec["aws_tgw_site"].(map[string]interface{}); ok && (isImport || data.AWSTGWSite != nil) {
 		data.AWSTGWSite = &CloudConnectAWSTGWSiteModel{
 			Cred: func() *CloudConnectAWSTGWSiteCredModel {
-				if !isImport && data.AWSTGWSite != nil && data.AWSTGWSite.Cred != nil {
-					return data.AWSTGWSite.Cred
-				}
 				if CredData, ok := blockData["cred"].(map[string]interface{}); ok {
 					return &CloudConnectAWSTGWSiteCredModel{
 						Name: func() types.String {
@@ -3036,9 +2991,6 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 				return nil
 			}(),
 			Site: func() *CloudConnectAWSTGWSiteSiteModel {
-				if !isImport && data.AWSTGWSite != nil && data.AWSTGWSite.Site != nil {
-					return data.AWSTGWSite.Site
-				}
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &CloudConnectAWSTGWSiteSiteModel{
 						Name: func() types.String {
@@ -3181,9 +3133,6 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 	if blockData, ok := apiResource.Spec["azure_vnet_site"].(map[string]interface{}); ok && (isImport || data.AzureVNETSite != nil) {
 		data.AzureVNETSite = &CloudConnectAzureVNETSiteModel{
 			Site: func() *CloudConnectAzureVNETSiteSiteModel {
-				if !isImport && data.AzureVNETSite != nil && data.AzureVNETSite.Site != nil {
-					return data.AzureVNETSite.Site
-				}
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &CloudConnectAzureVNETSiteSiteModel{
 						Name: func() types.String {

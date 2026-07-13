@@ -449,11 +449,11 @@ A [`destinations`](#routes-route-destination-destinations) block (within [`route
 
 A [`cluster`](#cluster-d8ac1b) block (within [`routes.route_destination.destinations`](#routes-route-destination-destinations)) supports the following:
 
-<a id="kind-24578a"></a>&#x2022; [`kind`](#kind-24578a) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="name-638083"></a>&#x2022; [`name`](#name-638083) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="namespace-effaa4"></a>&#x2022; [`namespace`](#namespace-effaa4) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-24578a"></a>&#x2022; [`kind`](#kind-24578a) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="tenant-4f2bb0"></a>&#x2022; [`tenant`](#tenant-4f2bb0) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
@@ -510,11 +510,11 @@ A [`mirror_policy`](#routes-route-destination-mirror-policy) block (within [`rou
 
 A [`cluster`](#cluster-1c80ee) block (within [`routes.route_destination.mirror_policy`](#routes-route-destination-mirror-policy)) supports the following:
 
-<a id="kind-5f5f46"></a>&#x2022; [`kind`](#kind-5f5f46) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="name-99bc18"></a>&#x2022; [`name`](#name-99bc18) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="namespace-d5b69a"></a>&#x2022; [`namespace`](#namespace-d5b69a) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-5f5f46"></a>&#x2022; [`kind`](#kind-5f5f46) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="tenant-5fcce8"></a>&#x2022; [`tenant`](#tenant-5fcce8) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
@@ -644,11 +644,11 @@ An [`app_firewall`](#routes-waf-type-app-firewall) block (within [`routes.waf_ty
 
 An [`app_firewall`](#firewall-9775b3) block (within [`routes.waf_type.app_firewall`](#routes-waf-type-app-firewall)) supports the following:
 
-<a id="kind-13aebd"></a>&#x2022; [`kind`](#kind-13aebd) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="name-028577"></a>&#x2022; [`name`](#name-028577) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="namespace-38fd49"></a>&#x2022; [`namespace`](#namespace-38fd49) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-13aebd"></a>&#x2022; [`kind`](#kind-13aebd) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="tenant-853650"></a>&#x2022; [`tenant`](#tenant-853650) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 

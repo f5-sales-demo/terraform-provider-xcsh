@@ -172,11 +172,11 @@ An [`asn_matcher`](#rules-spec-asn-matcher) block (within [`rules.spec`](#rules-
 
 An [`asn_sets`](#rules-spec-asn-matcher-asn-sets) block (within [`rules.spec.asn_matcher`](#rules-spec-asn-matcher)) supports the following:
 
-<a id="rules-spec-asn-matcher-asn-sets-kind"></a>&#x2022; [`kind`](#rules-spec-asn-matcher-asn-sets-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="rules-spec-asn-matcher-asn-sets-name"></a>&#x2022; [`name`](#rules-spec-asn-matcher-asn-sets-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="namespace-3ce633"></a>&#x2022; [`namespace`](#namespace-3ce633) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="rules-spec-asn-matcher-asn-sets-kind"></a>&#x2022; [`kind`](#rules-spec-asn-matcher-asn-sets-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="rules-spec-asn-matcher-asn-sets-tenant"></a>&#x2022; [`tenant`](#rules-spec-asn-matcher-asn-sets-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
@@ -263,11 +263,11 @@ An [`ip_matcher`](#rules-spec-ip-matcher) block (within [`rules.spec`](#rules-sp
 
 A [`prefix_sets`](#rules-spec-ip-matcher-prefix-sets) block (within [`rules.spec.ip_matcher`](#rules-spec-ip-matcher)) supports the following:
 
-<a id="rules-spec-ip-matcher-prefix-sets-kind"></a>&#x2022; [`kind`](#rules-spec-ip-matcher-prefix-sets-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="rules-spec-ip-matcher-prefix-sets-name"></a>&#x2022; [`name`](#rules-spec-ip-matcher-prefix-sets-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="namespace-5d9a15"></a>&#x2022; [`namespace`](#namespace-5d9a15) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="rules-spec-ip-matcher-prefix-sets-kind"></a>&#x2022; [`kind`](#rules-spec-ip-matcher-prefix-sets-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="tenant-68e36f"></a>&#x2022; [`tenant`](#tenant-68e36f) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 

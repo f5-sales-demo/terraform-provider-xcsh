@@ -361,11 +361,7 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -599,11 +595,7 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -898,9 +890,6 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 	if blockData, ok := apiResource.Spec["aws"].(map[string]interface{}); ok && (isImport || data.AWS != nil) {
 		data.AWS = &CloudLinkAWSModel{
 			AWSCred: func() *CloudLinkAWSAWSCredModel {
-				if !isImport && data.AWS != nil && data.AWS.AWSCred != nil {
-					return data.AWS.AWSCred
-				}
 				if AWSCredData, ok := blockData["aws_cred"].(map[string]interface{}); ok {
 					return &CloudLinkAWSAWSCredModel{
 						Name: func() types.String {
@@ -1178,9 +1167,6 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 				return nil
 			}(),
 			GCPCred: func() *CloudLinkGCPGCPCredModel {
-				if !isImport && data.GCP != nil && data.GCP.GCPCred != nil {
-					return data.GCP.GCPCred
-				}
 				if GCPCredData, ok := blockData["gcp_cred"].(map[string]interface{}); ok {
 					return &CloudLinkGCPGCPCredModel{
 						Name: func() types.String {
@@ -1303,9 +1289,6 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 	if blockData, ok := apiResource.Spec["aws"].(map[string]interface{}); ok && (isImport || data.AWS != nil) {
 		data.AWS = &CloudLinkAWSModel{
 			AWSCred: func() *CloudLinkAWSAWSCredModel {
-				if !isImport && data.AWS != nil && data.AWS.AWSCred != nil {
-					return data.AWS.AWSCred
-				}
 				if AWSCredData, ok := blockData["aws_cred"].(map[string]interface{}); ok {
 					return &CloudLinkAWSAWSCredModel{
 						Name: func() types.String {
@@ -1583,9 +1566,6 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 				return nil
 			}(),
 			GCPCred: func() *CloudLinkGCPGCPCredModel {
-				if !isImport && data.GCP != nil && data.GCP.GCPCred != nil {
-					return data.GCP.GCPCred
-				}
 				if GCPCredData, ok := blockData["gcp_cred"].(map[string]interface{}); ok {
 					return &CloudLinkGCPGCPCredModel{
 						Name: func() types.String {
@@ -1862,9 +1842,6 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 	if blockData, ok := apiResource.Spec["aws"].(map[string]interface{}); ok && (isImport || data.AWS != nil) {
 		data.AWS = &CloudLinkAWSModel{
 			AWSCred: func() *CloudLinkAWSAWSCredModel {
-				if !isImport && data.AWS != nil && data.AWS.AWSCred != nil {
-					return data.AWS.AWSCred
-				}
 				if AWSCredData, ok := blockData["aws_cred"].(map[string]interface{}); ok {
 					return &CloudLinkAWSAWSCredModel{
 						Name: func() types.String {
@@ -2142,9 +2119,6 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 				return nil
 			}(),
 			GCPCred: func() *CloudLinkGCPGCPCredModel {
-				if !isImport && data.GCP != nil && data.GCP.GCPCred != nil {
-					return data.GCP.GCPCred
-				}
 				if GCPCredData, ok := blockData["gcp_cred"].(map[string]interface{}); ok {
 					return &CloudLinkGCPGCPCredModel{
 						Name: func() types.String {

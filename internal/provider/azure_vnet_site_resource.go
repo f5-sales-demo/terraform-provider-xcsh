@@ -3568,11 +3568,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"tenant": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-						Optional:            true,
 						Computed:            true,
-						PlanModifiers: []planmodifier.String{
-							stringplanmodifier.UseStateForUnknown(),
-						},
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
 						},
@@ -3716,11 +3712,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -3758,11 +3750,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -3800,11 +3788,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -3928,11 +3912,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -3962,11 +3942,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -4012,11 +3988,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"tenant": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-															Optional:            true,
 															Computed:            true,
-															PlanModifiers: []planmodifier.String{
-																stringplanmodifier.UseStateForUnknown(),
-															},
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(64),
 															},
@@ -4052,11 +4024,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"tenant": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-															Optional:            true,
 															Computed:            true,
-															PlanModifiers: []planmodifier.String{
-																stringplanmodifier.UseStateForUnknown(),
-															},
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(64),
 															},
@@ -4452,11 +4420,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																Attributes: map[string]schema.Attribute{
 																	"kind": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"name": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -4480,19 +4444,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	},
 																	"tenant": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"uid": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																},
 															},
@@ -4645,11 +4601,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																Attributes: map[string]schema.Attribute{
 																	"kind": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"name": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -4673,19 +4625,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	},
 																	"tenant": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"uid": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																},
 															},
@@ -4850,11 +4794,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -4892,11 +4832,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -4934,11 +4870,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -4971,11 +4903,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -5005,11 +4933,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -5055,11 +4979,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"tenant": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-															Optional:            true,
 															Computed:            true,
-															PlanModifiers: []planmodifier.String{
-																stringplanmodifier.UseStateForUnknown(),
-															},
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(64),
 															},
@@ -5095,11 +5015,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"tenant": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-															Optional:            true,
 															Computed:            true,
-															PlanModifiers: []planmodifier.String{
-																stringplanmodifier.UseStateForUnknown(),
-															},
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(64),
 															},
@@ -5495,11 +5411,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																Attributes: map[string]schema.Attribute{
 																	"kind": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"name": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -5523,19 +5435,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	},
 																	"tenant": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"uid": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																},
 															},
@@ -5785,11 +5689,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																Attributes: map[string]schema.Attribute{
 																	"kind": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"name": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -5813,19 +5713,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	},
 																	"tenant": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"uid": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																},
 															},
@@ -6195,11 +6087,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"tenant": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-						Optional:            true,
 						Computed:            true,
-						PlanModifiers: []planmodifier.String{
-							stringplanmodifier.UseStateForUnknown(),
-						},
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
 						},
@@ -6358,11 +6246,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -6400,11 +6284,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -6442,11 +6322,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -6531,11 +6407,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -6584,11 +6456,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"tenant": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-															Optional:            true,
 															Computed:            true,
-															PlanModifiers: []planmodifier.String{
-																stringplanmodifier.UseStateForUnknown(),
-															},
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(64),
 															},
@@ -6624,11 +6492,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"tenant": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-															Optional:            true,
 															Computed:            true,
-															PlanModifiers: []planmodifier.String{
-																stringplanmodifier.UseStateForUnknown(),
-															},
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(64),
 															},
@@ -6665,11 +6529,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -6742,11 +6602,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																Attributes: map[string]schema.Attribute{
 																	"kind": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"name": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -6770,19 +6626,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	},
 																	"tenant": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"uid": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																},
 															},
@@ -6947,11 +6795,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -6989,11 +6833,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -7031,11 +6871,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"tenant": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Optional:            true,
 											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
@@ -7068,11 +6904,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -7121,11 +6953,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"tenant": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-															Optional:            true,
 															Computed:            true,
-															PlanModifiers: []planmodifier.String{
-																stringplanmodifier.UseStateForUnknown(),
-															},
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(64),
 															},
@@ -7161,11 +6989,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"tenant": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-															Optional:            true,
 															Computed:            true,
-															PlanModifiers: []planmodifier.String{
-																stringplanmodifier.UseStateForUnknown(),
-															},
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(64),
 															},
@@ -7202,11 +7026,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -7337,11 +7157,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																Attributes: map[string]schema.Attribute{
 																	"kind": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"name": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -7365,19 +7181,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	},
 																	"tenant": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																	"uid": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																	},
 																},
 															},
@@ -10822,9 +10630,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				return types.StringNull()
 			}(),
 			DcClusterGroupInsideVn: func() *AzureVNETSiteIngressEgressGwDcClusterGroupInsideVnModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.DcClusterGroupInsideVn != nil {
-					return data.IngressEgressGw.DcClusterGroupInsideVn
-				}
 				if DcClusterGroupInsideVnData, ok := blockData["dc_cluster_group_inside_vn"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwDcClusterGroupInsideVnModel{
 						Name: func() types.String {
@@ -10850,9 +10655,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				return nil
 			}(),
 			DcClusterGroupOutsideVn: func() *AzureVNETSiteIngressEgressGwDcClusterGroupOutsideVnModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.DcClusterGroupOutsideVn != nil {
-					return data.IngressEgressGw.DcClusterGroupOutsideVn
-				}
 				if DcClusterGroupOutsideVnData, ok := blockData["dc_cluster_group_outside_vn"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwDcClusterGroupOutsideVnModel{
 						Name: func() types.String {
@@ -12074,9 +11876,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				return types.StringNull()
 			}(),
 			DcClusterGroupInsideVn: func() *AzureVNETSiteIngressEgressGwArDcClusterGroupInsideVnModel {
-				if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.DcClusterGroupInsideVn != nil {
-					return data.IngressEgressGwAr.DcClusterGroupInsideVn
-				}
 				if DcClusterGroupInsideVnData, ok := blockData["dc_cluster_group_inside_vn"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwArDcClusterGroupInsideVnModel{
 						Name: func() types.String {
@@ -12102,9 +11901,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				return nil
 			}(),
 			DcClusterGroupOutsideVn: func() *AzureVNETSiteIngressEgressGwArDcClusterGroupOutsideVnModel {
-				if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.DcClusterGroupOutsideVn != nil {
-					return data.IngressEgressGwAr.DcClusterGroupOutsideVn
-				}
 				if DcClusterGroupOutsideVnData, ok := blockData["dc_cluster_group_outside_vn"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwArDcClusterGroupOutsideVnModel{
 						Name: func() types.String {
@@ -13980,9 +13776,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				return types.StringNull()
 			}(),
 			DcClusterGroup: func() *AzureVNETSiteVoltstackClusterDcClusterGroupModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.DcClusterGroup != nil {
-					return data.VoltstackCluster.DcClusterGroup
-				}
 				if DcClusterGroupData, ok := blockData["dc_cluster_group"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVoltstackClusterDcClusterGroupModel{
 						Name: func() types.String {
@@ -14114,9 +13907,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				return nil
 			}(),
 			K8SCluster: func() *AzureVNETSiteVoltstackClusterK8SClusterModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.K8SCluster != nil {
-					return data.VoltstackCluster.K8SCluster
-				}
 				if K8SClusterData, ok := blockData["k8s_cluster"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVoltstackClusterK8SClusterModel{
 						Name: func() types.String {
@@ -14604,9 +14394,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				return types.StringNull()
 			}(),
 			DcClusterGroup: func() *AzureVNETSiteVoltstackClusterArDcClusterGroupModel {
-				if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.DcClusterGroup != nil {
-					return data.VoltstackClusterAr.DcClusterGroup
-				}
 				if DcClusterGroupData, ok := blockData["dc_cluster_group"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVoltstackClusterArDcClusterGroupModel{
 						Name: func() types.String {
@@ -14738,9 +14525,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				return nil
 			}(),
 			K8SCluster: func() *AzureVNETSiteVoltstackClusterArK8SClusterModel {
-				if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.K8SCluster != nil {
-					return data.VoltstackClusterAr.K8SCluster
-				}
 				if K8SClusterData, ok := blockData["k8s_cluster"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVoltstackClusterArK8SClusterModel{
 						Name: func() types.String {
@@ -15833,9 +15617,6 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				return types.StringNull()
 			}(),
 			DcClusterGroupInsideVn: func() *AzureVNETSiteIngressEgressGwDcClusterGroupInsideVnModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.DcClusterGroupInsideVn != nil {
-					return data.IngressEgressGw.DcClusterGroupInsideVn
-				}
 				if DcClusterGroupInsideVnData, ok := blockData["dc_cluster_group_inside_vn"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwDcClusterGroupInsideVnModel{
 						Name: func() types.String {
@@ -15861,9 +15642,6 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				return nil
 			}(),
 			DcClusterGroupOutsideVn: func() *AzureVNETSiteIngressEgressGwDcClusterGroupOutsideVnModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.DcClusterGroupOutsideVn != nil {
-					return data.IngressEgressGw.DcClusterGroupOutsideVn
-				}
 				if DcClusterGroupOutsideVnData, ok := blockData["dc_cluster_group_outside_vn"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwDcClusterGroupOutsideVnModel{
 						Name: func() types.String {
@@ -17085,9 +16863,6 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				return types.StringNull()
 			}(),
 			DcClusterGroupInsideVn: func() *AzureVNETSiteIngressEgressGwArDcClusterGroupInsideVnModel {
-				if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.DcClusterGroupInsideVn != nil {
-					return data.IngressEgressGwAr.DcClusterGroupInsideVn
-				}
 				if DcClusterGroupInsideVnData, ok := blockData["dc_cluster_group_inside_vn"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwArDcClusterGroupInsideVnModel{
 						Name: func() types.String {
@@ -17113,9 +16888,6 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				return nil
 			}(),
 			DcClusterGroupOutsideVn: func() *AzureVNETSiteIngressEgressGwArDcClusterGroupOutsideVnModel {
-				if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.DcClusterGroupOutsideVn != nil {
-					return data.IngressEgressGwAr.DcClusterGroupOutsideVn
-				}
 				if DcClusterGroupOutsideVnData, ok := blockData["dc_cluster_group_outside_vn"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwArDcClusterGroupOutsideVnModel{
 						Name: func() types.String {
@@ -18991,9 +18763,6 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				return types.StringNull()
 			}(),
 			DcClusterGroup: func() *AzureVNETSiteVoltstackClusterDcClusterGroupModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.DcClusterGroup != nil {
-					return data.VoltstackCluster.DcClusterGroup
-				}
 				if DcClusterGroupData, ok := blockData["dc_cluster_group"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVoltstackClusterDcClusterGroupModel{
 						Name: func() types.String {
@@ -19125,9 +18894,6 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				return nil
 			}(),
 			K8SCluster: func() *AzureVNETSiteVoltstackClusterK8SClusterModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.K8SCluster != nil {
-					return data.VoltstackCluster.K8SCluster
-				}
 				if K8SClusterData, ok := blockData["k8s_cluster"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVoltstackClusterK8SClusterModel{
 						Name: func() types.String {
@@ -19615,9 +19381,6 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				return types.StringNull()
 			}(),
 			DcClusterGroup: func() *AzureVNETSiteVoltstackClusterArDcClusterGroupModel {
-				if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.DcClusterGroup != nil {
-					return data.VoltstackClusterAr.DcClusterGroup
-				}
 				if DcClusterGroupData, ok := blockData["dc_cluster_group"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVoltstackClusterArDcClusterGroupModel{
 						Name: func() types.String {
@@ -19749,9 +19512,6 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				return nil
 			}(),
 			K8SCluster: func() *AzureVNETSiteVoltstackClusterArK8SClusterModel {
-				if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.K8SCluster != nil {
-					return data.VoltstackClusterAr.K8SCluster
-				}
 				if K8SClusterData, ok := blockData["k8s_cluster"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVoltstackClusterArK8SClusterModel{
 						Name: func() types.String {
@@ -23508,9 +23268,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				return types.StringNull()
 			}(),
 			DcClusterGroupInsideVn: func() *AzureVNETSiteIngressEgressGwDcClusterGroupInsideVnModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.DcClusterGroupInsideVn != nil {
-					return data.IngressEgressGw.DcClusterGroupInsideVn
-				}
 				if DcClusterGroupInsideVnData, ok := blockData["dc_cluster_group_inside_vn"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwDcClusterGroupInsideVnModel{
 						Name: func() types.String {
@@ -23536,9 +23293,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				return nil
 			}(),
 			DcClusterGroupOutsideVn: func() *AzureVNETSiteIngressEgressGwDcClusterGroupOutsideVnModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.DcClusterGroupOutsideVn != nil {
-					return data.IngressEgressGw.DcClusterGroupOutsideVn
-				}
 				if DcClusterGroupOutsideVnData, ok := blockData["dc_cluster_group_outside_vn"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwDcClusterGroupOutsideVnModel{
 						Name: func() types.String {
@@ -24760,9 +24514,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				return types.StringNull()
 			}(),
 			DcClusterGroupInsideVn: func() *AzureVNETSiteIngressEgressGwArDcClusterGroupInsideVnModel {
-				if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.DcClusterGroupInsideVn != nil {
-					return data.IngressEgressGwAr.DcClusterGroupInsideVn
-				}
 				if DcClusterGroupInsideVnData, ok := blockData["dc_cluster_group_inside_vn"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwArDcClusterGroupInsideVnModel{
 						Name: func() types.String {
@@ -24788,9 +24539,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				return nil
 			}(),
 			DcClusterGroupOutsideVn: func() *AzureVNETSiteIngressEgressGwArDcClusterGroupOutsideVnModel {
-				if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.DcClusterGroupOutsideVn != nil {
-					return data.IngressEgressGwAr.DcClusterGroupOutsideVn
-				}
 				if DcClusterGroupOutsideVnData, ok := blockData["dc_cluster_group_outside_vn"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwArDcClusterGroupOutsideVnModel{
 						Name: func() types.String {
@@ -26666,9 +26414,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				return types.StringNull()
 			}(),
 			DcClusterGroup: func() *AzureVNETSiteVoltstackClusterDcClusterGroupModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.DcClusterGroup != nil {
-					return data.VoltstackCluster.DcClusterGroup
-				}
 				if DcClusterGroupData, ok := blockData["dc_cluster_group"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVoltstackClusterDcClusterGroupModel{
 						Name: func() types.String {
@@ -26800,9 +26545,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				return nil
 			}(),
 			K8SCluster: func() *AzureVNETSiteVoltstackClusterK8SClusterModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.K8SCluster != nil {
-					return data.VoltstackCluster.K8SCluster
-				}
 				if K8SClusterData, ok := blockData["k8s_cluster"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVoltstackClusterK8SClusterModel{
 						Name: func() types.String {
@@ -27290,9 +27032,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				return types.StringNull()
 			}(),
 			DcClusterGroup: func() *AzureVNETSiteVoltstackClusterArDcClusterGroupModel {
-				if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.DcClusterGroup != nil {
-					return data.VoltstackClusterAr.DcClusterGroup
-				}
 				if DcClusterGroupData, ok := blockData["dc_cluster_group"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVoltstackClusterArDcClusterGroupModel{
 						Name: func() types.String {
@@ -27424,9 +27163,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				return nil
 			}(),
 			K8SCluster: func() *AzureVNETSiteVoltstackClusterArK8SClusterModel {
-				if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.K8SCluster != nil {
-					return data.VoltstackClusterAr.K8SCluster
-				}
 				if K8SClusterData, ok := blockData["k8s_cluster"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVoltstackClusterArK8SClusterModel{
 						Name: func() types.String {

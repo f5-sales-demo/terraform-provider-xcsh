@@ -86,11 +86,11 @@ An [`app_type_settings`](#app-type-settings) block supports the following:
 
 An [`app_type_ref`](#app-type-settings-app-type-ref) block (within [`app_type_settings`](#app-type-settings)) supports the following:
 
-<a id="app-type-settings-app-type-ref-kind"></a>&#x2022; [`kind`](#app-type-settings-app-type-ref-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="app-type-settings-app-type-ref-name"></a>&#x2022; [`name`](#app-type-settings-app-type-ref-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="namespace-49608f"></a>&#x2022; [`namespace`](#namespace-49608f) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="app-type-settings-app-type-ref-kind"></a>&#x2022; [`kind`](#app-type-settings-app-type-ref-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="app-type-settings-app-type-ref-tenant"></a>&#x2022; [`tenant`](#app-type-settings-app-type-ref-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
