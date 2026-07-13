@@ -285,3 +285,60 @@ func TestExtractResourceSchema_Basic(t *testing.T) {
 		t.Error("Expected 'port' attribute in result")
 	}
 }
+
+// A resource whose CreateSpecType property declares a structured cross-resource
+// requirement (x-f5xc-requires.requires_resource) auto-derives an apply-time
+// preflight: the target resource's LIST path is resolved via extractAPIPath and
+// the trigger field is bound to its Go model field. This is the end-to-end wiring
+// that makes preflight-requirements.json an override rather than the sole source.
+func TestExtractResourceSchema_AutoDerivesPreflightFromRequires(t *testing.T) {
+	namespace.ClearProfiles()
+	defer namespace.ClearProfiles()
+
+	spec := &openapi.Spec{
+		Components: openapi.Components{
+			Schemas: map[string]openapi.Schema{
+				"app_lbCreateSpecType": {
+					Type: "object",
+					Properties: map[string]openapi.Schema{
+						"client_side_defense": {
+							Type: "boolean",
+							XF5XCRequires: []openapi.RequiresEntry{{
+								Field:            "client_side_defense",
+								RequiresResource: &openapi.RequiresResource{Resource: "protected_domain", Scope: "same_namespace"},
+								Reason:           "CSD needs a protected_domain in the same namespace.",
+							}},
+						},
+					},
+				},
+			},
+		},
+	}
+	extractAPIPath := func(_ *openapi.Spec, resource string) (string, string, bool) {
+		if resource == "protected_domain" {
+			return "/api/shape/csd/namespaces/%s/protected_domains",
+				"/api/shape/csd/namespaces/%s/protected_domains/%s", true
+		}
+		return "/api/config/namespaces/%s/app_lbs", "/api/config/namespaces/%s/app_lbs/%s", true
+	}
+
+	result, err := ExtractResourceSchema(spec, "app_lb", extractAPIPath)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	var found *openapi.RequirementPreflight
+	for i := range result.Preflights {
+		if result.Preflights[i].WhenField == "client_side_defense" {
+			found = &result.Preflights[i]
+		}
+	}
+	if found == nil {
+		t.Fatalf("expected a derived preflight for client_side_defense, got %+v", result.Preflights)
+	}
+	if found.ListPath != "/api/shape/csd/namespaces/%s/protected_domains" {
+		t.Errorf("ListPath = %q, want the resolved protected_domains shape path", found.ListPath)
+	}
+	if found.WhenGoField == "" {
+		t.Error("WhenGoField must be resolved to the Go model field, got empty")
+	}
+}

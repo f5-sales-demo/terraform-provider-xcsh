@@ -50,6 +50,7 @@ type Schema struct {
 	// Enrichment extensions (x-f5xc-*) - added by api-specs-enriched repository
 	XF5XCCategory         string                `json:"x-f5xc-category"`
 	XF5XCRequiresTier     string                `json:"x-f5xc-requires-tier"`
+	XF5XCRequires         []RequiresEntry       `json:"x-f5xc-requires"`
 	XF5XCComplexity       string                `json:"x-f5xc-complexity"`
 	XF5XCExample          string                `json:"x-f5xc-example"`
 	XF5XCDescriptionShort string                `json:"x-f5xc-description-short"`
