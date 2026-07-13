@@ -543,11 +543,7 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -595,11 +591,7 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -1158,9 +1150,6 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["sli_to_global_dr"].(map[string]interface{}); ok && (isImport || data.SLIToGlobalDR != nil) {
 		data.SLIToGlobalDR = &NetworkConnectorSLIToGlobalDRModel{
 			GlobalVn: func() *NetworkConnectorSLIToGlobalDRGlobalVnModel {
-				if !isImport && data.SLIToGlobalDR != nil && data.SLIToGlobalDR.GlobalVn != nil {
-					return data.SLIToGlobalDR.GlobalVn
-				}
 				if GlobalVnData, ok := blockData["global_vn"].(map[string]interface{}); ok {
 					return &NetworkConnectorSLIToGlobalDRGlobalVnModel{
 						Name: func() types.String {
@@ -1212,9 +1201,6 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["slo_to_global_dr"].(map[string]interface{}); ok && (isImport || data.SloToGlobalDR != nil) {
 		data.SloToGlobalDR = &NetworkConnectorSloToGlobalDRModel{
 			GlobalVn: func() *NetworkConnectorSloToGlobalDRGlobalVnModel {
-				if !isImport && data.SloToGlobalDR != nil && data.SloToGlobalDR.GlobalVn != nil {
-					return data.SloToGlobalDR.GlobalVn
-				}
 				if GlobalVnData, ok := blockData["global_vn"].(map[string]interface{}); ok {
 					return &NetworkConnectorSloToGlobalDRGlobalVnModel{
 						Name: func() types.String {
@@ -1590,9 +1576,6 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["sli_to_global_dr"].(map[string]interface{}); ok && (isImport || data.SLIToGlobalDR != nil) {
 		data.SLIToGlobalDR = &NetworkConnectorSLIToGlobalDRModel{
 			GlobalVn: func() *NetworkConnectorSLIToGlobalDRGlobalVnModel {
-				if !isImport && data.SLIToGlobalDR != nil && data.SLIToGlobalDR.GlobalVn != nil {
-					return data.SLIToGlobalDR.GlobalVn
-				}
 				if GlobalVnData, ok := blockData["global_vn"].(map[string]interface{}); ok {
 					return &NetworkConnectorSLIToGlobalDRGlobalVnModel{
 						Name: func() types.String {
@@ -1644,9 +1627,6 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["slo_to_global_dr"].(map[string]interface{}); ok && (isImport || data.SloToGlobalDR != nil) {
 		data.SloToGlobalDR = &NetworkConnectorSloToGlobalDRModel{
 			GlobalVn: func() *NetworkConnectorSloToGlobalDRGlobalVnModel {
-				if !isImport && data.SloToGlobalDR != nil && data.SloToGlobalDR.GlobalVn != nil {
-					return data.SloToGlobalDR.GlobalVn
-				}
 				if GlobalVnData, ok := blockData["global_vn"].(map[string]interface{}); ok {
 					return &NetworkConnectorSloToGlobalDRGlobalVnModel{
 						Name: func() types.String {
@@ -2187,9 +2167,6 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["sli_to_global_dr"].(map[string]interface{}); ok && (isImport || data.SLIToGlobalDR != nil) {
 		data.SLIToGlobalDR = &NetworkConnectorSLIToGlobalDRModel{
 			GlobalVn: func() *NetworkConnectorSLIToGlobalDRGlobalVnModel {
-				if !isImport && data.SLIToGlobalDR != nil && data.SLIToGlobalDR.GlobalVn != nil {
-					return data.SLIToGlobalDR.GlobalVn
-				}
 				if GlobalVnData, ok := blockData["global_vn"].(map[string]interface{}); ok {
 					return &NetworkConnectorSLIToGlobalDRGlobalVnModel{
 						Name: func() types.String {
@@ -2241,9 +2218,6 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["slo_to_global_dr"].(map[string]interface{}); ok && (isImport || data.SloToGlobalDR != nil) {
 		data.SloToGlobalDR = &NetworkConnectorSloToGlobalDRModel{
 			GlobalVn: func() *NetworkConnectorSloToGlobalDRGlobalVnModel {
-				if !isImport && data.SloToGlobalDR != nil && data.SloToGlobalDR.GlobalVn != nil {
-					return data.SloToGlobalDR.GlobalVn
-				}
 				if GlobalVnData, ok := blockData["global_vn"].(map[string]interface{}); ok {
 					return &NetworkConnectorSloToGlobalDRGlobalVnModel{
 						Name: func() types.String {

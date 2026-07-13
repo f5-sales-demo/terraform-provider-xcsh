@@ -114,11 +114,11 @@ A [`list`](#static-routes-node-interface-list) block (within [`static_routes.nod
 
 An [`interface`](#interface-94c51c) block (within [`static_routes.node_interface.list`](#static-routes-node-interface-list)) supports the following:
 
-<a id="kind-86bbe9"></a>&#x2022; [`kind`](#kind-86bbe9) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="name-3e9abe"></a>&#x2022; [`name`](#name-3e9abe) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="namespace-1e21c2"></a>&#x2022; [`namespace`](#namespace-1e21c2) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-86bbe9"></a>&#x2022; [`kind`](#kind-86bbe9) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="tenant-530222"></a>&#x2022; [`tenant`](#tenant-530222) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 

@@ -122,11 +122,11 @@ A [`segment`](#gre-gre-parameters-segment) block (within [`gre.gre_parameters`](
 
 A [`refs`](#gre-gre-parameters-segment-refs) block (within [`gre.gre_parameters.segment`](#gre-gre-parameters-segment)) supports the following:
 
-<a id="gre-gre-parameters-segment-refs-kind"></a>&#x2022; [`kind`](#gre-gre-parameters-segment-refs-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="gre-gre-parameters-segment-refs-name"></a>&#x2022; [`name`](#gre-gre-parameters-segment-refs-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="namespace-c419a8"></a>&#x2022; [`namespace`](#namespace-c419a8) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="gre-gre-parameters-segment-refs-kind"></a>&#x2022; [`kind`](#gre-gre-parameters-segment-refs-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="gre-gre-parameters-segment-refs-tenant"></a>&#x2022; [`tenant`](#gre-gre-parameters-segment-refs-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
@@ -256,11 +256,11 @@ A [`segment`](#ipsec-ipsec-tunnel-parameters-segment) block (within [`ipsec.ipse
 
 A [`refs`](#refs-349f3e) block (within [`ipsec.ipsec_tunnel_parameters.segment`](#ipsec-ipsec-tunnel-parameters-segment)) supports the following:
 
-<a id="kind-035e6e"></a>&#x2022; [`kind`](#kind-035e6e) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="name-cfde45"></a>&#x2022; [`name`](#name-cfde45) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="namespace-b2c80c"></a>&#x2022; [`namespace`](#namespace-b2c80c) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-035e6e"></a>&#x2022; [`kind`](#kind-035e6e) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="tenant-f2a3ef"></a>&#x2022; [`tenant`](#tenant-f2a3ef) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 

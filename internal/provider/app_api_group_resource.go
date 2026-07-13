@@ -257,11 +257,7 @@ func (r *AppAPIGroupResource) Schema(ctx context.Context, req resource.SchemaReq
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -297,11 +293,7 @@ func (r *AppAPIGroupResource) Schema(ctx context.Context, req resource.SchemaReq
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -337,11 +329,7 @@ func (r *AppAPIGroupResource) Schema(ctx context.Context, req resource.SchemaReq
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -588,9 +576,6 @@ func (r *AppAPIGroupResource) Create(ctx context.Context, req resource.CreateReq
 	if blockData, ok := apiResource.Spec["bigip_virtual_server"].(map[string]interface{}); ok && (isImport || data.BigIPVirtualServer != nil) {
 		data.BigIPVirtualServer = &AppAPIGroupBigIPVirtualServerModel{
 			BigIPVirtualServer: func() *AppAPIGroupBigIPVirtualServerBigIPVirtualServerModel {
-				if !isImport && data.BigIPVirtualServer != nil && data.BigIPVirtualServer.BigIPVirtualServer != nil {
-					return data.BigIPVirtualServer.BigIPVirtualServer
-				}
 				if BigIPVirtualServerData, ok := blockData["bigip_virtual_server"].(map[string]interface{}); ok {
 					return &AppAPIGroupBigIPVirtualServerBigIPVirtualServerModel{
 						Name: func() types.String {
@@ -620,9 +605,6 @@ func (r *AppAPIGroupResource) Create(ctx context.Context, req resource.CreateReq
 	if blockData, ok := apiResource.Spec["cdn_loadbalancer"].(map[string]interface{}); ok && (isImport || data.CDNLoadBalancer != nil) {
 		data.CDNLoadBalancer = &AppAPIGroupCDNLoadBalancerModel{
 			CDNLoadBalancer: func() *AppAPIGroupCDNLoadBalancerCDNLoadBalancerModel {
-				if !isImport && data.CDNLoadBalancer != nil && data.CDNLoadBalancer.CDNLoadBalancer != nil {
-					return data.CDNLoadBalancer.CDNLoadBalancer
-				}
 				if CDNLoadBalancerData, ok := blockData["cdn_loadbalancer"].(map[string]interface{}); ok {
 					return &AppAPIGroupCDNLoadBalancerCDNLoadBalancerModel{
 						Name: func() types.String {
@@ -652,9 +634,6 @@ func (r *AppAPIGroupResource) Create(ctx context.Context, req resource.CreateReq
 	if blockData, ok := apiResource.Spec["http_loadbalancer"].(map[string]interface{}); ok && (isImport || data.HTTPLoadBalancer != nil) {
 		data.HTTPLoadBalancer = &AppAPIGroupHTTPLoadBalancerModel{
 			HTTPLoadBalancer: func() *AppAPIGroupHTTPLoadBalancerHTTPLoadBalancerModel {
-				if !isImport && data.HTTPLoadBalancer != nil && data.HTTPLoadBalancer.HTTPLoadBalancer != nil {
-					return data.HTTPLoadBalancer.HTTPLoadBalancer
-				}
 				if HTTPLoadBalancerData, ok := blockData["http_loadbalancer"].(map[string]interface{}); ok {
 					return &AppAPIGroupHTTPLoadBalancerHTTPLoadBalancerModel{
 						Name: func() types.String {
@@ -819,9 +798,6 @@ func (r *AppAPIGroupResource) Read(ctx context.Context, req resource.ReadRequest
 	if blockData, ok := apiResource.Spec["bigip_virtual_server"].(map[string]interface{}); ok && (isImport || data.BigIPVirtualServer != nil) {
 		data.BigIPVirtualServer = &AppAPIGroupBigIPVirtualServerModel{
 			BigIPVirtualServer: func() *AppAPIGroupBigIPVirtualServerBigIPVirtualServerModel {
-				if !isImport && data.BigIPVirtualServer != nil && data.BigIPVirtualServer.BigIPVirtualServer != nil {
-					return data.BigIPVirtualServer.BigIPVirtualServer
-				}
 				if BigIPVirtualServerData, ok := blockData["bigip_virtual_server"].(map[string]interface{}); ok {
 					return &AppAPIGroupBigIPVirtualServerBigIPVirtualServerModel{
 						Name: func() types.String {
@@ -851,9 +827,6 @@ func (r *AppAPIGroupResource) Read(ctx context.Context, req resource.ReadRequest
 	if blockData, ok := apiResource.Spec["cdn_loadbalancer"].(map[string]interface{}); ok && (isImport || data.CDNLoadBalancer != nil) {
 		data.CDNLoadBalancer = &AppAPIGroupCDNLoadBalancerModel{
 			CDNLoadBalancer: func() *AppAPIGroupCDNLoadBalancerCDNLoadBalancerModel {
-				if !isImport && data.CDNLoadBalancer != nil && data.CDNLoadBalancer.CDNLoadBalancer != nil {
-					return data.CDNLoadBalancer.CDNLoadBalancer
-				}
 				if CDNLoadBalancerData, ok := blockData["cdn_loadbalancer"].(map[string]interface{}); ok {
 					return &AppAPIGroupCDNLoadBalancerCDNLoadBalancerModel{
 						Name: func() types.String {
@@ -883,9 +856,6 @@ func (r *AppAPIGroupResource) Read(ctx context.Context, req resource.ReadRequest
 	if blockData, ok := apiResource.Spec["http_loadbalancer"].(map[string]interface{}); ok && (isImport || data.HTTPLoadBalancer != nil) {
 		data.HTTPLoadBalancer = &AppAPIGroupHTTPLoadBalancerModel{
 			HTTPLoadBalancer: func() *AppAPIGroupHTTPLoadBalancerHTTPLoadBalancerModel {
-				if !isImport && data.HTTPLoadBalancer != nil && data.HTTPLoadBalancer.HTTPLoadBalancer != nil {
-					return data.HTTPLoadBalancer.HTTPLoadBalancer
-				}
 				if HTTPLoadBalancerData, ok := blockData["http_loadbalancer"].(map[string]interface{}); ok {
 					return &AppAPIGroupHTTPLoadBalancerHTTPLoadBalancerModel{
 						Name: func() types.String {
@@ -1114,9 +1084,6 @@ func (r *AppAPIGroupResource) Update(ctx context.Context, req resource.UpdateReq
 	if blockData, ok := apiResource.Spec["bigip_virtual_server"].(map[string]interface{}); ok && (isImport || data.BigIPVirtualServer != nil) {
 		data.BigIPVirtualServer = &AppAPIGroupBigIPVirtualServerModel{
 			BigIPVirtualServer: func() *AppAPIGroupBigIPVirtualServerBigIPVirtualServerModel {
-				if !isImport && data.BigIPVirtualServer != nil && data.BigIPVirtualServer.BigIPVirtualServer != nil {
-					return data.BigIPVirtualServer.BigIPVirtualServer
-				}
 				if BigIPVirtualServerData, ok := blockData["bigip_virtual_server"].(map[string]interface{}); ok {
 					return &AppAPIGroupBigIPVirtualServerBigIPVirtualServerModel{
 						Name: func() types.String {
@@ -1146,9 +1113,6 @@ func (r *AppAPIGroupResource) Update(ctx context.Context, req resource.UpdateReq
 	if blockData, ok := apiResource.Spec["cdn_loadbalancer"].(map[string]interface{}); ok && (isImport || data.CDNLoadBalancer != nil) {
 		data.CDNLoadBalancer = &AppAPIGroupCDNLoadBalancerModel{
 			CDNLoadBalancer: func() *AppAPIGroupCDNLoadBalancerCDNLoadBalancerModel {
-				if !isImport && data.CDNLoadBalancer != nil && data.CDNLoadBalancer.CDNLoadBalancer != nil {
-					return data.CDNLoadBalancer.CDNLoadBalancer
-				}
 				if CDNLoadBalancerData, ok := blockData["cdn_loadbalancer"].(map[string]interface{}); ok {
 					return &AppAPIGroupCDNLoadBalancerCDNLoadBalancerModel{
 						Name: func() types.String {
@@ -1178,9 +1142,6 @@ func (r *AppAPIGroupResource) Update(ctx context.Context, req resource.UpdateReq
 	if blockData, ok := apiResource.Spec["http_loadbalancer"].(map[string]interface{}); ok && (isImport || data.HTTPLoadBalancer != nil) {
 		data.HTTPLoadBalancer = &AppAPIGroupHTTPLoadBalancerModel{
 			HTTPLoadBalancer: func() *AppAPIGroupHTTPLoadBalancerHTTPLoadBalancerModel {
-				if !isImport && data.HTTPLoadBalancer != nil && data.HTTPLoadBalancer.HTTPLoadBalancer != nil {
-					return data.HTTPLoadBalancer.HTTPLoadBalancer
-				}
 				if HTTPLoadBalancerData, ok := blockData["http_loadbalancer"].(map[string]interface{}); ok {
 					return &AppAPIGroupHTTPLoadBalancerHTTPLoadBalancerModel{
 						Name: func() types.String {

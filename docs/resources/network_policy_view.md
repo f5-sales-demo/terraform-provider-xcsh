@@ -134,11 +134,11 @@ An [`ip_prefix_set`](#egress-rules-ip-prefix-set) block (within [`egress_rules`]
 
 A [`ref`](#egress-rules-ip-prefix-set-ref) block (within [`egress_rules.ip_prefix_set`](#egress-rules-ip-prefix-set)) supports the following:
 
-<a id="egress-rules-ip-prefix-set-ref-kind"></a>&#x2022; [`kind`](#egress-rules-ip-prefix-set-ref-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="egress-rules-ip-prefix-set-ref-name"></a>&#x2022; [`name`](#egress-rules-ip-prefix-set-ref-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="namespace-600e0f"></a>&#x2022; [`namespace`](#namespace-600e0f) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="egress-rules-ip-prefix-set-ref-kind"></a>&#x2022; [`kind`](#egress-rules-ip-prefix-set-ref-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="egress-rules-ip-prefix-set-ref-tenant"></a>&#x2022; [`tenant`](#egress-rules-ip-prefix-set-ref-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
@@ -265,11 +265,11 @@ An [`ip_prefix_set`](#ingress-rules-ip-prefix-set) block (within [`ingress_rules
 
 A [`ref`](#ingress-rules-ip-prefix-set-ref) block (within [`ingress_rules.ip_prefix_set`](#ingress-rules-ip-prefix-set)) supports the following:
 
-<a id="ingress-rules-ip-prefix-set-ref-kind"></a>&#x2022; [`kind`](#ingress-rules-ip-prefix-set-ref-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="ingress-rules-ip-prefix-set-ref-name"></a>&#x2022; [`name`](#ingress-rules-ip-prefix-set-ref-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="namespace-3e666e"></a>&#x2022; [`namespace`](#namespace-3e666e) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="ingress-rules-ip-prefix-set-ref-kind"></a>&#x2022; [`kind`](#ingress-rules-ip-prefix-set-ref-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="ingress-rules-ip-prefix-set-ref-tenant"></a>&#x2022; [`tenant`](#ingress-rules-ip-prefix-set-ref-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 

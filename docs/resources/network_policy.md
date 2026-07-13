@@ -166,11 +166,11 @@ An [`ip_prefix_set`](#rules-egress-rules-ip-prefix-set) block (within [`rules.eg
 
 A [`ref`](#rules-egress-rules-ip-prefix-set-ref) block (within [`rules.egress_rules.ip_prefix_set`](#rules-egress-rules-ip-prefix-set)) supports the following:
 
-<a id="kind-6153e0"></a>&#x2022; [`kind`](#kind-6153e0) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="name-3c4742"></a>&#x2022; [`name`](#name-3c4742) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="namespace-f39f97"></a>&#x2022; [`namespace`](#namespace-f39f97) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-6153e0"></a>&#x2022; [`kind`](#kind-6153e0) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="tenant-5557c0"></a>&#x2022; [`tenant`](#tenant-5557c0) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
@@ -269,11 +269,11 @@ An [`ip_prefix_set`](#rules-ingress-rules-ip-prefix-set) block (within [`rules.i
 
 A [`ref`](#rules-ingress-rules-ip-prefix-set-ref) block (within [`rules.ingress_rules.ip_prefix_set`](#rules-ingress-rules-ip-prefix-set)) supports the following:
 
-<a id="kind-3a83c1"></a>&#x2022; [`kind`](#kind-3a83c1) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="name-c9035f"></a>&#x2022; [`name`](#name-c9035f) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="namespace-0b6e5e"></a>&#x2022; [`namespace`](#namespace-0b6e5e) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-3a83c1"></a>&#x2022; [`kind`](#kind-3a83c1) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="tenant-b81c73"></a>&#x2022; [`tenant`](#tenant-b81c73) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 

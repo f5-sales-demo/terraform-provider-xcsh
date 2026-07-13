@@ -366,11 +366,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -486,11 +482,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -942,9 +934,6 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 				return nil
 			}(),
 			HealthCheck: func() *DNSLBPoolAPoolHealthCheckModel {
-				if !isImport && data.APool != nil && data.APool.HealthCheck != nil {
-					return data.APool.HealthCheck
-				}
 				if HealthCheckData, ok := blockData["health_check"].(map[string]interface{}); ok {
 					return &DNSLBPoolAPoolHealthCheckModel{
 						Name: func() types.String {
@@ -1097,9 +1086,6 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 				return nil
 			}(),
 			HealthCheck: func() *DNSLBPoolCnamePoolHealthCheckModel {
-				if !isImport && data.CnamePool != nil && data.CnamePool.HealthCheck != nil {
-					return data.CnamePool.HealthCheck
-				}
 				if HealthCheckData, ok := blockData["health_check"].(map[string]interface{}); ok {
 					return &DNSLBPoolCnamePoolHealthCheckModel{
 						Name: func() types.String {
@@ -1408,9 +1394,6 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 				return nil
 			}(),
 			HealthCheck: func() *DNSLBPoolAPoolHealthCheckModel {
-				if !isImport && data.APool != nil && data.APool.HealthCheck != nil {
-					return data.APool.HealthCheck
-				}
 				if HealthCheckData, ok := blockData["health_check"].(map[string]interface{}); ok {
 					return &DNSLBPoolAPoolHealthCheckModel{
 						Name: func() types.String {
@@ -1563,9 +1546,6 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 				return nil
 			}(),
 			HealthCheck: func() *DNSLBPoolCnamePoolHealthCheckModel {
-				if !isImport && data.CnamePool != nil && data.CnamePool.HealthCheck != nil {
-					return data.CnamePool.HealthCheck
-				}
 				if HealthCheckData, ok := blockData["health_check"].(map[string]interface{}); ok {
 					return &DNSLBPoolCnamePoolHealthCheckModel{
 						Name: func() types.String {
@@ -2059,9 +2039,6 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 				return nil
 			}(),
 			HealthCheck: func() *DNSLBPoolAPoolHealthCheckModel {
-				if !isImport && data.APool != nil && data.APool.HealthCheck != nil {
-					return data.APool.HealthCheck
-				}
 				if HealthCheckData, ok := blockData["health_check"].(map[string]interface{}); ok {
 					return &DNSLBPoolAPoolHealthCheckModel{
 						Name: func() types.String {
@@ -2214,9 +2191,6 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 				return nil
 			}(),
 			HealthCheck: func() *DNSLBPoolCnamePoolHealthCheckModel {
-				if !isImport && data.CnamePool != nil && data.CnamePool.HealthCheck != nil {
-					return data.CnamePool.HealthCheck
-				}
 				if HealthCheckData, ok := blockData["health_check"].(map[string]interface{}); ok {
 					return &DNSLBPoolCnamePoolHealthCheckModel{
 						Name: func() types.String {

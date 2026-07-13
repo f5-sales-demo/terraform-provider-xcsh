@@ -296,11 +296,7 @@ func (r *SiteMeshGroupResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -315,11 +311,7 @@ func (r *SiteMeshGroupResource) Schema(ctx context.Context, req resource.SchemaR
 					Attributes: map[string]schema.Attribute{
 						"kind": schema.StringAttribute{
 							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-							Optional:            true,
 							Computed:            true,
-							PlanModifiers: []planmodifier.String{
-								stringplanmodifier.UseStateForUnknown(),
-							},
 						},
 						"name": schema.StringAttribute{
 							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -343,19 +335,11 @@ func (r *SiteMeshGroupResource) Schema(ctx context.Context, req resource.SchemaR
 						},
 						"tenant": schema.StringAttribute{
 							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-							Optional:            true,
 							Computed:            true,
-							PlanModifiers: []planmodifier.String{
-								stringplanmodifier.UseStateForUnknown(),
-							},
 						},
 						"uid": schema.StringAttribute{
 							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-							Optional:            true,
 							Computed:            true,
-							PlanModifiers: []planmodifier.String{
-								stringplanmodifier.UseStateForUnknown(),
-							},
 						},
 					},
 				},
@@ -677,9 +661,6 @@ func (r *SiteMeshGroupResource) Create(ctx context.Context, req resource.CreateR
 				return nil
 			}(),
 			HubMeshGroup: func() *SiteMeshGroupSpokeMeshHubMeshGroupModel {
-				if !isImport && data.SpokeMesh != nil && data.SpokeMesh.HubMeshGroup != nil {
-					return data.SpokeMesh.HubMeshGroup
-				}
 				if HubMeshGroupData, ok := blockData["hub_mesh_group"].(map[string]interface{}); ok {
 					return &SiteMeshGroupSpokeMeshHubMeshGroupModel{
 						Name: func() types.String {
@@ -957,9 +938,6 @@ func (r *SiteMeshGroupResource) Read(ctx context.Context, req resource.ReadReque
 				return nil
 			}(),
 			HubMeshGroup: func() *SiteMeshGroupSpokeMeshHubMeshGroupModel {
-				if !isImport && data.SpokeMesh != nil && data.SpokeMesh.HubMeshGroup != nil {
-					return data.SpokeMesh.HubMeshGroup
-				}
 				if HubMeshGroupData, ok := blockData["hub_mesh_group"].(map[string]interface{}); ok {
 					return &SiteMeshGroupSpokeMeshHubMeshGroupModel{
 						Name: func() types.String {
@@ -1320,9 +1298,6 @@ func (r *SiteMeshGroupResource) Update(ctx context.Context, req resource.UpdateR
 				return nil
 			}(),
 			HubMeshGroup: func() *SiteMeshGroupSpokeMeshHubMeshGroupModel {
-				if !isImport && data.SpokeMesh != nil && data.SpokeMesh.HubMeshGroup != nil {
-					return data.SpokeMesh.HubMeshGroup
-				}
 				if HubMeshGroupData, ok := blockData["hub_mesh_group"].(map[string]interface{}); ok {
 					return &SiteMeshGroupSpokeMeshHubMeshGroupModel{
 						Name: func() types.String {

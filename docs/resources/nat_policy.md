@@ -122,11 +122,11 @@ An [`elastic_ips`](#rules-action-dynamic-elastic-ips) block (within [`rules.acti
 
 A [`refs`](#rules-action-dynamic-elastic-ips-refs) block (within [`rules.action.dynamic.elastic_ips`](#rules-action-dynamic-elastic-ips)) supports the following:
 
-<a id="kind-df4674"></a>&#x2022; [`kind`](#kind-df4674) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="name-fdfa81"></a>&#x2022; [`name`](#name-fdfa81) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="namespace-fa1e70"></a>&#x2022; [`namespace`](#namespace-fa1e70) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-df4674"></a>&#x2022; [`kind`](#kind-df4674) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="tenant-aec1f4"></a>&#x2022; [`tenant`](#tenant-aec1f4) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
@@ -148,11 +148,11 @@ A [`cloud_connect`](#rules-cloud-connect) block (within [`rules`](#rules)) suppo
 
 A [`refs`](#rules-cloud-connect-refs) block (within [`rules.cloud_connect`](#rules-cloud-connect)) supports the following:
 
-<a id="rules-cloud-connect-refs-kind"></a>&#x2022; [`kind`](#rules-cloud-connect-refs-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="rules-cloud-connect-refs-name"></a>&#x2022; [`name`](#rules-cloud-connect-refs-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="rules-cloud-connect-refs-namespace"></a>&#x2022; [`namespace`](#rules-cloud-connect-refs-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="rules-cloud-connect-refs-kind"></a>&#x2022; [`kind`](#rules-cloud-connect-refs-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="rules-cloud-connect-refs-tenant"></a>&#x2022; [`tenant`](#rules-cloud-connect-refs-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
@@ -208,11 +208,11 @@ A [`segment`](#rules-criteria-segment) block (within [`rules.criteria`](#rules-c
 
 A [`refs`](#rules-criteria-segment-refs) block (within [`rules.criteria.segment`](#rules-criteria-segment)) supports the following:
 
-<a id="rules-criteria-segment-refs-kind"></a>&#x2022; [`kind`](#rules-criteria-segment-refs-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="rules-criteria-segment-refs-name"></a>&#x2022; [`name`](#rules-criteria-segment-refs-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="rules-criteria-segment-refs-namespace"></a>&#x2022; [`namespace`](#rules-criteria-segment-refs-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="rules-criteria-segment-refs-kind"></a>&#x2022; [`kind`](#rules-criteria-segment-refs-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="rules-criteria-segment-refs-tenant"></a>&#x2022; [`tenant`](#rules-criteria-segment-refs-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
@@ -294,11 +294,11 @@ A [`virtual_network`](#rules-criteria-virtual-network) block (within [`rules.cri
 
 A [`refs`](#rules-criteria-virtual-network-refs) block (within [`rules.criteria.virtual_network`](#rules-criteria-virtual-network)) supports the following:
 
-<a id="kind-8d8876"></a>&#x2022; [`kind`](#kind-8d8876) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="name-369d2b"></a>&#x2022; [`name`](#name-369d2b) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="namespace-a79f74"></a>&#x2022; [`namespace`](#namespace-a79f74) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-8d8876"></a>&#x2022; [`kind`](#kind-8d8876) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="tenant-79ff48"></a>&#x2022; [`tenant`](#tenant-79ff48) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
@@ -314,11 +314,11 @@ A [`network_interface`](#rules-network-interface) block (within [`rules`](#rules
 
 A [`refs`](#rules-network-interface-refs) block (within [`rules.network_interface`](#rules-network-interface)) supports the following:
 
-<a id="rules-network-interface-refs-kind"></a>&#x2022; [`kind`](#rules-network-interface-refs-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="rules-network-interface-refs-name"></a>&#x2022; [`name`](#rules-network-interface-refs-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="rules-network-interface-refs-namespace"></a>&#x2022; [`namespace`](#rules-network-interface-refs-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="rules-network-interface-refs-kind"></a>&#x2022; [`kind`](#rules-network-interface-refs-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="rules-network-interface-refs-tenant"></a>&#x2022; [`tenant`](#rules-network-interface-refs-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
@@ -342,11 +342,11 @@ A [`list`](#rules-node-interface-list) block (within [`rules.node_interface`](#r
 
 An [`interface`](#rules-node-interface-list-interface) block (within [`rules.node_interface.list`](#rules-node-interface-list)) supports the following:
 
-<a id="kind-57036a"></a>&#x2022; [`kind`](#kind-57036a) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="name-03ff8e"></a>&#x2022; [`name`](#name-03ff8e) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="namespace-ef711e"></a>&#x2022; [`namespace`](#namespace-ef711e) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-57036a"></a>&#x2022; [`kind`](#kind-57036a) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="tenant-00633b"></a>&#x2022; [`tenant`](#tenant-00633b) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
@@ -362,11 +362,11 @@ A [`segment`](#rules-segment) block (within [`rules`](#rules)) supports the foll
 
 A [`refs`](#rules-segment-refs) block (within [`rules.segment`](#rules-segment)) supports the following:
 
-<a id="rules-segment-refs-kind"></a>&#x2022; [`kind`](#rules-segment-refs-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="rules-segment-refs-name"></a>&#x2022; [`name`](#rules-segment-refs-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="rules-segment-refs-namespace"></a>&#x2022; [`namespace`](#rules-segment-refs-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="rules-segment-refs-kind"></a>&#x2022; [`kind`](#rules-segment-refs-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="rules-segment-refs-tenant"></a>&#x2022; [`tenant`](#rules-segment-refs-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
@@ -382,11 +382,11 @@ A [`virtual_network`](#rules-virtual-network) block (within [`rules`](#rules)) s
 
 A [`refs`](#rules-virtual-network-refs) block (within [`rules.virtual_network`](#rules-virtual-network)) supports the following:
 
-<a id="rules-virtual-network-refs-kind"></a>&#x2022; [`kind`](#rules-virtual-network-refs-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="rules-virtual-network-refs-name"></a>&#x2022; [`name`](#rules-virtual-network-refs-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="rules-virtual-network-refs-namespace"></a>&#x2022; [`namespace`](#rules-virtual-network-refs-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="rules-virtual-network-refs-kind"></a>&#x2022; [`kind`](#rules-virtual-network-refs-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="rules-virtual-network-refs-tenant"></a>&#x2022; [`tenant`](#rules-virtual-network-refs-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
@@ -402,11 +402,11 @@ A [`site`](#site) block supports the following:
 
 A [`refs`](#site-refs) block (within [`site`](#site)) supports the following:
 
-<a id="site-refs-kind"></a>&#x2022; [`kind`](#site-refs-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="site-refs-name"></a>&#x2022; [`name`](#site-refs-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="site-refs-namespace"></a>&#x2022; [`namespace`](#site-refs-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="site-refs-kind"></a>&#x2022; [`kind`](#site-refs-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="site-refs-tenant"></a>&#x2022; [`tenant`](#site-refs-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 

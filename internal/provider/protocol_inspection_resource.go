@@ -201,11 +201,7 @@ func (r *ProtocolInspectionResource) Schema(ctx context.Context, req resource.Sc
 							},
 							"tenant": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Optional:            true,
 								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
@@ -390,9 +386,6 @@ func (r *ProtocolInspectionResource) Create(ctx context.Context, req resource.Cr
 				return nil
 			}(),
 			EnableComplianceChecks: func() *ProtocolInspectionEnableDisableComplianceChecksEnableComplianceChecksModel {
-				if !isImport && data.EnableDisableComplianceChecks != nil && data.EnableDisableComplianceChecks.EnableComplianceChecks != nil {
-					return data.EnableDisableComplianceChecks.EnableComplianceChecks
-				}
 				if EnableComplianceChecksData, ok := blockData["enable_compliance_checks"].(map[string]interface{}); ok {
 					return &ProtocolInspectionEnableDisableComplianceChecksEnableComplianceChecksModel{
 						Name: func() types.String {
@@ -551,9 +544,6 @@ func (r *ProtocolInspectionResource) Read(ctx context.Context, req resource.Read
 				return nil
 			}(),
 			EnableComplianceChecks: func() *ProtocolInspectionEnableDisableComplianceChecksEnableComplianceChecksModel {
-				if !isImport && data.EnableDisableComplianceChecks != nil && data.EnableDisableComplianceChecks.EnableComplianceChecks != nil {
-					return data.EnableDisableComplianceChecks.EnableComplianceChecks
-				}
 				if EnableComplianceChecksData, ok := blockData["enable_compliance_checks"].(map[string]interface{}); ok {
 					return &ProtocolInspectionEnableDisableComplianceChecksEnableComplianceChecksModel{
 						Name: func() types.String {
@@ -742,9 +732,6 @@ func (r *ProtocolInspectionResource) Update(ctx context.Context, req resource.Up
 				return nil
 			}(),
 			EnableComplianceChecks: func() *ProtocolInspectionEnableDisableComplianceChecksEnableComplianceChecksModel {
-				if !isImport && data.EnableDisableComplianceChecks != nil && data.EnableDisableComplianceChecks.EnableComplianceChecks != nil {
-					return data.EnableDisableComplianceChecks.EnableComplianceChecks
-				}
 				if EnableComplianceChecksData, ok := blockData["enable_compliance_checks"].(map[string]interface{}); ok {
 					return &ProtocolInspectionEnableDisableComplianceChecksEnableComplianceChecksModel{
 						Name: func() types.String {

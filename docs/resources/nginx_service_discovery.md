@@ -101,11 +101,11 @@ A [`nginx_instance`](#discovery-target-nginx-instance) block (within [`discovery
 
 A [`nginx_instance`](#instance-164b57) block (within [`discovery_target.nginx_instance`](#discovery-target-nginx-instance)) supports the following:
 
-<a id="kind-c34cb7"></a>&#x2022; [`kind`](#kind-c34cb7) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="name-e24512"></a>&#x2022; [`name`](#name-e24512) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="namespace-b0329a"></a>&#x2022; [`namespace`](#namespace-b0329a) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-c34cb7"></a>&#x2022; [`kind`](#kind-c34cb7) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="tenant-a0725b"></a>&#x2022; [`tenant`](#tenant-a0725b) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 

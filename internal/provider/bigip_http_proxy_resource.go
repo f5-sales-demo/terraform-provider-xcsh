@@ -1373,11 +1373,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 								},
 								"tenant": schema.StringAttribute{
 									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-									Optional:            true,
 									Computed:            true,
-									PlanModifiers: []planmodifier.String{
-										stringplanmodifier.UseStateForUnknown(),
-									},
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(64),
 									},
@@ -1544,11 +1540,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 																			},
 																			"tenant": schema.StringAttribute{
 																				MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																				Optional:            true,
 																				Computed:            true,
-																				PlanModifiers: []planmodifier.String{
-																					stringplanmodifier.UseStateForUnknown(),
-																				},
 																				Validators: []validator.String{
 																					stringvalidator.LengthAtMost(64),
 																				},
@@ -1578,11 +1570,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 																			},
 																			"tenant": schema.StringAttribute{
 																				MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																				Optional:            true,
 																				Computed:            true,
-																				PlanModifiers: []planmodifier.String{
-																					stringplanmodifier.UseStateForUnknown(),
-																				},
 																				Validators: []validator.String{
 																					stringvalidator.LengthAtMost(64),
 																				},
@@ -1659,11 +1647,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 																	},
 																	"tenant": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																		Optional:            true,
 																		Computed:            true,
-																		PlanModifiers: []planmodifier.String{
-																			stringplanmodifier.UseStateForUnknown(),
-																		},
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(64),
 																		},
@@ -1697,11 +1681,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 																			},
 																			"tenant": schema.StringAttribute{
 																				MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																				Optional:            true,
 																				Computed:            true,
-																				PlanModifiers: []planmodifier.String{
-																					stringplanmodifier.UseStateForUnknown(),
-																				},
 																				Validators: []validator.String{
 																					stringvalidator.LengthAtMost(64),
 																				},
@@ -1731,11 +1711,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 																			},
 																			"tenant": schema.StringAttribute{
 																				MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																				Optional:            true,
 																				Computed:            true,
-																				PlanModifiers: []planmodifier.String{
-																					stringplanmodifier.UseStateForUnknown(),
-																				},
 																				Validators: []validator.String{
 																					stringvalidator.LengthAtMost(64),
 																				},
@@ -1858,11 +1834,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 														},
 														"tenant": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-															Optional:            true,
 															Computed:            true,
-															PlanModifiers: []planmodifier.String{
-																stringplanmodifier.UseStateForUnknown(),
-															},
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(64),
 															},
@@ -1913,11 +1885,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 														},
 														"tenant": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-															Optional:            true,
 															Computed:            true,
-															PlanModifiers: []planmodifier.String{
-																stringplanmodifier.UseStateForUnknown(),
-															},
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(64),
 															},
@@ -1977,11 +1945,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 														},
 														"tenant": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-															Optional:            true,
 															Computed:            true,
-															PlanModifiers: []planmodifier.String{
-																stringplanmodifier.UseStateForUnknown(),
-															},
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(64),
 															},
@@ -2025,11 +1989,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 														},
 														"tenant": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-															Optional:            true,
 															Computed:            true,
-															PlanModifiers: []planmodifier.String{
-																stringplanmodifier.UseStateForUnknown(),
-															},
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(64),
 															},
@@ -2080,11 +2040,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 														},
 														"tenant": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-															Optional:            true,
 															Computed:            true,
-															PlanModifiers: []planmodifier.String{
-																stringplanmodifier.UseStateForUnknown(),
-															},
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(64),
 															},
@@ -2120,11 +2076,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 														},
 														"tenant": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-															Optional:            true,
 															Computed:            true,
-															PlanModifiers: []planmodifier.String{
-																stringplanmodifier.UseStateForUnknown(),
-															},
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(64),
 															},
@@ -2154,11 +2106,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 														},
 														"tenant": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-															Optional:            true,
 															Computed:            true,
-															PlanModifiers: []planmodifier.String{
-																stringplanmodifier.UseStateForUnknown(),
-															},
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(64),
 															},
@@ -2346,11 +2294,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 												},
 												"tenant": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-													Optional:            true,
 													Computed:            true,
-													PlanModifiers: []planmodifier.String{
-														stringplanmodifier.UseStateForUnknown(),
-													},
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(64),
 													},
@@ -2439,11 +2383,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 													},
 													"tenant": schema.StringAttribute{
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-														Optional:            true,
 														Computed:            true,
-														PlanModifiers: []planmodifier.String{
-															stringplanmodifier.UseStateForUnknown(),
-														},
 														Validators: []validator.String{
 															stringvalidator.LengthAtMost(64),
 														},
@@ -2476,11 +2416,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 													},
 													"tenant": schema.StringAttribute{
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-														Optional:            true,
 														Computed:            true,
-														PlanModifiers: []planmodifier.String{
-															stringplanmodifier.UseStateForUnknown(),
-														},
 														Validators: []validator.String{
 															stringvalidator.LengthAtMost(64),
 														},
@@ -2670,11 +2606,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 													},
 													"tenant": schema.StringAttribute{
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-														Optional:            true,
 														Computed:            true,
-														PlanModifiers: []planmodifier.String{
-															stringplanmodifier.UseStateForUnknown(),
-														},
 														Validators: []validator.String{
 															stringvalidator.LengthAtMost(64),
 														},
@@ -2707,11 +2639,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 													},
 													"tenant": schema.StringAttribute{
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-														Optional:            true,
 														Computed:            true,
-														PlanModifiers: []planmodifier.String{
-															stringplanmodifier.UseStateForUnknown(),
-														},
 														Validators: []validator.String{
 															stringvalidator.LengthAtMost(64),
 														},
@@ -2926,11 +2854,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 											},
 											"tenant": schema.StringAttribute{
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-												Optional:            true,
 												Computed:            true,
-												PlanModifiers: []planmodifier.String{
-													stringplanmodifier.UseStateForUnknown(),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthAtMost(64),
 												},
@@ -2963,11 +2887,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 											},
 											"tenant": schema.StringAttribute{
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-												Optional:            true,
 												Computed:            true,
-												PlanModifiers: []planmodifier.String{
-													stringplanmodifier.UseStateForUnknown(),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthAtMost(64),
 												},

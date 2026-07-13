@@ -1311,6 +1311,9 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 				return nil
 			}(),
 			ViolationsView: func() []AppFirewallDetectionSettingsViolationsViewModel {
+				if isImport {
+					return nil
+				}
 				if !isImport && data.DetectionSettings != nil && len(data.DetectionSettings.ViolationsView) == 0 {
 					return nil
 				}
@@ -1804,6 +1807,9 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 				return nil
 			}(),
 			ViolationsView: func() []AppFirewallDetectionSettingsViolationsViewModel {
+				if isImport {
+					return nil
+				}
 				if !isImport && data.DetectionSettings != nil && len(data.DetectionSettings.ViolationsView) == 0 {
 					return nil
 				}
@@ -2504,6 +2510,9 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 				return nil
 			}(),
 			ViolationsView: func() []AppFirewallDetectionSettingsViolationsViewModel {
+				if isImport {
+					return nil
+				}
 				if !isImport && data.DetectionSettings != nil && len(data.DetectionSettings.ViolationsView) == 0 {
 					return nil
 				}

@@ -103,11 +103,11 @@ A [`custom`](#notification-parameters-custom) block (within [`notification_param
 
 A [`receivers`](#receivers) block supports the following:
 
-<a id="receivers-kind"></a>&#x2022; [`kind`](#receivers-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
 <a id="receivers-name"></a>&#x2022; [`name`](#receivers-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
 <a id="receivers-namespace"></a>&#x2022; [`namespace`](#receivers-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="receivers-kind"></a>&#x2022; [`kind`](#receivers-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
 <a id="receivers-tenant"></a>&#x2022; [`tenant`](#receivers-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
