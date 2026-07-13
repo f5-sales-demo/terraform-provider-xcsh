@@ -10,7 +10,8 @@
     "default_anonymization",
     "default_bot_setting",
     "disable_ai_enhancements",
-    "use_default_blocking_page"
+    "use_default_blocking_page",
+    "violations_view"
   ],
   "HTTPLoadBalancer": [
     "add_location",

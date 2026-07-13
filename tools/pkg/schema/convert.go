@@ -227,12 +227,12 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 	}
 
 	attr := openapi.TerraformAttribute{
-		Name:        name,
-		GoName:      goName,
-		TfsdkTag:    tfsdkName,
-		Required:    required,
-		Optional:    !required,
-		OneOfGroup:  oneOfGroup,
+		Name:          name,
+		GoName:        goName,
+		TfsdkTag:      tfsdkName,
+		Required:      required,
+		Optional:      !required,
+		OneOfGroup:    oneOfGroup,
 		MaxDepth:      depth,
 		IsSpecField:   true, // Attributes from OpenAPI spec are spec fields
 		JsonName:      name, // Original OpenAPI property name for JSON marshaling
@@ -516,10 +516,20 @@ func ExtractNestedAttributes(schema openapi.Schema, spec *openapi.Spec, depth in
 		// Object Reference types have pattern: kind, name, namespace, tenant, uid
 		// Using UseStateForUnknown plan modifier prevents perpetual drift.
 		propNameLower := strings.ToLower(propName)
-		if (propNameLower == "namespace" || propNameLower == "tenant" || propNameLower == "uid" || propNameLower == "kind") && !attr.Required {
-			attr.Computed = true
-			attr.Optional = true
-			attr.PlanModifier = "UseStateForUnknown"
+		if !attr.Required {
+			switch propNameLower {
+			case "tenant", "uid", "kind":
+				// Server-derived, never user-set. Computed-only so a newly-added
+				// reference block plans them unknown (server fills), avoiding
+				// "inconsistent result after apply" (was null, now <value>). #1079.
+				attr.Computed = true
+				attr.Optional = false
+				attr.PlanModifier = ""
+			case "namespace":
+				attr.Computed = true
+				attr.Optional = true
+				attr.PlanModifier = "UseStateForUnknown"
+			}
 		}
 
 		attrs = append(attrs, attr)
